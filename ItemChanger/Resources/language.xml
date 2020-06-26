@@ -1,0 +1,175 @@
+<Language>
+    <entry sheet="UI" key="RANDOMIZER_EMPTY"></entry>
+    <entry sheet="Prompts" key="RANDOMIZER_EMPTY"></entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_1">Just think of all the time you could save collecting geo with this.\n\nTime is money, right? Definitely worth it.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_2">If you can't keep your bearings without this you should probably just stop playing randomizer.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_3">What's better than being rewarded for getting hit? Amazing charm if you suck.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_4">Now all you need is quick slash, longnail, and mark of pride. Reddit's favorite charm build!\n\nReddit is never wrong, after all.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_5">It's like dreamshield, but cheaper and better at blocking damage.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_6">Sure, you COULD stay at 1 health with this, but a real gamer would stay at 2.\n\nDon't forget to pogo everything, too.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_7">Mickely's favorite charm.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_8">With this on, you'll be able to tank a whole two more hits. Amazing.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_9">Homothety's favorite charm.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_10">Haha poo.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_11">RIP Flukenest 2017-2018.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_12">It's a good thing thorn warps got patched so fast. Wouldn't want any cheaters in my randomizer.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_13">Three notches to slightly extend the range of my weakest attack? Sign me up!</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_14">You ever feel like you don't walk into enemies during combat enough? Well I have just the charm for you!</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_15">If you've got Kerr's charm modifications on, buying this could be a real blast.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_16">Such an amazing charm it has its own mod dedicated to it. What fool wouldn't buy this?</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_17">Man it'd be a real bummer if you had to buy this garbage to leave Crossroads.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_18">This is technically enough to kill baldurs, but you're not that crazy.\n\nAt least I hope you aren't.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_19">You obviously want to buy this. But is it worth the cost?\n\n(Spoilers: yes.)</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_20">You'd have to be really hurting for damage to buy this, of all things.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_21">Who would ever use this charm? The effect is amazing, but come on. Four notches?</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_22">Back in my day we had to jump through tunnels of spikes to get something like this.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_23">Wow two hearts? That's eight mask shards you don't have to collect.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_24">Gotta spend money to make money. I'm sure it'll pay for itself in no time at all.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_25">Wow this is a steal! Unbreakable normally adds 15k, so really you'd be a fool to not buy at this price.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_26">Who uses nail arts? Probably nobody now that the dash slash skips are gone.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_27">What do you mean I can't heal with this on?</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_28">You want to turn into a snail? Of course not. This is a piece of garbage.\n\nSave your money for something else.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_29">Basically required to get through the hive alive. Better hope nothing is in there.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_30">Most people who play probably don't even know the dream nail gives you soul.\n\nMaybe that's why this is only one notch?</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_31">Not worth the money unless you're using glitches. You're not a cheater, are you?</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_32">Time to tank and spam nail. Strategy of champions.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_33">You know how this is normally surrounded by mistakes? Reminds me of anime.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_34">You ever wonder what it would be like if healing took so long you just get hit?</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_35">Play lightbringer.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_36_L">That's right, I'm not even going to give you the full charm. That's how little I value your business.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_36_R">You want half of a charm? Well today is your lucky day!</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_36_Void">A 5-notch charm which opens a hole in the ground, and would break shade skip logic everywhere if not for the efforts of a heroic modder somewhere.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_37">Go faster! But only when on the ground. And also only when walking. Oh and also it's a very minor speed boost.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_38">This should really be a one notch charm. Hell, even at one, I wouldn't use this.</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_39">This is a good charm after the buffs in Lifeblood, right?</entry>
+    <entry sheet="UI" key="RANDOMIZER_CHARM_DESC_40">Most people would pay money to get rid of this trash, yet here you are contemplating spending money on it.</entry>
+    <entry sheet="UI" key="RANDOMIZER_INV_NAME_GODFINDER">Godtuner</entry>
+    <entry sheet="UI" key="RANDOMIZER_INV_DESC_GODFINDER">Ignore the name; this is actually Mantis Claw. Or maybe Dream Nail. Oh, by the way, no refunds.</entry>
+    <entry sheet="UI" key="RANDOMIZER_COLLECTOR_MAP">Collector's Map</entry>
+    <entry sheet="UI" key="RANDOMIZER_GET_COLLECTOR_MAP">Don't think about this as a map. Think about it as a statement about who you are as a person.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_LURIEN">Lurien</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_LURIEN">This should be at least 10 times more expensive than it is.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_MONOMON">Monomon</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_MONOMON">This should be at least 10 times more expensive than it is.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_HERRAH">Herrah</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_HERRAH">This should be at least 10 times more expensive than it is.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_DREAMER">Dreamer</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_DREAMER">This should be at least 10 times more expensive than it is.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_WORLD_SENSE">World Sense</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_WORLD_SENSE">Vessel. Though bound, you shall know the state of the world. Hallownest will be whole again.</entry>
+    <entry sheet="UI" key="RANDOMIZER_GET_WORLD_SENSE_1">Vessel. Though bound, you shall know the state of the world.</entry>
+    <entry sheet="UI" key="RANDOMIZER_GET_WORLD_SENSE_2">Hallownest will be whole again.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_MASK_SHARD">Mask Shard</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_MASK_SHARD">It's on the cheap now. Some assembly required.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_VESSEL_FRAGMENT">Vessel Fragment</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_VESSEL_FRAGMENT">It's on the cheap now. Some assembly required.</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_PALE_ORE">Pale Ore</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_PALE_ORE">GIVE THIS TO THE NAILSMITH</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_CHARM_NOTCH">Charm Notch</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_CHARM_NOTCH">DON'T DROP IT</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_ARCANE_EGG">Arcane Egg</entry>
+    <entry sheet="UI" key="RANDOMIZER_NAME_ESSENCE">Essence</entry>
+    <entry sheet="UI" key="RANDOMIZER_DESC_ESSENCE">Fresh organic DREAM PLANT ORBS sourced from local independent DREAM PLANT farms. Please support your hardworking neighborhood DREAM MOTHS.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_1GEO">1 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_80GEO">80 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_85GEO">85 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_150GEO">150 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_160GEO">160 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_200GEO">200 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_380GEO">380 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_620GEO">620 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_655GEO">655 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_GEO">We're having a fire sale today. Go ahead and pick up your rebate already.</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_DIRTMOUTH">Dirtmouth Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_CROSSROADS">Crossroads Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_GREENPATH">Greenpath Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_QUEENSSTATION">Queen's Station Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_QUEENSGARDENS">Queen's Gardens Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_STOREROOMS">City Storerooms Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_KINGSSTATION">King's Station Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_RESTINGGROUNDS">Resting Grounds Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_DEEPNEST">Distant Village Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_HIDDENSTATION">Hidden Station Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_NAME_STAGNEST">Stag Nest Stag</entry>
+  <entry sheet="UI" key="RANDOMIZER_STAG_DESC">IDK, seems pretty useful if you ask me.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_GRUB">A grub</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_GRUB">A bottled grub. Perfect for making juice, sauce, or any tasty meal really. We only have green ones in stock though.</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_DIRTMOUTH">Dirtmouth Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_CROSSROADS">Crossroads Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_GREENPATH">Greenpath Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_FOG_CANYON">Fog Canyon Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_FUNGAL_WASTES">Fungal Wastes Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_DEEPNEST">Deepnest Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_ABYSS">Ancient Basin Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_OUTSKIRTS">Kingdom's Edge Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_CITY">City of Tears Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_WATERWAYS">Royal Waterways Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_CLIFFS">Howling Cliffs Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_MINES">Crystal Peak Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_ROYAL_GARDENS">Queen's Gardens Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_MAP_NAME_RESTING_GROUNDS">Resting Grounds Map</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_FOCUS">Focus</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_FOCUS">Hahahahahahahahahahahaha. No.</entry>
+  <!--
+  <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
+  <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>
+  <entry sheet="UI" key="CHARM_NAME_3">Grubsong</entry>
+  <entry sheet="UI" key="CHARM_NAME_4">Stalwart Shell</entry>
+  <entry sheet="UI" key="CHARM_NAME_5">Baldur Shell</entry>
+  <entry sheet="UI" key="CHARM_NAME_6">Fury of the Fallen</entry>
+  <entry sheet="UI" key="CHARM_NAME_7">Quick Focus</entry>
+  <entry sheet="UI" key="CHARM_NAME_8">Lifeblood Heart</entry>
+  <entry sheet="UI" key="CHARM_NAME_9">Lifeblood Core</entry>
+  <entry sheet="UI" key="CHARM_NAME_10">Defender's Crest</entry>
+  <entry sheet="UI" key="CHARM_NAME_11">Flukenest</entry>
+  <entry sheet="UI" key="CHARM_NAME_12">Thorns of Agony</entry>
+  <entry sheet="UI" key="CHARM_NAME_13">Mark of Pride</entry>
+  <entry sheet="UI" key="CHARM_NAME_14">Steady Body</entry>
+  <entry sheet="UI" key="CHARM_NAME_15">Heavy Blow</entry>
+  <entry sheet="UI" key="CHARM_NAME_16">Sharp Shadow</entry>
+  <entry sheet="UI" key="CHARM_NAME_17">Spore Shroom</entry>
+  <entry sheet="UI" key="CHARM_NAME_18">Longnail</entry>
+  <entry sheet="UI" key="CHARM_NAME_19">Shaman Stone</entry>
+  <entry sheet="UI" key="CHARM_NAME_20">Soul Catcher</entry>
+  <entry sheet="UI" key="CHARM_NAME_21">Soul Eater</entry>
+  <entry sheet="UI" key="CHARM_NAME_22">Glowing Womb</entry>
+  <entry sheet="UI" key="CHARM_NAME_23_G">Unbreakable Heart</entry>
+  <entry sheet="UI" key="CHARM_NAME_24_G">Unbreakable Greed</entry>
+  <entry sheet="UI" key="CHARM_NAME_25_G">Unbreakable Strength</entry>
+  <entry sheet="UI" key="CHARM_NAME_26">Nailmaster's Glory</entry>
+  <entry sheet="UI" key="CHARM_NAME_27">Joni's Blessing</entry>
+  <entry sheet="UI" key="CHARM_NAME_28">Shape of Unn</entry>
+  <entry sheet="UI" key="CHARM_NAME_29">Hiveblood</entry>
+  <entry sheet="UI" key="CHARM_NAME_30">Dreamwielder</entry>
+  <entry sheet="UI" key="CHARM_NAME_31">Dashmaster</entry>
+  <entry sheet="UI" key="CHARM_NAME_32">Quick Slash</entry>
+  <entry sheet="UI" key="CHARM_NAME_33">Spell Twister</entry>
+  <entry sheet="UI" key="CHARM_NAME_34">Deep Focus</entry>
+  <entry sheet="UI" key="CHARM_NAME_35">Grubberfly's Elegy</entry>
+  <entry sheet="UI" key="CHARM_NAME_36_A">White Fragment</entry>
+  <entry sheet="UI" key="CHARM_NAME_36_C">Void Heart</entry>
+  <entry sheet="UI" key="CHARM_NAME_37">Sprintmaster</entry>
+  <entry sheet="UI" key="CHARM_NAME_38">Dreamshield</entry>
+  <entry sheet="UI" key="CHARM_NAME_39">Weaversong</entry>
+  <entry sheet="UI" key="CHARM_NAME_40">Grimmchild</entry>
+  -->
+    <entry sheet="Prompts" key="RANDOMIZER_MEME">Lol, you thought this was something good for a sec.</entry>
+    <entry sheet="Prompts" key="RANDOMIZER_BUTTON_DESC">You already know what to press</entry>
+    <entry sheet="Prompts" key="RANDOMIZER_EMPTY"></entry>
+    <entry sheet="Prompts" key="NOT_ENOUGH_GEO">Not enough.</entry>
+    <entry sheet="Elderbug" key="ELDERBUG_FLOWER_REQUEST">F-for me..? Senpai you're so kind.</entry>
+    <entry sheet="Elderbug" key="ELDERBUG_FLOWER_REREQUEST">F-for me..? Senpai you're so kind.</entry>
+    <entry sheet="Elderbug" key="ELDERBUG_FLOWER_ACCEPT">Thank you senpai!</entry>
+    <entry sheet="Elderbug" key="ELDERBUG_FLOWER_DECLINE">O-oh...</entry>
+    <entry sheet="Prompts" key="ELDERBUG_FLOWER">Give Elderbug-chan the flower?</entry>
+    <entry sheet="Hornet" key="HORNET_GREENPATH">I'm not so hard? Are you kidding me?</entry>
+    <entry sheet="MainMenu" key="VIDEO_VSYNC">Input Lag:</entry>
+    <entry sheet="MainMenu" key="DESC_VSYNC">Leave on to make the game unplayable.</entry>
+    <entry sheet="Titles" key="DIRTMOUTH_MAIN">Elderbug</entry>
+    <entry sheet="Titles" key="DIRTMOUTH_SUB">is a cool dude</entry>
+    <entry sheet="Jiji" key="HIVE">Mantis Claw is... somewhere</entry>
+    <entry sheet="Prices" key="TUK_RANCIDEGG_MIN">80</entry>
+    <entry sheet="Prices" key="TUK_RANCIDEGG_MAX">80</entry>
+</Language>

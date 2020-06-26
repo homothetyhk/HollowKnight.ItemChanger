@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4EF2EA1-3DBF-4442-B904-51F72F39758B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ItemChanger</RootNamespace>
+    <AssemblyName>ItemChanger</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PlayMaker">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\PlayMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="SeanprCore">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\SeanprCore.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\AddShinyToChest.cs" />
+    <Compile Include="Actions\AddYNDialogueToShiny.cs" />
+    <Compile Include="Actions\ChangeBoolTest.cs" />
+    <Compile Include="Actions\ChangeChestGeo.cs" />
+    <Compile Include="Actions\ChangeShinyIntoItem.cs" />
+    <Compile Include="Actions\ChangeShinyIntoGeo.cs" />
+    <Compile Include="Actions\ChangeShopContents.cs" />
+    <Compile Include="Actions\AddSendEventToObject.cs" />
+    <Compile Include="Actions\AddFsmActionToObject.cs" />
+    <Compile Include="Actions\EditFsm.cs" />
+    <Compile Include="Actions\RemoveFsmActionsFromObject.cs" />
+    <Compile Include="Actions\CreateObjectDestroyer.cs" />
+    <Compile Include="Actions\CreateNewShiny.cs" />
+    <Compile Include="Actions\RandomizerAction.cs" />
+    <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
+    <Compile Include="AdditiveManager.cs" />
+    <Compile Include="TransitionHooks.cs" />
+    <Compile Include="Custom\Locations.cs" />
+    <Compile Include="StartLocation.cs" />
+    <Compile Include="Components\RandomizerDreamPlantOrb.cs" />
+    <Compile Include="ItemChangerSettings.cs" />
+    <Compile Include="Default\Shops.cs" />
+    <Compile Include="ILP.cs" />
+    <Compile Include="PDHooks.cs" />
+    <Compile Include="Components\BigItemPopup.cs" />
+    <Compile Include="Components\ObjectDestroyer.cs" />
+    <Compile Include="FsmStateActions\RandomizerAddGeo.cs" />
+    <Compile Include="FsmStateActions\RandomizerBoolTest.cs" />
+    <Compile Include="FsmStateActions\RandomizerCallStaticMethod.cs" />
+    <Compile Include="FsmStateActions\RandomizerChangeScene.cs" />
+    <Compile Include="FsmStateActions\RandomizerExecuteLambda.cs" />
+    <Compile Include="FsmStateActions\RandomizerSetBool.cs" />
+    <Compile Include="FsmStateActions\RandomizerSetHardSave.cs" />
+    <Compile Include="GiveItemActions.cs" />
+    <Compile Include="LanguageStringManager.cs" />
+    <Compile Include="SaveSettings.cs" />
+    <Compile Include="Custom\Items.cs" />
+    <Compile Include="Default\LocationNames.cs" />
+    <Compile Include="SpriteManager.cs" />
+    <Compile Include="XmlManager.cs" />
+    <Compile Include="Default\ItemNames.cs" />
+    <Compile Include="Location.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ObjectCache.cs" />
+    <Compile Include="ItemChanger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\items.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\locations.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Anim\BigItemFleur\0.png" />
+    <EmbeddedResource Include="Resources\Anim\BigItemFleur\1.png" />
+    <EmbeddedResource Include="Resources\Anim\BigItemFleur\2.png" />
+    <EmbeddedResource Include="Resources\Anim\BigItemFleur\3.png" />
+    <EmbeddedResource Include="Resources\Anim\BigItemFleur\4.png" />
+    <EmbeddedResource Include="Resources\Anim\BigItemFleur\5.png" />
+    <EmbeddedResource Include="Resources\Anim\BigItemFleur\6.png" />
+    <EmbeddedResource Include="Resources\Anim\BigItemFleur\7.png" />
+    <EmbeddedResource Include="Resources\Anim\BigItemFleur\8.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\0.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\1.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\2.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\3.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\4.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\5.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\6.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\7.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\8.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\0.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\1.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\2.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\3.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\4.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\5.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\6.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\7.png" />
+    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\8.png" />
+    <EmbeddedResource Include="Resources\Charms\1.png" />
+    <EmbeddedResource Include="Resources\Charms\10.png" />
+    <EmbeddedResource Include="Resources\Charms\11.png" />
+    <EmbeddedResource Include="Resources\Charms\12.png" />
+    <EmbeddedResource Include="Resources\Charms\13.png" />
+    <EmbeddedResource Include="Resources\Charms\14.png" />
+    <EmbeddedResource Include="Resources\Charms\15.png" />
+    <EmbeddedResource Include="Resources\Charms\16.png" />
+    <EmbeddedResource Include="Resources\Charms\17.png" />
+    <EmbeddedResource Include="Resources\Charms\18.png" />
+    <EmbeddedResource Include="Resources\Charms\19.png" />
+    <EmbeddedResource Include="Resources\Charms\2.png" />
+    <EmbeddedResource Include="Resources\Charms\20.png" />
+    <EmbeddedResource Include="Resources\Charms\21.png" />
+    <EmbeddedResource Include="Resources\Charms\22.png" />
+    <EmbeddedResource Include="Resources\Charms\23.png" />
+    <EmbeddedResource Include="Resources\Charms\23_G.png" />
+    <EmbeddedResource Include="Resources\Charms\24.png" />
+    <EmbeddedResource Include="Resources\Charms\24_G.png" />
+    <EmbeddedResource Include="Resources\Charms\25.png" />
+    <EmbeddedResource Include="Resources\Charms\25_G.png" />
+    <EmbeddedResource Include="Resources\Charms\26.png" />
+    <EmbeddedResource Include="Resources\Charms\27.png" />
+    <EmbeddedResource Include="Resources\Charms\28.png" />
+    <EmbeddedResource Include="Resources\Charms\29.png" />
+    <EmbeddedResource Include="Resources\Charms\3.png" />
+    <EmbeddedResource Include="Resources\Charms\30.png" />
+    <EmbeddedResource Include="Resources\Charms\31.png" />
+    <EmbeddedResource Include="Resources\Charms\32.png" />
+    <EmbeddedResource Include="Resources\Charms\33.png" />
+    <EmbeddedResource Include="Resources\Charms\34.png" />
+    <EmbeddedResource Include="Resources\Charms\35.png" />
+    <EmbeddedResource Include="Resources\Charms\36.png" />
+    <EmbeddedResource Include="Resources\Charms\36_L.png" />
+    <EmbeddedResource Include="Resources\Charms\36_R.png" />
+    <EmbeddedResource Include="Resources\Charms\36_Void.png" />
+    <EmbeddedResource Include="Resources\Charms\37.png" />
+    <EmbeddedResource Include="Resources\Charms\38.png" />
+    <EmbeddedResource Include="Resources\Charms\39.png" />
+    <EmbeddedResource Include="Resources\Charms\4.png" />
+    <EmbeddedResource Include="Resources\Charms\40.png" />
+    <EmbeddedResource Include="Resources\Charms\5.png" />
+    <EmbeddedResource Include="Resources\Charms\6.png" />
+    <EmbeddedResource Include="Resources\Charms\7.png" />
+    <EmbeddedResource Include="Resources\Charms\8.png" />
+    <EmbeddedResource Include="Resources\Charms\9.png" />
+    <EmbeddedResource Include="Resources\Items\CityKey.png" />
+    <EmbeddedResource Include="Resources\Items\DreamNail1.png" />
+    <EmbeddedResource Include="Resources\Items\DreamNail2.png" />
+    <EmbeddedResource Include="Resources\Items\ElegantKey.png" />
+    <EmbeddedResource Include="Resources\Items\KingsBrand.png" />
+    <EmbeddedResource Include="Resources\Items\Lantern.png" />
+    <EmbeddedResource Include="Resources\Items\LoveKey.png" />
+    <EmbeddedResource Include="Resources\Items\MapQuill.png" />
+    <EmbeddedResource Include="Resources\Items\PaleOre.png" />
+    <EmbeddedResource Include="Resources\Items\RancidEgg.png" />
+    <EmbeddedResource Include="Resources\Items\ShopkeepersKey.png" />
+    <EmbeddedResource Include="Resources\Items\SimpleKey.png" />
+    <EmbeddedResource Include="Resources\Items\TramPass.png" />
+    <EmbeddedResource Include="Resources\Prompts\36_L.png" />
+    <EmbeddedResource Include="Resources\Prompts\36_R.png" />
+    <EmbeddedResource Include="Resources\Prompts\36_Void.png" />
+    <EmbeddedResource Include="Resources\Prompts\CollectorsMap.png" />
+    <EmbeddedResource Include="Resources\Prompts\CycloneSlash.png" />
+    <EmbeddedResource Include="Resources\Prompts\Dash.png" />
+    <EmbeddedResource Include="Resources\Prompts\DashSlash.png" />
+    <EmbeddedResource Include="Resources\Prompts\Dream Gate.png" />
+    <EmbeddedResource Include="Resources\Prompts\Dreamer.png" />
+    <EmbeddedResource Include="Resources\Prompts\Dreamnail.png" />
+    <EmbeddedResource Include="Resources\Prompts\Fireball1.png" />
+    <EmbeddedResource Include="Resources\Prompts\Fireball2.png" />
+    <EmbeddedResource Include="Resources\Prompts\Focus.png" />
+    <EmbeddedResource Include="Resources\Prompts\Godfinder.png" />
+    <EmbeddedResource Include="Resources\Prompts\GreatSlash.png" />
+    <EmbeddedResource Include="Resources\Prompts\Herrah.png" />
+    <EmbeddedResource Include="Resources\Prompts\Isma.png" />
+    <EmbeddedResource Include="Resources\Prompts\Kingsbrand.png" />
+    <EmbeddedResource Include="Resources\Prompts\Lurien.png" />
+    <EmbeddedResource Include="Resources\Prompts\Monomon.png" />
+    <EmbeddedResource Include="Resources\Prompts\Quake1.png" />
+    <EmbeddedResource Include="Resources\Prompts\Quake2.png" />
+    <EmbeddedResource Include="Resources\Prompts\Scream1.png" />
+    <EmbeddedResource Include="Resources\Prompts\Scream2.png" />
+    <EmbeddedResource Include="Resources\Prompts\Shadowdash.png" />
+    <EmbeddedResource Include="Resources\Prompts\Superdash.png" />
+    <EmbeddedResource Include="Resources\Prompts\Walljump.png" />
+    <EmbeddedResource Include="Resources\Prompts\Wings.png" />
+    <EmbeddedResource Include="Resources\Prompts\WorldSense.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\ArcaneEgg.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\CharmNotch.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\CityKey.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\CollectorsMap.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\CycloneSlash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Dash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\DashSlash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Dreamnail.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\ElegantKey.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Essence.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Fireball1.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Fireball2.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Focus.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Geo.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Godfinder.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\GreatSlash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Grub.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\HallownestSeal.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Isma.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\KingsBrand.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\KingsIdol.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Lantern.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\LoveKey.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Map.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\MaskShard.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\PaleOre.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Quake1.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Quake2.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Quill.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\RancidEgg.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Scream1.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Scream2.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Shadowdash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\ShopkeepersKey.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\SimpleKey.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\StagPin.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Superdash.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\TramPass.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\VesselFragment.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Walljump.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\WanderersJournal.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\Wings.png" />
+    <EmbeddedResource Include="Resources\ShopIcons\WorldSense.png" />
+    <EmbeddedResource Include="Resources\UI\egg.png" />
+    <EmbeddedResource Include="Resources\UI\logo.png" />
+    <EmbeddedResource Include="Resources\UI\logo2.png" />
+    <EmbeddedResource Include="Resources\UI\Shop\Background.png" />
+    <EmbeddedResource Include="Resources\UI\Shop\Essence.png" />
+    <EmbeddedResource Include="Resources\UI\Shop\Geo.png" />
+    <EmbeddedResource Include="Resources\UI\Shop\Selector.png" />
+    <EmbeddedResource Include="Resources\UI\Shop\Shitpost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\language.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetPath)" "C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

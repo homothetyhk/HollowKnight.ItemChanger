@@ -1,0 +1,1636 @@
+<randomizer>
+  <item name="Start">
+    <start>true</start>
+  </item>
+  <item name="Sly">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+    <shop>true</shop>
+  </item>
+  <item name="Sly_(Key)">
+    <sceneName>Room_shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <requiredPlayerDataBool>gaveSlykey</requiredPlayerDataBool>
+    <shop>true</shop>
+  </item>
+  <item name="Iselda">
+    <sceneName>Room_mapper</sceneName>
+    <objectName>Shop Menu</objectName>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+    <shop>true</shop>
+  </item>
+  <item name="Salubra">
+    <sceneName>Room_Charm_Shop</sceneName>
+    <objectName>Shop Menu</objectName>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+    <shop>true</shop>
+  </item>
+  <item name="Leg_Eater">
+    <sceneName>Fungus2_26</sceneName>
+    <objectName>Shop Menu</objectName>
+    <requiredPlayerDataBool></requiredPlayerDataBool>
+    <dungDiscount>true</dungDiscount>
+    <shop>true</shop>
+  </item>
+  <item name="Lurien">
+    <sceneName>Ruins2_Watcher_Room</sceneName>
+    <newShiny>true</newShiny>
+    <x>58</x>
+    <y>136</y>
+    <cost>1</cost>
+    <costType>Dreamnail</costType>
+    <destroyObjects>Dreamer Lurien,Dream Enter,Dream Impact,Shield</destroyObjects>
+  </item>
+  <item name="Monomon">
+    <sceneName>Fungus3_archive_02</sceneName>
+    <newShiny>true</newShiny>
+    <x>54</x>
+    <y>89</y>
+    <cost>1</cost>
+    <costType>Dreamnail</costType>
+    <destroyObjects>Quirrel Wounded,Quirrel,Monomon,Dream Enter,Dream Impact,Shield</destroyObjects>
+  </item>
+  <item name="Herrah">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <newShiny>true</newShiny>
+    <x>68</x>
+    <y>154</y>
+    <cost>1</cost>
+    <costType>Dreamnail</costType>
+    <destroyObjects>Dreamer Hegemol,Dream Enter,Dream Impact,Shield</destroyObjects>
+  </item>
+  <item name="World_Sense">
+    <sceneName>Room_Final_Boss_Atrium</sceneName>
+    <newShiny>true</newShiny>
+    <x>202</x>
+    <y>7</y>
+    <specialFSMEdit>TutTablet</specialFSMEdit>
+  </item>
+  <item name="Mothwing_Cloak">
+    <sceneName>Fungus1_04</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+    <destroyObjects>Dreamer Scene 1,Hornet Saver,Cutscene Dreamer,Dream Scene Activate</destroyObjects>
+    <specialFSMEdit>MothwingCloakArena</specialFSMEdit>
+  </item>
+  <item name="Mantis_Claw">
+    <sceneName>Fungus2_14</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Crystal_Heart">
+    <sceneName>Mines_31</sceneName>
+    <objectName>Super Dash Get</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Monarch_Wings">
+    <sceneName>Abyss_21</sceneName>
+    <objectName>Shiny Item DJ</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Shade_Cloak">
+    <sceneName>Abyss_10</sceneName>
+    <objectName>Dish Plat</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Isma's_Tear">
+    <sceneName>Waterways_13</sceneName>
+    <objectName>Shiny Item Acid</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Dream_Nail">
+    <sceneName>Dream_Nailcollection</sceneName>
+    <objectName>Moth NPC</objectName>
+    <replaceObject>true</replaceObject>
+    <specialFSMEdit>DreamNailCutscene</specialFSMEdit>
+  </item>
+  <item name="Dream_Gate">
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>30</x>
+    <y>10</y>
+    <cost>900</cost>
+    <costType>Essence</costType>
+    <specialPDHook>dreamReward5b</specialPDHook>
+  </item>
+  <item name="Awoken_Dream_Nail">
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>21</x>
+    <y>10</y>
+    <cost>900</cost>
+    <costType>Essence</costType>
+    <specialPDHook>dreamReward8</specialPDHook>
+  </item>
+  <item name="Vengeful_Spirit">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Shaman Meeting</objectName>
+    <replaceObject>true</replaceObject>
+    <destroyObjects>Bone Gate</destroyObjects>
+  </item>
+  <item name="Shade_Soul">
+    <sceneName>Ruins1_31b</sceneName>
+    <objectName>Ruins Shaman</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Desolate_Dive">
+    <sceneName>Ruins1_24</sceneName>
+    <objectName>Quake Item</objectName>
+    <replaceObject>true</replaceObject>
+    <specialFSMEdit>DesolateDive</specialFSMEdit>
+  </item>
+  <item name="Descending_Dark">
+    <sceneName>Mines_35</sceneName>
+    <objectName>Crystal Shaman</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Howling_Wraiths">
+    <sceneName>Room_Fungus_Shaman</sceneName>
+    <objectName>Scream Item</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Abyss_Shriek">
+    <sceneName>Abyss_12</sceneName>
+    <objectName>Scream 2 Get</objectName>
+    <replaceObject>true</replaceObject>
+    <cost>1</cost>
+    <costType>Wraiths</costType>
+  </item>
+  <item name="Cyclone_Slash">
+    <sceneName>Room_nailmaster</sceneName>
+    <objectName>NM Mato NPC</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Dash_Slash">
+    <sceneName>Room_nailmaster_03</sceneName>
+    <objectName>NM Oro NPC</objectName>
+    <replaceObject>true</replaceObject>
+    <cost>800</cost>
+    <costType>Geo</costType>
+  </item>
+  <item name="Great_Slash">
+    <sceneName>Room_nailmaster_02</sceneName>
+    <objectName>NM Sheo NPC</objectName>
+    <replaceObject>true</replaceObject>
+    <specialPDHook>BlockNailsmithSheo</specialPDHook>
+  </item>
+  <item name="Focus">
+    <sceneName>Tutorial_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>111.5</x>
+    <y>31.4</y>
+    <specialFSMEdit>TutTablet</specialFSMEdit>
+  </item>
+  <item name="Grubsong">
+    <sceneName>Crossroads_38</sceneName>
+    <newShiny>true</newShiny>
+    <x>51</x>
+    <y>4</y>
+    <cost>10</cost>
+    <costType>Grub</costType>
+    <destroyObjects>Reward 10</destroyObjects>
+  </item>
+  <item name="Baldur_Shell">
+    <sceneName>Fungus1_28</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Fury_of_the_Fallen">
+    <sceneName>Tutorial_01</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+    <shinyChest>true</shinyChest>
+    <chestName>Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Lifeblood_Core">
+    <sceneName>Abyss_08</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Defender's_Crest">
+    <sceneName>Waterways_05</sceneName>
+    <objectName>Shiny Item</objectName>
+    <altObjectName>Shiny Item R</altObjectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Flukenest">
+    <sceneName>Waterways_12</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Thorns_of_Agony">
+    <sceneName>Fungus1_14</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Mark_of_Pride">
+    <sceneName>Fungus2_31</sceneName>
+    <objectName>Shiny Item Charm</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+    <shinyChest>true</shinyChest>
+    <chestName>Mantis Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Sharp_Shadow">
+    <sceneName>Deepnest_44</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Spore_Shroom">
+    <sceneName>Fungus2_20</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Soul_Catcher">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Soul_Eater">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Glowing_Womb">
+    <sceneName>Crossroads_22</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Nailmaster's_Glory">
+    <sceneName>Room_Sly_Storeroom</sceneName>
+    <objectName>Sly Basement NPC</objectName>
+    <replaceObject>true</replaceObject>
+    <specialPDHook>OverrideSlyBasementFlag</specialPDHook>
+    <specialFSMEdit>SlyBasement</specialFSMEdit>
+  </item>
+  <item name="Joni's_Blessing">
+    <sceneName>Cliffs_05</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Shape_of_Unn">
+    <sceneName>Fungus1_Slug</sceneName>
+    <objectName>Shiny Item</objectName>
+    <altObjectName>Shiny Item Return</altObjectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hiveblood">
+    <sceneName>Hive_05</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Dream_Wielder">
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>36</x>
+    <y>10</y>
+    <cost>500</cost>
+    <costType>Essence</costType>
+    <specialPDHook>dreamReward4</specialPDHook>
+  </item>
+  <item name="Dashmaster">
+    <sceneName>Fungus2_23</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Quick_Slash">
+    <sceneName>Deepnest_East_14b</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Spell_Twister">
+    <sceneName>Ruins1_30</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Deep_Focus">
+    <sceneName>Mines_36</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Grubberfly's_Elegy">
+    <sceneName>Crossroads_38</sceneName>
+    <newShiny>true</newShiny>
+    <x>36</x>
+    <y>4</y>
+    <cost>23</cost>
+    <costType>Grub</costType>
+    <destroyObjects>Reward 46</destroyObjects>
+  </item>
+  <item name="Queen_Fragment">
+    <sceneName>Room_Queen</sceneName>
+    <objectName>Shiny Item RoyalCharm</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="King_Fragment">
+    <sceneName>White_Palace_09</sceneName>
+    <objectName>Shiny Item RoyalCharm</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Void_Heart">
+    <sceneName>Abyss_15</sceneName>
+    <newShiny>true</newShiny>
+    <x>141</x>
+    <y>11</y>
+    <cost>1</cost>
+    <costType>Dreamnail</costType>
+    <specialFSMEdit>VoidHeart</specialFSMEdit>
+  </item>
+  <item name="Dreamshield">
+    <sceneName>RestingGrounds_17</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Weaversong">
+    <sceneName>Deepnest_45_v02</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Grimmchild">
+    <sceneName>Grimm_Main_Tent</sceneName>
+    <newShiny>true</newShiny>
+    <x>75</x>
+    <y>7</y>
+    <specialPDHook>BlockFirstGrimmMeeting</specialPDHook>
+  </item>
+  <item name="City_Crest">
+    <sceneName>Crossroads_10</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Tram_Pass">
+    <sceneName>Deepnest_26b</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Simple_Key-Basin">
+    <sceneName>Abyss_20</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Simple_Key-City">
+    <sceneName>Ruins1_17</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Simple_Key-Lurker">
+    <sceneName>GG_Lurker</sceneName>
+    <newShiny>true</newShiny>
+    <x>169.5</x>
+    <y>52.4</y>
+    <specialFSMEdit>PaleLurker</specialFSMEdit>
+  </item>
+  <item name="Shopkeeper's_Key">
+    <sceneName>Mines_11</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Love_Key">
+    <sceneName>Fungus3_39</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="King's_Brand">
+    <sceneName>Room_Wyrm</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+    <destroyObjects>Avalanche End</destroyObjects>
+  </item>
+  <item name="Godtuner">
+    <sceneName>GG_Waterways</sceneName>
+    <objectName>Shiny Item Godfinder</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>true</replaceObject>
+    <cost>1</cost>
+    <costType>Simple</costType>
+    <specialPDHook>UnlockGodseeker</specialPDHook>
+  </item>
+  <item name="Collector's_Map">
+    <sceneName>Ruins2_11</sceneName>
+    <objectName>Shiny Item CollectorMap</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Mask_Shard-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>24</x>
+    <y>10</y>
+    <cost>900</cost>
+    <costType>Essence</costType>
+    <specialPDHook>dreamReward7</specialPDHook>
+  </item>
+  <item name="Mask_Shard-5_Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <newShiny>true</newShiny>
+    <x>54</x>
+    <y>4</y>
+    <cost>5</cost>
+    <costType>Grub</costType>
+    <destroyObjects>Reward 5</destroyObjects>
+  </item>
+  <item name="Mask_Shard-Brooding_Mawlek">
+    <sceneName>Crossroads_09</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+    <specialFSMEdit>BroodingMawlek</specialFSMEdit>
+  </item>
+  <item name="Mask_Shard-Crossroads_Goam">
+    <sceneName>Crossroads_13</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Mask_Shard-Stone_Sanctuary">
+    <sceneName>Fungus1_36</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Mask_Shard-Queen's_Station">
+    <sceneName>Fungus2_01</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Mask_Shard-Deepnest">
+    <sceneName>Fungus2_25</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Mask_Shard-Waterways">
+    <sceneName>Waterways_04b</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Mask_Shard-Enraged_Guardian">
+    <sceneName>Mines_32</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Mask_Shard-Hive">
+    <sceneName>Hive_04</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Mask_Shard-Grey_Mourner">
+    <sceneName>Room_Mansion</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+    <specialPDHook>OverrideFlowerQuestRewardGiven</specialPDHook>
+  </item>
+  <item name="Mask_Shard-Bretta">
+    <sceneName>Room_Bretta</sceneName>
+    <objectName>Heart Piece</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Vessel_Fragment-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>33</x>
+    <y>10</y>
+    <cost>700</cost>
+    <costType>Essence</costType>
+    <specialPDHook>dreamReward5</specialPDHook>
+  </item>
+  <item name="Vessel_Fragment-Greenpath">
+    <sceneName>Fungus1_13</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Vessel_Fragment-City">
+    <sceneName>Ruins2_09</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Vessel_Fragment-Crossroads">
+    <sceneName>Crossroads_37</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Vessel_Fragment-Basin">
+    <sceneName>Abyss_04</sceneName>
+    <newShiny>true</newShiny>
+    <x>65</x>
+    <y>58</y>
+    <cost>3000</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Fountain Donation</destroyObjects>
+  </item>
+  <item name="Vessel_Fragment-Deepnest">
+    <sceneName>Deepnest_38</sceneName>
+    <objectName>Vessel Fragment</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Vessel_Fragment-Stag_Nest">
+    <sceneName>Cliffs_03</sceneName>
+    <objectName>Vessel Fragment Stagnest (1)</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Charm_Notch-Shrumal_Ogres">
+    <sceneName>Fungus2_05</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Charm_Notch-Fog_Canyon">
+    <sceneName>Fungus3_28</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Charm_Notch-Colosseum">
+    <sceneName>Room_Colosseum_Bronze</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+    <specialFSMEdit>Colosseum1</specialFSMEdit>
+  </item>
+  <item name="Charm_Notch-Grimm">
+    <sceneName>Grimm_Main_Tent</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+    <shinyChest>true</shinyChest>
+    <chestName>Grimm Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Pale_Ore-Basin">
+    <sceneName>Abyss_17</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Pale_Ore-Crystal_Peak">
+    <sceneName>Mines_34</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Pale_Ore-Nosk">
+    <sceneName>Deepnest_32</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Pale_Ore-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>39</x>
+    <y>10</y>
+    <cost>300</cost>
+    <costType>Essence</costType>
+    <specialPDHook>dreamReward3</specialPDHook>
+  </item>
+  <item name="Pale_Ore-Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <newShiny>true</newShiny>
+    <x>42</x>
+    <y>4</y>
+    <cost>23</cost>
+    <costType>Grub</costType>
+    <destroyObjects>Reward 31</destroyObjects>
+  </item>
+  <item name="Pale_Ore-Colosseum">
+    <sceneName>Room_Colosseum_Silver</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+    <specialFSMEdit>Colosseum2</specialFSMEdit>
+  </item>
+  <item name="False_Knight_Chest">
+    <sceneName>Crossroads_10</sceneName>
+    <geoChest>true</geoChest>
+    <chestName>Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Soul_Master_Chest">
+    <sceneName>Ruins1_32</sceneName>
+    <geoChest>true</geoChest>
+    <chestName>Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Watcher_Knights_Chest">
+    <sceneName>Ruins2_03</sceneName>
+    <geoChest>true</geoChest>
+    <chestName>Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Greenpath_Chest">
+    <sceneName>Fungus1_13</sceneName>
+    <geoChest>true</geoChest>
+    <chestName>Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Mantis_Lords_Chest">
+    <sceneName>Fungus2_31</sceneName>
+    <geoChest>true</geoChest>
+    <chestName>Mantis Chest (2)</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Resting_Grounds_Chest">
+    <sceneName>RestingGrounds_10</sceneName>
+    <geoChest>true</geoChest>
+    <chestName>Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Crystal_Peak_Chest">
+    <sceneName>Mines_37</sceneName>
+    <geoChest>true</geoChest>
+    <chestName>Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Weavers_Den_Chest">
+    <sceneName>Deepnest_45_v02</sceneName>
+    <geoChest>true</geoChest>
+    <chestName>Chest</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Rancid_Egg-Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <newShiny>true</newShiny>
+    <x>48</x>
+    <y>4</y>
+    <cost>16</cost>
+    <costType>Grub</costType>
+    <destroyObjects>Reward 16</destroyObjects>
+  </item>
+  <item name="Rancid_Egg-Sheo">
+    <sceneName>Fungus1_15</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Fungal_Core">
+    <sceneName>Fungus2_29</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Queen's_Gardens">
+    <sceneName>Fungus3_34</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Blue_Lake">
+    <sceneName>Crossroads_50</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Crystal_Peak_Dive_Entrance">
+    <sceneName>Mines_01</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Crystal_Peak_Dark_Room">
+    <sceneName>Mines_29</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Crystal_Peak_Tall_Room">
+    <sceneName>Mines_20</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-City_of_Tears_Left">
+    <sceneName>Ruins1_05c</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Rancid_Egg-City_of_Tears_Pleasure_House">
+    <sceneName>Ruins_Elevator</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Beast's_Den">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Dark_Deepnest">
+    <sceneName>Deepnest_39</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Weaver's_Den">
+    <sceneName>Deepnest_45_v02</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Near_Quick_Slash">
+    <sceneName>Deepnest_East_14</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Upper_Kingdom's_Edge">
+    <sceneName>Deepnest_East_07</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Waterways_East">
+    <sceneName>Waterways_07</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Waterways_Main">
+    <sceneName>Waterways_02</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Waterways_West_Bluggsac">
+    <sceneName>Waterways_04</sceneName>
+    <objectName>Egg Sac</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Rancid_Egg-Waterways_West_Pickup">
+    <sceneName>Waterways_04b</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Cliffs">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Greenpath_Stag">
+    <sceneName>Fungus1_22</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Greenpath_Lower">
+    <sceneName>Fungus1_11</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Fungal_Wastes_Thorns_Gauntlet">
+    <sceneName>Fungus2_04</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Above_Mantis_Village">
+    <sceneName>Fungus2_17</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Crystal_Peak_Crawlers">
+    <sceneName>Mines_20</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Resting_Grounds_Catacombs">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-King's_Station">
+    <sceneName>Ruins2_05</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Pleasure_House">
+    <sceneName>Ruins_Elevator</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-City_Storerooms">
+    <sceneName>Ruins1_28</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Ancient_Basin">
+    <sceneName>Abyss_02</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Kingdom's_Edge_Entrance">
+    <sceneName>Deepnest_East_07</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Kingdom's_Edge_Camp">
+    <sceneName>Deepnest_East_13</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Wanderer's_Journal-Kingdom's_Edge_Requires_Dive">
+    <sceneName>Deepnest_East_18</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Crossroads_Well">
+    <sceneName>Crossroads_01</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <newShiny>true</newShiny>
+    <x>45</x>
+    <y>4</y>
+    <cost>23</cost>
+    <costType>Grub</costType>
+    <destroyObjects>Reward 23</destroyObjects>
+  </item>
+  <item name="Hallownest_Seal-Greenpath">
+    <sceneName>Fungus1_10</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Fog_Canyon_West">
+    <sceneName>Fungus3_30</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Fog_Canyon_East">
+    <sceneName>Fungus3_26</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Queen's_Station">
+    <sceneName>Fungus2_34</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Fungal_Wastes_Sporgs">
+    <sceneName>Fungus2_03</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Mantis_Lords">
+    <sceneName>Fungus2_31</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+    <shinyChest>true</shinyChest>
+    <chestName>Mantis Chest (1)</chestName>
+    <chestFsm>Chest Control</chestFsm>
+  </item>
+  <item name="Hallownest_Seal-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>42</x>
+    <y>10</y>
+    <cost>100</cost>
+    <costType>Essence</costType>
+    <specialPDHook>dreamReward1</specialPDHook>
+  </item>
+  <item name="Hallownest_Seal-Resting_Grounds_Catacombs">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-King's_Station">
+    <sceneName>Ruins2_08</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-City_Rafters">
+    <sceneName>Ruins1_03</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Soul_Sanctum">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Watcher_Knight">
+    <sceneName>Ruins2_03</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Deepnest_By_Mantis_Lords">
+    <sceneName>Deepnest_16</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Beast's_Den">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Hallownest_Seal-Queen's_Gardens">
+    <sceneName>Fungus3_48</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="King's_Idol-Grubs">
+    <sceneName>Crossroads_38</sceneName>
+    <newShiny>true</newShiny>
+    <x>39</x>
+    <y>4</y>
+    <cost>23</cost>
+    <costType>Grub</costType>
+    <destroyObjects>Reward 38</destroyObjects>
+  </item>
+  <item name="King's_Idol-Cliffs">
+    <sceneName>Cliffs_01</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="King's_Idol-Crystal_Peak">
+    <sceneName>Mines_30</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="King's_Idol-Glade_of_Hope">
+    <sceneName>RestingGrounds_08</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="King's_Idol-Dung_Defender">
+    <sceneName>Waterways_15</sceneName>
+    <objectName>Shiny Item Stand</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="King's_Idol-Great_Hopper">
+    <sceneName>Deepnest_East_08</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="King's_Idol-Pale_Lurker">
+    <sceneName>GG_Lurker</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="King's_Idol-Deepnest">
+    <sceneName>Deepnest_33</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Arcane_Egg-Seer">
+    <sceneName>RestingGrounds_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>27</x>
+    <y>10</y>
+    <cost>900</cost>
+    <costType>Essence</costType>
+    <specialPDHook>dreamReward6</specialPDHook>
+  </item>
+  <item name="Arcane_Egg-Lifeblood_Core">
+    <sceneName>Abyss_08</sceneName>
+    <objectName>Shiny Item (1)</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Arcane_Egg-Shade_Cloak">
+    <sceneName>Abyss_10</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Arcane_Egg-Birthplace">
+    <sceneName>Abyss_15</sceneName>
+    <objectName>Shiny Item</objectName>
+    <oldShinyFsm>Shiny Control</oldShinyFsm>
+    <replaceObject>false</replaceObject>
+  </item>
+  <item name="Whispering_Root-Crossroads">
+    <sceneName>Crossroads_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>6.8</x>
+    <y>103.2</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Greenpath">
+    <sceneName>Fungus1_13</sceneName>
+    <newShiny>true</newShiny>
+    <x>28.7</x>
+    <y>23.3</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Leg_Eater">
+    <sceneName>Fungus2_33</sceneName>
+    <newShiny>true</newShiny>
+    <x>34.7</x>
+    <y>7.4</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Mantis_Village">
+    <sceneName>Fungus2_17</sceneName>
+    <newShiny>true</newShiny>
+    <x>27.7</x>
+    <y>3.4</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Deepnest">
+    <sceneName>Deepnest_39</sceneName>
+    <newShiny>true</newShiny>
+    <x>13.4</x>
+    <y>36.3</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Queens_Gardens">
+    <sceneName>Fungus3_11</sceneName>
+    <newShiny>true</newShiny>
+    <x>34</x>
+    <y>8.5</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Kingdoms_Edge">
+    <sceneName>Deepnest_East_07</sceneName>
+    <newShiny>true</newShiny>
+    <x>59.6</x>
+    <y>10.2</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Waterways">
+    <sceneName>Abyss_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>37.9</x>
+    <y>10.4</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-City">
+    <sceneName>Ruins1_17</sceneName>
+    <newShiny>true</newShiny>
+    <x>78</x>
+    <y>22</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Resting_Grounds">
+    <sceneName>RestingGrounds_05</sceneName>
+    <newShiny>true</newShiny>
+    <x>15.7</x>
+    <y>69.4</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Spirits_Glade">
+    <sceneName>RestingGrounds_08</sceneName>
+    <newShiny>true</newShiny>
+    <x>153.4</x>
+    <y>56.5</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Crystal_Peak">
+    <sceneName>Mines_23</sceneName>
+    <newShiny>true</newShiny>
+    <x>91.6</x>
+    <y>8</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Howling_Cliffs">
+    <sceneName>Cliffs_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>83.7</x>
+    <y>15.3</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Ancestral_Mound">
+    <sceneName>Crossroads_ShamanTemple</sceneName>
+    <newShiny>true</newShiny>
+    <x>20.4</x>
+    <y>60.4</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Whispering_Root-Hive">
+    <sceneName>Hive_02</sceneName>
+    <newShiny>true</newShiny>
+    <x>168.7</x>
+    <y>24.1</y>
+    <costType>WhisperingRoot</costType>
+    <specialFSMEdit>WhisperingRoot</specialFSMEdit>
+  </item>
+  <item name="Grub-Crossroads_35">
+    <sceneName>Crossroads_35</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Crossroads_05">
+    <sceneName>Crossroads_05</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Crossroads_03">
+    <sceneName>Crossroads_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Crossroads_31">
+    <sceneName>Crossroads_31</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Crossroads_48">
+    <sceneName>Crossroads_48</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus1_06">
+    <sceneName>Fungus1_06</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus1_07">
+    <sceneName>Fungus1_07</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus1_13">
+    <sceneName>Fungus1_13</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus1_21">
+    <sceneName>Fungus1_21</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus3_47">
+    <sceneName>Fungus3_47</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus2_18">
+    <sceneName>Fungus2_18</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus2_20">
+    <sceneName>Fungus2_20</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Deepnest_36">
+    <sceneName>Deepnest_36</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Deepnest_31">
+    <sceneName>Deepnest_31</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Deepnest_03">
+    <sceneName>Deepnest_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Deepnest_39">
+    <sceneName>Deepnest_39</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Deepnest_Spider_Town">
+    <sceneName>Deepnest_Spider_Town</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Deepnest_East_14">
+    <sceneName>Deepnest_East_14</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Deepnest_East_11">
+    <sceneName>Deepnest_East_11</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Hive_03">
+    <sceneName>Hive_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Hive_04">
+    <sceneName>Hive_04</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Abyss_19">
+    <sceneName>Abyss_19</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Abyss_17">
+    <sceneName>Abyss_17</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Waterways_04">
+    <sceneName>Waterways_04</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Waterways_13">
+    <sceneName>Waterways_13</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Waterways_14">
+    <sceneName>Waterways_14</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Ruins1_05">
+    <sceneName>Ruins1_05</sceneName>
+    <objectName>Grub Bottle (1)</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Ruins1_32">
+    <sceneName>Ruins1_32</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Ruins2_03">
+    <sceneName>Ruins2_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Ruins_House_01">
+    <sceneName>Ruins_House_01</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Ruins2_07">
+    <sceneName>Ruins2_07</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-RestingGrounds_10">
+    <sceneName>RestingGrounds_10</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Mines_04">
+    <sceneName>Mines_04</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Mines_35">
+    <sceneName>Mines_35</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Mines_03">
+    <sceneName>Mines_03</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Mines_16">
+    <sceneName>Mines_16</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Mines_19">
+    <sceneName>Mines_19</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Mines_31">
+    <sceneName>Mines_31</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Mines_24">
+    <sceneName>Mines_24</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus1_28">
+    <sceneName>Fungus1_28</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus3_10">
+    <sceneName>Fungus3_10</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus3_48">
+    <sceneName>Fungus3_48</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Fungus3_22">
+    <sceneName>Fungus3_22</sceneName>
+    <objectName>Grub Bottle</objectName>
+    <replaceObject>true</replaceObject>
+  </item>
+  <item name="Grub-Ruins2_11">
+    <sceneName>Ruins2_11</sceneName>
+    <newShiny>true</newShiny>
+    <x>64.2</x>
+    <y>115.4</y>
+    <specialFSMEdit>CollectorGrubs</specialFSMEdit>
+  </item>
+  <item name="Grub-Ruins2_11(1)">
+    <sceneName>Ruins2_11</sceneName>
+    <newShiny>true</newShiny>
+    <x>55.3</x>
+    <y>115.4</y>
+    <specialFSMEdit>CollectorGrubs</specialFSMEdit>
+  </item>
+  <item name="Grub-Ruins2_11(2)">
+    <sceneName>Ruins2_11</sceneName>
+    <newShiny>true</newShiny>
+    <x>38.5</x>
+    <y>115.4</y>
+    <specialFSMEdit>CollectorGrubs</specialFSMEdit>
+  </item>
+  <item name="Crossroads_Map">
+    <sceneName>Crossroads_33</sceneName>
+    <newShiny>true</newShiny>
+    <x>36.5</x>
+    <y>34</y>
+    <cost>30</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Greenpath_Map">
+    <sceneName>Fungus1_06</sceneName>
+    <newShiny>true</newShiny>
+    <x>160</x>
+    <y>3.3</y>
+    <cost>60</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Fog_Canyon_Map">
+    <sceneName>Fungus3_25</sceneName>
+    <newShiny>true</newShiny>
+    <x>36.4</x>
+    <y>32</y>
+    <cost>150</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Fungal_Wastes_Map">
+    <sceneName>Fungus2_18</sceneName>
+    <newShiny>true</newShiny>
+    <x>11</x>
+    <y>35</y>
+    <cost>75</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Deepnest_Map-Upper">
+    <sceneName>Deepnest_01b</sceneName>
+    <newShiny>true</newShiny>
+    <x>7.8</x>
+    <y>4.5</y>
+    <cost>38</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer Deepnest</destroyObjects>
+  </item>
+  <item name="Deepnest_Map-Right">
+    <sceneName>Fungus2_25</sceneName>
+    <newShiny>true</newShiny>
+    <x>49.5</x>
+    <y>23.2</y>
+    <cost>38</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer Deepnest</destroyObjects>
+  </item>
+  <item name="Ancient_Basin_Map">
+    <sceneName>Abyss_04</sceneName>
+    <newShiny>true</newShiny>
+    <x>68.3</x>
+    <y>41.4</y>
+    <cost>112</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Kingdom's_Edge_Map">
+    <sceneName>Deepnest_East_03</sceneName>
+    <newShiny>true</newShiny>
+    <x>7.5</x>
+    <y>60.1</y>
+    <cost>112</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="City_of_Tears_Map">
+    <sceneName>Ruins1_31</sceneName>
+    <newShiny>true</newShiny>
+    <x>35.1</x>
+    <y>15.3</y>
+    <cost>90</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Royal_Waterways_Map">
+    <sceneName>Waterways_09</sceneName>
+    <newShiny>true</newShiny>
+    <x>25.4</x>
+    <y>30.5</y>
+    <cost>75</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Howling_Cliffs_Map">
+    <sceneName>Cliffs_01</sceneName>
+    <newShiny>true</newShiny>
+    <x>125.8</x>
+    <y>91.6</y>
+    <cost>75</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Crystal_Peak_Map">
+    <sceneName>Mines_30</sceneName>
+    <newShiny>true</newShiny>
+    <x>157</x>
+    <y>8.4</y>
+    <cost>112</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Queen's_Gardens_Map">
+    <sceneName>Fungus1_24</sceneName>
+    <newShiny>true</newShiny>
+    <x>53.7</x>
+    <y>22.3</y>
+    <cost>150</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Resting_Grounds_Map">
+    <sceneName>RestingGrounds_09</sceneName>
+    <newShiny>true</newShiny>
+    <x>8.2</x>
+    <y>6.1</y>
+    <cost>56</cost>
+    <costType>Geo</costType>
+    <destroyObjects>Cornifer,Cornifer Card</destroyObjects>
+  </item>
+  <item name="Dirtmouth_Stag">
+    <sceneName>Room_Town_Stag_Station</sceneName>
+    <newShiny>true</newShiny>
+    <x>39.4</x>
+    <y>20.4</y>
+    <destroyObjects>Gate Switch</destroyObjects>
+  </item>
+  <item name="Crossroads_Stag">
+    <sceneName>Crossroads_47</sceneName>
+    <newShiny>true</newShiny>
+    <x>19.7</x>
+    <y>6.4</y>
+    <cost>50</cost>
+    <costType>Geo</costType>
+    <specialFSMEdit>Stag</specialFSMEdit>
+  </item>
+  <item name="Greenpath_Stag">
+    <sceneName>Fungus1_16_alt</sceneName>
+    <newShiny>true</newShiny>
+    <x>19.7</x>
+    <y>6.4</y>
+    <cost>140</cost>
+    <costType>Geo</costType>
+    <specialFSMEdit>Stag</specialFSMEdit>
+  </item>
+  <item name="Queen's_Station_Stag">
+    <sceneName>Fungus2_02</sceneName>
+    <newShiny>true</newShiny>
+    <x>20.3</x>
+    <y>6.4</y>
+    <cost>120</cost>
+    <costType>Geo</costType>
+    <specialFSMEdit>Stag</specialFSMEdit>
+  </item>
+  <item name="Queen's_Gardens_Stag">
+    <sceneName>Fungus3_40</sceneName>
+    <newShiny>true</newShiny>
+    <x>159.8</x>
+    <y>13.4</y>
+    <cost>200</cost>
+    <costType>Geo</costType>
+    <specialFSMEdit>Stag</specialFSMEdit>
+  </item>
+  <item name="City_Storerooms_Stag">
+    <sceneName>Ruins1_29</sceneName>
+    <newShiny>true</newShiny>
+    <x>28.1</x>
+    <y>6.4</y>
+    <cost>200</cost>
+    <costType>Geo</costType>
+    <specialFSMEdit>Stag</specialFSMEdit>
+  </item>
+  <item name="King's_Station_Stag">
+    <sceneName>Ruins2_08</sceneName>
+    <newShiny>true</newShiny>
+    <x>28.1</x>
+    <y>6.4</y>
+    <cost>300</cost>
+    <costType>Geo</costType>
+    <specialFSMEdit>Stag</specialFSMEdit>
+  </item>
+  <item name="Resting_Grounds_Stag">
+    <sceneName>RestingGrounds_09</sceneName>
+    <newShiny>true</newShiny>
+    <x>27.6</x>
+    <y>6.4</y>
+    <destroyObjects>Ruins Lever</destroyObjects>
+    <specialFSMEdit>Stag</specialFSMEdit>
+  </item>
+  <item name="Distant_Village_Stag">
+    <sceneName>Deepnest_09</sceneName>
+    <newShiny>true</newShiny>
+    <x>27.6</x>
+    <y>6.4</y>
+    <cost>250</cost>
+    <costType>Geo</costType>
+    <specialFSMEdit>Stag</specialFSMEdit>
+  </item>
+  <item name="Hidden_Station_Stag">
+    <sceneName>Abyss_22</sceneName>
+    <newShiny>true</newShiny>
+    <x>28</x>
+    <y>6.4</y>
+    <cost>300</cost>
+    <costType>Geo</costType>
+    <specialFSMEdit>Stag</specialFSMEdit>
+  </item>
+  <item name="Stag_Nest_Stag">
+    <sceneName>Cliffs_03</sceneName>
+    <newShiny>true</newShiny>
+    <x>19.3</x>
+    <y>6.3</y>
+    <cost>300</cost>
+    <costType>Geo</costType>
+  </item>
+</randomizer>
