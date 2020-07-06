@@ -23,6 +23,7 @@ namespace ItemChanger
         {
             XmlDocument items;
             XmlDocument locations;
+            XmlDocument platforms;
             
             Assembly a = typeof(ItemChanger).Assembly;
 
@@ -50,6 +51,28 @@ namespace ItemChanger
                 Location location = ProcessXmlNodeAsLocation(node);
                 Locations.Add(location.name, location);
             }
+
+            Stream platformStream = a.GetManifestResourceStream("ItemChanger.Resources.platforms.xml");
+            platforms = new XmlDocument();
+            platforms.Load(platformStream);
+            platformStream.Dispose();
+
+            Platform.Platforms = new Dictionary<string, List<Platform>>();
+            foreach (XmlNode node in platforms.SelectNodes("randomizer/plat"))
+            {
+                if (!Platform.Platforms.ContainsKey(node["sceneName"].InnerText))
+                {
+                    Platform.Platforms.Add(node["sceneName"].InnerText, new List<Platform>());
+                }
+
+                Platform.Platforms[node["sceneName"].InnerText].Add(new Platform
+                {
+                    sceneName = node["sceneName"].InnerText,
+                    x = float.Parse(node["x"].InnerText),
+                    y = float.Parse(node["y"].InnerText)
+                });
+            }
+
         }
 
 
@@ -118,6 +141,17 @@ namespace ItemChanger
                     else
                     {
                         LogWarn($"Could not parse \"{fieldNode.InnerText}\" to GiveAction");
+                    }
+                }
+                else if (field.FieldType == typeof(Item.ItemPool))
+                {
+                    if (fieldNode.InnerText.TryToEnum(out Item.ItemPool type))
+                    {
+                        field.SetValue(item, type);
+                    }
+                    else
+                    {
+                        LogWarn($"Could not parse \"{fieldNode.InnerText}\" to ItemPool");
                     }
                 }
                 else if (field.FieldType == typeof(int))
@@ -312,6 +346,17 @@ namespace ItemChanger
                     else
                     {
                         LogWarn($"Could not parse \"{fieldNode.InnerText}\" to CostType");
+                    }
+                }
+                else if (field.FieldType == typeof(Location.LocationPool))
+                {
+                    if (fieldNode.InnerText.TryToEnum(out Location.LocationPool type))
+                    {
+                        field.SetValue(location, type);
+                    }
+                    else
+                    {
+                        LogWarn($"Could not parse \"{fieldNode.InnerText}\" to LocationPool");
                     }
                 }
                 else if (field.FieldType == typeof(int))

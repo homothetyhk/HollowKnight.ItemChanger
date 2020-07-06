@@ -14,7 +14,9 @@ namespace ItemChanger
         public static List<(string, string)> preloads = new List<(string, string)>
         {
             (SceneNames.Tutorial_01, "_Props/Chest/Item/Shiny Item (1)"),
+            (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)"),
             (SceneNames.Tutorial_01, "_Enemies/Crawler 1"),
+            (SceneNames.Tutorial_01, "_Scenery/plat_float_17"),
             (SceneNames.Ruins_House_01, "Grub Bottle/Grub"),
         };
 
@@ -28,7 +30,9 @@ namespace ItemChanger
 
         public static GameObject LargeGeo => GameObject.Instantiate(_largeGeo);
 
+        public static GameObject TinkEffect => GameObject.Instantiate(_tinkEffect);
 
+        public static GameObject SmallPlatform => GameObject.Instantiate(_smallPlatform);
 
         public static void Setup(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
@@ -51,6 +55,13 @@ namespace ItemChanger
             GameObject.DontDestroyOnLoad(_mediumGeo);
             GameObject.DontDestroyOnLoad(_largeGeo);
 
+            _tinkEffect = GameObject.Instantiate(preloadedObjects[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"].GetComponent<TinkEffect>().blockEffect);
+            _tinkEffect.SetActive(false);
+            GameObject.DontDestroyOnLoad(_tinkEffect);
+
+            _smallPlatform = preloadedObjects[SceneNames.Tutorial_01]["_Scenery/plat_float_17"];
+            GameObject.DontDestroyOnLoad(_smallPlatform);
+
             _grub = preloadedObjects[SceneNames.Ruins_House_01]["Grub Bottle/Grub"];
             GrubCries = _grub.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;
             GameObject.DontDestroyOnLoad(_grub);
@@ -64,6 +75,8 @@ namespace ItemChanger
         private static GameObject _smallGeo;
         private static GameObject _mediumGeo;
         private static GameObject _largeGeo;
+        private static GameObject _tinkEffect;
+        private static GameObject _smallPlatform;
         private static GameObject _grub;
         public static AudioClip[] GrubCries;
     }

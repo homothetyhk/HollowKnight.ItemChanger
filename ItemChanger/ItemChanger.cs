@@ -28,20 +28,23 @@ namespace ItemChanger
             set => Settings = value is SaveSettings saveSettings ? saveSettings : Settings;
         }
 
-        public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
+        public ItemChanger()
         {
             instance = this;
             SpriteManager.Setup();
             XmlManager.Load();
             LanguageStringManager.Load();
-            
+        }
+
+        public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
+        {
             ObjectCache.Setup(preloadedObjects);
             readyForChangeItems = true;
         }
 
         public override string GetVersion()
         {
-            return "0.9";
+            return "1.0";
         }
 
         public override int LoadPriority() => -2;

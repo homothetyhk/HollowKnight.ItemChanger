@@ -31,7 +31,6 @@ namespace ItemChanger
         public Sprite sprite;
         public string nameKey;
         public string shopDescKey;
-        
 
         public Sprite bigSprite;
         public string takeKey;
@@ -42,6 +41,7 @@ namespace ItemChanger
 
         public ItemType type;
         public GiveAction action;
+        public ItemPool pool;
         public Action customAction;
 
         public override string ToString()
@@ -95,6 +95,30 @@ namespace ItemChanger
             SettingsBool,
             Custom,
             None
+        }
+
+        public enum ItemPool
+        {
+            None,
+            Dreamer,
+            Skill,
+            Charm,
+            Key,
+            Mask,
+            Vessel,
+            Ore,
+            Notch,
+            Geo,
+            Egg,
+            Relic,
+            Map,
+            Stag,
+            Grub,
+            Root,
+
+            Dupe,
+            Cursed,
+            Custom,
         }
     }
 

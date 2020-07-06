@@ -1,5 +1,6 @@
 ﻿using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
+using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using SeanprCore;
 using System;
@@ -26,6 +27,10 @@ namespace ItemChanger
         public bool oneBlueHPLifebloodCoreDoor = true;
         public bool reduceBaldurHP = true;
         public bool transitionQOL = true;
+        public bool miscSkipFixes = true;
+        public bool moveSeerLeft = true;
+        public bool fixVoidHeart = true;
+        public bool blockZoteDeath = true;
 
         public bool startWithoutFocus = false;
 
@@ -34,18 +39,25 @@ namespace ItemChanger
         public bool flowerQuestPrompt = true;
         public bool whitePalacePrompt = true;
 
+        public HashSet<string> skipExtraPlatformScenes;
+
         internal static void Hook()
         {
             currentSettings = new ItemChangerSettings();
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += AfterSceneChange;
             On.HeroController.CanFocus += OverrideCanFocus;
+            On.PlayMakerFSM.OnEnable += FixVoidHeart;
             TransitionHooks.Hook();
         }
+
+        
+
         internal static void Unhook()
         {
             currentSettings = new ItemChangerSettings();
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= AfterSceneChange;
             On.HeroController.CanFocus -= OverrideCanFocus;
+            On.PlayMakerFSM.OnEnable -= FixVoidHeart;
             TransitionHooks.Unhook();
         }
 
@@ -59,15 +71,55 @@ namespace ItemChanger
             return orig(self);
         }
 
+        private static void FixVoidHeart(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            orig(self);
+            if (currentSettings.blockZoteDeath && self.FsmName == "Check Zote Death")
+            {
+                GameObject.Destroy(self);
+                return;
+            }
+
+            if (currentSettings.fixVoidHeart)
+            {
+                if (self.FsmName == "Shade Control")
+                {
+                    if (self.gameObject?.name?.StartsWith("Hollow Shade") ?? false)
+                    {
+                        self.FsmVariables.FindFsmBool("Friendly").Value = false;
+                        self.GetState("Pause").ClearTransitions();
+                        self.GetState("Pause").AddTransition("FINISHED", "Init");
+                    }
+                }
+                else if (self.FsmName == "Control")
+                {
+                    if (self.gameObject?.name?.StartsWith("Shade Sibling") ?? false)
+                    {
+                        self.FsmVariables.FindFsmBool("Friendly").Value = false;
+                        self.GetState("Pause").ClearTransitions();
+                        self.GetState("Pause").AddTransition("FINISHED", "Init");
+                    }
+                }
+            }
+        }
+
         internal static void Update()
         {
             currentSettings.UpdatePrompts();
         }
 
-        
+
 
         internal static void AfterSceneChange(Scene from, Scene to)
         {
+            if (Platform.Platforms.TryGetValue(to.name, out List<Platform> plats))
+            {
+                if (!currentSettings.skipExtraPlatformScenes?.Contains(to.name) ?? true)
+                {
+                    foreach (Platform plat in plats) plat.Deploy();
+                }
+            }
+
             switch (to.name)
             {
                 case SceneNames.Crossroads_ShamanTemple when currentSettings.reduceBaldurHP:
@@ -91,8 +143,7 @@ namespace ItemChanger
                     }
                     break;
 
-                // MOVE THIS
-                case SceneNames.RestingGrounds_07:
+                case SceneNames.RestingGrounds_07 when currentSettings.moveSeerLeft:
                     GameObject.Find("Dream Moth").transform.Translate(new Vector3(-5f, 0f));
                     break;
 
@@ -196,6 +247,116 @@ namespace ItemChanger
                         BlueDoorFSM.GetState("Init").RemoveTransitionsTo("Got Charm");
                     }
                     break;
+
+                // Make Cliffs shade skip feasible
+                case SceneNames.Fungus1_28 when currentSettings.miscSkipFixes:
+                    GameObject cliffsCrawlid = GameObject.Instantiate(GameObject.Find("Crawler"));
+                    cliffsCrawlid.SetActive(true);
+                    cliffsCrawlid.transform.position = new Vector2(74f, 31f);
+                    foreach (GameObject g in GameManager.FindObjectsOfType<GameObject>())
+                    {
+                        if (g.transform.GetPositionX() < 75 && g.transform.GetPositionX() > 70 && g.transform.GetPositionY() < 54 && g.transform.GetPositionY() > 33)
+                        {
+                            GameObject.Destroy(g);
+                        }
+                    }
+                    break;
+
+                // Make descending dark spikes pogoable
+                case SceneNames.Mines_35 when currentSettings.miscSkipFixes:
+                    foreach (NonBouncer nonBounce in GameObject.FindObjectsOfType<NonBouncer>())
+                    {
+                        if (nonBounce.gameObject.name.StartsWith("Spike Collider"))
+                        {
+                            nonBounce.active = false;
+                            nonBounce.gameObject.AddComponent<RandomizerTinkEffect>();
+                        }
+                    }
+                    break;
+
+                // Wings-only pogo to Soul Sanctum
+                case SceneNames.Ruins1_05 when currentSettings.miscSkipFixes:
+                    GameObject chandelier = GameObject.Find("ruind_dressing_light_02 (10)");
+                    chandelier.transform.SetPositionX(chandelier.transform.position.x - 2);
+                    chandelier.GetComponent<NonBouncer>().active = false;
+                    break;
+
+                // Sign pogo to get past right-side city without items
+                case SceneNames.Ruins2_04 when currentSettings.miscSkipFixes:
+                    {
+                        GameObject plat = ObjectCache.SmallPlatform;
+                        plat.SetActive(true);
+                        plat.transform.position = new Vector2(18f, 10f);
+                    }
+                    break;
+
+                // Respawn jars in Collector's room to allow wings only access
+                case SceneNames.Ruins2_11 when currentSettings.miscSkipFixes:
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (1)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (2)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (3)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (4)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (5)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (6)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (7)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
+                    {
+                        sceneName = "Ruins2_11",
+                        id = "Break Jar (8)",
+                        activated = false,
+                        semiPersistent = false
+                    });
+                    break;
+
             }
         }
 

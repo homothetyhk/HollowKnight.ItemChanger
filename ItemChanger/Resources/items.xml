@@ -10,6 +10,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_DESC_LURIEN</shopDescKey>
     <sprite>Prompts.Lurien</sprite>
+    <pool>Dreamer</pool>
   </item>
   <item name="Monomon">
     <type>Big</type>
@@ -22,6 +23,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_DESC_MONOMON</shopDescKey>
     <sprite>Prompts.Monomon</sprite>
+    <pool>Dreamer</pool>
   </item>
   <item name="Herrah">
     <type>Big</type>
@@ -34,6 +36,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_DESC_HERRAH</shopDescKey>
     <sprite>Prompts.Herrah</sprite>
+    <pool>Dreamer</pool>
   </item>
   <item name="World_Sense">
     <boolName>unlockedCompletionRate</boolName>
@@ -46,6 +49,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_DESC_WORLD_SENSE</shopDescKey>
     <sprite>ShopIcons.WorldSense</sprite>
+    <pool>Dreamer</pool>
   </item>
   <item name="Mothwing_Cloak">
     <boolName>hasDash</boolName>
@@ -61,6 +65,7 @@
     <descTwoKey>GET_DASH_2</descTwoKey>
     <shopDescKey>INV_DESC_DASH</shopDescKey>
     <sprite>ShopIcons.Dash</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Mantis_Claw">
     <boolName>hasWalljump</boolName>
@@ -76,6 +81,7 @@
     <descTwoKey>GET_WALLJUMP_2</descTwoKey>
     <shopDescKey>INV_DESC_WALLJUMP</shopDescKey>
     <sprite>ShopIcons.Walljump</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Crystal_Heart">
     <boolName>hasSuperDash</boolName>
@@ -91,6 +97,7 @@
     <descTwoKey>GET_SUPERDASH_2</descTwoKey>
     <shopDescKey>INV_DESC_SUPERDASH</shopDescKey>
     <sprite>ShopIcons.Superdash</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Monarch_Wings">
     <boolName>hasDoubleJump</boolName>
@@ -105,6 +112,7 @@
     <descTwoKey>GET_DOUBLEJUMP_2</descTwoKey>
     <shopDescKey>INV_DESC_DOUBLEJUMP</shopDescKey>
     <sprite>ShopIcons.Wings</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Shade_Cloak">
     <boolName>hasShadowDash</boolName>
@@ -120,6 +128,7 @@
     <descTwoKey>GET_SHADOWDASH_2</descTwoKey>
     <shopDescKey>INV_DESC_SHADOWDASH</shopDescKey>
     <sprite>ShopIcons.Shadowdash</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Isma's_Tear">
     <boolName>hasAcidArmour</boolName>
@@ -134,6 +143,7 @@
     <descTwoKey>GET_ACIDARMOUR_2</descTwoKey>
     <shopDescKey>INV_DESC_ACIDARMOUR</shopDescKey>
     <sprite>ShopIcons.Isma</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Dream_Nail">
     <boolName>hasDreamNail</boolName>
@@ -148,6 +158,7 @@
     <descTwoKey>GET_DREAMNAIL_2</descTwoKey>
     <shopDescKey>INV_DESC_DREAMNAIL_A</shopDescKey>
     <sprite>ShopIcons.Dreamnail</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Dream_Gate">
     <boolName>hasDreamGate</boolName>
@@ -162,6 +173,7 @@
     <descTwoKey>GET_DREAMGATE_2</descTwoKey>
     <shopDescKey>INV_DESC_DREAMGATE</shopDescKey>
     <sprite>ShopIcons.Dreamnail</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Awoken_Dream_Nail">
     <boolName>dreamNailUpgraded</boolName>
@@ -176,6 +188,7 @@
     <descTwoKey>GET_DREAMNAILUPGRADE_2</descTwoKey>
     <shopDescKey>INV_DESC_DREAMNAIL_B</shopDescKey>
     <sprite>ShopIcons.Dreamnail</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Vengeful_Spirit">
     <intName>fireballLevel</intName>
@@ -191,6 +204,7 @@
     <descTwoKey>GET_FIREBALL_2</descTwoKey>
     <shopDescKey>INV_DESC_SPELL_FIREBALL1</shopDescKey>
     <sprite>ShopIcons.Fireball1</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Shade_Soul">
     <intName>fireballLevel</intName>
@@ -206,6 +220,7 @@
     <descTwoKey>GET_FIREBALL2_2</descTwoKey>
     <shopDescKey>INV_DESC_SPELL_FIREBALL2</shopDescKey>
     <sprite>ShopIcons.Fireball2</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Desolate_Dive">
     <intName>quakeLevel</intName>
@@ -221,6 +236,7 @@
     <descTwoKey>GET_QUAKE_2</descTwoKey>
     <shopDescKey>INV_DESC_SPELL_QUAKE1</shopDescKey>
     <sprite>ShopIcons.Quake1</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Descending_Dark">
     <intName>quakeLevel</intName>
@@ -236,6 +252,7 @@
     <descTwoKey>GET_QUAKE2_2</descTwoKey>
     <shopDescKey>INV_DESC_SPELL_QUAKE2</shopDescKey>
     <sprite>ShopIcons.Quake2</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Howling_Wraiths">
     <intName>screamLevel</intName>
@@ -251,6 +268,7 @@
     <descTwoKey>GET_SCREAM_2</descTwoKey>
     <shopDescKey>INV_DESC_SPELL_SCREAM1</shopDescKey>
     <sprite>ShopIcons.Scream1</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Abyss_Shriek">
     <intName>screamLevel</intName>
@@ -266,6 +284,7 @@
     <descTwoKey>GET_SCREAM2_2</descTwoKey>
     <shopDescKey>INV_DESC_SPELL_SCREAM2</shopDescKey>
     <sprite>ShopIcons.Scream2</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Cyclone_Slash">
     <boolName>hasCyclone</boolName>
@@ -278,6 +297,7 @@
     <descTwoKey>GET_CYCLONE_2</descTwoKey>
     <shopDescKey>INV_DESC_ART_CYCLONE</shopDescKey>
     <sprite>ShopIcons.CycloneSlash</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Dash_Slash">
     <boolName>hasUpwardSlash</boolName>
@@ -290,6 +310,7 @@
     <descTwoKey>GET_DSLASH_2</descTwoKey>
     <shopDescKey>INV_DESC_ART_UPPER</shopDescKey>
     <sprite>ShopIcons.DashSlash</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Great_Slash">
     <boolName>hasDashSlash</boolName>
@@ -302,6 +323,7 @@
     <descTwoKey>GET_GSLASH_2</descTwoKey>
     <shopDescKey>INV_DESC_ART_DASH</shopDescKey>
     <sprite>ShopIcons.GreatSlash</sprite>
+    <pool>Skill</pool>
   </item>
   <item name="Focus">
     <boolName>canFocus</boolName>
@@ -315,6 +337,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_SHOP_DESC_FOCUS</shopDescKey>
     <sprite>ShopIcons.Focus</sprite>
+    <pool>Cursed</pool>
   </item>
   <item name="Dreamer">
     <type>Big</type>
@@ -327,6 +350,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_DESC_DREAMER</shopDescKey>
     <sprite>Prompts.Dreamer</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Mothwing_Cloak_(1)">
     <action>AddGeo</action>
@@ -336,6 +360,7 @@
     <nameKey>INV_NAME_DASH</nameKey>
     <shopDescKey>INV_DESC_DASH</shopDescKey>
     <sprite>ShopIcons.Dash</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Mantis_Claw_(1)">
     <action>AddGeo</action>
@@ -345,6 +370,7 @@
     <nameKey>INV_NAME_WALLJUMP</nameKey>
     <shopDescKey>INV_DESC_WALLJUMP</shopDescKey>
     <sprite>ShopIcons.Walljump</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Crystal_Heart_(1)">
     <action>AddGeo</action>
@@ -354,6 +380,7 @@
     <nameKey>INV_NAME_SUPERDASH</nameKey>
     <shopDescKey>INV_DESC_SUPERDASH</shopDescKey>
     <sprite>ShopIcons.Superdash</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Monarch_Wings_(1)">
     <action>AddGeo</action>
@@ -363,6 +390,7 @@
     <nameKey>INV_NAME_DOUBLEJUMP</nameKey>
     <shopDescKey>INV_DESC_DOUBLEJUMP</shopDescKey>
     <sprite>ShopIcons.Wings</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Shade_Cloak_(1)">
     <action>AddGeo</action>
@@ -372,6 +400,7 @@
     <nameKey>INV_NAME_SHADOWDASH</nameKey>
     <shopDescKey>INV_DESC_SHADOWDASH</shopDescKey>
     <sprite>ShopIcons.Shadowdash</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Isma's_Tear_(1)">
     <action>AddGeo</action>
@@ -381,6 +410,7 @@
     <nameKey>INV_NAME_ACIDARMOUR</nameKey>
     <shopDescKey>INV_DESC_ACIDARMOUR</shopDescKey>
     <sprite>ShopIcons.Isma</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Dream_Nail_(1)">
     <action>AddGeo</action>
@@ -390,6 +420,7 @@
     <nameKey>INV_NAME_DREAMNAIL_A</nameKey>
     <shopDescKey>INV_DESC_DREAMNAIL_A</shopDescKey>
     <sprite>ShopIcons.Dreamnail</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Vengeful_Spirit_(1)">
     <action>AddGeo</action>
@@ -399,6 +430,7 @@
     <nameKey>INV_NAME_SPELL_FIREBALL1</nameKey>
     <shopDescKey>INV_DESC_SPELL_FIREBALL1</shopDescKey>
     <sprite>ShopIcons.Fireball1</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Desolate_Dive_(1)">
     <action>AddGeo</action>
@@ -408,6 +440,7 @@
     <nameKey>INV_NAME_SPELL_QUAKE1</nameKey>
     <shopDescKey>INV_DESC_SPELL_QUAKE1</shopDescKey>
     <sprite>ShopIcons.Quake1</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Howling_Wraiths_(1)">
     <action>AddGeo</action>
@@ -417,6 +450,7 @@
     <nameKey>INV_NAME_SPELL_SCREAM1</nameKey>
     <shopDescKey>INV_DESC_SPELL_SCREAM1</shopDescKey>
     <sprite>ShopIcons.Scream1</sprite>
+    <pool>Dupe</pool>
   </item>
   <item name="Void_Heart_(1)">
     <action>AddGeo</action>
@@ -427,6 +461,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_36_Void</shopDescKey>
     <sprite>Charms.36_Void</sprite>
     <notchCost>charmCost_36</notchCost>
+    <pool>Dupe</pool>
   </item>
   <item name="Gathering_Swarm">
     <boolName>gotCharm_1</boolName>
@@ -437,6 +472,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_1</shopDescKey>
     <sprite>Charms.1</sprite>
     <notchCost>charmCost_1</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Wayward_Compass">
     <boolName>gotCharm_2</boolName>
@@ -447,6 +483,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_2</shopDescKey>
     <sprite>Charms.2</sprite>
     <notchCost>charmCost_2</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Grubsong">
     <boolName>gotCharm_3</boolName>
@@ -457,6 +494,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_3</shopDescKey>
     <sprite>Charms.3</sprite>
     <notchCost>charmCost_3</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Stalwart_Shell">
     <boolName>gotCharm_4</boolName>
@@ -467,6 +505,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_4</shopDescKey>
     <sprite>Charms.4</sprite>
     <notchCost>charmCost_4</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Baldur_Shell">
     <boolName>gotCharm_5</boolName>
@@ -477,6 +516,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_5</shopDescKey>
     <sprite>Charms.5</sprite>
     <notchCost>charmCost_5</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Fury_of_the_Fallen">
     <boolName>gotCharm_6</boolName>
@@ -487,6 +527,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_6</shopDescKey>
     <sprite>Charms.6</sprite>
     <notchCost>charmCost_6</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Quick_Focus">
     <boolName>gotCharm_7</boolName>
@@ -497,6 +538,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_7</shopDescKey>
     <sprite>Charms.7</sprite>
     <notchCost>charmCost_7</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Lifeblood_Heart">
     <boolName>gotCharm_8</boolName>
@@ -507,6 +549,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_8</shopDescKey>
     <sprite>Charms.8</sprite>
     <notchCost>charmCost_8</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Lifeblood_Core">
     <boolName>gotCharm_9</boolName>
@@ -517,6 +560,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_9</shopDescKey>
     <sprite>Charms.9</sprite>
     <notchCost>charmCost_9</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Defender's_Crest">
     <boolName>gotCharm_10</boolName>
@@ -527,6 +571,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_10</shopDescKey>
     <sprite>Charms.10</sprite>
     <notchCost>charmCost_10</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Flukenest">
     <boolName>gotCharm_11</boolName>
@@ -537,6 +582,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_11</shopDescKey>
     <sprite>Charms.11</sprite>
     <notchCost>charmCost_11</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Thorns_of_Agony">
     <boolName>gotCharm_12</boolName>
@@ -547,6 +593,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_12</shopDescKey>
     <sprite>Charms.12</sprite>
     <notchCost>charmCost_12</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Mark_of_Pride">
     <boolName>gotCharm_13</boolName>
@@ -557,6 +604,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_13</shopDescKey>
     <sprite>Charms.13</sprite>
     <notchCost>charmCost_13</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Steady_Body">
     <boolName>gotCharm_14</boolName>
@@ -567,6 +615,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_14</shopDescKey>
     <sprite>Charms.14</sprite>
     <notchCost>charmCost_14</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Heavy_Blow">
     <boolName>gotCharm_15</boolName>
@@ -577,6 +626,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_15</shopDescKey>
     <sprite>Charms.15</sprite>
     <notchCost>charmCost_15</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Sharp_Shadow">
     <boolName>gotCharm_16</boolName>
@@ -587,6 +637,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_16</shopDescKey>
     <sprite>Charms.16</sprite>
     <notchCost>charmCost_16</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Spore_Shroom">
     <boolName>gotCharm_17</boolName>
@@ -597,6 +648,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_17</shopDescKey>
     <sprite>Charms.17</sprite>
     <notchCost>charmCost_17</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Longnail">
     <boolName>gotCharm_18</boolName>
@@ -607,6 +659,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_18</shopDescKey>
     <sprite>Charms.18</sprite>
     <notchCost>charmCost_18</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Shaman_Stone">
     <boolName>gotCharm_19</boolName>
@@ -617,6 +670,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_19</shopDescKey>
     <sprite>Charms.19</sprite>
     <notchCost>charmCost_19</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Soul_Catcher">
     <boolName>gotCharm_20</boolName>
@@ -627,6 +681,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_20</shopDescKey>
     <sprite>Charms.20</sprite>
     <notchCost>charmCost_20</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Soul_Eater">
     <boolName>gotCharm_21</boolName>
@@ -637,6 +692,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_21</shopDescKey>
     <sprite>Charms.21</sprite>
     <notchCost>charmCost_21</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Glowing_Womb">
     <boolName>gotCharm_22</boolName>
@@ -647,6 +703,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_22</shopDescKey>
     <sprite>Charms.22</sprite>
     <notchCost>charmCost_22</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Fragile_Heart">
     <boolName>gotCharm_23</boolName>
@@ -658,6 +715,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_23</shopDescKey>
     <sprite>Charms.23_G</sprite>
     <notchCost>charmCost_23</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Fragile_Greed">
     <boolName>gotCharm_24</boolName>
@@ -669,6 +727,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_24</shopDescKey>
     <sprite>Charms.24_G</sprite>
     <notchCost>charmCost_24</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Fragile_Strength">
     <boolName>gotCharm_25</boolName>
@@ -680,6 +739,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_25</shopDescKey>
     <sprite>Charms.25_G</sprite>
     <notchCost>charmCost_25</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Nailmaster's_Glory">
     <boolName>gotCharm_26</boolName>
@@ -690,6 +750,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_26</shopDescKey>
     <sprite>Charms.26</sprite>
     <notchCost>charmCost_26</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Joni's_Blessing">
     <boolName>gotCharm_27</boolName>
@@ -700,6 +761,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_27</shopDescKey>
     <sprite>Charms.27</sprite>
     <notchCost>charmCost_27</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Shape_of_Unn">
     <boolName>gotCharm_28</boolName>
@@ -710,6 +772,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_28</shopDescKey>
     <sprite>Charms.28</sprite>
     <notchCost>charmCost_28</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Hiveblood">
     <boolName>gotCharm_29</boolName>
@@ -720,6 +783,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_29</shopDescKey>
     <sprite>Charms.29</sprite>
     <notchCost>charmCost_29</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Dream_Wielder">
     <boolName>gotCharm_30</boolName>
@@ -730,6 +794,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_30</shopDescKey>
     <sprite>Charms.30</sprite>
     <notchCost>charmCost_30</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Dashmaster">
     <boolName>gotCharm_31</boolName>
@@ -740,6 +805,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_31</shopDescKey>
     <sprite>Charms.31</sprite>
     <notchCost>charmCost_31</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Quick_Slash">
     <boolName>gotCharm_32</boolName>
@@ -750,6 +816,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_32</shopDescKey>
     <sprite>Charms.32</sprite>
     <notchCost>charmCost_32</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Spell_Twister">
     <boolName>gotCharm_33</boolName>
@@ -760,6 +827,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_33</shopDescKey>
     <sprite>Charms.33</sprite>
     <notchCost>charmCost_33</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Deep_Focus">
     <boolName>gotCharm_34</boolName>
@@ -770,6 +838,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_34</shopDescKey>
     <sprite>Charms.34</sprite>
     <notchCost>charmCost_34</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Grubberfly's_Elegy">
     <boolName>gotCharm_35</boolName>
@@ -780,6 +849,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_35</shopDescKey>
     <sprite>Charms.35</sprite>
     <notchCost>charmCost_35</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Queen_Fragment">
     <boolName>Queen_Fragment</boolName>
@@ -796,6 +866,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_36_L</shopDescKey>
     <sprite>Charms.36_L</sprite>
     <notchCost>charmCost_36</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="King_Fragment">
     <boolName>King_Fragment</boolName>
@@ -812,6 +883,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_36_R</shopDescKey>
     <sprite>Charms.36_R</sprite>
     <notchCost>charmCost_36</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Void_Heart">
     <boolName>Void_Heart</boolName>
@@ -828,6 +900,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_36_Void</shopDescKey>
     <sprite>Charms.36_Void</sprite>
     <notchCost>charmCost_36</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Sprintmaster">
     <boolName>gotCharm_37</boolName>
@@ -838,6 +911,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_37</shopDescKey>
     <sprite>Charms.37</sprite>
     <notchCost>charmCost_37</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Dreamshield">
     <boolName>gotCharm_38</boolName>
@@ -848,6 +922,7 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_38</shopDescKey>
     <sprite>Charms.38</sprite>
     <notchCost>charmCost_38</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Weaversong">
     <boolName>gotCharm_39</boolName>
@@ -858,16 +933,18 @@
     <shopDescKey>RANDOMIZER_CHARM_DESC_39</shopDescKey>
     <sprite>Charms.39</sprite>
     <notchCost>charmCost_39</notchCost>
+    <pool>Charm</pool>
   </item>
   <item name="Grimmchild">
     <boolName>gotCharm_40</boolName>
     <equipBoolName>equippedCharm_40</equipBoolName>
     <charmNum>40</charmNum>
-    <action>Grimmchild</action>
+    <action>Grimmchild2</action>
     <nameKey>CHARM_NAME_40</nameKey>
     <shopDescKey>RANDOMIZER_CHARM_DESC_40</shopDescKey>
     <sprite>Charms.40</sprite>
     <notchCost>charmCost_40</notchCost>
+    <pool>Charm</pool>
   </item>
   <!--Keys-->
   <item name="City_Crest">
@@ -875,18 +952,21 @@
     <nameKey>INV_NAME_CITYKEY</nameKey>
     <shopDescKey>INV_DESC_CITYKEY</shopDescKey>
     <sprite>ShopIcons.CityKey</sprite>
+    <pool>Key</pool>
   </item>
   <item name="Lumafly_Lantern">
     <boolName>hasLantern</boolName>
     <nameKey>INV_NAME_LANTERN</nameKey>
     <shopDescKey>INV_DESC_LANTERN</shopDescKey>
     <sprite>ShopIcons.Lantern</sprite>
+    <pool>Key</pool>
   </item>
   <item name="Tram_Pass">
     <boolName>hasTramPass</boolName>
     <nameKey>INV_NAME_TRAM_PASS</nameKey>
     <shopDescKey>INV_DESC_TRAM_PASS</shopDescKey>
     <sprite>ShopIcons.TramPass</sprite>
+    <pool>Key</pool>
   </item>
   <item name="Simple_Key">
     <intName>simpleKeys</intName>
@@ -894,24 +974,28 @@
     <nameKey>INV_NAME_SIMPLEKEY</nameKey>
     <shopDescKey>INV_DESC_SIMPLEKEY</shopDescKey>
     <sprite>ShopIcons.SimpleKey</sprite>
+    <pool>Key</pool>
   </item>
   <item name="Shopkeeper's_Key">
     <boolName>hasSlykey</boolName>
     <nameKey>INV_NAME_STOREKEY</nameKey>
     <shopDescKey>INV_DESC_STOREKEY</shopDescKey>
     <sprite>ShopIcons.ShopkeepersKey</sprite>
+    <pool>Key</pool>
   </item>
   <item name="Elegant_Key">
     <boolName>hasWhiteKey</boolName>
     <nameKey>INV_NAME_WHITEKEY</nameKey>
     <shopDescKey>INV_DESC_WHITEKEY</shopDescKey>
     <sprite>ShopIcons.ElegantKey</sprite>
+    <pool>Key</pool>
   </item>
   <item name="Love_Key">
     <boolName>hasLoveKey</boolName>
     <nameKey>INV_NAME_LOVEKEY</nameKey>
     <shopDescKey>INV_DESC_LOVEKEY</shopDescKey>
     <sprite>ShopIcons.LoveKey</sprite>
+    <pool>Key</pool>
   </item>
   <item name="King's_Brand">
     <boolName>hasKingsBrand</boolName>
@@ -924,6 +1008,7 @@
     <descTwoKey>GET_KINGSBRAND_2</descTwoKey>
     <shopDescKey>INV_DESC_KINGSBRAND</shopDescKey>
     <sprite>ShopIcons.KingsBrand</sprite>
+    <pool>Key</pool>
   </item>
   <item name="Godtuner">
     <boolName>hasGodfinder</boolName>
@@ -936,6 +1021,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_INV_DESC_GODFINDER</shopDescKey>
     <sprite>ShopIcons.Godfinder</sprite>
+    <pool>Key</pool>
   </item>
   <item name="Collector's_Map">
     <boolName>hasPinGrub</boolName>
@@ -948,6 +1034,7 @@
     <descTwoKey>RANDOMIZER_EMPTY</descTwoKey>
     <shopDescKey>RANDOMIZER_GET_COLLECTOR_MAP</shopDescKey>
     <sprite>ShopIcons.CollectorsMap</sprite>
+    <pool>Key</pool>
   </item>
   <!--Mask Shards-->
   <item name="Mask_Shard">
@@ -955,6 +1042,7 @@
     <nameKey>RANDOMIZER_NAME_MASK_SHARD</nameKey>
     <shopDescKey>RANDOMIZER_DESC_MASK_SHARD</shopDescKey>
     <sprite>ShopIcons.MaskShard</sprite>
+    <pool>Mask</pool>
   </item>
   <!--Vessel Fragments-->
   <item name="Vessel_Fragment">
@@ -962,6 +1050,7 @@
     <nameKey>RANDOMIZER_NAME_VESSEL_FRAGMENT</nameKey>
     <shopDescKey>RANDOMIZER_DESC_VESSEL_FRAGMENT</shopDescKey>
     <sprite>ShopIcons.VesselFragment</sprite>
+    <pool>Vessel</pool>
   </item>
   <!--Charm Notches-->
   <item name="Charm_Notch">
@@ -970,6 +1059,7 @@
     <nameKey>RANDOMIZER_NAME_CHARM_NOTCH</nameKey>
     <shopDescKey>RANDOMIZER_DESC_CHARM_NOTCH</shopDescKey>
     <sprite>ShopIcons.CharmNotch</sprite>
+    <pool>Notch</pool>
   </item>
   <!--Pale Ore-->
   <item name="Pale_Ore">
@@ -978,6 +1068,7 @@
     <nameKey>RANDOMIZER_NAME_PALE_ORE</nameKey>
     <shopDescKey>RANDOMIZER_DESC_PALE_ORE</shopDescKey>
     <sprite>ShopIcons.PaleOre</sprite>
+    <pool>Ore</pool>
   </item>
   <!--Geo Chests-->
   <item name="False_Knight_Chest">
@@ -987,6 +1078,7 @@
     <nameKey>RANDOMIZER_NAME_200GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <sprite>ShopIcons.Geo</sprite>
+    <pool>Geo</pool>
   </item>
   <item name="Soul_Master_Chest">
     <type>Geo</type>
@@ -995,6 +1087,7 @@
     <nameKey>RANDOMIZER_NAME_380GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <sprite>ShopIcons.Geo</sprite>
+    <pool>Geo</pool>
   </item>
   <item name="Watcher_Knights_Chest">
     <type>Geo</type>
@@ -1003,6 +1096,7 @@
     <nameKey>RANDOMIZER_NAME_655GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <sprite>ShopIcons.Geo</sprite>
+    <pool>Geo</pool>
   </item>
   <item name="Greenpath_Chest">
     <type>Geo</type>
@@ -1011,6 +1105,7 @@
     <nameKey>RANDOMIZER_NAME_85GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <sprite>ShopIcons.Geo</sprite>
+    <pool>Geo</pool>
   </item>
   <item name="Mantis_Lords_Chest">
     <type>Geo</type>
@@ -1019,6 +1114,7 @@
     <nameKey>RANDOMIZER_NAME_620GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <sprite>ShopIcons.Geo</sprite>
+    <pool>Geo</pool>
   </item>
   <item name="Resting_Grounds_Chest">
     <type>Geo</type>
@@ -1027,6 +1123,7 @@
     <nameKey>RANDOMIZER_NAME_150GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <sprite>ShopIcons.Geo</sprite>
+    <pool>Geo</pool>
   </item>
   <item name="Crystal_Peak_Chest">
     <type>Geo</type>
@@ -1035,6 +1132,7 @@
     <nameKey>RANDOMIZER_NAME_80GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <sprite>ShopIcons.Geo</sprite>
+    <pool>Geo</pool>
   </item>
   <item name="Weavers_Den_Chest">
     <type>Geo</type>
@@ -1043,6 +1141,7 @@
     <nameKey>RANDOMIZER_NAME_160GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <sprite>ShopIcons.Geo</sprite>
+    <pool>Geo</pool>
   </item>
   <item name="One_Geo">
     <type>Geo</type>
@@ -1051,6 +1150,7 @@
     <nameKey>RANDOMIZER_NAME_1GEO</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GEO</shopDescKey>
     <sprite>ShopIcons.Geo</sprite>
+    <pool>Cursed</pool>
   </item>
   <item name="Rancid_Egg">
     <intName>rancidEggs</intName>
@@ -1058,6 +1158,7 @@
     <nameKey>INV_NAME_RANCIDEGG</nameKey>
     <shopDescKey>INV_DESC_RANCIDEGG</shopDescKey>
     <sprite>ShopIcons.RancidEgg</sprite>
+    <pool>Egg</pool>
   </item>
   <!--Wanderers Journals-->
   <item name="Wanderer's_Journal">
@@ -1065,6 +1166,7 @@
     <nameKey>INV_NAME_TRINKET1</nameKey>
     <shopDescKey>INV_DESC_TRINKET1</shopDescKey>
     <sprite>ShopIcons.WanderersJournal</sprite>
+    <pool>Relic</pool>
   </item>
   <!--Hallownest Seals-->
   <item name="Hallownest_Seal">
@@ -1072,6 +1174,7 @@
     <nameKey>INV_NAME_TRINKET2</nameKey>
     <shopDescKey>INV_DESC_TRINKET2</shopDescKey>
     <sprite>ShopIcons.HallownestSeal</sprite>
+    <pool>Relic</pool>
   </item>
   <!--Kings Idols-->
   <item name="King's_Idol">
@@ -1079,12 +1182,14 @@
     <nameKey>INV_NAME_TRINKET3</nameKey>
     <shopDescKey>INV_DESC_TRINKET3</shopDescKey>
     <sprite>ShopIcons.KingsIdol</sprite>
+    <pool>Relic</pool>
   </item>
   <item name="Arcane_Egg">
     <action>ArcaneEgg</action>
     <nameKey>INV_NAME_TRINKET4</nameKey>
     <shopDescKey>INV_DESC_TRINKET4</shopDescKey>
     <sprite>ShopIcons.ArcaneEgg</sprite>
+    <pool>Relic</pool>
   </item>
   <!--Whispering Roots-->
   <item name="Whispering_Root-Crossroads">
@@ -1093,6 +1198,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_29</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Greenpath">
     <action>Essence</action>
@@ -1100,6 +1206,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_44</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Leg_Eater">
     <action>Essence</action>
@@ -1107,6 +1214,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_20</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Mantis_Village">
     <action>Essence</action>
@@ -1114,6 +1222,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_18</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Deepnest">
     <action>Essence</action>
@@ -1121,6 +1230,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_45</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Queens_Gardens">
     <action>Essence</action>
@@ -1128,6 +1238,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_29</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Kingdoms_Edge">
     <action>Essence</action>
@@ -1135,6 +1246,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_51</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Waterways">
     <action>Essence</action>
@@ -1142,6 +1254,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_35</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-City">
     <action>Essence</action>
@@ -1149,6 +1262,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_28</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Resting_Grounds">
     <action>Essence</action>
@@ -1156,6 +1270,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_20</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Spirits_Glade">
     <action>Essence</action>
@@ -1163,6 +1278,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_34</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Crystal_Peak">
     <action>Essence</action>
@@ -1170,6 +1286,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_21</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Howling_Cliffs">
     <action>Essence</action>
@@ -1177,6 +1294,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_46</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Ancestral_Mound">
     <action>Essence</action>
@@ -1184,6 +1302,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_42</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <item name="Whispering_Root-Hive">
     <action>Essence</action>
@@ -1191,6 +1310,7 @@
     <nameKey>RANDOMIZER_NAME_ESSENCE_20</nameKey>
     <shopDescKey>RANDOMIZER_DESC_ESSENCE</shopDescKey>
     <sprite>ShopIcons.Essence</sprite>
+    <pool>Root</pool>
   </item>
   <!--Grubs-->
   <item name="Grub_Pickup">
@@ -1198,6 +1318,7 @@
     <nameKey>RANDOMIZER_NAME_GRUB</nameKey>
     <shopDescKey>RANDOMIZER_DESC_GRUB</shopDescKey>
     <sprite>ShopIcons.Grub</sprite>
+    <pool>Grub</pool>
   </item>
   <!--MAPS-->
   <item name="Crossroads_Map">
@@ -1206,6 +1327,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_CROSSROADS</nameKey>
     <shopDescKey>MAP_DESC_CROSSROADS</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Greenpath_Map">
     <boolName>mapGreenpath</boolName>
@@ -1213,6 +1335,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_GREENPATH</nameKey>
     <shopDescKey>MAP_DESC_GREENPATH</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Fog_Canyon_Map">
     <boolName>mapFogCanyon</boolName>
@@ -1220,6 +1343,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_FOG_CANYON</nameKey>
     <shopDescKey>MAP_DESC_FOG_CANYON</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Fungal_Wastes_Map">
     <boolName>mapFungalWastes</boolName>
@@ -1227,6 +1351,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_FUNGAL_WASTES</nameKey>
     <shopDescKey>MAP_DESC_FUNGAL_WASTES</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Deepnest_Map">
     <boolName>mapDeepnest</boolName>
@@ -1234,6 +1359,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_DEEPNEST</nameKey>
     <shopDescKey>MAP_DESC_DEEPNEST</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <!--Since it would make no sense to have two deepnest maps-->
   <item name="Quill">
@@ -1242,6 +1368,7 @@
     <nameKey>INV_NAME_QUILL</nameKey>
     <shopDescKey>SHOP_DESC_QUILL</shopDescKey>
     <sprite>ShopIcons.Quill</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Ancient_Basin_Map">
     <boolName>mapAbyss</boolName>
@@ -1249,6 +1376,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_ABYSS</nameKey>
     <shopDescKey>MAP_DESC_ABYSS</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Kingdom's_Edge_Map">
     <boolName>mapOutskirts</boolName>
@@ -1256,6 +1384,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_OUTSKIRTS</nameKey>
     <shopDescKey>MAP_DESC_OUTSKIRTS</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="City_of_Tears_Map">
     <boolName>mapCity</boolName>
@@ -1263,6 +1392,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_CITY</nameKey>
     <shopDescKey>MAP_DESC_CITY</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Royal_Waterways_Map">
     <boolName>mapWaterways</boolName>
@@ -1270,6 +1400,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_WATERWAYS</nameKey>
     <shopDescKey>MAP_DESC_WATERWAYS</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Howling_Cliffs_Map">
     <boolName>mapCliffs</boolName>
@@ -1277,6 +1408,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_CLIFFS</nameKey>
     <shopDescKey>MAP_DESC_CLIFFS</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Crystal_Peak_Map">
     <boolName>mapMines</boolName>
@@ -1284,13 +1416,14 @@
     <nameKey>RANDOMIZER_MAP_NAME_MINES</nameKey>
     <shopDescKey>MAP_DESC_MINES</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <item name="Queen's_Gardens_Map">
     <boolName>mapRoyalGardens</boolName>
     <action>Map</action>
     <nameKey>RANDOMIZER_MAP_NAME_ROYAL_GARDENS</nameKey>
     <shopDescKey>MAP_DESC_ROYAL_GARDENS</shopDescKey>
-    <sprite>ShopIcons.Map</sprite>
+    <sprite>ShopIcons.Map</sprite><pool>Map</pool>
   </item>
   <item name="Resting_Grounds_Map">
     <boolName>mapRestingGrounds</boolName>
@@ -1298,6 +1431,7 @@
     <nameKey>RANDOMIZER_MAP_NAME_RESTING_GROUNDS</nameKey>
     <shopDescKey>MAP_DESC_RESTING_GROUNDS</shopDescKey>
     <sprite>ShopIcons.Map</sprite>
+    <pool>Map</pool>
   </item>
   <!--Stag Stations-->
   <item name="Dirtmouth_Stag">
@@ -1305,6 +1439,7 @@
     <nameKey>RANDOMIZER_STAG_NAME_DIRTMOUTH</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
   <item name="Crossroads_Stag">
     <boolName>openedCrossroads</boolName>
@@ -1312,6 +1447,7 @@
     <nameKey>RANDOMIZER_STAG_NAME_CROSSROADS</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
   <item name="Greenpath_Stag">
     <boolName>openedGreenpath</boolName>
@@ -1319,6 +1455,7 @@
     <nameKey>RANDOMIZER_STAG_NAME_GREENPATH</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
   <item name="Queen's_Station_Stag">
     <boolName>openedFungalWastes</boolName>
@@ -1326,6 +1463,7 @@
     <nameKey>RANDOMIZER_STAG_NAME_QUEENSSTATION</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
   <item name="Queen's_Gardens_Stag">
     <boolName>openedRoyalGardens</boolName>
@@ -1333,6 +1471,7 @@
     <nameKey>RANDOMIZER_STAG_NAME_QUEENSGARDENS</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
   <item name="City_Storerooms_Stag">
     <boolName>openedRuins1</boolName>
@@ -1340,6 +1479,7 @@
     <nameKey>RANDOMIZER_STAG_NAME_STOREROOMS</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
   <item name="King's_Station_Stag">
     <boolName>openedRuins2</boolName>
@@ -1347,6 +1487,7 @@
     <nameKey>RANDOMIZER_STAG_NAME_KINGSSTATION</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
   <item name="Resting_Grounds_Stag">
     <boolName>openedRestingGrounds</boolName>
@@ -1354,13 +1495,15 @@
     <nameKey>RANDOMIZER_STAG_NAME_RESTINGGROUNDS</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
-  </item>
+    <pool>Stag</pool>
+  </item><pool>Stag</pool>
   <item name="Distant_Village_Stag">
     <boolName>openedDeepnest</boolName>
     <action>Stag</action>
     <nameKey>RANDOMIZER_STAG_NAME_DEEPNEST</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
   <item name="Hidden_Station_Stag">
     <boolName>openedHiddenStation</boolName>
@@ -1368,6 +1511,7 @@
     <nameKey>RANDOMIZER_STAG_NAME_HIDDENSTATION</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
   <item name="Stag_Nest_Stag">
     <boolName>openedStagNest</boolName>
@@ -1375,5 +1519,6 @@
     <nameKey>RANDOMIZER_STAG_NAME_STAGNEST</nameKey>
     <shopDescKey>RANDOMIZER_STAG_DESC</shopDescKey>
     <sprite>ShopIcons.StagPin</sprite>
+    <pool>Stag</pool>
   </item>
 </randomizer>

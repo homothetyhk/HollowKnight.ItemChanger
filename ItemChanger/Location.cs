@@ -43,6 +43,7 @@ namespace ItemChanger
         public CostType costType;
         public SpecialFSMEdit specialFSMEdit;
         public SpecialPDHook specialPDHook;
+        public LocationPool pool;
 
         public Location(string defaultLocationName)
         {
@@ -104,6 +105,31 @@ namespace ItemChanger
             CollectorGrubs,
             Stag,
             WhisperingRoot
+        }
+
+        public enum LocationPool
+        {
+            None,
+            Start,
+            Shop,
+            Dreamer,
+            Skill,
+            Charm,
+            Key,
+            Mask,
+            Vessel,
+            Ore,
+            Notch,
+            Geo,
+            Egg,
+            Relic,
+            Map,
+            Stag,
+            Grub,
+            Root,
+
+            Cursed,
+            Custom,
         }
     }
 }

@@ -94,6 +94,8 @@
     <Compile Include="Actions\RandomizerAction.cs" />
     <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
     <Compile Include="AdditiveManager.cs" />
+    <Compile Include="Platform.cs" />
+    <Compile Include="Components\RandomizerTinkEffect.cs" />
     <Compile Include="TransitionHooks.cs" />
     <Compile Include="Custom\Locations.cs" />
     <Compile Include="StartLocation.cs" />
@@ -301,6 +303,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\language.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\platforms.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

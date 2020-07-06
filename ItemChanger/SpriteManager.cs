@@ -19,11 +19,18 @@ namespace ItemChanger
 
         public static Sprite GetSprite(string spriteName)
         {
-            if(!_sprites.TryGetValue(spriteName, out Sprite sprite))
+            if (_sprites == null)
             {
-                ItemChanger.instance.LogError($"Sprite at {spriteName} was not loaded.");
+                Modding.Logger.LogError($"GetSprite called before SpriteManager.Setup");
                 return null;
             }
+
+            if (!_sprites.TryGetValue(spriteName, out Sprite sprite))
+            {
+                Modding.Logger.LogError($"Sprite at {spriteName} was not loaded.");
+                return null;
+            }
+
             return sprite;
         }
     }
