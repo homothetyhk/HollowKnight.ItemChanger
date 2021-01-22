@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HutongGames.PlayMaker;
+using ItemChanger.FsmStateActions;
 using SeanprCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -83,6 +85,21 @@ namespace ItemChanger
                         GameObject.Destroy(GameObject.Find("Battle Scene"));
                     }
                     break;
+
+                // old randomizer stuff, hopefully shouldn't cause issues 
+                case SceneNames.Ruins1_24:
+                    // Stop the weird invisible floor from appearing if dive has been obtained
+                    if (Ref.PD.quakeLevel > 0)
+                    {
+                        GameObject.Destroy(GameObject.Find("Roof Collider Battle"));
+                    }
+
+                    // Change battle gate to be destroyed if Soul Master is dead instead of it the player has quake
+                    FsmState checkQuake = FSMUtility.LocateFSM(GameObject.Find("Battle Gate (1)"), "Destroy if Quake").GetState("Check");
+                    checkQuake.RemoveActionsOfType<FsmStateAction>();
+                    checkQuake.AddAction(new RandomizerBoolTest(nameof(PlayerData.killedMageLord), null, "DESTROY", true));
+                    break;
+
                 case SceneNames.Waterways_04:
                     if (GameManager.instance.entryGateName.StartsWith("b"))
                     {

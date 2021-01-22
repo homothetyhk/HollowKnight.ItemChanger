@@ -375,7 +375,7 @@ namespace ItemChanger
                     LanguageStringManager.SetString(
                             "Prompts",
                             "TRIAL_BOARD_BRONZE",
-                            "Trial of the Warrior. Fight for " + LanguageStringManager.GetLanguageString(ilp.item.nameKey, "UI") + ".\n" + "Place a mark and begin the Trial?"
+                            "Trial of the Warrior. Fight for " + Language.Language.Get(ilp.item.nameKey, "UI") + ".\n" + "Place a mark and begin the Trial?"
                                 );
                 }
             }
@@ -397,7 +397,7 @@ namespace ItemChanger
                     LanguageStringManager.SetString(
                             "Prompts",
                             "TRIAL_BOARD_SILVER",
-                            "Trial of the Conqueror. Fight for " + LanguageStringManager.GetLanguageString(ilp.item.nameKey, "UI") + ".\n" + "Place a mark and begin the Trial?"
+                            "Trial of the Conqueror. Fight for " + Language.Language.Get(ilp.item.nameKey, "UI") + ".\n" + "Place a mark and begin the Trial?"
                                 );
                 }
             }
@@ -420,7 +420,7 @@ namespace ItemChanger
                     LanguageStringManager.SetString(
                             "Prompts",
                             "XUN_OFFER",
-                            "Accept the Gift, even knowing you'll only get a lousy " + LanguageStringManager.GetLanguageString(ilp.item.nameKey, "UI") + "?"
+                            "Accept the Gift, even knowing you'll only get a lousy " + Language.Language.Get(ilp.item.nameKey, "UI") + "?"
                                 );
                 }
             }
@@ -444,7 +444,7 @@ namespace ItemChanger
                             "Lore Tablets",
                             "DUSK_KNIGHT_CORPSE",
                             "A corpse in white armour. You can clearly see the "
-                                + LanguageStringManager.GetLanguageString(ilp.item.nameKey, "UI") + " it's holding, " +
+                                + Language.Language.Get(ilp.item.nameKey, "UI") + " it's holding, " +
                                 "but for some reason you get the feeling you're going to have to go" +
                                 " through an unnecessarily long gauntlet of spikes and sawblades just to pick it up."
                                 );

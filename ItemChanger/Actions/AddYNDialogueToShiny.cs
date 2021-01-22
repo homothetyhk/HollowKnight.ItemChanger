@@ -119,7 +119,7 @@ namespace ItemChanger.Actions
             {
                 case CostType.Essence:
                     LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE",
-                        cost + " Essence: " + LanguageStringManager.GetLanguageString(nameKey, "UI"));
+                        cost + " Essence: " + Language.Language.Get(nameKey, "UI"));
 
                     if (Ref.PD.dreamOrbs < cost)
                     {
@@ -131,7 +131,7 @@ namespace ItemChanger.Actions
                     break;
 
                 case CostType.Simple:
-                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", cost + " Simple Key: " + LanguageStringManager.GetLanguageString(nameKey, "UI"));
+                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", cost + " Simple Key: " + Language.Language.Get(nameKey, "UI"));
 
                     if (PlayerData.instance.simpleKeys < 1 || (ItemChangerSettings.currentSettings.forceUseFirstSimpleKeyOnWaterways && PlayerData.instance.simpleKeys < 2 && !PlayerData.instance.openedWaterwaysManhole))
                     {
@@ -142,7 +142,7 @@ namespace ItemChanger.Actions
                     break;
 
                 case CostType.Grub:
-                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", cost + " Grubs: " + LanguageStringManager.GetLanguageString(nameKey, "UI"));
+                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", cost + " Grubs: " + Language.Language.Get(nameKey, "UI"));
 
                     if (PlayerData.instance.grubsCollected < cost)
                     {
@@ -153,7 +153,7 @@ namespace ItemChanger.Actions
                     break;
 
                 case CostType.Wraiths:
-                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Have Howling Wraiths: " + LanguageStringManager.GetLanguageString(nameKey, "UI"));
+                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Have Howling Wraiths: " + Language.Language.Get(nameKey, "UI"));
 
                     if (PlayerData.instance.screamLevel < 1)
                     {
@@ -163,7 +163,7 @@ namespace ItemChanger.Actions
                     cost = 0;
                     break;
                 case CostType.Dreamnail:
-                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Have Dream Nail: " + LanguageStringManager.GetLanguageString(nameKey, "UI"));
+                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Have Dream Nail: " + Language.Language.Get(nameKey, "UI"));
 
                     if (!PlayerData.instance.hasDreamNail)
                     {
@@ -173,7 +173,7 @@ namespace ItemChanger.Actions
                     cost = 0;
                     break;
                 case CostType.WhisperingRoot:
-                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Complete the trial: " + LanguageStringManager.GetLanguageString(nameKey, "UI"));
+                    LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", "Complete the trial: " + Language.Language.Get(nameKey, "UI"));
 
                     {
                         if (GameObject.Find("Dream Plant") is GameObject dreamPlant)
@@ -199,7 +199,7 @@ namespace ItemChanger.Actions
                     break;
                 default:
                     LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE",
-                        LanguageStringManager.GetLanguageString(nameKey, "UI"));
+                        Language.Language.Get(nameKey, "UI"));
                     break;
             }
             FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables

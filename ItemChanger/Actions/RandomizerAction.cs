@@ -73,7 +73,7 @@ namespace ItemChanger.Actions
                 else if (ilp.location.geoChest && ilp.item.type != Item.ItemType.Geo)
                 {
                     fsmName = "Shiny Control";
-                    objName = "Randomizer Chest Shiny";
+                    objName = "Randomizer Chest Shiny" + newShinies++;
                     Actions.Add(new AddShinyToChest(ilp.location.sceneName, ilp.location.chestName, ilp.location.chestFsm,
                         objName));
                 }
@@ -139,7 +139,7 @@ namespace ItemChanger.Actions
                         Actions.Add(new EditFsm(ilp.location.sceneName, "Pickup", "Quake Pickup",
                             (self) =>
                             {
-                                self.GetState("Appear").Actions[2] = new RandomizerExecuteLambda(
+                                self.GetState("Appear").Actions[2] = self.GetState("Instant Activate").Actions[0] = new RandomizerExecuteLambda(
                                     () => 
                                     {
                                         GameObject.Find("Quake Pickup").transform.Find(objName).gameObject.SetActive(true);

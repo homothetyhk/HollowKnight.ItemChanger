@@ -87,7 +87,8 @@ namespace ItemChanger
             }
         }
 
-        public static string GetLanguageString(string key, string sheetTitle)
+        // keep this private -- the api hook does weird stuff with GetInternal
+        private static string GetLanguageString(string key, string sheetTitle)
         {
             if (key.StartsWith("RANDOMIZER_NAME_ESSENCE_"))
             {
