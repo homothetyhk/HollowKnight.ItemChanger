@@ -5,7 +5,7 @@ using HutongGames.PlayMaker.Actions;
 using Modding;
 using UnityEngine.SceneManagement;
 using ItemChanger.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using static Modding.Logger;
 using static ItemChanger.Location;

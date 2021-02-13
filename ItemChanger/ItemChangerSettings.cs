@@ -2,7 +2,7 @@
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;

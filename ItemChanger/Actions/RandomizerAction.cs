@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using static Modding.Logger;

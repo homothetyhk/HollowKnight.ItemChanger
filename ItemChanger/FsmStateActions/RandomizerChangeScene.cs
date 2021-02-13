@@ -1,7 +1,7 @@
 ﻿using GlobalEnums;
 using HutongGames.PlayMaker;
 using Modding;
-using SeanprCore;
+using SereCore;
 
 namespace ItemChanger.FsmStateActions
 {

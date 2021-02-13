@@ -1,6 +1,6 @@
 ﻿using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

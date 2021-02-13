@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using HutongGames.PlayMaker;
 using ItemChanger.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

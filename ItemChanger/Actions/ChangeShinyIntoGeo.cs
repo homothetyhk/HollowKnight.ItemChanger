@@ -1,7 +1,7 @@
 ﻿using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 
 namespace ItemChanger.Actions

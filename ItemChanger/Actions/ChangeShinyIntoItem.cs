@@ -2,7 +2,7 @@
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using static ItemChanger.GiveItemActions;
 using System.Collections;

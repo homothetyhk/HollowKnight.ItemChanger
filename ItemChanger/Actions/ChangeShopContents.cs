@@ -7,7 +7,7 @@ using static Modding.Logger;
 using System;
 using Object = UnityEngine.Object;
 using static ItemChanger.Default.Shops;
-using SeanprCore;
+using SereCore;
 
 namespace ItemChanger.Actions
 {

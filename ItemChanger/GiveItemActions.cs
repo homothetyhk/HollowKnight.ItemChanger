@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using ItemChanger;
 using static Modding.Logger;
-using SeanprCore;
+using SereCore;
 using static ItemChanger.Item;
 using System.Text.RegularExpressions;
 

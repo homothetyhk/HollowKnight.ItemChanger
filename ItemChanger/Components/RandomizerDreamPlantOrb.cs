@@ -6,7 +6,7 @@ using GlobalEnums;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using Modding;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = System.Random;

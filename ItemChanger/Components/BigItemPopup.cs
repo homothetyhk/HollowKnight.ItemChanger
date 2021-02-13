@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using Modding;
 using ItemChanger.Actions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;

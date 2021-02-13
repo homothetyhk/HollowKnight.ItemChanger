@@ -8,7 +8,7 @@ using HutongGames.PlayMaker;
 using ItemChanger.Actions;
 using Modding;
 using MonoMod;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

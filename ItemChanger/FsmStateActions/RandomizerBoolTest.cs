@@ -1,5 +1,5 @@
 ﻿using HutongGames.PlayMaker;
-using SeanprCore;
+using SereCore;
 
 namespace ItemChanger.FsmStateActions
 {
