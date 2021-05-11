@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Reflection;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -35,5 +36,44 @@ namespace ItemChanger
             }
         }
 
+        internal static Func<
+            (string respawnScene, string respawnMarkerName, int respawnType, int mapZone),
+            (string respawnScene, string respawnMarkerName, int respawnType, int mapZone)
+            >
+            BenchwarpGetStartDef = def => (start.startSceneName, RESPAWN_MARKER_NAME, 0, 2);
+
+        internal static void HookBenchwarp()
+        {
+            try
+            {
+                FieldInfo field = Type.GetType("Benchwarp.Events, Benchwarp")
+                    .GetField("OnGetStartDef", BindingFlags.Public | BindingFlags.Static);
+
+                field.FieldType
+                    .GetEvent("Event", BindingFlags.Public | BindingFlags.Instance)
+                    .AddEventHandler(field.GetValue(null), BenchwarpGetStartDef);
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        internal static void UnHookBenchwarp()
+        {
+            try
+            {
+                FieldInfo field = Type.GetType("Benchwarp.Events, Benchwarp")
+                    .GetField("OnGetStartDef", BindingFlags.Public | BindingFlags.Static);
+
+                field.FieldType
+                    .GetEvent("Event", BindingFlags.Public | BindingFlags.Instance)
+                    .RemoveEventHandler(field.GetValue(null), BenchwarpGetStartDef);
+            }
+            catch
+            {
+                return;
+            }
+        }
     }
 }

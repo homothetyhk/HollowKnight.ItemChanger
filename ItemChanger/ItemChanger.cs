@@ -44,7 +44,7 @@ namespace ItemChanger
 
         public override string GetVersion()
         {
-            return "1.0";
+            return "1.0.1";
         }
 
         public override int LoadPriority() => -2;
@@ -71,6 +71,7 @@ namespace ItemChanger
                 On.GameManager.StartNewGame -= StartLocation.OverrideStartNewGame;
                 UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= StartLocation.CreateRespawnMarker;
                 receivedChangeStartRequest = false;
+                StartLocation.UnHookBenchwarp();
             }
         }
 
@@ -106,6 +107,7 @@ namespace ItemChanger
             StartLocation.start = start;
             On.GameManager.StartNewGame += StartLocation.OverrideStartNewGame;
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartLocation.CreateRespawnMarker;
+            StartLocation.HookBenchwarp();
         }
 
         private static void EditScene(Scene from, Scene to)
