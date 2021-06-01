@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using static ItemChanger.Item;
+using static ItemChanger._Item;
 
 namespace ItemChanger.Custom
 {
     public static class Items
     {
-        public static Item CreateShopItem(string defaultItemName, int shopPrice)
+        public static _Item CreateShopItem(string defaultItemName, int shopPrice)
         {
-            if (!XmlManager.Items.TryGetValue(defaultItemName, out Item item))
+            if (!XmlManager.Items.TryGetValue(defaultItemName, out _Item item))
             {
                 ItemChanger.instance.LogError($"Key {defaultItemName} did not correspond to any known item.");
                 throw new KeyNotFoundException();
@@ -20,18 +20,18 @@ namespace ItemChanger.Custom
             return item;
         }
 
-        public static Item AddShopPrice(Item item, int shopPrice)
+        public static _Item AddShopPrice(_Item item, int shopPrice)
         {
             item.shopPrice = shopPrice;
             return item;
         }
 
-        public static Item[] CreateAdditiveItemSet(Item[] itemset, string additiveGroupName)
+        public static _Item[] CreateAdditiveItemSet(_Item[] itemset, string additiveGroupName)
         {
-            List<Item> newItems = new List<Item>();
+            List<_Item> newItems = new List<_Item>();
             for (int i=0;i<itemset.Length;i++)
             {
-                Item item = itemset[i];
+                _Item item = itemset[i];
                 item.additiveGroup = additiveGroupName;
                 item.additiveIndex = i;
                 newItems.Add(item);
@@ -39,9 +39,9 @@ namespace ItemChanger.Custom
             return newItems.ToArray();
         }
 
-        public static Item CreateCustomItem(string name, Sprite sprite, string nameKey, string shopDescKey, Action customAction, int shopPrice = 0)
+        public static _Item CreateCustomItem(string name, Sprite sprite, string nameKey, string shopDescKey, Action customAction, int shopPrice = 0)
         {
-            Item item = new Item();
+            _Item item = new _Item();
             item.name = name;
 
             item.sprite = sprite;
@@ -56,9 +56,9 @@ namespace ItemChanger.Custom
             return item;
         }
 
-        public static Item CreateCustomBigItem(string name, Sprite sprite, string nameKey, string shopDescKey, Sprite bigSprite, string takeKey, string buttonKey, string descOneKey, string descTwoKey, Action customAction, int shopPrice = 0)
+        public static _Item CreateCustomBigItem(string name, Sprite sprite, string nameKey, string shopDescKey, Sprite bigSprite, string takeKey, string buttonKey, string descOneKey, string descTwoKey, Action customAction, int shopPrice = 0)
         {
-            Item item = new Item();
+            _Item item = new _Item();
             item.name = name;
             
             item.sprite = sprite;

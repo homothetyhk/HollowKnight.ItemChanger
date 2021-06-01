@@ -43,7 +43,7 @@ namespace ItemChanger.FsmStateActions
 
         public override void OnEnter()
         {
-            if (_playerdata && Ref.PD.GetBool(_boolName) ||
+            if (_playerdata && SereCore.Ref.PD.GetBool(_boolName) ||
                 !_playerdata && ItemChanger.instance.Settings.GetBool(false, _boolName))
             {
                 if (_successEvent != null)

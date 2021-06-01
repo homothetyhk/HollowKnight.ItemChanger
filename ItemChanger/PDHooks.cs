@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using static ItemChanger.Location;
+using static ItemChanger._Location;
 
 namespace ItemChanger
 {
@@ -93,7 +93,7 @@ namespace ItemChanger
                 if (value)
                 {
                     string id = boolName.Split('.').Last();
-                    GiveItemActions.GiveItem(ILP.ILPs[id]);
+                    GiveItemActions.GiveItem(_ILP.ILPs[id]);
                 }
                 return;
             }

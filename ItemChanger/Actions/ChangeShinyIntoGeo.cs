@@ -8,12 +8,12 @@ namespace ItemChanger.Actions
 {
     public class ChangeShinyIntoGeo : RandomizerAction
     {
-        private readonly ILP _ilp;
+        private readonly _ILP _ilp;
         private readonly string _fsmName;
         private readonly string _objectName;
         private readonly string _sceneName;
 
-        internal ChangeShinyIntoGeo(ILP ilp, string sceneName, string objectName, string fsmName)
+        internal ChangeShinyIntoGeo(_ILP ilp, string sceneName, string objectName, string fsmName)
         {
             _ilp = ilp;
             _sceneName = sceneName;

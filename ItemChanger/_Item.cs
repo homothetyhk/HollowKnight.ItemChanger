@@ -8,7 +8,8 @@ using System.Text.RegularExpressions;
 
 namespace ItemChanger
 {
-    public struct Item
+    [Obsolete("Override AbstractItem instead")]
+    public struct _Item
     {
         public string name;
 
@@ -49,9 +50,9 @@ namespace ItemChanger
             return name;
         }
 
-        public Item(string defaultItemName)
+        public _Item(string defaultItemName)
         {
-            if (!XmlManager.Items.TryGetValue(defaultItemName, out Item val))
+            if (!XmlManager.Items.TryGetValue(defaultItemName, out _Item val))
             {
                 Modding.Logger.LogError($"No default item found corresponding to {defaultItemName}");
                 throw new KeyNotFoundException();

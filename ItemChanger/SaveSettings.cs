@@ -4,9 +4,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ItemChanger.Locations;
 
 namespace ItemChanger
 {
+    public class Settings : ModSettings
+    {
+        public AbstractPlacement[] Locations = new AbstractPlacement[0];
+
+
+        public IEnumerable<AbstractItem> GetItems() => Locations.SelectMany(l => l.items);
+        public IEnumerable<AbstractPlacement> GetLocations() => Locations;
+
+        internal void SavePlacements(AbstractPlacement[] locations)
+        {
+            Locations = locations.ToArray();
+        }
+    }
+
     public class SaveSettings : BaseSettings
     {
         SerializableBoolDictionary obtainedItems = new SerializableBoolDictionary();

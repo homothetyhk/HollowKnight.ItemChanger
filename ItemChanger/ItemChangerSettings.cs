@@ -364,7 +364,7 @@ namespace ItemChanger
         {
             if (colo1ItemPrompt)
             {
-                ILP ilp = ILP.ILPs.FirstOrDefault(kvp => kvp.Value.location.sceneName == SceneNames.Room_Colosseum_Bronze).Value;
+                _ILP ilp = _ILP.ILPs.FirstOrDefault(kvp => kvp.Value.location.sceneName == SceneNames.Room_Colosseum_Bronze).Value;
                 if (ilp == null)
                 {
                     LogWarn("Requested Colo 1 hint, but did not supply location in Room_Colosseum_Bronze.");
@@ -386,7 +386,7 @@ namespace ItemChanger
 
             if (colo2ItemPrompt)
             {
-                ILP ilp = ILP.ILPs.FirstOrDefault(kvp => kvp.Value.location.sceneName == SceneNames.Room_Colosseum_Silver).Value;
+                _ILP ilp = _ILP.ILPs.FirstOrDefault(kvp => kvp.Value.location.sceneName == SceneNames.Room_Colosseum_Silver).Value;
                 if (ilp == null)
                 {
                     LogWarn("Requested Colo 2 hint, but did not supply location in Room_Colosseum_Silver.");
@@ -409,7 +409,7 @@ namespace ItemChanger
 
             if (flowerQuestPrompt)
             {
-                ILP ilp = ILP.ILPs.FirstOrDefault(kvp => kvp.Value.location.sceneName == SceneNames.Room_Mansion).Value;
+                _ILP ilp = _ILP.ILPs.FirstOrDefault(kvp => kvp.Value.location.sceneName == SceneNames.Room_Mansion).Value;
                 if (ilp == null)
                 {
                     LogWarn("Requested Flower Quest hint, but did not supply location in Room_Mansion.");
@@ -432,7 +432,7 @@ namespace ItemChanger
 
             if (whitePalacePrompt)
             {
-                ILP ilp = ILP.ILPs.FirstOrDefault(kvp => kvp.Value.location.sceneName == SceneNames.White_Palace_09).Value;
+                _ILP ilp = _ILP.ILPs.FirstOrDefault(kvp => kvp.Value.location.sceneName == SceneNames.White_Palace_09).Value;
                 if (ilp == null)
                 {
                     LogWarn("Requested King Fragment hint, but did not supply location in White_Palace_09.");

@@ -18,11 +18,11 @@ namespace ItemChanger.Actions
         private readonly string _objectName;
         private readonly string _fsmName;
 
-        private readonly ILP _ilp;
+        private readonly _ILP _ilp;
 
         // BigItemDef array is meant to be for additive items
         // For example, items[0] could be vengeful spirit and items[1] would be shade soul
-        public ChangeShinyIntoItem(ILP ilp, string sceneName, string objectName, string fsmName)
+        public ChangeShinyIntoItem(_ILP ilp, string sceneName, string objectName, string fsmName)
         {
             _ilp = ilp;
 
@@ -65,7 +65,7 @@ namespace ItemChanger.Actions
 
             // Check whether next item should be normal or big popup
             bigItem.ClearTransitions();
-            bigItem.AddFirstAction(new RandomizerExecuteLambda(() => bigItem.AddTransition("FINISHED", GetNextAdditiveItem(_ilp).item.type != Item.ItemType.Big ? "Trink Flash" : "Big Get Flash")));
+            bigItem.AddFirstAction(new RandomizerExecuteLambda(() => bigItem.AddTransition("FINISHED", GetNextAdditiveItem(_ilp).item.type != _Item.ItemType.Big ? "Trink Flash" : "Big Get Flash")));
 
             // normal path
             trinkFlash.ClearTransitions();

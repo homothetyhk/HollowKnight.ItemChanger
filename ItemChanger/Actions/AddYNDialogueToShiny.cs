@@ -8,7 +8,7 @@ using ItemChanger.FsmStateActions;
 using SereCore;
 using UnityEngine;
 using static Modding.Logger;
-using static ItemChanger.Location;
+using static ItemChanger._Location;
 
 namespace ItemChanger.Actions
 {
@@ -64,7 +64,7 @@ namespace ItemChanger.Actions
                 gameObject = new FsmOwnerDefault
                 {
                     OwnerOption = OwnerDefaultOption.SpecifyGameObject,
-                    GameObject = Ref.Hero.gameObject
+                    GameObject = SereCore.Ref.Hero.gameObject
                 },
                 clipName = "Collect Normal 3",
                 animationTriggerEvent = null,
@@ -121,7 +121,7 @@ namespace ItemChanger.Actions
                     LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE",
                         cost + " Essence: " + Language.Language.Get(nameKey, "UI"));
 
-                    if (Ref.PD.dreamOrbs < cost)
+                    if (SereCore.Ref.PD.dreamOrbs < cost)
                     {
                         FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control")
                             .StartCoroutine(KillGeoText());

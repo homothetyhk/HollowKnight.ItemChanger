@@ -32,21 +32,21 @@ namespace ItemChanger.Components
                 degrees = damagesEnemy.FsmVariables.FindFsmFloat("direction").Value;
             }
 
-            Vector3 position = Ref.Hero.transform.position;
+            Vector3 position = SereCore.Ref.Hero.transform.position;
             Vector3 euler = Vector3.zero;
             switch (DirectionUtils.GetCardinalDirection(degrees))
             {
                 case 0:
-                    Ref.Hero.RecoilLeft();
+                    SereCore.Ref.Hero.RecoilLeft();
                     position = new Vector3(position.x + 2, position.y, 0.002f);
                     break;
                 case 1:
-                    Ref.Hero.RecoilDown();
+                    SereCore.Ref.Hero.RecoilDown();
                     position = new Vector3(position.x, position.y + 2, 0.002f);
                     euler = new Vector3(0, 0, 90);
                     break;
                 case 2:
-                    Ref.Hero.RecoilRight();
+                    SereCore.Ref.Hero.RecoilRight();
                     position = new Vector3(position.x - 2, position.y, 0.002f);
                     euler = new Vector3(0, 0, 180);
                     break;

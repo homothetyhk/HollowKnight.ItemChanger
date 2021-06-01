@@ -15,8 +15,8 @@ namespace ItemChanger
 {
     public static class XmlManager
     {
-        internal static Dictionary<string, Item> Items;
-        internal static Dictionary<string, Location> Locations;
+        internal static Dictionary<string, _Item> Items;
+        internal static Dictionary<string, _Location> Locations;
 
 
         internal static void Load()
@@ -32,10 +32,10 @@ namespace ItemChanger
             items.Load(itemStream);
             itemStream.Dispose();
 
-            Items = new Dictionary<string, Item>();
+            Items = new Dictionary<string, _Item>();
             foreach (XmlNode node in items.SelectNodes("randomizer/item"))
             {
-                Item item = ProcessXmlNodeAsItem(node);
+                _Item item = ProcessXmlNodeAsItem(node);
                 Items.Add(item.name, item);
             }
 
@@ -45,10 +45,10 @@ namespace ItemChanger
             locations.Load(locationStream);
             locationStream.Dispose();
 
-            Locations = new Dictionary<string, Location>();
+            Locations = new Dictionary<string, _Location>();
             foreach (XmlNode node in locations.SelectNodes("randomizer/item"))
             {
-                Location location = ProcessXmlNodeAsLocation(node);
+                _Location location = ProcessXmlNodeAsLocation(node);
                 Locations.Add(location.name, location);
             }
 
@@ -78,23 +78,23 @@ namespace ItemChanger
 
 
         static Dictionary<string, FieldInfo> itemFields;
-        public static Item ProcessXmlNodeAsItem(XmlNode node)
+        public static _Item ProcessXmlNodeAsItem(XmlNode node)
         {
             if (itemFields == null)
             {
                 itemFields = new Dictionary<string, FieldInfo>();
-                typeof(Item).GetFields().ToList().ForEach(f => itemFields.Add(f.Name, f));
+                typeof(_Item).GetFields().ToList().ForEach(f => itemFields.Add(f.Name, f));
             }
 
             XmlAttribute nameAttr = node.Attributes?["name"];
             if (nameAttr == null)
             {
                 LogWarn("Node in items.xml has no name attribute");
-                return new Item();
+                return new _Item();
             }
 
             // Setting as object prevents boxing in FieldInfo.SetValue calls
-            object item = new Item();
+            object item = new _Item();
             itemFields["name"].SetValue(item, nameAttr.InnerText);
 
             foreach (XmlNode fieldNode in node.ChildNodes)
@@ -121,9 +121,9 @@ namespace ItemChanger
                         LogWarn($"Could not parse \"{fieldNode.InnerText}\" to bool");
                     }
                 }
-                else if (field.FieldType == typeof(Item.ItemType))
+                else if (field.FieldType == typeof(_Item.ItemType))
                 {
-                    if (fieldNode.InnerText.TryToEnum(out Item.ItemType type))
+                    if (fieldNode.InnerText.TryToEnum(out _Item.ItemType type))
                     {
                         field.SetValue(item, type);
                     }
@@ -132,9 +132,9 @@ namespace ItemChanger
                         LogWarn($"Could not parse \"{fieldNode.InnerText}\" to ItemType");
                     }
                 }
-                else if (field.FieldType == typeof(Item.GiveAction))
+                else if (field.FieldType == typeof(_Item.GiveAction))
                 {
-                    if (fieldNode.InnerText.TryToEnum(out Item.GiveAction type))
+                    if (fieldNode.InnerText.TryToEnum(out _Item.GiveAction type))
                     {
                         field.SetValue(item, type);
                     }
@@ -143,9 +143,9 @@ namespace ItemChanger
                         LogWarn($"Could not parse \"{fieldNode.InnerText}\" to GiveAction");
                     }
                 }
-                else if (field.FieldType == typeof(Item.ItemPool))
+                else if (field.FieldType == typeof(_Item.ItemPool))
                 {
-                    if (fieldNode.InnerText.TryToEnum(out Item.ItemPool type))
+                    if (fieldNode.InnerText.TryToEnum(out _Item.ItemPool type))
                     {
                         field.SetValue(item, type);
                     }
@@ -194,7 +194,7 @@ namespace ItemChanger
             }
 
             LogDebug($"Parsed XML for item \"{nameAttr.InnerText}\"");
-            return (Item)item;
+            return (_Item)item;
         }
 
         /*
@@ -268,23 +268,23 @@ namespace ItemChanger
         */
 
         static Dictionary<string, FieldInfo> locFields;
-        public static Location ProcessXmlNodeAsLocation(XmlNode node)
+        public static _Location ProcessXmlNodeAsLocation(XmlNode node)
         {
             if (locFields == null)
             {
                 locFields = new Dictionary<string, FieldInfo>();
-                typeof(Location).GetFields().ToList().ForEach(f => locFields.Add(f.Name, f));
+                typeof(_Location).GetFields().ToList().ForEach(f => locFields.Add(f.Name, f));
             }
 
             XmlAttribute nameAttr = node.Attributes?["name"];
             if (nameAttr == null)
             {
                 LogWarn("Node in locations.xml has no name attribute");
-                return new Location();
+                return new _Location();
             }
 
             // Setting as object prevents boxing in FieldInfo.SetValue calls
-            object location = new Location();
+            object location = new _Location();
             locFields["name"].SetValue(location, nameAttr.InnerText);
 
             foreach (XmlNode fieldNode in node.ChildNodes)
@@ -315,9 +315,9 @@ namespace ItemChanger
                         LogWarn($"Could not parse \"{fieldNode.InnerText}\" to bool");
                     }
                 }
-                else if (field.FieldType == typeof(Location.CostType))
+                else if (field.FieldType == typeof(CostType))
                 {
-                    if (fieldNode.InnerText.TryToEnum(out Location.CostType type))
+                    if (fieldNode.InnerText.TryToEnum(out CostType type))
                     {
                         field.SetValue(location, type);
                     }
@@ -326,9 +326,9 @@ namespace ItemChanger
                         LogWarn($"Could not parse \"{fieldNode.InnerText}\" to CostType");
                     }
                 }
-                else if (field.FieldType == typeof(Location.SpecialFSMEdit))
+                else if (field.FieldType == typeof(_Location.SpecialFSMEdit))
                 {
-                    if (fieldNode.InnerText.TryToEnum(out Location.SpecialFSMEdit type))
+                    if (fieldNode.InnerText.TryToEnum(out _Location.SpecialFSMEdit type))
                     {
                         field.SetValue(location, type);
                     }
@@ -337,9 +337,9 @@ namespace ItemChanger
                         LogWarn($"Could not parse \"{fieldNode.InnerText}\" to CostType");
                     }
                 }
-                else if (field.FieldType == typeof(Location.SpecialPDHook))
+                else if (field.FieldType == typeof(_Location.SpecialPDHook))
                 {
-                    if (fieldNode.InnerText.TryToEnum(out Location.SpecialPDHook type))
+                    if (fieldNode.InnerText.TryToEnum(out _Location.SpecialPDHook type))
                     {
                         field.SetValue(location, type);
                     }
@@ -348,9 +348,9 @@ namespace ItemChanger
                         LogWarn($"Could not parse \"{fieldNode.InnerText}\" to CostType");
                     }
                 }
-                else if (field.FieldType == typeof(Location.LocationPool))
+                else if (field.FieldType == typeof(_Location.LocationPool))
                 {
-                    if (fieldNode.InnerText.TryToEnum(out Location.LocationPool type))
+                    if (fieldNode.InnerText.TryToEnum(out _Location.LocationPool type))
                     {
                         field.SetValue(location, type);
                     }
@@ -388,7 +388,7 @@ namespace ItemChanger
             }
 
             LogDebug($"Parsed XML for item \"{nameAttr.InnerText}\"");
-            return (Location)location;
+            return (_Location)location;
         }
 
     }

@@ -6,11 +6,15 @@ using System.Text;
 using GlobalEnums;
 using HutongGames.PlayMaker;
 using ItemChanger.Actions;
+using ItemChanger.UIDefs;
 using Modding;
 using MonoMod;
 using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ItemChanger.Locations;
+using ItemChanger.Placements;
+using TMPro;
 
 namespace ItemChanger
 {
@@ -22,11 +26,23 @@ namespace ItemChanger
         internal static bool receivedChangeStartRequest = false;
 
         public SaveSettings Settings { get; set; } = new SaveSettings();
+        public ModSettings _SaveSettings
+        {
+            get => Settings = Settings;
+            set => Settings = value as SaveSettings;
+        }
+
+
+        public Settings SET = new Settings();
         public override ModSettings SaveSettings
         {
-            get => Settings = Settings ?? new SaveSettings();
-            set => Settings = value is SaveSettings saveSettings ? saveSettings : Settings;
+            get => SET = SET ?? new Settings();
+            set => SET = value as Settings;
         }
+
+        private GlobalSettings _globalSettings { get; set; } = new GlobalSettings();
+        public override ModSettings GlobalSettings { get => _globalSettings; set => _globalSettings = value as GlobalSettings; }
+        public static GlobalSettings GS => instance._globalSettings;
 
         public ItemChanger()
         {
@@ -39,7 +55,67 @@ namespace ItemChanger
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
             ObjectCache.Setup(preloadedObjects);
-            readyForChangeItems = true;
+            //readyForChangeItems = true;
+            MessageController.Setup();
+
+            
+
+            
+            On.PlayMakerFSM.OnEnable += ApplyLocationFsmEdits;
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += ApplyLocationSceneEdits;
+            foreach (var loc in SET.GetLocations()) loc.OnHook();
+        }
+
+        private void ApplyLocationSceneEdits(Scene arg0, Scene arg1)
+        {
+            foreach (var loc in SET?.GetLocations() ?? new AbstractPlacement[0])
+            {
+                if (loc is null) continue;
+                if (loc.SceneName == arg1.name)
+                {
+                    try
+                    {
+                        loc.OnActiveSceneChanged();
+                    }
+                    catch (Exception e)
+                    {
+                        LogError($"Error in LocationSceneEdits for {loc?.name ?? "Unknown Location"}:\n{e}");
+                    }
+                }
+            }
+        }
+
+        private void ApplyLocationFsmEdits(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        {
+            orig(self);
+            if (self.FsmName == "Surface Water Region")
+            {
+                FsmState splash = self.GetState("Big Splash?");
+                FsmStateAction acidDeath = new FsmStateActions.RandomizerExecuteLambda(() =>
+                {
+                    HeroController.instance.TakeDamage(self.gameObject, CollisionSide.other, 1, 1 + (int)GlobalEnums.HazardType.ACID);
+                    PlayMakerFSM.BroadcastEvent("SWIM DEATH");
+                });
+
+                splash.AddFirstAction(acidDeath);
+                splash.AddTransition("SWIM DEATH", "Idle");
+            }
+
+            foreach (var loc in SET?.GetLocations() ?? new AbstractPlacement[0])
+            {
+                if (loc is null) continue;
+                if (loc.SceneName == self.gameObject.scene.name)
+                {
+                    try
+                    {
+                        loc.OnEnableFsm(self);
+                    }
+                    catch (Exception e)
+                    {
+                        LogError($"Error in LocationFsmEdits for {loc?.name ?? "Unknown Location"}:\n{e}");
+                    }
+                }
+            }
         }
 
         public override string GetVersion()
@@ -51,7 +127,7 @@ namespace ItemChanger
 
         public override List<(string, string)> GetPreloadNames()
         {
-            return ObjectCache.preloads;
+            return ObjectCache.GetPreloadNames();
         }
 
         public static void Reset()
@@ -75,7 +151,7 @@ namespace ItemChanger
             }
         }
 
-        public static void ChangeItems(List<(Item, Location)> ItemLocationPairs, ItemChangerSettings settings = null, Default.Shops.DefaultShopItems defaultShopItems = Default.Shops.DefaultShopItems.None)
+        public static void ChangeItems(List<(_Item, _Location)> ItemLocationPairs, ItemChangerSettings settings = null, Default.Shops.DefaultShopItems defaultShopItems = Default.Shops.DefaultShopItems.None)
         {
             if (receivedChangeItemsRequest) return;
             receivedChangeItemsRequest = true;
@@ -92,11 +168,11 @@ namespace ItemChanger
                     int result = string.Compare(pair1.Item1.name, pair2.Item1.name);
                     return result == 0 ? string.Compare(pair1.Item2.name, pair2.Item2.name) : result;
                 });
-            ILP.Process(ItemLocationPairs);
+            _ILP.Process(ItemLocationPairs);
             AdditiveManager.Setup();
             ItemChangerSettings.currentSettings = settings ?? new ItemChangerSettings();
             ItemChangerSettings.Update();
-            RandomizerAction.CreateActions(ILP.ILPs.Values, defaultShopItems);
+            RandomizerAction.CreateActions(_ILP.ILPs.Values, defaultShopItems);
         }
 
         public static void ChangeStartGame(StartLocation start)

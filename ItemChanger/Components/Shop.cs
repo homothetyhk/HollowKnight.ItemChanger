@@ -1,13 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Modding;
-using ItemChanger.Actions;
-using SeanprCore;
+using SereCore;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace ItemChanger.Components
 {
+    public struct ShopItemDef
+    {
+        // Values from ShopItemStats
+        public string PlayerDataBoolName;
+        public string NameConvo;
+        public string DescConvo;
+        public string RequiredPlayerDataBool;
+        public string RemovalPlayerDataBool;
+        public bool DungDiscount;
+        public string NotchCostBool;
+        public int Cost;
+
+        // Sprite
+        public string SpriteName;
+    }
+
     internal class Shop : MonoBehaviour
     {
         public enum ShopType
@@ -38,26 +53,26 @@ namespace ItemChanger.Components
         {
             bottomFrames = new[]
             {
-                ItemChanger.GetSprite("Anim.Shop.BottomFleur.2"),
-                ItemChanger.GetSprite("Anim.Shop.BottomFleur.3"),
-                ItemChanger.GetSprite("Anim.Shop.BottomFleur.4"),
-                ItemChanger.GetSprite("Anim.Shop.BottomFleur.5"),
-                ItemChanger.GetSprite("Anim.Shop.BottomFleur.6"),
-                ItemChanger.GetSprite("Anim.Shop.BottomFleur.7"),
-                ItemChanger.GetSprite("Anim.Shop.BottomFleur.8")
+                SpriteManager.GetSprite("Anim.Shop.BottomFleur.2"),
+                SpriteManager.GetSprite("Anim.Shop.BottomFleur.3"),
+                SpriteManager.GetSprite("Anim.Shop.BottomFleur.4"),
+                SpriteManager.GetSprite("Anim.Shop.BottomFleur.5"),
+                SpriteManager.GetSprite("Anim.Shop.BottomFleur.6"),
+                SpriteManager.GetSprite("Anim.Shop.BottomFleur.7"),
+                SpriteManager.GetSprite("Anim.Shop.BottomFleur.8")
             };
 
             topFrames = new[]
             {
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.0"),
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.1"),
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.2"),
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.3"),
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.4"),
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.5"),
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.6"),
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.7"),
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.8")
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.0"),
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.1"),
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.2"),
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.3"),
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.4"),
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.5"),
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.6"),
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.7"),
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.8")
             };
         }
 
@@ -80,7 +95,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_1",
                     Cost = 420,
-                    SpriteName = "Charms.1.png"
+                    SpriteName = "Charms.1"
                 },
                 new ShopItemDef
                 {
@@ -92,7 +107,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_2",
                     Cost = 420,
-                    SpriteName = "Charms.2.png"
+                    SpriteName = "Charms.2"
                 },
                 new ShopItemDef
                 {
@@ -104,7 +119,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_3",
                     Cost = 420,
-                    SpriteName = "Charms.3.png"
+                    SpriteName = "Charms.3"
                 },
                 new ShopItemDef
                 {
@@ -116,7 +131,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_4",
                     Cost = 420,
-                    SpriteName = "Charms.4.png"
+                    SpriteName = "Charms.4"
                 },
                 new ShopItemDef
                 {
@@ -128,7 +143,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_5",
                     Cost = 420,
-                    SpriteName = "Charms.5.png"
+                    SpriteName = "Charms.5"
                 },
                 new ShopItemDef
                 {
@@ -140,7 +155,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_6",
                     Cost = 420,
-                    SpriteName = "Charms.6.png"
+                    SpriteName = "Charms.6"
                 },
                 new ShopItemDef
                 {
@@ -152,7 +167,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_7",
                     Cost = 420,
-                    SpriteName = "Charms.7.png"
+                    SpriteName = "Charms.7"
                 },
                 new ShopItemDef
                 {
@@ -164,7 +179,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_8",
                     Cost = 420,
-                    SpriteName = "Charms.8.png"
+                    SpriteName = "Charms.8"
                 },
                 new ShopItemDef
                 {
@@ -176,7 +191,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_9",
                     Cost = 420,
-                    SpriteName = "Charms.9.png"
+                    SpriteName = "Charms.9"
                 },
                 new ShopItemDef
                 {
@@ -188,7 +203,7 @@ namespace ItemChanger.Components
                     DungDiscount = false,
                     NotchCostBool = "charmCost_10",
                     Cost = 420,
-                    SpriteName = "Charms.10.png"
+                    SpriteName = "Charms.10"
                 }
             };
             shop.type = ShopType.Geo;
@@ -197,8 +212,8 @@ namespace ItemChanger.Components
         public void Start()
         {
             geoSprite = type == ShopType.Geo
-                ? ItemChanger.GetSprite("UI.Shop.Geo")
-                : ItemChanger.GetSprite("UI.Shop.Essence");
+                ? SpriteManager.GetSprite("UI.Shop.Geo")
+                : SpriteManager.GetSprite("UI.Shop.Essence");
 
             StartCoroutine(ShowShop());
         }
@@ -226,7 +241,7 @@ namespace ItemChanger.Components
 
         private bool IsValid(ShopItemDef item)
         {
-            PlayerData pd = Ref.PD;
+            PlayerData pd = SereCore.Ref.PD;
 
             // These ones can't be empty
             if (string.IsNullOrEmpty(item.PlayerDataBoolName) || string.IsNullOrEmpty(item.NameConvo) ||
@@ -235,7 +250,7 @@ namespace ItemChanger.Components
                 return false;
             }
 
-            if (ItemChanger.GetSprite(item.SpriteName) == null)
+            if (SpriteManager.GetSprite(item.SpriteName) == null)
             {
                 return false;
             }
@@ -286,7 +301,7 @@ namespace ItemChanger.Components
             for (int i = 0; i < itemImages.GetLength(0); i++)
             {
                 itemImages[i, 0] = CanvasUtil.CreateImagePanel(gameObject,
-                    ItemChanger.GetSprite(items[validItems[i]].SpriteName),
+                    SpriteManager.GetSprite(items[validItems[i]].SpriteName),
                     new CanvasUtil.RectData(new Vector2(90, 90), Vector2.zero, new Vector2(0.525f, 0f),
                         new Vector2(0.525f, 0f)));
                 itemImages[i, 1] = CanvasUtil.CreateImagePanel(gameObject, geoSprite,
@@ -298,8 +313,8 @@ namespace ItemChanger.Components
                     new CanvasUtil.RectData(new Vector2(1920, 1080), Vector2.zero, new Vector2(0.61f, 0f),
                         new Vector2(0.61f, 0f)), Fonts.Get("Perpetua"));
 
-                if (type == ShopType.Geo && cost > Ref.PD.geo ||
-                    type == ShopType.Essence && cost > Ref.PD.dreamOrbs)
+                if (type == ShopType.Geo && cost > SereCore.Ref.PD.geo ||
+                    type == ShopType.Essence && cost > SereCore.Ref.PD.dreamOrbs)
                 {
                     itemImages[i, 3] = CanvasUtil.CreateImagePanel(gameObject, blackPixel,
                         new CanvasUtil.RectData(new Vector2(300, 100), Vector2.zero, new Vector2(0.57f, 0f),
@@ -327,7 +342,6 @@ namespace ItemChanger.Components
             {
                 for (int j = 0; j < itemImages.GetLength(1); j++)
                 {
-                    Log(i + " " + j);
                     if (itemImages[i, j] != null)
                     {
                         if (pos >= 0 && pos < DefaultPositions.Length)
@@ -362,19 +376,19 @@ namespace ItemChanger.Components
         private IEnumerator ShowShop()
         {
             GameObject background = CanvasUtil.CreateImagePanel(gameObject,
-                ItemChanger.GetSprite("UI.Shop.Background"),
+                SpriteManager.GetSprite("UI.Shop.Background"),
                 new CanvasUtil.RectData(new Vector2(810, 813), Vector2.zero, new Vector2(0.675f, 0.525f),
                     new Vector2(0.675f, 0.525f)));
 
             GameObject bottomFleur = CanvasUtil.CreateImagePanel(gameObject,
-                ItemChanger.GetSprite("Anim.Shop.BottomFleur.0"),
+                SpriteManager.GetSprite("Anim.Shop.BottomFleur.0"),
                 new CanvasUtil.RectData(new Vector2(811, 241), Vector2.zero, new Vector2(0.675f, 0.3f),
                     new Vector2(0.675f, 0.3f)));
             StartCoroutine(AnimateImage(bottomFleur, bottomFrames, 12));
             StartCoroutine(TweenY(bottomFleur, 0.3f, 0.2f, 60, 15));
 
             GameObject topFleur = CanvasUtil.CreateImagePanel(gameObject,
-                ItemChanger.GetSprite("Anim.Shop.TopFleur.0"),
+                SpriteManager.GetSprite("Anim.Shop.TopFleur.0"),
                 new CanvasUtil.RectData(new Vector2(808, 198), Vector2.zero, new Vector2(0.675f, 0.6f),
                     new Vector2(0.675f, 0.6f)));
             StartCoroutine(AnimateImage(topFleur, topFrames, 12));
@@ -382,10 +396,10 @@ namespace ItemChanger.Components
 
             yield return StartCoroutine(CanvasUtil.FadeInCanvasGroup(background.AddComponent<CanvasGroup>()));
 
-            CanvasUtil.CreateImagePanel(gameObject, ItemChanger.GetSprite("UI.Shop.Selector"),
+            CanvasUtil.CreateImagePanel(gameObject, SpriteManager.GetSprite("UI.Shop.Selector"),
                 new CanvasUtil.RectData(new Vector2(340, 113), Vector2.zero, new Vector2(0.57f, 0.5825f),
                     new Vector2(0.57f, 0.5825f)));
-            CanvasUtil.CreateImagePanel(gameObject, ItemChanger.GetSprite("UI.Shop.Shitpost"),
+            CanvasUtil.CreateImagePanel(gameObject, SpriteManager.GetSprite("UI.Shop.Shitpost"),
                 new CanvasUtil.RectData(new Vector2(112, 112), Vector2.zero, new Vector2(0.6775f, 0.92f),
                     new Vector2(0.6775f, 0.92f)));
 
@@ -396,7 +410,7 @@ namespace ItemChanger.Components
 
         private IEnumerator ListenForInput()
         {
-            HeroActions buttons = Ref.Input.inputActions;
+            HeroActions buttons = SereCore.Ref.Input.inputActions;
 
             while (true)
             {

@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using static ItemChanger.SpriteManager;
+using System;
 
 namespace ItemChanger.Components
 {
@@ -18,6 +19,7 @@ namespace ItemChanger.Components
         private string _descTwoText;
         private string _fsmEvent;
         private GameObject _fsmObj;
+        private Action _callback;
 
         private Sprite _imagePrompt;
         private string _nameText;
@@ -41,7 +43,25 @@ namespace ItemChanger.Components
             };
         }
 
-        public static GameObject Show(Item item, GameObject fsmObj = null, string eventName = null)
+        public static GameObject Show(Sprite bigSprite, string takeKey, string nameKey, string buttonKey, string descOneKey, string descTwoKey, Action callback)
+        {
+            // Create base canvas
+            GameObject canvas = CanvasUtil.CreateCanvas(RenderMode.ScreenSpaceOverlay, new Vector2(1920, 1080));
+
+            // Add popup component, set values
+            BigItemPopup popup = canvas.AddComponent<BigItemPopup>();
+            popup._imagePrompt = bigSprite;
+            popup._takeText = Language.Language.Get(takeKey, "Prompts").Replace("<br>", " ");
+            popup._nameText = Language.Language.Get(nameKey, "UI").Replace("<br>", " ");
+            popup._buttonText = Language.Language.Get(buttonKey, "Prompts").Replace("<br>", " ");
+            popup._descOneText = Language.Language.Get(descOneKey, "Prompts").Replace("<br>", " ");
+            popup._descTwoText = Language.Language.Get(descTwoKey, "Prompts").Replace("<br>", " ");
+            popup._callback = callback;
+
+            return canvas;
+        }
+
+        public static GameObject Show(_Item item, GameObject fsmObj = null, string eventName = null)
         {
             // Create base canvas
             GameObject canvas = CanvasUtil.CreateCanvas(RenderMode.ScreenSpaceOverlay, new Vector2(1920, 1080));
@@ -83,7 +103,7 @@ namespace ItemChanger.Components
 
         public void Start()
         {
-            Ref.GM.SaveGame(Ref.GM.profileID, x => { });
+            SereCore.Ref.GM.SaveGame(SereCore.Ref.GM.profileID, x => { });
             StartCoroutine(ShowPopup());
         }
 
@@ -208,7 +228,7 @@ namespace ItemChanger.Components
             // Wait for the user to cancel the menu
             while (true)
             {
-                HeroActions actions = Ref.Input.inputActions;
+                HeroActions actions = SereCore.Ref.Input.inputActions;
                 if (actions.jump.WasPressed || actions.attack.WasPressed || actions.menuCancel.WasPressed)
                 {
                     break;
@@ -221,13 +241,17 @@ namespace ItemChanger.Components
             yield return FadeOutCanvasGroup(gameObject.GetComponent<CanvasGroup>());
 
             // Small delay before hero control
-            yield return WaitForSeconds(0.75f);
+            //yield return WaitForSeconds(0.75f);
+            yield return new WaitForEndOfFrame();
 
             // Optionally send FSM event after finishing
             if (_fsmObj != null && _fsmEvent != null)
             {
                 FSMUtility.SendEventToGameObject(_fsmObj, _fsmEvent);
             }
+
+            // Notify location that popup has finished
+            _callback?.Invoke();
 
             // Stop the egg routine and destroy everything
             StopCoroutine(coroutine);
@@ -271,7 +295,7 @@ namespace ItemChanger.Components
         {
             while (true)
             {
-                HeroActions actions = Ref.Input.inputActions;
+                HeroActions actions = SereCore.Ref.Input.inputActions;
                 if (actions.jump.WasPressed || actions.attack.WasPressed || actions.menuCancel.WasPressed)
                 {
                     _showInstantly = true;
@@ -319,7 +343,7 @@ namespace ItemChanger.Components
             cg.interactable = false;
             while (cg.alpha > 0.05f && !_showInstantly)
             {
-                cg.alpha -= Time.deltaTime * 2f;
+                cg.alpha -= Time.deltaTime * 4f;
                 loopFailsafe += Time.deltaTime;
                 if (cg.alpha <= 0.05f)
                 {

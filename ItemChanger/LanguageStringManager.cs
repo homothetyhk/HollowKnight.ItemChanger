@@ -90,6 +90,11 @@ namespace ItemChanger
         // keep this private -- the api hook does weird stuff with GetInternal
         private static string GetLanguageString(string key, string sheetTitle)
         {
+            if (sheetTitle == "ItemChanger.Locations")
+            {
+                return Ref.Placements.GetLocations().Select(l => l.OnLanguageGet(key)).FirstOrDefault(text => !string.IsNullOrEmpty(text));
+            }
+
             if (key.StartsWith("RANDOMIZER_NAME_ESSENCE_"))
             {
                 return key.Split('_').Last() + " Essence";
@@ -100,9 +105,10 @@ namespace ItemChanger
                 return key.Split('_').Last() + " Geo";
             }
 
+            // TODO: Decide what to do for shops
             if (key.StartsWith("RANDOMIZER_NAME_GRUB"))
             {
-                return $"A grub! ({PlayerData.instance.grubsCollected + 1}/46)";
+                return $"A grub! ({PlayerData.instance.grubsCollected}/46)";
             }
 
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))

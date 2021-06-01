@@ -9,7 +9,7 @@ namespace ItemChanger.FsmStateActions
     {
         public override void OnEnter()
         {
-            GameManager gm = Ref.GM;
+            GameManager gm = SereCore.Ref.GM;
 
             if (gm == null)
             {
@@ -31,7 +31,7 @@ namespace ItemChanger.FsmStateActions
             {
                 LogWarn(
                     "RandomizerSetHardSave action present in scene with no respawn points: " +
-                    Ref.GM.GetSceneNameString());
+                    SereCore.Ref.GM.GetSceneNameString());
                 Finish();
                 return;
             }
@@ -50,7 +50,7 @@ namespace ItemChanger.FsmStateActions
             {
                 LogWarn(
                     "RandomizerSetHardSave could not identify type of RespawnPoint object in scene " +
-                    Ref.GM.GetSceneNameString());
+                    SereCore.Ref.GM.GetSceneNameString());
                 Finish();
                 return;
             }

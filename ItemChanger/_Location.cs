@@ -6,7 +6,8 @@ using System.Text;
 
 namespace ItemChanger
 {
-    public struct Location
+    [Obsolete("Override AbstractPlacement and/or use an ILocation instead.")]
+    public struct _Location
     {
         public string name;
         public string sceneName;
@@ -45,9 +46,9 @@ namespace ItemChanger
         public SpecialPDHook specialPDHook;
         public LocationPool pool;
 
-        public Location(string defaultLocationName)
+        public _Location(string defaultLocationName)
         {
-            if (!XmlManager.Locations.TryGetValue(defaultLocationName, out Location val))
+            if (!XmlManager.Locations.TryGetValue(defaultLocationName, out _Location val))
             {
                 Modding.Logger.LogError($"No default location found corresponding to {defaultLocationName}");
                 throw new KeyNotFoundException();
@@ -57,18 +58,6 @@ namespace ItemChanger
         public override string ToString()
         {
             return name;
-        }
-
-        public enum CostType
-        {
-            None = 0,
-            Geo,
-            Essence,
-            Simple,
-            Grub,
-            Wraiths,
-            Dreamnail,
-            WhisperingRoot
         }
 
         public enum SpecialPDHook

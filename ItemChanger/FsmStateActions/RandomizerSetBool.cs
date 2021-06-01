@@ -20,7 +20,7 @@ namespace ItemChanger.FsmStateActions
         {
             if (_playerdata)
             {
-                Ref.PD.SetBool(_name, _val);
+                SereCore.Ref.PD.SetBool(_name, _val);
             }
             else
             {

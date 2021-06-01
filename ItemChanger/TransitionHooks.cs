@@ -89,7 +89,7 @@ namespace ItemChanger
                 // old randomizer stuff, hopefully shouldn't cause issues 
                 case SceneNames.Ruins1_24:
                     // Stop the weird invisible floor from appearing if dive has been obtained
-                    if (Ref.PD.quakeLevel > 0)
+                    if (SereCore.Ref.PD.quakeLevel > 0)
                     {
                         GameObject.Destroy(GameObject.Find("Roof Collider Battle"));
                     }
@@ -306,10 +306,10 @@ namespace ItemChanger
                     }
                     break;
                 case SceneNames.Crossroads_04:
-                    Ref.PD.menderState = 2;
-                    Ref.PD.menderDoorOpened = true;
-                    Ref.PD.hasMenderKey = true;
-                    Ref.PD.menderSignBroken = true;
+                    SereCore.Ref.PD.menderState = 2;
+                    SereCore.Ref.PD.menderDoorOpened = true;
+                    SereCore.Ref.PD.hasMenderKey = true;
+                    SereCore.Ref.PD.menderSignBroken = true;
                     if (entryGateName.StartsWith("d"))
                     {
                         GameManager.instance.sceneData.SaveMyState(new PersistentBoolData

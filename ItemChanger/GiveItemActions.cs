@@ -6,20 +6,20 @@ using UnityEngine;
 using ItemChanger;
 using static Modding.Logger;
 using SereCore;
-using static ItemChanger.Item;
+using static ItemChanger._Item;
 using System.Text.RegularExpressions;
 
 namespace ItemChanger
 {
     public static class GiveItemActions
     {
-        public delegate void OnGiveItemHandler(Item item, Location location);
-        public static OnGiveItemHandler OnGiveItem = new OnGiveItemHandler((Item item, Location location) => { });
+        public delegate void OnGiveItemHandler(_Item item, _Location location);
+        public static OnGiveItemHandler OnGiveItem = new OnGiveItemHandler((_Item item, _Location location) => { });
 
-        internal static void GiveItem(ILP ilp)
+        internal static void GiveItem(_ILP ilp)
         {
-            Item item = ilp.item;
-            Location location = ilp.location;
+            _Item item = ilp.item;
+            _Location location = ilp.location;
             string id = ilp.id;
 
             try
@@ -322,7 +322,7 @@ namespace ItemChanger
                     break;
 
                 case GiveAction.SettingsBool:
-                    ItemChanger.instance.SaveSettings.SetBool(true, item.boolName);
+                    ItemChanger.instance._SaveSettings.SetBool(true, item.boolName);
                     break;
 
                 case GiveAction.Custom:

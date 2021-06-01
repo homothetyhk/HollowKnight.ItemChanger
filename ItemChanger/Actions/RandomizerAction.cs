@@ -10,7 +10,7 @@ using HutongGames.PlayMaker.Actions;
 using System.Collections;
 using HutongGames.PlayMaker;
 using RandomizerMod.SceneChanges;
-using static ItemChanger.Location;
+using static ItemChanger._Location;
 
 namespace ItemChanger.Actions
 {
@@ -25,19 +25,19 @@ namespace ItemChanger.Actions
         private static readonly List<RandomizerAction> Actions = new List<RandomizerAction>();
         public static Dictionary<string, string> AdditiveBoolNames = new Dictionary<string, string>(); // item name, additive bool name
         public static Dictionary<(string, string), string> ShopItemBoolNames = new Dictionary<(string, string), string>(); // (item name, shop name), shop item bool name
-        internal static IEnumerable<ILP> ILPs;
+        internal static IEnumerable<_ILP> ILPs;
 
         public abstract ActionType Type { get; }
 
         public static void ClearActions()
         {
             PDHooks.ResetSpecialPDHooks();
-            ILPs = new ILP[] { };
+            ILPs = new _ILP[] { };
             On.GameManager.StartNewGame -= GiveStartItems;
             Actions.Clear();
         }
 
-        internal static void CreateActions(IEnumerable<ILP> ILPs, Default.Shops.DefaultShopItems defaultShopItems)
+        internal static void CreateActions(IEnumerable<_ILP> ILPs, Default.Shops.DefaultShopItems defaultShopItems)
         {
             ClearActions();
             
@@ -50,7 +50,7 @@ namespace ItemChanger.Actions
             On.GameManager.StartNewGame += GiveStartItems;
 
             // Loop non-shop items
-            foreach (ILP ilp in ILPs)
+            foreach (_ILP ilp in ILPs)
             {
                 if (ilp.location.shop || ilp.location.start) continue;
                 string fsmName;
@@ -70,7 +70,7 @@ namespace ItemChanger.Actions
                     Actions.Add(new CreateNewShiny(ilp.location.sceneName, ilp.location.x, ilp.location.y, objName));
                 }
 
-                else if (ilp.location.geoChest && ilp.item.type != Item.ItemType.Geo)
+                else if (ilp.location.geoChest && ilp.item.type != _Item.ItemType.Geo)
                 {
                     fsmName = "Shiny Control";
                     objName = "Randomizer Chest Shiny" + newShinies++;
@@ -281,7 +281,7 @@ namespace ItemChanger.Actions
                         }
                         break;
 
-                    case Item.ItemType.Geo:
+                    case _Item.ItemType.Geo:
                         if (ilp.location.shinyChest || ilp.location.geoChest)
                         {
                             Actions.Add(new ChangeChestGeo(ilp, ilp.location.sceneName, ilp.location.chestName, ilp.location.chestFsm));
@@ -319,7 +319,7 @@ namespace ItemChanger.Actions
             shopActions.Add(new ChangeShopContents(SceneNames.Room_Charm_Shop, "Shop Menu", new ShopItemDef[] { }, defaultShopItems));
             shopActions.Add(new ChangeShopContents(SceneNames.Fungus2_26, "Shop Menu", new ShopItemDef[] { }, defaultShopItems));
 
-            foreach (ILP ilp in ILPs)
+            foreach (_ILP ilp in ILPs)
             {
                 if (!ilp.location.shop) continue;
                 string shopItem = ilp.item.name;
@@ -371,7 +371,7 @@ namespace ItemChanger.Actions
         private static void GiveStartItems(On.GameManager.orig_StartNewGame orig, GameManager self, bool permadeathMode, bool bossRushMode)
         {
             orig(self, permadeathMode, bossRushMode);
-            foreach(ILP ilp in ILPs)
+            foreach(_ILP ilp in ILPs)
             {
                 if (ilp.location.start) GiveItemActions.GiveItem(ilp);
             }
@@ -415,7 +415,7 @@ namespace ItemChanger.Actions
 
         public static void EditShinies()
         {
-            string scene = Ref.GM.GetSceneNameString();
+            string scene = SereCore.Ref.GM.GetSceneNameString();
 
             foreach (RandomizerAction action in Actions)
             {

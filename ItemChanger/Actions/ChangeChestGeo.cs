@@ -8,13 +8,13 @@ namespace ItemChanger.Actions
 {
     public class ChangeChestGeo : RandomizerAction
     {
-        private readonly ILP _ilp;
+        private readonly _ILP _ilp;
 
         private readonly string _sceneName;
         private readonly string _fsmName;
         private readonly string _objectName;
 
-        internal ChangeChestGeo(ILP ilp, string sceneName, string objectName, string fsmName)
+        internal ChangeChestGeo(_ILP ilp, string sceneName, string objectName, string fsmName)
         {
             _ilp = ilp;
             _sceneName = sceneName;

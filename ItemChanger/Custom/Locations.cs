@@ -7,9 +7,9 @@ namespace ItemChanger.Custom
 {
     public static class Locations
     {
-        public static Location CreateCustomLocation(string name, string sceneName, float x, float y, int cost = 0, Location.CostType costType = Location.CostType.Geo)
+        public static _Location CreateCustomLocation(string name, string sceneName, float x, float y, int cost = 0, CostType costType = CostType.Geo)
         {
-            return new Location
+            return new _Location
             {
                 name = name,
                 sceneName = sceneName,
@@ -21,17 +21,17 @@ namespace ItemChanger.Custom
             };
         }
 
-        public static Location EditCost(Location loc, int cost, Location.CostType costType)
+        public static _Location EditCost(_Location loc, int cost, CostType costType)
         {
             loc.cost = cost;
             loc.costType = costType;
             return loc;
         }
 
-        public static Location EditCost(Location loc, int cost, string costType)
+        public static _Location EditCost(_Location loc, int cost, string costType)
         {
             loc.cost = cost;
-            loc.costType = (Location.CostType)Enum.Parse(typeof(Location.CostType), costType);
+            loc.costType = (CostType)Enum.Parse(typeof(CostType), costType);
             return loc;
         }
     }
