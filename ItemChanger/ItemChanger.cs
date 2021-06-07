@@ -58,9 +58,7 @@ namespace ItemChanger
             //readyForChangeItems = true;
             MessageController.Setup();
 
-            
-
-            
+            CustomSkillManager.Hook();
             On.PlayMakerFSM.OnEnable += ApplyLocationFsmEdits;
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += ApplyLocationSceneEdits;
             foreach (var loc in SET.GetLocations()) loc.OnHook();
@@ -93,12 +91,17 @@ namespace ItemChanger
                 FsmState splash = self.GetState("Big Splash?");
                 FsmStateAction acidDeath = new FsmStateActions.RandomizerExecuteLambda(() =>
                 {
-                    HeroController.instance.TakeDamage(self.gameObject, CollisionSide.other, 1, 1 + (int)GlobalEnums.HazardType.ACID);
+                    HeroController.instance.TakeDamage(self.gameObject, CollisionSide.other, 1, (int)GlobalEnums.HazardType.ACID);
                     PlayMakerFSM.BroadcastEvent("SWIM DEATH");
                 });
 
                 splash.AddFirstAction(acidDeath);
                 splash.AddTransition("SWIM DEATH", "Idle");
+                foreach (var c in GameObject.Find("waterways_water_components").GetComponentsInChildren<SpriteRenderer>()) c.color = new Color(228f / 255f, 111f / 255f, 52f / 255f);
+                foreach (var g in GameObject.FindObjectsOfType<GameObject>())
+                {
+                    if (g.name.StartsWith("water_fog")) g.GetComponent<SpriteRenderer>().color = new Color(228f / 255f, 111f / 255f, 52 / 255f);
+                }
             }
 
             foreach (var loc in SET?.GetLocations() ?? new AbstractPlacement[0])

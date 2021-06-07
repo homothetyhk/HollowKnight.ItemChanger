@@ -70,16 +70,41 @@
     <entry sheet="UI" key="RANDOMIZER_NAME_ARCANE_EGG">Arcane Egg</entry>
     <entry sheet="UI" key="RANDOMIZER_NAME_ESSENCE">Essence</entry>
     <entry sheet="UI" key="RANDOMIZER_DESC_ESSENCE">Fresh organic DREAM PLANT ORBS sourced from local independent DREAM PLANT farms. Please support your hardworking neighborhood DREAM MOTHS.</entry>
+  <!--<entry sheet="UI" key="RANDOMIZER_NAME_GRIMMKIN_FLAME">Grimmkin Flame</entry>-->
+  <entry sheet="UI" key="RANDOMIZER_DESC_GRIMMKIN_FLAME">Hot new addition to your randomizer!</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL">6 lifeblood masks</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_LIFEBLOOD_COCOON_LARGE">9 lifeblood masks</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_LIFEBLOOD_COCOON">Limited edition Lifeblood masks - get them while they last!</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_1GEO">1 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_15GEO">15 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_17GEO">17 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_22GEO">22 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_24GEO">24 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_25GEO">25 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_26GEO">26 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_30GEO">30 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_35GEO">35 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_44GEO">44 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_50GEO">50 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_56GEO">56 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_65GEO">65 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_80GEO">80 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_85GEO">85 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_150GEO">150 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_160GEO">160 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_200GEO">200 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_300GEO">300 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_380GEO">380 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_385GEO">385 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_420GEO">420 geo</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_550GEO">550 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_620GEO">620 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_NAME_655GEO">655 geo</entry>
   <entry sheet="UI" key="RANDOMIZER_DESC_GEO">We're having a fire sale today. Go ahead and pick up your rebate already.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_SOUL">Soul Refill</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_SOUL">Comes with a cup, lid, and sippy straw. No additional refills.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_LORE">Lore Tablet</entry>
+  <entry sheet="UI" key="RANDOMIZER_DESC_LORE">What secrets could lie on this tablet?</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_DIRTMOUTH">Dirtmouth Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_CROSSROADS">Crossroads Stag</entry>
   <entry sheet="UI" key="RANDOMIZER_STAG_NAME_GREENPATH">Greenpath Stag</entry>
@@ -112,6 +137,44 @@
   <entry sheet="UI" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="Prompts" key="RANDOMIZER_DESC_FOCUS">Press and hold the slow cast button to heal.</entry>
   <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_FOCUS">Hahahahahahahahahahahaha. No.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_SWIM">Swim</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_SWIM">The power of buoyancy is yours.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_SWIM">I may not look like it, but I'm actually a fully certified swimming instructor. One easy payment, I toss you in the deep end, and, yeah, you'll figure it out from there.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_LEFTSLASH">Leftslash</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_RIGHTSLASH">Rightslash</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_UPSLASH">Upslash</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_LEFTSLASH">Your character seems pretty underpowered, huh. Let's fix that.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHTSLASH">Your character seems pretty underpowered, huh. Let's fix that.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_UPSLASH">Your character seems pretty underpowered, huh. Let's fix that.</entry>
+
+  <!--Split Claw-->
+  <entry sheet="UI" key="RANDOMIZER_NAME_LEFT_CLAW">Left Mantis Claw</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLAW">while sliding against a wall to jump.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLAW_2">Only works on the left though!</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_LEFT_CLAW">Pretty nice find, shame it only works on the left.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_RIGHT_CLAW">Right Mantis Claw</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLAW">while sliding against a wall to jump.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLAW_2">Only works on the right though!</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHT_CLAW">Pretty nice find, shame it only works on the right.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_WALLJUMP">Mantis Claw</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_WALLJUMP">Claw carved from bone. Allows the wearer to cling to walls and leap off of them.</entry>
+
+  <!--Split Cloak-->
+  <entry sheet="UI" key="RANDOMIZER_NAME_LEFT_CLOAK">Left Mothwing Cloak</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLOAK">to dash to the left.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_LEFT_CLOAK_2">Use the cloak to dash quickly along the ground or through the air.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_LEFT_CLOAK">Pretty nice find, shame it only works to the left.</entry>
+  <entry sheet="UI" key="RANDOMIZER_NAME_RIGHT_CLOAK">Right Mothwing Cloak</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLOAK">to dash to the right.</entry>
+  <entry sheet="Prompts" key="RANDOMIZER_DESC_RIGHT_CLOAK_2">Use the cloak to dash quickly along the ground or through the air.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_RIGHT_CLOAK">Pretty nice find, shame it only works to the right.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_DASH">Mothwing Cloak</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_DASH">Cloak threaded with mothwing strands. Allows the wearer to dash forwards along the ground or through the air.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_SHADOWDASH">Shade Cloak</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_DESC_SHADOWDASH">Cloak formed from the substance of the Abyss. Allows the wearer to dash through enemies and their attacks without taking damage.</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_LEFT_SHADOWDASH">Left Shade Cloak</entry>
+  <entry sheet="UI" key="RANDOMIZER_SHOP_NAME_RIGHT_SHADOWDASH">Right Shade Cloak</entry>
+
   <!--
   <entry sheet="UI" key="CHARM_NAME_1">Gathering Swarm</entry>
   <entry sheet="UI" key="CHARM_NAME_2">Wayward Compass</entry>

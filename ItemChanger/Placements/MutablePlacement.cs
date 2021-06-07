@@ -18,57 +18,70 @@ namespace ItemChanger.Placements
     public class MutablePlacement : AbstractPlacement
     {
         public IMutableLocation location;
+        public Container container = Container.Shiny;
         public override string SceneName => location.sceneName;
         public override void OnEnableFsm(PlayMakerFSM fsm)
         {
-            if (fsm.FsmName == "Geo Rock" && fsm.gameObject.name == GeoRockUtility.GetGeoRockName(this))
+            AbstractItem item;
+            switch (fsm.FsmName)
             {
-                GeoRockUtility.ModifyGeoRock(fsm, location.flingType, this, items);
-            }
+                // Geo Rock
+                case "Geo Rock" when fsm.gameObject.name == GeoRockUtility.GetGeoRockName(this):
+                    GeoRockUtility.ModifyGeoRock(fsm, location.flingType, this, items);
+                    break;
 
-            if (fsm.FsmName == "Shiny Control" && ShinyUtility.TryGetItemFromShinyName(fsm.gameObject.name, this, out var item))
-            {
-                ShinyUtility.ModifyShiny(fsm, location.flingType, this, item);
-                if (!HasVisited() && location.flingType == FlingType.Everywhere)
-                {
-                    ShinyUtility.FlingShinyRandomly(fsm);
-                }
-                else
-                {
+                // Grub Jar
+                case "Bottle Control" when fsm.gameObject.name == GrubJarUtility.GetGrubJarName(this):
+                    GrubJarUtility.ModifyBottleFsm(fsm.gameObject, location.flingType, this, items);
+                    break;
+
+                // Chest
+                case "Chest Control" when fsm.gameObject.name == ChestUtility.GetChestName(this):
+                    ChestUtility.ModifyChest(fsm, location.flingType, this, items);
+                    break;
+
+                // Multi Shiny
+                case "Shiny Control" when ShinyUtility.GetShinyPrefix(this) == fsm.gameObject.name:
+                    ShinyUtility.ModifyMultiShiny(fsm, location.flingType, this, items);
                     ShinyUtility.FlingShinyDown(fsm);
-                }
-                fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-            }
+                    fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
+                    break;
 
-            if (fsm.FsmName == "Shiny Control" && ShinyUtility.GetShinyPrefix(this) == fsm.gameObject.name)
-            {
-                ShinyUtility.ModifyMultiShiny(fsm, location.flingType, this, items);
-                if (!HasVisited() && location.flingType == FlingType.Everywhere)
-                {
-                    ShinyUtility.FlingShinyRandomly(fsm);
-                }
-                else
-                {
-                    ShinyUtility.FlingShinyDown(fsm);
-                }
-                fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-            }
+                // Shiny
+                case "Shiny Control" when ShinyUtility.TryGetItemFromShinyName(fsm.gameObject.name, this, out item):
+                    switch (container)
+                    {
+                        // Leave at location
+                        case Container.Shiny:
+                            ShinyUtility.ModifyShiny(fsm, location.flingType, this, item);
+                            ShinyUtility.FlingShinyDown(fsm);
+                            fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
+                            break;
 
-            if (fsm.FsmName == "Bottle Control" && fsm.gameObject.name == GrubJarUtility.GetGrubJarName(this))
-            {
-                GrubJarUtility.ModifyBottleFsm(fsm.gameObject, location.flingType, this, items);
-            }
-
-            if (fsm.FsmName == "Chest Control" && fsm.gameObject.name == ChestUtility.GetChestName(this))
-            {
-                ChestUtility.ModifyChest(fsm, location.flingType, this, items);
+                        // Fling from location
+                        case Container.Chest:
+                        case Container.GeoRock:
+                        case Container.GrubJar:
+                        default:
+                            ShinyUtility.ModifyShiny(fsm, location.flingType, this, item);
+                            if (!HasVisited() && location.flingType == FlingType.Everywhere)
+                            {
+                                ShinyUtility.FlingShinyRandomly(fsm);
+                            }
+                            else
+                            {
+                                ShinyUtility.FlingShinyDown(fsm);
+                            }
+                            fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
+                            break;
+                    }
+                    break;
             }
         }
 
         public override void OnActiveSceneChanged()
         {
-            Container container = Container.Shiny;
-            if (!location.forceShiny)
+            if (!location.forceShiny && container == Container.Shiny)
             {
                 container = items.Select(i => i.GetPreferredContainer()).FirstOrDefault(c => c != Container.Shiny && location.Supports(c));
                 if (container == Container.Shiny && location.Supports(Container.Chest) && items.Count > 1) container = Container.Chest;

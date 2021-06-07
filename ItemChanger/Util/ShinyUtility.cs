@@ -130,12 +130,20 @@ namespace ItemChanger.Util
             FsmStateAction checkAction = new RandomizerExecuteLambda(() => shinyFsm.SendEvent(items.All(i => i.IsObtained()) ? "COLLECTED" : null));
             FsmStateAction giveAction = new RandomizerExecuteLambda(() =>
             {
-                foreach (AbstractItem item in items)
+                IEnumerator<AbstractItem> enumerator = items.GetEnumerator();
+                void GiveNext()
                 {
-                    item.Give(location, Container.Shiny, flingType, shinyFsm.gameObject.transform, message: MessageType.Corner);
+                    if (enumerator.MoveNext())
+                    {
+                        enumerator.Current.Give(location, Container.Shiny, flingType, shinyFsm.gameObject.transform, message: MessageType.Any, callback: _ => GiveNext());
+                    }
+                    else
+                    {
+                        shinyFsm.SendEvent("GAVE ITEM");
+                    }
                 }
-            }
-            );
+                GiveNext();
+            });
 
             // Remove actions that stop shiny from spawning
             pdBool.RemoveActionsOfType<StringCompare>();
@@ -161,7 +169,7 @@ namespace ItemChanger.Util
                 // [7] -- store message icon
                 giveAction, // give item
             };
-            trinkFlash.AddTransition("FINISHED", "Hero Up");
+            trinkFlash.AddTransition("GAVE ITEM", "Hero Up");
         }
 
         /// <summary>
@@ -185,6 +193,7 @@ namespace ItemChanger.Util
             noState.ClearTransitions();
             noState.RemoveActionsOfType<FsmStateAction>();
             noState.AddTransition("FINISHED", "Give Control");
+            noState.AddTransition("HERO DAMAGED", "Give Control");
 
             Tk2dPlayAnimationWithEvents heroUp = new Tk2dPlayAnimationWithEvents
             {

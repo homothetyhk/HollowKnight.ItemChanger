@@ -39,7 +39,68 @@ namespace ItemChanger.Tests
             });
         }
 
+        public static void CustomSkillTest()
+        {
+            ItemChanger.instance.SET.CustomSkills.canFocus = false;
 
+            joni.AddItem(focus);
+            joni.AddItem(leftdash);
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                joni
+            });
+        }
+
+        public static AbstractItem dash = new Items.MultiBoolItem
+        {
+            name = "Mothwing_Cloak",
+            fieldNames = new string[] { "canDash", "hasDash" },
+            UIDef = new BigUIDef
+            {
+                nameKey = "INV_NAME_DASH",
+                descKey = "INV_DESC_DASH",
+                spriteKey = "ShopIcons.Dash",
+                bigSpriteKey = "Prompts.Dash",
+                descOneKey = "GET_DASH_1",
+                descTwoKey = "GET_DASH_2",
+                buttonKey = "RANDOMIZER_EMPTY",
+                takeKey = "GET_ITEM_INTRO1"
+            }
+        };
+
+        public static AbstractItem leftdash = new Items.CustomSkillItem
+        {
+            name = "Left_Mothwing_Cloak",
+            boolName = "canDashLeft",
+            UIDef = new BigUIDef
+            {
+                nameKey = "RANDOMIZER_NAME_LEFT_CLOAK",
+                descKey = "RANDOMIZER_SHOP_DESC_LEFT_CLOAK",
+                spriteKey = "ShopIcons.Dash",
+                bigSpriteKey = "Prompts.DashReflected",
+                descOneKey = "RANDOMIZER_DESC_LEFT_CLOAK",
+                descTwoKey = "RANDOMIZER_DESC_LEFT_CLOAK_2",
+                buttonKey = "RANDOMIZER_EMPTY",
+                takeKey = "GET_ITEM_INTRO1"
+            }
+        };
+
+        public static AbstractItem focus = new Items.CustomSkillItem
+        {
+            name = "Focus",
+            boolName = "canFocus",
+            UIDef = new BigUIDef
+            {
+                nameKey = "RANDOMIZER_NAME_FOCUS",
+                descKey = "RANDOMIZER_SHOP_DESC_FOCUS",
+                spriteKey = "ShopIcons.Focus",
+                descOneKey = "RANDOMIZER_DESC_FOCUS",
+                descTwoKey = "RANDOMIZER_EMPTY",
+                bigSpriteKey = "Prompts.Focus",
+                buttonKey = "RANDOMIZER_EMPTY",
+                takeKey = "GET_ITEM_INTRO1",
+            }
+        };
 
         public static AbstractItem grubsong = new Items.CharmItem
         {

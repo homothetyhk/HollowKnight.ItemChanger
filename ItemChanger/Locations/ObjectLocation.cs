@@ -42,11 +42,15 @@ namespace ItemChanger.Locations
                     GeoRockUtility.SetRockContext(obj, target, elevation);
                     break;
                 case Container.Chest:
+                    ChestUtility.MoveChest(obj, target, elevation);
+                    break;
                 case Container.Shiny:
                 default:
                     SetContext(obj, target);
                     break;
             }
+
+            GameObject.Destroy(target);
         }
 
         public void SetContext(GameObject obj, GameObject target)
