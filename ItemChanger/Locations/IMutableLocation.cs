@@ -14,6 +14,10 @@ namespace ItemChanger.Locations
         string sceneName { get; }
         FlingType flingType { get; }
         bool forceShiny { get; }
+        void OnEnable(PlayMakerFSM fsm);
+        void OnActiveSceneChanged();
+        void Hook();
+        void UnHook();
         void PlaceContainer(GameObject obj, Container containerType);
         bool Supports(Container container);
     }

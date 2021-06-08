@@ -23,5 +23,41 @@ namespace ItemChanger.Util
                     return GrubJarUtility.MakeNewGrubJar(placement);
             }
         }
+
+        public static void ApplyTargetContext(GameObject target, GameObject container, Container containerType, float elevation)
+        {
+            switch (containerType)
+            {
+                case Container.GrubJar:
+                    SetContext(target, container);
+                    GrubJarUtility.AdjustGrubJarPosition(container, elevation);
+                    break;
+                case Container.GeoRock:
+                    GeoRockUtility.SetRockContext(container, target, elevation);
+                    break;
+                case Container.Chest:
+                    ChestUtility.MoveChest(container, target, elevation);
+                    break;
+                case Container.Shiny:
+                default:
+                    SetContext(target, container);
+                    break;
+            }
+        }
+
+        private static void SetContext(GameObject target, GameObject obj)
+        {
+            if (target.transform.parent != null)
+            {
+                obj.transform.SetParent(target.transform.parent);
+            }
+
+            obj.transform.position = target.transform.position;
+            obj.transform.localPosition = target.transform.localPosition;
+            obj.SetActive(target.activeSelf);
+        }
+
+
+
     }
 }

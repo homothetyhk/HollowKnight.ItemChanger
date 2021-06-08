@@ -1,11 +1,15 @@
-﻿using ItemChanger.Util;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using ItemChanger.Util;
 using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
-    public struct ObjectLocation : IMutableLocation
+    public class ObjectLocation : IMutableLocation
     {
         public string objectName;
         public float elevation;
@@ -28,44 +32,20 @@ namespace ItemChanger.Locations
             }
         }
 
-        public void PlaceContainer(GameObject obj, Container containerType)
+        public virtual void OnEnable(PlayMakerFSM fsm) { }
+        public virtual void OnActiveSceneChanged() { }
+        public virtual void Hook() { }
+        public virtual void UnHook() { }
+
+        public virtual void PlaceContainer(GameObject obj, Container containerType)
         {
-            GameObject target = FindGameObject();
-
-            switch (containerType)
-            {
-                case Container.GrubJar:
-                    SetContext(obj, target);
-                    GrubJarUtility.AdjustGrubJarPosition(obj, elevation);
-                    break;
-                case Container.GeoRock:
-                    GeoRockUtility.SetRockContext(obj, target, elevation);
-                    break;
-                case Container.Chest:
-                    ChestUtility.MoveChest(obj, target, elevation);
-                    break;
-                case Container.Shiny:
-                default:
-                    SetContext(obj, target);
-                    break;
-            }
-
+            GameObject target = FindGameObject(objectName);
+            ContainerUtility.ApplyTargetContext(target, obj, containerType, elevation);
             GameObject.Destroy(target);
         }
 
-        public void SetContext(GameObject obj, GameObject target)
-        {
-            if (target.transform.parent != null)
-            {
-                obj.transform.SetParent(target.transform.parent);
-            }
 
-            obj.transform.position = target.transform.position;
-            obj.transform.localPosition = target.transform.localPosition;
-            obj.SetActive(target.activeSelf);
-        }
-
-        public GameObject FindGameObject()
+        public static GameObject FindGameObject(string objectName)
         {
             Scene currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
 
@@ -80,5 +60,4 @@ namespace ItemChanger.Locations
             return obj;
         }
     }
-
 }

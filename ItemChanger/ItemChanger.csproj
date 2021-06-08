@@ -94,12 +94,16 @@
     <Compile Include="Actions\RandomizerAction.cs" />
     <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
     <Compile Include="AdditiveManager.cs" />
+    <Compile Include="WorldEventManager.cs" />
+    <Compile Include="WorldEvents.cs" />
     <Compile Include="CustomSkillManager.cs" />
     <Compile Include="CustomSkills.cs" />
     <Compile Include="Items\MultiBoolItem.cs" />
     <Compile Include="Items\CustomSkillItem.cs" />
-    <Compile Include="Locations\CoordinateLocation.cs" />
     <Compile Include="Locations\ObjectLocation.cs" />
+    <Compile Include="Locations\DreamNailLocation.cs" />
+    <Compile Include="Locations\MothwingCloakLocation.cs" />
+    <Compile Include="Locations\CoordinateLocation.cs" />
     <Compile Include="Placements\MutablePlacement.cs" />
     <Compile Include="Tests\Tests.cs" />
     <Compile Include="Util\ChestUtility.cs" />

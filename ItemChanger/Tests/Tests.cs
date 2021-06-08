@@ -43,13 +43,45 @@ namespace ItemChanger.Tests
         {
             ItemChanger.instance.SET.CustomSkills.canFocus = false;
 
-            joni.AddItem(focus);
-            joni.AddItem(leftdash);
+            hornet.AddItem(focus);
             Ref.Placements.SavePlacements(new AbstractPlacement[]
             {
-                joni
+                hornet
             });
         }
+
+        public static void DreamNailCutsceneTest()
+        {
+            ItemChanger.instance.SET.CustomSkills.canFocus = false;
+            dreamnailcutscene.AddItem(megarock);
+            dreamnailcutscene.AddItem(grub);
+            dreamnailcutscene.AddItem(cyclone);
+            dreamnailcutscene.AddItem(focus);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                dreamnailcutscene
+            });
+        }
+
+
+        public static MutablePlacement dreamnailcutscene = new MutablePlacement
+        {
+            name = "Dream_Nail",
+            location = new DreamNailLocation
+            {
+                sceneName = SceneNames.Dream_Nailcollection,
+                forceShiny = true,
+                flingType = FlingType.DirectDeposit,
+                objectName = "Moth NPC",
+            },
+        };
+
+        public static MutablePlacement hornet = new MutablePlacement
+        {
+            name = "Mothwing_Cloak",
+            location = new MothwingCloakLocation()
+        };
 
         public static AbstractItem dash = new Items.MultiBoolItem
         {

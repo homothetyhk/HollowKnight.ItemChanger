@@ -20,8 +20,11 @@ namespace ItemChanger.Placements
         public IMutableLocation location;
         public Container container = Container.Shiny;
         public override string SceneName => location.sceneName;
+
         public override void OnEnableFsm(PlayMakerFSM fsm)
         {
+            location.OnEnable(fsm);
+
             AbstractItem item;
             switch (fsm.FsmName)
             {
@@ -81,6 +84,8 @@ namespace ItemChanger.Placements
 
         public override void OnActiveSceneChanged()
         {
+            location.OnActiveSceneChanged();
+
             if (!location.forceShiny && container == Container.Shiny)
             {
                 container = items.Select(i => i.GetPreferredContainer()).FirstOrDefault(c => c != Container.Shiny && location.Supports(c));
@@ -88,6 +93,15 @@ namespace ItemChanger.Placements
             }
             GameObject obj = ContainerUtility.GetNewContainer(this, items, container);
             location.PlaceContainer(obj, container);
+        }
+        public override void OnHook()
+        {
+            location.Hook();
+        }
+
+        public override void OnUnHook()
+        {
+            location.UnHook();
         }
     }
 }

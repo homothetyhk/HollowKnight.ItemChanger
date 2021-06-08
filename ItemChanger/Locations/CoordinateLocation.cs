@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ItemChanger.Locations
 {
-    public struct CoordinateLocation : IMutableLocation
+    public class CoordinateLocation : IMutableLocation
     {
         public float x;
         public float y;
@@ -51,6 +51,11 @@ namespace ItemChanger.Locations
                     break;
             }
         }
+
+        public virtual void OnEnable(PlayMakerFSM fsm) { }
+        public virtual void OnActiveSceneChanged() { }
+        public virtual void Hook() { }
+        public virtual void UnHook() { }
     }
 
 }

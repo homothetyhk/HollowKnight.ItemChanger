@@ -11,6 +11,7 @@ namespace ItemChanger
     public class Settings : ModSettings
     {
         public CustomSkills CustomSkills = new CustomSkills();
+        public WorldEvents WorldEvents = new WorldEvents();
 
         public AbstractPlacement[] Locations = new AbstractPlacement[0];
 

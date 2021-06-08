@@ -9,6 +9,7 @@ namespace ItemChanger
     {
         public static Settings Placements => ItemChanger.instance.SET;
         public static CustomSkills SKILLS => ItemChanger.instance.SET.CustomSkills;
+        public static WorldEvents WORLD => ItemChanger.instance.SET.WorldEvents;
         public static PlayerData PD => PlayerData.instance;
         public static GameManager GM => GameManager.instance;
         public static HeroController HC => HeroController.instance;
