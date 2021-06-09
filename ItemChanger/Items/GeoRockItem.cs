@@ -27,9 +27,16 @@ namespace ItemChanger.Items
 
         public override void GiveImmediate(Container container, FlingType fling, Transform transform)
         {
-            if (fling == FlingType.DirectDeposit)
+            if (fling == FlingType.DirectDeposit || transform == null)
             {
-                HeroController.instance.AddGeo(amount);
+                if (HeroController.instance != null)
+                {
+                    HeroController.instance.AddGeo(amount);
+                }
+                else
+                {
+                    PlayerData.instance.AddGeo(amount);
+                }
                 return;
             }
 

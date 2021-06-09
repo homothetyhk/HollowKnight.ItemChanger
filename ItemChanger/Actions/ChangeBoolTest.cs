@@ -42,7 +42,7 @@ namespace ItemChanger.Actions
             string falseName = falseEvent != null ? falseEvent.Name : null;
 
             fsm.GetState(_stateName).AddFirstAction(
-            new RandomizerExecuteLambda(() => fsm.SendEvent(
+            new Lambda(() => fsm.SendEvent(
                 _altTest() ? trueName : falseName
                 )));
             fsm.GetState(_stateName).RemoveActionsOfType<PlayerDataBoolTest>();

@@ -33,18 +33,27 @@ namespace ItemChanger
             SetBool(name, value);
         }
 
+        /// <summary>
+        /// Controls whether Sly appears in Room_ruinhouse or Room_shop. PlayerData.instance.slyRescued still controls whether the shop door is open in Dirtmouth.
+        /// </summary>
         public bool slyRescued
         {
             get => Get();
             set => Set(value);
         }
 
+        /// <summary>
+        /// Controls whether Sly's basement is available when all three nail arts have been obtained.
+        /// </summary>
         public bool slyBasementCompleted
         {
             get => Get();
             set => Set(value);
         }
 
+        /// <summary>
+        /// Controls whether the dreamer cutscene and binding shield appear in RestingGrounds_04.
+        /// </summary>
         public bool dreamNailCutsceneCompleted
         {
             get => Get();

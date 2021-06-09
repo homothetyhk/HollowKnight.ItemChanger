@@ -84,7 +84,7 @@ namespace ItemChanger.Actions
 
             giveControl.AddTransition("FINISHED", "Idle");
 
-            giveControl.AddAction(new RandomizerExecuteLambda(() => PlayMakerFSM.BroadcastEvent("END INSPECT")));
+            giveControl.AddAction(new Lambda(() => PlayMakerFSM.BroadcastEvent("END INSPECT")));
 
             fsm.AddState(noState);
             fsm.AddState(giveControl);
@@ -101,7 +101,7 @@ namespace ItemChanger.Actions
 
             if (_type == CostType.Simple)
             {
-                fsm.GetState(yesState).AddFirstAction(new RandomizerExecuteLambda(() => PlayerData.instance.simpleKeys -= _cost));
+                fsm.GetState(yesState).AddFirstAction(new Lambda(() => PlayerData.instance.simpleKeys -= _cost));
             }
             
 

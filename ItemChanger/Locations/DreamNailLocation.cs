@@ -23,17 +23,17 @@ namespace ItemChanger.Locations
         {
             if (fsm.FsmName == "Control" && fsm.gameObject.name == "Witch Control")
             {
-                fsm.GetState("Convo Ready").RemoveActionsOfType<SetCollider>(); // not important, but prevents null ref unity logs from destroying Moth NPC object
+                fsm.GetState("Convo Ready").RemoveActionsOfType<SetCollider>(); // not important, but prevents null ref unity logs after destroying Moth NPC object
             }
 
             if (fsm.FsmName == "Shiny Control")
             {
                 fsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
-                fsm.GetState("Fade Pause").AddFirstAction(new RandomizerExecuteLambda(() =>
+                fsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
                 {
                     PlayerData.instance.dreamReturnScene = "RestingGrounds_07";
                     Ref.WORLD.dreamNailCutsceneCompleted = true;
-                    ItemChanger.instance.Log(Ref.WORLD.dreamNailCutsceneCompleted);
+                    HeroController.instance.proxyFSM.FsmVariables.GetFsmBool("No Charms").Value = false;
                 }));
             }
         }

@@ -75,7 +75,7 @@ namespace ItemChanger.Util
             shatter.RemoveActionsOfType<IncrementPlayerDataInt>();
             shatter.RemoveActionsOfType<SendMessage>();
 
-            FsmStateAction checkAction = new RandomizerExecuteLambda(() => fsm.SendEvent(location.HasVisited() ? "ACTIVATE" : null));
+            FsmStateAction checkAction = new Lambda(() => fsm.SendEvent(location.HasVisited() ? "ACTIVATE" : null));
             init.AddFirstAction(checkAction);
 
             GameObject itemParent = new GameObject("item");
@@ -85,7 +85,7 @@ namespace ItemChanger.Util
             itemParent.SetActive(true);
 
             FsmStateAction spawnShinies = new ActivateAllChildren { gameObject = new FsmGameObject { Value = itemParent, }, activate = true };
-            FsmStateAction removeParent = new RandomizerExecuteLambda(() => itemParent.transform.parent = null);
+            FsmStateAction removeParent = new Lambda(() => itemParent.transform.parent = null);
             shatter.AddAction(spawnShinies);
             activate.AddFirstAction(removeParent); // activate has a destroy all children action
             activate.AddFirstAction(spawnShinies);
@@ -94,7 +94,7 @@ namespace ItemChanger.Util
             {
                 if (item.GiveEarly(Container.GrubJar))
                 {
-                    FsmStateAction giveAction = new RandomizerExecuteLambda(() => item.Give(location, Container.GrubJar, flingType, jar.transform, MessageType.Corner));
+                    FsmStateAction giveAction = new Lambda(() => item.Give(location, Container.GrubJar, flingType, jar.transform, MessageType.Corner));
                     shatter.AddAction(giveAction);
                 }
                 else

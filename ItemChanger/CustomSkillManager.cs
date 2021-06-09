@@ -169,7 +169,7 @@ namespace ItemChanger
             if (self.gameObject.LocateFSM("Acid Armour Check") != null) return; // acid
 
             FsmState splash = self.GetState("Big Splash?");
-            FsmStateAction acidDeath = new FsmStateActions.RandomizerExecuteLambda(() =>
+            FsmStateAction acidDeath = new FsmStateActions.Lambda(() =>
             {
                 if (!Ref.SKILLS.canSwim)
                 {

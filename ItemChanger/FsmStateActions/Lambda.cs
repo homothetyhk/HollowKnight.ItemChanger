@@ -3,11 +3,11 @@ using HutongGames.PlayMaker;
 
 namespace ItemChanger.FsmStateActions
 {
-    internal class RandomizerExecuteLambda : FsmStateAction
+    internal class Lambda : FsmStateAction
     {
         private readonly Action _method;
 
-        public RandomizerExecuteLambda(Action method)
+        public Lambda(Action method)
         {
             _method = method;
         }
@@ -20,7 +20,7 @@ namespace ItemChanger.FsmStateActions
             }
             catch (Exception e)
             {
-                LogError("Error in RandomizerExecuteLambda:\n" + e);
+                LogError($"Error in FsmStateAction Lambda in {this.Fsm.FsmComponent.gameObject.name} - {this.Fsm.FsmComponent.FsmName}:\n{e}");
             }
 
             Finish();

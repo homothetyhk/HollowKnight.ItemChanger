@@ -150,7 +150,7 @@ namespace ItemChanger
                 case SceneNames.Ruins2_04 when currentSettings.forceUseFirstSimpleKeyOnWaterways:
                     FsmState hotSpringsKey = GameObject.Find("Inspect").LocateMyFSM("Conversation Control").GetState("Got Key?");
                     hotSpringsKey.RemoveActionsOfType<IntCompare>();
-                    hotSpringsKey.AddAction(new RandomizerExecuteLambda(() =>
+                    hotSpringsKey.AddAction(new Lambda(() =>
                     {
                         if (GameManager.instance.GetPlayerDataInt("simpleKeys") > 1 || (PlayerData.instance.openedWaterwaysManhole && GameManager.instance.GetPlayerDataInt("simpleKeys") > 0)) PlayMakerFSM.BroadcastEvent("YES");
                         else PlayMakerFSM.BroadcastEvent("NO");
@@ -161,7 +161,7 @@ namespace ItemChanger
                     FsmState jijiKey = GameObject.Find("Jiji Door").LocateMyFSM("Conversation Control").GetState("Key?");
                     jijiKey.RemoveActionsOfType<GetPlayerDataInt>();
                     jijiKey.RemoveActionsOfType<IntCompare>();
-                    jijiKey.AddAction(new RandomizerExecuteLambda(() =>
+                    jijiKey.AddAction(new Lambda(() =>
                     {
                         if (GameManager.instance.GetPlayerDataInt("simpleKeys") > 1 || (PlayerData.instance.openedWaterwaysManhole && GameManager.instance.GetPlayerDataInt("simpleKeys") > 0)) PlayMakerFSM.BroadcastEvent("KEY");
                         else PlayMakerFSM.BroadcastEvent("NOKEY");

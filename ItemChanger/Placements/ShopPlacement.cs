@@ -89,7 +89,7 @@ namespace ItemChanger.Placements
                 && int.TryParse(boolName.Split('.').Last(), out int index)
                 && index >= 0 && index < items.Count && value)
             {
-                items[index].Give(this, Container.Shop, FlingType.DirectDeposit, null, MessageType.Any);
+                items[index].Give(this, Container.Shop, FlingType.DirectDeposit, null, MessageType.Corner);
                 return;
             }
 

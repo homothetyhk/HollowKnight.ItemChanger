@@ -41,7 +41,7 @@ namespace ItemChanger.Actions
 
             // Add our own check to stop the shiny from being grabbed twice
             pdBool.AddAction(
-                new RandomizerExecuteLambda(() => fsm.SendEvent(
+                new Lambda(() => fsm.SendEvent(
                     ItemChanger.instance.Settings.CheckObtained(_ilp.id) ? "COLLECTED" : null
                     )));
 
@@ -53,7 +53,7 @@ namespace ItemChanger.Actions
             getCharm.RemoveActionsOfType<IncrementPlayerDataInt>();
             getCharm.RemoveActionsOfType<SendMessage>();
 
-            getCharm.AddAction(new RandomizerExecuteLambda(() => GiveItemActions.GiveItem(_ilp)));
+            getCharm.AddAction(new Lambda(() => GiveItemActions.GiveItem(_ilp)));
             getCharm.AddAction(new RandomizerAddGeo(fsm.gameObject, _ilp.item.geo));
 
             // Skip all the other type checks

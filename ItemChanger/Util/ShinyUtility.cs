@@ -91,8 +91,8 @@ namespace ItemChanger.Util
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
 
-            FsmStateAction checkAction = new RandomizerExecuteLambda(() => shinyFsm.SendEvent(item.IsObtained() ? "COLLECTED" : null));
-            FsmStateAction giveAction = new RandomizerExecuteLambda(() => item.Give(location, Container.Shiny, flingType, shinyFsm.gameObject.transform, message: MessageType.Any, callback: (_) => shinyFsm.SendEvent("GAVE ITEM")));
+            FsmStateAction checkAction = new Lambda(() => shinyFsm.SendEvent(item.IsObtained() ? "COLLECTED" : null));
+            FsmStateAction giveAction = new Lambda(() => item.Give(location, Container.Shiny, flingType, shinyFsm.gameObject.transform, message: MessageType.Any, callback: (_) => shinyFsm.SendEvent("GAVE ITEM")));
 
             // Remove actions that stop shiny from spawning
             pdBool.RemoveActionsOfType<StringCompare>();
@@ -127,8 +127,8 @@ namespace ItemChanger.Util
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
 
-            FsmStateAction checkAction = new RandomizerExecuteLambda(() => shinyFsm.SendEvent(items.All(i => i.IsObtained()) ? "COLLECTED" : null));
-            FsmStateAction giveAction = new RandomizerExecuteLambda(() =>
+            FsmStateAction checkAction = new Lambda(() => shinyFsm.SendEvent(items.All(i => i.IsObtained()) ? "COLLECTED" : null));
+            FsmStateAction giveAction = new Lambda(() =>
             {
                 IEnumerator<AbstractItem> enumerator = items.GetEnumerator();
                 void GiveNext()
@@ -188,7 +188,7 @@ namespace ItemChanger.Util
                 Name = "Give Control"
             };
 
-            FsmStateAction closeYNDialogue = new RandomizerExecuteLambda(() => CloseYNDialogue());
+            FsmStateAction closeYNDialogue = new Lambda(() => CloseYNDialogue());
 
             noState.ClearTransitions();
             noState.RemoveActionsOfType<FsmStateAction>();
@@ -215,7 +215,7 @@ namespace ItemChanger.Util
 
             giveControl.AddTransition("FINISHED", "Idle");
 
-            giveControl.AddAction(new RandomizerExecuteLambda(() => PlayMakerFSM.BroadcastEvent("END INSPECT")));
+            giveControl.AddAction(new Lambda(() => PlayMakerFSM.BroadcastEvent("END INSPECT")));
 
             shinyFsm.AddState(noState);
             shinyFsm.AddState(giveControl);
@@ -226,10 +226,10 @@ namespace ItemChanger.Util
             charm.AddTransition("NO", noState.Name);
             charm.AddTransition("YES", yesState.Name);
 
-            yesState.AddFirstAction(new RandomizerExecuteLambda(() => cost.Pay()));
+            yesState.AddFirstAction(new Lambda(() => cost.Pay()));
             yesState.AddFirstAction(closeYNDialogue);
 
-            charm.AddFirstAction(new RandomizerExecuteLambda(() => OpenYNDialogue(shinyFsm.gameObject, items, cost)));
+            charm.AddFirstAction(new Lambda(() => OpenYNDialogue(shinyFsm.gameObject, items, cost)));
         }
 
         private static void OpenYNDialogue(GameObject shiny, IEnumerable<AbstractItem> items, Cost cost)

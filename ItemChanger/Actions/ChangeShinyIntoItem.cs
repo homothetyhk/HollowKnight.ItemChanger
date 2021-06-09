@@ -54,7 +54,7 @@ namespace ItemChanger.Actions
             // Change pd bool test to our new bool
             pdBool.RemoveActionsOfType<PlayerDataBoolTest>();
             pdBool.AddAction(
-                new RandomizerExecuteLambda(() => fsm.SendEvent(
+                new Lambda(() => fsm.SendEvent(
                     ItemChanger.instance.Settings.CheckObtained(_ilp.id) ? "COLLECTED" : null
                     )));
 
@@ -65,7 +65,7 @@ namespace ItemChanger.Actions
 
             // Check whether next item should be normal or big popup
             bigItem.ClearTransitions();
-            bigItem.AddFirstAction(new RandomizerExecuteLambda(() => bigItem.AddTransition("FINISHED", GetNextAdditiveItem(_ilp).item.type != _Item.ItemType.Big ? "Trink Flash" : "Big Get Flash")));
+            bigItem.AddFirstAction(new Lambda(() => bigItem.AddTransition("FINISHED", GetNextAdditiveItem(_ilp).item.type != _Item.ItemType.Big ? "Trink Flash" : "Big Get Flash")));
 
             // normal path
             trinkFlash.ClearTransitions();
@@ -73,8 +73,8 @@ namespace ItemChanger.Actions
             fsm.GetState("Trinket Type").ClearTransitions();
             trinkFlash.AddTransition("FINISHED", "Store Key");
             giveTrinket.RemoveActionsOfType<SetPlayerDataBool>();
-            giveTrinket.AddAction(new RandomizerExecuteLambda(() => GiveItem(_ilp)));
-            giveTrinket.AddFirstAction(new RandomizerExecuteLambda(
+            giveTrinket.AddAction(new Lambda(() => GiveItem(_ilp)));
+            giveTrinket.AddFirstAction(new Lambda(
                 () =>
                 {
                     giveTrinket.GetActionsOfType<GetLanguageString>().First().convName = GetNextAdditiveItem(_ilp).item.nameKey;
@@ -82,10 +82,10 @@ namespace ItemChanger.Actions
                 }));
 
             // Normal path for big items. Set bool and show the popup after the flash
-            bigGetFlash.AddAction(new RandomizerExecuteLambda(() => BigItemPopup.Show(GetNextAdditiveItem(_ilp).item, fsm.gameObject, "GET ITEM MSG END")));
+            bigGetFlash.AddAction(new Lambda(() => BigItemPopup.Show(GetNextAdditiveItem(_ilp).item, fsm.gameObject, "GET ITEM MSG END")));
 
             // set the pickup
-            bigGetFlash.AddAction(new RandomizerExecuteLambda(() => GiveItem(_ilp)));
+            bigGetFlash.AddAction(new Lambda(() => GiveItem(_ilp)));
 
             // Exit the fsm after the popup
             bigGetFlash.ClearTransitions();

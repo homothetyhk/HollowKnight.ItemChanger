@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
+    /// <summary>
+    /// Base type for finding and replacing a game object with an item container
+    /// </summary>
     public class ObjectLocation : IMutableLocation
     {
         public string objectName;

@@ -58,8 +58,6 @@ namespace ItemChanger
             //readyForChangeItems = true;
             MessageController.Setup();
 
-            //Tests.Tests.DreamNailCutsceneTest();
-
             CustomSkillManager.Hook();
             WorldEventManager.Hook();
             On.PlayMakerFSM.OnEnable += ApplyLocationFsmEdits;
@@ -69,11 +67,14 @@ namespace ItemChanger
 
         private void ApplyLocationSceneEdits(Scene from, Scene to)
         {
-            PlayerData.instance.nailDamage = 300;
             foreach (var loc in SET?.GetLocations() ?? new AbstractPlacement[0])
             {
                 if (loc is null) continue;
-                if (loc.SceneName == to.name)
+                else if (loc is StartPlacement sp)
+                {
+                    sp.GiveRemainingItems();
+                }
+                else if (loc.SceneName == to.name)
                 {
                     try
                     {

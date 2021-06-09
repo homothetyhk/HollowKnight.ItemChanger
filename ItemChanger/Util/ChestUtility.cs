@@ -52,7 +52,7 @@ namespace ItemChanger.Util
             FsmState init = chestFsm.GetState("Init");
             FsmState spawnItems = chestFsm.GetState("Spawn Items");
 
-            FsmStateAction checkAction = new RandomizerExecuteLambda(() => chestFsm.SendEvent(location.HasVisited() ? "ACTIVATE" : null));
+            FsmStateAction checkAction = new Lambda(() => chestFsm.SendEvent(location.HasVisited() ? "ACTIVATE" : null));
 
             init.RemoveActionsOfType<BoolTest>();
             init.AddAction(checkAction);
@@ -82,7 +82,7 @@ namespace ItemChanger.Util
             {
                 if (item.GiveEarly(Container.Chest))
                 {
-                    spawnItems.AddAction(new RandomizerExecuteLambda(() => item.Give(location, Container.Chest, flingType, chestFsm.gameObject.transform, MessageType.Corner)));
+                    spawnItems.AddAction(new Lambda(() => item.Give(location, Container.Chest, flingType, chestFsm.gameObject.transform, MessageType.Corner)));
                 }
                 else
                 {

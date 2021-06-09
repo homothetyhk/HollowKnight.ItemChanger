@@ -94,6 +94,10 @@
     <Compile Include="Actions\RandomizerAction.cs" />
     <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
     <Compile Include="AdditiveManager.cs" />
+    <Compile Include="Locations\BroodingMawlekLocation.cs" />
+    <Compile Include="Locations\PaleLurkerLocation.cs" />
+    <Compile Include="Locations\NailmastersGloryLocation.cs" />
+    <Compile Include="Placements\StartPlacement.cs" />
     <Compile Include="WorldEventManager.cs" />
     <Compile Include="WorldEvents.cs" />
     <Compile Include="CustomSkillManager.cs" />
@@ -163,7 +167,7 @@
     <Compile Include="FsmStateActions\RandomizerBoolTest.cs" />
     <Compile Include="FsmStateActions\RandomizerCallStaticMethod.cs" />
     <Compile Include="FsmStateActions\RandomizerChangeScene.cs" />
-    <Compile Include="FsmStateActions\RandomizerExecuteLambda.cs" />
+    <Compile Include="FsmStateActions\Lambda.cs" />
     <Compile Include="FsmStateActions\RandomizerSetBool.cs" />
     <Compile Include="FsmStateActions\RandomizerSetHardSave.cs" />
     <Compile Include="GiveItemActions.cs" />

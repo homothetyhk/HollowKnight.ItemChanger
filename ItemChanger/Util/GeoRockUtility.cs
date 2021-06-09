@@ -107,7 +107,7 @@ namespace ItemChanger.Util
             FsmState payout = rockFsm.GetState("Destroy");
             FsmState broken = rockFsm.GetState("Broken");
 
-            FsmStateAction checkAction = new RandomizerExecuteLambda(() => rockFsm.SendEvent(location.HasVisited() ? "BROKEN" : null));
+            FsmStateAction checkAction = new Lambda(() => rockFsm.SendEvent(location.HasVisited() ? "BROKEN" : null));
 
             init.RemoveActionsOfType<IntCompare>();
             init.AddAction(checkAction);
@@ -135,7 +135,7 @@ namespace ItemChanger.Util
             {
                 if (item.GiveEarly(Container.GeoRock))
                 {
-                    FsmStateAction giveAction = new RandomizerExecuteLambda(() => item.Give(location, Container.GeoRock, flingType, rockFsm.gameObject.transform, message: MessageType.None));
+                    FsmStateAction giveAction = new Lambda(() => item.Give(location, Container.GeoRock, flingType, rockFsm.gameObject.transform, message: MessageType.None));
                     payout.AddAction(giveAction);
                 }
                 else

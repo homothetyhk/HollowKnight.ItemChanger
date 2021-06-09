@@ -139,7 +139,7 @@ namespace ItemChanger.Actions
                         Actions.Add(new EditFsm(ilp.location.sceneName, "Pickup", "Quake Pickup",
                             (self) =>
                             {
-                                self.GetState("Appear").Actions[2] = self.GetState("Instant Activate").Actions[0] = new RandomizerExecuteLambda(
+                                self.GetState("Appear").Actions[2] = self.GetState("Instant Activate").Actions[0] = new Lambda(
                                     () => 
                                     {
                                         GameObject.Find("Quake Pickup").transform.Find(objName).gameObject.SetActive(true);
@@ -257,7 +257,7 @@ namespace ItemChanger.Actions
 
                     case SpecialFSMEdit.WhisperingRoot:
                         Actions.Add(new AddFsmActionToObject(ilp.location.sceneName, fsmName, objName, first: true,
-                            new RandomizerExecuteLambda(
+                            new Lambda(
                                 () =>
                                 {
                                     foreach (GameObject g in GameObject.FindGameObjectsWithTag("Dream Orb"))

@@ -53,6 +53,7 @@ namespace ItemChanger.Tests
         public static void DreamNailCutsceneTest()
         {
             ItemChanger.instance.SET.CustomSkills.canFocus = false;
+            start.AddItem(equipped_crest);
             dreamnailcutscene.AddItem(megarock);
             dreamnailcutscene.AddItem(grub);
             dreamnailcutscene.AddItem(cyclone);
@@ -60,10 +61,95 @@ namespace ItemChanger.Tests
 
             Ref.Placements.SavePlacements(new AbstractPlacement[]
             {
-                dreamnailcutscene
+                start, dreamnailcutscene
             });
         }
 
+        public static void SlyBasementTest()
+        {
+            ItemChanger.instance.SET.CustomSkills.canFocus = false;
+
+            start.AddItem(dash);
+            start.AddItem(wk);
+            start.AddItem(megarock);
+
+            sly.AddItemWithCost(cyclone, 5);
+            sly.AddItemWithCost(dslash, 10);
+            sly.AddItemWithCost(gslash, 15);
+
+            slybasement.AddItem(grub);
+            slybasement.AddItem(focus);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                start, sly, slybasement
+            });
+        }
+
+        public static void BroodingMawlekTest()
+        {
+            ItemChanger.ChangeStartGame(new StartLocation { startSceneName = "Crossroads_09", startX = 20f, startY = 9f });
+            start.AddItem(supernail);
+            mawlek.AddItem(grub);
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                start, mawlek
+            });
+        }
+
+        public static void PaleLurkerTest()
+        {
+            ItemChanger.ChangeStartGame(new StartLocation { startSceneName = "GG_Lurker", startX = 176.8f, startY = 52.4f });
+            start.AddItem(supernail);
+            lurker.AddItem(wk);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                start, lurker
+            });
+        }
+
+        public static StartPlacement start = new StartPlacement
+        {
+            name = "Start",
+        };
+
+        public static MutablePlacement lurker = new MutablePlacement
+        {
+            name = "Simple_Key-Lurker",
+            location = new PaleLurkerLocation
+            {
+                flingType = FlingType.Everywhere,
+                forceShiny = true,
+                objectName = "Corpse Pale Lurker\\Shiny Item Key",
+                sceneName = "GG_Lurker",
+            }
+        };
+
+        public static MutablePlacement mawlek = new MutablePlacement
+        {
+            name = "Mask_Shard-Brooding_Mawlek",
+            location = new BroodingMawlekLocation
+            {
+                flingType = FlingType.Everywhere,
+                forceShiny = true,
+                objectName = "Heart Piece",
+                sceneName = "Crossroads_09",
+            },
+        };
+
+
+        public static MutablePlacement slybasement = new MutablePlacement
+        {
+            name = "Nailmaster's_Glory",
+            location = new NailmastersGloryLocation
+            {
+                sceneName = SceneNames.Room_Sly_Storeroom,
+                forceShiny = true,
+                flingType = FlingType.DirectDeposit,
+                objectName = "Sly Basement NPC",
+            },
+        };
 
         public static MutablePlacement dreamnailcutscene = new MutablePlacement
         {
@@ -81,6 +167,14 @@ namespace ItemChanger.Tests
         {
             name = "Mothwing_Cloak",
             location = new MothwingCloakLocation()
+        };
+
+        public static AbstractItem supernail = new Items.IntItem
+        {
+            name = "Super_Nail",
+            amount = 500,
+            fieldName = nameof(PlayerData.nailDamage),
+            UIDef = null,
         };
 
         public static AbstractItem dash = new Items.MultiBoolItem
@@ -146,6 +240,18 @@ namespace ItemChanger.Tests
             }
         };
 
+        public static AbstractItem equipped_crest = new Items.EquippedCharmItem
+        {
+            name = "Defender's_Crest-E",
+            charmNum = 10,
+            UIDef = new UIDef
+            {
+                nameKey = "CHARM_NAME_10",
+                descKey = "CHARM_DESC_10",
+                spriteKey = "Charms.10"
+            }
+        };
+
         public static AbstractItem cyclone = new Items.BoolItem
         {
             name = "Cyclone_Slash",
@@ -161,6 +267,42 @@ namespace ItemChanger.Tests
                 descOneKey = "GET_CYCLONE_1",
                 descTwoKey = "GET_CYCLONE_2",
                 bigSpriteKey = "Prompts.CycloneSlash",
+            }
+        };
+
+        public static AbstractItem gslash = new Items.BoolItem
+        {
+            name = "Great_Slash",
+            fieldName = "hasDashSlash",
+            UIDef = new BigUIDef
+            {
+                nameKey = "INV_NAME_ART_DASH",
+                descKey = "INV_DESC_ART_DASH",
+                spriteKey = "ShopIcons.GreatSlash",
+
+                takeKey = "GET_ITEM_INTRO3",
+                buttonKey = "RANDOMIZER_BUTTON_DESC",
+                descOneKey = "GET_GSLASH_1",
+                descTwoKey = "GET_GSLASH_2",
+                bigSpriteKey = "Prompts.GreatSlash",
+            }
+        };
+
+        public static AbstractItem dslash = new Items.BoolItem
+        {
+            name = "Dash_Slash",
+            fieldName = "hasUpwardSlash",
+            UIDef = new BigUIDef
+            {
+                nameKey = "INV_NAME_ART_UPPER",
+                descKey = "INV_DESC_ART_UPPER",
+                spriteKey = "ShopIcons.DashSlash",
+
+                takeKey = "GET_ITEM_INTRO3",
+                buttonKey = "RANDOMIZER_BUTTON_DESC",
+                descOneKey = "GET_DSLASH_1",
+                descTwoKey = "GET_DSLASH_2",
+                bigSpriteKey = "Prompts.DashSlash",
             }
         };
 
@@ -241,6 +383,17 @@ namespace ItemChanger.Tests
             chestFsm = "Chest Control",
             chestName = "Chest",
             name = "Fury_of_the_Fallen",
+        };
+
+        public static ShopPlacement sly = new ShopPlacement
+        {
+            sceneName = SceneNames.Room_shop,
+            objectName = "Shop Menu",
+            fsmName = "shop_control",
+            defaultShopItems = Default.Shops.DefaultShopItems.None,
+            dungDiscount = false,
+            name = "Sly",
+            requiredPlayerDataBool = string.Empty,
         };
 
         public static ShopPlacement salubra = new ShopPlacement

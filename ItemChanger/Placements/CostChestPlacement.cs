@@ -47,7 +47,7 @@ namespace ItemChanger.Placements
                 FsmState init = fsm.GetState("Init");
                 FsmState spawnItems = fsm.GetState("Spawn Items");
 
-                FsmStateAction checkAction = new RandomizerExecuteLambda(() => fsm.SendEvent(items.All(i => i.IsObtained()) ? "ACTIVATE" : null));
+                FsmStateAction checkAction = new Lambda(() => fsm.SendEvent(items.All(i => i.IsObtained()) ? "ACTIVATE" : null));
 
                 init.RemoveActionsOfType<BoolTest>();
                 init.AddAction(checkAction);
@@ -73,7 +73,7 @@ namespace ItemChanger.Placements
                     spawn.spawnMax = 0;
                 }
 
-                FsmStateAction generateItems = new RandomizerExecuteLambda(() =>
+                FsmStateAction generateItems = new Lambda(() =>
                 {
                     for (int i = 0; i < items.Count; i++)
                     {

@@ -13,6 +13,7 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
+    // TODO: Change Dreamer Cutscene 1 into a WorldEvent, instead of destroying it
     public class MothwingCloakLocation : ObjectLocation
     {
         public override void OnEnable(PlayMakerFSM fsm)

@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
-    // TODO: Can this be done outside of the fsm?
     public class SpawnGeoItem : AbstractItem
     {
         public int amount;
@@ -26,16 +25,19 @@ namespace ItemChanger.Items
 
         public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
         {
-            switch (fling)
+            if (fling == FlingType.DirectDeposit || transform == null)
             {
-                case FlingType.DirectDeposit:
+                if (HeroController.instance != null)
+                {
                     HeroController.instance.AddGeo(amount);
-                    break;
-                default:
-                    FsmStateActions.RandomizerAddGeo.SpawnGeo(amount, false, fling, transform);
-                    break;
+                }
+                else
+                {
+                    PlayerData.instance.AddGeo(amount);
+                }
+                return;
             }
+            FsmStateActions.RandomizerAddGeo.SpawnGeo(amount, false, fling, transform);
         }
-
     }
 }
