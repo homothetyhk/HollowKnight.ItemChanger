@@ -95,9 +95,15 @@
     <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
     <Compile Include="AdditiveManager.cs" />
     <Compile Include="Locations\BroodingMawlekLocation.cs" />
+    <Compile Include="Locations\DescendingDarkLocation.cs" />
+    <Compile Include="Locations\VengefulSpiritLocation.cs" />
+    <Compile Include="Locations\NailmasterLocation.cs" />
+    <Compile Include="Locations\FsmLocation.cs" />
     <Compile Include="Locations\PaleLurkerLocation.cs" />
     <Compile Include="Locations\NailmastersGloryLocation.cs" />
+    <Compile Include="Placements\FsmPlacement.cs" />
     <Compile Include="Placements\StartPlacement.cs" />
+    <Compile Include="Util\ItemUtility.cs" />
     <Compile Include="WorldEventManager.cs" />
     <Compile Include="WorldEvents.cs" />
     <Compile Include="CustomSkillManager.cs" />

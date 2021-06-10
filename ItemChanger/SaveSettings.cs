@@ -17,12 +17,14 @@ namespace ItemChanger
 
 
         public IEnumerable<AbstractItem> GetItems() => Locations.SelectMany(l => l.items);
-        public IEnumerable<AbstractPlacement> GetLocations() => Locations;
+        public IEnumerable<AbstractPlacement> GetLocations() => Locations ?? (Locations = new AbstractPlacement[0]);
 
         internal void SavePlacements(AbstractPlacement[] locations)
         {
             Locations = locations.ToArray();
         }
+
+        public bool easterEgg1 = false;
     }
 
     public class SaveSettings : BaseSettings

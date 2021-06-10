@@ -19,6 +19,7 @@ namespace ItemChanger.Util
         {
             GameObject grubJar = ObjectCache.GrubJar;
             grubJar.name = GetGrubJarName(location);
+            grubJar.AddComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
 
             return grubJar;
         }
@@ -84,8 +85,10 @@ namespace ItemChanger.Util
             itemParent.transform.localPosition = Vector3.zero;
             itemParent.SetActive(true);
 
+            FsmStateAction freezeGrubY = new Lambda(() => jar.GetComponent<Rigidbody2D>().constraints |= RigidbodyConstraints2D.FreezePositionY);
             FsmStateAction spawnShinies = new ActivateAllChildren { gameObject = new FsmGameObject { Value = itemParent, }, activate = true };
             FsmStateAction removeParent = new Lambda(() => itemParent.transform.parent = null);
+            if (!Ref.Placements.easterEgg1) shatter.AddFirstAction(freezeGrubY);
             shatter.AddAction(spawnShinies);
             activate.AddFirstAction(removeParent); // activate has a destroy all children action
             activate.AddFirstAction(spawnShinies);

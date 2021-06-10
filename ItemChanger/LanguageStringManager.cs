@@ -90,11 +90,6 @@ namespace ItemChanger
         // keep this private -- the api hook does weird stuff with GetInternal
         private static string GetLanguageString(string key, string sheetTitle)
         {
-            if (sheetTitle == "ItemChanger.Locations")
-            {
-                return Ref.Placements.GetLocations().Select(l => l.OnLanguageGet(key)).FirstOrDefault(text => !string.IsNullOrEmpty(text));
-            }
-
             if (key.StartsWith("RANDOMIZER_NAME_ESSENCE_"))
             {
                 return key.Split('_').Last() + " Essence";

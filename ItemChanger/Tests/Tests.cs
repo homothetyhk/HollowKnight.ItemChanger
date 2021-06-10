@@ -109,9 +109,87 @@ namespace ItemChanger.Tests
             });
         }
 
+        public static void MatoTest()
+        {
+            mato.AddItem(gslash);
+            mato.AddItem(wk);
+            mato.AddItem(grub);
+            mato.AddItem(megarock);
+            mato.AddItem(dslash);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                mato
+            });
+        }
+
+        public static void VengefulSpiritTest()
+        {
+            shaman.AddItem(grub);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                shaman
+            });
+        }
+
+        public static void DescendingDarkTest()
+        {
+            crystal.AddItem(wk);
+            crystal.AddItem(gslash);
+            crystal.AddItem(grub);
+            crystal.AddItem(megarock);
+            crystal.AddItem(dslash);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                crystal
+            });
+
+        }
+
         public static StartPlacement start = new StartPlacement
         {
             name = "Start",
+        };
+
+        public static FsmPlacement crystal = new FsmPlacement
+        {
+            location = new DescendingDarkLocation
+            {
+                flingType = FlingType.Everywhere,
+                fsmName = "Control",
+                objectName = "Crystal Shaman",
+                messageType = MessageType.Any,
+                sceneName = SceneNames.Mines_35,
+            },
+            name = "Descending_Dark",
+        };
+
+        public static MutablePlacement shaman = new MutablePlacement
+        {
+            name = "Vengeful_Spirit",
+            location = new VengefulSpiritLocation
+            {
+                sceneName = SceneNames.Crossroads_ShamanTemple,
+                flingType = FlingType.Everywhere,
+                forceShiny = false,
+                objectName = "Vengeful Spirit",
+                elevation = 0.5f,
+            }
+        };
+
+        public static FsmPlacement mato = new FsmPlacement
+        {
+            name = "Cyclone_Slash",
+            location = new NailmasterLocation
+            {
+                sceneName = SceneNames.Room_nailmaster,
+                flingType = FlingType.DirectDeposit,
+                fsmName = "Conversation Control",
+                objectName = "NM Mato NPC",
+                messageType = MessageType.Any,
+            },
         };
 
         public static MutablePlacement lurker = new MutablePlacement

@@ -128,22 +128,8 @@ namespace ItemChanger.Util
             FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
 
             FsmStateAction checkAction = new Lambda(() => shinyFsm.SendEvent(items.All(i => i.IsObtained()) ? "COLLECTED" : null));
-            FsmStateAction giveAction = new Lambda(() =>
-            {
-                IEnumerator<AbstractItem> enumerator = items.GetEnumerator();
-                void GiveNext()
-                {
-                    if (enumerator.MoveNext())
-                    {
-                        enumerator.Current.Give(location, Container.Shiny, flingType, shinyFsm.gameObject.transform, message: MessageType.Any, callback: _ => GiveNext());
-                    }
-                    else
-                    {
-                        shinyFsm.SendEvent("GAVE ITEM");
-                    }
-                }
-                GiveNext();
-            });
+            FsmStateAction giveAction = new Lambda(() => ItemUtility.GiveSequentially(
+                items, location, Container.Shiny, flingType, shinyFsm.transform, MessageType.Any, callback: () => shinyFsm.SendEvent("GAVE ITEM")));
 
             // Remove actions that stop shiny from spawning
             pdBool.RemoveActionsOfType<StringCompare>();

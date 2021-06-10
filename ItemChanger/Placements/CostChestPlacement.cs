@@ -108,9 +108,9 @@ namespace ItemChanger.Placements
             tabletLocation.PlaceContainer(tablet, Container.Tablet);
         }
 
-        public override string OnLanguageGet(string convoName)
+        public override string OnLanguageGet(string convoName, string sheet)
         {
-            if (convoName == TabletUtility.GetTabletName(this))
+            if (sheet == "ItemChanger.Locations" && convoName == TabletUtility.GetTabletName(this))
             {
                 StringBuilder sb = new StringBuilder("Chest Contents<br>");
                 for (int i = 0; i < items.Count; i++)

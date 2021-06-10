@@ -62,12 +62,18 @@ namespace ItemChanger
             WorldEventManager.Hook();
             On.PlayMakerFSM.OnEnable += ApplyLocationFsmEdits;
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += ApplyLocationSceneEdits;
+            ModHooks.Instance.LanguageGetHook += ApplyLocationTextEdits;
             foreach (var loc in SET.GetLocations()) loc.OnHook();
+        }
+
+        private string ApplyLocationTextEdits(string convo, string sheet)
+        {
+            return SET?.GetLocations().Select(p => p?.OnLanguageGet(convo, sheet)).FirstOrDefault(p => p != null) ?? Language.Language.GetInternal(convo, sheet);
         }
 
         private void ApplyLocationSceneEdits(Scene from, Scene to)
         {
-            foreach (var loc in SET?.GetLocations() ?? new AbstractPlacement[0])
+            foreach (var loc in SET?.GetLocations())
             {
                 if (loc is null) continue;
                 else if (loc is StartPlacement sp)

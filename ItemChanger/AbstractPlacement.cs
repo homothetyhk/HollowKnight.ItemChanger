@@ -24,9 +24,9 @@ namespace ItemChanger
         }
 
         /// <summary>
-        /// Override for custom text with sheetName "ItemChanger.Locations". Applies first non-null return value.
+        /// Override for custom text. Return null if text was not modified.
         /// </summary>
-        public virtual string OnLanguageGet(string convoName)
+        public virtual string OnLanguageGet(string convo, string sheet)
         {
             return null;
         }
