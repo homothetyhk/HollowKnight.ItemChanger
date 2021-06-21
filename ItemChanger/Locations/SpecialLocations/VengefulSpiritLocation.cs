@@ -9,19 +9,19 @@ using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
 using SereCore;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ItemChanger.Locations
+namespace ItemChanger.Locations.SpecialLocations
 {
-    public class VengefulSpiritLocation : ObjectLocation
+    public class VengefulSpiritLocation : FsmObjectLocation
     {
         public override void PlaceContainer(GameObject obj, Container containerType)
         {
             base.PlaceContainer(obj, containerType);
-            GameObject.Find("Shaman Meeting").LocateMyFSM("Conversation Control").FsmVariables.FindFsmGameObject("Vengeful Spirit").Value = obj;
+
+            // TODO: move to world event?
             if (PlayerData.instance.GetInt(nameof(PlayerData.shaman)) >= 1) obj.SetActive(true);
-            GameObject.Destroy(GameObject.Find("Bone Gate"));
+            UnityEngine.Object.Destroy(GameObject.Find("Bone Gate"));
         }
 
         public override void OnEnable(PlayMakerFSM fsm)
@@ -36,11 +36,11 @@ namespace ItemChanger.Locations
 
                         checkActive.Actions = new FsmStateAction[0];
                         checkSummoned.RemoveActionsOfType<FindChild>();
-                        spellAppear.Actions[8] = new Lambda(() => { });
+                        spellAppear.Actions[8] = new Lambda(() => { }); // this replaces a wait after the spawn animation and seems to prevent a freeze
                     }
                     break;
                 case "Shaman Trapped":
-                    GameObject.Destroy(fsm.gameObject);
+                    UnityEngine.Object.Destroy(fsm.gameObject);
                     break;
             }
         }

@@ -9,7 +9,7 @@ namespace ItemChanger.Items
     {
         public int amount;
 
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             PlayerData.instance.IntAdd(nameof(PlayerData.dreamOrbs), amount);
             EventRegister.SendEvent("DREAM ORB COLLECT");

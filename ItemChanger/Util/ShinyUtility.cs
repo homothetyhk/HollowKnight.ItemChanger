@@ -85,14 +85,24 @@ namespace ItemChanger.Util
             flingObj.speedMin = flingObj.speedMax = 0.1f;
         }
 
-        public static void ModifyShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement location, AbstractItem item)
+        public static void ModifyShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement placement, AbstractItem item)
         {
+            ItemChanger.instance.Log("Single Shiny!");
+
             FsmState pdBool = shinyFsm.GetState("PD Bool?");
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
 
+            GiveInfo info = new GiveInfo
+            {
+                Container = Container.Shiny,
+                FlingType = flingType,
+                Transform = shinyFsm.transform,
+                MessageType = MessageType.Any,
+                Callback = _ => shinyFsm.SendEvent("GAVE ITEM"),
+            };
             FsmStateAction checkAction = new Lambda(() => shinyFsm.SendEvent(item.IsObtained() ? "COLLECTED" : null));
-            FsmStateAction giveAction = new Lambda(() => item.Give(location, Container.Shiny, flingType, shinyFsm.gameObject.transform, message: MessageType.Any, callback: (_) => shinyFsm.SendEvent("GAVE ITEM")));
+            FsmStateAction giveAction = new Lambda(() => item.Give(placement, info));
 
             // Remove actions that stop shiny from spawning
             pdBool.RemoveActionsOfType<StringCompare>();
@@ -123,13 +133,21 @@ namespace ItemChanger.Util
 
         public static void ModifyMultiShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement location, IEnumerable<AbstractItem> items)
         {
+            ItemChanger.instance.Log("Multi Shiny!");
+
             FsmState pdBool = shinyFsm.GetState("PD Bool?");
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
 
+            GiveInfo info = new GiveInfo
+            {
+                Container = Container.Shiny,
+                FlingType = flingType,
+                Transform = shinyFsm.transform,
+                MessageType = MessageType.Any,
+            };
             FsmStateAction checkAction = new Lambda(() => shinyFsm.SendEvent(items.All(i => i.IsObtained()) ? "COLLECTED" : null));
-            FsmStateAction giveAction = new Lambda(() => ItemUtility.GiveSequentially(
-                items, location, Container.Shiny, flingType, shinyFsm.transform, MessageType.Any, callback: () => shinyFsm.SendEvent("GAVE ITEM")));
+            FsmStateAction giveAction = new Lambda(() => ItemUtility.GiveSequentially(items, location, info, callback: () => shinyFsm.SendEvent("GAVE ITEM")));
 
             // Remove actions that stop shiny from spawning
             pdBool.RemoveActionsOfType<StringCompare>();

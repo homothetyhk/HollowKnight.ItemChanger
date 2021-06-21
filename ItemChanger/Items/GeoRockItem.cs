@@ -25,9 +25,9 @@ namespace ItemChanger.Items
         public GeoRockSubtype geoRockSubtype;
         public int amount;
 
-        public override void GiveImmediate(Container container, FlingType fling, Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
-            if (fling == FlingType.DirectDeposit || transform == null)
+            if (info.FlingType == FlingType.DirectDeposit || info.Transform == null)
             {
                 if (HeroController.instance != null)
                 {
@@ -89,24 +89,24 @@ namespace ItemChanger.Items
 
             if (smallNum > 0)
             {
-                FlingUtils.SpawnAndFling(flingConfig, transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, info.Transform, new Vector3(0f, 0f, 0f));
             }
 
             if (medNum > 0)
             {
                 flingConfig.Prefab = mediumPrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = medNum;
-                FlingUtils.SpawnAndFling(flingConfig, transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, info.Transform, new Vector3(0f, 0f, 0f));
             }
 
             if (largeNum > 0)
             {
                 flingConfig.Prefab = largePrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = largeNum;
-                FlingUtils.SpawnAndFling(flingConfig, transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, info.Transform, new Vector3(0f, 0f, 0f));
             }
 
-            if (fling == FlingType.StraightUp)
+            if (info.FlingType == FlingType.StraightUp)
             {
                 flingConfig.AngleMin = 90;
                 flingConfig.AngleMax = 90;

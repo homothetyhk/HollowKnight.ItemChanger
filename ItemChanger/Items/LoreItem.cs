@@ -12,9 +12,9 @@ namespace ItemChanger.Items
         public string loreKey;
         public TextType textType;
 
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
-            if (container == Container.Shop) return;
+            if (info.Container == Container.Shop) return;
             AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
                 new Vector3(
                     Camera.main.transform.position.x - 2,

@@ -9,7 +9,7 @@ namespace ItemChanger.Items
     {
         public int trinketNum;
 
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             PlayerData.instance.SetBool($"foundTrinket{trinketNum}", true);
             PlayerData.instance.IncrementInt($"trinket{trinketNum}");

@@ -8,7 +8,7 @@ namespace ItemChanger.Items
 {
     public class DirtmouthStagItem : AbstractItem
     {
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             PlayerData.instance.SetBool(nameof(PlayerData.openedTown), true);
             PlayerData.instance.SetBool(nameof(PlayerData.openedTownBuilding), true);

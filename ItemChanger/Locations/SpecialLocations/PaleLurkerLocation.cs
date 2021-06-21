@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace ItemChanger.Locations
+namespace ItemChanger.Locations.SpecialLocations
 {
     public class PaleLurkerLocation : ObjectLocation
     {
@@ -23,7 +23,7 @@ namespace ItemChanger.Locations
                 go.transform.SetParent(fsm.gameObject.transform.parent);
                 go.transform.position = fsm.gameObject.transform.position;
                 go.transform.localPosition = fsm.gameObject.transform.localPosition;
-                GameObject.Destroy(fsm.gameObject);
+                UnityEngine.Object.Destroy(fsm.gameObject);
             }
         }
     }

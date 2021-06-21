@@ -7,6 +7,7 @@ using ItemChanger.Items;
 using ItemChanger.Locations;
 using ItemChanger.Placements;
 using SereCore;
+using ItemChanger.Locations.SpecialLocations;
 
 namespace ItemChanger.Tests
 {
@@ -125,7 +126,7 @@ namespace ItemChanger.Tests
 
         public static void VengefulSpiritTest()
         {
-            shaman.AddItem(grub);
+            shaman.AddItem(megarock);
 
             Ref.Placements.SavePlacements(new AbstractPlacement[]
             {
@@ -145,15 +146,146 @@ namespace ItemChanger.Tests
             {
                 crystal
             });
-
         }
 
-        public static StartPlacement start = new StartPlacement
+        public static void ShadeSoulTest()
+        {
+            shadesoul.AddItem(wk);
+            shadesoul.AddItem(gslash);
+            shadesoul.AddItem(grub);
+            shadesoul.AddItem(megarock);
+            shadesoul.AddItem(dslash);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                shadesoul
+            });
+        }
+
+        public static void DesolateDiveTest()
+        {
+            start.AddItem(dive);
+            dive_p.AddItem(grub);
+            dive_p.AddItem(megarock);
+            dive_p.AddItem(cyclone);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                start, dive_p
+            });
+        }
+
+        public static void CliffsCorniferTest()
+        {
+            start.AddItem(new MultiBoolItem
+            {
+                fieldNames = new[]
+                {
+                    //nameof(PlayerData.corn_cliffsEncountered),
+                    //nameof(PlayerData.corn_cliffsLeft),
+                    nameof(PlayerData.mapCliffs),
+                    nameof(PlayerData.visitedCliffs)
+                }
+            });
+
+            cliffsmap.AddItem(grub);
+            cliffsmap.AddItem(dive);
+            cliffsmap.AddItem(cyclone);
+            cliffsmap.AddItem(wk);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                start, cliffsmap
+            });
+        }
+
+        public static void BrummFlameTest()
+        {
+            start.AddItem(new EquippedCharmItem { charmNum = 40 });
+            start.AddItem(new IntItem
+            {
+                amount = 3,
+                fieldName = nameof(PlayerData.grimmChildLevel),
+            });
+
+            brumm.AddItem(grub);
+            brumm.AddItem(dive);
+            brumm.AddItem(wk);
+            brumm.AddItem(cyclone);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                start, brumm
+            });
+        }
+
+        public static void GorgeousHuskTest()
+        {
+            start.AddItem(supernail);
+            ghusk.AddItem(dive);
+            ghusk.AddItem(grub);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                start, ghusk
+            });
+        }
+
+        static StartPlacement start = new StartPlacement
         {
             name = "Start",
         };
 
-        public static FsmPlacement crystal = new FsmPlacement
+        public static MutablePlacement fountain = new MutablePlacement
+        {
+            location = new BasinFountainLocation
+            {
+                objectName = "Vessel Fragment",
+                fsmParent = "Wishing_Well_anims",
+                fsmName = "Fountain Control",
+                fsmVariable = "Vessel Fragment",
+                flingType = FlingType.Everywhere,
+                sceneName = SceneNames.Abyss_04
+            }
+        };
+
+        public static MutablePlacement ghusk = new MutablePlacement
+        {
+            location = new EnemyLocation
+            {
+                sceneName = SceneNames.Ruins_House_02,
+                objectName = "Gorgeous Husk",
+                flingType = FlingType.Everywhere,
+                removeGeo = true,
+            },
+            name = "Gorgeous_Husk",
+        };
+
+        public static FsmPlacement brumm = new FsmPlacement
+        {
+            location = new BrummFlameLocation
+            {
+                flingType = FlingType.Everywhere,
+                messageType = MessageType.Any,
+                sceneName = SceneNames.Room_spider_small,
+            },
+            name = "Grimmkin_Flame-Brumm",
+        };
+
+        static MutablePlacement dive_p = new MutablePlacement
+        {
+            location = new DesolateDiveLocation
+            {
+                flingType = FlingType.Everywhere,
+                objectName = "Quake Item",
+                sceneName = "Ruins1_24",
+                fsmParent = "Quake Pickup",
+                fsmName = "Pickup",
+                fsmVariable = "Quake Item",
+            }
+        };
+
+        static FsmPlacement crystal = new FsmPlacement
         {
             location = new DescendingDarkLocation
             {
@@ -166,20 +298,43 @@ namespace ItemChanger.Tests
             name = "Descending_Dark",
         };
 
-        public static MutablePlacement shaman = new MutablePlacement
+        static FsmPlacement shadesoul = new FsmPlacement
+        {
+            location = new ShadeSoulLocation
+            {
+                sceneName = "Ruins1_31b",
+                flingType = FlingType.Everywhere,
+                messageType = MessageType.Any
+            }
+        };
+
+        static MutablePlacement shaman = new MutablePlacement
         {
             name = "Vengeful_Spirit",
             location = new VengefulSpiritLocation
             {
                 sceneName = SceneNames.Crossroads_ShamanTemple,
                 flingType = FlingType.Everywhere,
-                forceShiny = false,
                 objectName = "Vengeful Spirit",
-                elevation = 0.5f,
-            }
+                fsmParent = "Shaman Meeting",
+                fsmName = "Conversation Control",
+                fsmVariable = "Vengeful Spirit",
+            },
         };
 
-        public static FsmPlacement mato = new FsmPlacement
+        static FsmPlacement cliffsmap = new FsmPlacement
+        {
+            location = new CorniferLocation
+            {
+                sceneName = "Cliffs_01",
+                objectName = "Cornifer",
+                flingType = FlingType.Everywhere,
+                messageType = MessageType.Any,
+            },
+            name = "Howling_Cliffs_Map",
+        };
+
+        static FsmPlacement mato = new FsmPlacement
         {
             name = "Cyclone_Slash",
             location = new NailmasterLocation
@@ -192,7 +347,7 @@ namespace ItemChanger.Tests
             },
         };
 
-        public static MutablePlacement lurker = new MutablePlacement
+        static MutablePlacement lurker = new MutablePlacement
         {
             name = "Simple_Key-Lurker",
             location = new PaleLurkerLocation
@@ -204,7 +359,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static MutablePlacement mawlek = new MutablePlacement
+        static MutablePlacement mawlek = new MutablePlacement
         {
             name = "Mask_Shard-Brooding_Mawlek",
             location = new BroodingMawlekLocation
@@ -213,14 +368,16 @@ namespace ItemChanger.Tests
                 forceShiny = true,
                 objectName = "Heart Piece",
                 sceneName = "Crossroads_09",
+                fsmParent = "Battle Scene",
+                fsmName = "Battle Control",
+                fsmVariable = "Heart Piece"
             },
         };
 
-
-        public static MutablePlacement slybasement = new MutablePlacement
+        static MutablePlacement slybasement = new MutablePlacement
         {
             name = "Nailmaster's_Glory",
-            location = new NailmastersGloryLocation
+            location = new NailmastersGloryObjectLocation
             {
                 sceneName = SceneNames.Room_Sly_Storeroom,
                 forceShiny = true,
@@ -229,7 +386,7 @@ namespace ItemChanger.Tests
             },
         };
 
-        public static MutablePlacement dreamnailcutscene = new MutablePlacement
+        static MutablePlacement dreamnailcutscene = new MutablePlacement
         {
             name = "Dream_Nail",
             location = new DreamNailLocation
@@ -241,13 +398,13 @@ namespace ItemChanger.Tests
             },
         };
 
-        public static MutablePlacement hornet = new MutablePlacement
+        static MutablePlacement hornet = new MutablePlacement
         {
             name = "Mothwing_Cloak",
             location = new MothwingCloakLocation()
         };
 
-        public static AbstractItem supernail = new Items.IntItem
+        static AbstractItem supernail = new Items.IntItem
         {
             name = "Super_Nail",
             amount = 500,
@@ -255,7 +412,25 @@ namespace ItemChanger.Tests
             UIDef = null,
         };
 
-        public static AbstractItem dash = new Items.MultiBoolItem
+        static AbstractItem dive = new IntItem
+        {
+            fieldName = nameof(PlayerData.quakeLevel),
+            amount = 1,
+            name = "Desolate_Dive",
+            UIDef = new BigUIDef
+            {
+                takeKey = "GET_ITEM_INTRO3",
+                nameKey = "INV_NAME_SPELL_QUAKE1",
+                buttonKey = "RANDOMIZER_BUTTON_DESC",
+                descOneKey = "GET_QUAKE_1",
+                descTwoKey = "GET_QUAKE_2",
+                descKey = "INV_DESC_SPELL_QUAKE1",
+                bigSpriteKey = "Prompts.Quake1",
+                spriteKey = "ShopIcons.Quake1"
+            }
+        };
+
+        static AbstractItem dash = new Items.MultiBoolItem
         {
             name = "Mothwing_Cloak",
             fieldNames = new string[] { "canDash", "hasDash" },
@@ -272,7 +447,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem leftdash = new Items.CustomSkillItem
+        static AbstractItem leftdash = new Items.CustomSkillItem
         {
             name = "Left_Mothwing_Cloak",
             boolName = "canDashLeft",
@@ -289,7 +464,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem focus = new Items.CustomSkillItem
+        static AbstractItem focus = new Items.CustomSkillItem
         {
             name = "Focus",
             boolName = "canFocus",
@@ -306,7 +481,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem grubsong = new Items.CharmItem
+        static AbstractItem grubsong = new Items.CharmItem
         {
             name = "Grubsong",
             fieldName = "gotCharm_3",
@@ -318,7 +493,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem equipped_crest = new Items.EquippedCharmItem
+        static AbstractItem equipped_crest = new Items.EquippedCharmItem
         {
             name = "Defender's_Crest-E",
             charmNum = 10,
@@ -330,7 +505,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem cyclone = new Items.BoolItem
+        static AbstractItem cyclone = new Items.BoolItem
         {
             name = "Cyclone_Slash",
             fieldName = "hasCyclone",
@@ -348,7 +523,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem gslash = new Items.BoolItem
+        static AbstractItem gslash = new Items.BoolItem
         {
             name = "Great_Slash",
             fieldName = "hasDashSlash",
@@ -366,7 +541,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem dslash = new Items.BoolItem
+        static AbstractItem dslash = new Items.BoolItem
         {
             name = "Dash_Slash",
             fieldName = "hasUpwardSlash",
@@ -384,7 +559,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem fk = new SpawnGeoItem
+        static AbstractItem fk = new SpawnGeoItem
         {
             name = "False_Knight_Chest",
             amount = 200,
@@ -396,7 +571,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem wk = new SpawnGeoItem
+        static AbstractItem wk = new SpawnGeoItem
         {
             name = "Watcher_Knight_Chest",
             amount = 655,
@@ -408,7 +583,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem megarock = new GeoRockItem
+        static AbstractItem megarock = new GeoRockItem
         {
             name = "420",
             amount = 420,
@@ -421,13 +596,13 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static AbstractItem grub = new GrubItem
+        static AbstractItem grub = new GrubItem
         {
             name = "Grub",
             UIDef = GrubUIDef.Def
         };
 
-        public static AbstractItem simple = new IntItem
+        static AbstractItem simple = new IntItem
         {
             name = "Simple_Key",
             fieldName = nameof(PlayerData.simpleKeys),
@@ -440,7 +615,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static ObjectLocation joni_loc = new ObjectLocation
+        static ObjectLocation joni_loc = new ObjectLocation
         {
             sceneName = SceneNames.Cliffs_05,
             forceShiny = false,
@@ -449,13 +624,13 @@ namespace ItemChanger.Tests
             objectName = "Shiny Item Stand"
         };
 
-        public static AbstractPlacement joni = new MutablePlacement
+        static AbstractPlacement joni = new MutablePlacement
         {
             location = joni_loc,
             name = "Joni's_Blessing",
         };
 
-        public static AbstractPlacement fury = new ExistingChestPlacement
+        static AbstractPlacement fury = new ExistingChestPlacement
         {
             sceneName = "Tutorial_01",
             chestFsm = "Chest Control",
@@ -463,7 +638,7 @@ namespace ItemChanger.Tests
             name = "Fury_of_the_Fallen",
         };
 
-        public static ShopPlacement sly = new ShopPlacement
+        static ShopPlacement sly = new ShopPlacement
         {
             sceneName = SceneNames.Room_shop,
             objectName = "Shop Menu",
@@ -474,7 +649,7 @@ namespace ItemChanger.Tests
             requiredPlayerDataBool = string.Empty,
         };
 
-        public static ShopPlacement salubra = new ShopPlacement
+        static ShopPlacement salubra = new ShopPlacement
         {
             sceneName = SceneNames.Room_Charm_Shop,
             objectName = "Shop Menu",
@@ -485,7 +660,7 @@ namespace ItemChanger.Tests
             requiredPlayerDataBool = string.Empty,
         };
 
-        public static CoordinateLocation grimmchild_loc = new CoordinateLocation
+        static CoordinateLocation grimmchild_loc = new CoordinateLocation
         {
             sceneName = SceneNames.Grimm_Main_Tent,
             x = 75,
@@ -495,7 +670,7 @@ namespace ItemChanger.Tests
             forceShiny = false,
         };
 
-        public static CoordinateLocation near_grimmchild_loc = new CoordinateLocation
+        static CoordinateLocation near_grimmchild_loc = new CoordinateLocation
         {
             sceneName = SceneNames.Grimm_Main_Tent,
             x = 70,
@@ -506,14 +681,14 @@ namespace ItemChanger.Tests
         };
 
 
-        public static CostChestPlacement chestgrimmchild = new CostChestPlacement
+        static CostChestPlacement chestgrimmchild = new CostChestPlacement
         {
             chestLocation = grimmchild_loc,
             tabletLocation = near_grimmchild_loc,
             name = "Grimmchild",
         };
 
-        public static YNShinyPlacement multigrimmchild = new YNShinyPlacement
+        static YNShinyPlacement multigrimmchild = new YNShinyPlacement
         {
             location = grimmchild_loc,
             name = "Grimmchild",

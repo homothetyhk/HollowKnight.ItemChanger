@@ -10,7 +10,7 @@ namespace ItemChanger.Items
     {
         public string[] fieldNames;
 
-        public override void GiveImmediate(Container container, FlingType fling, Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             foreach (var field in fieldNames) PlayerData.instance.SetBool(field, true);
         }

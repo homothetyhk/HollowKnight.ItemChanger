@@ -9,7 +9,7 @@ namespace ItemChanger.Items
     public class CustomSkillItem : AbstractItem
     {
         public string boolName;
-        public override void GiveImmediate(Container container, FlingType fling, Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             Ref.SKILLS.SetBool(boolName, true);
         }

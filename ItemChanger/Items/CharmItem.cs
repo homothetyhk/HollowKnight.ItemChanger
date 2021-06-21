@@ -9,7 +9,7 @@ namespace ItemChanger.Items
     {
         public string fieldName;
 
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             PlayerData.instance.SetBool(nameof(PlayerData.hasCharm), true);
             PlayerData.instance.SetBool(fieldName, true);

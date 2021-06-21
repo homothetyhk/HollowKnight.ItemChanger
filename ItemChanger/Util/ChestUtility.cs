@@ -82,7 +82,14 @@ namespace ItemChanger.Util
             {
                 if (item.GiveEarly(Container.Chest))
                 {
-                    spawnItems.AddAction(new Lambda(() => item.Give(location, Container.Chest, flingType, chestFsm.gameObject.transform, MessageType.Corner)));
+                    GiveInfo info = new GiveInfo
+                    {
+                        Container = Container.Chest,
+                        FlingType = flingType,
+                        Transform = chestFsm.transform,
+                        MessageType = MessageType.Corner,
+                    };
+                    spawnItems.AddAction(new Lambda(() => item.Give(location, info)));
                 }
                 else
                 {

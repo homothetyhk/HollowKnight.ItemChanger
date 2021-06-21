@@ -23,9 +23,9 @@ namespace ItemChanger.Items
             }
         }
 
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
-            if (fling == FlingType.DirectDeposit || transform == null)
+            if (info.FlingType == FlingType.DirectDeposit || info.Transform == null)
             {
                 if (HeroController.instance != null)
                 {
@@ -37,7 +37,7 @@ namespace ItemChanger.Items
                 }
                 return;
             }
-            FsmStateActions.RandomizerAddGeo.SpawnGeo(amount, false, fling, transform);
+            FsmStateActions.RandomizerAddGeo.SpawnGeo(amount, false, info.FlingType, info.Transform);
         }
     }
 }

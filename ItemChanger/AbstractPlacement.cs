@@ -44,6 +44,11 @@ namespace ItemChanger
 
         }
 
+        public void SetVisisted()
+        {
+            visited = true;
+        }
+
         public bool HasVisited() => visited;
 
         public virtual void AddItem(AbstractItem item) => items.Add(item);

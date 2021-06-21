@@ -11,9 +11,16 @@ namespace ItemChanger.Placements
         
         public void GiveRemainingItems()
         {
+            GiveInfo info = new GiveInfo
+            {
+                Container = Container.Unknown,
+                FlingType = FlingType.DirectDeposit,
+                Transform = null,
+                MessageType = MessageType.Corner,
+            };
             foreach (AbstractItem item in items.Where(i => !i.IsObtained()))
             {
-                item.Give(this, Container.Unknown, FlingType.DirectDeposit, null, MessageType.Corner);
+                item.Give(this, info);
             }
         }
 

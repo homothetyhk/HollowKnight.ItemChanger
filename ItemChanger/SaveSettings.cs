@@ -23,8 +23,6 @@ namespace ItemChanger
         {
             Locations = locations.ToArray();
         }
-
-        public bool easterEgg1 = false;
     }
 
     public class SaveSettings : BaseSettings

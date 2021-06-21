@@ -19,7 +19,13 @@ namespace ItemChanger.Util
         {
             GameObject grubJar = ObjectCache.GrubJar;
             grubJar.name = GetGrubJarName(location);
-            grubJar.AddComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+
+            //grubJar.AddComponent<Components.DropIntoPlace>();
+            /*
+             * If there are concerns about the grub landing on a corpse, geo, etc, move it to layer 0
+            */
+            grubJar.transform.Find("Bottle Physical").gameObject.layer = 0;
+            grubJar.layer = 0;
 
             return grubJar;
         }
@@ -85,10 +91,10 @@ namespace ItemChanger.Util
             itemParent.transform.localPosition = Vector3.zero;
             itemParent.SetActive(true);
 
-            FsmStateAction freezeGrubY = new Lambda(() => jar.GetComponent<Rigidbody2D>().constraints |= RigidbodyConstraints2D.FreezePositionY);
             FsmStateAction spawnShinies = new ActivateAllChildren { gameObject = new FsmGameObject { Value = itemParent, }, activate = true };
             FsmStateAction removeParent = new Lambda(() => itemParent.transform.parent = null);
-            if (!Ref.Placements.easterEgg1) shatter.AddFirstAction(freezeGrubY);
+
+            shatter.AddFirstAction(new BoolTestMod(() => jar.GetComponent<Rigidbody2D>().constraints == RigidbodyConstraints2D.FreezeAll, null, "CANCEL"));
             shatter.AddAction(spawnShinies);
             activate.AddFirstAction(removeParent); // activate has a destroy all children action
             activate.AddFirstAction(spawnShinies);
@@ -97,7 +103,15 @@ namespace ItemChanger.Util
             {
                 if (item.GiveEarly(Container.GrubJar))
                 {
-                    FsmStateAction giveAction = new Lambda(() => item.Give(location, Container.GrubJar, flingType, jar.transform, MessageType.Corner));
+                    GiveInfo info = new GiveInfo
+                    {
+                        Container = Container.GrubJar,
+                        FlingType = flingType,
+                        Transform = jar.transform,
+                        MessageType = MessageType.Corner,
+                    };
+
+                    FsmStateAction giveAction = new Lambda(() => item.Give(location, info));
                     shatter.AddAction(giveAction);
                 }
                 else

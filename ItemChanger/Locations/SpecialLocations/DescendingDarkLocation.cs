@@ -10,14 +10,14 @@ using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
 using SereCore;
 
-namespace ItemChanger.Locations
+namespace ItemChanger.Locations.SpecialLocations
 {
     public class DescendingDarkLocation : FsmLocation
     {
         public string objectName;
         public string fsmName;
 
-        public override void OnEnable(PlayMakerFSM fsm, Func<bool> boolTest, Action<Action> giveAction)
+        public override void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions)
         {
             if (fsm.gameObject.name == objectName && fsm.FsmName == fsmName)
             {
@@ -25,9 +25,13 @@ namespace ItemChanger.Locations
                 FsmState get = fsm.GetState("Get PlayerData 2");
                 FsmState callUI = fsm.GetState("Call UI Msg 2");
 
-                FsmStateAction check = new Lambda(() => fsm.SendEvent(boolTest() ? "BROKEN" : null));
-                Action callback = () => fsm.SendEvent("GET ITEM MSG END");
-                FsmStateAction give = new Lambda(() => giveAction.Invoke(callback));
+                FsmStateAction check = new BoolTestMod(actions.AllObtained, "BROKEN", null);
+                void Callback()
+                {
+                    fsm.SendEvent("GET ITEM MSG END");
+                }
+
+                FsmStateAction give = new Lambda(() => actions.Give(Callback));
 
                 init.RemoveActionsOfType<IntCompare>();
                 init.AddAction(check);

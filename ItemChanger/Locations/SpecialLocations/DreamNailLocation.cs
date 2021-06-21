@@ -11,7 +11,7 @@ using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ItemChanger.Locations
+namespace ItemChanger.Locations.SpecialLocations
 {
     /// <summary>
     /// Class which modifies the Dream Nail sequence and its triggers. 
@@ -19,7 +19,7 @@ namespace ItemChanger.Locations
     /// </summary>
     public class DreamNailLocation : ObjectLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm) 
+        public override void OnEnable(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == "Control" && fsm.gameObject.name == "Witch Control")
             {

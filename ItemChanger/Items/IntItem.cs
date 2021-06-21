@@ -10,7 +10,7 @@ namespace ItemChanger.Items
         public string fieldName;
         public int amount;
 
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             PlayerData.instance.IntAdd(fieldName, amount);
         }

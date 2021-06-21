@@ -86,7 +86,13 @@ namespace ItemChanger.Placements
                             if (cost != null && !cost.Paid()) cost.Pay();
                             if (item.GiveEarly(Container.Chest))
                             {
-                                item.Give(this, Container.Chest, chestLocation.flingType, fsm.gameObject.transform, MessageType.Corner);
+                                item.Give(this, new GiveInfo
+                                {
+                                    Container = Container.Chest,
+                                    FlingType = chestLocation.flingType,
+                                    Transform = fsm.gameObject.transform,
+                                    MessageType = MessageType.Corner,
+                                });
                             }
                             else
                             {

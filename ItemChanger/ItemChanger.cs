@@ -58,6 +58,8 @@ namespace ItemChanger
             //readyForChangeItems = true;
             MessageController.Setup();
 
+            Tests.Tests.GorgeousHuskTest();
+
             CustomSkillManager.Hook();
             WorldEventManager.Hook();
             On.PlayMakerFSM.OnEnable += ApplyLocationFsmEdits;

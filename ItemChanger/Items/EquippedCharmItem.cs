@@ -9,7 +9,7 @@ namespace ItemChanger.Items
     {
         public int charmNum;
 
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             PlayerData.instance.SetBool(nameof(PlayerData.hasCharm), true);
             PlayerData.instance.SetBool($"gotCharm_{charmNum}", true);

@@ -7,7 +7,7 @@ namespace ItemChanger.Items
 {
     public class VoidItem : AbstractItem
     {
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             return;
         }

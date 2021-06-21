@@ -11,7 +11,7 @@ using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ItemChanger.Locations
+namespace ItemChanger.Locations.SpecialLocations
 {
     // TODO: Change Dreamer Cutscene 1 into a WorldEvent, instead of destroying it
     public class MothwingCloakLocation : ObjectLocation
@@ -40,13 +40,13 @@ namespace ItemChanger.Locations
                     break;
                 case "Camera Locks Boss" when fsm.FsmName == "FSM":
                     {
-                        if (!PlayerData.instance.hornet1Defeated) GameObject.Destroy(fsm);
+                        if (!PlayerData.instance.hornet1Defeated) UnityEngine.Object.Destroy(fsm);
                     }
                     break;
             }
         }
 
-        public override void OnActiveSceneChanged() 
+        public override void OnActiveSceneChanged()
         {
             ObjectDestroyer.Destroy(sceneName, "Dreamer Scene 1");
             ObjectDestroyer.Destroy(sceneName, "Hornet Saver");

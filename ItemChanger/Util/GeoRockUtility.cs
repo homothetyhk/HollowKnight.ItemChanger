@@ -51,6 +51,10 @@ namespace ItemChanger.Util
             GameObject rock = ObjectCache.GeoRock(type);
             rock.AddComponent<GeoRockInfo>().type = type;
             rock.name = GetGeoRockName(location);
+
+            rock.AddComponent<Components.DropIntoPlace>(); // 420 geo rock has clipping issues
+            rock.GetComponent<BoxCollider2D>().isTrigger = false; // some rocks only have trigger colliders
+
             return rock;
         }
 
@@ -83,6 +87,8 @@ namespace ItemChanger.Util
                 rock.transform.localPosition = target.transform.localPosition;
             }
 
+            rock.transform.SetPositionZ(0);
+
             GeoRockSubtype rockType = rock.GetComponent<GeoRockInfo>()?.type ?? GeoRockSubtype.Default;
             rock.transform.position += Vector3.up * (GetElevation(rockType) - elevation);
             if (rockType == GeoRockSubtype.Outskirts420)
@@ -103,6 +109,7 @@ namespace ItemChanger.Util
             GameObject rock = rockFsm.gameObject;
 
             FsmState init = rockFsm.GetState("Initiate");
+            FsmState idle = rockFsm.GetState("Idle");
             FsmState hit = rockFsm.GetState("Hit");
             FsmState payout = rockFsm.GetState("Destroy");
             FsmState broken = rockFsm.GetState("Broken");
@@ -111,6 +118,8 @@ namespace ItemChanger.Util
 
             init.RemoveActionsOfType<IntCompare>();
             init.AddAction(checkAction);
+
+            idle.RemoveActionsOfType<SetPosition>(); // otherwise the rock warps back after falling
 
             hit.ClearTransitions();
             hit.AddTransition("HIT", "Pause Frame");
@@ -135,7 +144,15 @@ namespace ItemChanger.Util
             {
                 if (item.GiveEarly(Container.GeoRock))
                 {
-                    FsmStateAction giveAction = new Lambda(() => item.Give(location, Container.GeoRock, flingType, rockFsm.gameObject.transform, message: MessageType.None));
+                    GiveInfo info = new GiveInfo
+                    {
+                        Container = Container.GeoRock,
+                        FlingType = flingType,
+                        Transform = rockFsm.transform,
+                        MessageType = MessageType.Corner,
+                    };
+
+                    FsmStateAction giveAction = new Lambda(() => item.Give(location, info));
                     payout.AddAction(giveAction);
                 }
                 else

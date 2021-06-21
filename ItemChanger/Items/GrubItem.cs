@@ -14,10 +14,10 @@ namespace ItemChanger.Items
             if (container == Container.GrubJar) return true;
             else return false;
         }
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             PlayerData.instance.IncrementInt(nameof(PlayerData.grubsCollected));
-            if (container == Container.GrubJar) return;
+            if (info.Container == Container.GrubJar) return;
 
             int clipIndex = new System.Random().Next(2);
             AudioSource.PlayClipAtPoint(ObjectCache.GrubCries[clipIndex],

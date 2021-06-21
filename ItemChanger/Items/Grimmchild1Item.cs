@@ -7,7 +7,7 @@ namespace ItemChanger.Items
 {
     public class Grimmchild1Item : AbstractItem
     {
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             PlayerData.instance.SetBool(nameof(PlayerData.instance.gotCharm_40), true);
             PlayerData.instance.SetBool(nameof(PlayerData.nightmareLanternAppeared), true);

@@ -11,14 +11,14 @@ using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ItemChanger.Locations
+namespace ItemChanger.Locations.SpecialLocations
 {
     public class NailmasterLocation : FsmLocation
     {
         public string objectName;
         public string fsmName;
 
-        public override void OnEnable(PlayMakerFSM fsm, Func<bool> boolTest, Action<Action> giveAction)
+        public override void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions)
         {
             if (fsm.FsmName == fsmName && fsm.gameObject.name == objectName)
             {
@@ -26,9 +26,13 @@ namespace ItemChanger.Locations
                 FsmState getMsg = fsm.GetState("Get Msg");
                 FsmState fade = fsm.GetState("Fade Back");
 
-                FsmStateAction test = new Lambda(() => fsm.SendEvent(boolTest() ? null : "REOFFER"));
-                Action callback = () => fsm.SendEvent("GET ITEM MSG END");
-                FsmStateAction give = new Lambda(() => giveAction?.Invoke(callback));
+                FsmStateAction test = new BoolTestMod(actions.AllObtained, null, "REOFFER");
+                void Callback()
+                {
+                    fsm.SendEvent("GET ITEM MSG END");
+                }
+
+                FsmStateAction give = new Lambda(() => actions.Give(Callback));
 
                 convo.Actions[objectName == "NM Sheo NPC" ? 2 : 1] = test;
 
@@ -42,14 +46,9 @@ namespace ItemChanger.Locations
             }
         }
 
-        public override bool CallLanguageHook(string convo, string sheet)
+        public override string OnLanguageGet(string convo, string sheet, Func<string> getItemName)
         {
-            return sheet == "Prompts" && convo == "NAILMASTER_FREE";
-        }
-
-        public override string OnLanguageGet(string convo, string sheet, string item)
-        {
-            if (sheet == "Prompts" && convo == "NAILMASTER_FREE") return item;
+            if (sheet == "Prompts" && convo == "NAILMASTER_FREE") return getItemName();
             return null;
         }
 

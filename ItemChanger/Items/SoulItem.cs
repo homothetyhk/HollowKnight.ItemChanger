@@ -9,7 +9,7 @@ namespace ItemChanger.Items
     {
         public int soul;
 
-        public override void GiveImmediate(Container container, FlingType fling, UnityEngine.Transform transform)
+        public override void GiveImmediate(GiveInfo info)
         {
             HeroController.instance.AddMPCharge(soul);
         }
