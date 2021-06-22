@@ -6,6 +6,7 @@ using ItemChanger.Items;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
+using ItemChanger.Components;
 using SereCore;
 using UnityEngine;
 
@@ -94,7 +95,7 @@ namespace ItemChanger.Util
             FsmStateAction spawnShinies = new ActivateAllChildren { gameObject = new FsmGameObject { Value = itemParent, }, activate = true };
             FsmStateAction removeParent = new Lambda(() => itemParent.transform.parent = null);
 
-            shatter.AddFirstAction(new BoolTestMod(() => jar.GetComponent<Rigidbody2D>().constraints == RigidbodyConstraints2D.FreezeAll, null, "CANCEL"));
+            shatter.AddFirstAction(new BoolTestMod(() => CheckRigidBodyStatus(jar), null, "CANCEL"));
             shatter.AddAction(spawnShinies);
             activate.AddFirstAction(removeParent); // activate has a destroy all children action
             activate.AddFirstAction(spawnShinies);
@@ -120,6 +121,12 @@ namespace ItemChanger.Util
                     ShinyUtility.PutShinyInContainer(itemParent, shiny);
                 }
             }
+        }
+
+        public static bool CheckRigidBodyStatus(GameObject jar)
+        {
+            Rigidbody2D rb = jar.GetComponent<Rigidbody2D>();
+            return !rb || (rb.constraints & RigidbodyConstraints2D.FreezePositionY) == RigidbodyConstraints2D.FreezePositionY;
         }
     }
 }

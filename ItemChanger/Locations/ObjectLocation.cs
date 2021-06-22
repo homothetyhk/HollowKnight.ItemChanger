@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,6 +52,8 @@ namespace ItemChanger.Locations
         public static GameObject FindGameObject(string objectName)
         {
             Scene currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+            GameManager.instance.StartCoroutine(Finder());
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded += (s, e) => ItemChanger.instance.Log(s.name);
 
             string[] objectHierarchy = objectName.Split('\\');
             int i = 1;
@@ -62,5 +65,20 @@ namespace ItemChanger.Locations
 
             return obj;
         }
+
+        public static IEnumerator Finder()
+        {
+            yield return null;
+            yield return new WaitForFinishedEnteringScene();
+            yield return new WaitForEndOfFrame();
+            
+            for (int j = 0; j < UnityEngine.SceneManagement.SceneManager.sceneCount; j++)
+            {
+                ItemChanger.instance.Log(j);
+                ItemChanger.instance.Log(UnityEngine.SceneManagement.SceneManager.GetSceneAt(j).name);
+            }
+            ItemChanger.instance.Log(UnityEngine.SceneManagement.SceneManager.sceneCount);
+        }
+
     }
 }

@@ -73,20 +73,13 @@ namespace ItemChanger.Util
 
         public static void SetRockContext(GameObject rock, GameObject target, float elevation)
         {
-            bool isSpecialLocation = target.transform.parent != null &&
-                    !(target.transform.parent.position.x == 0f && target.transform.parent.position.y == 0f);
-
-            if (target.transform.parent != null && !isSpecialLocation)
+            if (target.transform.parent != null)
             {
                 rock.transform.SetParent(target.transform.parent);
             }
 
             rock.transform.position = target.transform.position;
-            if (!isSpecialLocation)
-            {
-                rock.transform.localPosition = target.transform.localPosition;
-            }
-
+            rock.transform.localPosition = target.transform.localPosition;
             rock.transform.SetPositionZ(0);
 
             GeoRockSubtype rockType = rock.GetComponent<GeoRockInfo>()?.type ?? GeoRockSubtype.Default;

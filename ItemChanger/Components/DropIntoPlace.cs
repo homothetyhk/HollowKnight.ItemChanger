@@ -7,37 +7,24 @@ using UnityEngine;
 
 namespace ItemChanger.Components
 {
-    [Obsolete("Bad code")]
     public class DropIntoPlace : MonoBehaviour
     {
-        Rigidbody2D rb;
-        bool unpaused;
-
         public void Awake()
         {
-            rb = gameObject.GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-            StartCoroutine(Pause());
+            Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            AccelerationMonitor am = gameObject.GetComponent<AccelerationMonitor>() ?? gameObject.AddComponent<AccelerationMonitor>();
+            StartCoroutine(DetectLanding(rb, am));
         }
 
-        public void Update()
+        private IEnumerator DetectLanding(Rigidbody2D rb, AccelerationMonitor am)
         {
-            if (unpaused)
+            yield return new WaitForSeconds(0.05f); // free fall
+            while (am.IsFalling())
             {
-                float mag = rb.velocity.magnitude;
-                if (mag < 0.05)
-                {
-                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                    this.enabled = false;
-                }
+                yield return null;
             }
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
-
-        private IEnumerator Pause()
-        {
-            yield return new WaitForSeconds(0.05f);
-            unpaused = true;
-        }
-
     }
 }

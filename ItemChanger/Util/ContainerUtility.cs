@@ -31,6 +31,7 @@ namespace ItemChanger.Util
                 case Container.GrubJar:
                     SetContext(target, container);
                     GrubJarUtility.AdjustGrubJarPosition(container, elevation);
+                    container.AddComponent<Components.DropIntoPlace>();
                     break;
                 case Container.GeoRock:
                     GeoRockUtility.SetRockContext(container, target, elevation);

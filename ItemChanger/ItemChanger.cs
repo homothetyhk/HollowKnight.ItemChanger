@@ -58,7 +58,7 @@ namespace ItemChanger
             //readyForChangeItems = true;
             MessageController.Setup();
 
-            Tests.Tests.GorgeousHuskTest();
+            Tests.Tests.CrystalGuardianTest();
 
             CustomSkillManager.Hook();
             WorldEventManager.Hook();
@@ -99,10 +99,11 @@ namespace ItemChanger
         private void ApplyLocationFsmEdits(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
         {
             orig(self);
+            string activeScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
             foreach (var loc in SET?.GetLocations() ?? new AbstractPlacement[0])
             {
                 if (loc is null) continue;
-                if (loc.SceneName == self.gameObject.scene.name)
+                if (loc.SceneName == activeScene)
                 {
                     try
                     {

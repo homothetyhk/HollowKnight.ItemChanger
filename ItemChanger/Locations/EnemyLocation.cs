@@ -13,7 +13,6 @@ namespace ItemChanger.Locations
     public class EnemyLocation : IMutableLocation
     {
         public string objectName;
-        public float elevation;
         public string sceneName { get; set; }
         public FlingType flingType { get; set; }
         public bool forceShiny { get; set; }
@@ -43,10 +42,6 @@ namespace ItemChanger.Locations
         {
             GameObject target = ObjectLocation.FindGameObject(objectName);
             HealthManager hm = target.GetComponent<HealthManager>();
-            if (hm.GetIsDead())
-            {
-
-            }
 
             DropItemOnDeath drop = target.AddComponent<DropItemOnDeath>();
             drop.item = obj;

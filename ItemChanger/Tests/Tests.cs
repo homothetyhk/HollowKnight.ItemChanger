@@ -13,6 +13,26 @@ namespace ItemChanger.Tests
 {
     public static class Tests
     {
+        public static void JoniTest()
+        {
+            joni.AddItem(grub);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                joni
+            });
+        }
+
+        public static void BaldurTest()
+        {
+            baldur.AddItem(grub);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                baldur
+            });
+        }
+
         public static void YNShinyTest()
         {
             ItemChanger.ChangeStartGame(new StartLocation { startSceneName = SceneNames.Grimm_Main_Tent, startX = 70f, startY = 7f });
@@ -231,12 +251,24 @@ namespace ItemChanger.Tests
             });
         }
 
+        public static void CrystalGuardianTest()
+        {
+            start.AddItem(supernail);
+            crystalguardian.AddItem(dive);
+            crystalguardian.AddItem(grub);
+
+            Ref.Placements.SavePlacements(new AbstractPlacement[]
+            {
+                start, crystalguardian
+            });
+        }
+
         static StartPlacement start = new StartPlacement
         {
             name = "Start",
         };
 
-        public static MutablePlacement fountain = new MutablePlacement
+        static MutablePlacement fountain = new MutablePlacement
         {
             location = new BasinFountainLocation
             {
@@ -249,7 +281,28 @@ namespace ItemChanger.Tests
             }
         };
 
-        public static MutablePlacement ghusk = new MutablePlacement
+        static MutablePlacement crystalguardian = new MutablePlacement
+        {
+            location = new BossLocation
+            {
+                sceneName = SceneNames.Mines_18,
+                flingType = FlingType.Everywhere,
+                removeGeo = true,
+                bossFsm = "Beam Miner",
+                bossObj = "Mega Zombie Beam Miner (1)",
+                pdBool = nameof(PlayerData.defeatedMegaBeamMiner),
+                fallbackLocation = new CoordinateLocation
+                {
+                    x = 34f,
+                    y = 11.5f,
+                    sceneName = SceneNames.Mines_18,
+                    flingType = FlingType.Everywhere,
+                }
+            },
+            name = "Crystal_Guardian",
+        };
+
+        static MutablePlacement ghusk = new MutablePlacement
         {
             location = new EnemyLocation
             {
@@ -628,6 +681,18 @@ namespace ItemChanger.Tests
         {
             location = joni_loc,
             name = "Joni's_Blessing",
+        };
+
+        static AbstractPlacement baldur = new MutablePlacement
+        {
+            location = new ObjectLocation
+            {
+                //elevation = -1.3f,
+                flingType = FlingType.Everywhere,
+                objectName = "Shiny Item",
+                sceneName = SceneNames.Fungus1_28,
+            },
+            name = "Baldur_Shell"
         };
 
         static AbstractPlacement fury = new ExistingChestPlacement
