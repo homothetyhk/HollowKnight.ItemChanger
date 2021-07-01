@@ -14,19 +14,18 @@ namespace ItemChanger.UIDefs
         {
             if ((type & MessageType.Corner) == MessageType.Corner)
             {
-                MessageController.Enqueue(SpriteManager.GetSprite(spriteKey), GetDisplayName());
+                MessageController.Enqueue(SpriteManager.GetSprite(spriteKey), GetPostviewName());
             }
             callback?.Invoke();
         }
 
-        public string GetDisplayName() => "Grub";
+        public string GetPreviewName() => $"Grub";
 
-        public void GetShopData(out Sprite shopSprite, out string nameKey, out string descKey)
-        {
-            shopSprite = SpriteManager.GetSprite(spriteKey);
-            nameKey = "RANDOMIZER_NAME_GRUB";
-            descKey = "RANDOMIZER_DESC_GRUB";
-        }
+        public string GetPostviewName() => "Grub";
+
+        public string GetShopDesc() => Language.Language.Get("RANDOMIZER_DESC_GRUB", "UI");
+
+        public Sprite GetSprite() => SpriteManager.GetSprite(spriteKey);
 
         public static GrubUIDef Def = new GrubUIDef();
     }

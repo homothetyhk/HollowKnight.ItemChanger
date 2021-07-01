@@ -17,8 +17,9 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public string objectName;
         public string fsmName;
+        public override MessageType MessageType => MessageType.Any;
 
-        public override void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions)
+        public override void OnEnable(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == fsmName && fsm.gameObject.name == objectName)
             {
@@ -26,13 +27,13 @@ namespace ItemChanger.Locations.SpecialLocations
                 FsmState getMsg = fsm.GetState("Get Msg");
                 FsmState fade = fsm.GetState("Fade Back");
 
-                FsmStateAction test = new BoolTestMod(actions.AllObtained, null, "REOFFER");
+                FsmStateAction test = new BoolTestMod(Placement.AllObtained, null, "REOFFER");
                 void Callback()
                 {
                     fsm.SendEvent("GET ITEM MSG END");
                 }
 
-                FsmStateAction give = new Lambda(() => actions.Give(Callback));
+                FsmStateAction give = new Lambda(() => Placement.GiveAll(MessageType, Callback));
 
                 convo.Actions[objectName == "NM Sheo NPC" ? 2 : 1] = test;
 
@@ -46,10 +47,10 @@ namespace ItemChanger.Locations.SpecialLocations
             }
         }
 
-        public override string OnLanguageGet(string convo, string sheet, Func<string> getItemName)
+        public override string OnLanguageGet(string convo, string sheet)
         {
-            if (sheet == "Prompts" && convo == "NAILMASTER_FREE") return getItemName();
-            return null;
+            if (sheet == "Prompts" && convo == "NAILMASTER_FREE") return Placement.GetUIName();
+            return base.OnLanguageGet(convo, sheet);
         }
 
         public override Transform FindTransformInScene()

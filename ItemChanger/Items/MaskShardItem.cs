@@ -11,24 +11,27 @@ namespace ItemChanger.Items
 
         public override void GiveImmediate(GiveInfo info)
         {
+            for (int i = 0; i < amount; i++) GiveMaskShard();
+        }
+
+        public static void GiveMaskShard()
+        {
             PlayerData.instance.SetBool(nameof(PlayerData.heartPieceCollected), true);
-            int count = PlayerData.instance.GetInt(nameof(PlayerData.heartPieces)) + amount;
-            for (; count > 3; count -= 4)
+            PlayerData.instance.IncrementInt(nameof(PlayerData.heartPieces));
+
+            if (PlayerData.instance.GetInt(nameof(PlayerData.heartPieces)) >= 4)
             {
                 HeroController.instance.AddToMaxHealth(1);
                 PlayMakerFSM.BroadcastEvent("MAX HP UP");
                 PlayMakerFSM.BroadcastEvent("HERO HEALED FULL");
             }
 
-            switch (count)
+            if (PlayerData.instance.GetInt(nameof(PlayerData.maxHealthBase)) == PlayerData.instance.GetInt(nameof(PlayerData.maxHealthCap)))
             {
-                case 0 when PlayerData.instance.GetInt(nameof(PlayerData.maxHealthBase)) == PlayerData.instance.GetInt(nameof(PlayerData.maxHealthCap)):
-                    PlayerData.instance.SetInt(nameof(PlayerData.heartPieces), 4);
-                    break;
-                default:
-                    PlayerData.instance.SetInt(nameof(PlayerData.heartPieces), count);
-                    break;
+                PlayerData.instance.SetInt(nameof(PlayerData.heartPieces), 4);
             }
+            else PlayerData.instance.IntAdd(nameof(PlayerData.heartPieces), -4);
         }
+
     }
 }

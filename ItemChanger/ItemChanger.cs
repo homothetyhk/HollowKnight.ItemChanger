@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using GlobalEnums;
 using HutongGames.PlayMaker;
-using ItemChanger.Actions;
 using ItemChanger.UIDefs;
 using Modding;
 using MonoMod;
 using SereCore;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ItemChanger.Components;
 using ItemChanger.Locations;
 using ItemChanger.Placements;
+using ItemChanger.Util;
 using TMPro;
 
 namespace ItemChanger
@@ -48,8 +49,9 @@ namespace ItemChanger
         {
             instance = this;
             SpriteManager.Setup();
-            XmlManager.Load();
+            //XmlManager.Load();
             LanguageStringManager.Load();
+            Finder.Load();
         }
 
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
@@ -57,63 +59,176 @@ namespace ItemChanger
             ObjectCache.Setup(preloadedObjects);
             //readyForChangeItems = true;
             MessageController.Setup();
+            
 
-            Tests.Tests.CrystalGuardianTest();
+            Tests.Tests.FinderTest();
 
+            On.GameManager.ResetSemiPersistentItems += ResetSemiPersistentItems;
             CustomSkillManager.Hook();
             WorldEventManager.Hook();
+            Util.ShopUtil.HookShops();
             On.PlayMakerFSM.OnEnable += ApplyLocationFsmEdits;
-            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += ApplyLocationSceneEdits;
-            ModHooks.Instance.LanguageGetHook += ApplyLocationTextEdits;
-            foreach (var loc in SET.GetLocations()) loc.OnHook();
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnActiveSceneChanged;
+            On.GameManager.OnNextLevelReady += OnOnNextLevelReady;
+            On.GameManager.SceneLoadInfo.NotifyFetchComplete += OnNotifyFetchComplete;
+            ModHooks.Instance.LanguageGetHook += OnLanguageGet;
+            foreach (var loc in SET.GetPlacements()) loc.OnLoad();
         }
 
-        private string ApplyLocationTextEdits(string convo, string sheet)
+        private void ResetSemiPersistentItems(On.GameManager.orig_ResetSemiPersistentItems orig, GameManager self)
         {
-            return SET?.GetLocations().Select(p => p?.OnLanguageGet(convo, sheet)).FirstOrDefault(p => p != null) ?? Language.Language.GetInternal(convo, sheet);
+            orig(self);
+            Ref.Settings.ResetSemiPersistentItems();
         }
 
-        private void ApplyLocationSceneEdits(Scene from, Scene to)
+        /*
+         Scene Change event order
+        - BeginSceneTransition = Modhooks.BeforeSceneLoad
+        - IsReadyToActivate: fires over 100 times
+        - NotifyFetchComplete
+        - {long break}
+        - SceneManager.sceneLoaded
+        - SceneManager.activeSceneChanged
+        - GameManager.BeginScene
+        - {short break}
+        - GameManager.OnNextLevelReady -> GameManager.EnterHero -> HeroController.EnterScene
+        */
+
+        private void OnNotifyFetchComplete(On.GameManager.SceneLoadInfo.orig_NotifyFetchComplete orig, GameManager.SceneLoadInfo self)
         {
-            foreach (var loc in SET?.GetLocations())
+            Scene target = UnityEngine.SceneManagement.SceneManager.GetSceneByName(self.SceneName);
+            if (!target.IsValid())
             {
-                if (loc is null) continue;
-                else if (loc is StartPlacement sp)
+                orig(self);
+                target = UnityEngine.SceneManagement.SceneManager.GetSceneByName(self.SceneName);
+                if (!target.IsValid())
                 {
-                    sp.GiveRemainingItems();
+                    LogWarn($"Unable to find scene {self.SceneName} in OnNotifyFetchComplete!");
+                    return;
                 }
-                else if (loc.SceneName == to.name)
+                InvokeOnSceneFetched(target);
+                return;
+            }
+
+            InvokeOnSceneFetched(target);
+            orig(self);
+        }
+
+        private void InvokeOnSceneFetched(Scene target)
+        {
+            foreach (var placement in SET?.GetPlacements())
+            {
+                if (placement is null) continue;
+                else
                 {
                     try
                     {
-                        loc.OnActiveSceneChanged();
+                        placement.OnSceneFetched(target);
                     }
                     catch (Exception e)
                     {
-                        LogError($"Error in LocationSceneEdits for {loc?.name ?? "Unknown Location"}:\n{e}");
+                        LogError($"Error in OnSceneFetched for {placement?.Name ?? "Unknown Placement"}:\n{e}");
                     }
                 }
             }
         }
 
-        private void ApplyLocationFsmEdits(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM self)
+        private void OnOnNextLevelReady(On.GameManager.orig_OnNextLevelReady orig, GameManager self)
         {
-            orig(self);
-            string activeScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-            foreach (var loc in SET?.GetLocations() ?? new AbstractPlacement[0])
+            Scene next = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+            foreach (var placement in SET?.GetPlacements())
             {
-                if (loc is null) continue;
-                if (loc.SceneName == activeScene)
+                if (placement is null) continue;
+                else
                 {
                     try
                     {
-                        loc.OnEnableFsm(self);
+                        placement.OnNextSceneReady(next);
                     }
                     catch (Exception e)
                     {
-                        LogError($"Error in LocationFsmEdits for {loc?.name ?? "Unknown Location"}:\n{e}");
+                        LogError($"Error in OnNextLevelReady for {placement?.Name ?? "Unknown Placement"}:\n{e}");
                     }
                 }
+            }
+
+            orig(self);
+        }
+
+        private void OnActiveSceneChanged(Scene from, Scene to)
+        {
+            Ref.Settings.ResetPersistentItems();
+            foreach (var placement in SET?.GetPlacements())
+            {
+                if (placement is null) continue;
+                else
+                {
+                    try
+                    {
+                        placement.OnActiveSceneChanged(from, to);
+                    }
+                    catch (Exception e)
+                    {
+                        LogError($"Error in OnActiveSceneChanged for {placement?.Name ?? "Unknown Placement"}:\n{e}");
+                    }
+                }
+            }
+        }
+
+        private void ApplyLocationFsmEdits(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM fsm)
+        {
+            orig(fsm);
+
+            // component-based default container support
+            switch (fsm.FsmName)
+            {
+                case "Shiny Control":
+                    ShinyUtility.ModifyFsm(fsm);
+                    break;
+                case "Bottle Control": // not all bottle controls are grub bottles, but GrubJarUtility checks for the ContainerInfo component before doing anything
+                    GrubJarUtility.ModifyFsm(fsm);
+                    break;
+                case "Geo Rock":
+                    GeoRockUtility.ModifyFsm(fsm);
+                    break;
+                case "Chest Control":
+                    ChestUtility.ModifyFsm(fsm);
+                    break;
+            }
+
+            string sceneName = fsm.gameObject.scene.name;
+            foreach (var loc in SET?.GetPlacements() ?? new AbstractPlacement[0])
+            {
+                if (loc is null || string.IsNullOrEmpty(loc.SceneName)) continue;
+                if (SceneUtil.IsSubscene(sceneName, loc.SceneName))
+                {
+                    try
+                    {
+                        loc.OnEnableFsm(fsm);
+                    }
+                    catch (Exception e)
+                    {
+                        LogError($"Error in LocationFsmEdits for {loc?.Name ?? "Unknown Location"}:\n{e}");
+                    }
+                }
+            }
+        }
+
+        private string OnLanguageGet(string convo, string sheet)
+        {
+            return SET?.GetPlacements().Select(p => SafeLanguageGet(p, convo, sheet)).FirstOrDefault(p => p != null) ?? Language.Language.GetInternal(convo, sheet);
+        }
+
+        private string SafeLanguageGet(AbstractPlacement p, string convo, string sheet)
+        {
+            try
+            {
+                return p?.OnLanguageGet(convo, sheet);
+            }
+            catch (Exception e)
+            {
+                LogError($"Error in OnLanguageGet for {p?.Name ?? "Unknown Placement"}:\n{e}");
+                return null;
             }
         }
 
@@ -129,89 +244,15 @@ namespace ItemChanger
             return ObjectCache.GetPreloadNames();
         }
 
-        public static void Reset()
-        {
-            if (receivedChangeItemsRequest)
-            {
-                LanguageStringManager.Unhook();
-                PDHooks.Unhook();
-                ItemChangerSettings.Unhook();
-                RandomizerAction.UnHook();
-                RandomizerAction.ClearActions();
-                UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= EditScene;
-                receivedChangeItemsRequest = false;
-            }
-            if (receivedChangeStartRequest)
-            {
-                On.GameManager.StartNewGame -= StartLocation.OverrideStartNewGame;
-                UnityEngine.SceneManagement.SceneManager.activeSceneChanged -= StartLocation.CreateRespawnMarker;
-                receivedChangeStartRequest = false;
-                StartLocation.UnHookBenchwarp();
-            }
-        }
-
-        public static void ChangeItems(List<(_Item, _Location)> ItemLocationPairs, ItemChangerSettings settings = null, Default.Shops.DefaultShopItems defaultShopItems = Default.Shops.DefaultShopItems.None)
-        {
-            if (receivedChangeItemsRequest) return;
-            receivedChangeItemsRequest = true;
-            LanguageStringManager.Load();
-            PDHooks.Hook();
-            ItemChangerSettings.Hook();
-            RandomizerAction.Hook();
-            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += EditScene;
-
-            // carefully sort to make sure ids are correctly assigned, if the list is not changed
-            ItemLocationPairs.Sort(
-                (pair1, pair2) =>
-                {
-                    int result = string.Compare(pair1.Item1.name, pair2.Item1.name);
-                    return result == 0 ? string.Compare(pair1.Item2.name, pair2.Item2.name) : result;
-                });
-            _ILP.Process(ItemLocationPairs);
-            AdditiveManager.Setup();
-            ItemChangerSettings.currentSettings = settings ?? new ItemChangerSettings();
-            ItemChangerSettings.Update();
-            RandomizerAction.CreateActions(_ILP.ILPs.Values, defaultShopItems);
-        }
-
-        public static void ChangeStartGame(StartLocation start)
+        public static void ChangeStartGame(StartDef start)
         {
             if (receivedChangeStartRequest) return;
             receivedChangeStartRequest = true;
             
-            StartLocation.start = start;
-            On.GameManager.StartNewGame += StartLocation.OverrideStartNewGame;
-            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartLocation.CreateRespawnMarker;
-            StartLocation.HookBenchwarp();
-        }
-
-        private static void EditScene(Scene from, Scene to)
-        {
-            // this is required to reset save settings before loading a new file
-            if (to.name == SceneNames.Menu_Title) instance.Settings = new SaveSettings();
-
-            // this implements RandomizerActions of type GameObject
-            if (GameManager.instance.IsGameplayScene())
-            {
-                try
-                {
-                    // In rare cases, this is called before the previous scene has unloaded
-                    // Deleting old randomizer shinies to prevent issues
-                    foreach (GameObject g in GameObject.FindObjectsOfType<GameObject>())
-                    {
-                        if (g.name.Contains("Randomizer Shiny") || g.name.Contains("New Shiny"))
-                        {
-                            GameObject.DestroyImmediate(g);
-                        }
-                    }
-
-                    RandomizerAction.EditShinies();
-                }
-                catch (Exception e)
-                {
-                    instance.LogError($"Error applying RandomizerActions to scene {to.name}:\n" + e);
-                }
-            }
+            StartDef.start = start;
+            On.GameManager.StartNewGame += StartDef.OverrideStartNewGame;
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.CreateRespawnMarker;
+            StartDef.HookBenchwarp();
         }
     }
     

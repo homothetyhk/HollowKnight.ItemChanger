@@ -10,31 +10,33 @@ namespace ItemChanger.UIDefs
     {
         public string spriteKey;
         public string nameKey;
-        public string descKey;
+        public string shopDescKey;
 
         public virtual void SendMessage(MessageType type, Action callback = null)
         {
             if ((type & MessageType.Corner) == MessageType.Corner)
             {
-                /*
-                GameObject popup = ObjectCache.RelicGetMsg;
-                popup.transform.Find("Text").GetComponent<TMPro.TextMeshPro>().text = Language.Language.Get(nameKey, "UI");
-                popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = SpriteManager.GetSprite(spriteKey);
-                popup.SetActive(true);
-                */
                 MessageController.Enqueue(SpriteManager.GetSprite(spriteKey), Language.Language.Get(nameKey, "UI"));
             }
 
             callback?.Invoke();
         }
 
-        public virtual void GetShopData(out Sprite shopSprite, out string nameKey, out string descKey)
+        public virtual string GetPostviewName() => Language.Language.Get(nameKey, "UI");
+
+        public string GetPreviewName()
         {
-            shopSprite = SpriteManager.GetSprite(spriteKey);
-            nameKey = this.nameKey;
-            descKey = this.descKey;
+            return GetPostviewName();
         }
 
-        public virtual string GetDisplayName() => Language.Language.Get(nameKey, "UI");
+        public string GetShopDesc()
+        {
+            return Language.Language.Get(shopDescKey, "UI").Replace("<br>", "\n");
+        }
+
+        public Sprite GetSprite()
+        {
+            return SpriteManager.GetSprite(spriteKey);
+        }
     }
 }

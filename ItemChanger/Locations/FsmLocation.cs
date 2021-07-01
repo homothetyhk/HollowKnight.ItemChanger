@@ -8,34 +8,11 @@ using UnityEngine;
 namespace ItemChanger.Locations
 {
     /// <summary>
-    /// Interface required to supply to FsmLocation events. 
-    /// </summary>
-    public interface IFsmLocationActions
-    {
-        void Give(Action callback);
-        bool AllObtained();
-        string GetUIItemName(int maxLength = 120);
-        void SetVisited();
-        bool CheckVisited();
-    }
-
-
-    /// <summary>
     /// Location type which cannot accept a container. Implemented through OnEnable. Examples include items given in dialogue, etc.
     /// </summary>
-    public abstract class FsmLocation
+    public abstract class FsmLocation : AbstractLocation
     {
-        public string sceneName;
-        public FlingType flingType;
-        public MessageType messageType;
-
-        /// <summary>
-        /// Called during the PlaymakerFSM.OnEnable hook for the given scene.
-        /// </summary>
-        /// <param name="fsm"></param>
-        /// <param name="actions"></param>
-        /// 
-        public abstract void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions);
+        public abstract MessageType MessageType { get; }
 
         /// <summary>
         /// Called by placement, usually immediately prior to Give.
@@ -46,9 +23,13 @@ namespace ItemChanger.Locations
             return null;
         }
 
-        public virtual string OnLanguageGet(string convo, string sheet, Func<string> getItemName)
+        public override AbstractPlacement Wrap()
         {
-            return null;
+            return new Placements.FsmPlacement
+            {
+                location = this,
+            };
         }
+
     }
 }

@@ -1,0 +1,3031 @@
+{
+  "Lurien": {
+    "$type": "ItemChanger.Items.DreamerItem, ItemChanger",
+    "dreamer": "Lurien",
+    "name": "Lurien",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Lurien",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_EMPTY",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "Prompts.Lurien",
+      "nameKey": "RANDOMIZER_NAME_LURIEN",
+      "shopDescKey": "RANDOMIZER_DESC_LURIEN"
+    },
+    "tags": []
+  },
+  "Monomon": {
+    "$type": "ItemChanger.Items.DreamerItem, ItemChanger",
+    "dreamer": "Monomon",
+    "name": "Monomon",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Monomon",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_EMPTY",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "Prompts.Monomon",
+      "nameKey": "RANDOMIZER_NAME_MONOMON",
+      "shopDescKey": "RANDOMIZER_DESC_MONOMON"
+    },
+    "tags": []
+  },
+  "Herrah": {
+    "$type": "ItemChanger.Items.DreamerItem, ItemChanger",
+    "dreamer": "Herrah",
+    "name": "Herrah",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Herrah",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_EMPTY",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "Prompts.Herrah",
+      "nameKey": "RANDOMIZER_NAME_HERRAH",
+      "shopDescKey": "RANDOMIZER_DESC_HERRAH"
+    },
+    "tags": []
+  },
+  "World_Sense": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "unlockedCompletionRate",
+    "name": "World_Sense",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.WorldSense",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_EMPTY",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "ShopIcons.WorldSense",
+      "nameKey": "RANDOMIZER_NAME_WORLD_SENSE",
+      "shopDescKey": "RANDOMIZER_DESC_WORLD_SENSE"
+    },
+    "tags": []
+  },
+  "Dreamer": {
+    "$type": "ItemChanger.Items.DreamerItem, ItemChanger",
+    "name": "Dreamer",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Dreamer",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_EMPTY",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "Prompts.Dreamer",
+      "nameKey": "RANDOMIZER_NAME_DREAMER",
+      "shopDescKey": "RANDOMIZER_DESC_DREAMER"
+    },
+    "tags": []
+  },
+  "Mothwing_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDash",
+    "name": "Mothwing_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Dash",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_DASH_1",
+      "descTwoKey": "GET_DASH_2",
+      "spriteKey": "ShopIcons.Dash",
+      "nameKey": "RANDOMIZER_SHOP_NAME_DASH",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_DASH"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Mothwing_Cloak",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Mantis_Claw": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasWalljump",
+    "name": "Mantis_Claw",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Walljump",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_WALLJUMP_1",
+      "descTwoKey": "GET_WALLJUMP_2",
+      "spriteKey": "ShopIcons.Walljump",
+      "nameKey": "RANDOMIZER_SHOP_NAME_WALLJUMP",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_WALLJUMP"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Mantis_Claw",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Crystal_Heart": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasSuperDash",
+    "name": "Crystal_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Superdash",
+      "takeKey": "GET_ITEM_INTRO2",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_SUPERDASH_1",
+      "descTwoKey": "GET_SUPERDASH_2",
+      "spriteKey": "ShopIcons.Superdash",
+      "nameKey": "INV_NAME_SUPERDASH",
+      "shopDescKey": "INV_DESC_SUPERDASH"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Crystal_Heart",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Monarch_Wings": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDoubleJump",
+    "name": "Monarch_Wings",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Wings",
+      "takeKey": "GET_ITEM_INTRO5",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_DOUBLEJUMP_1",
+      "descTwoKey": "GET_DOUBLEJUMP_2",
+      "spriteKey": "ShopIcons.Wings",
+      "nameKey": "INV_NAME_DOUBLEJUMP",
+      "shopDescKey": "INV_DESC_DOUBLEJUMP"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Monarch_Wings",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Shade_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasShadowDash",
+    "name": "Shade_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Shadowdash",
+      "takeKey": "GET_ITEM_INTRO7",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_SHADOWDASH_1",
+      "descTwoKey": "GET_SHADOWDASH_2",
+      "spriteKey": "ShopIcons.Shadowdash",
+      "nameKey": "RANDOMIZER_SHOP_NAME_SHADOWDASH",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_SHADOWDASH"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Mothwing_Cloak",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Isma's_Tear": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasAcidArmour",
+    "name": "Isma's_Tear",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Isma",
+      "takeKey": "GET_ITEM_INTRO8",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "GET_ACIDARMOUR_1",
+      "descTwoKey": "GET_ACIDARMOUR_2",
+      "spriteKey": "ShopIcons.Isma",
+      "nameKey": "INV_NAME_ACIDARMOUR",
+      "shopDescKey": "INV_DESC_ACIDARMOUR"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Isma's_Tear",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Dream_Nail": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDreamNail",
+    "name": "Dream_Nail",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Dreamnail",
+      "takeKey": "GET_ITEM_INTRO5",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_DREAMNAIL_1",
+      "descTwoKey": "GET_DREAMNAIL_2",
+      "spriteKey": "ShopIcons.Dreamnail",
+      "nameKey": "INV_NAME_DREAMNAIL_A",
+      "shopDescKey": "INV_DESC_DREAMNAIL_A"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Dream_Nail",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Dream_Gate": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDreamGate",
+    "name": "Dream_Gate",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Dream Gate",
+      "takeKey": "GET_ITEM_INTRO5",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_DREAMGATE_1",
+      "descTwoKey": "GET_DREAMGATE_2",
+      "spriteKey": "ShopIcons.Dreamnail",
+      "nameKey": "INV_NAME_DREAMGATE",
+      "shopDescKey": "INV_DESC_DREAMGATE"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Dream_Nail",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Awoken_Dream_Nail": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "dreamNailUpgraded",
+    "name": "Awoken_Dream_Nail",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Dreamnail",
+      "takeKey": "GET_ITEM_INTRO5",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_DREAMNAILUPGRADE_1",
+      "descTwoKey": "GET_DREAMNAILUPGRADE_2",
+      "spriteKey": "ShopIcons.Dreamnail",
+      "nameKey": "INV_NAME_DREAMNAIL_B",
+      "shopDescKey": "INV_DESC_DREAMNAIL_B"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Dream_Nail",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Vengeful_Spirit": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasVengefulSpirit",
+    "name": "Vengeful_Spirit",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Fireball1",
+      "takeKey": "GET_ITEM_INTRO3",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_FIREBALL_1",
+      "descTwoKey": "GET_FIREBALL_2",
+      "spriteKey": "ShopIcons.Fireball1",
+      "nameKey": "INV_NAME_SPELL_FIREBALL1",
+      "shopDescKey": "INV_DESC_SPELL_FIREBALL1"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Vengeful_Spirit",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Shade_Soul": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasShadeSoul",
+    "name": "Shade_Soul",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Fireball2",
+      "takeKey": "GET_ITEM_INTRO3",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_FIREBALL2_1",
+      "descTwoKey": "GET_FIREBALL2_2",
+      "spriteKey": "ShopIcons.Fireball2",
+      "nameKey": "INV_NAME_SPELL_FIREBALL2",
+      "shopDescKey": "INV_DESC_SPELL_FIREBALL2"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Vengeful_Spirit",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Desolate_Dive": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDesolateDive",
+    "name": "Desolate_Dive",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Quake1",
+      "takeKey": "GET_ITEM_INTRO3",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_QUAKE_1",
+      "descTwoKey": "GET_QUAKE_2",
+      "spriteKey": "ShopIcons.Quake1",
+      "nameKey": "INV_NAME_SPELL_QUAKE1",
+      "shopDescKey": "INV_DESC_SPELL_QUAKE1"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Desolate_Dive",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Descending_Dark": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDescendingDark",
+    "name": "Descending_Dark",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Quake2",
+      "takeKey": "GET_ITEM_INTRO3",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_QUAKE2_1",
+      "descTwoKey": "GET_QUAKE2_2",
+      "spriteKey": "ShopIcons.Quake2",
+      "nameKey": "INV_NAME_SPELL_QUAKE2",
+      "shopDescKey": "INV_DESC_SPELL_QUAKE2"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Desolate_Dive",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Howling_Wraiths": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasHowlingWraiths",
+    "name": "Howling_Wraiths",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Scream1",
+      "takeKey": "GET_ITEM_INTRO3",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_SCREAM_1",
+      "descTwoKey": "GET_SCREAM_2",
+      "spriteKey": "ShopIcons.Scream1",
+      "nameKey": "INV_NAME_SPELL_SCREAM1",
+      "shopDescKey": "INV_DESC_SPELL_SCREAM1"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Howling_Wraiths",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Abyss_Shriek": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasAbyssShriek",
+    "name": "Abyss_Shriek",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Scream2",
+      "takeKey": "GET_ITEM_INTRO3",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_SCREAM2_1",
+      "descTwoKey": "GET_SCREAM2_2",
+      "spriteKey": "ShopIcons.Scream2",
+      "nameKey": "INV_NAME_SPELL_SCREAM2",
+      "shopDescKey": "INV_DESC_SPELL_SCREAM2"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Howling_Wraiths",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Cyclone_Slash": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasCyclone",
+    "name": "Cyclone_Slash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.CycloneSlash",
+      "takeKey": "GET_ITEM_INTRO3",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_CYCLONE_1",
+      "descTwoKey": "GET_CYCLONE_2",
+      "spriteKey": "ShopIcons.CycloneSlash",
+      "nameKey": "INV_NAME_ART_CYCLONE",
+      "shopDescKey": "INV_DESC_ART_CYCLONE"
+    },
+    "tags": []
+  },
+  "Dash_Slash": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasUpwardSlash",
+    "name": "Dash_Slash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.DashSlash",
+      "takeKey": "GET_ITEM_INTRO3",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_DSLASH_1",
+      "descTwoKey": "GET_DSLASH_2",
+      "spriteKey": "ShopIcons.DashSlash",
+      "nameKey": "INV_NAME_ART_UPPER",
+      "shopDescKey": "INV_DESC_ART_UPPER"
+    },
+    "tags": []
+  },
+  "Great_Slash": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDashSlash",
+    "name": "Great_Slash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.GreatSlash",
+      "takeKey": "GET_ITEM_INTRO3",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_GSLASH_1",
+      "descTwoKey": "GET_GSLASH_2",
+      "spriteKey": "ShopIcons.GreatSlash",
+      "nameKey": "INV_NAME_ART_DASH",
+      "shopDescKey": "INV_DESC_ART_DASH"
+    },
+    "tags": []
+  },
+  "Focus": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canFocus",
+    "name": "Focus",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Focus",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_DESC_FOCUS",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "ShopIcons.Focus",
+      "nameKey": "RANDOMIZER_NAME_FOCUS",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_FOCUS"
+    },
+    "tags": []
+  },
+  "Swim": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canSwim",
+    "name": "Swim",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Swim",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_DESC_SWIM",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "ShopIcons.Swim",
+      "nameKey": "RANDOMIZER_NAME_SWIM",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_SWIM"
+    },
+    "tags": []
+  },
+  "Gathering_Swarm": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 1,
+    "name": "Gathering_Swarm",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.1",
+      "nameKey": "CHARM_NAME_1",
+      "shopDescKey": "CHARM_DESC_1"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_1"
+  },
+  "Wayward_Compass": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 2,
+    "name": "Wayward_Compass",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.2",
+      "nameKey": "CHARM_NAME_2",
+      "shopDescKey": "CHARM_DESC_2"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_2"
+  },
+  "Grubsong": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 3,
+    "name": "Grubsong",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.3",
+      "nameKey": "CHARM_NAME_3",
+      "shopDescKey": "CHARM_DESC_3"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_3"
+  },
+  "Stalwart_Shell": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 4,
+    "name": "Stalwart_Shell",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.4",
+      "nameKey": "CHARM_NAME_4",
+      "shopDescKey": "CHARM_DESC_4"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_4"
+  },
+  "Baldur_Shell": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 5,
+    "name": "Baldur_Shell",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.5",
+      "nameKey": "CHARM_NAME_5",
+      "shopDescKey": "CHARM_DESC_5"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_5"
+  },
+  "Fury_of_the_Fallen": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 6,
+    "name": "Fury_of_the_Fallen",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.6",
+      "nameKey": "CHARM_NAME_6",
+      "shopDescKey": "CHARM_DESC_6"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_6"
+  },
+  "Quick_Focus": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 7,
+    "name": "Quick_Focus",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.7",
+      "nameKey": "CHARM_NAME_7",
+      "shopDescKey": "CHARM_DESC_7"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_7"
+  },
+  "Lifeblood_Heart": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 8,
+    "name": "Lifeblood_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.8",
+      "nameKey": "CHARM_NAME_8",
+      "shopDescKey": "CHARM_DESC_8"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_8"
+  },
+  "Lifeblood_Core": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 9,
+    "name": "Lifeblood_Core",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.9",
+      "nameKey": "CHARM_NAME_9",
+      "shopDescKey": "CHARM_DESC_9"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_9"
+  },
+  "Defender's_Crest": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 10,
+    "name": "Defender's_Crest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.10",
+      "nameKey": "CHARM_NAME_10",
+      "shopDescKey": "CHARM_DESC_10"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_10"
+  },
+  "Flukenest": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 11,
+    "name": "Flukenest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.11",
+      "nameKey": "CHARM_NAME_11",
+      "shopDescKey": "CHARM_DESC_11"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_11"
+  },
+  "Thorns_of_Agony": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 12,
+    "name": "Thorns_of_Agony",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.12",
+      "nameKey": "CHARM_NAME_12",
+      "shopDescKey": "CHARM_DESC_12"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_12"
+  },
+  "Mark_of_Pride": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 13,
+    "name": "Mark_of_Pride",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.13",
+      "nameKey": "CHARM_NAME_13",
+      "shopDescKey": "CHARM_DESC_13"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_13"
+  },
+  "Steady_Body": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 14,
+    "name": "Steady_Body",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.14",
+      "nameKey": "CHARM_NAME_14",
+      "shopDescKey": "CHARM_DESC_14"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_14"
+  },
+  "Heavy_Blow": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 15,
+    "name": "Heavy_Blow",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.15",
+      "nameKey": "CHARM_NAME_15",
+      "shopDescKey": "CHARM_DESC_15"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_15"
+  },
+  "Sharp_Shadow": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 16,
+    "name": "Sharp_Shadow",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.16",
+      "nameKey": "CHARM_NAME_16",
+      "shopDescKey": "CHARM_DESC_16"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_16"
+  },
+  "Spore_Shroom": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 17,
+    "name": "Spore_Shroom",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.17",
+      "nameKey": "CHARM_NAME_17",
+      "shopDescKey": "CHARM_DESC_17"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_17"
+  },
+  "Longnail": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 18,
+    "name": "Longnail",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.18",
+      "nameKey": "CHARM_NAME_18",
+      "shopDescKey": "CHARM_DESC_18"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_18"
+  },
+  "Shaman_Stone": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 19,
+    "name": "Shaman_Stone",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.19",
+      "nameKey": "CHARM_NAME_19",
+      "shopDescKey": "CHARM_DESC_19"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_19"
+  },
+  "Soul_Catcher": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 20,
+    "name": "Soul_Catcher",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.20",
+      "nameKey": "CHARM_NAME_20",
+      "shopDescKey": "CHARM_DESC_20"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_20"
+  },
+  "Soul_Eater": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 21,
+    "name": "Soul_Eater",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.21",
+      "nameKey": "CHARM_NAME_21",
+      "shopDescKey": "CHARM_DESC_21"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_21"
+  },
+  "Glowing_Womb": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 22,
+    "name": "Glowing_Womb",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.22",
+      "nameKey": "CHARM_NAME_22",
+      "shopDescKey": "CHARM_DESC_22"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_22"
+  },
+  "Fragile_Heart": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 23,
+    "name": "Fragile_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.23_G",
+      "nameKey": "CHARM_NAME_23_G",
+      "shopDescKey": "CHARM_DESC_23"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_23"
+  },
+  "Fragile_Greed": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 24,
+    "name": "Fragile_Greed",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.24_G",
+      "nameKey": "CHARM_NAME_24_G",
+      "shopDescKey": "CHARM_DESC_24"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_24"
+  },
+  "Fragile_Strength": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 25,
+    "name": "Fragile_Strength",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.25_G",
+      "nameKey": "CHARM_NAME_25_G",
+      "shopDescKey": "CHARM_DESC_25"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_25"
+  },
+  "Nailmaster's_Glory": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 26,
+    "name": "Nailmaster's_Glory",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.26",
+      "nameKey": "CHARM_NAME_26",
+      "shopDescKey": "CHARM_DESC_26"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_26"
+  },
+  "Joni's_Blessing": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 27,
+    "name": "Joni's_Blessing",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.27",
+      "nameKey": "CHARM_NAME_27",
+      "shopDescKey": "CHARM_DESC_27"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_27"
+  },
+  "Shape_of_Unn": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 28,
+    "name": "Shape_of_Unn",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.28",
+      "nameKey": "CHARM_NAME_28",
+      "shopDescKey": "CHARM_DESC_28"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_28"
+  },
+  "Hiveblood": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 29,
+    "name": "Hiveblood",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.29",
+      "nameKey": "CHARM_NAME_29",
+      "shopDescKey": "CHARM_DESC_29"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_29"
+  },
+  "Dream_Wielder": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 30,
+    "name": "Dream_Wielder",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.30",
+      "nameKey": "CHARM_NAME_30",
+      "shopDescKey": "CHARM_DESC_30"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_30"
+  },
+  "Dashmaster": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 31,
+    "name": "Dashmaster",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.31",
+      "nameKey": "CHARM_NAME_31",
+      "shopDescKey": "CHARM_DESC_31"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_31"
+  },
+  "Quick_Slash": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 32,
+    "name": "Quick_Slash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.32",
+      "nameKey": "CHARM_NAME_32",
+      "shopDescKey": "CHARM_DESC_32"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_32"
+  },
+  "Spell_Twister": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 33,
+    "name": "Spell_Twister",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.33",
+      "nameKey": "CHARM_NAME_33",
+      "shopDescKey": "CHARM_DESC_33"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_33"
+  },
+  "Deep_Focus": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 34,
+    "name": "Deep_Focus",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.34",
+      "nameKey": "CHARM_NAME_34",
+      "shopDescKey": "CHARM_DESC_34"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_34"
+  },
+  "Grubberfly's_Elegy": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 35,
+    "name": "Grubberfly's_Elegy",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.35",
+      "nameKey": "CHARM_NAME_35",
+      "shopDescKey": "CHARM_DESC_35"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_35"
+  },
+  "Queen_Fragment": {
+    "$type": "ItemChanger.Items.WhiteFragmentItem, ItemChanger",
+    "name": "Queen_Fragment",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.36_L",
+      "takeKey": "GET_ITEM_INTRO8",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_EMPTY",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "Charms.36_L",
+      "nameKey": "CHARM_NAME_36_A",
+      "shopDescKey": "CHARM_DESC_36_L"
+    },
+    "tags": []
+  },
+  "King_Fragment": {
+    "$type": "ItemChanger.Items.WhiteFragmentItem, ItemChanger",
+    "name": "King_Fragment",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.36_R",
+      "takeKey": "GET_ITEM_INTRO8",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_EMPTY",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "Charms.36_R",
+      "nameKey": "CHARM_NAME_36_A",
+      "shopDescKey": "CHARM_DESC_36_R"
+    },
+    "tags": []
+  },
+  "Void_Heart": {
+    "$type": "ItemChanger.Items.WhiteFragmentItem, ItemChanger",
+    "name": "Void_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.36_Void",
+      "takeKey": "GET_ITEM_INTRO8",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_EMPTY",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "Charms.36_Void",
+      "nameKey": "CHARM_NAME_36_C",
+      "shopDescKey": "CHARM_DESC_36_Void"
+    },
+    "tags": []
+  },
+  "Sprintmaster": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 37,
+    "name": "Sprintmaster",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.37",
+      "nameKey": "CHARM_NAME_37",
+      "shopDescKey": "CHARM_DESC_37"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_37"
+  },
+  "Dreamshield": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 38,
+    "name": "Dreamshield",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.38",
+      "nameKey": "CHARM_NAME_38",
+      "shopDescKey": "CHARM_DESC_38"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_38"
+  },
+  "Weaversong": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 39,
+    "name": "Weaversong",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.39",
+      "nameKey": "CHARM_NAME_39",
+      "shopDescKey": "CHARM_DESC_39"
+    },
+    "tags": [],
+    "gotBool": "gotCharm_39"
+  },
+  "Grimmchild": {
+    "$type": "ItemChanger.Items.Grimmchild2Item, ItemChanger",
+    "name": "Grimmchild",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "Charms.40",
+      "nameKey": "CHARM_NAME_40",
+      "shopDescKey": "CHARM_DESC_40"
+    },
+    "tags": []
+  },
+  "City_Crest": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasCityKey",
+    "name": "City_Crest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.CityKey",
+      "nameKey": "INV_NAME_CITYKEY",
+      "shopDescKey": "INV_DESC_CITYKEY"
+    },
+    "tags": []
+  },
+  "Lumafly_Lantern": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasLantern",
+    "name": "Lumafly_Lantern",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lantern",
+      "nameKey": "INV_NAME_LANTERN",
+      "shopDescKey": "INV_DESC_LANTERN"
+    },
+    "tags": []
+  },
+  "Tram_Pass": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasTramPass",
+    "name": "Tram_Pass",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.TramPass",
+      "nameKey": "INV_NAME_TRAM_PASS",
+      "shopDescKey": "INV_DESC_TRAM_PASS"
+    },
+    "tags": []
+  },
+  "Simple_Key": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "simpleKeys",
+    "amount": 1,
+    "name": "Simple_Key",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.SimpleKey",
+      "nameKey": "INV_NAME_SIMPLEKEY",
+      "shopDescKey": "INV_DESC_SIMPLEKEY"
+    },
+    "tags": []
+  },
+  "Shopkeeper's_Key": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasSlykey",
+    "name": "Shopkeeper's_Key",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.ShopkeepersKey",
+      "nameKey": "INV_NAME_STOREKEY",
+      "shopDescKey": "INV_DESC_STOREKEY"
+    },
+    "tags": []
+  },
+  "Elegant_Key": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasWhiteKey",
+    "name": "Elegant_Key",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.ElegantKey",
+      "nameKey": "INV_NAME_WHITEKEY",
+      "shopDescKey": "INV_DESC_WHITEKEY"
+    },
+    "tags": []
+  },
+  "Love_Key": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasLoveKey",
+    "name": "Love_Key",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.LoveKey",
+      "nameKey": "INV_NAME_LOVEKEY",
+      "shopDescKey": "INV_DESC_LOVEKEY"
+    },
+    "tags": []
+  },
+  "King's_Brand": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasKingsBrand",
+    "name": "King's_Brand",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Kingsbrand",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "GET_KINGSBRAND_1",
+      "descTwoKey": "GET_KINGSBRAND_2",
+      "spriteKey": "ShopIcons.KingsBrand",
+      "nameKey": "INV_NAME_KINGSBRAND",
+      "shopDescKey": "INV_DESC_KINGSBRAND"
+    },
+    "tags": []
+  },
+  "Godtuner": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasGodfinder",
+    "name": "Godtuner",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Godfinder",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_MEME",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "ShopIcons.Godfinder",
+      "nameKey": "RANDOMIZER_INV_NAME_GODFINDER",
+      "shopDescKey": "RANDOMIZER_INV_DESC_GODFINDER"
+    },
+    "tags": []
+  },
+  "Collector's_Map": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasPinGrub",
+    "name": "Collector's_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.CollectorsMap",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_EMPTY",
+      "descOneKey": "RANDOMIZER_MEME",
+      "descTwoKey": "RANDOMIZER_EMPTY",
+      "spriteKey": "ShopIcons.CollectorsMap",
+      "nameKey": "RANDOMIZER_COLLECTOR_MAP",
+      "shopDescKey": "RANDOMIZER_GET_COLLECTOR_MAP"
+    },
+    "tags": []
+  },
+  "Mask_Shard": {
+    "$type": "ItemChanger.Items.MaskShardItem, ItemChanger",
+    "amount": 1,
+    "name": "Mask_Shard",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.MaskShard",
+      "nameKey": "RANDOMIZER_NAME_MASK_SHARD",
+      "shopDescKey": "RANDOMIZER_DESC_MASK_SHARD"
+    },
+    "tags": []
+  },
+  "Vessel_Fragment": {
+    "$type": "ItemChanger.Items.VesselFragmentItem, ItemChanger",
+    "amount": 1,
+    "name": "Vessel_Fragment",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.VesselFragment",
+      "nameKey": "RANDOMIZER_NAME_VESSEL_FRAGMENT",
+      "shopDescKey": "RANDOMIZER_DESC_VESSEL_FRAGMENT"
+    },
+    "tags": []
+  },
+  "Charm_Notch": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "charmSlots",
+    "amount": 1,
+    "name": "Charm_Notch",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.CharmNotch",
+      "nameKey": "RANDOMIZER_NAME_CHARM_NOTCH",
+      "shopDescKey": "RANDOMIZER_DESC_CHARM_NOTCH"
+    },
+    "tags": []
+  },
+  "Pale_Ore": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "ore",
+    "amount": 1,
+    "name": "Pale_Ore",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.PaleOre",
+      "nameKey": "RANDOMIZER_NAME_PALE_ORE",
+      "shopDescKey": "RANDOMIZER_DESC_PALE_ORE"
+    },
+    "tags": []
+  },
+  "Geo_Chest-False_Knight": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 200,
+    "name": "Geo_Chest-False_Knight",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_200GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Chest-Soul_Master": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 380,
+    "name": "Geo_Chest-Soul_Master",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_380GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Chest-Watcher_Knights": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 655,
+    "name": "Geo_Chest-Watcher_Knights",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_655GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Chest-Greenpath": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 85,
+    "name": "Geo_Chest-Greenpath",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_85GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Chest-Mantis_Lords": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 620,
+    "name": "Geo_Chest-Mantis_Lords",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_620GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Chest-Resting_Grounds": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 150,
+    "name": "Geo_Chest-Resting_Grounds",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_150GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Chest-Crystal_Peak": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 80,
+    "name": "Geo_Chest-Crystal_Peak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_80GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Chest-Weavers_Den": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 160,
+    "name": "Geo_Chest-Weavers_Den",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_160GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "One_Geo": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 1,
+    "name": "One_Geo",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_1GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Rancid_Egg": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "rancidEggs",
+    "amount": 1,
+    "name": "Rancid_Egg",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.RancidEgg",
+      "nameKey": "INV_NAME_RANCIDEGG",
+      "shopDescKey": "INV_DESC_RANCIDEGG"
+    },
+    "tags": []
+  },
+  "Wanderer's_Journal": {
+    "$type": "ItemChanger.Items.RelicItem, ItemChanger",
+    "trinketNum": 1,
+    "name": "Wanderer's_Journal",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.WanderersJournal",
+      "nameKey": "INV_NAME_TRINKET1",
+      "shopDescKey": "INV_DESC_TRINKET1"
+    },
+    "tags": []
+  },
+  "Hallownest_Seal": {
+    "$type": "ItemChanger.Items.RelicItem, ItemChanger",
+    "trinketNum": 2,
+    "name": "Hallownest_Seal",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.HallownestSeal",
+      "nameKey": "INV_NAME_TRINKET2",
+      "shopDescKey": "INV_DESC_TRINKET2"
+    },
+    "tags": []
+  },
+  "King's_Idol": {
+    "$type": "ItemChanger.Items.RelicItem, ItemChanger",
+    "trinketNum": 3,
+    "name": "King's_Idol",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.KingsIdol",
+      "nameKey": "INV_NAME_TRINKET3",
+      "shopDescKey": "INV_DESC_TRINKET3"
+    },
+    "tags": []
+  },
+  "Arcane_Egg": {
+    "$type": "ItemChanger.Items.RelicItem, ItemChanger",
+    "trinketNum": 4,
+    "name": "Arcane_Egg",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.ArcaneEgg",
+      "nameKey": "INV_NAME_TRINKET4",
+      "shopDescKey": "INV_DESC_TRINKET4"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Crossroads": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 29,
+    "name": "Whispering_Root-Crossroads",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_29",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Greenpath": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 44,
+    "name": "Whispering_Root-Greenpath",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_44",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Leg_Eater": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 20,
+    "name": "Whispering_Root-Leg_Eater",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_20",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Mantis_Village": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 18,
+    "name": "Whispering_Root-Mantis_Village",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_18",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Deepnest": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 45,
+    "name": "Whispering_Root-Deepnest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_45",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Queens_Gardens": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 29,
+    "name": "Whispering_Root-Queens_Gardens",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_29",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Kingdoms_Edge": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 51,
+    "name": "Whispering_Root-Kingdoms_Edge",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_51",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Waterways": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 35,
+    "name": "Whispering_Root-Waterways",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_35",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-City": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 28,
+    "name": "Whispering_Root-City",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_28",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Resting_Grounds": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 20,
+    "name": "Whispering_Root-Resting_Grounds",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_20",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Spirits_Glade": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 34,
+    "name": "Whispering_Root-Spirits_Glade",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_34",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Crystal_Peak": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 21,
+    "name": "Whispering_Root-Crystal_Peak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_21",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Howling_Cliffs": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 46,
+    "name": "Whispering_Root-Howling_Cliffs",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_46",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Ancestral_Mound": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 42,
+    "name": "Whispering_Root-Ancestral_Mound",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_42",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Whispering_Root-Hive": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 20,
+    "name": "Whispering_Root-Hive",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_20",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Elder_Hu": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 100,
+    "name": "Boss_Essence-Elder_Hu",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_100",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Xero": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 100,
+    "name": "Boss_Essence-Xero",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_100",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Gorb": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 100,
+    "name": "Boss_Essence-Gorb",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_100",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Marmu": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 150,
+    "name": "Boss_Essence-Marmu",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_150",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-No_Eyes": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 200,
+    "name": "Boss_Essence-No_Eyes",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_200",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Galien": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 200,
+    "name": "Boss_Essence-Galien",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_200",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Markoth": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 250,
+    "name": "Boss_Essence-Markoth",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_250",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Failed_Champion": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Essence-Failed_Champion",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_300",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Soul_Tyrant": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Essence-Soul_Tyrant",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_300",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Lost_Kin": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 400,
+    "name": "Boss_Essence-Lost_Kin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_400",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-White_Defender": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Essence-White_Defender",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_300",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Boss_Essence-Grey_Prince_Zote": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Essence-Grey_Prince_Zote",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Essence",
+      "nameKey": "RANDOMIZER_NAME_ESSENCE_300",
+      "shopDescKey": "RANDOMIZER_DESC_ESSENCE"
+    },
+    "tags": []
+  },
+  "Grub": {
+    "$type": "ItemChanger.Items.GrubItem, ItemChanger",
+    "name": "Grub",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.GrubUIDef, ItemChanger"
+    },
+    "tags": []
+  },
+  "Crossroads_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapCrossroads",
+    "name": "Crossroads_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_CROSSROADS",
+      "shopDescKey": "MAP_DESC_CROSSROADS"
+    },
+    "tags": []
+  },
+  "Greenpath_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapGreenpath",
+    "name": "Greenpath_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_GREENPATH",
+      "shopDescKey": "MAP_DESC_GREENPATH"
+    },
+    "tags": []
+  },
+  "Fog_Canyon_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapFogCanyon",
+    "name": "Fog_Canyon_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_FOG_CANYON",
+      "shopDescKey": "MAP_DESC_FOG_CANYON"
+    },
+    "tags": []
+  },
+  "Fungal_Wastes_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapFungalWastes",
+    "name": "Fungal_Wastes_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_FUNGAL_WASTES",
+      "shopDescKey": "MAP_DESC_FUNGAL_WASTES"
+    },
+    "tags": []
+  },
+  "Deepnest_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapDeepnest",
+    "name": "Deepnest_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_DEEPNEST",
+      "shopDescKey": "MAP_DESC_DEEPNEST"
+    },
+    "tags": []
+  },
+  "Ancient_Basin_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapAbyss",
+    "name": "Ancient_Basin_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_ABYSS",
+      "shopDescKey": "MAP_DESC_ABYSS"
+    },
+    "tags": []
+  },
+  "Kingdom's_Edge_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapOutskirts",
+    "name": "Kingdom's_Edge_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_OUTSKIRTS",
+      "shopDescKey": "MAP_DESC_OUTSKIRTS"
+    },
+    "tags": []
+  },
+  "City_of_Tears_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapCity",
+    "name": "City_of_Tears_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_CITY",
+      "shopDescKey": "MAP_DESC_CITY"
+    },
+    "tags": []
+  },
+  "Royal_Waterways_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapWaterways",
+    "name": "Royal_Waterways_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_WATERWAYS",
+      "shopDescKey": "MAP_DESC_WATERWAYS"
+    },
+    "tags": []
+  },
+  "Howling_Cliffs_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapCliffs",
+    "name": "Howling_Cliffs_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_CLIFFS",
+      "shopDescKey": "MAP_DESC_CLIFFS"
+    },
+    "tags": []
+  },
+  "Crystal_Peak_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapMines",
+    "name": "Crystal_Peak_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_MINES",
+      "shopDescKey": "MAP_DESC_MINES"
+    },
+    "tags": []
+  },
+  "Queen's_Gardens_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapRoyalGardens",
+    "name": "Queen's_Gardens_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_ROYAL_GARDENS",
+      "shopDescKey": "MAP_DESC_ROYAL_GARDENS"
+    },
+    "tags": []
+  },
+  "Resting_Grounds_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapRestingGrounds",
+    "name": "Resting_Grounds_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Map",
+      "nameKey": "RANDOMIZER_MAP_NAME_RESTING_GROUNDS",
+      "shopDescKey": "MAP_DESC_RESTING_GROUNDS"
+    },
+    "tags": []
+  },
+  "Dirtmouth_Stag": {
+    "$type": "ItemChanger.Items.DirtmouthStagItem, ItemChanger",
+    "name": "Dirtmouth_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_DIRTMOUTH",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "Crossroads_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedCrossroads",
+    "name": "Crossroads_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_CROSSROADS",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "Greenpath_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedGreenpath",
+    "name": "Greenpath_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_GREENPATH",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "Queen's_Station_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedFungalWastes",
+    "name": "Queen's_Station_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_QUEENSSTATION",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "Queen's_Gardens_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedRoyalGardens",
+    "name": "Queen's_Gardens_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_QUEENSGARDENS",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "City_Storerooms_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedRuins1",
+    "name": "City_Storerooms_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_STOREROOMS",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "King's_Station_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedRuins2",
+    "name": "King's_Station_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_KINGSSTATION",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "Resting_Grounds_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedRestingGrounds",
+    "name": "Resting_Grounds_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_RESTINGGROUNDS",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "Distant_Village_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedDeepnest",
+    "name": "Distant_Village_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_DEEPNEST",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "Hidden_Station_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedHiddenStation",
+    "name": "Hidden_Station_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_HIDDENSTATION",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "Stag_Nest_Stag": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "openedStagNest",
+    "name": "Stag_Nest_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "RANDOMIZER_STAG_NAME_STAGNEST",
+      "shopDescKey": "RANDOMIZER_STAG_DESC"
+    },
+    "tags": []
+  },
+  "Lifeblood_Cocoon_Small": {
+    "$type": "ItemChanger.Items.LifebloodItem, ItemChanger",
+    "amount": 6,
+    "name": "Lifeblood_Cocoon_Small",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lifeblood",
+      "nameKey": "RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL",
+      "shopDescKey": "RANDOMIZER_DESC_LIFEBLOOD_COCOON"
+    },
+    "persistence": "SemiPersistent",
+    "tags": []
+  },
+  "Lifeblood_Cocoon_Large": {
+    "$type": "ItemChanger.Items.LifebloodItem, ItemChanger",
+    "amount": 9,
+    "name": "Lifeblood_Cocoon_Large",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lifeblood",
+      "nameKey": "RANDOMIZER_NAME_LIFEBLOOD_COCOON_LARGE",
+      "shopDescKey": "RANDOMIZER_DESC_LIFEBLOOD_COCOON"
+    },
+    "persistence": "SemiPersistent",
+    "tags": []
+  },
+  "Grimmkin_Flame": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "flamesCollected",
+    "amount": 1,
+    "name": "Grimmkin_Flame",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Flame",
+      "nameKey": "RANDOMIZER_NAME_GRIMMKIN_FLAME",
+      "shopDescKey": "RANDOMIZER_DESC_GRIMMKIN_FLAME"
+    },
+    "tags": []
+  },
+  "Left_Mothwing_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "canDashLeft",
+    "name": "Left_Mothwing_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.DashReflected",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "RANDOMIZER_DESC_LEFT_CLOAK",
+      "descTwoKey": "RANDOMIZER_DESC_LEFT_CLOAK_2",
+      "spriteKey": "ShopIcons.Dash",
+      "nameKey": "RANDOMIZER_NAME_LEFT_CLOAK",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_LEFT_CLOAK"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Left_Mothwing_Cloak",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Right_Mothwing_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "canDashRight",
+    "name": "Right_Mothwing_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Dash",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "RANDOMIZER_DESC_RIGHT_CLOAK",
+      "descTwoKey": "RANDOMIZER_DESC_RIGHT_CLOAK_2",
+      "spriteKey": "ShopIcons.Dash",
+      "nameKey": "RANDOMIZER_NAME_RIGHT_CLOAK",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_RIGHT_CLOAK"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Right_Mothwing_Cloak",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Left_Shade_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "canDashLeft",
+    "name": "Left_Shade_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.ShadowdashReflected",
+      "takeKey": "GET_ITEM_INTRO7",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_SHADOWDASH_1",
+      "descTwoKey": "GET_SHADOWDASH_2",
+      "spriteKey": "ShopIcons.Shadowdash",
+      "nameKey": "RANDOMIZER_SHOP_NAME_LEFT_SHADOWDASH",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_LEFT_CLOAK"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Left_Mothwing_Cloak",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Right_Shade_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "canDashRight",
+    "name": "Right_Shade_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Shadowdash",
+      "takeKey": "GET_ITEM_INTRO7",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "GET_SHADOWDASH_1",
+      "descTwoKey": "GET_SHADOWDASH_2",
+      "spriteKey": "ShopIcons.Shadowdash",
+      "nameKey": "RANDOMIZER_SHOP_NAME_RIGHT_SHADOWDASH",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_RIGHT_CLOAK"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Right_Mothwing_Cloak",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Split_Mothwing_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "name": "Split_Mothwing_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger"
+    },
+    "tags": []
+  },
+  "Left_Mantis_Claw": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasWalljumpLeft",
+    "name": "Left_Mantis_Claw",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.Walljump",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "RANDOMIZER_DESC_LEFT_CLAW",
+      "descTwoKey": "RANDOMIZER_DESC_LEFT_CLAW_2",
+      "spriteKey": "ShopIcons.Walljump",
+      "nameKey": "RANDOMIZER_NAME_LEFT_CLAW",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_LEFT_CLAW"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Left_Mantis_Claw",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Right_Mantis_Claw": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasWalljumpRight",
+    "name": "Right_Mantis_Claw",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSpriteKey": "Prompts.WalljumpReflected",
+      "takeKey": "GET_ITEM_INTRO1",
+      "buttonKey": "RANDOMIZER_BUTTON_DESC",
+      "descOneKey": "RANDOMIZER_DESC_RIGHT_CLAW",
+      "descTwoKey": "RANDOMIZER_DESC_RIGHT_CLAW_2",
+      "spriteKey": "ShopIcons.Walljump",
+      "nameKey": "RANDOMIZER_NAME_RIGHT_CLAW",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_RIGHT_CLAW"
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Right_Mantis_Claw",
+        "Intrinsic": true
+      }
+    ]
+  },
+  "Leftslash": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canSideslashLeft",
+    "name": "Leftslash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Leftslash",
+      "nameKey": "RANDOMIZER_NAME_LEFTSLASH",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_LEFTSLASH"
+    },
+    "tags": []
+  },
+  "Rightslash": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canSideslashRight",
+    "name": "Rightslash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Rightslash",
+      "nameKey": "RANDOMIZER_NAME_RIGHTSLASH",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_RIGHTSLASH"
+    },
+    "tags": []
+  },
+  "Upslash": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canUpslash",
+    "name": "Upslash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Upslash",
+      "nameKey": "RANDOMIZER_NAME_UPSLASH",
+      "shopDescKey": "RANDOMIZER_SHOP_DESC_UPSLASH"
+    },
+    "tags": []
+  },
+  "Grubfather": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "",
+    "name": "Grubfather",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "",
+      "nameKey": "",
+      "shopDescKey": ""
+    },
+    "tags": []
+  },
+  "Seer": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "",
+    "name": "Seer",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "",
+      "nameKey": "",
+      "shopDescKey": ""
+    },
+    "tags": []
+  },
+  "Equipped": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "",
+    "name": "Equipped",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "",
+      "nameKey": "",
+      "shopDescKey": ""
+    },
+    "tags": []
+  },
+  "Placeholder": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "",
+    "name": "Placeholder",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "",
+      "nameKey": "",
+      "shopDescKey": ""
+    },
+    "tags": []
+  },
+  "Geo_Rock-Default": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "amount": 15,
+    "name": "Geo_Rock-Default",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_15GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Deepnest": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Deepnest",
+    "amount": 15,
+    "name": "Geo_Rock-Deepnest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_15GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Abyss": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Abyss",
+    "amount": 35,
+    "name": "Geo_Rock-Abyss",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_35GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-GreenPath01": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "GreenPath01",
+    "amount": 26,
+    "name": "Geo_Rock-GreenPath01",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_26GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Outskirts": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Outskirts",
+    "amount": 44,
+    "name": "Geo_Rock-Outskirts",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_44GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Outskirts420": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Outskirts420",
+    "amount": 420,
+    "name": "Geo_Rock-Outskirts420",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_420GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-GreenPath02": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "GreenPath02",
+    "amount": 30,
+    "name": "Geo_Rock-GreenPath02",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_30GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Fung01": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Fung01",
+    "amount": 22,
+    "name": "Geo_Rock-Fung01",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_22GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Fung02": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Fung02",
+    "amount": 17,
+    "name": "Geo_Rock-Fung02",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_17GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-City": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "City",
+    "amount": 30,
+    "name": "Geo_Rock-City",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_30GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Hive": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Hive",
+    "amount": 56,
+    "name": "Geo_Rock-Hive",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_56GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Mine": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Mine",
+    "amount": 24,
+    "name": "Geo_Rock-Mine",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_24GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Grave02": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Grave02",
+    "amount": 25,
+    "name": "Geo_Rock-Grave02",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_25GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Geo_Rock-Grave01": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Grave01",
+    "amount": 25,
+    "name": "Geo_Rock-Grave01",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_25GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Boss_Geo-Massive_Moss_Charger": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Geo-Massive_Moss_Charger",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_300GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Boss_Geo-Gorgeous_Husk": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 420,
+    "name": "Boss_Geo-Gorgeous_Husk",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_420GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Boss_Geo-Sanctum_Soul_Warrior": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 200,
+    "name": "Boss_Geo-Sanctum_Soul_Warrior",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_200GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Boss_Geo-Elegant_Soul_Warrior": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 200,
+    "name": "Boss_Geo-Elegant_Soul_Warrior",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_200GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Boss_Geo-Crystal_Guardian": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 385,
+    "name": "Boss_Geo-Crystal_Guardian",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_385GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Boss_Geo-Enraged_Guardian": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 550,
+    "name": "Boss_Geo-Enraged_Guardian",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_550GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Boss_Geo-Gruz_Mother": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 50,
+    "name": "Boss_Geo-Gruz_Mother",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_50GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Boss_Geo-Vengefly_King": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 65,
+    "name": "Boss_Geo-Vengefly_King",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Geo",
+      "nameKey": "RANDOMIZER_NAME_65GEO",
+      "shopDescKey": "RANDOMIZER_DESC_GEO"
+    },
+    "tags": []
+  },
+  "Soul_Totem": {
+    "$type": "ItemChanger.Items.SoulItem, ItemChanger",
+    "soul": 100,
+    "name": "Soul_Totem",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Soul",
+      "nameKey": "RANDOMIZER_NAME_SOUL",
+      "shopDescKey": "RANDOMIZER_DESC_SOUL"
+    },
+    "persistence": "SemiPersistent",
+    "tags": []
+  },
+  "Lore_Tablet-City_Entrance": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "RUIN_TAB_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-City_Entrance",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Pleasure_House": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "RUINS_MARISSA_POSTER",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Pleasure_House",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Sanctum_Entrance": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "MAGE_COMP_03",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Sanctum_Entrance",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Sanctum_Past_Soul_Master": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "MAGE_COMP_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Sanctum_Past_Soul_Master",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Watcher's_Spire": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "LURIAN_JOURNAL",
+    "name": "Lore_Tablet-Watcher's_Spire",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Archives_Upper": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "ARCHIVE_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Archives_Upper",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Archives_Left": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "ARCHIVE_03",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Archives_Left",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Archives_Right": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "ARCHIVE_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Archives_Right",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Pilgrim's_Way_1": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "PILGRIM_TAB_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Pilgrim's_Way_1",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Pilgrim's_Way_2": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "PILGRIM_TAB_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Pilgrim's_Way_2",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Mantis_Outskirts": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "MANTIS_PLAQUE_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Mantis_Outskirts",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Mantis_Village": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "MANTIS_PLAQUE_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Mantis_Village",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Greenpath_Upper_Hidden": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "GREEN_TABLET_06",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Upper_Hidden",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Greenpath_Below_Toll": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "GREEN_TABLET_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Below_Toll",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Greenpath_Lifeblood": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "GREEN_TABLET_03",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Lifeblood",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Greenpath_Stag": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "GREEN_TABLET_05",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Greenpath_QG": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "GREEN_TABLET_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_QG",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Greenpath_Lower_Hidden": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "GREEN_TABLET_07",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Lower_Hidden",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Dung_Defender": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "DUNG_DEF_SIGN",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Dung_Defender",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Spore_Shroom": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "FUNG_TAB_04",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Spore_Shroom",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Fungal_Wastes_Hidden": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "FUNG_TAB_03",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Fungal_Wastes_Hidden",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "FUNG_TAB_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Fungal_Core": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "FUNG_TAB_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Fungal_Core",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Ancient_Basin": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "ABYSS_TUT_TAB_01",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-Ancient_Basin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-King's_Pass_Focus": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "TUT_TAB_01",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-King's_Pass_Focus",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-King's_Pass_Fury": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "TUT_TAB_03",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-King's_Pass_Fury",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-King's_Pass_Exit": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "TUT_TAB_02",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-King's_Pass_Exit",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-World_Sense": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "SENSE_TAB_01",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-World_Sense",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Howling_Cliffs": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "CLIFF_TAB_02",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-Howling_Cliffs",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Kingdom's_Edge": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "MR_MUSH_RIDDLE_TAB_NORMAL",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-Kingdom's_Edge",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Palace_Workshop": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "WP_WORKSHOP_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Palace_Workshop",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Palace_Throne": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreKey": "WP_THRONE_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Palace_Throne",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  },
+  "Lore_Tablet-Path_of_Pain_Entrance": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": "CP2",
+    "loreKey": "PLAQUE_WARN",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Path_of_Pain_Entrance",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Lore",
+      "nameKey": "RANDOMIZER_NAME_LORE",
+      "shopDescKey": "RANDOMIZER_DESC_LORE"
+    },
+    "tags": []
+  }
+}

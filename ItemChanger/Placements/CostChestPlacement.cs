@@ -9,19 +9,44 @@ using SereCore;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.Locations;
 using ItemChanger.Util;
+using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class CostChestPlacement : AbstractPlacement
+    public class CostChestPlacement : AbstractPlacement, IContainerPlacement
     {
-        public List<Cost> costs = new List<Cost>();
-        public IMutableLocation chestLocation;
-        public IMutableLocation tabletLocation;
-        public override string SceneName => chestLocation.sceneName;
+        public override AbstractLocation Location => chestLocation;
+        public ContainerLocation chestLocation;
+        public PlaceableLocation tabletLocation;
+
+        public void AddItem(AbstractItem item, Cost cost)
+        {
+            CostTag tag = item.GetTag<CostTag>() ?? item.AddTag<CostTag>();
+            tag.Cost = cost;
+            Items.Add(item);
+        }
+
+        public void GetPrimaryContainer(out GameObject obj, out Container containerType)
+        {
+            obj = ChestUtility.MakeNewChest(this, Items);
+            containerType = Container.Chest;
+        }
+
+        public override void OnLoad()
+        {
+            tabletLocation.auxillary = true;
+            base.OnLoad();
+        }
+
+        public override void OnActiveSceneChanged(Scene from, Scene to)
+        {
+            base.OnActiveSceneChanged(from, to);
+            tabletLocation.PlaceContainer(TabletUtility.MakeNewTablet(this), Container.Tablet);
+        }
 
         public override void OnEnableFsm(PlayMakerFSM fsm)
         {
-            RepairCosts();
+            base.OnEnableFsm(fsm);
 
             if (fsm.FsmName == "Inspection" && fsm.gameObject.name == TabletUtility.GetTabletName(this))
             {
@@ -47,7 +72,7 @@ namespace ItemChanger.Placements
                 FsmState init = fsm.GetState("Init");
                 FsmState spawnItems = fsm.GetState("Spawn Items");
 
-                FsmStateAction checkAction = new Lambda(() => fsm.SendEvent(items.All(i => i.IsObtained()) ? "ACTIVATE" : null));
+                FsmStateAction checkAction = new Lambda(() => fsm.SendEvent(AllObtained() ? "ACTIVATE" : null));
 
                 init.RemoveActionsOfType<BoolTest>();
                 init.AddAction(checkAction);
@@ -75,10 +100,10 @@ namespace ItemChanger.Placements
 
                 FsmStateAction generateItems = new Lambda(() =>
                 {
-                    for (int i = 0; i < items.Count; i++)
+                    for (int i = 0; i < Items.Count; i++)
                     {
-                        var item = items[i];
-                        var cost = costs[i];
+                        AbstractItem item = Items[i];
+                        Cost cost = item.GetTag<CostTag>()?.Cost;
 
                         if (!item.IsObtained())
                         {
@@ -107,63 +132,39 @@ namespace ItemChanger.Placements
             }
         }
 
-        public override void OnActiveSceneChanged()
+        public override string OnLanguageGet(string convo, string sheet)
         {
-            chestLocation.PlaceContainer(ChestUtility.MakeNewChest(this), Container.Chest);
-            GameObject tablet = TabletUtility.MakeNewTablet(this);
-            tabletLocation.PlaceContainer(tablet, Container.Tablet);
-        }
-
-        public override string OnLanguageGet(string convoName, string sheet)
-        {
-            if (sheet == "ItemChanger.Locations" && convoName == TabletUtility.GetTabletName(this))
+            if (sheet == "ItemChanger.Locations" && convo == TabletUtility.GetTabletName(this))
             {
                 StringBuilder sb = new StringBuilder("Chest Contents<br>");
-                for (int i = 0; i < items.Count; i++)
+                for (int i = 0; i < Items.Count; i++)
                 {
+                    AbstractItem item = Items[i];
+                    Cost cost = item.GetTag<CostTag>()?.Cost;
+
                     sb.Append("<br>");
-                    sb.Append(items[i].UIDef?.GetDisplayName() ?? "Unknown Item");
+                    sb.Append(item.UIDef?.GetPostviewName() ?? "Unknown Item");
                     sb.Append("  -  ");
-                    if (items[i].IsObtained())
+                    if (item.IsObtained())
                     {
                         sb.Append("Obtained");
                     }
-                    else if (costs[i] is null)
+                    else if (cost is null)
                     {
                         sb.Append("Free");
                     }
-                    else if (costs[i].Paid())
+                    else if (cost.Paid())
                     {
                         sb.Append("Purchased");
                     }
                     else
                     {
-                        sb.Append(costs[i].GetCostText());
+                        sb.Append(cost.GetCostText());
                     }
                 }
                 return sb.ToString();
             }
-            return null;
+            return base.OnLanguageGet(convo, sheet);
         }
-
-        public override void AddItem(AbstractItem item)
-        {
-            RepairCosts();
-            base.AddItem(item);
-            costs.Add(null);
-        }
-
-        public void RepairCosts()
-        {
-            if (costs.Count < items.Count) costs.AddRange(Enumerable.Repeat<Cost>(null, items.Count - costs.Count));
-        }
-
-        public void AddItemWithCost(AbstractItem item, Cost cost)
-        {
-            RepairCosts();
-            items.Add(item);
-            costs.Add(cost);
-        }
-
     }
 }

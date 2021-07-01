@@ -14,7 +14,9 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class ShadeSoulLocation : FsmLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions)
+        public override MessageType MessageType => MessageType.Any;
+
+        public override void OnEnable(PlayMakerFSM fsm)
         {
             switch (fsm.gameObject.name)
             {
@@ -22,7 +24,7 @@ namespace ItemChanger.Locations.SpecialLocations
                     {
                         FsmState gotSpell = fsm.GetState("Got Spell?");
                         gotSpell.RemoveActionsOfType<IntCompare>();
-                        gotSpell.AddAction(new BoolTestMod(actions.AllObtained, "ACTIVATED", null));
+                        gotSpell.AddAction(new BoolTestMod(Placement.AllObtained, "ACTIVATED", null));
                     }
                     break;
 
@@ -32,7 +34,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         FsmState UIMsg = fsm.GetState("Call UI Msg");
 
                         Action callback = () => fsm.Fsm.Event("GET ITEM MSG END");
-                        FsmStateAction give = new Lambda(() => actions.Give(callback));
+                        FsmStateAction give = new Lambda(() => Placement.GiveAll(MessageType, callback));
 
                         getPD.RemoveActionsOfType<SetPlayerDataInt>();
                         UIMsg.Actions = new FsmStateAction[]

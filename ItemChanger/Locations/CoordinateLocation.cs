@@ -1,33 +1,25 @@
 ﻿using ItemChanger.Util;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
-    public class CoordinateLocation : IMutableLocation
+    public class CoordinateLocation : PlaceableLocation
     {
         public float x;
         public float y;
         public float elevation;
-        public string sceneName { get; set; }
-        public FlingType flingType { get; set; }
-        public bool forceShiny { get; set; }
 
-        public bool Supports(Container container)
+        public override void OnActiveSceneChanged(Scene from, Scene to)
         {
-            switch (container)
+            if (!auxillary)
             {
-                case Container.Chest:
-                case Container.GeoRock:
-                case Container.GrubJar:
-                    return !forceShiny;
-                case Container.Shiny:
-                    return true;
-                default:
-                    return false;
+                base.GetPrimaryContainer(out GameObject obj, out Container containerType);
+                PlaceContainer(obj, containerType);
             }
         }
 
-        public void PlaceContainer(GameObject obj, Container containerType)
+        public override void PlaceContainer(GameObject obj, Container containerType)
         {
             switch (containerType)
             {
@@ -51,11 +43,5 @@ namespace ItemChanger.Locations
                     break;
             }
         }
-
-        public virtual void OnEnable(PlayMakerFSM fsm) { }
-        public virtual void OnActiveSceneChanged() { }
-        public virtual void Hook() { }
-        public virtual void UnHook() { }
     }
-
 }

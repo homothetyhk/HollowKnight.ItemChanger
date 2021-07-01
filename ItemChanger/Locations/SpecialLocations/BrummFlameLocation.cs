@@ -15,7 +15,9 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class BrummFlameLocation : FsmLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions)
+        public override MessageType MessageType => MessageType.Any;
+
+        public override void OnEnable(PlayMakerFSM fsm)
         {
             switch (fsm.FsmName)
             {
@@ -27,7 +29,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
                         checkActive.Actions = new FsmStateAction[] 
                         {
-                            new BoolTestMod(() => IsBrummActive() && !actions.AllObtained(), (PlayerDataBoolTest)checkActive.Actions[0])
+                            new BoolTestMod(() => IsBrummActive() && !Placement.AllObtained(), (PlayerDataBoolTest)checkActive.Actions[0])
                         };
                         
                         convo1.RemoveActionsOfType<IntCompare>();
@@ -36,7 +38,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         {
                             get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
                             get.Actions[14], // set gotBrummsFlame
-                            new AsyncLambda(actions.Give),
+                            new AsyncLambda(callback => Placement.GiveAll(MessageType, callback)),
                         };
                     }
                     break;

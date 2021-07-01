@@ -2,27 +2,43 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ItemChanger.Locations;
 
 namespace ItemChanger.Placements
 {
     public class StartPlacement : AbstractPlacement
     {
-        public override string SceneName => null;
-        
-        public void GiveRemainingItems()
+        [NonSerialized]
+        [Newtonsoft.Json.JsonIgnore]
+        private bool inGame;
+
+        public override void OnLoad()
         {
-            GiveInfo info = new GiveInfo
-            {
-                Container = Container.Unknown,
-                FlingType = FlingType.DirectDeposit,
-                Transform = null,
-                MessageType = MessageType.Corner,
-            };
-            foreach (AbstractItem item in items.Where(i => !i.IsObtained()))
-            {
-                item.Give(this, info);
-            }
+            inGame = true;
+            base.OnLoad();
         }
 
+        public override void OnUnload()
+        {
+            inGame = false;
+            base.OnUnload();
+        }
+
+
+        public StartLocation location;
+        public override AbstractLocation Location => location;
+
+        public override void AddItem(AbstractItem item)
+        {
+            if (inGame) item.Give(this, new GiveInfo
+            {
+                Container = Container.Unknown,
+                FlingType = Location.flingType,
+                MessageType = MessageType.Corner,
+                Transform = Location.Transform,
+            });
+
+            Items.Add(item);
+        }
     }
 }

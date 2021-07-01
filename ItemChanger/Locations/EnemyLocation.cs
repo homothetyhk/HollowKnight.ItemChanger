@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ItemChanger.Components;
+using ItemChanger.Placements;
 using ItemChanger.Util;
 using SereCore;
 using UnityEngine;
@@ -10,44 +11,31 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
-    public class EnemyLocation : IMutableLocation
+    public class EnemyLocation : PlaceableLocation
     {
         public string objectName;
-        public string sceneName { get; set; }
-        public FlingType flingType { get; set; }
-        public bool forceShiny { get; set; }
         public bool removeGeo;
 
-        public bool Supports(Container container)
+        public override bool Supports(Container container)
         {
-            switch (container)
-            {
-                case Container.Chest:
-                case Container.GeoRock:
-                case Container.GrubJar:
-                    return !forceShiny;
-                case Container.Shiny:
-                    return true;
-                default:
-                    return false;
-            }
+            if (container == Container.Chest) return false;
+            return base.Supports(container);
         }
 
-        public virtual void OnEnable(PlayMakerFSM fsm) { }
-        public virtual void OnActiveSceneChanged() { }
-        public virtual void Hook() { }
-        public virtual void UnHook() { }
+        public override void OnActiveSceneChanged(Scene from, Scene to)
+        {
+            base.GetPrimaryContainer(out GameObject obj, out Container containerType);
+            PlaceContainer(obj, containerType);
+        }
 
-        public virtual void PlaceContainer(GameObject obj, Container containerType)
+        public override void PlaceContainer(GameObject obj, Container containerType)
         {
             GameObject target = ObjectLocation.FindGameObject(objectName);
             HealthManager hm = target.GetComponent<HealthManager>();
 
-            DropItemOnDeath drop = target.AddComponent<DropItemOnDeath>();
+            SpawnOnDeath drop = target.AddComponent<SpawnOnDeath>();
             drop.item = obj;
-            drop.container = containerType;
-            drop.flingType = flingType;
-            obj.SetActive(false);   
+            obj.SetActive(false);
 
             if (removeGeo)
             {
@@ -56,5 +44,6 @@ namespace ItemChanger.Locations
                 hm.SetGeoLarge(0);
             }
         }
+
     }
 }

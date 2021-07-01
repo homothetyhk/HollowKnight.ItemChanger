@@ -32,7 +32,7 @@ namespace ItemChanger
 
         private static void ApplyTransitionFixes(Scene oldScene, Scene newScene)
         {
-            if (!ItemChangerSettings.currentSettings.transitionQOL) return;
+            //if (!ItemChangerSettings.currentSettings.transitionQOL) return;
 
             switch (newScene.name)
             {
@@ -153,7 +153,7 @@ namespace ItemChanger
         // save data changes for entering transitions from unintended directions
         private static void ApplySaveDataChanges(string sceneName, string entryGateName)
         {
-            if (!ItemChangerSettings.currentSettings.transitionQOL) return;
+            //if (!ItemChangerSettings.currentSettings.transitionQOL) return;
             if (string.IsNullOrEmpty(sceneName)) return;
             entryGateName = entryGateName ?? string.Empty;
 

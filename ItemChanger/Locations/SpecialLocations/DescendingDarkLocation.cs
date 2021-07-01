@@ -17,7 +17,9 @@ namespace ItemChanger.Locations.SpecialLocations
         public string objectName;
         public string fsmName;
 
-        public override void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions)
+        public override MessageType MessageType => MessageType.Any;
+
+        public override void OnEnable(PlayMakerFSM fsm)
         {
             if (fsm.gameObject.name == objectName && fsm.FsmName == fsmName)
             {
@@ -25,13 +27,13 @@ namespace ItemChanger.Locations.SpecialLocations
                 FsmState get = fsm.GetState("Get PlayerData 2");
                 FsmState callUI = fsm.GetState("Call UI Msg 2");
 
-                FsmStateAction check = new BoolTestMod(actions.AllObtained, "BROKEN", null);
+                FsmStateAction check = new BoolTestMod(Placement.AllObtained, "BROKEN", null);
                 void Callback()
                 {
                     fsm.SendEvent("GET ITEM MSG END");
                 }
 
-                FsmStateAction give = new Lambda(() => actions.Give(Callback));
+                FsmStateAction give = new Lambda(() => Placement.GiveAll(MessageType, Callback));
 
                 init.RemoveActionsOfType<IntCompare>();
                 init.AddAction(check);

@@ -6,6 +6,7 @@ using ItemChanger.Items;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
+using ItemChanger.Components;
 using SereCore;
 using UnityEngine;
 using System.Collections;
@@ -18,40 +19,80 @@ namespace ItemChanger.Util
         /// <summary>
         /// Makes a Shiny Item with a name tied to location and item index. Apply FSM edits in OnEnable instead.
         /// </summary>
-        public static GameObject MakeNewShiny(AbstractPlacement location, AbstractItem item)
+        public static GameObject MakeNewShiny(AbstractPlacement placement, AbstractItem item)
         {
             GameObject shiny = ObjectCache.ShinyItem;
-            shiny.name = GetShinyName(location, item);
+            shiny.name = GetShinyName(placement, item);
+            var info = shiny.AddComponent<ContainerInfo>();
+            info.placement = placement;
+            info.items = item.Yield();
+            info.flingType = placement.Location.flingType;
+
             return shiny;
         }
 
-        public static GameObject MakeNewMultiItemShiny(AbstractPlacement location)
+        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
             GameObject shiny = ObjectCache.ShinyItem;
-            shiny.name = GetShinyPrefix(location);
+            shiny.name = GetShinyPrefix(placement);
+            var info = shiny.AddComponent<ContainerInfo>();
+            info.placement = placement;
+            info.items = items;
+            info.flingType = placement.Location.flingType;
+
+            if (placement is Placements.ISingleCostPlacement costPlacement)
+            {
+                shiny.AddComponent<CostInfo>().cost = costPlacement.Cost;
+            }
+
             return shiny;
         }
 
-        public static bool TryGetItemFromShinyName(string shinyObjectName, AbstractPlacement location, out AbstractItem item)
+        public static void ModifyFsm(PlayMakerFSM shinyFsm)
+        {
+            ContainerInfo containerInfo = shinyFsm.gameObject.GetComponent<ContainerInfo>();
+            CostInfo costInfo = shinyFsm.gameObject.GetComponent<CostInfo>();
+            ChangeSceneInfo changeSceneInfo = shinyFsm.gameObject.GetComponent<ChangeSceneInfo>();
+
+            if (containerInfo && !containerInfo.applied)
+            {
+                ModifyMultiShiny(shinyFsm, containerInfo.flingType, containerInfo.placement, containerInfo.items);
+                containerInfo.applied = true;
+            }
+
+            if (costInfo && !costInfo.applied)
+            {
+                AddYNDialogueToShiny(shinyFsm, costInfo.cost, containerInfo?.items);
+                costInfo.applied = true;
+            }
+
+            if (changeSceneInfo && !changeSceneInfo.applied)
+            {
+                AddChangeSceneToShiny(shinyFsm, changeSceneInfo.toScene, changeSceneInfo.toGate);
+                changeSceneInfo.applied = true;
+            }
+        }
+
+        public static bool TryGetItemFromShinyName(string shinyObjectName, AbstractPlacement placement, out AbstractItem item)
         {
             item = null;
-            if (!shinyObjectName.StartsWith(GetShinyPrefix(location))
+            if (!shinyObjectName.StartsWith(GetShinyPrefix(placement))
                 || !int.TryParse(shinyObjectName.Split('-').Last(), out int index)
                 || index < 0
-                || index >= location.items.Count) return false;
+                || index >= placement.Items.Count()) return false;
 
-            item = location.items[index];
+            item = placement.Items.ElementAt(index);
             return true;
         }
 
-        public static string GetShinyName(AbstractPlacement location, AbstractItem item)
+        public static string GetShinyName(AbstractPlacement placement, AbstractItem item)
         {
-            return $"{GetShinyPrefix(location)}-{location.items.IndexOf(item)}";
+            return $"{GetShinyPrefix(placement)}-{item.name}-{placement.Items.TakeWhile(i => i != item).Count()}";
         }
 
-        public static string GetShinyPrefix(AbstractPlacement location)
+        public static string GetShinyPrefix(AbstractPlacement placement)
         {
-            return $"Shiny Item-{location.name}";
+            return $"Shiny Item-{placement.Name}";
         }
 
         public static void PutShinyInContainer(GameObject container, GameObject shiny)
@@ -83,6 +124,23 @@ namespace ItemChanger.Util
             FlingObject flingObj = shinyFsm.GetState("Fling R").GetActionsOfType<FlingObject>()[0];
             flingObj.angleMin = flingObj.angleMax = 270;
             flingObj.speedMin = flingObj.speedMax = 0.1f;
+        }
+
+        public static void AddChangeSceneToShiny(PlayMakerFSM shinyFsm, string toScene, string toGate)
+        {
+            if (toGate == "door_DreamReturn")
+            {
+                shinyFsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
+                shinyFsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
+                {
+                    PlayerData.instance.SetString(nameof(PlayerData.dreamReturnScene), toScene);
+                }));
+            }
+            else
+            {
+                FsmState finish = shinyFsm.GetState("Finish");
+                finish.AddAction(new RandomizerChangeScene(toScene, toGate));
+            }
         }
 
         public static void ModifyShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement placement, AbstractItem item)
@@ -131,10 +189,8 @@ namespace ItemChanger.Util
             trinkFlash.AddTransition("GAVE ITEM", "Hero Up");
         }
 
-        public static void ModifyMultiShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement location, IEnumerable<AbstractItem> items)
+        public static void ModifyMultiShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
-            ItemChanger.instance.Log("Multi Shiny!");
-
             FsmState pdBool = shinyFsm.GetState("PD Bool?");
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
@@ -147,7 +203,7 @@ namespace ItemChanger.Util
                 MessageType = MessageType.Any,
             };
             FsmStateAction checkAction = new Lambda(() => shinyFsm.SendEvent(items.All(i => i.IsObtained()) ? "COLLECTED" : null));
-            FsmStateAction giveAction = new Lambda(() => ItemUtility.GiveSequentially(items, location, info, callback: () => shinyFsm.SendEvent("GAVE ITEM")));
+            FsmStateAction giveAction = new Lambda(() => ItemUtility.GiveSequentially(items, placement, info, callback: () => shinyFsm.SendEvent("GAVE ITEM")));
 
             // Remove actions that stop shiny from spawning
             pdBool.RemoveActionsOfType<StringCompare>();
@@ -244,7 +300,7 @@ namespace ItemChanger.Util
 
             // If the text pushes the Y/N buttons off of the page, it results in an input lock
             // These lengths are a little generous--all MMMMMs will still overflow
-            string itemText = string.Join(", ", items.Select(i => i.UIDef.GetDisplayName()).ToArray());
+            string itemText = string.Join(", ", items.Select(i => i.UIDef.GetPostviewName()).ToArray());
             if (itemText.Length > 120)
             {
                 itemText = itemText.Substring(0, 117) + "...";

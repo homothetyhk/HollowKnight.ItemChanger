@@ -36,6 +36,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
                         checkActive.Actions = new FsmStateAction[0];
                         checkSummoned.RemoveActionsOfType<FindChild>();
+                        spellAppear.GetActionsOfType<ActivateGameObject>().First(a => a.gameObject.GameObject.Name == "Vengeful Spirit").recursive = false;
                         spellAppear.Actions[8] = new Lambda(() => { }); // this replaces a wait after the spawn animation and seems to prevent a freeze
                     }
                     break;

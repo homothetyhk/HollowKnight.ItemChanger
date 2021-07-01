@@ -9,10 +9,15 @@ namespace ItemChanger.Components
 {
     public class DropIntoPlace : MonoBehaviour
     {
+        Rigidbody2D rb;
         public void Awake()
         {
-            Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            rb = gameObject.GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
+        }
+
+        public void OnEnable()
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
             AccelerationMonitor am = gameObject.GetComponent<AccelerationMonitor>() ?? gameObject.AddComponent<AccelerationMonitor>();
             StartCoroutine(DetectLanding(rb, am));
         }

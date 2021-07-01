@@ -13,11 +13,16 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location for modifying the unique Grimmkin spawn of a scene.
+    /// </summary>
     public class GrimmkinLocation : FsmLocation
     {
-        int grimmkinLevel;
+        public int grimmkinLevel;
 
-        public override void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions)
+        public override MessageType MessageType => MessageType.Corner;
+
+        public override void OnEnable(PlayMakerFSM fsm)
         {
             switch (fsm.FsmName)
             {
@@ -42,7 +47,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         state.AddTransition("KILLED", "Do Nothing");
                         bool Check()
                         {
-                            return actions.AllObtained() || !GrimmchildRequirement();
+                            return Placement.AllObtained() || !GrimmchildRequirement();
                         }
 
                         state.Actions = new FsmStateAction[]
@@ -53,7 +58,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         get.Actions = new FsmStateAction[]
                         {
                             get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
-                            new AsyncLambda(actions.Give),
+                            new AsyncLambda(callback => Placement.GiveAll(MessageType, callback)),
                         };
 
                     }

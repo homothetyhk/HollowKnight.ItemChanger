@@ -9,6 +9,7 @@ using ItemChanger.FsmStateActions;
 using SereCore;
 using UnityEngine;
 using System.Collections;
+using ItemChanger.Components;
 
 namespace ItemChanger.Util
 {
@@ -45,17 +46,37 @@ namespace ItemChanger.Util
             return -0.8f;
         }
 
-        public static GameObject MakeNewGeoRock(AbstractPlacement location, IEnumerable<AbstractItem> items, out GeoRockSubtype type)
+        public static GameObject MakeNewGeoRock(AbstractPlacement placement, IEnumerable<AbstractItem> items, out GeoRockSubtype type)
         {
             type = items.OfType<GeoRockItem>().FirstOrDefault()?.geoRockSubtype ?? GeoRockSubtype.Default;
             GameObject rock = ObjectCache.GeoRock(type);
             rock.AddComponent<GeoRockInfo>().type = type;
-            rock.name = GetGeoRockName(location);
+            rock.name = GetGeoRockName(placement);
 
-            rock.AddComponent<Components.DropIntoPlace>(); // 420 geo rock has clipping issues
+            rock.AddComponent<DropIntoPlace>(); // 420 geo rock has clipping issues
             rock.GetComponent<BoxCollider2D>().isTrigger = false; // some rocks only have trigger colliders
 
+            var info = rock.AddComponent<ContainerInfo>();
+            info.placement = placement;
+            info.items = items;
+            info.flingType = placement.Location.flingType;
+
+            if (type == GeoRockSubtype.Outskirts420)
+            {
+                rock.transform.localScale *= 0.5f;
+            }
+
             return rock;
+        }
+
+        public static void ModifyFsm(PlayMakerFSM rockFsm)
+        {
+            ContainerInfo containerInfo = rockFsm.gameObject.GetComponent<ContainerInfo>();
+            if (containerInfo && !containerInfo.applied)
+            {
+                ModifyGeoRock(rockFsm, containerInfo.flingType, containerInfo.placement, containerInfo.items);
+                containerInfo.applied = true;
+            }
         }
 
         public static void SetRockContext(GameObject rock, float x, float y, float elevation)
@@ -63,11 +84,14 @@ namespace ItemChanger.Util
             GeoRockSubtype rockType = rock.GetComponent<GeoRockInfo>()?.type ?? GeoRockSubtype.Default;
             rock.transform.position = new Vector3(x, y + GetElevation(rockType) - elevation);
 
+            /*
             if (rockType == GeoRockSubtype.Outskirts420)
             {
                 var t = rock.transform;
                 t.localScale = new Vector3(t.localScale.x * 0.5f, t.localScale.y * 0.5f, t.localScale.z);
             }
+            */
+
             rock.SetActive(true);
         }
 
@@ -80,24 +104,28 @@ namespace ItemChanger.Util
 
             rock.transform.position = target.transform.position;
             rock.transform.localPosition = target.transform.localPosition;
-            rock.transform.SetPositionZ(0);
+            rock.transform.SetPositionZ(0.02f);
 
             GeoRockSubtype rockType = rock.GetComponent<GeoRockInfo>()?.type ?? GeoRockSubtype.Default;
             rock.transform.position += Vector3.up * (GetElevation(rockType) - elevation);
+            
+            /*
             if (rockType == GeoRockSubtype.Outskirts420)
             {
                 var t = rock.transform;
                 t.localScale = new Vector3(t.localScale.x * 0.5f, t.localScale.y * 0.5f, t.localScale.z);
             }
+            */
+
             rock.SetActive(target.activeSelf);
         }
 
-        public static string GetGeoRockName(AbstractPlacement location)
+        public static string GetGeoRockName(AbstractPlacement placement)
         {
-            return $"Geo Rock-{location.name}";
+            return $"Geo Rock-{placement.Name}";
         }
 
-        public static void ModifyGeoRock(PlayMakerFSM rockFsm, FlingType flingType, AbstractPlacement location, IEnumerable<AbstractItem> items)
+        public static void ModifyGeoRock(PlayMakerFSM rockFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
             GameObject rock = rockFsm.gameObject;
 
@@ -107,7 +135,7 @@ namespace ItemChanger.Util
             FsmState payout = rockFsm.GetState("Destroy");
             FsmState broken = rockFsm.GetState("Broken");
 
-            FsmStateAction checkAction = new Lambda(() => rockFsm.SendEvent(location.HasVisited() ? "BROKEN" : null));
+            FsmStateAction checkAction = new Lambda(() => rockFsm.SendEvent(placement.CheckVisited() ? "BROKEN" : null));
 
             init.RemoveActionsOfType<IntCompare>();
             init.AddAction(checkAction);
@@ -115,9 +143,10 @@ namespace ItemChanger.Util
             idle.RemoveActionsOfType<SetPosition>(); // otherwise the rock warps back after falling
 
             hit.ClearTransitions();
+            hit.Actions = new[] { new BoolTestMod(() => CheckRigidBodyStatus(rockFsm.gameObject), "HIT", "FINISHED") };
             hit.AddTransition("HIT", "Pause Frame");
-            hit.AddTransition("FINISHED", "Pause Frame");
-            hit.RemoveActionsOfType<FlingObjectsFromGlobalPool>();
+            hit.AddTransition("FINISHED", "Idle");
+            //hit.RemoveActionsOfType<FlingObjectsFromGlobalPool>();
 
             var payoutAction = payout.GetActionOfType<FlingObjectsFromGlobalPool>();
             payoutAction.spawnMin.Value = 0;
@@ -145,15 +174,21 @@ namespace ItemChanger.Util
                         MessageType = MessageType.Corner,
                     };
 
-                    FsmStateAction giveAction = new Lambda(() => item.Give(location, info));
+                    FsmStateAction giveAction = new Lambda(() => item.Give(placement, info));
                     payout.AddAction(giveAction);
                 }
                 else
                 {
-                    GameObject shiny = ShinyUtility.MakeNewShiny(location, item);
+                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item);
                     ShinyUtility.PutShinyInContainer(itemParent, shiny);
                 }
             }
+        }
+
+        public static bool CheckRigidBodyStatus(GameObject rock)
+        {
+            Rigidbody2D rb = rock.GetComponent<Rigidbody2D>();
+            return !rb || (rb.constraints & RigidbodyConstraints2D.FreezePositionY) == RigidbodyConstraints2D.FreezePositionY;
         }
     }
 }

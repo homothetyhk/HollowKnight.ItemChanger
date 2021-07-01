@@ -18,7 +18,9 @@ namespace ItemChanger
     public interface IUIDef
     {
         void SendMessage(MessageType type, Action callback);
-        void GetShopData(out Sprite shopSprite, out string nameKey, out string descKey);
-        string GetDisplayName();
+        string GetPreviewName();
+        string GetShopDesc();
+        Sprite GetSprite();
+        string GetPostviewName();
     }
 }

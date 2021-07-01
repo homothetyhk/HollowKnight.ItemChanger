@@ -16,24 +16,38 @@ namespace ItemChanger.Util
     {
         public const float GRUB_JAR_ELEVATION = 0.1f;
 
-        public static GameObject MakeNewGrubJar(AbstractPlacement location)
+        public static GameObject MakeNewGrubJar(AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
             GameObject grubJar = ObjectCache.GrubJar;
-            grubJar.name = GetGrubJarName(location);
+            grubJar.name = GetGrubJarName(placement);
 
-            //grubJar.AddComponent<Components.DropIntoPlace>();
-            /*
-             * If there are concerns about the grub landing on a corpse, geo, etc, move it to layer 0
-            */
+            // proper collsion layer
             grubJar.transform.Find("Bottle Physical").gameObject.layer = 0;
             grubJar.layer = 0;
+
+            var info = grubJar.AddComponent<ContainerInfo>();
+            info.placement = placement;
+            info.items = items;
+            info.flingType = placement.Location.flingType;
+
+            grubJar.AddComponent<DropIntoPlace>();
 
             return grubJar;
         }
 
-        public static string GetGrubJarName(AbstractPlacement location)
+        public static void ModifyFsm(PlayMakerFSM bottleFsm)
         {
-            return $"Grub Bottle-{location.name}";
+            ContainerInfo containerInfo = bottleFsm.gameObject.GetComponent<ContainerInfo>();
+            if (containerInfo && !containerInfo.applied)
+            {
+                ModifyBottleFsm(bottleFsm, containerInfo.flingType, containerInfo.placement, containerInfo.items);
+                containerInfo.applied = true;
+            }
+        }
+
+        public static string GetGrubJarName(AbstractPlacement placement)
+        {
+            return $"Grub Bottle-{placement.Name}";
         }
 
         public static void MoveGrubJar(GameObject grubJar, GameObject target, float elevation)
@@ -72,18 +86,20 @@ namespace ItemChanger.Util
             grubJar.SetActive(true);
         }
 
-        public static void ModifyBottleFsm(GameObject jar, FlingType flingType, AbstractPlacement location, IEnumerable<AbstractItem> items)
+        public static void ModifyBottleFsm(PlayMakerFSM bottleFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
-            PlayMakerFSM fsm = jar.LocateFSM("Bottle Control");
-            FsmState init = fsm.GetState("Init");
-            FsmState shatter = fsm.GetState("Shatter");
-            FsmState activate = fsm.GetState("Activate");
+            ItemChanger.instance.Log("Modifying grub fsm");
+
+            GameObject jar = bottleFsm.gameObject;
+            FsmState init = bottleFsm.GetState("Init");
+            FsmState shatter = bottleFsm.GetState("Shatter");
+            FsmState activate = bottleFsm.GetState("Activate");
 
             init.RemoveActionsOfType<BoolTest>();
             shatter.RemoveActionsOfType<IncrementPlayerDataInt>();
             shatter.RemoveActionsOfType<SendMessage>();
 
-            FsmStateAction checkAction = new Lambda(() => fsm.SendEvent(location.HasVisited() ? "ACTIVATE" : null));
+            FsmStateAction checkAction = new Lambda(() => bottleFsm.SendEvent(placement.CheckVisited() ? "ACTIVATE" : null));
             init.AddFirstAction(checkAction);
 
             GameObject itemParent = new GameObject("item");
@@ -112,12 +128,12 @@ namespace ItemChanger.Util
                         MessageType = MessageType.Corner,
                     };
 
-                    FsmStateAction giveAction = new Lambda(() => item.Give(location, info));
+                    FsmStateAction giveAction = new Lambda(() => item.Give(placement, info));
                     shatter.AddAction(giveAction);
                 }
                 else
                 {
-                    GameObject shiny = ShinyUtility.MakeNewShiny(location, item);
+                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item);
                     ShinyUtility.PutShinyInContainer(itemParent, shiny);
                 }
             }

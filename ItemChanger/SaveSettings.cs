@@ -12,17 +12,42 @@ namespace ItemChanger
     {
         public CustomSkills CustomSkills = new CustomSkills();
         public WorldEvents WorldEvents = new WorldEvents();
+        public Dictionary<string, AbstractItem[]> AdditiveGroups = new Dictionary<string, AbstractItem[]>();
 
-        public AbstractPlacement[] Locations = new AbstractPlacement[0];
+        public AbstractPlacement[] Placements = new AbstractPlacement[0];
 
 
-        public IEnumerable<AbstractItem> GetItems() => Locations.SelectMany(l => l.items);
-        public IEnumerable<AbstractPlacement> GetLocations() => Locations ?? (Locations = new AbstractPlacement[0]);
+        public IEnumerable<AbstractItem> GetItems() => Placements.SelectMany(l => l.Items);
+        public IEnumerable<AbstractPlacement> GetPlacements() => Placements ?? (Placements = new AbstractPlacement[0]);
 
         internal void SavePlacements(AbstractPlacement[] locations)
         {
-            Locations = locations.ToArray();
+            Placements = locations.ToArray();
         }
+
+        internal void ResetSemiPersistentItems()
+        {
+            foreach (var item in Ref.Settings.GetItems())
+            {
+                if (item.GetTag<Tags.IPersistenceTag>(out var tag) && tag.Persistence == Persistence.SemiPersistent)
+                {
+                    item.RefreshObtained();
+                }
+            }
+        }
+
+        internal void ResetPersistentItems()
+        {
+            foreach (var item in Ref.Settings.GetItems())
+            {
+                if (item.GetTag<Tags.IPersistenceTag>(out var tag) && tag.Persistence == Persistence.Persistent)
+                {
+                    item.RefreshObtained();
+                }
+            }
+        }
+
+
     }
 
     public class SaveSettings : BaseSettings

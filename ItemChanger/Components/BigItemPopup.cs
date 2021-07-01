@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Modding;
-using ItemChanger.Actions;
 using SereCore;
 using UnityEngine;
 using UnityEngine.UI;
@@ -60,46 +59,6 @@ namespace ItemChanger.Components
 
             return canvas;
         }
-
-        public static GameObject Show(_Item item, GameObject fsmObj = null, string eventName = null)
-        {
-            // Create base canvas
-            GameObject canvas = CanvasUtil.CreateCanvas(RenderMode.ScreenSpaceOverlay, new Vector2(1920, 1080));
-
-            // Add popup component, set values
-            BigItemPopup popup = canvas.AddComponent<BigItemPopup>();
-            popup._imagePrompt = item.bigSprite;
-            popup._takeText = Language.Language.Get(item.takeKey, "Prompts").Replace("<br>", " ");
-            popup._nameText = Language.Language.Get(item.nameKey, "UI").Replace("<br>", " ");
-            popup._buttonText = Language.Language.Get(item.buttonKey, "Prompts").Replace("<br>", " ");
-            popup._descOneText = Language.Language.Get(item.descOneKey, "Prompts").Replace("<br>", " ");
-            popup._descTwoText = Language.Language.Get(item.descTwoKey, "Prompts").Replace("<br>", " ");
-            popup._fsmObj = fsmObj;
-            popup._fsmEvent = eventName;
-
-            return canvas;
-        }
-        /*
-        public static GameObject Show(Sprite bigSprite, string takeKey, string nameKey, string buttonKey,
-            string descOneKey, string descTwoKey, GameObject fsmObj = null, string eventName = null)
-        {
-            // Create base canvas
-            GameObject canvas = CanvasUtil.CreateCanvas(RenderMode.ScreenSpaceOverlay, new Vector2(1920, 1080));
-
-            // Add popup component, set values
-            BigItemPopup popup = canvas.AddComponent<BigItemPopup>();
-            popup._imagePrompt = bigSprite;
-            popup._takeText = Language.Language.Get(takeKey, "Prompts").Replace("<br>", " ");
-            popup._nameText = Language.Language.Get(nameKey, "UI").Replace("<br>", " ");
-            popup._buttonText = Language.Language.Get(buttonKey, "Prompts").Replace("<br>", " ");
-            popup._descOneText = Language.Language.Get(descOneKey, "Prompts").Replace("<br>", " ");
-            popup._descTwoText = Language.Language.Get(descTwoKey, "Prompts").Replace("<br>", " ");
-            popup._fsmObj = fsmObj;
-            popup._fsmEvent = eventName;
-
-            return canvas;
-        }
-        */
 
         public void Start()
         {

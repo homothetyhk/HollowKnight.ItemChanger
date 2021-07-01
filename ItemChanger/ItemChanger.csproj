@@ -78,35 +78,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\AddShinyToChest.cs" />
-    <Compile Include="Actions\AddYNDialogueToShiny.cs" />
-    <Compile Include="Actions\ChangeBoolTest.cs" />
-    <Compile Include="Actions\ChangeChestGeo.cs" />
-    <Compile Include="Actions\ChangeShinyIntoItem.cs" />
-    <Compile Include="Actions\ChangeShinyIntoGeo.cs" />
-    <Compile Include="Actions\ChangeShopContents.cs" />
-    <Compile Include="Actions\AddSendEventToObject.cs" />
-    <Compile Include="Actions\AddFsmActionToObject.cs" />
-    <Compile Include="Actions\EditFsm.cs" />
-    <Compile Include="Actions\RemoveFsmActionsFromObject.cs" />
-    <Compile Include="Actions\CreateObjectDestroyer.cs" />
-    <Compile Include="Actions\CreateNewShiny.cs" />
-    <Compile Include="Actions\RandomizerAction.cs" />
-    <Compile Include="Actions\ReplaceObjectWithShiny.cs" />
-    <Compile Include="AdditiveManager.cs" />
+    <Compile Include="Finder.cs" />
+    <Compile Include="ItemNames.cs" />
+    <Compile Include="LocationNames.cs" />
+    <Compile Include="Locations\SpecialLocations\KingsBrandLocation.cs" />
+    <Compile Include="Locations\SpecialLocations\GruzMotherDropLocation.cs" />
+    <Compile Include="Tags\IGiveEffectTag.cs" />
+    <Compile Include="Tags\IPersistenceTag.cs" />
+    <Compile Include="Tags\IShopRemovalTag.cs" />
+    <Compile Include="Tags\IShopRequirementTag.cs" />
+    <Compile Include="Tags\ShopNotchCostTag.cs" />
+    <Compile Include="Tags\PersistentItemTag.cs" />
+    <Compile Include="Tags\AdditiveGroupTag.cs" />
+    <Compile Include="Tags\IModifyItemTag.cs" />
+    <Compile Include="Tags\CostTag.cs" />
+    <Compile Include="AbstractLocation.cs" />
+    <Compile Include="Components\ModShopItemStats.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="Tag.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Components\AccelerationMonitor.cs" />
+    <Compile Include="Components\ContainerInfo.cs" />
     <Compile Include="Components\Field.cs" />
-    <Compile Include="Components\DropItemOnDeath.cs" />
+    <Compile Include="Components\SpawnOnDeath.cs" />
     <Compile Include="Components\DropIntoPlace.cs" />
     <Compile Include="FsmStateActions\BoolTestMod.cs" />
     <Compile Include="FsmStateActions\AsyncLambda.cs" />
-    <Compile Include="Locations\BossLocation.cs" />
+    <Compile Include="Locations\PlaceableLocation.cs" />
+    <Compile Include="Locations\SDDualLocation.cs" />
+    <Compile Include="Locations\PDDualLocation.cs" />
+    <Compile Include="Locations\EnemyLocationAlt.cs" />
+    <Compile Include="Locations\ExistingChestLocation.cs" />
+    <Compile Include="Locations\DualLocation.cs" />
+    <Compile Include="Locations\ShopLocation.cs" />
+    <Compile Include="Locations\StartLocation.cs" />
+    <Compile Include="Locations\ContainerLocation.cs" />
     <Compile Include="Locations\EnemyLocation.cs" />
     <Compile Include="Locations\FsmObjectLocation.cs" />
     <Compile Include="Locations\SpecialLocations\BroodingMawlekLocation.cs" />
     <Compile Include="Locations\SpecialLocations\BrummFlameLocation.cs" />
     <Compile Include="Locations\SpecialLocations\BossEssenceLocation.cs" />
     <Compile Include="Locations\SpecialLocations\BasinFountainLocation.cs" />
+    <Compile Include="Locations\SpecialLocations\LoreTabletLocation.cs" />
     <Compile Include="Locations\SpecialLocations\NailmastersGloryLocation.cs" />
     <Compile Include="Locations\SpecialLocations\GrimmkinLocation.cs" />
     <Compile Include="Locations\SpecialLocations\CorniferLocation.cs" />
@@ -116,10 +129,15 @@
     <Compile Include="Locations\SpecialLocations\VengefulSpiritLocation.cs" />
     <Compile Include="Locations\SpecialLocations\NailmasterLocation.cs" />
     <Compile Include="Locations\FsmLocation.cs" />
-    <Compile Include="Locations\SpecialLocations\PaleLurkerLocation.cs" />
+    <Compile Include="Locations\SpecialLocations\PaleLurkerDropLocation.cs" />
     <Compile Include="Locations\SpecialLocations\NailmastersGloryObjectLocation.cs" />
+    <Compile Include="Placements\ISingleCostPlacement.cs" />
     <Compile Include="Placements\FsmPlacement.cs" />
+    <Compile Include="Placements\IContainerPlacement.cs" />
     <Compile Include="Placements\StartPlacement.cs" />
+    <Compile Include="UIDefs\MinUIDef.cs" />
+    <Compile Include="Util\SceneUtil.cs" />
+    <Compile Include="Util\ShopUtil.cs" />
     <Compile Include="Util\ItemUtility.cs" />
     <Compile Include="WorldEventManager.cs" />
     <Compile Include="WorldEvents.cs" />
@@ -137,7 +155,6 @@
     <Compile Include="Placements\YNShinyPlacement.cs" />
     <Compile Include="Util\ContainerUtility.cs" />
     <Compile Include="Util\TabletUtility.cs" />
-    <Compile Include="Locations\IMutableLocation.cs" />
     <Compile Include="Placements\CostChestPlacement.cs" />
     <Compile Include="Cost.cs" />
     <Compile Include="MessageCenter.cs" />
@@ -177,13 +194,8 @@
     <Compile Include="Platform.cs" />
     <Compile Include="Components\RandomizerTinkEffect.cs" />
     <Compile Include="TransitionHooks.cs" />
-    <Compile Include="Custom\Locations.cs" />
-    <Compile Include="StartLocation.cs" />
+    <Compile Include="StartDef.cs" />
     <Compile Include="Components\RandomizerDreamPlantOrb.cs" />
-    <Compile Include="ItemChangerSettings.cs" />
-    <Compile Include="Default\Shops.cs" />
-    <Compile Include="_ILP.cs" />
-    <Compile Include="PDHooks.cs" />
     <Compile Include="Components\BigItemPopup.cs" />
     <Compile Include="Components\ObjectDestroyer.cs" />
     <Compile Include="FsmStateActions\RandomizerAddGeo.cs" />
@@ -193,29 +205,16 @@
     <Compile Include="FsmStateActions\Lambda.cs" />
     <Compile Include="FsmStateActions\RandomizerSetBool.cs" />
     <Compile Include="FsmStateActions\RandomizerSetHardSave.cs" />
-    <Compile Include="GiveItemActions.cs" />
     <Compile Include="LanguageStringManager.cs" />
     <Compile Include="SaveSettings.cs" />
-    <Compile Include="Custom\Items.cs" />
-    <Compile Include="Default\LocationNames.cs" />
     <Compile Include="SpriteManager.cs" />
     <Compile Include="UIDefs\BigUIDef.cs" />
     <Compile Include="UIDefs\GrubUIDef.cs" />
     <Compile Include="UIDefs\UIDef.cs" />
     <Compile Include="UIDefs\IUIDef.cs" />
-    <Compile Include="XmlManager.cs" />
-    <Compile Include="Default\ItemNames.cs" />
-    <Compile Include="_Location.cs" />
-    <Compile Include="_Item.cs" />
     <Compile Include="ObjectCache.cs" />
     <Compile Include="ItemChanger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\items.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\locations.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Anim\BigItemFleur\0.png" />
@@ -227,24 +226,6 @@
     <EmbeddedResource Include="Resources\Anim\BigItemFleur\6.png" />
     <EmbeddedResource Include="Resources\Anim\BigItemFleur\7.png" />
     <EmbeddedResource Include="Resources\Anim\BigItemFleur\8.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\0.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\1.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\2.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\3.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\4.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\5.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\6.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\7.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\BottomFleur\8.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\0.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\1.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\2.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\3.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\4.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\5.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\6.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\7.png" />
-    <EmbeddedResource Include="Resources\Anim\Shop\TopFleur\8.png" />
     <EmbeddedResource Include="Resources\Charms\1.png" />
     <EmbeddedResource Include="Resources\Charms\10.png" />
     <EmbeddedResource Include="Resources\Charms\11.png" />
@@ -377,13 +358,6 @@
     <EmbeddedResource Include="Resources\ShopIcons\Wings.png" />
     <EmbeddedResource Include="Resources\ShopIcons\WorldSense.png" />
     <EmbeddedResource Include="Resources\UI\egg.png" />
-    <EmbeddedResource Include="Resources\UI\logo.png" />
-    <EmbeddedResource Include="Resources\UI\logo2.png" />
-    <EmbeddedResource Include="Resources\UI\Shop\Background.png" />
-    <EmbeddedResource Include="Resources\UI\Shop\Essence.png" />
-    <EmbeddedResource Include="Resources\UI\Shop\Geo.png" />
-    <EmbeddedResource Include="Resources\UI\Shop\Selector.png" />
-    <EmbeddedResource Include="Resources\UI\Shop\Shitpost.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\language.xml" />
@@ -405,8 +379,13 @@
     <EmbeddedResource Include="Resources\Prompts\Swim.png" />
     <EmbeddedResource Include="Resources\Prompts\WalljumpReflected.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\items.json" />
+    <EmbeddedResource Include="Resources\locations.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(TargetPath)" "C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods"</PostBuildEvent>
   </PropertyGroup>
+  <ProjectExtensions />
 </Project>

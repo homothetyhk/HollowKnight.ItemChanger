@@ -7,6 +7,7 @@ using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
 using SereCore;
+using ItemChanger.Components;
 
 namespace ItemChanger.Util
 {
@@ -14,16 +15,36 @@ namespace ItemChanger.Util
     {
         public const float CHEST_ELEVATION = 0.5f;
 
-        public static GameObject MakeNewChest(AbstractPlacement location)
+        public static GameObject MakeNewChest(AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
             GameObject chest = ObjectCache.Chest;
-            chest.name = GetChestName(location);
+            chest.name = GetChestName(placement);
+
+            // Resize colliders so that chest lands on ground -- orig is size (2.4, 2) with offset (0.1, -1.3)
+            chest.transform.Find("Bouncer").GetComponent<BoxCollider2D>().size = chest.GetComponent<BoxCollider2D>().size = new Vector2(2.4f, 1.2f);
+            chest.AddComponent<DropIntoPlace>();
+
+            var info = chest.AddComponent<ContainerInfo>();
+            info.placement = placement;
+            info.items = items;
+
             return chest;
         }
 
-        public static string GetChestName(AbstractPlacement location)
+        public static void ModifyFsm(PlayMakerFSM chestFsm)
         {
-            return $"Chest-{location.name}";
+            ContainerInfo containerInfo = chestFsm.gameObject.GetComponent<ContainerInfo>();
+            if (containerInfo && !containerInfo.applied)
+            {
+                ModifyChest(chestFsm, containerInfo.flingType, containerInfo.placement, containerInfo.items);
+                containerInfo.applied = true;
+            }
+        }
+
+
+        public static string GetChestName(AbstractPlacement placement)
+        {
+            return $"Chest-{placement.Name}";
         }
 
         public static void MoveChest(GameObject chest, GameObject target, float elevation)
@@ -37,8 +58,9 @@ namespace ItemChanger.Util
             chest.transform.localPosition = target.transform.localPosition;
             var pos = chest.transform.position;
             // Move the chest forward so it appears in front of any background objects
-            chest.transform.position = new Vector3(pos.x, pos.y + CHEST_ELEVATION - elevation, pos.z);
-            chest.SetActive(true); // is this necessary?
+            chest.transform.position = new Vector3(pos.x, pos.y + CHEST_ELEVATION - elevation, 0);
+            chest.SetActive(target.activeSelf);
+            //chest.SetActive(true); // is this necessary?
         }
 
         public static void MoveChest(GameObject chest, float x, float y, float elevation)
@@ -47,12 +69,12 @@ namespace ItemChanger.Util
             chest.SetActive(true); // is this necessary?
         }
 
-        public static void ModifyChest(PlayMakerFSM chestFsm, FlingType flingType, AbstractPlacement location, IEnumerable<AbstractItem> items)
+        public static void ModifyChest(PlayMakerFSM chestFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
             FsmState init = chestFsm.GetState("Init");
             FsmState spawnItems = chestFsm.GetState("Spawn Items");
 
-            FsmStateAction checkAction = new Lambda(() => chestFsm.SendEvent(location.HasVisited() ? "ACTIVATE" : null));
+            FsmStateAction checkAction = new Lambda(() => chestFsm.SendEvent(placement.CheckVisited() ? "ACTIVATE" : null));
 
             init.RemoveActionsOfType<BoolTest>();
             init.AddAction(checkAction);
@@ -89,11 +111,11 @@ namespace ItemChanger.Util
                         Transform = chestFsm.transform,
                         MessageType = MessageType.Corner,
                     };
-                    spawnItems.AddAction(new Lambda(() => item.Give(location, info)));
+                    spawnItems.AddAction(new Lambda(() => item.Give(placement, info)));
                 }
                 else
                 {
-                    GameObject shiny = ShinyUtility.MakeNewShiny(location, item);
+                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item);
                     ShinyUtility.PutShinyInContainer(itemParent, shiny);
                 }
             }

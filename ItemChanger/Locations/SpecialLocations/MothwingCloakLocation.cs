@@ -46,8 +46,10 @@ namespace ItemChanger.Locations.SpecialLocations
             }
         }
 
-        public override void OnActiveSceneChanged()
+        public override void OnActiveSceneChanged(Scene from, Scene to)
         {
+            if (to.name != sceneName) return;
+
             ObjectDestroyer.Destroy(sceneName, "Dreamer Scene 1");
             ObjectDestroyer.Destroy(sceneName, "Hornet Saver");
             ObjectDestroyer.Destroy(sceneName, "Cutscene Dreamer");

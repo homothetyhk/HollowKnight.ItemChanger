@@ -18,9 +18,11 @@ namespace ItemChanger.Locations.SpecialLocations
         public string fsmName;
         public string objName;
 
+        public override MessageType MessageType => MessageType.Any;
+
         // TODO: change bool test, so that location can be checked multiple times if necessary
 
-        public override void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions)
+        public override void OnEnable(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == fsmName && fsm.gameObject.name == objName)
             {
@@ -29,7 +31,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 List<FsmStateAction> fsmActions = get.Actions.ToList();
                 fsmActions.RemoveAt(fsmActions.Count - 1); // SendEventByName (essence counter)
                 fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
-                fsmActions.Add(new AsyncLambda(actions.Give));
+                fsmActions.Add(new AsyncLambda(callback => Placement.GiveAll(MessageType, callback)));
 
                 get.Actions = fsmActions.ToArray();
             }

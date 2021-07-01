@@ -18,7 +18,8 @@ namespace ItemChanger.Locations.SpecialLocations
     /// </summary>
     public class NailmastersGloryLocation : FsmLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm, IFsmLocationActions actions)
+        public override MessageType MessageType => MessageType.Any;
+        public override void OnEnable(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == "Conversation Control" && fsm.gameObject.name == "Sly Basement NPC")
             {
@@ -26,11 +27,11 @@ namespace ItemChanger.Locations.SpecialLocations
                 FsmState give = fsm.GetState("Give");
                 FsmState end = fsm.GetState("End");
 
-                convo.Actions[0] = new BoolTestMod(actions.AllObtained, (PlayerDataBoolTest)convo.Actions[0]);
+                convo.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)convo.Actions[0]);
 
                 give.Actions = new FsmStateAction[]
                 {
-                    new AsyncLambda(actions.Give),
+                    new AsyncLambda(callback => Placement.GiveAll(MessageType, callback)),
                 };
 
                 end.AddFirstAction(new RandomizerChangeScene("Town", "door_sly"));

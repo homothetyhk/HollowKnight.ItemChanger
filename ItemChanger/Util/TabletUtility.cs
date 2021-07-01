@@ -12,7 +12,7 @@ namespace ItemChanger.Util
 {
     public static class TabletUtility
     {
-        public static GameObject MakeNewTablet(AbstractPlacement location)
+        public static GameObject MakeNewTablet(AbstractPlacement placement)
         {
             GameObject tablet = ObjectCache.LoreTablet;
 
@@ -24,14 +24,14 @@ namespace ItemChanger.Util
             lit.AddComponent<SpriteRenderer>().sprite = lit_tablet.GetComponent<SpriteRenderer>().sprite;
             lit.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
 
-            tablet.name = GetTabletName(location);
+            tablet.name = GetTabletName(placement);
 
             return tablet;
         }
 
-        public static string GetTabletName(AbstractPlacement location)
+        public static string GetTabletName(AbstractPlacement placement)
         {
-            return $"Lore Tablet-{location.name}";
+            return $"Lore Tablet-{placement.Name}";
         }
 
 
