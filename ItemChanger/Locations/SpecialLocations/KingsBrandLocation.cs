@@ -7,9 +7,9 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class KingsBrandLocation : ObjectLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
-            base.OnEnable(fsm);
+            base.OnEnableLocal(fsm);
             switch (fsm.gameObject.name)
             {
                 case "Avalanche" when fsm.FsmName == "Activate":

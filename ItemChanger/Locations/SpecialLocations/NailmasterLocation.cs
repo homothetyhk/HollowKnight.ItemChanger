@@ -19,7 +19,7 @@ namespace ItemChanger.Locations.SpecialLocations
         public string fsmName;
         public override MessageType MessageType => MessageType.Any;
 
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == fsmName && fsm.gameObject.name == objectName)
             {

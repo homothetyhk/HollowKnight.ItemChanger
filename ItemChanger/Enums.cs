@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ItemChanger
 {
+
     public enum ObtainState
     {
         Unobtained,
@@ -119,5 +120,15 @@ namespace ItemChanger
         SlyKeyCharms = 16384,
         SlyKeyElegantKey = 32768,
         LegEaterRepair = 65536
+    }
+
+    public enum ComparisonOperator
+    {
+        Eq,
+        Neq,
+        Lt,
+        Le,
+        Gt,
+        Ge
     }
 }

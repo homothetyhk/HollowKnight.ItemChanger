@@ -8,10 +8,11 @@ namespace ItemChanger.Items
     public class BoolItem : AbstractItem
     {
         public string fieldName;
+        public bool setValue = true;
 
         public override void GiveImmediate(GiveInfo info)
         {
-            PlayerData.instance.SetBool(fieldName, true);
+            PlayerData.instance.SetBool(fieldName, setValue);
         }
         public override bool Redundant()
         {

@@ -17,7 +17,7 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public bool removeGeo = true;
 
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == "burster" && fsm.gameObject.name.StartsWith("Corpse Big Fly Burster"))
             {

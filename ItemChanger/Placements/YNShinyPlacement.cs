@@ -16,9 +16,9 @@ namespace ItemChanger.Placements
 
         public Cost Cost { get; set; }
 
-        public override void OnEnableFsm(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
-            base.OnEnableFsm(fsm);
+            base.OnEnableLocal(fsm);
         }
 
         public void AddItemWithCost(AbstractItem item, Cost cost)

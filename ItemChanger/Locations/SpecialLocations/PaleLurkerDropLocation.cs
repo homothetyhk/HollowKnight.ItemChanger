@@ -10,9 +10,9 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class PaleLurkerDropLocation : EnemyLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
-            base.OnEnable(fsm);
+            base.OnEnableLocal(fsm);
             if (fsm.gameObject.name == "Shiny Item Key") GameObject.Destroy(fsm.gameObject);
         }
     }

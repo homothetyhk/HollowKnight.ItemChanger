@@ -61,15 +61,15 @@ namespace ItemChanger.Locations
             }
         }
 
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (Decide())
             {
-                trueLocation.OnEnable(fsm);
+                trueLocation.OnEnableLocal(fsm);
             }
             else
             {
-                falseLocation.OnEnable(fsm);
+                falseLocation.OnEnableLocal(fsm);
             }
         }
 

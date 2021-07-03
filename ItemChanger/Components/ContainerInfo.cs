@@ -18,17 +18,4 @@ namespace ItemChanger.Components
         public FlingType flingType;
         public bool applied;
     }
-
-    public class CostInfo : MonoBehaviour
-    {
-        public Cost cost;
-        public bool applied;
-    }
-
-    public class ChangeSceneInfo : MonoBehaviour
-    {
-        public string toScene;
-        public string toGate;
-        public bool applied;
-    }
 }

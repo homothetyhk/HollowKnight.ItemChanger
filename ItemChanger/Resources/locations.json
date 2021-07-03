@@ -1,24 +1,62 @@
 {
+  "Start": {
+    "$type": "ItemChanger.Locations.StartLocation, ItemChanger",
+    "name": "Start"
+  },
+  "Sly": {
+    "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
+    "name": "Sly",
+    "sceneName": "Room_shop",
+    "objectName": "Sly Shop",
+    "fsmName": "Conversation Control"
+  },
+  "Iselda": {
+    "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
+    "name": "Iselda",
+    "sceneName": "Room_mapper",
+    "objectName": "Iselda",
+    "fsmName": "Conversation Control"
+  },
+  "Salubra": {
+    "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
+    "name": "Salubra",
+    "sceneName": "Room_Charm_Shop",
+    "objectName": "Charm Slug",
+    "fsmName": "Conversation Control"
+  },
+  "Leg_Eater": {
+    "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
+    "name": "Leg_Eater",
+    "sceneName": "Fungus2_26",
+    "objectName": "Leg Eater",
+    "fsmName": "Conversation Control"
+  },
   "Lurien": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
-    "x": 58.0,
-    "y": 136.0,
+    "$type": "ItemChanger.Locations.SpecialLocations.DreamerLocation, ItemChanger",
+    "forceShiny": true,
+    "flingType": "DirectDeposit",
     "name": "Lurien",
-    "sceneName": "Ruins2_Watcher_Room"
+    "objectName": "Dreamer NPC",
+    "previousScene": "Ruins2_Watcher_Room",
+    "sceneName": "Dream_Guardian_Lurien"
   },
   "Monomon": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
-    "x": 54.0,
-    "y": 89.0,
+    "$type": "ItemChanger.Locations.SpecialLocations.DreamerLocation, ItemChanger",
+    "forceShiny": true,
+    "flingType": "DirectDeposit",
     "name": "Monomon",
-    "sceneName": "Fungus3_archive_02"
+    "objectName": "Dreamer NPC",
+    "previousScene": "Fungus3_archive_02",
+    "sceneName": "Dream_Guardian_Monomon"
   },
   "Herrah": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
-    "x": 68.0,
-    "y": 154.0,
+    "$type": "ItemChanger.Locations.SpecialLocations.DreamerLocation, ItemChanger",
+    "forceShiny": true,
+    "flingType": "DirectDeposit",
     "name": "Herrah",
-    "sceneName": "Deepnest_Spider_Town"
+    "objectName": "Dreamer NPC",
+    "previousScene": "Deepnest_Spider_Town",
+    "sceneName": "Dream_Guardian_Hegemol"
   },
   "World_Sense": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
@@ -56,9 +94,7 @@
     "sceneName": "Abyss_21"
   },
   "Shade_Cloak": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Dish Plat",
-    "elevation": 4.7,
+    "$type": "ItemChanger.Locations.SpecialLocations.ShadeCloakLocation, ItemChanger",
     "name": "Shade_Cloak",
     "sceneName": "Abyss_10"
   },
@@ -132,8 +168,7 @@
     "sceneName": "Room_Fungus_Shaman"
   },
   "Abyss_Shriek": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Scream 2 Get",
+    "$type": "ItemChanger.Locations.SpecialLocations.AbyssShriekLocation, ItemChanger",
     "name": "Abyss_Shriek",
     "sceneName": "Abyss_12"
   },
@@ -370,11 +405,10 @@
     "sceneName": "White_Palace_09"
   },
   "Void_Heart": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
-    "x": 141.0,
-    "y": 11.0,
+    "$type": "ItemChanger.Locations.SpecialLocations.VoidHeartLocation, ItemChanger",
     "name": "Void_Heart",
-    "sceneName": "Abyss_15"
+    "flingType": "DirectDeposit",
+    "sceneName": "Dream_Abyss"
   },
   "Dreamshield": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
@@ -549,8 +583,11 @@
     "sceneName": "Hive_04"
   },
   "Mask_Shard-Grey_Mourner": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Heart Piece",
+    "$type": "ItemChanger.Locations.SpecialLocations.GreyMournerLocation, ItemChanger",
+    "objectName": "Heart Piece Folder\\Heart Piece",
+    "fsmName": "Conversation Control",
+    "fsmParent": "Xun NPC",
+    "fsmVariable": "Heart Piece",
     "elevation": 1.8,
     "name": "Mask_Shard-Grey_Mourner",
     "sceneName": "Room_Mansion"

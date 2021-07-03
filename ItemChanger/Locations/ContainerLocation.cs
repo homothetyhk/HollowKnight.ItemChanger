@@ -17,6 +17,7 @@ namespace ItemChanger.Locations
         public void GetPrimaryContainer(out GameObject obj, out Container containerType)
         {
             (Placement as IContainerPlacement).GetPrimaryContainer(out obj, out containerType);
+            Transform = obj.transform;
         }
 
         public virtual bool Supports(Container container)

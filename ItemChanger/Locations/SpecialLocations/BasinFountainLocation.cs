@@ -15,7 +15,7 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class BasinFountainLocation : FsmObjectLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == fsmName && fsm.gameObject.name == fsmParent)
             {

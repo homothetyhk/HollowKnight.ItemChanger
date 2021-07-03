@@ -22,9 +22,9 @@ namespace ItemChanger.Placements
 
         public Container container = Container.Shiny;
 
-        public override void OnEnableFsm(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
-            base.OnEnableFsm(fsm);
+            base.OnEnableLocal(fsm);
             switch (fsm.FsmName)
             {
                 // Multi Shiny

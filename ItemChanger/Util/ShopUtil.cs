@@ -28,7 +28,7 @@ namespace ItemChanger.Util
             var mod = self.gameObject.GetComponent<ModShopItemStats>();
             if (mod)
             {
-                if (mod.Cost == null || mod.Cost.Paid() || mod.Cost.CanPay())
+                if (mod.Cost == null || mod.Cost.Paid|| mod.Cost.CanPay())
                 {
                     self.transform.Find("Geo Sprite").gameObject.GetComponent<SpriteRenderer>().color = self.activeColour;
                     self.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().color = self.activeColour;
@@ -76,6 +76,17 @@ namespace ItemChanger.Util
             self.stockInv = new GameObject[self.stock.Length];
             for (int i = 0; i < self.stock.Length; i++)
             {
+                var stats = self.stock[i].GetComponent<ShopItemStats>();
+                ItemChanger.instance.Log($"Item {i}");
+                ItemChanger.instance.Log(stats.playerDataBoolName);
+                ItemChanger.instance.Log(stats.requiredPlayerDataBool);
+                ItemChanger.instance.Log(stats.removalPlayerDataBool);
+                ItemChanger.instance.Log(stats.nameConvo);
+                ItemChanger.instance.Log(stats.descConvo);
+                ItemChanger.instance.Log(stats.specialType);
+
+
+
                 if (ShopMenuItemAppears(self.stock[i]))
                 {
                     self.itemCount++;
@@ -112,7 +123,23 @@ namespace ItemChanger.Util
             string PDBool = stats.playerDataBoolName;
 
             bool remove = PDTest(removalPD) ?? false;
+            if (mod != null)
+            {
+                foreach (var t in mod.item.GetTags<Tags.IShopRemovalTag>())
+                {
+                    remove |= t.Remove();
+                }
+            }
+
             bool meetsRequirement = PDTest(requiredPD) ?? true;
+            if (mod != null)
+            {
+                foreach (var t in mod.item.GetTags<Tags.IShopRequirementTag>())
+                {
+                    remove &= t.MeetsRequirement();
+                }
+            }
+
             bool obtained = mod?.item?.IsObtained() ?? PDTest(PDBool) ?? false;
 
             return !obtained && !remove && meetsRequirement;

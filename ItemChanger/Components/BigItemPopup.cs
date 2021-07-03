@@ -16,8 +16,6 @@ namespace ItemChanger.Components
         private string _buttonText;
         private string _descOneText;
         private string _descTwoText;
-        private string _fsmEvent;
-        private GameObject _fsmObj;
         private Action _callback;
 
         private Sprite _imagePrompt;
@@ -202,12 +200,6 @@ namespace ItemChanger.Components
             // Small delay before hero control
             //yield return WaitForSeconds(0.75f);
             yield return new WaitForEndOfFrame();
-
-            // Optionally send FSM event after finishing
-            if (_fsmObj != null && _fsmEvent != null)
-            {
-                FSMUtility.SendEventToGameObject(_fsmObj, _fsmEvent);
-            }
 
             // Notify location that popup has finished
             _callback?.Invoke();

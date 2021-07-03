@@ -1753,6 +1753,162 @@
     },
     "tags": []
   },
+  "Quill": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "hasQuill",
+    "name": "Quill",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Quill",
+      "nameKey": "INV_NAME_QUILL",
+      "shopDescKey": "SHOP_DESC_QUILL"
+    },
+    "tags": []
+  },
+  "Bench_Pin": {
+    "$type": "ItemChanger.Items.MapPinItem, ItemChanger",
+    "fieldName": "hasPinBench",
+    "name": "Bench_Pin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.BenchPin",
+      "nameKey": "PIN_NAME_BENCH",
+      "shopDescKey": "PIN_DESC_BENCH"
+    },
+    "tags": []
+  },
+  "Cocoon_Pin": {
+    "$type": "ItemChanger.Items.MapPinItem, ItemChanger",
+    "fieldName": "hasPinCocoon",
+    "name": "Cocoon_Pin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.CocoonPin",
+      "nameKey": "PIN_NAME_COCOON",
+      "shopDescKey": "PIN_DESC_COCOON"
+    },
+    "tags": []
+  },
+  "Whispering_Root_Pin": {
+    "$type": "ItemChanger.Items.MapPinItem, ItemChanger",
+    "fieldName": "hasPinDreamPlant",
+    "name": "Whispering_Root_Pin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.WhisperingRootPin",
+      "nameKey": "PIN_NAME_DREAMPLANT",
+      "shopDescKey": "PIN_DESC_DREAMPLANT"
+    },
+    "tags": []
+  },
+  "Warrior's_Grave_Pin": {
+    "$type": "ItemChanger.Items.MapPinItem, ItemChanger",
+    "fieldName": "hasPinGhost",
+    "name": "Warrior's_Grave_Pin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.DreamWarriorPin",
+      "nameKey": "PIN_NAME_GHOST",
+      "shopDescKey": "PIN_DESC_GHOST"
+    },
+    "tags": []
+  },
+  "Vendor_Pin": {
+    "$type": "ItemChanger.Items.MapPinItem, ItemChanger",
+    "fieldName": "hasPinShop",
+    "name": "Vendor_Pin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.VendorPin",
+      "nameKey": "PIN_NAME_SHOP",
+      "shopDescKey": "PIN_DESC_SHOP"
+    },
+    "tags": []
+  },
+  "Stag_Station_Pin": {
+    "$type": "ItemChanger.Items.MapPinItem, ItemChanger",
+    "fieldName": "hasPinStag",
+    "name": "Stag_Station_Pin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.StagPin",
+      "nameKey": "PIN_NAME_STAG",
+      "shopDescKey": "PIN_DESC_STAG"
+    },
+    "tags": []
+  },
+  "Tram_Pin": {
+    "$type": "ItemChanger.Items.MapPinItem, ItemChanger",
+    "fieldName": "hasPinTram",
+    "name": "Tram_Pin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.TramPin",
+      "nameKey": "PIN_NAME_TRAM",
+      "shopDescKey": "PIN_DESC_TRAM"
+    },
+    "tags": []
+  },
+  "Hot_Spring_Pin": {
+    "$type": "ItemChanger.Items.MapPinItem, ItemChanger",
+    "fieldName": "hasPinSpa",
+    "name": "Hot_Spring_Pin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.HotSpringPin",
+      "nameKey": "PIN_NAME_SPA",
+      "shopDescKey": "PIN_DESC_SPA"
+    },
+    "tags": []
+  },
+  "Scarab_Marker": {
+    "$type": "ItemChanger.Items.MapMarkerItem, ItemChanger",
+    "fieldName": "hasMarker_b",
+    "name": "Scarab_Marker",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Marker_B",
+      "nameKey": "MARKER_B_NAME",
+      "shopDescKey": "MARKER_B_DESC"
+    },
+    "tags": []
+  },
+  "Shell_Marker": {
+    "$type": "ItemChanger.Items.MapMarkerItem, ItemChanger",
+    "fieldName": "hasMarker_r",
+    "name": "Shell_Marker",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Marker_R",
+      "nameKey": "MARKER_R_NAME",
+      "shopDescKey": "MARKER_R_DESC"
+    },
+    "tags": []
+  },
+  "Token_Marker": {
+    "$type": "ItemChanger.Items.MapMarkerItem, ItemChanger",
+    "fieldName": "hasMarker_y",
+    "name": "Token_Marker",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Marker_Y",
+      "nameKey": "MARKER_Y_NAME",
+      "shopDescKey": "MARKER_Y_DESC"
+    },
+    "tags": []
+  },
+  "Gleaming_Marker": {
+    "$type": "ItemChanger.Items.MapMarkerItem, ItemChanger",
+    "fieldName": "hasMarker_w",
+    "name": "Gleaming_Marker",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
+      "spriteKey": "ShopIcons.Marker_W",
+      "nameKey": "MARKER_W_NAME",
+      "shopDescKey": "MARKER_W_DESC"
+    },
+    "tags": []
+  },
   "Crossroads_Map": {
     "$type": "ItemChanger.Items.MapItem, ItemChanger",
     "fieldName": "mapCrossroads",
@@ -1760,7 +1916,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_CROSSROADS",
+      "nameKey": "MAP_NAME_CROSSROADS",
       "shopDescKey": "MAP_DESC_CROSSROADS"
     },
     "tags": []
@@ -1772,7 +1928,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_GREENPATH",
+      "nameKey": "MAP_NAME_GREENPATH",
       "shopDescKey": "MAP_DESC_GREENPATH"
     },
     "tags": []
@@ -1784,7 +1940,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_FOG_CANYON",
+      "nameKey": "MAP_NAME_FOG_CANYON",
       "shopDescKey": "MAP_DESC_FOG_CANYON"
     },
     "tags": []
@@ -1796,7 +1952,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_FUNGAL_WASTES",
+      "nameKey": "MAP_NAME_FUNGAL_WASTES",
       "shopDescKey": "MAP_DESC_FUNGAL_WASTES"
     },
     "tags": []
@@ -1808,7 +1964,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_DEEPNEST",
+      "nameKey": "MAP_NAME_DEEPNEST",
       "shopDescKey": "MAP_DESC_DEEPNEST"
     },
     "tags": []
@@ -1820,7 +1976,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_ABYSS",
+      "nameKey": "MAP_NAME_ABYSS",
       "shopDescKey": "MAP_DESC_ABYSS"
     },
     "tags": []
@@ -1832,7 +1988,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_OUTSKIRTS",
+      "nameKey": "MAP_NAME_OUTSKIRTS",
       "shopDescKey": "MAP_DESC_OUTSKIRTS"
     },
     "tags": []
@@ -1844,7 +2000,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_CITY",
+      "nameKey": "MAP_NAME_CITY",
       "shopDescKey": "MAP_DESC_CITY"
     },
     "tags": []
@@ -1856,7 +2012,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_WATERWAYS",
+      "nameKey": "MAP_NAME_WATERWAYS",
       "shopDescKey": "MAP_DESC_WATERWAYS"
     },
     "tags": []
@@ -1868,7 +2024,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_CLIFFS",
+      "nameKey": "MAP_NAME_CLIFFS",
       "shopDescKey": "MAP_DESC_CLIFFS"
     },
     "tags": []
@@ -1880,7 +2036,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_MINES",
+      "nameKey": "MAP_NAME_MINES",
       "shopDescKey": "MAP_DESC_MINES"
     },
     "tags": []
@@ -1892,7 +2048,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_ROYAL_GARDENS",
+      "nameKey": "MAP_NAME_ROYAL_GARDENS",
       "shopDescKey": "MAP_DESC_ROYAL_GARDENS"
     },
     "tags": []
@@ -1904,7 +2060,7 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.UIDef, ItemChanger",
       "spriteKey": "ShopIcons.Map",
-      "nameKey": "RANDOMIZER_MAP_NAME_RESTING_GROUNDS",
+      "nameKey": "MAP_NAME_RESTING_GROUNDS",
       "shopDescKey": "MAP_DESC_RESTING_GROUNDS"
     },
     "tags": []

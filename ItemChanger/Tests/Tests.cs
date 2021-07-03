@@ -24,6 +24,51 @@ namespace ItemChanger.Tests
             });
         }
 
+        public static void GreyMournerTest()
+        {
+            PlayerData.instance.xunFlowerGiven = true;
+
+            greymourner.AddItem(grub);
+
+            Ref.QuickSave(greymourner);
+        }
+
+        public static void ShadeCloakTest()
+        {
+            PlayerData.instance.hasDash = PlayerData.instance.canDash = PlayerData.instance.canShadowDash = PlayerData.instance.hasShadowDash = true;
+
+            scloak.AddItem(cyclone);
+            scloak.AddItem(megarock);
+            scloak.AddItem(grubsong);
+            scloak.AddItem(gslash);
+
+            Ref.QuickSave(scloak);
+        }
+
+        public static void AbyssShriekTest()
+        {
+            PlayerData.instance.screamLevel = 2;
+            shriek.AddItem(cyclone);
+            shriek.AddItem(megarock);
+            shriek.AddItem(grubsong);
+            shriek.AddItem(gslash);
+
+            Ref.QuickSave(shriek);
+        }
+
+        public static void VoidHeartTest()
+        {
+            //for (int i = 0; i < 3; i++) start.AddItem(new WhiteFragmentItem());
+            start.AddItem(dreamnail);
+
+            voidheart.AddItem(megarock);
+            voidheart.AddItem(cyclone);
+            voidheart.AddItem(gslash);
+            voidheart.AddItem(grubsong);
+
+            Ref.QuickSave(start, voidheart);
+        }
+
         public static AbstractItem dreamnail = new BoolItem
         {
             name = "Dream_Nail",
@@ -68,7 +113,59 @@ namespace ItemChanger.Tests
             }
         };
 
+        static MutablePlacement herrah = new MutablePlacement
+        {
+            location = new DreamerLocation
+            {
+                sceneName = SceneNames.Dream_Guardian_Hegemol,
+                objectName = "Dreamer NPC",
+                previousScene = SceneNames.Deepnest_Spider_Town,
+                flingType = FlingType.DirectDeposit,
+                forceShiny = true,
+            }
+        };
 
+        static MutablePlacement monomon = new MutablePlacement
+        {
+            location = new DreamerLocation
+            {
+                sceneName = SceneNames.Dream_Guardian_Monomon,
+                objectName = "Dreamer NPC",
+                previousScene = SceneNames.Fungus3_archive_02,
+                flingType = FlingType.DirectDeposit,
+                forceShiny = true,
+            }
+        };
+
+        static MutablePlacement lurien = new MutablePlacement
+        {
+            location = new DreamerLocation
+            {
+                sceneName = SceneNames.Dream_Guardian_Lurien,
+                objectName = "Dreamer NPC",
+                previousScene = SceneNames.Ruins2_Watcher_Room,
+                flingType = FlingType.DirectDeposit,
+                forceShiny = true,
+            }
+        };
+
+        public static void DreamerTest()
+        {
+            start.AddItem(dreamnail);
+            start.AddItem(new BoolItem { fieldName = nameof(PlayerData.lurienDefeated) });
+            start.AddItem(new BoolItem { fieldName = nameof(PlayerData.monomonDefeated) });
+            start.AddItem(new BoolItem { fieldName = nameof(PlayerData.hegemolDefeated) });
+
+            var lurien = Finder.GetLocation(LocationNames.Lurien).Wrap();
+            var monomon = Finder.GetLocation(LocationNames.Monomon).Wrap();
+            var herrah = Finder.GetLocation(LocationNames.Herrah).Wrap();
+
+            lurien.AddItem(grubsong);
+            monomon.AddItem(cyclone);
+            herrah.AddItem(megarock);
+
+            Ref.QuickSave(start, lurien, monomon, herrah);
+        }
 
         public static void AdditiveTest()
         {
@@ -435,6 +532,8 @@ namespace ItemChanger.Tests
             }
         };
 
+        static MutablePlacement greymourner = Finder.GetLocation(LocationNames.Mask_Shard_Grey_Mourner).Wrap() as MutablePlacement;
+
         static FsmPlacement grimmkinGP = new FsmPlacement
         {
             location = new GrimmkinLocation
@@ -568,6 +667,26 @@ namespace ItemChanger.Tests
             },
         };
         */
+
+        static FsmPlacement scloak = new FsmPlacement
+        {
+            location = new ShadeCloakLocation
+            {
+                name = "Shade_Cloak",
+                flingType = FlingType.Everywhere,
+                sceneName = SceneNames.Abyss_10
+            }
+        };
+
+        static FsmPlacement shriek = new FsmPlacement
+        {
+            location = new AbyssShriekLocation
+            {
+                name = "Abyss_Shriek",
+                flingType = FlingType.Everywhere,
+                sceneName = SceneNames.Abyss_12,
+            },
+        };
 
         static MutablePlacement ghusk = new MutablePlacement
         {
@@ -984,6 +1103,16 @@ namespace ItemChanger.Tests
             },
         };
 
+        static AbstractPlacement voidheart = new FsmPlacement
+        {
+            location = new VoidHeartLocation
+            {
+                name = "Void_Heart",
+                flingType = FlingType.DirectDeposit,
+                sceneName = SceneNames.Dream_Abyss,
+            }
+        };
+
         static AbstractPlacement fury = new ExistingChestPlacement
         {
             location = new ExistingChestLocation
@@ -1004,8 +1133,6 @@ namespace ItemChanger.Tests
                 sceneName = SceneNames.Room_shop,
                 flingType = FlingType.DirectDeposit,
             },
-            objectName = "Shop Menu",
-            fsmName = "shop_control",
             defaultShopItems = DefaultShopItems.None,
             dungDiscount = false,
             requiredPlayerDataBool = string.Empty,
@@ -1019,8 +1146,6 @@ namespace ItemChanger.Tests
                 sceneName = SceneNames.Room_shop,
                 flingType = FlingType.DirectDeposit,
             },
-            objectName = "Shop Menu",
-            fsmName = "shop_control",
             defaultShopItems = DefaultShopItems.None,
             dungDiscount = false,
             requiredPlayerDataBool = nameof(PlayerData.gaveSlykey),
@@ -1034,8 +1159,6 @@ namespace ItemChanger.Tests
                 sceneName = SceneNames.Room_Charm_Shop,
                 flingType = FlingType.DirectDeposit,
             },
-            objectName = "Shop Menu",
-            fsmName = "shop_control",
             defaultShopItems = DefaultShopItems.None,
             dungDiscount = false,
             requiredPlayerDataBool = string.Empty,

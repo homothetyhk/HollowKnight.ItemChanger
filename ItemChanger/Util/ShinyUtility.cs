@@ -128,7 +128,7 @@ namespace ItemChanger.Util
 
         public static void AddChangeSceneToShiny(PlayMakerFSM shinyFsm, string toScene, string toGate)
         {
-            if (toGate == "door_DreamReturn")
+            if (toGate == ChangeSceneInfo.door_dreamReturn)
             {
                 shinyFsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
                 shinyFsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>

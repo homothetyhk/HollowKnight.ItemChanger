@@ -17,8 +17,16 @@ namespace ItemChanger.Locations
 {
     public class ShopLocation : AbstractLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm)
+        public string objectName;
+        public string fsmName;
+
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
+            if (fsm.FsmName == fsmName && fsm.gameObject.name == objectName)
+            {
+                Transform = fsm.transform;
+            }
+
             switch (fsm.FsmName)
             {
                 case "shop_control":
@@ -140,7 +148,7 @@ namespace ItemChanger.Locations
                             if (mod)
                             {
                                 Cost cost = mod.Cost;
-                                return cost == null || cost.Paid() || cost.CanPay();
+                                return cost == null || cost.Paid|| cost.CanPay();
                             }
                             else
                             {
@@ -268,7 +276,7 @@ namespace ItemChanger.Locations
                             if (mod)
                             {
                                 Cost cost = mod.Cost;
-                                if (cost is null || cost.Paid()) return;
+                                if (cost is null || cost.Paid) return;
                                 cost.Pay();
                             }
                             else

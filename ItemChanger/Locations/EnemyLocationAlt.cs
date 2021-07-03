@@ -23,7 +23,7 @@ namespace ItemChanger.Locations
             return base.Supports(container);
         }
 
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == enemyFsm && fsm.gameObject.name == enemyObj)
             {

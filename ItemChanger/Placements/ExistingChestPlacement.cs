@@ -18,9 +18,9 @@ namespace ItemChanger.Placements
         public ExistingChestLocation location;
         public override AbstractLocation Location => location;
 
-        public override void OnEnableFsm(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
-            base.OnEnableFsm(fsm);
+            base.OnEnableLocal(fsm);
             location.PlaceInChest(fsm, this);
         }
     }

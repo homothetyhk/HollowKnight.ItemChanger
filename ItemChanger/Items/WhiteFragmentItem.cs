@@ -15,7 +15,7 @@ namespace ItemChanger.Items
             {
                 PlayerData.instance.IncrementInt(nameof(PlayerData.royalCharmState));
             }
-            switch (royalCharmState)
+            switch (++royalCharmState)
             {
                 case 1:
                     PlayerData.instance.SetBool(nameof(PlayerData.gotCharm_36), true);

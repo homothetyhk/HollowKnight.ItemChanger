@@ -16,7 +16,7 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public override MessageType MessageType => MessageType.Any;
 
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             switch (fsm.gameObject.name)
             {

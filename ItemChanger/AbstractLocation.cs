@@ -23,7 +23,14 @@ namespace ItemChanger
         public virtual void OnSceneFetched(Scene target) { }
         public virtual void OnActiveSceneChanged(Scene from, Scene to) { }
         public virtual void OnNextSceneReady(Scene next) { }
-        public virtual void OnEnable(PlayMakerFSM fsm) { }
+        /// <summary>
+        /// PlaymakerFSM.OnEnable, filtered to the Scene(s) corresponding to sceneName.
+        /// </summary>
+        public virtual void OnEnableLocal(PlayMakerFSM fsm) { }
+        /// <summary>
+        /// PlaymakerFSM.OnEnable
+        /// </summary>
+        public virtual void OnEnableGlobal(PlayMakerFSM fsm) { }
         public virtual string OnLanguageGet(string convo, string sheet) { return null; }
         public virtual void OnLoad() { }
         public virtual void OnUnload() { }

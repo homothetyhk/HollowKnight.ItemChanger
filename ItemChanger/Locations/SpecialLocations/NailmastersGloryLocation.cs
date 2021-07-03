@@ -19,7 +19,7 @@ namespace ItemChanger.Locations.SpecialLocations
     public class NailmastersGloryLocation : FsmLocation
     {
         public override MessageType MessageType => MessageType.Any;
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == "Conversation Control" && fsm.gameObject.name == "Sly Basement NPC")
             {

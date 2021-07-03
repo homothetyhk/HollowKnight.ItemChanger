@@ -8,6 +8,7 @@ using UnityEngine;
 using ItemChanger.Locations;
 using ItemChanger.Util;
 using ItemChanger.Components;
+using Newtonsoft.Json;
 
 namespace ItemChanger.Placements
 {
@@ -21,11 +22,11 @@ namespace ItemChanger.Placements
     {
         public ShopLocation location;
         public override AbstractLocation Location => location;
-
-        public string objectName;
-        public string fsmName;
+        public override Container MainContainerType => Container.Shop;
 
         public DefaultShopItems defaultShopItems;
+
+        [System.ComponentModel.DefaultValue("")]
         public string requiredPlayerDataBool = string.Empty;
         public bool dungDiscount;
 

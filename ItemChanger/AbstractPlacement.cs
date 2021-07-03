@@ -8,9 +8,12 @@ namespace ItemChanger
 {
     public abstract class AbstractPlacement
     {
+        [Newtonsoft.Json.JsonIgnore]
         public string Name => Location.name;
+        [Newtonsoft.Json.JsonIgnore]
         public string SceneName => Location.sceneName;
         public List<AbstractItem> Items { get; set; } = new List<AbstractItem>();
+        [Newtonsoft.Json.JsonIgnore]
         public abstract AbstractLocation Location { get; }
         private bool visited;
 
@@ -95,9 +98,14 @@ namespace ItemChanger
 
         #region Hooks
 
-        public virtual void OnEnableFsm(PlayMakerFSM fsm)
+        public virtual void OnEnableGlobal(PlayMakerFSM fsm)
         {
-            Location.OnEnable(fsm);
+            Location.OnEnableGlobal(fsm);
+        }
+
+        public virtual void OnEnableLocal(PlayMakerFSM fsm)
+        {
+            Location.OnEnableLocal(fsm);
         }
 
         public virtual void OnSceneFetched(Scene target)
@@ -140,7 +148,7 @@ namespace ItemChanger
         }
 
         #endregion
-
+        [Newtonsoft.Json.JsonIgnore]
         public virtual Container MainContainerType => Container.Unknown;
         public virtual Container GetContainerType(AbstractItem item) => MainContainerType;
 

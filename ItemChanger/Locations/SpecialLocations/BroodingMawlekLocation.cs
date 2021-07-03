@@ -15,7 +15,7 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class BroodingMawlekLocation : FsmObjectLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             switch (fsm.FsmName)
             {

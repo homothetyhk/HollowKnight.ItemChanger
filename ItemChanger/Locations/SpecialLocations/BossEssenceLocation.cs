@@ -22,7 +22,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
         // TODO: change bool test, so that location can be checked multiple times if necessary
 
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == fsmName && fsm.gameObject.name == objName)
             {

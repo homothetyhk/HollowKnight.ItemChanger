@@ -19,7 +19,7 @@ namespace ItemChanger.Locations.SpecialLocations
     /// </summary>
     public class DreamNailLocation : ObjectLocation
     {
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == "Control" && fsm.gameObject.name == "Witch Control")
             {

@@ -67,7 +67,6 @@ namespace ItemChanger
         private ObtainState obtainState;
         public string name;
         public IUIDef UIDef;
-        public Persistence persistence;
         public List<Tag> tags = new List<Tag>();
 
         public virtual Container GetPreferredContainer() => Container.Shiny;
@@ -108,6 +107,10 @@ namespace ItemChanger
             }
             else info.Callback?.Invoke(item);
 
+            foreach (var t in GetTags<Tags.IGiveEffectTag>())
+            {
+                t.OnGive(readOnlyArgs);
+            }
             Events.AfterGiveInvoke(readOnlyArgs);
         }
 

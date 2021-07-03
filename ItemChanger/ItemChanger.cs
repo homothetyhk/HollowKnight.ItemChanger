@@ -49,7 +49,6 @@ namespace ItemChanger
         {
             instance = this;
             SpriteManager.Setup();
-            //XmlManager.Load();
             LanguageStringManager.Load();
             Finder.Load();
         }
@@ -57,21 +56,31 @@ namespace ItemChanger
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
             ObjectCache.Setup(preloadedObjects);
-            //readyForChangeItems = true;
             MessageController.Setup();
             
 
-            Tests.Tests.FinderTest();
 
+            ModHooks.Instance.NewGameHook += OnStart;
+            ModHooks.Instance.SavegameLoadHook += OnLoad;
             On.GameManager.ResetSemiPersistentItems += ResetSemiPersistentItems;
             CustomSkillManager.Hook();
             WorldEventManager.Hook();
-            Util.ShopUtil.HookShops();
+            ShopUtil.HookShops();
             On.PlayMakerFSM.OnEnable += ApplyLocationFsmEdits;
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnActiveSceneChanged;
             On.GameManager.OnNextLevelReady += OnOnNextLevelReady;
             On.GameManager.SceneLoadInfo.NotifyFetchComplete += OnNotifyFetchComplete;
             ModHooks.Instance.LanguageGetHook += OnLanguageGet;
+        }
+
+        private void OnStart()
+        {
+            Tests.Tests.DreamerTest();
+            foreach (var loc in SET.GetPlacements()) loc.OnLoad();
+        }
+
+        private void OnLoad(int id)
+        {
             foreach (var loc in SET.GetPlacements()) loc.OnLoad();
         }
 
@@ -155,9 +164,23 @@ namespace ItemChanger
             orig(self);
         }
 
+        private void TitleReset()
+        {
+            foreach (var placement in SET?.GetPlacements())
+            {
+                placement?.OnUnload();
+            }
+            SET = new Settings();
+        }
+
         private void OnActiveSceneChanged(Scene from, Scene to)
         {
             Ref.Settings.ResetPersistentItems();
+            if (to.name == SceneNames.Menu_Title)
+            {
+                TitleReset();
+            }
+
             foreach (var placement in SET?.GetPlacements())
             {
                 if (placement is null) continue;
@@ -199,12 +222,12 @@ namespace ItemChanger
             string sceneName = fsm.gameObject.scene.name;
             foreach (var loc in SET?.GetPlacements() ?? new AbstractPlacement[0])
             {
-                if (loc is null || string.IsNullOrEmpty(loc.SceneName)) continue;
-                if (SceneUtil.IsSubscene(sceneName, loc.SceneName))
+                loc?.OnEnableGlobal(fsm);
+                if (!string.IsNullOrEmpty(loc?.SceneName) && SceneUtil.IsSubscene(sceneName, loc.SceneName))
                 {
                     try
                     {
-                        loc.OnEnableFsm(fsm);
+                        loc.OnEnableLocal(fsm);
                     }
                     catch (Exception e)
                     {

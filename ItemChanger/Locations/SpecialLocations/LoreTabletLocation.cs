@@ -12,9 +12,9 @@ namespace ItemChanger.Locations.SpecialLocations
         public string inspectName;
         public string inspectFsm;
 
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
-            base.OnEnable(fsm);
+            base.OnEnableLocal(fsm);
 
             // disable inspect region
             if (fsm.FsmName == inspectFsm && fsm.gameObject.name == inspectName)

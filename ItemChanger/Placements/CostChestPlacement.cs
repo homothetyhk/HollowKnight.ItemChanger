@@ -44,9 +44,9 @@ namespace ItemChanger.Placements
             tabletLocation.PlaceContainer(TabletUtility.MakeNewTablet(this), Container.Tablet);
         }
 
-        public override void OnEnableFsm(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
-            base.OnEnableFsm(fsm);
+            base.OnEnableLocal(fsm);
 
             if (fsm.FsmName == "Inspection" && fsm.gameObject.name == TabletUtility.GetTabletName(this))
             {
@@ -107,8 +107,8 @@ namespace ItemChanger.Placements
 
                         if (!item.IsObtained())
                         {
-                            if (cost != null && !cost.Paid() && !cost.CanPay()) continue;
-                            if (cost != null && !cost.Paid()) cost.Pay();
+                            if (cost != null && !cost.Paid&& !cost.CanPay()) continue;
+                            if (cost != null && !cost.Paid) cost.Pay();
                             if (item.GiveEarly(Container.Chest))
                             {
                                 item.Give(this, new GiveInfo
@@ -153,7 +153,7 @@ namespace ItemChanger.Placements
                     {
                         sb.Append("Free");
                     }
-                    else if (cost.Paid())
+                    else if (cost.Paid)
                     {
                         sb.Append("Purchased");
                     }

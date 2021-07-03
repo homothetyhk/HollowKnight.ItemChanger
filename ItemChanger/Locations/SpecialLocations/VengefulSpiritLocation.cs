@@ -24,7 +24,7 @@ namespace ItemChanger.Locations.SpecialLocations
             UnityEngine.Object.Destroy(GameObject.Find("Bone Gate"));
         }
 
-        public override void OnEnable(PlayMakerFSM fsm)
+        public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             switch (fsm.gameObject.name)
             {

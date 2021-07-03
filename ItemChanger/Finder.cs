@@ -27,10 +27,9 @@ namespace ItemChanger
         {
             JsonSerializer js = new JsonSerializer
             {
-                DefaultValueHandling = DefaultValueHandling.Ignore,
+                DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate,
                 Formatting = Formatting.Indented,
                 TypeNameHandling = TypeNameHandling.Auto,
-
             };
 
             js.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
@@ -47,6 +46,23 @@ namespace ItemChanger
             using (var jtr = new JsonTextReader(sr))
             {
                 Locations = js.Deserialize<Dictionary<string, AbstractLocation>>(jtr);
+            }
+        }
+
+        internal static void Serialize(string filename, object o)
+        {
+            JsonSerializer js = new JsonSerializer
+            {
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                Formatting = Formatting.Indented,
+                TypeNameHandling = TypeNameHandling.Auto,
+            };
+
+            js.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+
+            using (StreamWriter sw = new StreamWriter(Path.Combine(Environment.CurrentDirectory, filename)))
+            {
+                js.Serialize(sw, o);
             }
         }
 
