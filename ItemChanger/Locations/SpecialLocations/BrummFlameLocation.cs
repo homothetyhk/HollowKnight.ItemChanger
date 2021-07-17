@@ -10,19 +10,20 @@ using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
 using SereCore;
 using UnityEngine.SceneManagement;
+using ItemChanger.Internal;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class BrummFlameLocation : FsmLocation
+    public class BrummFlameLocation : AutoLocation
     {
-        public override MessageType MessageType => MessageType.Any;
-
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             switch (fsm.FsmName)
             {
                 case "Conversation Control" when fsm.gameObject.name == "Brumm Torch NPC":
                     {
+                        Transform = fsm.transform;
+
                         FsmState checkActive = fsm.GetState("Check Active");
                         FsmState convo1 = fsm.GetState("Convo 1");
                         FsmState get = fsm.GetState("Get");
@@ -38,22 +39,17 @@ namespace ItemChanger.Locations.SpecialLocations
                         {
                             get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
                             get.Actions[14], // set gotBrummsFlame
-                            new AsyncLambda(callback => Placement.GiveAll(MessageType, callback)),
+                            new AsyncLambda(GiveAll),
                         };
                     }
                     break;
             }
         }
 
-        public override Transform FindTransformInScene()
-        {
-            return ObjectLocation.FindGameObject("Brumm Torch NPC")?.transform;
-        }
-
         private static bool IsBrummActive()
         {
-            int grimmchildLevel = Ref.PD.GetInt("grimmChildLevel");
-            return Ref.PD.GetBool("equippedCharm_40") && grimmchildLevel >= 3; // && !Ref.PD.GetBool("gotBrummsFlame") && grimmchildLevel < 5;
+            int grimmchildLevel = PlayerData.instance.GetInt("grimmChildLevel");
+            return PlayerData.instance.GetBool("equippedCharm_40") && grimmchildLevel >= 3; // && !Ref.PD.GetBool("gotBrummsFlame") && grimmchildLevel < 5;
         }
     }
 }

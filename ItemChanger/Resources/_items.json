@@ -1,0 +1,6559 @@
+{
+  "Lurien": {
+    "$type": "ItemChanger.Items.DreamerItem, ItemChanger",
+    "dreamer": "Lurien",
+    "name": "Lurien",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Lurien"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_LURIEN",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_LURIEN",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Lurien"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Monomon": {
+    "$type": "ItemChanger.Items.DreamerItem, ItemChanger",
+    "dreamer": "Monomon",
+    "name": "Monomon",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Monomon"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_MONOMON",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_MONOMON",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Monomon"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Herrah": {
+    "$type": "ItemChanger.Items.DreamerItem, ItemChanger",
+    "dreamer": "Herrah",
+    "name": "Herrah",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Herrah"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_HERRAH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_HERRAH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Herrah"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "World_Sense": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "unlockedCompletionRate",
+    "setValue": true,
+    "name": "World_Sense",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.WorldSense"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_WORLD_SENSE",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_WORLD_SENSE",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.WorldSense"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Dreamer": {
+    "$type": "ItemChanger.Items.DreamerItem, ItemChanger",
+    "dreamer": "None",
+    "name": "Dreamer",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Dreamer"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_DREAMER",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_DREAMER",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Dreamer"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Mothwing_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDash",
+    "setValue": true,
+    "name": "Mothwing_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Dash"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DASH_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DASH_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_NAME_DASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_DASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Dash"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Mothwing_Cloak"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Mantis_Claw": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasWalljump",
+    "setValue": true,
+    "name": "Mantis_Claw",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Walljump"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_WALLJUMP_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_WALLJUMP_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_NAME_WALLJUMP",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_WALLJUMP",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Walljump"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Mantis_Claw"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Crystal_Heart": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasSuperDash",
+    "setValue": true,
+    "name": "Crystal_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Superdash"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO2",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SUPERDASH_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SUPERDASH_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SUPERDASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_SUPERDASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Superdash"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Crystal_Heart"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Monarch_Wings": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDoubleJump",
+    "setValue": true,
+    "name": "Monarch_Wings",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Wings"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO5",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DOUBLEJUMP_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DOUBLEJUMP_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_DOUBLEJUMP",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_DOUBLEJUMP",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Wings"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Monarch_Wings"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Shade_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasShadowDash",
+    "setValue": true,
+    "name": "Shade_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Shadowdash"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO7",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SHADOWDASH_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SHADOWDASH_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_NAME_SHADOWDASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_SHADOWDASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Shadowdash"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Mothwing_Cloak"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Isma's_Tear": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasAcidArmour",
+    "setValue": true,
+    "name": "Isma's_Tear",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Isma"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO8",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ACIDARMOUR_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ACIDARMOUR_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_ACIDARMOUR",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_ACIDARMOUR",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Isma"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Isma's_Tear"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Dream_Nail": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDreamNail",
+    "setValue": true,
+    "name": "Dream_Nail",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Dreamnail"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO5",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DREAMNAIL_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DREAMNAIL_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_DREAMNAIL_A",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_DREAMNAIL_A",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Dreamnail"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Dream_Nail"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Dream_Gate": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDreamGate",
+    "setValue": true,
+    "name": "Dream_Gate",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Dream Gate"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO5",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DREAMGATE_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DREAMGATE_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_DREAMGATE",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_DREAMGATE",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Dreamnail"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Dream_Nail"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Awoken_Dream_Nail": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "dreamNailUpgraded",
+    "setValue": true,
+    "name": "Awoken_Dream_Nail",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Dreamnail"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO5",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DREAMNAILUPGRADE_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DREAMNAILUPGRADE_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_DREAMNAIL_B",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_DREAMNAIL_B",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Dreamnail"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Dream_Nail"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Vengeful_Spirit": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasVengefulSpirit",
+    "setValue": true,
+    "name": "Vengeful_Spirit",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Fireball1"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO3",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_FIREBALL_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_FIREBALL_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SPELL_FIREBALL1",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_SPELL_FIREBALL1",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Fireball1"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Vengeful_Spirit"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Shade_Soul": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasShadeSoul",
+    "setValue": true,
+    "name": "Shade_Soul",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Fireball2"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO3",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_FIREBALL2_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_FIREBALL2_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SPELL_FIREBALL2",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_SPELL_FIREBALL2",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Fireball2"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Vengeful_Spirit"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Desolate_Dive": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDesolateDive",
+    "setValue": true,
+    "name": "Desolate_Dive",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Quake1"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO3",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_QUAKE_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_QUAKE_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SPELL_QUAKE1",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_SPELL_QUAKE1",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Quake1"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Desolate_Dive"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Descending_Dark": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDescendingDark",
+    "setValue": true,
+    "name": "Descending_Dark",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Quake2"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO3",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_QUAKE2_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_QUAKE2_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SPELL_QUAKE2",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_SPELL_QUAKE2",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Quake2"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Desolate_Dive"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Howling_Wraiths": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasHowlingWraiths",
+    "setValue": true,
+    "name": "Howling_Wraiths",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Scream1"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO3",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SCREAM_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SCREAM_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SPELL_SCREAM1",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_SPELL_SCREAM1",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Scream1"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Howling_Wraiths"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Abyss_Shriek": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasAbyssShriek",
+    "setValue": true,
+    "name": "Abyss_Shriek",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Scream2"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO3",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SCREAM2_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SCREAM2_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SPELL_SCREAM2",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_SPELL_SCREAM2",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Scream2"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Howling_Wraiths"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Cyclone_Slash": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasCyclone",
+    "setValue": true,
+    "name": "Cyclone_Slash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.CycloneSlash"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO3",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_CYCLONE_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_CYCLONE_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_ART_CYCLONE",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_ART_CYCLONE",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.CycloneSlash"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Dash_Slash": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasUpwardSlash",
+    "setValue": true,
+    "name": "Dash_Slash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.DashSlash"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO3",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DSLASH_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_DSLASH_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_ART_UPPER",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_ART_UPPER",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.DashSlash"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Great_Slash": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasDashSlash",
+    "setValue": true,
+    "name": "Great_Slash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.GreatSlash"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO3",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_GSLASH_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_GSLASH_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_ART_DASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_ART_DASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.GreatSlash"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Focus": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canFocus",
+    "name": "Focus",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Focus"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_FOCUS",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_FOCUS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_FOCUS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Focus"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Swim": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canSwim",
+    "name": "Swim",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Swim"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SWIM",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SWIM",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_SWIM",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Swim"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Gathering_Swarm": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 1,
+    "name": "Gathering_Swarm",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_1",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_1",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.1"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Wayward_Compass": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 2,
+    "name": "Wayward_Compass",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_2",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_2",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.2"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Grubsong": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 3,
+    "name": "Grubsong",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_3",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_3",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.3"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Stalwart_Shell": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 4,
+    "name": "Stalwart_Shell",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_4",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_4",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.4"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Baldur_Shell": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 5,
+    "name": "Baldur_Shell",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_5",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_5",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.5"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Fury_of_the_Fallen": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 6,
+    "name": "Fury_of_the_Fallen",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_6",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_6",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.6"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Quick_Focus": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 7,
+    "name": "Quick_Focus",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_7",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_7",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.7"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lifeblood_Heart": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 8,
+    "name": "Lifeblood_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_8",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_8",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.8"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lifeblood_Core": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 9,
+    "name": "Lifeblood_Core",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_9",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_9",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.9"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Defender's_Crest": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 10,
+    "name": "Defender's_Crest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_10",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_10",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.10"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Flukenest": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 11,
+    "name": "Flukenest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_11",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_11",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.11"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Thorns_of_Agony": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 12,
+    "name": "Thorns_of_Agony",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_12",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_12",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.12"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Mark_of_Pride": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 13,
+    "name": "Mark_of_Pride",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_13",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_13",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.13"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Steady_Body": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 14,
+    "name": "Steady_Body",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_14",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_14",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.14"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Heavy_Blow": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 15,
+    "name": "Heavy_Blow",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_15",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_15",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.15"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Sharp_Shadow": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 16,
+    "name": "Sharp_Shadow",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_16",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_16",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.16"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Spore_Shroom": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 17,
+    "name": "Spore_Shroom",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_17",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_17",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.17"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Longnail": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 18,
+    "name": "Longnail",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_18",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_18",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.18"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Shaman_Stone": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 19,
+    "name": "Shaman_Stone",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_19",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_19",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.19"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Soul_Catcher": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 20,
+    "name": "Soul_Catcher",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_20",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_20",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.20"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Soul_Eater": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 21,
+    "name": "Soul_Eater",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_21",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_21",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.21"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Glowing_Womb": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 22,
+    "name": "Glowing_Womb",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_22",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_22",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.22"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Fragile_Heart": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 23,
+    "name": "Fragile_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_23_G",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_23_G",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.23_G"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Fragile_Greed": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 24,
+    "name": "Fragile_Greed",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_24_G",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_24_G",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.24_G"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Fragile_Strength": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 25,
+    "name": "Fragile_Strength",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_25_G",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_25_G",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.25_G"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Nailmaster's_Glory": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 26,
+    "name": "Nailmaster's_Glory",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_26",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_26",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.26"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Joni's_Blessing": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 27,
+    "name": "Joni's_Blessing",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_27",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_27",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.27"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Shape_of_Unn": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 28,
+    "name": "Shape_of_Unn",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_28",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_28",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.28"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Hiveblood": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 29,
+    "name": "Hiveblood",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_29",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_29",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.29"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Dream_Wielder": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 30,
+    "name": "Dream_Wielder",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_30",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_30",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.30"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Dashmaster": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 31,
+    "name": "Dashmaster",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_31",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_31",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.31"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Quick_Slash": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 32,
+    "name": "Quick_Slash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_32",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_32",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.32"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Spell_Twister": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 33,
+    "name": "Spell_Twister",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_33",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_33",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.33"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Deep_Focus": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 34,
+    "name": "Deep_Focus",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_34",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_34",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.34"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Grubberfly's_Elegy": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 35,
+    "name": "Grubberfly's_Elegy",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_35",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_35",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.35"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Queen_Fragment": {
+    "$type": "ItemChanger.Items.WhiteFragmentItem, ItemChanger",
+    "royalCharmLevel": 1,
+    "name": "Queen_Fragment",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.36_L"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO8",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_36_A",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_CHARM_DESC_36_L",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.36_L"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Queen_Fragment"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "King_Fragment": {
+    "$type": "ItemChanger.Items.WhiteFragmentItem, ItemChanger",
+    "royalCharmLevel": 2,
+    "name": "King_Fragment",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.36_R"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO8",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_36_A",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_CHARM_DESC_36_R",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.36_R"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Queen_Fragment"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Void_Heart": {
+    "$type": "ItemChanger.Items.WhiteFragmentItem, ItemChanger",
+    "royalCharmLevel": 4,
+    "name": "Void_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.36_Void"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO8",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_36_C",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_CHARM_DESC_36_Void",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.36_Void"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Queen_Fragment"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Sprintmaster": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 37,
+    "name": "Sprintmaster",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_37",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_37",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.37"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Dreamshield": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 38,
+    "name": "Dreamshield",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_38",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_38",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.38"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Weaversong": {
+    "$type": "ItemChanger.Items.CharmItem, ItemChanger",
+    "charmNum": 39,
+    "name": "Weaversong",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_39",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_39",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.39"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Grimmchild": {
+    "$type": "ItemChanger.Items.Grimmchild2Item, ItemChanger",
+    "name": "Grimmchild",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_40",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CHARM_NAME_40",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Charms.40"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "City_Crest": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasCityKey",
+    "setValue": true,
+    "name": "City_Crest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_CITYKEY",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_CITYKEY",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.CityKey"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lumafly_Lantern": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasLantern",
+    "setValue": true,
+    "name": "Lumafly_Lantern",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_LANTERN",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_LANTERN",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lantern"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Tram_Pass": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasTramPass",
+    "setValue": true,
+    "name": "Tram_Pass",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRAM_PASS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRAM_PASS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.TramPass"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Simple_Key": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "simpleKeys",
+    "amount": 1,
+    "name": "Simple_Key",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SIMPLEKEY",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SIMPLEKEY",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.SimpleKey"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Shopkeeper's_Key": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasSlykey",
+    "setValue": true,
+    "name": "Shopkeeper's_Key",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_STOREKEY",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_STOREKEY",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.ShopkeepersKey"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Elegant_Key": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasWhiteKey",
+    "setValue": true,
+    "name": "Elegant_Key",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_WHITEKEY",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_WHITEKEY",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.ElegantKey"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Love_Key": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasLoveKey",
+    "setValue": true,
+    "name": "Love_Key",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_LOVEKEY",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_LOVEKEY",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.LoveKey"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "King's_Brand": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasKingsBrand",
+    "setValue": true,
+    "name": "King's_Brand",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Kingsbrand"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_KINGSBRAND_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_KINGSBRAND_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_KINGSBRAND",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_KINGSBRAND",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.KingsBrand"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Godtuner": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasGodfinder",
+    "setValue": true,
+    "name": "Godtuner",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Godfinder"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MEME",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_INV_NAME_GODFINDER",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_INV_DESC_GODFINDER",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Godfinder"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Collector's_Map": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasPinGrub",
+    "setValue": true,
+    "name": "Collector's_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.CollectorsMap"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MEME",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_COLLECTOR_MAP",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_GET_COLLECTOR_MAP",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.CollectorsMap"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Mask_Shard": {
+    "$type": "ItemChanger.Items.MaskShardItem, ItemChanger",
+    "amount": 1,
+    "name": "Mask_Shard",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_MASK_SHARD",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_MASK_SHARD",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.MaskShard"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Vessel_Fragment": {
+    "$type": "ItemChanger.Items.VesselFragmentItem, ItemChanger",
+    "amount": 1,
+    "name": "Vessel_Fragment",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_VESSEL_FRAGMENT",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_VESSEL_FRAGMENT",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.VesselFragment"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Charm_Notch": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "charmSlots",
+    "amount": 1,
+    "name": "Charm_Notch",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_CHARM_NOTCH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_CHARM_NOTCH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.CharmNotch"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Pale_Ore": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "ore",
+    "amount": 1,
+    "name": "Pale_Ore",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_PALE_ORE",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_PALE_ORE",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.PaleOre"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-False_Knight": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 200,
+    "name": "Geo_Chest-False_Knight",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_200GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_200GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Soul_Master": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 380,
+    "name": "Geo_Chest-Soul_Master",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_380GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_380GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Watcher_Knights": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 655,
+    "name": "Geo_Chest-Watcher_Knights",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_655GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_655GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Greenpath": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 85,
+    "name": "Geo_Chest-Greenpath",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_85GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_85GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Mantis_Lords": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 620,
+    "name": "Geo_Chest-Mantis_Lords",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_620GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_620GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Resting_Grounds": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 150,
+    "name": "Geo_Chest-Resting_Grounds",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_150GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_150GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Crystal_Peak": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 80,
+    "name": "Geo_Chest-Crystal_Peak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_80GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_80GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Weavers_Den": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 160,
+    "name": "Geo_Chest-Weavers_Den",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_160GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_160GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "One_Geo": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 1,
+    "name": "One_Geo",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_1GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_1GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Rancid_Egg": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "rancidEggs",
+    "amount": 1,
+    "name": "Rancid_Egg",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_RANCIDEGG",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_RANCIDEGG",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.RancidEgg"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Wanderer's_Journal": {
+    "$type": "ItemChanger.Items.RelicItem, ItemChanger",
+    "trinketNum": 1,
+    "name": "Wanderer's_Journal",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRINKET1",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRINKET1",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.WanderersJournal"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Hallownest_Seal": {
+    "$type": "ItemChanger.Items.RelicItem, ItemChanger",
+    "trinketNum": 2,
+    "name": "Hallownest_Seal",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRINKET2",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRINKET2",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.HallownestSeal"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "King's_Idol": {
+    "$type": "ItemChanger.Items.RelicItem, ItemChanger",
+    "trinketNum": 3,
+    "name": "King's_Idol",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRINKET3",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRINKET3",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.KingsIdol"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Arcane_Egg": {
+    "$type": "ItemChanger.Items.RelicItem, ItemChanger",
+    "trinketNum": 4,
+    "name": "Arcane_Egg",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRINKET4",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_TRINKET4",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.ArcaneEgg"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Crossroads": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 29,
+    "name": "Whispering_Root-Crossroads",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_29",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_29",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Greenpath": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 44,
+    "name": "Whispering_Root-Greenpath",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_44",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_44",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Leg_Eater": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 20,
+    "name": "Whispering_Root-Leg_Eater",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_20",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_20",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Mantis_Village": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 18,
+    "name": "Whispering_Root-Mantis_Village",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_18",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_18",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Deepnest": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 45,
+    "name": "Whispering_Root-Deepnest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_45",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_45",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Queens_Gardens": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 29,
+    "name": "Whispering_Root-Queens_Gardens",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_29",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_29",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Kingdoms_Edge": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 51,
+    "name": "Whispering_Root-Kingdoms_Edge",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_51",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_51",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Waterways": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 35,
+    "name": "Whispering_Root-Waterways",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_35",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_35",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-City": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 28,
+    "name": "Whispering_Root-City",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_28",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_28",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Resting_Grounds": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 20,
+    "name": "Whispering_Root-Resting_Grounds",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_20",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_20",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Spirits_Glade": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 34,
+    "name": "Whispering_Root-Spirits_Glade",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_34",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_34",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Crystal_Peak": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 21,
+    "name": "Whispering_Root-Crystal_Peak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_21",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_21",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Howling_Cliffs": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 46,
+    "name": "Whispering_Root-Howling_Cliffs",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_46",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_46",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Ancestral_Mound": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 42,
+    "name": "Whispering_Root-Ancestral_Mound",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_42",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_42",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Whispering_Root-Hive": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 20,
+    "name": "Whispering_Root-Hive",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_20",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_20",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Elder_Hu": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 100,
+    "name": "Boss_Essence-Elder_Hu",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_100",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_100",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Xero": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 100,
+    "name": "Boss_Essence-Xero",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_100",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_100",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Gorb": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 100,
+    "name": "Boss_Essence-Gorb",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_100",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_100",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Marmu": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 150,
+    "name": "Boss_Essence-Marmu",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_150",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_150",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-No_Eyes": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 200,
+    "name": "Boss_Essence-No_Eyes",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_200",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_200",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Galien": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 200,
+    "name": "Boss_Essence-Galien",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_200",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_200",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Markoth": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 250,
+    "name": "Boss_Essence-Markoth",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_250",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_250",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Failed_Champion": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Essence-Failed_Champion",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Soul_Tyrant": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Essence-Soul_Tyrant",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Lost_Kin": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 400,
+    "name": "Boss_Essence-Lost_Kin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_400",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_400",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-White_Defender": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Essence-White_Defender",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Essence-Grey_Prince_Zote": {
+    "$type": "ItemChanger.Items.EssenceItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Essence-Grey_Prince_Zote",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Essence"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Grub": {
+    "$type": "ItemChanger.Items.GrubItem, ItemChanger",
+    "name": "Grub",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_GRUB",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_GRUB",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Grub"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Crossroads_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapCrossroads",
+    "name": "Crossroads_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_CROSSROADS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_CROSSROADS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Greenpath_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapGreenpath",
+    "name": "Greenpath_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_GREENPATH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_GREENPATH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Fog_Canyon_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapFogCanyon",
+    "name": "Fog_Canyon_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_FOG_CANYON",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_FOG_CANYON",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Fungal_Wastes_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapFungalWastes",
+    "name": "Fungal_Wastes_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_FUNGAL_WASTES",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_FUNGAL_WASTES",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Deepnest_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapDeepnest",
+    "name": "Deepnest_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_DEEPNEST",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_DEEPNEST",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Ancient_Basin_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapAbyss",
+    "name": "Ancient_Basin_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_ABYSS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_ABYSS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Kingdom's_Edge_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapOutskirts",
+    "name": "Kingdom's_Edge_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_OUTSKIRTS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_OUTSKIRTS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "City_of_Tears_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapCity",
+    "name": "City_of_Tears_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_CITY",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_CITY",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Royal_Waterways_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapWaterways",
+    "name": "Royal_Waterways_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_WATERWAYS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_WATERWAYS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Howling_Cliffs_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapCliffs",
+    "name": "Howling_Cliffs_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_CLIFFS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_CLIFFS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Crystal_Peak_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapMines",
+    "name": "Crystal_Peak_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_MINES",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_MINES",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Queen's_Gardens_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapRoyalGardens",
+    "name": "Queen's_Gardens_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_ROYAL_GARDENS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_ROYAL_GARDENS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Resting_Grounds_Map": {
+    "$type": "ItemChanger.Items.MapItem, ItemChanger",
+    "fieldName": "mapRestingGrounds",
+    "name": "Resting_Grounds_Map",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_RESTING_GROUNDS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_MAP_NAME_RESTING_GROUNDS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Map"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Dirtmouth_Stag": {
+    "$type": "ItemChanger.Items.DirtmouthStagItem, ItemChanger",
+    "name": "Dirtmouth_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_DIRTMOUTH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_DIRTMOUTH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Crossroads_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedCrossroads",
+    "name": "Crossroads_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_CROSSROADS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_CROSSROADS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Greenpath_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedGreenpath",
+    "name": "Greenpath_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_GREENPATH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_GREENPATH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Queen's_Station_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedFungalWastes",
+    "name": "Queen's_Station_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_QUEENSSTATION",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_QUEENSSTATION",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Queen's_Gardens_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedRoyalGardens",
+    "name": "Queen's_Gardens_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_QUEENSGARDENS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_QUEENSGARDENS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "City_Storerooms_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedRuins1",
+    "name": "City_Storerooms_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_STOREROOMS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_STOREROOMS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "King's_Station_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedRuins2",
+    "name": "King's_Station_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_KINGSSTATION",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_KINGSSTATION",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Resting_Grounds_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedRestingGrounds",
+    "name": "Resting_Grounds_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_RESTINGGROUNDS",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_RESTINGGROUNDS",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Distant_Village_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedDeepnest",
+    "name": "Distant_Village_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_DEEPNEST",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_DEEPNEST",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Hidden_Station_Stag": {
+    "$type": "ItemChanger.Items.StagItem, ItemChanger",
+    "fieldName": "openedHiddenStation",
+    "name": "Hidden_Station_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_HIDDENSTATION",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_HIDDENSTATION",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Stag_Nest_Stag": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "openedStagNest",
+    "setValue": true,
+    "name": "Stag_Nest_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_STAGNEST",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_STAG_NAME_STAGNEST",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.StagPin"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lifeblood_Cocoon_Small": {
+    "$type": "ItemChanger.Items.LifebloodItem, ItemChanger",
+    "amount": 2,
+    "name": "Lifeblood_Cocoon_Small",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lifeblood"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Lifeblood_Cocoon_Large": {
+    "$type": "ItemChanger.Items.LifebloodItem, ItemChanger",
+    "amount": 3,
+    "name": "Lifeblood_Cocoon_Large",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_LIFEBLOOD_COCOON_LARGE",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_LIFEBLOOD_COCOON_LARGE",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lifeblood"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Grimmkin_Flame": {
+    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "fieldName": "flamesCollected",
+    "amount": 1,
+    "name": "Grimmkin_Flame",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_GRIMMKIN_FLAME",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_GRIMMKIN_FLAME",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Flame"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Left_Mothwing_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "canDashLeft",
+    "setValue": true,
+    "name": "Left_Mothwing_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.DashReflected"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_LEFT_CLOAK",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_LEFT_CLOAK_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_LEFT_CLOAK",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_LEFT_CLOAK",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Dash"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Left_Mothwing_Cloak"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Right_Mothwing_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "canDashRight",
+    "setValue": true,
+    "name": "Right_Mothwing_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Dash"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_RIGHT_CLOAK",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_RIGHT_CLOAK_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_RIGHT_CLOAK",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_RIGHT_CLOAK",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Dash"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Right_Mothwing_Cloak"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Left_Shade_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "canDashLeft",
+    "setValue": true,
+    "name": "Left_Shade_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.ShadowdashReflected"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO7",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SHADOWDASH_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SHADOWDASH_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_NAME_LEFT_SHADOWDASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_LEFT_CLOAK",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Shadowdash"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Left_Mothwing_Cloak"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Right_Shade_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "canDashRight",
+    "setValue": true,
+    "name": "Right_Shade_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Shadowdash"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO7",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SHADOWDASH_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SHADOWDASH_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_NAME_RIGHT_SHADOWDASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_RIGHT_CLOAK",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Shadowdash"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Right_Mothwing_Cloak"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Split_Mothwing_Cloak": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": null,
+    "setValue": true,
+    "name": "Split_Mothwing_Cloak",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": null,
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": null,
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": null
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Left_Mantis_Claw": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasWalljumpLeft",
+    "setValue": true,
+    "name": "Left_Mantis_Claw",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Walljump"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_LEFT_CLAW",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_LEFT_CLAW_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_LEFT_CLAW",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_LEFT_CLAW",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Walljump"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Left_Mantis_Claw"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Right_Mantis_Claw": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasWalljumpRight",
+    "setValue": true,
+    "name": "Right_Mantis_Claw",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.WalljumpReflected"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_BUTTON_DESC",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_RIGHT_CLAW",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_RIGHT_CLAW_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_RIGHT_CLAW",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_SHOP_DESC_RIGHT_CLAW",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Walljump"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.AdditiveGroupTag, ItemChanger",
+        "AdditiveGroup": "Right_Mantis_Claw"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Leftslash": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canSideslashLeft",
+    "name": "Leftslash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_LEFTSLASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_LEFTSLASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Leftslash"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Rightslash": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canSideslashRight",
+    "name": "Rightslash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_RIGHTSLASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_RIGHTSLASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Rightslash"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Upslash": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canUpslash",
+    "name": "Upslash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_UPSLASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_UPSLASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Upslash"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Grubfather": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "",
+    "setValue": true,
+    "name": "Grubfather",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": ""
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Seer": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "",
+    "setValue": true,
+    "name": "Seer",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": ""
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Equipped": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "",
+    "setValue": true,
+    "name": "Equipped",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": ""
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Placeholder": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "",
+    "setValue": true,
+    "name": "Placeholder",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": ""
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Default": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Default",
+    "amount": 15,
+    "name": "Geo_Rock-Default",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_15GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_15GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Deepnest": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Deepnest",
+    "amount": 15,
+    "name": "Geo_Rock-Deepnest",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_15GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_15GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Abyss": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Abyss",
+    "amount": 35,
+    "name": "Geo_Rock-Abyss",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_35GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_35GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-GreenPath01": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "GreenPath01",
+    "amount": 26,
+    "name": "Geo_Rock-GreenPath01",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_26GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_26GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Outskirts": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Outskirts",
+    "amount": 44,
+    "name": "Geo_Rock-Outskirts",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_44GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_44GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Outskirts420": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Outskirts420",
+    "amount": 420,
+    "name": "Geo_Rock-Outskirts420",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_420GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_420GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-GreenPath02": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "GreenPath02",
+    "amount": 30,
+    "name": "Geo_Rock-GreenPath02",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_30GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_30GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Fung01": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Fung01",
+    "amount": 22,
+    "name": "Geo_Rock-Fung01",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_22GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_22GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Fung02": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Fung02",
+    "amount": 17,
+    "name": "Geo_Rock-Fung02",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_17GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_17GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-City": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "City",
+    "amount": 30,
+    "name": "Geo_Rock-City",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_30GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_30GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Hive": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Hive",
+    "amount": 56,
+    "name": "Geo_Rock-Hive",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_56GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_56GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Mine": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Mine",
+    "amount": 24,
+    "name": "Geo_Rock-Mine",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_24GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_24GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Grave02": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Grave02",
+    "amount": 25,
+    "name": "Geo_Rock-Grave02",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_25GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_25GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Rock-Grave01": {
+    "$type": "ItemChanger.Items.GeoRockItem, ItemChanger",
+    "geoRockSubtype": "Grave01",
+    "amount": 25,
+    "name": "Geo_Rock-Grave01",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_25GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_25GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Geo-Massive_Moss_Charger": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 300,
+    "name": "Boss_Geo-Massive_Moss_Charger",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_300GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_300GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Geo-Gorgeous_Husk": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 420,
+    "name": "Boss_Geo-Gorgeous_Husk",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_420GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_420GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Geo-Sanctum_Soul_Warrior": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 200,
+    "name": "Boss_Geo-Sanctum_Soul_Warrior",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_200GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_200GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Geo-Elegant_Soul_Warrior": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 200,
+    "name": "Boss_Geo-Elegant_Soul_Warrior",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_200GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_200GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Geo-Crystal_Guardian": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 385,
+    "name": "Boss_Geo-Crystal_Guardian",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_385GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_385GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Geo-Enraged_Guardian": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 550,
+    "name": "Boss_Geo-Enraged_Guardian",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_550GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_550GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Geo-Gruz_Mother": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 50,
+    "name": "Boss_Geo-Gruz_Mother",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_50GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_50GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Boss_Geo-Vengefly_King": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 65,
+    "name": "Boss_Geo-Vengefly_King",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_65GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_65GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem": {
+    "$type": "ItemChanger.Items.SoulItem, ItemChanger",
+    "soul": 100,
+    "name": "Soul_Totem",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-City_Entrance": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "RUIN_TAB_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-City_Entrance",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RUIN_TAB_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Pleasure_House": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "RUINS_MARISSA_POSTER",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Pleasure_House",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RUINS_MARISSA_POSTER",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Sanctum_Entrance": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "MAGE_COMP_03",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Sanctum_Entrance",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "MAGE_COMP_03",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Sanctum_Past_Soul_Master": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "MAGE_COMP_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Sanctum_Past_Soul_Master",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "MAGE_COMP_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Watcher's_Spire": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "LURIAN_JOURNAL",
+    "textType": "LeftLore",
+    "name": "Lore_Tablet-Watcher's_Spire",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "LURIAN_JOURNAL",
+        "sheet": "LoreTablets"
+      },
+      "textType": "LeftLore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Archives_Upper": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "ARCHIVE_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Archives_Upper",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "ARCHIVE_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Archives_Left": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "ARCHIVE_03",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Archives_Left",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "ARCHIVE_03",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Archives_Right": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "ARCHIVE_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Archives_Right",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "ARCHIVE_02",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Pilgrim's_Way_1": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "PILGRIM_TAB_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Pilgrim's_Way_1",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "PILGRIM_TAB_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Pilgrim's_Way_2": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "PILGRIM_TAB_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Pilgrim's_Way_2",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "PILGRIM_TAB_02",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Mantis_Outskirts": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "MANTIS_PLAQUE_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Mantis_Outskirts",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "MANTIS_PLAQUE_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Mantis_Village": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "MANTIS_PLAQUE_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Mantis_Village",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "MANTIS_PLAQUE_02",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Greenpath_Upper_Hidden": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "GREEN_TABLET_06",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Upper_Hidden",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GREEN_TABLET_06",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Greenpath_Below_Toll": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "GREEN_TABLET_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Below_Toll",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GREEN_TABLET_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Greenpath_Lifeblood": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "GREEN_TABLET_03",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Lifeblood",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GREEN_TABLET_03",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Greenpath_Stag": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "GREEN_TABLET_05",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Stag",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GREEN_TABLET_05",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Greenpath_QG": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "GREEN_TABLET_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_QG",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GREEN_TABLET_02",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Greenpath_Lower_Hidden": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "GREEN_TABLET_07",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Greenpath_Lower_Hidden",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GREEN_TABLET_07",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Dung_Defender": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "DUNG_DEF_SIGN",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Dung_Defender",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "DUNG_DEF_SIGN",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Spore_Shroom": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "FUNG_TAB_04",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Spore_Shroom",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "FUNG_TAB_04",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Fungal_Wastes_Hidden": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "FUNG_TAB_03",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Fungal_Wastes_Hidden",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "FUNG_TAB_03",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "FUNG_TAB_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "FUNG_TAB_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Fungal_Core": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "FUNG_TAB_02",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Fungal_Core",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "FUNG_TAB_02",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Ancient_Basin": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "ABYSS_TUT_TAB_01",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-Ancient_Basin",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "ABYSS_TUT_TAB_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "MajorLore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-King's_Pass_Focus": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "TUT_TAB_01",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-King's_Pass_Focus",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "TUT_TAB_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "MajorLore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-King's_Pass_Fury": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "TUT_TAB_03",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-King's_Pass_Fury",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "TUT_TAB_03",
+        "sheet": "LoreTablets"
+      },
+      "textType": "MajorLore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-King's_Pass_Exit": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "TUT_TAB_02",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-King's_Pass_Exit",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "TUT_TAB_02",
+        "sheet": "LoreTablets"
+      },
+      "textType": "MajorLore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-World_Sense": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "SENSE_TAB_01",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-World_Sense",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "SENSE_TAB_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "MajorLore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Howling_Cliffs": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "CLIFF_TAB_02",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-Howling_Cliffs",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "CLIFF_TAB_02",
+        "sheet": "LoreTablets"
+      },
+      "textType": "MajorLore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Kingdom's_Edge": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "MR_MUSH_RIDDLE_TAB_NORMAL",
+    "textType": "MajorLore",
+    "name": "Lore_Tablet-Kingdom's_Edge",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "MR_MUSH_RIDDLE_TAB_NORMAL",
+        "sheet": "LoreTablets"
+      },
+      "textType": "MajorLore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Palace_Workshop": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "WP_WORKSHOP_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Palace_Workshop",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "WP_WORKSHOP_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Palace_Throne": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": null,
+    "loreKey": "WP_THRONE_01",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Palace_Throne",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "WP_THRONE_01",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lore_Tablet-Path_of_Pain_Entrance": {
+    "$type": "ItemChanger.Items.LoreItem, ItemChanger",
+    "loreSheet": "CP2",
+    "loreKey": "PLAQUE_WARN",
+    "textType": "Lore",
+    "name": "Lore_Tablet-Path_of_Pain_Entrance",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
+      "lore": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "PLAQUE_WARN",
+        "sheet": "LoreTablets"
+      },
+      "textType": "Lore",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Lore"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What secrets could lie on this tablet?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Lore"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  }
+}

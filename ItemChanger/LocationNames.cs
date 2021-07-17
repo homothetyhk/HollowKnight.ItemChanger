@@ -246,7 +246,7 @@ namespace ItemChanger
         public const string Fog_Canyon_Map = "Fog_Canyon_Map";
         public const string Fungal_Wastes_Map = "Fungal_Wastes_Map";
         public const string Deepnest_Map_Upper = "Deepnest_Map-Upper";
-        public const string Deepnest_Map_Right = "Deepnest_Map-Right_[Gives_Quill]";
+        public const string Deepnest_Map_Right = "Deepnest_Map-Right";
         public const string Ancient_Basin_Map = "Ancient_Basin_Map";
         public const string Kingdoms_Edge_Map = "Kingdom's_Edge_Map";
         public const string City_of_Tears_Map = "City_of_Tears_Map";

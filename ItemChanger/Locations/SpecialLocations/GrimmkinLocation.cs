@@ -16,11 +16,9 @@ namespace ItemChanger.Locations.SpecialLocations
     /// <summary>
     /// Location for modifying the unique Grimmkin spawn of a scene.
     /// </summary>
-    public class GrimmkinLocation : FsmLocation
+    public class GrimmkinLocation : AutoLocation
     {
         public int grimmkinLevel;
-
-        public override MessageType MessageType => MessageType.Corner;
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
@@ -58,7 +56,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         get.Actions = new FsmStateAction[]
                         {
                             get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
-                            new AsyncLambda(callback => Placement.GiveAll(MessageType, callback)),
+                            new AsyncLambda(GiveAll),
                         };
 
                     }

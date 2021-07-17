@@ -22,7 +22,7 @@ namespace ItemChanger.Placements
     {
         public ShopLocation location;
         public override AbstractLocation Location => location;
-        public override Container MainContainerType => Container.Shop;
+        public override string MainContainerType => "Shop";
 
         public DefaultShopItems defaultShopItems;
 
@@ -79,11 +79,7 @@ namespace ItemChanger.Placements
             stats.removalPlayerDataBool = string.Empty;
             stats.dungDiscount = dungDiscount;
             stats.notchCostBool = string.Empty;
-            if (cost is GeoCost geoCost)
-            {
-                stats.SetCost(geoCost.amount);
-            }
-            else stats.SetCost(0);
+            stats.SetCost(cost?.GetDisplayGeo() ?? 0);
 
             // Need to set all these to make sure the item doesn't break in one of various ways
             stats.priceConvo = string.Empty;

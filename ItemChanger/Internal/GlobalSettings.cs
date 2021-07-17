@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Modding;
 
-namespace ItemChanger
+namespace ItemChanger.Internal
 {
     public class GlobalSettings : ModSettings
     {

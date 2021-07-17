@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace ItemChanger
+namespace ItemChanger.Internal
 {
     public class MessageController : MonoBehaviour
     {

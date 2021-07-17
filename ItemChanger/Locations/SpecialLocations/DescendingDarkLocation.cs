@@ -12,17 +12,17 @@ using SereCore;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class DescendingDarkLocation : FsmLocation
+    public class DescendingDarkLocation : AutoLocation
     {
         public string objectName;
         public string fsmName;
-
-        public override MessageType MessageType => MessageType.Any;
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.gameObject.name == objectName && fsm.FsmName == fsmName)
             {
+                Transform = fsm.transform;
+
                 FsmState init = fsm.GetState("Init");
                 FsmState get = fsm.GetState("Get PlayerData 2");
                 FsmState callUI = fsm.GetState("Call UI Msg 2");
@@ -33,7 +33,7 @@ namespace ItemChanger.Locations.SpecialLocations
                     fsm.SendEvent("GET ITEM MSG END");
                 }
 
-                FsmStateAction give = new Lambda(() => Placement.GiveAll(MessageType, Callback));
+                FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
 
                 init.RemoveActionsOfType<IntCompare>();
                 init.AddAction(check);
@@ -42,11 +42,5 @@ namespace ItemChanger.Locations.SpecialLocations
                 callUI.Actions = new[] { give };
             }
         }
-
-        public override Transform FindTransformInScene()
-        {
-            return ObjectLocation.FindGameObject(objectName)?.transform;
-        }
-
     }
 }

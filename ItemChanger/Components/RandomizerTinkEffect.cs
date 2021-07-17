@@ -1,4 +1,5 @@
-﻿using SereCore;
+﻿using ItemChanger.Internal;
+using SereCore;
 using UnityEngine;
 using Random = System.Random;
 

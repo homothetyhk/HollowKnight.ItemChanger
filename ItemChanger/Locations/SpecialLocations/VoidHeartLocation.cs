@@ -13,9 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class VoidHeartLocation : FsmLocation
+    public class VoidHeartLocation : AutoLocation, ILocalHintLocation
     {
-        public override MessageType MessageType => MessageType.Any;
+        public bool HintActive { get; set; } = true;
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
@@ -29,7 +29,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         FsmState removeOvercharm = fsm.GetState("Remove Overcharm");
                         FsmState getMsg = fsm.GetState("Get Msg");
 
-                        FsmStateAction give = new Lambda(() => Placement.GiveAll(MessageType, () => fsm.Fsm.Event("GET ITEM MSG END")));
+                        FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
 
                         charmPause.Actions = new FsmStateAction[0];
                         charmGet.Actions = new FsmStateAction[0];
@@ -55,6 +55,8 @@ namespace ItemChanger.Locations.SpecialLocations
                         break;
                     case "Mirror" when fsm.FsmName == "FSM":
                         {
+                            if (HintActive) HintBox.Create(fsm.transform, Placement); // TODO: test ingame to see if this extends far enough
+
                             FsmState check = fsm.GetState("Check");
                             check.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
                         }

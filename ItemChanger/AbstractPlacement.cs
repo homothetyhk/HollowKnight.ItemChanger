@@ -46,6 +46,29 @@ namespace ItemChanger
             }
         }
 
+        public void GiveAll(GiveInfo info, Action callback = null)
+        {
+            IEnumerator<AbstractItem> enumerator = Items.GetEnumerator();
+            
+            GiveRecursive();
+
+            void GiveRecursive()
+            {
+                while (enumerator.MoveNext())
+                {
+                    if (enumerator.Current.IsObtained())
+                    {
+                        continue;
+                    }
+
+                    enumerator.Current.Give(this, info.Clone());
+                    return;
+                }
+
+                callback?.Invoke();
+            }
+        }
+
         public void GiveEarly()
         {
             GiveInfo info = GetBaseGiveInfo();
@@ -58,7 +81,12 @@ namespace ItemChanger
             }
         }
 
-        public string GetUIName(int maxLength = 120)
+        public string GetUIName()
+        {
+            return GetUIName(maxLength: 120);
+        }
+
+        public string GetUIName(int maxLength)
         {
             IEnumerable<string> itemNames = Items.Where(i => !i.IsObtained()).Select(i => i.UIDef?.GetPostviewName() ?? "Unknown Item");
             string itemText = string.Join(", ", itemNames.ToArray());
@@ -115,6 +143,10 @@ namespace ItemChanger
 
         public virtual void OnActiveSceneChanged(Scene from, Scene to)
         {
+            foreach (var tag in Location.GetTags<Tags.IActiveSceneChangedTag>())
+            {
+                tag.OnActiveSceneChanged(from, to, this);
+            }
             Location.OnActiveSceneChanged(from, to);
         }
 
@@ -149,8 +181,9 @@ namespace ItemChanger
 
         #endregion
         [Newtonsoft.Json.JsonIgnore]
-        public virtual Container MainContainerType => Container.Unknown;
-        public virtual Container GetContainerType(AbstractItem item) => MainContainerType;
+        public virtual string MainContainerType => Container.Unknown;
+        public virtual string GetContainerType(AbstractItem item) => MainContainerType;
+        public virtual string GetContainerType(AbstractLocation location) => MainContainerType;
 
         public virtual void AddItem(AbstractItem item)
         {

@@ -26,15 +26,24 @@ namespace ItemChanger.Placements
             Items.Add(item);
         }
 
-        public void GetPrimaryContainer(out GameObject obj, out Container containerType)
+        public void GetContainer(AbstractLocation location, out GameObject obj, out string containerType)
         {
-            obj = ChestUtility.MakeNewChest(this, Items);
-            containerType = Container.Chest;
+            if (location == chestLocation)
+            {
+                obj = ChestUtility.MakeNewChest(this, Items, Location.flingType);
+                containerType = Container.Chest;
+            }
+            else if (location == tabletLocation)
+            {
+                obj = TabletUtility.MakeNewTablet(this);
+                containerType = Container.Tablet;
+            }
+            else throw new ArgumentException($"Unknown location {location.name} found in GetContainer.");
         }
 
         public override void OnLoad()
         {
-            tabletLocation.auxillary = true;
+            //tabletLocation.auxillary = true;
             base.OnLoad();
         }
 
@@ -121,7 +130,7 @@ namespace ItemChanger.Placements
                             }
                             else
                             {
-                                GameObject shiny = ShinyUtility.MakeNewShiny(this, item);
+                                GameObject shiny = ShinyUtility.MakeNewShiny(this, item, Location.flingType);
                                 ShinyUtility.PutShinyInContainer(itemParent, shiny);
                             }
                         }

@@ -11,11 +11,9 @@ namespace ItemChanger.Locations
         public override void OnLoad()
         {
             base.OnLoad();
-            ItemChanger.instance.Log("Location loaded");
         }
         public override void OnNextSceneReady(Scene next)
         {
-            ItemChanger.instance.Log("Next scene ready");
             base.OnNextSceneReady(next);
             if (GameManager.instance?.IsGameplayScene() ?? false)
             {

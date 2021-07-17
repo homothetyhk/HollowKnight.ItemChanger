@@ -9,7 +9,7 @@ using HutongGames.PlayMaker.Actions;
 using HutongGames.PlayMaker;
 using GlobalEnums;
 
-namespace ItemChanger
+namespace ItemChanger.Internal
 {
     public static class CustomSkillManager
     {
@@ -66,9 +66,9 @@ namespace ItemChanger
             {
                 // Split Dash Overrides
                 case nameof(PlayerData.canDash):
-                    return (Ref.SKILLS.canDashLeft ^ Ref.SKILLS.canDashRight) || Ref.PD.GetBoolInternal(nameof(PlayerData.canDash));
+                    return Ref.SKILLS.canDashLeft ^ Ref.SKILLS.canDashRight || Ref.PD.GetBoolInternal(nameof(PlayerData.canDash));
                 case "hasDashAny":
-                    return (Ref.SKILLS.canDashLeft ^ Ref.SKILLS.canDashRight) || Ref.PD.GetBoolInternal(nameof(PlayerData.hasDash));
+                    return Ref.SKILLS.canDashLeft ^ Ref.SKILLS.canDashRight || Ref.PD.GetBoolInternal(nameof(PlayerData.hasDash));
 
                 // Split Claw Overrides
                 case nameof(CustomSkills.hasWalljumpLeft):
@@ -86,7 +86,7 @@ namespace ItemChanger
                     }
                     break;
                 case "hasWalljumpAny":
-                    return (Ref.SKILLS.hasWalljumpLeft ^ Ref.SKILLS.hasWalljumpRight) || Ref.PD.GetBoolInternal(nameof(PlayerData.hasWalljump));
+                    return Ref.SKILLS.hasWalljumpLeft ^ Ref.SKILLS.hasWalljumpRight || Ref.PD.GetBoolInternal(nameof(PlayerData.hasWalljump));
             }
             return Ref.PD.GetBoolInternal(boolName);
         }
@@ -253,7 +253,7 @@ namespace ItemChanger
             }
             else if (hc.vertical_input < -Mathf.Epsilon)
             {
-                if (hc.hero_state != GlobalEnums.ActorStates.idle && hc.hero_state != GlobalEnums.ActorStates.running)
+                if (hc.hero_state != ActorStates.idle && hc.hero_state != ActorStates.running)
                 {
                     return Direction.downward;
                 }

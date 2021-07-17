@@ -1,4 +1,5 @@
 ﻿using HutongGames.PlayMaker;
+using ItemChanger.Internal;
 using SereCore;
 using UnityEngine;
 using Random = System.Random;
@@ -26,7 +27,7 @@ namespace ItemChanger.FsmStateActions
             _count = geo;
         }
 
-        public static void SpawnGeo(int _count, bool _minimize, FlingType fling, Transform _transform)
+        public static void SpawnGeo(int _count, bool _minimize, FlingType fling, Transform _transform, bool normalizeZ = true)
         {
             int smallNum;
             int medNum;
@@ -53,6 +54,11 @@ namespace ItemChanger.FsmStateActions
                 smallNum = _count;
             }
 
+            SpawnGeo(smallNum, medNum, largeNum, fling, _transform, normalizeZ);
+        }
+
+        public static void SpawnGeo(int smallNum, int medNum, int largeNum, FlingType fling, Transform transform, bool normalizeZ = true)
+        {
             GameObject smallPrefab = ObjectCache.SmallGeo;
             GameObject mediumPrefab = ObjectCache.MediumGeo;
             GameObject largePrefab = ObjectCache.LargeGeo;
@@ -77,24 +83,7 @@ namespace ItemChanger.FsmStateActions
                 AngleMax = 115f
             };
 
-            if (smallNum > 0)
-            {
-                FlingUtils.SpawnAndFling(flingConfig, _transform, new Vector3(0f, 0f, 0f));
-            }
-
-            if (medNum > 0)
-            {
-                flingConfig.Prefab = mediumPrefab;
-                flingConfig.AmountMin = flingConfig.AmountMax = medNum;
-                FlingUtils.SpawnAndFling(flingConfig, _transform, new Vector3(0f, 0f, 0f));
-            }
-
-            if (largeNum > 0)
-            {
-                flingConfig.Prefab = largePrefab;
-                flingConfig.AmountMin = flingConfig.AmountMax = largeNum;
-                FlingUtils.SpawnAndFling(flingConfig, _transform, new Vector3(0f, 0f, 0f));
-            }
+            Vector3 offset = normalizeZ ? Vector3.back * transform.position.z : Vector3.zero;
 
             if (fling == FlingType.StraightUp)
             {
@@ -102,10 +91,30 @@ namespace ItemChanger.FsmStateActions
                 flingConfig.AngleMax = 90;
             }
 
+            if (smallNum > 0)
+            {
+                FlingUtils.SpawnAndFling(flingConfig, transform, offset);
+            }
+
+            if (medNum > 0)
+            {
+                flingConfig.Prefab = mediumPrefab;
+                flingConfig.AmountMin = flingConfig.AmountMax = medNum;
+                FlingUtils.SpawnAndFling(flingConfig, transform, offset);
+            }
+
+            if (largeNum > 0)
+            {
+                flingConfig.Prefab = largePrefab;
+                flingConfig.AmountMin = flingConfig.AmountMax = largeNum;
+                FlingUtils.SpawnAndFling(flingConfig, transform, offset);
+            }
+
             smallPrefab.SetActive(false);
             mediumPrefab.SetActive(false);
             largePrefab.SetActive(false);
         }
+
 
         public override void OnEnter()
         {

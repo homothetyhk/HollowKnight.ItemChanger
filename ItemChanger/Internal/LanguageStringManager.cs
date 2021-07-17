@@ -9,7 +9,7 @@ using Language;
 using static Modding.Logger;
 using Modding;
 
-namespace ItemChanger
+namespace ItemChanger.Internal
 {
     internal static class LanguageStringManager
     {

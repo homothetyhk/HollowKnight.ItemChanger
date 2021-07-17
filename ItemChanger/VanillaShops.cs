@@ -12,7 +12,7 @@ namespace ItemChanger
 {
     static class VanillaShops
     {
-        public static void Print()
+        public static AbstractPlacement[] GetVanillaShops()
         {
             AbstractItem mask1 = Finder.GetItem(ItemNames.Mask_Shard);
             mask1.AddTag<CostTag>().Cost = Cost.NewGeoCost(150);
@@ -208,7 +208,7 @@ namespace ItemChanger
 
             AbstractItem gleaming_marker = Finder.GetItem(ItemNames.Gleaming_Marker);
             gleaming_marker.AddTag<CostTag>().Cost = Cost.NewGeoCost(210);
-            token_marker.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.hasDash);
+            gleaming_marker.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.hasDash);
 
             AbstractPlacement iselda = new ShopPlacement
             {
@@ -254,53 +254,23 @@ namespace ItemChanger
             AbstractItem fragile_strength = Finder.GetItem(ItemNames.Fragile_Strength);
             fragile_strength.AddTag<CostTag>().Cost = Cost.NewGeoCost(600);
 
-            AbstractItem repair_heart = new BoolItem
-            {
-                fieldName = nameof(PlayerData.brokenCharm_23),
-                setValue = false,
-                name = "Fragile_Heart_(Repair)",
-                UIDef = new UIDefs.UIDef
-                {
-                    nameKey = "CHARM_NAME_23_BRK",
-                    shopDescKey = "SHOP_DESC_GLASS_HP_BRK",
-                    spriteKey = "Charms.23_B",
-                },
-            };
+            AbstractItem repair_heart = Finder.GetItem(ItemNames.Fragile_Heart_Repair);
             repair_heart.AddTag<CostTag>().Cost = Cost.NewGeoCost(200);
             repair_heart.AddTag<PDBoolShopRemoveTag>().fieldName = nameof(PlayerData.fragileHealth_unbreakable);
             repair_heart.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.brokenCharm_23);
+            //repair_heart.AddTag<PersistentItemTag>().Persistence = Persistence.Persistent;
 
-            AbstractItem repair_greed = new BoolItem
-            {
-                fieldName = nameof(PlayerData.brokenCharm_24),
-                setValue = false,
-                name = "Fragile_Greed_(Repair)",
-                UIDef = new UIDefs.UIDef
-                {
-                    nameKey = "CHARM_NAME_24_BRK",
-                    shopDescKey = "SHOP_DESC_GLASS_GEO_BRK",
-                    spriteKey = "Charms.24_B",
-                },
-            };
+            AbstractItem repair_greed = Finder.GetItem(ItemNames.Fragile_Greed_Repair);
             repair_greed.AddTag<CostTag>().Cost = Cost.NewGeoCost(150);
             repair_greed.AddTag<PDBoolShopRemoveTag>().fieldName = nameof(PlayerData.fragileGreed_unbreakable);
             repair_greed.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.brokenCharm_24);
+            //repair_greed.AddTag<PersistentItemTag>().Persistence = Persistence.Persistent;
 
-            AbstractItem repair_strength = new BoolItem
-            {
-                fieldName = nameof(PlayerData.brokenCharm_23),
-                setValue = false,
-                name = "Fragile_Strength_(Repair)",
-                UIDef = new UIDefs.UIDef
-                {
-                    nameKey = "CHARM_NAME_25_BRK",
-                    shopDescKey = "SHOP_DESC_GLASS_ATTACK_BRK",
-                    spriteKey = "Charms.25_B",
-                },
-            };
+            AbstractItem repair_strength = Finder.GetItem(ItemNames.Fragile_Strength_Repair);
             repair_strength.AddTag<CostTag>().Cost = Cost.NewGeoCost(350);
             repair_strength.AddTag<PDBoolShopRemoveTag>().fieldName = nameof(PlayerData.fragileStrength_unbreakable);
             repair_strength.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.brokenCharm_25);
+            //repair_strength.AddTag<PersistentItemTag>().Persistence = Persistence.Persistent;
 
             AbstractPlacement leg_eater = new ShopPlacement
             {
@@ -330,9 +300,9 @@ namespace ItemChanger
 
             AbstractItem quick_focus = Finder.GetItem(ItemNames.Quick_Focus);
             quick_focus.AddTag<CostTag>().Cost = Cost.NewGeoCost(800);
-            
+
             AbstractItem notch1 = Finder.GetItem(ItemNames.Charm_Notch);
-            notch1.AddTag<CostTag>().Cost = Cost.NewGeoCost(120) 
+            notch1.AddTag<CostTag>().Cost = Cost.NewGeoCost(120)
                 + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 5, uiText = "Requires 5 charms" };
             notch1.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.salubraNotch1);
 
@@ -351,22 +321,7 @@ namespace ItemChanger
                 + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 25, uiText = "Requires 25 charms" };
             notch4.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.salubraNotch4);
 
-            AbstractItem blessing = new BoolItem 
-            {
-                name = "Salubra's_Blessing",
-                fieldName = nameof(PlayerData.salubraBlessing),
-                UIDef = new UIDefs.BigUIDef
-                {
-                    spriteKey = "ShopIcons.SalubrasBlessing.png",
-                    nameKey = "SHOP_NAME_SALUBRA", // TODO: this key gives "My Blessing" not "Salubra's Blessing"
-                    shopDescKey = "SHOP_SALUBRA_BLESSING",
-                    bigSpriteKey = "Prompts.SalubrasBlessing.png",
-                    descOneKey = "GET_BLESSING_1",
-                    descTwoKey = "GET_BLESSING_2",
-                    buttonKey = "RANDOMIZER_EMPTY",
-                    takeKey = "GET_ITEM_INTRO8"
-                },
-            };
+            AbstractItem blessing = Finder.GetItem(ItemNames.Salubras_Blessing);
             blessing.AddTag<CostTag>().Cost = Cost.NewGeoCost(800);
             blessing.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.salubraNotch4);
 
@@ -388,12 +343,15 @@ namespace ItemChanger
                 },
             };
 
-            AbstractPlacement[] vanilla = new[]
+            return new[]
             {
                 sly, iselda, salubra, leg_eater
             };
+        }
 
-            Finder.Serialize("vanilla.json", vanilla);
+        public static void Print()
+        {
+            Finder.Serialize("vanilla.json", GetVanillaShops());
         }
     }
 }

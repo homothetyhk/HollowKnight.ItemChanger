@@ -8,6 +8,6 @@ namespace ItemChanger.Placements
 {
     public interface IContainerPlacement
     {
-        void GetPrimaryContainer(out GameObject obj, out Container container);
+        void GetContainer(AbstractLocation location, out GameObject obj, out string containerType);
     }
 }

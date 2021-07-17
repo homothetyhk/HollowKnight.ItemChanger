@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ItemChanger.Internal;
 using UnityEngine;
 
 namespace ItemChanger.Items
 {
     public class GrubItem : AbstractItem
     {
-        public override Container GetPreferredContainer() => Container.GrubJar;
-        public override bool GiveEarly(Container container)
+        public override string GetPreferredContainer() => Container.GrubJar;
+        public override bool GiveEarly(string containerType)
         {
-            if (container == Container.GrubJar) return true;
+            if (containerType == Container.GrubJar) return true;
             else return false;
         }
         public override void GiveImmediate(GiveInfo info)

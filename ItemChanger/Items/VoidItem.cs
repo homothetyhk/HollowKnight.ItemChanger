@@ -10,11 +10,11 @@ namespace ItemChanger.Items
         public static VoidItem Nothing => new VoidItem()
         {
             name = "Nothing",
-            UIDef = new UIDefs.MinUIDef
+            UIDef = new UIDefs.MsgUIDef
             {
-                name = "Nothing",
-                desc = "",
-                sprite = Modding.CanvasUtil.NullSprite(),
+                name = new BoxedString { Value = "Nothing" },
+                shopDesc = new BoxedString { Value = "" },
+                sprite = new EmptySprite(),
             }
         };
 

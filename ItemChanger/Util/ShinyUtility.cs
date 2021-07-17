@@ -11,66 +11,53 @@ using SereCore;
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using ItemChanger.Internal;
 
 namespace ItemChanger.Util
 {
     public static class ShinyUtility
     {
+        [Obsolete("Uses which depend on naming to identify shiny should be removed.")]
         /// <summary>
         /// Makes a Shiny Item with a name tied to location and item index. Apply FSM edits in OnEnable instead.
         /// </summary>
-        public static GameObject MakeNewShiny(AbstractPlacement placement, AbstractItem item)
+        public static GameObject MakeNewShiny(AbstractPlacement placement, AbstractItem item, FlingType flingType)
         {
             GameObject shiny = ObjectCache.ShinyItem;
             shiny.name = GetShinyName(placement, item);
             var info = shiny.AddComponent<ContainerInfo>();
-            info.placement = placement;
-            info.items = item.Yield();
-            info.flingType = placement.Location.flingType;
+            info.giveInfo = new ContainerGiveInfo
+            {
+                placement = placement,
+                items = item.Yield(),
+                flingType = flingType,
+            };
 
             return shiny;
         }
 
-        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items)
+        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
         {
             GameObject shiny = ObjectCache.ShinyItem;
             shiny.name = GetShinyPrefix(placement);
             var info = shiny.AddComponent<ContainerInfo>();
-            info.placement = placement;
-            info.items = items;
-            info.flingType = placement.Location.flingType;
+            info.giveInfo = new ContainerGiveInfo
+            {
+                placement = placement,
+                items = items,
+                flingType = flingType,
+            };
 
             if (placement is Placements.ISingleCostPlacement costPlacement)
             {
-                shiny.AddComponent<CostInfo>().cost = costPlacement.Cost;
+                info.costInfo = new CostInfo
+                {
+                    cost = costPlacement.Cost,
+                    previewItems = items,
+                };
             }
 
             return shiny;
-        }
-
-        public static void ModifyFsm(PlayMakerFSM shinyFsm)
-        {
-            ContainerInfo containerInfo = shinyFsm.gameObject.GetComponent<ContainerInfo>();
-            CostInfo costInfo = shinyFsm.gameObject.GetComponent<CostInfo>();
-            ChangeSceneInfo changeSceneInfo = shinyFsm.gameObject.GetComponent<ChangeSceneInfo>();
-
-            if (containerInfo && !containerInfo.applied)
-            {
-                ModifyMultiShiny(shinyFsm, containerInfo.flingType, containerInfo.placement, containerInfo.items);
-                containerInfo.applied = true;
-            }
-
-            if (costInfo && !costInfo.applied)
-            {
-                AddYNDialogueToShiny(shinyFsm, costInfo.cost, containerInfo?.items);
-                costInfo.applied = true;
-            }
-
-            if (changeSceneInfo && !changeSceneInfo.applied)
-            {
-                AddChangeSceneToShiny(shinyFsm, changeSceneInfo.toScene, changeSceneInfo.toGate);
-                changeSceneInfo.applied = true;
-            }
         }
 
         public static bool TryGetItemFromShinyName(string shinyObjectName, AbstractPlacement placement, out AbstractItem item)
@@ -145,8 +132,6 @@ namespace ItemChanger.Util
 
         public static void ModifyShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement placement, AbstractItem item)
         {
-            ItemChanger.instance.Log("Single Shiny!");
-
             FsmState pdBool = shinyFsm.GetState("PD Bool?");
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
@@ -248,7 +233,7 @@ namespace ItemChanger.Util
                 Name = "Give Control"
             };
 
-            FsmStateAction closeYNDialogue = new Lambda(() => CloseYNDialogue());
+            FsmStateAction closeYNDialogue = new Lambda(() => YNUtil.CloseYNDialogue());
 
             noState.ClearTransitions();
             noState.RemoveActionsOfType<FsmStateAction>();
@@ -294,12 +279,8 @@ namespace ItemChanger.Util
 
         private static void OpenYNDialogue(GameObject shiny, IEnumerable<AbstractItem> items, Cost cost)
         {
-            FSMUtility.LocateFSM(GameObject.Find("DialogueManager"), "Box Open YN").SendEvent("BOX UP YN");
-            FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables
-                .GetFsmGameObject("Requester").Value = shiny;
-
             // If the text pushes the Y/N buttons off of the page, it results in an input lock
-            // These lengths are a little generous--all MMMMMs will still overflow
+            // 120 characters is a little generous--all MMMMMs will still overflow
             string itemText = string.Join(", ", items.Select(i => i.UIDef.GetPostviewName()).ToArray());
             if (itemText.Length > 120)
             {
@@ -312,39 +293,9 @@ namespace ItemChanger.Util
                 costText = costText.Substring(0, 37) + "...";
             }
 
-            LanguageStringManager.SetString("UI", "RANDOMIZER_YN_DIALOGUE", $"{itemText}<br>{costText}");
-
-            if (!cost.CanPay())
-            {
-                FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control")
-                            .StartCoroutine(KillGeoText());
-            }
-
-            FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables
-                .GetFsmInt("Toll Cost").Value = 0;
-            FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control").FsmVariables
-                .GetFsmGameObject("Geo Text").Value.SetActive(true);
-
-            GameObject.Find("Text YN").GetComponent<DialogueBox>().StartConversation("RANDOMIZER_YN_DIALOGUE", "UI");
+            YNUtil.OpenYNDialogue(shiny, $"{itemText}\n{costText}", cost.CanPay());
         }
 
-        private static void CloseYNDialogue()
-        {
-            FSMUtility.LocateFSM(GameObject.Find("DialogueManager"), "Box Open YN").SendEvent("BOX DOWN YN");
-        }
-
-        private static IEnumerator KillGeoText()
-        {
-            PlayMakerFSM ynFsm = FSMUtility.LocateFSM(GameObject.Find("Text YN"), "Dialogue Page Control");
-            while (ynFsm.ActiveStateName != "Ready for Input")
-            {
-                yield return new WaitForEndOfFrame();
-            }
-
-            ynFsm.FsmVariables.GetFsmGameObject("Geo Text").Value.SetActive(false);
-            ynFsm.FsmVariables.GetFsmInt("Toll Cost").Value = int.MaxValue;
-            PlayMakerFSM.BroadcastEvent("NOT ENOUGH");
-        }
-
+        
     }
 }

@@ -12,15 +12,27 @@ namespace ItemChanger
     {
         private static Dictionary<string, AbstractItem> Items;
         private static Dictionary<string, AbstractLocation> Locations;
+        public static IEnumerable<string> ItemNames => Items.Keys;
+        public static IEnumerable<string> LocationNames => Locations.Keys;
 
         public static AbstractItem GetItem(string name)
         {
             return Items.TryGetValue(name, out AbstractItem item) ? item.Clone() : null;
         }
+             
+        public static Dictionary<string, AbstractItem> GetFullItemList()
+        {
+            return Items.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Clone());
+        }
 
         public static AbstractLocation GetLocation(string name)
         {
             return Locations.TryGetValue(name, out AbstractLocation loc) ? loc.Clone() : null;
+        }
+
+        public static Dictionary<string, AbstractLocation> GetFullLocationList()
+        {
+            return Locations.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Clone());
         }
 
         internal static void Load()

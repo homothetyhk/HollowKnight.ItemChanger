@@ -15,7 +15,7 @@ namespace ItemChanger.Items
         {
             PlayerData.instance.SetBool(nameof(PlayerData.hasCharm), true);
             PlayerData.instance.SetBool(gotBool, true);
-            PlayerData.instance.IncrementInt(nameof(PlayerData.charmsOwned));
+            GameManager.instance.CountCharms();
         }
 
         public override bool Redundant()

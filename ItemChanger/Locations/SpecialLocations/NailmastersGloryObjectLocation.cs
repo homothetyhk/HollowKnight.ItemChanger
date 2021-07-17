@@ -6,6 +6,7 @@ using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
+using ItemChanger.Internal;
 using ItemChanger.Util;
 using SereCore;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 fsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
                 {
                     PlayerData.instance.dreamReturnScene = "Town";
-                    Ref.WORLD.slyBasementCompleted = true;
+                    Internal.Ref.WORLD.slyBasementCompleted = true;
                 }));
             }
         }

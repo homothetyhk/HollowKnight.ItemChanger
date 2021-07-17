@@ -13,9 +13,11 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class GreyMournerLocation : FsmObjectLocation
+    public class GreyMournerLocation : FsmObjectLocation, ILocalHintLocation
     {
-        public override void PlaceContainer(GameObject obj, Container containerType)
+        public bool HintActive { get; set; }
+
+        public override void PlaceContainer(GameObject obj, string containerType)
         {
             base.PlaceContainer(obj, containerType);
             GameObject xun = ObjectLocation.FindGameObject("Xun NPC");
@@ -49,5 +51,13 @@ namespace ItemChanger.Locations.SpecialLocations
             }
         }
 
+        public override string OnLanguageGet(string convo, string sheet)
+        {
+            if (HintActive && sheet == "Prompts" && convo == "XUN_OFFER")
+            {
+                return $"Accept the Gift, even knowing you'll only get a lousy {Placement.GetUIName()}?";
+            }
+            return base.OnLanguageGet(convo, sheet);
+        }
     }
 }

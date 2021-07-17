@@ -78,20 +78,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBool.cs" />
+    <Compile Include="ISprite.cs" />
+    <Compile Include="Items\UnbreakableCharmItem.cs" />
+    <Compile Include="Items\IsmaItem.cs" />
+    <Compile Include="Items\SpellItem.cs" />
+    <Compile Include="Locations\DualLocation.cs" />
+    <Compile Include="Placements\DualPlacement.cs" />
+    <Compile Include="TaggableObject.cs" />
+    <Compile Include="Containers\ChestContainer.cs" />
+    <Compile Include="Containers\TabletContainer.cs" />
+    <Compile Include="Containers\GeoRockContainer.cs" />
+    <Compile Include="Containers\GrubJarContainer.cs" />
+    <Compile Include="Containers\ShinyContainer.cs" />
+    <Compile Include="IString.cs" />
+    <Compile Include="Tests\Tests.cs" />
+    <Compile Include="UIDefs\MsgUIDef.cs" />
+    <Compile Include="Util\YNUtil.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="Components\HintBox.cs" />
+    <Compile Include="Internal\DialogueCenter.cs" />
     <Compile Include="Items\MapMarkerItem.cs" />
     <Compile Include="Items\MapPinItem.cs" />
+    <Compile Include="Locations\ExistingContainerLocation.cs" />
+    <Compile Include="Locations\ILocalHintLocation.cs" />
     <Compile Include="Locations\SpecialLocations\AbyssShriekLocation.cs" />
+    <Compile Include="Locations\SpecialLocations\KingFragmentLocation.cs" />
+    <Compile Include="Locations\SpecialLocations\ColosseumLocation.cs" />
+    <Compile Include="Locations\SpecialLocations\WhisperingRootLocation.cs" />
     <Compile Include="Locations\SpecialLocations\GreyMournerLocation.cs" />
     <Compile Include="Locations\SpecialLocations\ShadeCloakLocation.cs" />
     <Compile Include="Locations\SpecialLocations\VoidHeartLocation.cs" />
+    <Compile Include="Tags\DestroyObjectTag.cs" />
+    <Compile Include="Tags\IActiveSceneChangedTag.cs" />
+    <Compile Include="Tags\ItemChainTag.cs" />
     <Compile Include="Tags\SetPDBoolTag.cs" />
     <Compile Include="Tags\PDBoolShopRemoveTag.cs" />
     <Compile Include="Tags\PDBoolShopReqTag.cs" />
     <Compile Include="Tags\PDIntShopReqTag.cs" />
-    <Compile Include="VanillaShops.cs" />
-    <Compile Include="Components\ChangeSceneInfo.cs" />
-    <Compile Include="Components\CostInfo.cs" />
+    <Compile Include="UIDefs\LoreUIDef.cs" />
+    <Compile Include="Util\DreamPlantUtil.cs" />
     <Compile Include="Locations\SpecialLocations\DreamerLocation.cs" />
     <Compile Include="Finder.cs" />
     <Compile Include="ItemNames.cs" />
@@ -120,11 +146,7 @@
     <Compile Include="FsmStateActions\BoolTestMod.cs" />
     <Compile Include="FsmStateActions\AsyncLambda.cs" />
     <Compile Include="Locations\PlaceableLocation.cs" />
-    <Compile Include="Locations\SDDualLocation.cs" />
-    <Compile Include="Locations\PDDualLocation.cs" />
-    <Compile Include="Locations\EnemyLocationAlt.cs" />
-    <Compile Include="Locations\ExistingChestLocation.cs" />
-    <Compile Include="Locations\DualLocation.cs" />
+    <Compile Include="Locations\EnemyFsmLocation.cs" />
     <Compile Include="Locations\ShopLocation.cs" />
     <Compile Include="Locations\StartLocation.cs" />
     <Compile Include="Locations\ContainerLocation.cs" />
@@ -143,18 +165,18 @@
     <Compile Include="Locations\SpecialLocations\DescendingDarkLocation.cs" />
     <Compile Include="Locations\SpecialLocations\VengefulSpiritLocation.cs" />
     <Compile Include="Locations\SpecialLocations\NailmasterLocation.cs" />
-    <Compile Include="Locations\FsmLocation.cs" />
+    <Compile Include="Locations\AutoLocation.cs" />
     <Compile Include="Locations\SpecialLocations\PaleLurkerDropLocation.cs" />
     <Compile Include="Locations\SpecialLocations\NailmastersGloryObjectLocation.cs" />
     <Compile Include="Placements\ISingleCostPlacement.cs" />
-    <Compile Include="Placements\FsmPlacement.cs" />
+    <Compile Include="Placements\AutoPlacement.cs" />
     <Compile Include="Placements\IContainerPlacement.cs" />
     <Compile Include="Placements\StartPlacement.cs" />
-    <Compile Include="UIDefs\MinUIDef.cs" />
     <Compile Include="Util\SceneUtil.cs" />
     <Compile Include="Util\ShopUtil.cs" />
     <Compile Include="Util\ItemUtility.cs" />
     <Compile Include="Internal\WorldEventManager.cs" />
+    <Compile Include="VanillaShops.cs" />
     <Compile Include="WorldEvents.cs" />
     <Compile Include="Internal\CustomSkillManager.cs" />
     <Compile Include="CustomSkills.cs" />
@@ -165,10 +187,8 @@
     <Compile Include="Locations\SpecialLocations\MothwingCloakLocation.cs" />
     <Compile Include="Locations\CoordinateLocation.cs" />
     <Compile Include="Placements\MutablePlacement.cs" />
-    <Compile Include="Tests\Tests.cs" />
     <Compile Include="Util\ChestUtility.cs" />
     <Compile Include="Placements\YNShinyPlacement.cs" />
-    <Compile Include="Util\ContainerUtility.cs" />
     <Compile Include="Util\TabletUtility.cs" />
     <Compile Include="Placements\CostChestPlacement.cs" />
     <Compile Include="Cost.cs" />
@@ -204,7 +224,6 @@
     <Compile Include="Items\EquippedCharmItem.cs" />
     <Compile Include="Items\IntItem.cs" />
     <Compile Include="AbstractPlacement.cs" />
-    <Compile Include="Placements\ExistingChestPlacement.cs" />
     <Compile Include="Placements\ShopPlacement.cs" />
     <Compile Include="Platform.cs" />
     <Compile Include="Components\RandomizerTinkEffect.cs" />
@@ -224,9 +243,7 @@
     <Compile Include="Internal\SaveSettings.cs" />
     <Compile Include="Internal\SpriteManager.cs" />
     <Compile Include="UIDefs\BigUIDef.cs" />
-    <Compile Include="UIDefs\GrubUIDef.cs" />
-    <Compile Include="UIDefs\UIDef.cs" />
-    <Compile Include="UIDefs\IUIDef.cs" />
+    <Compile Include="UIDef.cs" />
     <Compile Include="Internal\ObjectCache.cs" />
     <Compile Include="ItemChanger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -395,10 +412,6 @@
     <EmbeddedResource Include="Resources\Prompts\WalljumpReflected.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\items.json" />
-    <EmbeddedResource Include="Resources\locations.json" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\ShopIcons\SalubrasBlessing.png" />
   </ItemGroup>
   <ItemGroup>
@@ -423,7 +436,16 @@
     <EmbeddedResource Include="Resources\vanilla.json" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\altlocations.json" />
+    <EmbeddedResource Include="Resources\Prompts\36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Charms\23_B.png" />
+    <EmbeddedResource Include="Resources\Charms\24_B.png" />
+    <EmbeddedResource Include="Resources\Charms\25_B.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\items.json" />
+    <EmbeddedResource Include="Resources\locations.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

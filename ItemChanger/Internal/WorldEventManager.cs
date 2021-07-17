@@ -9,7 +9,7 @@ using SereCore;
 using UnityEngine;
 using Modding;
 
-namespace ItemChanger
+namespace ItemChanger.Internal
 {
     public static class WorldEventManager
     {
@@ -83,7 +83,7 @@ namespace ItemChanger
                         case "Shop Region":
                         case "Basement Open":
                         case "door1":
-                            GameObject.Destroy(fsm.gameObject);
+                            UnityEngine.Object.Destroy(fsm.gameObject);
                             break;
                     }
                     break;

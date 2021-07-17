@@ -9,10 +9,11 @@ namespace ItemChanger.Locations
     public abstract class PlaceableLocation : ContainerLocation
     {
         /// <summary>
-        /// An auxillary ContainerLocation receives its container through PlaceContainer during ActiveSceneChanged, rather than by requesting it in GetPrimaryContainer.
+        /// A managed ContainerLocation receives its container through PlaceContainer during ActiveSceneChanged,
+        /// rather than by requesting it in GetContainer.
         /// </summary>
-        public bool auxillary;
+        public bool managed;
 
-        public abstract void PlaceContainer(GameObject obj, Container containerType);
+        public abstract void PlaceContainer(GameObject obj, string containerType);
     }
 }

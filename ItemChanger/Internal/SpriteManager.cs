@@ -6,7 +6,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using UnityEngine;
 
-namespace ItemChanger
+namespace ItemChanger.Internal
 {
     internal static class SpriteManager
     {

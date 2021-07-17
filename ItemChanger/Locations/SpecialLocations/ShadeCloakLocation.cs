@@ -13,10 +13,8 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class ShadeCloakLocation : FsmLocation
+    public class ShadeCloakLocation : AutoLocation
     {
-        public override MessageType MessageType => MessageType.Any;
-
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             base.OnEnableLocal(fsm);
@@ -39,7 +37,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         pd.Actions = new FsmStateAction[0];
 
                         FsmState uiMsg = fsm.GetState("UI Msg");
-                        Lambda give = new Lambda(() => Placement.GiveAll(MessageType, () => fsm.Fsm.Event("GET ITEM MSG END")));
+                        FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
                         uiMsg.Actions = new[] { give };
 
                         FsmState end = fsm.GetState("End");

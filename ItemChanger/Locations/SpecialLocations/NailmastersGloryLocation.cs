@@ -16,9 +16,8 @@ namespace ItemChanger.Locations.SpecialLocations
     /// <summary>
     /// Gives item through Sly Basement dialogue, then returns to Dirtmouth.
     /// </summary>
-    public class NailmastersGloryLocation : FsmLocation
+    public class NailmastersGloryLocation : AutoLocation
     {
-        public override MessageType MessageType => MessageType.Any;
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == "Conversation Control" && fsm.gameObject.name == "Sly Basement NPC")
@@ -31,7 +30,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
                 give.Actions = new FsmStateAction[]
                 {
-                    new AsyncLambda(callback => Placement.GiveAll(MessageType, callback)),
+                    new AsyncLambda(GiveAll),
                 };
 
                 end.AddFirstAction(new RandomizerChangeScene("Town", "door_sly"));

@@ -6,6 +6,7 @@ using System.Text;
 
 namespace ItemChanger
 {
+    [Obsolete("Move toward location-based model in place of this.")]
     public class WorldEvents
     {
         private Dictionary<string, bool> _bools = new Dictionary<string, bool>

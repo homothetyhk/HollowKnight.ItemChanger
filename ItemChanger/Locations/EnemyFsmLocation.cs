@@ -9,7 +9,7 @@ using UnityEngine;
 namespace ItemChanger.Locations
 {
     // A variant of EnemyLocation which accounts for the fact that some enemies may not be loaded at activeSceneChanged
-    public class EnemyLocationAlt : ContainerLocation
+    public class EnemyFsmLocation : ContainerLocation
     {
         // enemy info - look for fsm in OnEnable, rather than object on scene entry
         public string enemyFsm;
@@ -17,17 +17,17 @@ namespace ItemChanger.Locations
 
         public bool removeGeo;
 
-        public override bool Supports(Container container)
+        public override bool Supports(string containerType)
         {
-            if (container == Container.Chest) return false;
-            return base.Supports(container);
+            if (containerType == Container.Chest) return false;
+            return base.Supports(containerType);
         }
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == enemyFsm && fsm.gameObject.name == enemyObj)
             {
-                base.GetPrimaryContainer(out GameObject obj, out _);
+                base.GetContainer(out GameObject obj, out _);
                 AddDeathEvent(fsm.gameObject, obj);
             }
         }

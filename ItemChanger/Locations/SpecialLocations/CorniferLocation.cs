@@ -13,11 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class CorniferLocation : FsmLocation
+    public class CorniferLocation : AutoLocation
     {
         public string objectName;
-
-        public override MessageType MessageType => MessageType.Any;
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
@@ -32,11 +30,6 @@ namespace ItemChanger.Locations.SpecialLocations
                         checkActive.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)checkActive.Actions[0]);
                         convoChoice.Actions[1] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)convoChoice.Actions[1]);
 
-                        void Callback()
-                        {
-                            fsm.Fsm.Event("TALK FINISH");
-                        }
-
                         get.Actions = new FsmStateAction[]
                         {
                             get.Actions[0], // Wait
@@ -44,7 +37,7 @@ namespace ItemChanger.Locations.SpecialLocations
                             get.Actions[2], // Npc title down
                             // get.Actions[3] // SetPlayerDataBool
                             // get.Actions[4-7] // nonDeepnest only, map achievement/messages
-                            new Lambda(() => Placement.GiveAll(MessageType, Callback))
+                            new AsyncLambda(GiveAll, "TALK FINISH")
                         };
                         get.ClearTransitions();
 

@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace ItemChanger
 {
     public static class Extensions
     {
+        public static T GetOrAddComponent<T>(this GameObject go) where T : Component
+        {
+            T t = go.GetComponent<T>();
+            if (t == null) return go.AddComponent<T>();
+            else return t;
+        }
+
         public static bool Compare(this int a, ComparisonOperator op, int b)
         {
+            GameObject g;
             switch (op)
             {
                 default:

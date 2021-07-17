@@ -4,7 +4,7 @@ using SereCore;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-using static ItemChanger.SpriteManager;
+using static ItemChanger.Internal.SpriteManager;
 using System;
 
 namespace ItemChanger.Components
@@ -40,7 +40,7 @@ namespace ItemChanger.Components
             };
         }
 
-        public static GameObject Show(Sprite bigSprite, string takeKey, string nameKey, string buttonKey, string descOneKey, string descTwoKey, Action callback)
+        public static GameObject Show(Sprite bigSprite, string take, string name, string button, string descOne, string descTwo, Action callback)
         {
             // Create base canvas
             GameObject canvas = CanvasUtil.CreateCanvas(RenderMode.ScreenSpaceOverlay, new Vector2(1920, 1080));
@@ -48,11 +48,11 @@ namespace ItemChanger.Components
             // Add popup component, set values
             BigItemPopup popup = canvas.AddComponent<BigItemPopup>();
             popup._imagePrompt = bigSprite;
-            popup._takeText = Language.Language.Get(takeKey, "Prompts").Replace("<br>", " ");
-            popup._nameText = Language.Language.Get(nameKey, "UI").Replace("<br>", " ");
-            popup._buttonText = Language.Language.Get(buttonKey, "Prompts").Replace("<br>", " ");
-            popup._descOneText = Language.Language.Get(descOneKey, "Prompts").Replace("<br>", " ");
-            popup._descTwoText = Language.Language.Get(descTwoKey, "Prompts").Replace("<br>", " ");
+            popup._takeText = take;
+            popup._nameText = name;
+            popup._buttonText = button;
+            popup._descOneText = descOne;
+            popup._descTwoText = descTwo;
             popup._callback = callback;
 
             return canvas;

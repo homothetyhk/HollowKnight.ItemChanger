@@ -1,4 +1,6 @@
-﻿namespace ItemChanger
+﻿using ItemChanger.Internal;
+
+namespace ItemChanger
 {
     public class AdditiveGroupTag : Tag, IModifyItemTag
     {

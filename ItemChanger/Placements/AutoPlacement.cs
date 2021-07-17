@@ -10,9 +10,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class FsmPlacement : AbstractPlacement
+    public class AutoPlacement : AbstractPlacement
     {
-        public FsmLocation location;
+        public AutoLocation location;
         public override AbstractLocation Location => location;
     }
 }

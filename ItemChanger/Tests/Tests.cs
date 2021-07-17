@@ -8,11 +8,289 @@ using ItemChanger.Locations;
 using ItemChanger.Placements;
 using SereCore;
 using ItemChanger.Locations.SpecialLocations;
+using ItemChanger.Internal;
+using Ref = ItemChanger.Internal.Ref;
 
 namespace ItemChanger.Tests
 {
     public static class Tests
     {
+        static AbstractItem cyclone => Finder.GetItem(ItemNames.Cyclone_Slash);
+        static AbstractItem gslash => Finder.GetItem(ItemNames.Great_Slash);
+        static AbstractItem dslash => Finder.GetItem(ItemNames.Dash_Slash);
+        static AbstractItem dreamnail => Finder.GetItem(ItemNames.Dream_Nail);
+        static AbstractItem dreamgate => Finder.GetItem(ItemNames.Dream_Gate);
+        static AbstractItem fk => Finder.GetItem(ItemNames.Geo_Chest_False_Knight);
+        static AbstractItem wk => Finder.GetItem(ItemNames.Geo_Chest_Watcher_Knights);
+        static AbstractItem grubsong => Finder.GetItem(ItemNames.Grubsong);
+        static AbstractItem grub => Finder.GetItem(ItemNames.Grub);
+        static AbstractItem leftlore => Finder.GetItem(ItemNames.Lore_Tablet_City_Entrance);
+        static AbstractItem lore => Finder.GetItem(ItemNames.Lore_Tablet_Fungal_Wastes_Hidden);
+        static AbstractItem majorlore => Finder.GetItem(ItemNames.Lore_Tablet_Kings_Pass_Focus);
+        static AbstractItem megarock => Finder.GetItem(ItemNames.Geo_Rock_Outskirts420);
+        static AbstractItem shopkey => Finder.GetItem(ItemNames.Shopkeepers_Key);
+        static AbstractItem simple => Finder.GetItem(ItemNames.Simple_Key);
+        static AbstractItem supernail => new Items.IntItem
+        {
+            name = "Super_Nail",
+            amount = 500,
+            fieldName = nameof(PlayerData.nailDamage),
+            UIDef = null,
+        };
+        static AbstractItem dive => Finder.GetItem(ItemNames.Desolate_Dive);
+        static AbstractItem dash => Finder.GetItem(ItemNames.Mothwing_Cloak);
+        static AbstractItem focus => Finder.GetItem(ItemNames.Focus);
+        static AbstractItem leftdash => Finder.GetItem(ItemNames.Left_Mothwing_Cloak);
+
+
+        private static AbstractPlacement AddTestingItems(this AbstractPlacement placement)
+        {
+            placement.AddItem(cyclone);
+            placement.AddItem(wk);
+            placement.AddItem(grubsong);
+            placement.AddItem(leftlore);
+            placement.AddItem(grub);
+            placement.AddItem(majorlore);
+            placement.AddItem(megarock);
+            return placement;
+        }
+
+        static AbstractPlacement ex_sou = new DualPlacement
+        {
+            Test = new PDBool { boolName = nameof(PlayerData.slugEncounterComplete) },
+            falseLocation = new ExistingContainerLocation
+            {
+                containerType = "Shiny",
+                fsmName = "Shiny Control",
+                objectName = "Shiny Item",
+                sceneName = SceneNames.Fungus1_Slug,
+                flingType = FlingType.StraightUp
+            },
+            trueLocation = new ExistingContainerLocation
+            {
+                containerType = "Shiny",
+                fsmName = "Shiny Control",
+                objectName = "Shiny Item Return",
+                sceneName = SceneNames.Fungus1_Slug,
+                flingType = FlingType.StraightUp
+            },
+        };
+
+        public static void ShapeOfUnnTest()
+        {
+            Ref.QuickSave(ex_sou.AddTestingItems());
+        }
+
+        static AbstractPlacement ex_joni = new AutoPlacement
+        {
+            location = new ExistingContainerLocation
+            {
+                name = "Joni",
+                containerType = "Shiny",
+                fsmName = "Shiny Control",
+                objectName = "Shiny Item Stand",
+                sceneName = "Cliffs_05",
+            }
+        };
+
+        static AbstractPlacement ex_worldsense = new AutoPlacement
+        {
+            location = new ExistingContainerLocation
+            {
+                containerType = Container.Tablet,
+                fsmName = "Inspection",
+                objectName = "Tut_tablet_top",
+                sceneName = SceneNames.Room_Final_Boss_Atrium,
+            }
+        };
+
+        public static void ExistingLocationTest()
+        {
+            AddTestingItems(ex_joni);
+            AddTestingItems(ex_worldsense);
+
+            Ref.QuickSave(ex_joni, ex_worldsense);
+        }
+
+        public static void VanillaShopTest()
+        {
+            PlayerData.instance.geo = 100000;
+            Ref.QuickSave(VanillaShops.GetVanillaShops());
+        }
+
+        public static void FailedChampionTest()
+        {
+            PlayerData.instance.falseKnightDefeated = true;
+            PlayerData.instance.falseKnightDreamDefeated = true;
+
+            AddTestingItems(fcessence);
+            Ref.QuickSave(fcessence);
+        }
+
+        static AbstractPlacement fcessence = new AutoPlacement
+        {
+            location = new BossEssenceLocation
+            {
+                sceneName = "Crossroads_10",
+                objName = "Ghost False Knight NPC",
+                fsmName = "Conversation Control",
+            }
+        };
+        public static void FailedChampionEssenceTest()
+        {
+
+        }
+
+        public static void SlyNMGTest()
+        {
+            PlayerData.instance.hasUpwardSlash = true;
+            PlayerData.instance.hasDashSlash = true;
+            PlayerData.instance.hasCyclone = true;
+            PlayerData.instance.gotSlyCharm = true;
+            PlayerData.instance.hasAllNailArts = true;
+            PlayerData.instance.hasNailArt = true;
+
+            slynmg.AddItem(cyclone);
+            slynmg.AddItem(wk);
+            slynmg.AddItem(grubsong);
+            slynmg.AddItem(leftlore);
+            slynmg.AddItem(megarock);
+            slynmg.AddItem(majorlore);
+
+            Ref.QuickSave(slynmg);
+        }
+
+        static AbstractPlacement slynmg = new AutoPlacement
+        {
+            location = new NailmastersGloryLocation
+            {
+                flingType = FlingType.DirectDeposit,
+                sceneName = SceneNames.Room_Sly_Storeroom,
+            }
+        };
+
+        static AbstractPlacement quirreltablet = new AutoPlacement
+        {
+            location = new ExistingContainerLocation
+            {
+                name = LocationNames.Lore_Tablet_City_Entrance,
+                fsmName = "inspect_region",
+                objectName = "Inspect Region",
+                containerType = Container.Tablet,
+                sceneName = "Ruins1_02",
+            }
+        };
+
+        public static void NormalLoreTabletAltTest()
+        {
+            quirreltablet.AddItem(cyclone);
+            quirreltablet.AddItem(wk);
+            quirreltablet.AddItem(grubsong);
+            quirreltablet.AddItem(leftlore);
+            quirreltablet.AddItem(megarock);
+            quirreltablet.AddItem(majorlore);
+
+            Ref.QuickSave(quirreltablet);
+        }
+
+        static AbstractPlacement worldsense = new AutoPlacement
+        {
+            location = new ExistingContainerLocation
+            {
+                name = "World_Sense",
+                fsmName = "Inspection",
+                objectName = "Tut_tablet_top",
+                containerType = Container.Tablet,
+                sceneName = SceneNames.Room_Final_Boss_Atrium
+            }
+        };
+
+        public static void WorldSenseTest()
+        {
+            worldsense.AddItem(cyclone);
+            worldsense.AddItem(wk);
+            worldsense.AddItem(grubsong);
+            worldsense.AddItem(leftlore); 
+            worldsense.AddItem(megarock);
+            worldsense.AddItem(majorlore);
+
+            Ref.QuickSave(worldsense);
+        }
+
+        static MutablePlacement colo1 = new MutablePlacement
+        {
+            location = new ColosseumLocation
+            {
+                name = "Charm_Notch-Colosseum",
+                sceneName = SceneNames.Room_Colosseum_Bronze,
+                fsmName = "Geo Pool",
+                fsmParent = "Colosseum Manager",
+                fsmVariable = "Shiny Obj",
+                objectName = "Shiny Item"
+            },
+        };
+
+        public static void ColosseumTest()
+        {
+            start.AddItem(supernail);
+            colo1.AddItem(grub);
+
+            Ref.QuickSave(start, colo1);
+        }
+
+        public static void CollectorTest()
+        {
+            var p1 = Finder.GetLocation(LocationNames.Grub_Collector_1).Wrap();
+            var p2 = Finder.GetLocation(LocationNames.Grub_Collector_2).Wrap();
+            var p3 = Finder.GetLocation(LocationNames.Grub_Collector_3).Wrap();
+            var cm = Finder.GetLocation(LocationNames.Collectors_Map).Wrap();
+
+            p1.AddItem(grub);
+            p2.AddItem(grubsong);
+            p3.AddItem(megarock);
+            cm.AddItem(cyclone);
+
+            Ref.QuickSave(p1, p2, p3, cm);
+
+        }
+
+
+        static AbstractPlacement rgroot = new WhisperingRootLocation
+        {
+            sceneName = SceneNames.RestingGrounds_05,
+            flingType = FlingType.DirectDeposit,
+            name = "Whispering_Root-Resting_Grounds",
+        }.Wrap();
+
+        public static void WhisperingRootTest()
+        {
+            megarock.AddTag<Tags.PersistentItemTag>().Persistence = Persistence.Persistent;
+            grubsong.AddTag<Tags.PersistentItemTag>().Persistence = Persistence.SemiPersistent;
+            rgroot.AddItem(megarock);
+            rgroot.AddItem(grubsong);
+
+            Ref.QuickSave(rgroot);
+        }
+
+        public static void ItemChainTest()
+        {
+            salubra.AddItem(Finder.GetItem("Queen_Fragment"));
+            salubra.AddItem(Finder.GetItem("King_Fragment"));
+            salubra.AddItem(Finder.GetItem("Kingsoul"));
+            salubra.AddItem(Finder.GetItem("Void_Heart"));
+
+            Ref.QuickSave(salubra);
+        }
+
+        public static void LoreTest()
+        {
+            crystal.AddItem(majorlore);
+            crystal.AddItem(lore);
+            crystal.AddItem(leftlore);
+
+            Ref.QuickSave(crystal);
+        }
+
         public static void FinderTest()
         {
             AbstractPlacement placement = Finder.GetLocation(LocationNames.Vengeful_Spirit).Wrap();
@@ -68,50 +346,6 @@ namespace ItemChanger.Tests
 
             Ref.QuickSave(start, voidheart);
         }
-
-        public static AbstractItem dreamnail = new BoolItem
-        {
-            name = "Dream_Nail",
-            fieldName = nameof(PlayerData.hasDreamNail),
-            UIDef = new BigUIDef
-            {
-                nameKey = "INV_NAME_DREAMNAIL_A",
-                shopDescKey = "INV_DESC_DREAMNAIL_A",
-                spriteKey = "ShopIcons.Dreamnail",
-
-                bigSpriteKey = "Prompts.Dreamnail",
-                takeKey = "GET_ITEM_INTRO5",
-                buttonKey = "RANDOMIZER_BUTTON_DESC",
-                descOneKey = "GET_DREAMNAIL_1",
-                descTwoKey = "GET_DREAMNAIL_2",
-            },
-            tags = new List<Tag>
-            {
-                new AdditiveGroupTag{AdditiveGroup = "Dream_Nail"},
-            }
-        };
-
-        public static AbstractItem dreamgate = new BoolItem
-        {
-            name = "Dream_Gate",
-            fieldName = nameof(PlayerData.hasDreamGate),
-            UIDef = new BigUIDef
-            {
-                nameKey = "INV_NAME_DREAMGATE",
-                shopDescKey = "INV_DESC_DREAMGATE",
-                spriteKey = "ShopIcons.Dreamnail",
-
-                bigSpriteKey = "Prompts.Dream Gate",
-                takeKey = "GET_ITEM_INTRO5",
-                buttonKey = "RANDOMIZER_BUTTON_DESC",
-                descOneKey = "GET_DREAMGATE_1",
-                descTwoKey = "GET_DREAMGATE_2",
-            },
-            tags = new List<Tag>
-            {
-                new AdditiveGroupTag{AdditiveGroup = "Dream_Nail"},
-            }
-        };
 
         static MutablePlacement herrah = new MutablePlacement
         {
@@ -534,7 +768,7 @@ namespace ItemChanger.Tests
 
         static MutablePlacement greymourner = Finder.GetLocation(LocationNames.Mask_Shard_Grey_Mourner).Wrap() as MutablePlacement;
 
-        static FsmPlacement grimmkinGP = new FsmPlacement
+        static AutoPlacement grimmkinGP = new AutoPlacement
         {
             location = new GrimmkinLocation
             {
@@ -545,104 +779,100 @@ namespace ItemChanger.Tests
             },
         };
 
-        static MutablePlacement gruzmother = new MutablePlacement
+        static DualPlacement gruzmother = new DualPlacement
         {
-            location = new SDDualLocation
+            Test = new SDBool { id = "Battle Scene", sceneName = SceneNames.Crossroads_04 },
+            trueLocation = new CoordinateLocation
             {
                 name = "Gruz_Mother",
                 sceneName = SceneNames.Crossroads_04,
-                pbdID = "Battle Scene",
-                trueLocation = new CoordinateLocation
-                {
-                    x = 92.5f,
-                    y = 15.5f,
-                },
-                falseLocation = new GruzMotherDropLocation
-                {
-                },
-            }
-        };
-
-        static MutablePlacement vengeflyking = new MutablePlacement
-        {
-            location = new PDDualLocation
-            {
-                name = "Vengefly_King",
-                sceneName = SceneNames.Fungus1_20_v02,
-                pdBool = nameof(PlayerData.zoteRescuedBuzzer),
-                trueLocation = new CoordinateLocation
-                {
-                    x = 45f,
-                    y = 13.5f,
-                },
-                falseLocation = new EnemyLocation
-                {
-                    objectName = "Giant Buzzer",
-                    removeGeo = true,
-                }
-            }
-        };
-
-        static MutablePlacement vengeflyking_alt = new MutablePlacement
-        {
-            location = new PDDualLocation
-            {
-                name = "Vengefly_King",
-                sceneName = SceneNames.Fungus1_20_v02,
-                pdBool = nameof(PlayerData.zoteRescuedBuzzer),
-                trueLocation = new CoordinateLocation
-                {
-                    x = 45f,
-                    y = 13.5f,
-                },
-                falseLocation = new EnemyLocationAlt
-                {
-                    enemyObj = "Giant Buzzer",
-                    enemyFsm = "Big Buzzer",
-                    removeGeo = true,
-                }
-            }
-        };
-
-        static MutablePlacement soulwarrior = new MutablePlacement
-        {
-            location = new SDDualLocation
-            {
-                name = "Soul_Warrior",
-                sceneName = SceneNames.Ruins1_23,
-                pbdID = "Battle Scene v2",
-                trueLocation = new CoordinateLocation
-                {
-                    x = 30f,
-                    y = 75f,
-                },
-                falseLocation = new EnemyLocation
-                {
-                    objectName = "Mage Knight",
-                    removeGeo = true,
-                }
-            }
-        };
-
-        static MutablePlacement crystalguardian = new MutablePlacement
-        {
-            location = new PDDualLocation
-            {
-                name = "Crystal_Guardian",
-                sceneName = SceneNames.Mines_18,
-                pdBool = nameof(PlayerData.defeatedMegaBeamMiner),
-                trueLocation = new CoordinateLocation
-                {
-                    x = 34f,
-                    y = 11.5f,
-                },
-                falseLocation = new EnemyLocationAlt
-                {
-                    enemyFsm = "Beam Miner",
-                    enemyObj = "Mega Zombie Beam Miner (1)",
-                    removeGeo = true,
-                }
+                x = 92.5f,
+                y = 15.5f,
             },
+            falseLocation = new GruzMotherDropLocation
+            {
+                name = "Gruz_Mother",
+                sceneName = SceneNames.Crossroads_04,
+                removeGeo = true,
+            },
+        };
+
+        static DualPlacement vengeflyking = new DualPlacement
+        {
+            Test = new PDBool { boolName = nameof(PlayerData.zoteRescuedBuzzer)},
+            trueLocation = new CoordinateLocation
+            {
+                name = LocationNames.Boss_Geo_Vengefly_King,
+                sceneName = SceneNames.Fungus1_20_v02,
+                x = 45f,
+                y = 13.5f,
+            },
+            falseLocation = new EnemyLocation
+            {
+                name = LocationNames.Boss_Geo_Vengefly_King,
+                sceneName = SceneNames.Fungus1_20_v02,
+                objectName = "Giant Buzzer",
+                removeGeo = true,
+            }
+        };
+
+        static DualPlacement vengeflyking_alt = new DualPlacement
+        {
+            Test = new PDBool { boolName = nameof(PlayerData.zoteRescuedBuzzer) },
+            trueLocation = new CoordinateLocation
+            {
+                name = LocationNames.Boss_Geo_Vengefly_King,
+                sceneName = SceneNames.Fungus1_20_v02,
+                x = 45f,
+                y = 13.5f,
+            },
+            falseLocation = new EnemyFsmLocation
+            {
+                name = LocationNames.Boss_Geo_Vengefly_King,
+                sceneName = SceneNames.Fungus1_20_v02,
+                enemyObj = "Giant Buzzer",
+                enemyFsm = "Big Buzzer",
+                removeGeo = true,
+            }
+        };
+
+        static DualPlacement soulwarrior = new DualPlacement
+        {
+            Test = new SDBool { id = "Battle Scene v2", sceneName = SceneNames.Ruins1_23 },
+            trueLocation = new CoordinateLocation
+            {
+                name = LocationNames.Boss_Geo_Sanctum_Soul_Warrior,
+                sceneName = SceneNames.Ruins1_23,
+                x = 30f,
+                y = 75f,
+            },
+            falseLocation = new EnemyLocation
+            {
+                name = LocationNames.Boss_Geo_Sanctum_Soul_Warrior,
+                sceneName = SceneNames.Ruins1_23,
+                objectName = "Mage Knight",
+                removeGeo = true,
+            }
+        };
+
+        static AbstractPlacement crystalguardian = new DualPlacement
+        {
+            Test = new PDBool { boolName = nameof(PlayerData.defeatedMegaBeamMiner) },
+            trueLocation = new CoordinateLocation
+            {
+                name = LocationNames.Boss_Geo_Crystal_Guardian,
+                sceneName = SceneNames.Mines_18,
+                x = 34f,
+                y = 11.5f,
+            },
+            falseLocation = new EnemyFsmLocation
+            {
+                name = LocationNames.Boss_Geo_Crystal_Guardian,
+                sceneName = SceneNames.Mines_18,
+                enemyFsm = "Beam Miner",
+                enemyObj = "Mega Zombie Beam Miner (1)",
+                removeGeo = true,
+            }
         };
 
         /*
@@ -668,7 +898,7 @@ namespace ItemChanger.Tests
         };
         */
 
-        static FsmPlacement scloak = new FsmPlacement
+        static AutoPlacement scloak = new AutoPlacement
         {
             location = new ShadeCloakLocation
             {
@@ -678,7 +908,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        static FsmPlacement shriek = new FsmPlacement
+        static AutoPlacement shriek = new AutoPlacement
         {
             location = new AbyssShriekLocation
             {
@@ -700,7 +930,7 @@ namespace ItemChanger.Tests
             },
         };
 
-        public static FsmPlacement brumm = new FsmPlacement
+        public static AutoPlacement brumm = new AutoPlacement
         {
             location = new BrummFlameLocation
             {
@@ -724,7 +954,7 @@ namespace ItemChanger.Tests
             }
         };
 
-        static FsmPlacement crystal = new FsmPlacement
+        static AutoPlacement crystal = new AutoPlacement
         {
             location = new DescendingDarkLocation
             {
@@ -736,7 +966,7 @@ namespace ItemChanger.Tests
             },
         };
 
-        static FsmPlacement shadesoul = new FsmPlacement
+        static AutoPlacement shadesoul = new AutoPlacement
         {
             location = new ShadeSoulLocation
             {
@@ -760,7 +990,7 @@ namespace ItemChanger.Tests
             },
         };
 
-        static FsmPlacement cliffsmap = new FsmPlacement
+        static AutoPlacement cliffsmap = new AutoPlacement
         {
             location = new CorniferLocation
             {
@@ -772,7 +1002,7 @@ namespace ItemChanger.Tests
             
         };
 
-        static FsmPlacement mato = new FsmPlacement
+        static AutoPlacement mato = new AutoPlacement
         {
             location = new NailmasterLocation
             {
@@ -784,25 +1014,20 @@ namespace ItemChanger.Tests
             },
         };
 
-        static MutablePlacement lurker = new MutablePlacement
+        static AbstractPlacement lurker = new DualPlacement
         {
-            location = new PDDualLocation
+            Test = new PDBool { boolName = nameof(PlayerData.killedPaleLurker)},
+            trueLocation = new ObjectLocation
             {
                 name = "Simple_Key-Lurker",
                 sceneName = "GG_Lurker",
-                pdBool = nameof(PlayerData.killedPaleLurker),
-                trueLocation = new ObjectLocation
-                {
-                    name = "Simple_Key-Lurker",
-                    sceneName = "GG_Lurker",
-                    objectName = "Corpse Pale Lurker\\Shiny Item Key",
-                },
-                falseLocation = new PaleLurkerDropLocation
-                {
-                    name = "Simple_Key-Lurker",
-                    sceneName = "GG_Lurker",
-                    objectName = "Lurker Control\\Pale Lurker",
-                },
+                objectName = "Corpse Pale Lurker\\Shiny Item Key",
+            },
+            falseLocation = new PaleLurkerDropLocation
+            {
+                name = "Simple_Key-Lurker",
+                sceneName = "GG_Lurker",
+                objectName = "Lurker Control\\Pale Lurker",
             },
         };
 
@@ -853,228 +1078,14 @@ namespace ItemChanger.Tests
             }
         };
 
-        static AbstractItem supernail = new Items.IntItem
-        {
-            name = "Super_Nail",
-            amount = 500,
-            fieldName = nameof(PlayerData.nailDamage),
-            UIDef = null,
-        };
-
-        static AbstractItem dive = new IntItem
-        {
-            fieldName = nameof(PlayerData.quakeLevel),
-            amount = 1,
-            name = "Desolate_Dive",
-            UIDef = new BigUIDef
-            {
-                takeKey = "GET_ITEM_INTRO3",
-                nameKey = "INV_NAME_SPELL_QUAKE1",
-                buttonKey = "RANDOMIZER_BUTTON_DESC",
-                descOneKey = "GET_QUAKE_1",
-                descTwoKey = "GET_QUAKE_2",
-                shopDescKey = "INV_DESC_SPELL_QUAKE1",
-                bigSpriteKey = "Prompts.Quake1",
-                spriteKey = "ShopIcons.Quake1"
-            }
-        };
-
-        static AbstractItem dash = new Items.MultiBoolItem
-        {
-            name = "Mothwing_Cloak",
-            fieldNames = new string[] { "canDash", "hasDash" },
-            UIDef = new BigUIDef
-            {
-                nameKey = "INV_NAME_DASH",
-                shopDescKey = "INV_DESC_DASH",
-                spriteKey = "ShopIcons.Dash",
-                bigSpriteKey = "Prompts.Dash",
-                descOneKey = "GET_DASH_1",
-                descTwoKey = "GET_DASH_2",
-                buttonKey = "RANDOMIZER_EMPTY",
-                takeKey = "GET_ITEM_INTRO1"
-            }
-        };
-
-        static AbstractItem leftdash = new Items.CustomSkillItem
-        {
-            name = "Left_Mothwing_Cloak",
-            boolName = "canDashLeft",
-            UIDef = new BigUIDef
-            {
-                nameKey = "RANDOMIZER_NAME_LEFT_CLOAK",
-                shopDescKey = "RANDOMIZER_SHOP_DESC_LEFT_CLOAK",
-                spriteKey = "ShopIcons.Dash",
-                bigSpriteKey = "Prompts.DashReflected",
-                descOneKey = "RANDOMIZER_DESC_LEFT_CLOAK",
-                descTwoKey = "RANDOMIZER_DESC_LEFT_CLOAK_2",
-                buttonKey = "RANDOMIZER_EMPTY",
-                takeKey = "GET_ITEM_INTRO1"
-            }
-        };
-
-        static AbstractItem focus = new Items.CustomSkillItem
-        {
-            name = "Focus",
-            boolName = "canFocus",
-            UIDef = new BigUIDef
-            {
-                nameKey = "RANDOMIZER_NAME_FOCUS",
-                shopDescKey = "RANDOMIZER_SHOP_DESC_FOCUS",
-                spriteKey = "ShopIcons.Focus",
-                descOneKey = "RANDOMIZER_DESC_FOCUS",
-                descTwoKey = "RANDOMIZER_EMPTY",
-                bigSpriteKey = "Prompts.Focus",
-                buttonKey = "RANDOMIZER_EMPTY",
-                takeKey = "GET_ITEM_INTRO1",
-            }
-        };
-
-        static AbstractItem grubsong = new Items.CharmItem
-        {
-            name = "Grubsong",
-            charmNum = 3,
-            UIDef = new UIDef
-            {
-                nameKey = "CHARM_NAME_3",
-                shopDescKey = "CHARM_DESC_3",
-                spriteKey = "Charms.3"
-            }
-        };
-
-        static AbstractItem equipped_crest = new Items.EquippedCharmItem
+        static AbstractItem equipped_crest => new Items.EquippedCharmItem
         {
             name = "Defender's_Crest-E",
             charmNum = 10,
-            UIDef = new UIDef
-            {
-                nameKey = "CHARM_NAME_10",
-                shopDescKey = "CHARM_DESC_10",
-                spriteKey = "Charms.10"
-            }
+            UIDef = Finder.GetItem(ItemNames.Defenders_Crest).UIDef.Clone()
         };
 
-        static AbstractItem cyclone = new Items.BoolItem
-        {
-            name = "Cyclone_Slash",
-            fieldName = "hasCyclone",
-            UIDef = new BigUIDef
-            {
-                nameKey = "INV_NAME_ART_CYCLONE",
-                shopDescKey = "INV_DESC_ART_CYCLONE",
-                spriteKey = "ShopIcons.CycloneSlash",
-
-                takeKey = "GET_ITEM_INTRO3",
-                buttonKey = "RANDOMIZER_BUTTON_DESC",
-                descOneKey = "GET_CYCLONE_1",
-                descTwoKey = "GET_CYCLONE_2",
-                bigSpriteKey = "Prompts.CycloneSlash",
-            }
-        };
-
-        static AbstractItem gslash = new Items.BoolItem
-        {
-            name = "Great_Slash",
-            fieldName = "hasDashSlash",
-            UIDef = new BigUIDef
-            {
-                nameKey = "INV_NAME_ART_DASH",
-                shopDescKey = "INV_DESC_ART_DASH",
-                spriteKey = "ShopIcons.GreatSlash",
-
-                takeKey = "GET_ITEM_INTRO3",
-                buttonKey = "RANDOMIZER_BUTTON_DESC",
-                descOneKey = "GET_GSLASH_1",
-                descTwoKey = "GET_GSLASH_2",
-                bigSpriteKey = "Prompts.GreatSlash",
-            }
-        };
-
-        static AbstractItem dslash = new Items.BoolItem
-        {
-            name = "Dash_Slash",
-            fieldName = "hasUpwardSlash",
-            UIDef = new BigUIDef
-            {
-                nameKey = "INV_NAME_ART_UPPER",
-                shopDescKey = "INV_DESC_ART_UPPER",
-                spriteKey = "ShopIcons.DashSlash",
-
-                takeKey = "GET_ITEM_INTRO3",
-                buttonKey = "RANDOMIZER_BUTTON_DESC",
-                descOneKey = "GET_DSLASH_1",
-                descTwoKey = "GET_DSLASH_2",
-                bigSpriteKey = "Prompts.DashSlash",
-            }
-        };
-
-        static AbstractItem fk = new SpawnGeoItem
-        {
-            name = "False_Knight_Chest",
-            amount = 200,
-            UIDef = new UIDef
-            {
-                shopDescKey = "RANDOMIZER_NAME_GEO_200",
-                nameKey = "RANDOMIZER_NAME_GEO_200",
-                spriteKey = "ShopIcons.Geo",
-            }
-        };
-
-        static AbstractItem wk = new SpawnGeoItem
-        {
-            name = "Watcher_Knight_Chest",
-            amount = 655,
-            UIDef = new UIDef
-            {
-                shopDescKey = "RANDOMIZER_NAME_GEO_655",
-                nameKey = "RANDOMIZER_NAME_GEO_655",
-                spriteKey = "ShopIcons.Geo",
-            }
-        };
-
-        static AbstractItem megarock = new GeoRockItem
-        {
-            name = "420",
-            amount = 420,
-            geoRockSubtype = GeoRockSubtype.Outskirts420,
-            UIDef = new UIDef
-            {
-                shopDescKey = "RANDOMIZER_NAME_GEO_420",
-                nameKey = "RANDOMIZER_NAME_GEO_420",
-                spriteKey = "ShopIcons.Geo",
-            }
-        };
-
-        static AbstractItem grub = new GrubItem
-        {
-            name = "Grub",
-            UIDef = GrubUIDef.Def
-        };
-
-        static AbstractItem shopkey = new BoolItem
-        {
-            name = "Shopkeeper's_Key",
-            fieldName = nameof(PlayerData.hasSlykey),
-            UIDef = new UIDef
-            {
-                nameKey = "INV_NAME_STOREKEY",
-                shopDescKey = "INV_DESC_STOREKEY",
-                spriteKey = "ShopIcons.ShopkeepersKey",
-            }
-        };
-
-        static AbstractItem simple = new IntItem
-        {
-            name = "Simple_Key",
-            fieldName = nameof(PlayerData.simpleKeys),
-            amount = 1,
-            UIDef = new UIDef
-            {
-                nameKey = "INV_NAME_SIMPLEKEY",
-                shopDescKey = "INV_DESC_SIMPLEKEY",
-                spriteKey = "ShopIcons.SimpleKey",
-            }
-        };
+        
 
         static ObjectLocation joni_loc = new ObjectLocation
         {
@@ -1103,7 +1114,7 @@ namespace ItemChanger.Tests
             },
         };
 
-        static AbstractPlacement voidheart = new FsmPlacement
+        static AbstractPlacement voidheart = new AutoPlacement
         {
             location = new VoidHeartLocation
             {
@@ -1113,14 +1124,14 @@ namespace ItemChanger.Tests
             }
         };
 
-        static AbstractPlacement fury = new ExistingChestPlacement
+        static AbstractPlacement fury = new AutoPlacement
         {
-            location = new ExistingChestLocation
+            location = new ExistingContainerLocation
             {
                 sceneName = "Tutorial_01",
-                chestFsm = "Chest Control",
-                chestName = "Chest",
-                //objectName = "_Props\\Chest",
+                fsmName = "Chest Control",
+                objectName = "Chest",
+                containerType = Container.Chest,
                 name = "Fury_of_the_Fallen",
             }
         };
@@ -1163,30 +1174,6 @@ namespace ItemChanger.Tests
             dungDiscount = false,
             requiredPlayerDataBool = string.Empty,
         };
-
-        /*
-        static ShopPlacement sly = new ShopPlacement
-        {
-            sceneName = SceneNames.Room_shop,
-            objectName = "Shop Menu",
-            fsmName = "shop_control",
-            defaultShopItems = DefaultShopItems.None,
-            dungDiscount = false,
-            name = "Sly",
-            requiredPlayerDataBool = string.Empty,
-        };
-
-        static ShopPlacement salubra = new ShopPlacement
-        {
-            sceneName = SceneNames.Room_Charm_Shop,
-            objectName = "Shop Menu",
-            fsmName = "shop_control",
-            defaultShopItems = DefaultShopItems.None,
-            dungDiscount = false,
-            name = "Salubra",
-            requiredPlayerDataBool = string.Empty,
-        };
-        */
 
         static CoordinateLocation grimmchild_loc = new CoordinateLocation
         {

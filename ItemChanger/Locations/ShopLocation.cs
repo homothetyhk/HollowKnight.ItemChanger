@@ -96,9 +96,13 @@ namespace ItemChanger.Locations
                             if (mod && mod.item != null)
                             {
                                 desc = mod.item.GetResolvedUIDef(Placement).GetShopDesc();
-                                if (mod.Cost != null && !(mod.Cost is GeoCost))
+                                if (mod.Cost != null)
                                 {
-                                    desc += $"\n\n<#888888>{mod.Cost.GetCostText()}";
+                                    string costText = mod.Cost.GetShopCostText();
+                                    if (!string.IsNullOrEmpty(costText))
+                                    {
+                                        desc += $"\n\n<#888888>{costText}";
+                                    }
                                 }
                             }
                             else
@@ -165,7 +169,7 @@ namespace ItemChanger.Locations
                             string name;
                             if (mod && mod.item != null)
                             {
-                                name = mod.item.UIDef.GetPreviewName();
+                                name = mod.item.GetResolvedUIDef(Placement).GetPreviewName();
                             }
                             else
                             {
@@ -254,7 +258,7 @@ namespace ItemChanger.Locations
                             {
                                 mod.item.Give(Placement, new GiveInfo
                                 {
-                                    Container = Container.Shop,
+                                    Container = Placement.MainContainerType,
                                     FlingType = this.flingType,
                                     MessageType = MessageType.Corner,
                                 });

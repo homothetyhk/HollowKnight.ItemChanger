@@ -7,7 +7,7 @@ using UnityEngine;
 using Modding;
 using HutongGames.PlayMaker.Actions;
 
-namespace ItemChanger
+namespace ItemChanger.Internal
 {
     internal static class ObjectCache
     {
@@ -47,17 +47,17 @@ namespace ItemChanger
         }
 
 
-        public static GameObject Chest => GameObject.Instantiate(_chest);
-        public static GameObject ShinyItem => GameObject.Instantiate(_shinyItem);
-        public static GameObject SmallGeo => GameObject.Instantiate(_smallGeo);
-        public static GameObject MediumGeo => GameObject.Instantiate(_mediumGeo);
-        public static GameObject LargeGeo => GameObject.Instantiate(_largeGeo);
-        public static GameObject TinkEffect => GameObject.Instantiate(_tinkEffect);
-        public static GameObject SmallPlatform => GameObject.Instantiate(_smallPlatform);
-        public static GameObject Soul => GameObject.Instantiate(_soul);
-        public static GameObject RelicGetMsg => GameObject.Instantiate(_relicGetMsg);
-        public static GameObject GrubJar => GameObject.Instantiate(_grubJar);
-        public static GameObject LoreTablet => GameObject.Instantiate(_loreTablet);
+        public static GameObject Chest => UnityEngine.Object.Instantiate(_chest);
+        public static GameObject ShinyItem => UnityEngine.Object.Instantiate(_shinyItem);
+        public static GameObject SmallGeo => UnityEngine.Object.Instantiate(_smallGeo);
+        public static GameObject MediumGeo => UnityEngine.Object.Instantiate(_mediumGeo);
+        public static GameObject LargeGeo => UnityEngine.Object.Instantiate(_largeGeo);
+        public static GameObject TinkEffect => UnityEngine.Object.Instantiate(_tinkEffect);
+        public static GameObject SmallPlatform => UnityEngine.Object.Instantiate(_smallPlatform);
+        public static GameObject Soul => UnityEngine.Object.Instantiate(_soul);
+        public static GameObject RelicGetMsg => UnityEngine.Object.Instantiate(_relicGetMsg);
+        public static GameObject GrubJar => UnityEngine.Object.Instantiate(_grubJar);
+        public static GameObject LoreTablet => UnityEngine.Object.Instantiate(_loreTablet);
 
         public static AudioClip LoreSound;
         public static AudioClip[] GrubCries;
@@ -69,7 +69,7 @@ namespace ItemChanger
 
         public static GameObject GeoRock(GeoRockSubtype t)
         {
-            return GameObject.Instantiate(_geoRocks[GetPreloadedRockType(t)]);
+            return UnityEngine.Object.Instantiate(_geoRocks[GetPreloadedRockType(t)]);
         }
 
         public static void Setup(Dictionary<string, Dictionary<string, GameObject>> objectsByScene)
@@ -78,56 +78,56 @@ namespace ItemChanger
             _shinyItem = _chest.transform.Find("Item").Find("Shiny Item (1)").gameObject;
             _shinyItem.transform.parent = null;
             _shinyItem.name = "Shiny Item Mod";
-            GameObject.DontDestroyOnLoad(_chest);
-            GameObject.DontDestroyOnLoad(_shinyItem);
+            UnityEngine.Object.DontDestroyOnLoad(_chest);
+            UnityEngine.Object.DontDestroyOnLoad(_shinyItem);
             PlayMakerFSM shinyFSM = _shinyItem.LocateFSM("Shiny Control");
-            _relicGetMsg = GameObject.Instantiate(shinyFSM.GetState("Trink Flash").GetActionsOfType<SpawnObjectFromGlobalPool>()[1].gameObject.Value);
+            _relicGetMsg = UnityEngine.Object.Instantiate(shinyFSM.GetState("Trink Flash").GetActionsOfType<SpawnObjectFromGlobalPool>()[1].gameObject.Value);
             _relicGetMsg.SetActive(false);
-            GameObject.DontDestroyOnLoad(_relicGetMsg);
+            UnityEngine.Object.DontDestroyOnLoad(_relicGetMsg);
 
             HealthManager health = objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"].GetComponent<HealthManager>();
-            _smallGeo = GameObject.Instantiate(
+            _smallGeo = UnityEngine.Object.Instantiate(
                 ReflectionHelper.GetAttr<HealthManager, GameObject>(health, "smallGeoPrefab"));
             _mediumGeo =
-                GameObject.Instantiate(ReflectionHelper.GetAttr<HealthManager, GameObject>(health, "mediumGeoPrefab"));
-            _largeGeo = GameObject.Instantiate(
+                UnityEngine.Object.Instantiate(ReflectionHelper.GetAttr<HealthManager, GameObject>(health, "mediumGeoPrefab"));
+            _largeGeo = UnityEngine.Object.Instantiate(
                 ReflectionHelper.GetAttr<HealthManager, GameObject>(health, "largeGeoPrefab"));
 
             _smallGeo.SetActive(false);
             _mediumGeo.SetActive(false);
             _largeGeo.SetActive(false);
-            GameObject.DontDestroyOnLoad(_smallGeo);
-            GameObject.DontDestroyOnLoad(_mediumGeo);
-            GameObject.DontDestroyOnLoad(_largeGeo);
+            UnityEngine.Object.DontDestroyOnLoad(_smallGeo);
+            UnityEngine.Object.DontDestroyOnLoad(_mediumGeo);
+            UnityEngine.Object.DontDestroyOnLoad(_largeGeo);
 
             PlayMakerFSM soulFsm = objectsByScene[SceneNames.Cliffs_02]["Soul Totem 5"].LocateMyFSM("soul_totem");
-            _soul = GameObject.Instantiate(soulFsm.GetState("Hit").GetActionOfType<FlingObjectsFromGlobalPool>().gameObject.Value);
+            _soul = UnityEngine.Object.Instantiate(soulFsm.GetState("Hit").GetActionOfType<FlingObjectsFromGlobalPool>().gameObject.Value);
             _soul.SetActive(false);
-            GameObject.DontDestroyOnLoad(_soul);
+            UnityEngine.Object.DontDestroyOnLoad(_soul);
 
-            GameObject.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"]);
-            GameObject.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"]);
+            UnityEngine.Object.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"]);
+            UnityEngine.Object.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"]);
 
-            _tinkEffect = GameObject.Instantiate(objectsByScene[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"].GetComponent<TinkEffect>().blockEffect);
+            _tinkEffect = UnityEngine.Object.Instantiate(objectsByScene[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"].GetComponent<TinkEffect>().blockEffect);
             _tinkEffect.SetActive(false);
-            GameObject.DontDestroyOnLoad(_tinkEffect);
+            UnityEngine.Object.DontDestroyOnLoad(_tinkEffect);
 
             _smallPlatform = objectsByScene[SceneNames.Tutorial_01]["_Scenery/plat_float_17"];
-            GameObject.DontDestroyOnLoad(_smallPlatform);
+            UnityEngine.Object.DontDestroyOnLoad(_smallPlatform);
 
             _grubJar = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle"];
             GrubCries = _grubJar.transform.Find("Grub").gameObject.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;
-            GameObject.DontDestroyOnLoad(_grubJar);
+            UnityEngine.Object.DontDestroyOnLoad(_grubJar);
             foreach (AudioClip clip in GrubCries)
             {
-                GameObject.DontDestroyOnLoad(clip);
+                UnityEngine.Object.DontDestroyOnLoad(clip);
             }
 
             _loreTablet = objectsByScene[SceneNames.Tutorial_01]["_Props/Tut_tablet_top (1)"];
             _loreTablet.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
             LoreSound = (AudioClip)_loreTablet.LocateMyFSM("Inspection").GetState("Prompt Up").GetActionOfType<AudioPlayerOneShotSingle>().audioClip.Value;
-            GameObject.DontDestroyOnLoad(LoreSound);
-            GameObject.DontDestroyOnLoad(_loreTablet);
+            UnityEngine.Object.DontDestroyOnLoad(LoreSound);
+            UnityEngine.Object.DontDestroyOnLoad(_loreTablet);
 
             if (ItemChanger.GS.ReducePreloads)
             {
@@ -159,7 +159,7 @@ namespace ItemChanger
 
             foreach (var entry in _geoRocks)
             {
-                GameObject.DontDestroyOnLoad(entry.Value);
+                UnityEngine.Object.DontDestroyOnLoad(entry.Value);
             }
         }
 

@@ -18,11 +18,15 @@ namespace ItemChanger
         public bool Paid { get; protected set; }
 
         public abstract string GetCostText();
+        public virtual string GetShopCostText()
+        {
+            return GetCostText();
+        }
 
         /// <summary>
         /// Controls the number displayed in shops, etc.
         /// </summary>
-        public virtual int GetGeoValue()
+        public virtual int GetDisplayGeo()
         {
             return 0;
         }
@@ -103,14 +107,20 @@ namespace ItemChanger
             }
         }
 
-        public override int GetGeoValue()
+        public override int GetDisplayGeo()
         {
-            return costs.Sum(c => c.GetGeoValue());
+            return costs.Sum(c => c.GetDisplayGeo());
         }
 
         public override string GetCostText()
         {
             return string.Join(", ", costs.Select(c => c.GetCostText()).ToArray());
+        }
+
+        public override string GetShopCostText()
+        {
+            return string.Join(", ", costs.Where(c => !(c is GeoCost))
+                .Select(c => c.GetCostText()).ToArray());
         }
     }
 
@@ -170,7 +180,7 @@ namespace ItemChanger
             HeroController.instance.TakeGeo(amount);
         }
 
-        public override int GetGeoValue()
+        public override int GetDisplayGeo()
         {
             return amount;
         }
@@ -180,6 +190,10 @@ namespace ItemChanger
             return $"Pay {amount} geo";
         }
 
+        public override string GetShopCostText()
+        {
+            return null;
+        }
 
     }
 

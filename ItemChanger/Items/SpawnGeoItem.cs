@@ -10,9 +10,9 @@ namespace ItemChanger.Items
     {
         public int amount;
 
-        public override bool GiveEarly(Container container)
+        public override bool GiveEarly(string containerType)
         {
-            switch (container)
+            switch (containerType)
             {
                 case Container.Chest:
                 case Container.GeoRock:

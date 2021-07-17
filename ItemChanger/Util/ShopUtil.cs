@@ -76,6 +76,7 @@ namespace ItemChanger.Util
             self.stockInv = new GameObject[self.stock.Length];
             for (int i = 0; i < self.stock.Length; i++)
             {
+                /*
                 var stats = self.stock[i].GetComponent<ShopItemStats>();
                 ItemChanger.instance.Log($"Item {i}");
                 ItemChanger.instance.Log(stats.playerDataBoolName);
@@ -84,8 +85,7 @@ namespace ItemChanger.Util
                 ItemChanger.instance.Log(stats.nameConvo);
                 ItemChanger.instance.Log(stats.descConvo);
                 ItemChanger.instance.Log(stats.specialType);
-
-
+                */
 
                 if (ShopMenuItemAppears(self.stock[i]))
                 {
@@ -136,7 +136,7 @@ namespace ItemChanger.Util
             {
                 foreach (var t in mod.item.GetTags<Tags.IShopRequirementTag>())
                 {
-                    remove &= t.MeetsRequirement();
+                    meetsRequirement &= t.MeetsRequirement();
                 }
             }
 
@@ -217,6 +217,8 @@ namespace ItemChanger.Util
                             return DefaultShopItems.SalubraCharms;
                         case 8:
                             return DefaultShopItems.SalubraNotches;
+                        case 15:
+                            return DefaultShopItems.SalubraBlessing;
                         default:
                             return null;
                     }

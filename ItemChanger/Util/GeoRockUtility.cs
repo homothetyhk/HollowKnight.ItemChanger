@@ -10,6 +10,7 @@ using SereCore;
 using UnityEngine;
 using System.Collections;
 using ItemChanger.Components;
+using ItemChanger.Internal;
 
 namespace ItemChanger.Util
 {
@@ -46,9 +47,9 @@ namespace ItemChanger.Util
             return -0.8f;
         }
 
-        public static GameObject MakeNewGeoRock(AbstractPlacement placement, IEnumerable<AbstractItem> items, out GeoRockSubtype type)
+        public static GameObject MakeNewGeoRock(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
         {
-            type = items.OfType<GeoRockItem>().FirstOrDefault()?.geoRockSubtype ?? GeoRockSubtype.Default;
+            GeoRockSubtype type = items.OfType<GeoRockItem>().FirstOrDefault()?.geoRockSubtype ?? GeoRockSubtype.Default;
             GameObject rock = ObjectCache.GeoRock(type);
             rock.AddComponent<GeoRockInfo>().type = type;
             rock.name = GetGeoRockName(placement);
@@ -57,9 +58,12 @@ namespace ItemChanger.Util
             rock.GetComponent<BoxCollider2D>().isTrigger = false; // some rocks only have trigger colliders
 
             var info = rock.AddComponent<ContainerInfo>();
-            info.placement = placement;
-            info.items = items;
-            info.flingType = placement.Location.flingType;
+            info.giveInfo = new ContainerGiveInfo
+            {
+                placement = placement,
+                items = items,
+                flingType = flingType,
+            };
 
             if (type == GeoRockSubtype.Outskirts420)
             {
@@ -67,16 +71,6 @@ namespace ItemChanger.Util
             }
 
             return rock;
-        }
-
-        public static void ModifyFsm(PlayMakerFSM rockFsm)
-        {
-            ContainerInfo containerInfo = rockFsm.gameObject.GetComponent<ContainerInfo>();
-            if (containerInfo && !containerInfo.applied)
-            {
-                ModifyGeoRock(rockFsm, containerInfo.flingType, containerInfo.placement, containerInfo.items);
-                containerInfo.applied = true;
-            }
         }
 
         public static void SetRockContext(GameObject rock, float x, float y, float elevation)
@@ -179,7 +173,7 @@ namespace ItemChanger.Util
                 }
                 else
                 {
-                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item);
+                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
                     ShinyUtility.PutShinyInContainer(itemParent, shiny);
                 }
             }

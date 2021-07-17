@@ -14,15 +14,15 @@ namespace ItemChanger.Locations
     {
         public bool forceShiny;
 
-        public void GetPrimaryContainer(out GameObject obj, out Container containerType)
+        public void GetContainer(out GameObject obj, out string containerType)
         {
-            (Placement as IContainerPlacement).GetPrimaryContainer(out obj, out containerType);
+            (Placement as IContainerPlacement).GetContainer(this, out obj, out containerType);
             Transform = obj.transform;
         }
 
-        public virtual bool Supports(Container container)
+        public virtual bool Supports(string containerType)
         {
-            return container == Container.Shiny ? true : !forceShiny;
+            return containerType == Container.Shiny ? true : !forceShiny;
         }
 
         public override AbstractPlacement Wrap()

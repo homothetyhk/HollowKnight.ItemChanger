@@ -16,6 +16,24 @@ namespace ItemChanger.Components
 {
     public class HintBox : MonoBehaviour
     {
+        public static HintBox Create(Vector2 pos, Func<string> getDisplayText, Func<bool> displayTest = null)
+        {
+            var hint = HintBox.Create(pos, new Vector2(5f, 5f));
+            hint.GetDisplayText = getDisplayText;
+            hint.DisplayTest = displayTest;
+            return hint;
+        }
+
+        public static HintBox Create(Transform transform, AbstractPlacement placement)
+        {
+            var hint = HintBox.Create(transform.position, new Vector2(5f, 5f));
+            hint.GetDisplayText = placement.GetUIName;
+            hint.DisplayTest = () => !placement.AllObtained();
+            ItemChanger.instance.Log($"Created HintBox at {transform.position}");
+            return hint;
+            
+        }
+
         public static HintBox Create(Vector2 pos, Vector2 size)
         {
             GameObject obj = new GameObject("Hint Box");
@@ -29,6 +47,7 @@ namespace ItemChanger.Components
             return hint;
         }
 
+        public Func<bool> DisplayTest;
         public Func<string> GetDisplayText;
         PlayMakerFSM display;
 
@@ -51,9 +70,9 @@ namespace ItemChanger.Components
 
         public void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.CompareTag("Player") && display != null)
+            if (col.CompareTag("Player") && display != null && (DisplayTest?.Invoke() ?? true))
             {
-                string s = GetDisplayText();
+                string s = GetDisplayText?.Invoke();
                 if (!string.IsNullOrEmpty(s))
                 {
                     SetText(s);

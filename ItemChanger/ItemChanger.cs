@@ -16,6 +16,8 @@ using ItemChanger.Locations;
 using ItemChanger.Placements;
 using ItemChanger.Util;
 using TMPro;
+using ItemChanger.Internal;
+using Ref = ItemChanger.Internal.Ref;
 
 namespace ItemChanger
 {
@@ -57,13 +59,14 @@ namespace ItemChanger
         {
             ObjectCache.Setup(preloadedObjects);
             MessageController.Setup();
+
+
             
-
-
             ModHooks.Instance.NewGameHook += OnStart;
             ModHooks.Instance.SavegameLoadHook += OnLoad;
             On.GameManager.ResetSemiPersistentItems += ResetSemiPersistentItems;
             CustomSkillManager.Hook();
+            DialogueCenter.Hook();
             WorldEventManager.Hook();
             ShopUtil.HookShops();
             On.PlayMakerFSM.OnEnable += ApplyLocationFsmEdits;
@@ -75,7 +78,7 @@ namespace ItemChanger
 
         private void OnStart()
         {
-            Tests.Tests.DreamerTest();
+            //Tests.Tests.ShapeOfUnnTest();
             foreach (var loc in SET.GetPlacements()) loc.OnLoad();
         }
 
@@ -181,6 +184,16 @@ namespace ItemChanger
                 TitleReset();
             }
 
+            /*
+            foreach (var f in FsmVariables.GlobalVariables.GameObjectVariables)
+            {
+                if (f.Value != null)
+                {
+                    ItemChanger.instance.Log(f.Name);
+                }
+            }
+            */
+
             foreach (var placement in SET?.GetPlacements())
             {
                 if (placement is null) continue;
@@ -202,22 +215,8 @@ namespace ItemChanger
         {
             orig(fsm);
 
-            // component-based default container support
-            switch (fsm.FsmName)
-            {
-                case "Shiny Control":
-                    ShinyUtility.ModifyFsm(fsm);
-                    break;
-                case "Bottle Control": // not all bottle controls are grub bottles, but GrubJarUtility checks for the ContainerInfo component before doing anything
-                    GrubJarUtility.ModifyFsm(fsm);
-                    break;
-                case "Geo Rock":
-                    GeoRockUtility.ModifyFsm(fsm);
-                    break;
-                case "Chest Control":
-                    ChestUtility.ModifyFsm(fsm);
-                    break;
-            }
+            // component-based default container support, called before and after placement hooks
+            Container.OnEnable(fsm);
 
             string sceneName = fsm.gameObject.scene.name;
             foreach (var loc in SET?.GetPlacements() ?? new AbstractPlacement[0])
@@ -235,6 +234,8 @@ namespace ItemChanger
                     }
                 }
             }
+
+            Container.OnEnable(fsm);
         }
 
         private string OnLanguageGet(string convo, string sheet)

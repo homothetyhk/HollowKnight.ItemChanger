@@ -27,10 +27,10 @@ namespace ItemChanger.Placements
             this.Cost = cost;
         }
 
-        public void GetPrimaryContainer(out GameObject obj, out Container container)
+        public void GetContainer(AbstractLocation location, out GameObject obj, out string containerType)
         {
-            obj = ShinyUtility.MakeNewMultiItemShiny(this, Items);
-            container = Container.Shiny;
+            obj = ShinyUtility.MakeNewMultiItemShiny(this, Items, Location.flingType);
+            containerType = Container.Shiny;
         }
     }
 }

@@ -8,11 +8,12 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger
 {
-    public abstract class AbstractLocation
+    public abstract class AbstractLocation : TaggableObject
     {
         public string name;
         public string sceneName;
         public FlingType flingType;
+        public List<Tag> tags;
 
         [JsonIgnore]
         public Transform Transform { get; set; }
@@ -34,6 +35,7 @@ namespace ItemChanger
         public virtual string OnLanguageGet(string convo, string sheet) { return null; }
         public virtual void OnLoad() { }
         public virtual void OnUnload() { }
+
         public abstract AbstractPlacement Wrap();
         public virtual AbstractLocation Clone()
         {

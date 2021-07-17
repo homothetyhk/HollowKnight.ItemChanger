@@ -5,6 +5,15 @@ using System.Text;
 
 namespace ItemChanger
 {
+    [Flags]
+    public enum MessageType
+    {
+        None = 0,
+        Corner = 1,
+        Big = 2,
+        Lore = 4,
+        Any = Corner | Big | Lore,
+    }
 
     public enum ObtainState
     {
@@ -31,18 +40,6 @@ namespace ItemChanger
         Everywhere,
         StraightUp,
         DirectDeposit
-    }
-
-    public enum Container
-    {
-        Shiny,
-        Chest,
-        GrubJar,
-        GeoRock,
-        Shop,
-        NPCDialogue,
-        Tablet,
-        Unknown,
     }
 
 
@@ -119,7 +116,8 @@ namespace ItemChanger
         SlyRancidEgg = 8192,
         SlyKeyCharms = 16384,
         SlyKeyElegantKey = 32768,
-        LegEaterRepair = 65536
+        LegEaterRepair = 65536,
+        SalubraBlessing = 131072,
     }
 
     public enum ComparisonOperator

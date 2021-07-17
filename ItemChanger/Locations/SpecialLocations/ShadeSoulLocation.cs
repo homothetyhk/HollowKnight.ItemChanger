@@ -12,10 +12,8 @@ using SereCore;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class ShadeSoulLocation : FsmLocation
+    public class ShadeSoulLocation : AutoLocation
     {
-        public override MessageType MessageType => MessageType.Any;
-
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             switch (fsm.gameObject.name)
@@ -33,8 +31,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         FsmState getPD = fsm.GetState("Get PlayerData");
                         FsmState UIMsg = fsm.GetState("Call UI Msg");
 
-                        Action callback = () => fsm.Fsm.Event("GET ITEM MSG END");
-                        FsmStateAction give = new Lambda(() => Placement.GiveAll(MessageType, callback));
+                        FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
 
                         getPD.RemoveActionsOfType<SetPlayerDataInt>();
                         UIMsg.Actions = new FsmStateAction[]

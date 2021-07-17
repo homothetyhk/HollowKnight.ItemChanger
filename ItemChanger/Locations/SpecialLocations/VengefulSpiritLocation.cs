@@ -15,7 +15,7 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class VengefulSpiritLocation : FsmObjectLocation
     {
-        public override void PlaceContainer(GameObject obj, Container containerType)
+        public override void PlaceContainer(GameObject obj, string containerType)
         {
             base.PlaceContainer(obj, containerType);
 

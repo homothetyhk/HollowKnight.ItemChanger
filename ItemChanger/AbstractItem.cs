@@ -9,7 +9,7 @@ namespace ItemChanger
 {
     public class GiveInfo
     {
-        public Container Container { get; set; }
+        public string Container { get; set; }
         public FlingType FlingType { get; set; }
         public Transform Transform {get; set;}
         public MessageType MessageType { get; set; }
@@ -53,7 +53,7 @@ namespace ItemChanger
         public AbstractItem Orig { get; private set; }
         public AbstractItem Item { get; private set; }
         public AbstractPlacement Placement { get; private set; }
-        public Container Container => info.Container;
+        public string Container => info.Container;
         public FlingType Fling => info.FlingType;
         public Transform Transform => info.Transform;
         public MessageType MessageType => info.MessageType;
@@ -61,17 +61,19 @@ namespace ItemChanger
     }
 
 
-    public abstract class AbstractItem
+    public abstract class AbstractItem : TaggableObject
     {
         [Newtonsoft.Json.JsonProperty]
         private ObtainState obtainState;
         public string name;
-        public IUIDef UIDef;
-        public List<Tag> tags = new List<Tag>();
+        /// <summary>
+        /// The UIDef associated to an item. GetResolvedUIDef() should be used instead for most purposes.
+        /// </summary>
+        public UIDef UIDef;
 
-        public virtual Container GetPreferredContainer() => Container.Shiny;
+        public virtual string GetPreferredContainer() => Container.Unknown;
 
-        public virtual bool GiveEarly(Container container) => false;
+        public virtual bool GiveEarly(string containerType) => false;
 
         /// <summary>
         /// Method used to determine if a unique item should be replaced (i.e. duplicates, etc). No relation to 'obtained'.
@@ -116,7 +118,7 @@ namespace ItemChanger
 
         public abstract void GiveImmediate(GiveInfo info);
 
-        public IUIDef GetResolvedUIDef(AbstractPlacement placement)
+        public UIDef GetResolvedUIDef(AbstractPlacement placement)
         {
             GiveEventArgs args = new GiveEventArgs(this, this, placement, null);
             ResolveItem(args);
@@ -167,42 +169,10 @@ namespace ItemChanger
             return obtainState != ObtainState.Unobtained;
         }
 
-        public T GetTag<T>()
-        {
-            return tags.OfType<T>().FirstOrDefault();
-        }
-
-        public bool GetTag<T>(out T t)
-        {
-            t = tags.OfType<T>().FirstOrDefault();
-            return t != null;
-        }
-
-        public T GetOrAddTag<T>() where T : Tag, new()
-        {
-            return tags.OfType<T>().FirstOrDefault() ?? AddTag<T>();
-        }
-
-        public IEnumerable<T> GetTags<T>()
-        {
-            return tags.OfType<T>();
-        }
-
-        public T AddTag<T>() where T : Tag, new()
-        {
-            T t = new T();
-            tags.Add(t);
-            return t;
-        }
-
-        public bool HasTag<T>() where T : Tag
-        {
-            return tags.OfType<T>().Any();
-        }
-
         public virtual AbstractItem Clone()
         {
             AbstractItem item = (AbstractItem)MemberwiseClone();
+            item.UIDef = UIDef.Clone();
             item.tags = tags.Where(t => t.Intrinsic).ToList();
             return item;
         }

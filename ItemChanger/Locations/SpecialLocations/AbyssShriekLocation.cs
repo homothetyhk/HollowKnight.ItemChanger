@@ -13,9 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class AbyssShriekLocation : FsmLocation
+    public class AbyssShriekLocation : AutoLocation, ILocalHintLocation
     {
-        public override MessageType MessageType => MessageType.Any;
+        public bool HintActive { get; set; } = true;
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
@@ -25,13 +25,14 @@ namespace ItemChanger.Locations.SpecialLocations
                 case "Scream 2 Get" when fsm.FsmName == "Scream Get":
                     {
                         Transform = fsm.transform;
+                        if (HintActive) HintBox.Create(Transform, Placement);
 
                         FsmState init = fsm.GetState("Init");
                         init.RemoveActionsOfType<IntCompare>();
                         init.AddFirstAction(new BoolTestMod(Placement.AllObtained, "INERT", null));
 
                         FsmState uiMsg = fsm.GetState("Ui Msg");
-                        Lambda give = new Lambda(() => Placement.GiveAll(MessageType, () => fsm.Fsm.Event("GET ITEM MSG END")));
+                        FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
                         uiMsg.Actions = new[] { give };
                     }
                     break;

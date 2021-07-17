@@ -9,6 +9,7 @@ using ItemChanger.FsmStateActions;
 using ItemChanger.Components;
 using SereCore;
 using UnityEngine;
+using ItemChanger.Internal;
 
 namespace ItemChanger.Util
 {
@@ -16,7 +17,7 @@ namespace ItemChanger.Util
     {
         public const float GRUB_JAR_ELEVATION = 0.1f;
 
-        public static GameObject MakeNewGrubJar(AbstractPlacement placement, IEnumerable<AbstractItem> items)
+        public static GameObject MakeNewGrubJar(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
         {
             GameObject grubJar = ObjectCache.GrubJar;
             grubJar.name = GetGrubJarName(placement);
@@ -26,23 +27,16 @@ namespace ItemChanger.Util
             grubJar.layer = 0;
 
             var info = grubJar.AddComponent<ContainerInfo>();
-            info.placement = placement;
-            info.items = items;
-            info.flingType = placement.Location.flingType;
+            info.giveInfo = new ContainerGiveInfo
+            {
+                placement = placement,
+                items = items,
+                flingType = flingType
+            };
 
             grubJar.AddComponent<DropIntoPlace>();
 
             return grubJar;
-        }
-
-        public static void ModifyFsm(PlayMakerFSM bottleFsm)
-        {
-            ContainerInfo containerInfo = bottleFsm.gameObject.GetComponent<ContainerInfo>();
-            if (containerInfo && !containerInfo.applied)
-            {
-                ModifyBottleFsm(bottleFsm, containerInfo.flingType, containerInfo.placement, containerInfo.items);
-                containerInfo.applied = true;
-            }
         }
 
         public static string GetGrubJarName(AbstractPlacement placement)
@@ -88,8 +82,6 @@ namespace ItemChanger.Util
 
         public static void ModifyBottleFsm(PlayMakerFSM bottleFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
-            ItemChanger.instance.Log("Modifying grub fsm");
-
             GameObject jar = bottleFsm.gameObject;
             FsmState init = bottleFsm.GetState("Init");
             FsmState shatter = bottleFsm.GetState("Shatter");
@@ -133,7 +125,7 @@ namespace ItemChanger.Util
                 }
                 else
                 {
-                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item);
+                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
                     ShinyUtility.PutShinyInContainer(itemParent, shiny);
                 }
             }

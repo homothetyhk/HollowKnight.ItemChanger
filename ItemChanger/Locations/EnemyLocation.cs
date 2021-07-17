@@ -16,23 +16,23 @@ namespace ItemChanger.Locations
         public string objectName;
         public bool removeGeo;
 
-        public override bool Supports(Container container)
+        public override bool Supports(string containerType)
         {
-            if (container == Container.Chest) return false;
-            return base.Supports(container);
+            if (containerType == Container.Chest) return false;
+            return base.Supports(containerType);
         }
 
         public override void OnActiveSceneChanged(Scene from, Scene to)
         {
             base.OnActiveSceneChanged(from, to);
-            if (!auxillary && to.name == sceneName)
+            if (!managed && to.name == sceneName)
             {
-                base.GetPrimaryContainer(out GameObject obj, out Container containerType);
+                base.GetContainer(out GameObject obj, out string containerType);
                 PlaceContainer(obj, containerType);
             }
         }
 
-        public override void PlaceContainer(GameObject obj, Container containerType)
+        public override void PlaceContainer(GameObject obj, string containerType)
         {
             GameObject target = ObjectLocation.FindGameObject(objectName);
             HealthManager hm = target.GetComponent<HealthManager>();

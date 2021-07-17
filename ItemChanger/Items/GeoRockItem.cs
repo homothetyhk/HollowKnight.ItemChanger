@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ItemChanger.Internal;
 using UnityEngine;
 
 namespace ItemChanger.Items
 {
     public class GeoRockItem : AbstractItem
     {
-        public override Container GetPreferredContainer() => Container.GeoRock;
-        public override bool GiveEarly(Container container)
+        public override string GetPreferredContainer() => Container.GeoRock;
+        public override bool GiveEarly(string containerType)
         {
-            switch (container)
+            switch (containerType)
             {
                 case Container.Chest:
                 case Container.GeoRock:
@@ -63,58 +64,7 @@ namespace ItemChanger.Items
                 smallNum = amount - largeNum * 25 - medNum * 5;
             }
 
-            GameObject smallPrefab = ObjectCache.SmallGeo;
-            GameObject mediumPrefab = ObjectCache.MediumGeo;
-            GameObject largePrefab = ObjectCache.LargeGeo;
-
-            // Workaround because Spawn extension is slightly broken
-            GameObject.Destroy(smallPrefab.Spawn());
-            GameObject.Destroy(mediumPrefab.Spawn());
-            GameObject.Destroy(largePrefab.Spawn());
-
-            smallPrefab.SetActive(true);
-            mediumPrefab.SetActive(true);
-            largePrefab.SetActive(true);
-
-            FlingUtils.Config flingConfig = new FlingUtils.Config
-            {
-                Prefab = smallPrefab,
-                AmountMin = smallNum,
-                AmountMax = smallNum,
-                SpeedMin = 15f,
-                SpeedMax = 30f,
-                AngleMin = 80f,
-                AngleMax = 115f
-            };
-
-            if (smallNum > 0)
-            {
-                FlingUtils.SpawnAndFling(flingConfig, info.Transform, new Vector3(0f, 0f, 0f));
-            }
-
-            if (medNum > 0)
-            {
-                flingConfig.Prefab = mediumPrefab;
-                flingConfig.AmountMin = flingConfig.AmountMax = medNum;
-                FlingUtils.SpawnAndFling(flingConfig, info.Transform, new Vector3(0f, 0f, 0f));
-            }
-
-            if (largeNum > 0)
-            {
-                flingConfig.Prefab = largePrefab;
-                flingConfig.AmountMin = flingConfig.AmountMax = largeNum;
-                FlingUtils.SpawnAndFling(flingConfig, info.Transform, new Vector3(0f, 0f, 0f));
-            }
-
-            if (info.FlingType == FlingType.StraightUp)
-            {
-                flingConfig.AngleMin = 90;
-                flingConfig.AngleMax = 90;
-            }
-
-            smallPrefab.SetActive(false);
-            mediumPrefab.SetActive(false);
-            largePrefab.SetActive(false);
+            FsmStateActions.RandomizerAddGeo.SpawnGeo(smallNum, medNum, largeNum, info.FlingType, info.Transform);
         }
     }
 }

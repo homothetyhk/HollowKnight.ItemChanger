@@ -24,15 +24,21 @@ namespace ItemChanger.Locations
             base.OnActiveSceneChanged(from, to);
             if (to.name == sceneName)
             {
-                base.GetPrimaryContainer(out GameObject obj, out Container containerType);
+                base.GetContainer(out GameObject obj, out string containerType);
                 PlaceContainer(obj, containerType);
             }
         }
 
-        public virtual void PlaceContainer(GameObject obj, Container containerType)
+        public virtual void PlaceContainer(GameObject obj, string containerType)
         {
             GameObject target = FindGameObject(objectName);
-            ContainerUtility.ApplyTargetContext(target, obj, containerType, elevation);
+            if (!target)
+            {
+                ItemChanger.instance.LogError($"Unable to find {objectName} for ObjectLocation {name}!");
+                return;
+            }
+
+            Container.GetContainer(containerType).ApplyTargetContext(obj, target, elevation);
             GameObject.Destroy(target);
         }
 

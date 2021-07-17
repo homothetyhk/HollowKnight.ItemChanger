@@ -56,7 +56,7 @@ namespace ItemChanger.Locations.SpecialLocations
             ObjectDestroyer.Destroy(sceneName, "Dream Scene Activate");
         }
 
-        public override void PlaceContainer(GameObject obj, Container containerType)
+        public override void PlaceContainer(GameObject obj, string containerType)
         {
             base.PlaceContainer(obj, containerType);
             PlayMakerFSM corpseFsm = GameObject.Find("Cloak Corpse").LocateFSM("Control");

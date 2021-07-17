@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ItemChanger.Internal;
 using UnityEngine;
 
 namespace ItemChanger.Items
@@ -14,7 +15,7 @@ namespace ItemChanger.Items
 
         public override void GiveImmediate(GiveInfo info)
         {
-            if (info.Container == Container.Shop) return;
+            if ((info.MessageType & MessageType.Lore) == MessageType.Lore) return;
             AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
                 new Vector3(
                     Camera.main.transform.position.x - 2,

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ItemChanger.Locations;
+using ItemChanger.Internal;
 
 namespace ItemChanger
 {
@@ -27,7 +28,7 @@ namespace ItemChanger
 
         internal void ResetSemiPersistentItems()
         {
-            foreach (var item in Ref.Settings.GetItems())
+            foreach (var item in GetItems())
             {
                 if (item.GetTag<Tags.IPersistenceTag>(out var tag) && tag.Persistence == Persistence.SemiPersistent)
                 {
@@ -38,7 +39,7 @@ namespace ItemChanger
 
         internal void ResetPersistentItems()
         {
-            foreach (var item in Ref.Settings.GetItems())
+            foreach (var item in GetItems())
             {
                 if (item.GetTag<Tags.IPersistenceTag>(out var tag) && tag.Persistence == Persistence.Persistent)
                 {

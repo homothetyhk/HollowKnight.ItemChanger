@@ -22,7 +22,7 @@ namespace ItemChanger.Locations
         public string fsmParent;
         public string fsmVariable;
 
-        public override void PlaceContainer(GameObject obj, Container containerType)
+        public override void PlaceContainer(GameObject obj, string containerType)
         {
             base.PlaceContainer(obj, containerType);
             GameObject.Find(fsmParent).LocateFSM(fsmName).FsmVariables.FindFsmGameObject(fsmVariable).Value = obj;

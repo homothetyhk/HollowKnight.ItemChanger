@@ -29,8 +29,8 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void PlaceContainer(GameObject gruz)
         {
-            base.GetPrimaryContainer(out GameObject obj, out Container containerType);
-            ContainerUtility.ApplyTargetContext(gruz, obj, containerType, 0f);
+            base.GetContainer(out GameObject obj, out string containerType);
+            Container.GetContainer(containerType).ApplyTargetContext(obj, gruz, 0);
         }
     }
 }

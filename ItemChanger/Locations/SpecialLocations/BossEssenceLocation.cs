@@ -13,12 +13,10 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class BossEssenceLocation : FsmLocation
+    public class BossEssenceLocation : AutoLocation
     {
         public string fsmName;
         public string objName;
-
-        public override MessageType MessageType => MessageType.Any;
 
         // TODO: change bool test, so that location can be checked multiple times if necessary
 
@@ -26,12 +24,14 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             if (fsm.FsmName == fsmName && fsm.gameObject.name == objName)
             {
+                Transform = fsm.transform;
+
                 FsmState get = fsm.GetState("Get");
 
                 List<FsmStateAction> fsmActions = get.Actions.ToList();
                 fsmActions.RemoveAt(fsmActions.Count - 1); // SendEventByName (essence counter)
                 fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
-                fsmActions.Add(new AsyncLambda(callback => Placement.GiveAll(MessageType, callback)));
+                fsmActions.Add(new AsyncLambda(GiveAll));
 
                 get.Actions = fsmActions.ToArray();
             }

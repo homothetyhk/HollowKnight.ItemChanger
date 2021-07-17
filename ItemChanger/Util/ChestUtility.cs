@@ -8,6 +8,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
 using SereCore;
 using ItemChanger.Components;
+using ItemChanger.Internal;
 
 namespace ItemChanger.Util
 {
@@ -15,7 +16,7 @@ namespace ItemChanger.Util
     {
         public const float CHEST_ELEVATION = 0.5f;
 
-        public static GameObject MakeNewChest(AbstractPlacement placement, IEnumerable<AbstractItem> items)
+        public static GameObject MakeNewChest(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
         {
             GameObject chest = ObjectCache.Chest;
             chest.name = GetChestName(placement);
@@ -24,23 +25,16 @@ namespace ItemChanger.Util
             chest.transform.Find("Bouncer").GetComponent<BoxCollider2D>().size = chest.GetComponent<BoxCollider2D>().size = new Vector2(2.4f, 1.2f);
             chest.AddComponent<DropIntoPlace>();
 
-            var info = chest.AddComponent<ContainerInfo>();
-            info.placement = placement;
-            info.items = items;
+            var info = chest.GetOrAddComponent<ContainerInfo>();
+            info.giveInfo = new ContainerGiveInfo
+            {
+                placement = placement,
+                items = items,
+                flingType = flingType,
+            };
 
             return chest;
         }
-
-        public static void ModifyFsm(PlayMakerFSM chestFsm)
-        {
-            ContainerInfo containerInfo = chestFsm.gameObject.GetComponent<ContainerInfo>();
-            if (containerInfo && !containerInfo.applied)
-            {
-                ModifyChest(chestFsm, containerInfo.flingType, containerInfo.placement, containerInfo.items);
-                containerInfo.applied = true;
-            }
-        }
-
 
         public static string GetChestName(AbstractPlacement placement)
         {
@@ -115,8 +109,9 @@ namespace ItemChanger.Util
                 }
                 else
                 {
-                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item);
+                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
                     ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                    ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
                 }
             }
         }

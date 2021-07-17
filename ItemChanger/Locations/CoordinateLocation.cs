@@ -12,14 +12,14 @@ namespace ItemChanger.Locations
 
         public override void OnActiveSceneChanged(Scene from, Scene to)
         {
-            if (!auxillary)
+            if (!managed)
             {
-                base.GetPrimaryContainer(out GameObject obj, out Container containerType);
+                base.GetContainer(out GameObject obj, out string containerType);
                 PlaceContainer(obj, containerType);
             }
         }
 
-        public override void PlaceContainer(GameObject obj, Container containerType)
+        public override void PlaceContainer(GameObject obj, string containerType)
         {
             switch (containerType)
             {

@@ -13,13 +13,15 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class DreamerLocation : ObjectLocation
+    public class DreamerLocation : ObjectLocation, ILocalHintLocation
     {
         public string previousScene;
+        public bool HintActive { get; set; } = true;
 
-        public override void PlaceContainer(GameObject obj, Container containerType)
+        public override void PlaceContainer(GameObject obj, string containerType)
         {
-            obj.AddComponent<ChangeSceneInfo>().toScene = previousScene;
+            obj.GetOrAddComponent<ContainerInfo>().changeSceneInfo
+                = new ChangeSceneInfo { toScene = previousScene };
             base.PlaceContainer(obj, containerType);
         }
 
@@ -69,6 +71,11 @@ namespace ItemChanger.Locations.SpecialLocations
                 if (fsm.FsmName == "destroy" && fsm.gameObject.name == "Dream Enter")
                 {
                     ReplaceCheck(fsm);
+                }
+
+                if (HintActive && fsm.gameObject.name == "Dream Enter" && fsm.FsmName == "Control")
+                {
+                    HintBox.Create(fsm.transform, Placement); // TODO: Check position in each scene, especially for Monomon
                 }
             }
         }

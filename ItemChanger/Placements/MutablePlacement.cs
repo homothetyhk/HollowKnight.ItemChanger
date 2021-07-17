@@ -20,7 +20,8 @@ namespace ItemChanger.Placements
         public ContainerLocation location;
         public override AbstractLocation Location => location;
 
-        public Container container = Container.Shiny;
+        public override string MainContainerType => containerType;
+        public string containerType = Container.Unknown;
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
@@ -34,7 +35,7 @@ namespace ItemChanger.Placements
                     break;
                 // Shiny
                 case "Shiny Control" when ShinyUtility.TryGetItemFromShinyName(fsm.gameObject.name, this, out _):
-                    switch (container)
+                    switch (containerType)
                     {
                         // Leave at location
                         case Container.Shiny:
@@ -115,20 +116,40 @@ namespace ItemChanger.Placements
             }
         }
 
-        public void GetPrimaryContainer(out GameObject obj, out Container container)
+        public void GetContainer(AbstractLocation location, out GameObject obj, out string containerType)
         {
-            SetContainerType();
-            container = this.container;
-            obj = ContainerUtility.GetNewContainer(this, Items, container);
+            if (this.containerType == Container.Unknown)
+            {
+                this.containerType = ChooseContainerType(location as ContainerLocation, Items);
+            }
+            
+            containerType = this.containerType;
+            var container = Container.GetContainer(containerType);
+            if (containerType == null)
+            {
+                ItemChanger.instance.LogError($"Unknown container type {containerType} used for {Name}!");
+            }
+
+            obj = container.GetNewContainer(this, Items, location.flingType);
         }
 
-        public void SetContainerType()
+        public static string ChooseContainerType(ContainerLocation location, IEnumerable<AbstractItem> items)
         {
-            if (!location.forceShiny && container == Container.Shiny)
+            if (location?.forceShiny ?? true)
             {
-                container = Items.Select(i => i.GetPreferredContainer()).FirstOrDefault(c => c != Container.Shiny && location.Supports(c));
-                if (container == Container.Shiny && location.Supports(Container.Chest) && Items.Count() > 1) container = Container.Chest;
+                return Container.Shiny;
             }
+
+            string containerType = items
+                .Select(i => i.GetPreferredContainer())
+                .FirstOrDefault(c => c != Container.Unknown && location.Supports(c));
+
+            if (string.IsNullOrEmpty(containerType))
+            {
+                containerType = items.Count() == 1 ? Container.Shiny : Container.Chest;
+            }
+
+            return containerType;
         }
 
         public override void OnLoad()

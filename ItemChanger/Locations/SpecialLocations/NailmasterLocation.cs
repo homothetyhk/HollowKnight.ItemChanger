@@ -13,27 +13,23 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    public class NailmasterLocation : FsmLocation
+    public class NailmasterLocation : AutoLocation
     {
         public string objectName;
         public string fsmName;
-        public override MessageType MessageType => MessageType.Any;
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
             if (fsm.FsmName == fsmName && fsm.gameObject.name == objectName)
             {
+                Transform = fsm.transform;
+
                 FsmState convo = fsm.GetState("Convo Choice");
                 FsmState getMsg = fsm.GetState("Get Msg");
                 FsmState fade = fsm.GetState("Fade Back");
 
                 FsmStateAction test = new BoolTestMod(Placement.AllObtained, null, "REOFFER");
-                void Callback()
-                {
-                    fsm.SendEvent("GET ITEM MSG END");
-                }
-
-                FsmStateAction give = new Lambda(() => Placement.GiveAll(MessageType, Callback));
+                FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
 
                 convo.Actions[objectName == "NM Sheo NPC" ? 2 : 1] = test;
 
@@ -51,11 +47,6 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             if (sheet == "Prompts" && convo == "NAILMASTER_FREE") return Placement.GetUIName();
             return base.OnLanguageGet(convo, sheet);
-        }
-
-        public override Transform FindTransformInScene()
-        {
-            return ObjectLocation.FindGameObject(objectName)?.transform;
         }
     }
 }
