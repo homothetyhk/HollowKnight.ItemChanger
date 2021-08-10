@@ -27,11 +27,12 @@ namespace ItemChanger.Util
             grubJar.layer = 0;
 
             var info = grubJar.AddComponent<ContainerInfo>();
+            info.containerType = Container.GrubJar;
             info.giveInfo = new ContainerGiveInfo
             {
                 placement = placement,
                 items = items,
-                flingType = flingType
+                flingType = flingType,
             };
 
             grubJar.AddComponent<DropIntoPlace>();
@@ -91,7 +92,9 @@ namespace ItemChanger.Util
             shatter.RemoveActionsOfType<IncrementPlayerDataInt>();
             shatter.RemoveActionsOfType<SendMessage>();
 
-            FsmStateAction checkAction = new Lambda(() => bottleFsm.SendEvent(placement.CheckVisited() ? "ACTIVATE" : null));
+            FsmStateAction checkAction = new BoolTestMod(
+                () => placement.CheckVisited() && items.Where(i => i.GiveEarly(Container.GrubJar)).All(i => i.WasEverObtained()),
+                "ACTIVATE", null);
             init.AddFirstAction(checkAction);
 
             GameObject itemParent = new GameObject("item");
@@ -104,30 +107,39 @@ namespace ItemChanger.Util
             FsmStateAction removeParent = new Lambda(() => itemParent.transform.parent = null);
 
             shatter.AddFirstAction(new BoolTestMod(() => CheckRigidBodyStatus(jar), null, "CANCEL"));
-            shatter.AddAction(spawnShinies);
             activate.AddFirstAction(removeParent); // activate has a destroy all children action
-            activate.AddFirstAction(spawnShinies);
 
-            foreach (AbstractItem item in items)
+            FsmStateAction giveItems = new Lambda(InstantiateShiniesAndGiveEarly);
+            shatter.AddAction(giveItems);
+            activate.AddAction(giveItems);
+
+            void InstantiateShiniesAndGiveEarly()
             {
-                if (item.GiveEarly(Container.GrubJar))
+                GiveInfo info = new GiveInfo
                 {
-                    GiveInfo info = new GiveInfo
-                    {
-                        Container = Container.GrubJar,
-                        FlingType = flingType,
-                        Transform = jar.transform,
-                        MessageType = MessageType.Corner,
-                    };
+                    Container = Container.GrubJar,
+                    FlingType = flingType,
+                    Transform = jar.transform,
+                    MessageType = MessageType.Corner,
+                };
 
-                    FsmStateAction giveAction = new Lambda(() => item.Give(placement, info));
-                    shatter.AddAction(giveAction);
-                }
-                else
+                foreach (AbstractItem item in items)
                 {
-                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
-                    ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                    if (!item.IsObtained())
+                    {
+                        if (item.GiveEarly(Container.GrubJar))
+                        {
+                            item.Give(placement, info);
+                        }
+                        else
+                        {
+                            GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
+                            ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                        }
+                    }
                 }
+
+                foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
             }
         }
 

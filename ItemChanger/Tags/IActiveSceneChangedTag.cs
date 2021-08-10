@@ -11,6 +11,6 @@ namespace ItemChanger.Tags
         /// <summary>
         /// Called immediately before Location.OnActiveSceneChanged.
         /// </summary>
-        void OnActiveSceneChanged(Scene from, Scene to, AbstractPlacement placement);
+        void OnActiveSceneChanged(Scene from, Scene to);
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ItemChanger
 {
-    public interface ShopNotchCostTag
+    public interface IShopNotchCostTag
     {
         int GetNotchCost(AbstractItem item);
     }

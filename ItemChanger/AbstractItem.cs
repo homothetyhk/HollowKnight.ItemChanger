@@ -172,8 +172,8 @@ namespace ItemChanger
         public virtual AbstractItem Clone()
         {
             AbstractItem item = (AbstractItem)MemberwiseClone();
-            item.UIDef = UIDef.Clone();
-            item.tags = tags.Where(t => t.Intrinsic).ToList();
+            item.UIDef = UIDef?.Clone();
+            item.tags = tags?.Where(t => t.Intrinsic)?.ToList();
             return item;
         }
     }

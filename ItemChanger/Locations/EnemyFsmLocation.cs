@@ -34,8 +34,10 @@ namespace ItemChanger.Locations
 
         public void AddDeathEvent(GameObject enemy, GameObject item)
         {
+            Transform = enemy.transform;
             HealthManager hm = enemy.GetComponent<HealthManager>();
             SpawnOnDeath drop = enemy.AddComponent<SpawnOnDeath>();
+            hm.OnDeath += GiveEarly;
             drop.item = item;
             item.SetActive(false);
 
@@ -45,6 +47,20 @@ namespace ItemChanger.Locations
                 hm.SetGeoMedium(0);
                 hm.SetGeoLarge(0);
             }
+        }
+
+        private void GiveEarly()
+        {
+            Util.ItemUtility.GiveSequentially(
+                Placement.Items.Where(i => i.GiveEarly("Enemy")), 
+                Placement,
+                new GiveInfo 
+                {
+                    Container = "Enemy",
+                    FlingType = flingType,
+                    MessageType = MessageType.Corner,
+                    Transform = Transform,
+                });
         }
     }
 }

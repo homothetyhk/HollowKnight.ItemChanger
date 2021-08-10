@@ -4,6 +4,7 @@ namespace ItemChanger
     {
         public const string Start = "Start";
         public const string Sly = "Sly";
+        public const string Sly_Key = "Sly_(Key)";
         public const string Iselda = "Iselda";
         public const string Salubra = "Salubra";
         public const string Leg_Eater = "Leg_Eater";

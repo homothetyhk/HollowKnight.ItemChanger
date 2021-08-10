@@ -35,7 +35,7 @@ namespace ItemChanger
             return Locations.ToDictionary(kvp => kvp.Key, kvp => kvp.Value.Clone());
         }
 
-        internal static void Load()
+        public static void Load()
         {
             JsonSerializer js = new JsonSerializer
             {
@@ -65,7 +65,7 @@ namespace ItemChanger
         {
             JsonSerializer js = new JsonSerializer
             {
-                DefaultValueHandling = DefaultValueHandling.Ignore,
+                DefaultValueHandling = DefaultValueHandling.Include,
                 Formatting = Formatting.Indented,
                 TypeNameHandling = TypeNameHandling.Auto,
             };

@@ -32,7 +32,8 @@ namespace ItemChanger.Components
             if (flung) return;
             flung = true;
             item.SetActive(true);
-            Rigidbody2D rb = item.GetComponent<Rigidbody2D>() ?? item.AddComponent<Rigidbody2D>();
+            Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
+            if (rb == null) rb = item.AddComponent<Rigidbody2D>();
             rb.position = gameObject.transform.position;
             item.transform.position = gameObject.transform.position;
             rb.velocity = Vector2.zero;

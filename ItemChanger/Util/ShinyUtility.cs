@@ -26,6 +26,7 @@ namespace ItemChanger.Util
             GameObject shiny = ObjectCache.ShinyItem;
             shiny.name = GetShinyName(placement, item);
             var info = shiny.AddComponent<ContainerInfo>();
+            info.containerType = Container.Shiny;
             info.giveInfo = new ContainerGiveInfo
             {
                 placement = placement,
@@ -41,6 +42,7 @@ namespace ItemChanger.Util
             GameObject shiny = ObjectCache.ShinyItem;
             shiny.name = GetShinyPrefix(placement);
             var info = shiny.AddComponent<ContainerInfo>();
+            info.containerType = Container.Shiny;
             info.giveInfo = new ContainerGiveInfo
             {
                 placement = placement,

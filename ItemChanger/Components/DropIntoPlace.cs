@@ -12,13 +12,15 @@ namespace ItemChanger.Components
         Rigidbody2D rb;
         public void Awake()
         {
-            rb = gameObject.GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
+            rb = gameObject.GetComponent<Rigidbody2D>();
+            if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
         }
 
         public void OnEnable()
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-            AccelerationMonitor am = gameObject.GetComponent<AccelerationMonitor>() ?? gameObject.AddComponent<AccelerationMonitor>();
+            AccelerationMonitor am = gameObject.GetComponent<AccelerationMonitor>();
+            if (am == null) am = gameObject.AddComponent<AccelerationMonitor>();
             StartCoroutine(DetectLanding(rb, am));
         }
 

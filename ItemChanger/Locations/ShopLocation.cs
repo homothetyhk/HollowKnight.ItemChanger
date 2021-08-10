@@ -19,6 +19,17 @@ namespace ItemChanger.Locations
     {
         public string objectName;
         public string fsmName;
+        /// <summary>
+        /// If more than one placement modifies the same shop, the intersection of all default shop items are kept.
+        /// </summary>
+        public DefaultShopItems defaultShopItems;
+
+        /// <summary>
+        /// If this field is set, it is applied to all items in addition to any individual requirements.
+        /// </summary>
+        [System.ComponentModel.DefaultValue("")]
+        public string requiredPlayerDataBool = string.Empty;
+        public bool dungDiscount;
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
@@ -123,7 +134,7 @@ namespace ItemChanger.Locations
                             int notchCost = 0;
                             if (mod && mod.item is AbstractItem item)
                             {
-                                if (item.GetTag<ShopNotchCostTag>() is ShopNotchCostTag notchCostTag)
+                                if (item.GetTag<IShopNotchCostTag>() is IShopNotchCostTag notchCostTag)
                                 {
                                     notchCost = notchCostTag.GetNotchCost(item);
                                 }

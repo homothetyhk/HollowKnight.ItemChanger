@@ -35,7 +35,9 @@ namespace ItemChanger.Locations
         public override void PlaceContainer(GameObject obj, string containerType)
         {
             GameObject target = ObjectLocation.FindGameObject(objectName);
+            Transform = target.transform;
             HealthManager hm = target.GetComponent<HealthManager>();
+            hm.OnDeath += GiveEarly;
 
             SpawnOnDeath drop = target.AddComponent<SpawnOnDeath>();
             drop.item = obj;
@@ -47,6 +49,20 @@ namespace ItemChanger.Locations
                 hm.SetGeoMedium(0);
                 hm.SetGeoLarge(0);
             }
+        }
+
+        private void GiveEarly()
+        {
+            Util.ItemUtility.GiveSequentially(
+                Placement.Items.Where(i => i.GiveEarly("Enemy")),
+                Placement,
+                new GiveInfo
+                {
+                    Container = "Enemy",
+                    FlingType = flingType,
+                    MessageType = MessageType.Corner,
+                    Transform = Transform,
+                });
         }
 
     }

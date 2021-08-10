@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ItemChanger.Tags
 {
-    public class SetPDBoolTag : Tag, IGiveEffectTag
+    public class SetPDBoolOnGiveTag : Tag, IGiveEffectTag
     {
         public string fieldName;
         [System.ComponentModel.DefaultValue(true)]

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HutongGames.PlayMaker;
 using UnityEngine;
 
 namespace ItemChanger
@@ -13,6 +14,14 @@ namespace ItemChanger
             T t = go.GetComponent<T>();
             if (t == null) return go.AddComponent<T>();
             else return t;
+        }
+
+        /// <summary>
+        /// Returns true when the collection has a previously given item, or is null or empty.
+        /// </summary>
+        public static bool AnyEverObtained(this IEnumerable<AbstractItem> items)
+        {
+            return items == null || !items.Any() || items.Any(i => i.WasEverObtained());
         }
 
         public static bool Compare(this int a, ComparisonOperator op, int b)
@@ -45,5 +54,22 @@ namespace ItemChanger
         {
             yield return t;
         }
+
+        public static FsmBool AddFsmBool(this PlayMakerFSM fsm, string name, bool value)
+        {
+            FsmBool fb = new FsmBool
+            {
+                Name = name,
+                Value = value
+            };
+
+            FsmBool[] bools = new FsmBool[fsm.FsmVariables.BoolVariables.Length + 1];
+            fsm.FsmVariables.BoolVariables.CopyTo(bools, 0);
+            bools[bools.Length - 1] = fb;
+            fsm.FsmVariables.BoolVariables = bools;
+
+            return fb;
+        }
+
     }
 }

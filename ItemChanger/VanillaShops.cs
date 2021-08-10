@@ -16,28 +16,28 @@ namespace ItemChanger
         {
             AbstractItem mask1 = Finder.GetItem(ItemNames.Mask_Shard);
             mask1.AddTag<CostTag>().Cost = Cost.NewGeoCost(150);
-            mask1.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.slyShellFrag1);
+            mask1.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyShellFrag1);
 
             AbstractItem mask2 = Finder.GetItem(ItemNames.Mask_Shard);
             mask2.AddTag<CostTag>().Cost = Cost.NewGeoCost(500);
-            mask2.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.slyShellFrag2);
+            mask2.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyShellFrag2);
             mask2.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.slyShellFrag1);
 
             AbstractItem mask3 = Finder.GetItem(ItemNames.Mask_Shard);
             mask3.AddTag<CostTag>().Cost = Cost.NewGeoCost(800);
-            mask3.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.slyShellFrag3);
+            mask3.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyShellFrag3);
             mask3.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.slyShellFrag2);
             mask3.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.gaveSlykey);
 
             AbstractItem mask4 = Finder.GetItem(ItemNames.Mask_Shard);
             mask4.AddTag<CostTag>().Cost = Cost.NewGeoCost(1500);
-            mask4.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.slyShellFrag4);
+            mask4.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyShellFrag4);
             mask4.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.slyShellFrag3);
             mask4.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.gaveSlykey);
 
             AbstractItem vessel1 = Finder.GetItem(ItemNames.Vessel_Fragment);
             vessel1.AddTag<CostTag>().Cost = Cost.NewGeoCost(550);
-            vessel1.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.slyVesselFrag1);
+            vessel1.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyVesselFrag1);
 
             AbstractItem vessel2 = Finder.GetItem(ItemNames.Vessel_Fragment);
             vessel2.AddTag<CostTag>().Cost = Cost.NewGeoCost(900);
@@ -67,11 +67,11 @@ namespace ItemChanger
 
             AbstractItem rancid_egg = Finder.GetItem(ItemNames.Rancid_Egg);
             rancid_egg.AddTag<CostTag>().Cost = Cost.NewGeoCost(60);
-            rancid_egg.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.slyRancidEgg);
+            rancid_egg.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyRancidEgg);
 
             AbstractItem simple_key = Finder.GetItem(ItemNames.Simple_Key);
             simple_key.AddTag<CostTag>().Cost = Cost.NewGeoCost(950);
-            simple_key.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.slySimpleKey);
+            simple_key.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slySimpleKey);
 
 
             AbstractPlacement sly = new ShopPlacement
@@ -304,22 +304,22 @@ namespace ItemChanger
             AbstractItem notch1 = Finder.GetItem(ItemNames.Charm_Notch);
             notch1.AddTag<CostTag>().Cost = Cost.NewGeoCost(120)
                 + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 5, uiText = "Requires 5 charms" };
-            notch1.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.salubraNotch1);
+            notch1.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.salubraNotch1);
 
             AbstractItem notch2 = Finder.GetItem(ItemNames.Charm_Notch);
             notch2.AddTag<CostTag>().Cost = Cost.NewGeoCost(500)
                 + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 10, uiText = "Requires 10 charms" };
-            notch2.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.salubraNotch2);
+            notch2.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.salubraNotch2);
 
             AbstractItem notch3 = Finder.GetItem(ItemNames.Charm_Notch);
             notch3.AddTag<CostTag>().Cost = Cost.NewGeoCost(900)
                 + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 18, uiText = "Requires 18 charms" };
-            notch3.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.salubraNotch3);
+            notch3.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.salubraNotch3);
 
             AbstractItem notch4 = Finder.GetItem(ItemNames.Charm_Notch);
             notch4.AddTag<CostTag>().Cost = Cost.NewGeoCost(120)
                 + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 25, uiText = "Requires 25 charms" };
-            notch4.AddTag<SetPDBoolTag>().fieldName = nameof(PlayerData.salubraNotch4);
+            notch4.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.salubraNotch4);
 
             AbstractItem blessing = Finder.GetItem(ItemNames.Salubras_Blessing);
             blessing.AddTag<CostTag>().Cost = Cost.NewGeoCost(800);

@@ -27,6 +27,50 @@ namespace ItemChanger.Util
             lit.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
 
             tablet.name = GetTabletName(placement);
+            tablet.SetActive(true);
+
+
+
+            return tablet;
+        }
+
+        public static GameObject MakeNewTablet(AbstractPlacement placement, Func<string> textGenerator)
+        {
+            GameObject tablet = ObjectCache.LoreTablet;
+
+            GameObject lit_tablet = tablet.transform.Find("lit_tablet").gameObject; // doesn't appear after instantiation, for some reason
+            GameObject lit = new GameObject();
+            lit.transform.SetParent(tablet.transform);
+            lit.transform.localPosition = new Vector3(-0.1f, 0.1f, -1.8f);
+            lit.transform.localScale = Vector3.one;
+            lit.AddComponent<SpriteRenderer>().sprite = lit_tablet.GetComponent<SpriteRenderer>().sprite;
+            lit.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
+
+            tablet.name = GetTabletName(placement);
+            tablet.SetActive(true);
+
+            PlayMakerFSM inspectFsm = tablet.LocateFSM("Inspection");
+
+            FsmState promptUp = inspectFsm.GetState("Prompt Up");
+            promptUp.Actions = new FsmStateAction[]
+            {
+                    promptUp.Actions[0], // AudioStop
+                    promptUp.Actions[1], // TurnToBG
+                    promptUp.Actions[2], // lore tablet audio clip
+                    promptUp.Actions[3], // vibration
+                    //promptUp.Actions[4], // change text align
+                    //promptUp.Actions[5], // move text
+                    promptUp.Actions[6], // HUD Canvas OUT
+                    //promptUp.Actions[7], // LORE PROMPT UP
+                    new AsyncLambda(callback => DialogueCenter.SendLoreMessage(
+                        textGenerator?.Invoke() ?? string.Empty,
+                        callback,
+                        TextType.MajorLore)),
+            };
+            FsmState setBool = inspectFsm.GetState("Set Bool");
+            foreach (var t in promptUp.Transitions) t.ToState = "Turn Back";
+            foreach (var t in setBool.Transitions) t.ToState = "Turn Back";
+
 
             return tablet;
         }
@@ -45,6 +89,7 @@ namespace ItemChanger.Util
 
             tablet.name = GetTabletName(placement);
             var info = tablet.AddComponent<ContainerInfo>();
+            info.containerType = Container.Tablet;
             info.giveInfo = new ContainerGiveInfo
             {
                 placement = placement,
@@ -66,7 +111,7 @@ namespace ItemChanger.Util
 
                 void DisableInspect()
                 {
-                    if (placement.AllObtained())
+                    if (items.All(i => i.IsObtained()))
                     {
                         outOfRange.ClearTransitions();
                     }
@@ -117,7 +162,7 @@ namespace ItemChanger.Util
                         }, callback)),
                 };
                 convoEnd.RemoveActionsOfType<SetTextMeshProAlignment>();
-                canTalkBool.AddFirstAction(new BoolTestMod(placement.AllObtained, "FALSE", null));
+                canTalkBool.AddFirstAction(new BoolTestMod(() => items.All(i => i.IsObtained()), "FALSE", null));
             }
         }
 

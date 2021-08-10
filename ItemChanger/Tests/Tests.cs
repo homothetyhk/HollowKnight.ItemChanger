@@ -42,7 +42,6 @@ namespace ItemChanger.Tests
         static AbstractItem focus => Finder.GetItem(ItemNames.Focus);
         static AbstractItem leftdash => Finder.GetItem(ItemNames.Left_Mothwing_Cloak);
 
-
         private static AbstractPlacement AddTestingItems(this AbstractPlacement placement)
         {
             placement.AddItem(cyclone);
@@ -53,6 +52,71 @@ namespace ItemChanger.Tests
             placement.AddItem(majorlore);
             placement.AddItem(megarock);
             return placement;
+        }
+
+        private static AbstractPlacement FAddItem(this AbstractPlacement placement, AbstractItem item)
+        {
+            placement.AddItem(item);
+            return placement;
+        }
+
+        public static void RGStagTest()
+        {
+            var loc = (Finder.GetLocation(LocationNames.Resting_Grounds_Stag) as CoordinateLocation);
+            var loc1 = (Finder.GetLocation(LocationNames.Queens_Gardens_Stag) as CoordinateLocation);
+            var loc2 = (Finder.GetLocation(LocationNames.Hidden_Station_Stag) as CoordinateLocation);
+            Ref.QuickSave(new MutablePlacement
+            {
+                location = new StagLocation
+                {
+                    name = loc.name,
+                    elevation = loc.elevation,
+                    flingType = loc.flingType,
+                    forceShiny = loc.forceShiny,
+                    managed = false,
+                    sceneName = loc.sceneName,
+                    tags = loc.tags,
+                    x = loc.x,
+                    y = loc.y,
+                },
+            }.FAddItem(dive),
+            new MutablePlacement
+            {
+                location = new StagLocation
+                {
+                    name = loc1.name,
+                    elevation = loc1.elevation,
+                    flingType = loc1.flingType,
+                    forceShiny = loc1.forceShiny,
+                    managed = false,
+                    sceneName = loc1.sceneName,
+                    tags = loc1.tags,
+                    x = loc1.x,
+                    y = loc1.y,
+                },
+            }.FAddItem(grubsong),
+            new MutablePlacement
+            {
+                location = new StagLocation
+                {
+                    name = loc2.name,
+                    elevation = loc2.elevation,
+                    flingType = loc2.flingType,
+                    forceShiny = loc2.forceShiny,
+                    managed = false,
+                    sceneName = loc2.sceneName,
+                    tags = loc2.tags,
+                    x = loc2.x,
+                    y = loc2.y,
+                },
+            }.FAddItem(megarock)
+
+            );
+        }
+
+        public static void KingFragmentTest()
+        {
+            Ref.QuickSave(Finder.GetLocation(LocationNames.King_Fragment).Wrap().AddTestingItems());
         }
 
         static AbstractPlacement ex_sou = new DualPlacement
@@ -581,7 +645,7 @@ namespace ItemChanger.Tests
         public static void VengefulSpiritTest()
         {
             shaman.AddItem(grubsong);
-            shaman.AddItem(megarock);
+            shaman.AddItem(grub);
 
             Ref.Settings.SavePlacements(new AbstractPlacement[]
             {
@@ -712,6 +776,7 @@ namespace ItemChanger.Tests
             start.AddItem(supernail);
             ghusk.AddItem(grubsong);
             ghusk.AddItem(megarock);
+            ghusk.AddItem(wk);
 
             Ref.Settings.SavePlacements(new AbstractPlacement[]
             {
@@ -722,6 +787,8 @@ namespace ItemChanger.Tests
         public static void CrystalGuardianTest()
         {
             start.AddItem(supernail);
+            crystalguardian.AddItem(megarock);
+            crystalguardian.AddItem(wk);
             crystalguardian.AddItem(dive);
             crystalguardian.AddItem(grub);
 
@@ -1186,14 +1253,28 @@ namespace ItemChanger.Tests
             forceShiny = false,
         };
 
+        static CoordinateLocation grubfather_chest = (CoordinateLocation)Finder.GetLocation(LocationNames.Grubberflys_Elegy);
+        static CoordinateLocation grubfather_tablet = (CoordinateLocation)Finder.GetLocation(LocationNames.Grubsong);
+
+        public static void GrubfatherTest()
+        {
+            CostChestPlacement grubfather = new CostChestPlacement
+            {
+                chestLocation = grubfather_chest,
+                tabletLocation = grubfather_tablet,
+            };
+        }
+
         static CoordinateLocation near_grimmchild_loc = new CoordinateLocation
         {
+            name = "Grimmchild_Aux",
             sceneName = SceneNames.Grimm_Main_Tent,
             x = 70,
             y = 7,
             elevation = 0.5f,
             flingType = FlingType.Everywhere,
             forceShiny = false,
+            managed = false,
         };
 
 
@@ -1201,7 +1282,6 @@ namespace ItemChanger.Tests
         {
             chestLocation = grimmchild_loc,
             tabletLocation = near_grimmchild_loc,
-            
         };
 
         static YNShinyPlacement multigrimmchild = new YNShinyPlacement

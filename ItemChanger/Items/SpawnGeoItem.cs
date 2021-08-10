@@ -14,6 +14,7 @@ namespace ItemChanger.Items
         {
             switch (containerType)
             {
+                case Container.Enemy:
                 case Container.Chest:
                 case Container.GeoRock:
                 case Container.GrubJar:

@@ -24,11 +24,21 @@ namespace ItemChanger.Placements
         public override AbstractLocation Location => location;
         public override string MainContainerType => "Shop";
 
-        public DefaultShopItems defaultShopItems;
-
-        [System.ComponentModel.DefaultValue("")]
-        public string requiredPlayerDataBool = string.Empty;
-        public bool dungDiscount;
+        public string requiredPlayerDataBool
+        { 
+            get => location.requiredPlayerDataBool; 
+            set => location.requiredPlayerDataBool = value; 
+        }
+        public bool dungDiscount
+        {
+            get => location.dungDiscount;
+            set => location.dungDiscount = value;
+        }
+        public DefaultShopItems defaultShopItems
+        {
+            get => location.defaultShopItems;
+            set => location.defaultShopItems = value;
+        }
 
         public void AddItemWithCost(AbstractItem item, Cost cost)
         {

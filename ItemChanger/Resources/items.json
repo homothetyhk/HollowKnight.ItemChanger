@@ -6099,7 +6099,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RUIN_TAB_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6129,7 +6129,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RUINS_MARISSA_POSTER",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6159,7 +6159,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "MAGE_COMP_03",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6189,7 +6189,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "MAGE_COMP_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6219,7 +6219,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "LURIAN_JOURNAL",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "LeftLore",
       "name": {
@@ -6249,7 +6249,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ARCHIVE_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6279,7 +6279,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ARCHIVE_03",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6309,7 +6309,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ARCHIVE_02",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6339,7 +6339,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "PILGRIM_TAB_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6369,7 +6369,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "PILGRIM_TAB_02",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6399,7 +6399,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "MANTIS_PLAQUE_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6429,7 +6429,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "MANTIS_PLAQUE_02",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6459,7 +6459,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GREEN_TABLET_06",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6489,7 +6489,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GREEN_TABLET_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6519,7 +6519,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GREEN_TABLET_03",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6549,7 +6549,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GREEN_TABLET_05",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6579,7 +6579,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GREEN_TABLET_02",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6609,7 +6609,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GREEN_TABLET_07",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6639,7 +6639,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "DUNG_DEF_SIGN",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6669,7 +6669,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "FUNG_TAB_04",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6699,7 +6699,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "FUNG_TAB_03",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6729,7 +6729,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "FUNG_TAB_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6759,7 +6759,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "FUNG_TAB_02",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -6789,7 +6789,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ABYSS_TUT_TAB_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "MajorLore",
       "name": {
@@ -6819,7 +6819,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "TUT_TAB_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "MajorLore",
       "name": {
@@ -6849,7 +6849,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "TUT_TAB_03",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "MajorLore",
       "name": {
@@ -6879,7 +6879,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "TUT_TAB_02",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "MajorLore",
       "name": {
@@ -6909,7 +6909,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "SENSE_TAB_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "MajorLore",
       "name": {
@@ -6939,7 +6939,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "CLIFF_TAB_02",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "MajorLore",
       "name": {
@@ -6969,7 +6969,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "MR_MUSH_RIDDLE_TAB_NORMAL",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "MajorLore",
       "name": {
@@ -6999,7 +6999,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "WP_WORKSHOP_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -7029,7 +7029,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "WP_THRONE_01",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {
@@ -7059,7 +7059,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "PLAQUE_WARN",
-        "sheet": "LoreTablets"
+        "sheet": "Lore Tablets"
       },
       "textType": "Lore",
       "name": {

@@ -13,9 +13,11 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class CostChestPlacement : AbstractPlacement, IContainerPlacement
+    public class CostChestPlacement : MultiLocationPlacement, IContainerPlacement
     {
         public override AbstractLocation Location => chestLocation;
+        public override IEnumerable<AbstractLocation> SecondaryLocations => 
+            tabletLocation.Yield<AbstractLocation>();
         public ContainerLocation chestLocation;
         public PlaceableLocation tabletLocation;
 
@@ -30,150 +32,117 @@ namespace ItemChanger.Placements
         {
             if (location == chestLocation)
             {
-                obj = ChestUtility.MakeNewChest(this, Items, Location.flingType);
+                obj = ChestUtility.MakeNewChest(this);
                 containerType = Container.Chest;
+                EditChestFsm(obj);
             }
             else if (location == tabletLocation)
             {
-                obj = TabletUtility.MakeNewTablet(this);
+                ItemChanger.instance.Log("Getting tablet");
+                obj = TabletUtility.MakeNewTablet(this, BuildText);
                 containerType = Container.Tablet;
             }
             else throw new ArgumentException($"Unknown location {location.name} found in GetContainer.");
         }
 
-        public override void OnLoad()
+        public void EditChestFsm(GameObject chest)
         {
-            //tabletLocation.auxillary = true;
-            base.OnLoad();
-        }
+            PlayMakerFSM chestFsm = chest.LocateFSM("Chest Control");
 
-        public override void OnActiveSceneChanged(Scene from, Scene to)
-        {
-            base.OnActiveSceneChanged(from, to);
-            tabletLocation.PlaceContainer(TabletUtility.MakeNewTablet(this), Container.Tablet);
-        }
+            FsmState init = chestFsm.GetState("Init");
+            FsmState spawnItems = chestFsm.GetState("Spawn Items");
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
-        {
-            base.OnEnableLocal(fsm);
+            FsmStateAction checkAction = new Lambda(() => chestFsm.SendEvent(AllObtained() ? "ACTIVATE" : null));
 
-            if (fsm.FsmName == "Inspection" && fsm.gameObject.name == TabletUtility.GetTabletName(this))
+            init.RemoveActionsOfType<BoolTest>();
+            init.AddAction(checkAction);
+
+            // Destroy any existing shinies in the chest
+            // Moved to MakeNewChest, this code can likely be removed safely
+            GameObject itemParent = chestFsm.gameObject.transform.Find("Item").gameObject;
+            foreach (Transform t in itemParent.transform)
             {
-                fsm.FsmVariables.FindFsmString("Convo Name").Value = fsm.gameObject.name;
-                fsm.FsmVariables.FindFsmString("Sheet Name").Value = "ItemChanger.Locations";
+                UnityEngine.Object.Destroy(t.gameObject);
             }
 
-            if (fsm.FsmName == "Shiny Control" && ShinyUtility.TryGetItemFromShinyName(fsm.gameObject.name, this, out var shinyItem))
+            // Remove pre-existing geo from chest
+            foreach (FlingObjectsFromGlobalPool fling in spawnItems.GetActionsOfType<FlingObjectsFromGlobalPool>())
             {
-                ShinyUtility.ModifyShiny(fsm, chestLocation.flingType, this, shinyItem);
-                if (chestLocation.flingType == FlingType.Everywhere)
+                fling.spawnMin = 0;
+                fling.spawnMax = 0;
+            }
+
+            // Need to check SpawnFromPool action too because of Mantis Lords chest
+            foreach (SpawnFromPool spawn in spawnItems.GetActionsOfType<SpawnFromPool>())
+            {
+                spawn.spawnMin = 0;
+                spawn.spawnMax = 0;
+            }
+
+            void OnOpenChest()
+            {
+                foreach (AbstractItem item in Items)
                 {
-                    ShinyUtility.FlingShinyRandomly(fsm);
+                    Cost cost = item.GetTag<CostTag>()?.Cost;
+
+                    if (!item.IsObtained())
+                    {
+                        if (cost != null && !cost.Paid && !cost.CanPay()) continue;
+                        if (cost != null && !cost.Paid) cost.Pay();
+                        if (item.GiveEarly(Container.Chest))
+                        {
+                            item.Give(this, new GiveInfo
+                            {
+                                Container = Container.Chest,
+                                FlingType = chestLocation.flingType,
+                                Transform = chestFsm.gameObject.transform,
+                                MessageType = MessageType.Corner,
+                            });
+                        }
+                        else
+                        {
+                            GameObject shiny = ShinyUtility.MakeNewShiny(this, item, chestLocation.flingType);
+                            ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                            ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                        }
+                    }
+
+                    foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
+                }
+            }
+
+            spawnItems.AddAction(new Lambda(OnOpenChest));
+        }
+
+        public string BuildText()
+        {
+            StringBuilder sb = new StringBuilder("Chest Contents<br>");
+            for (int i = 0; i < Items.Count; i++)
+            {
+                AbstractItem item = Items[i];
+                Cost cost = item.GetTag<CostTag>()?.Cost;
+
+                sb.Append("<br>");
+                sb.Append(item?.GetResolvedUIDef(this)?.GetPostviewName() ?? "Unknown Item");
+                sb.Append("  -  ");
+                if (item.IsObtained())
+                {
+                    sb.Append("Obtained");
+                }
+                else if (cost is null)
+                {
+                    sb.Append("Free");
+                }
+                else if (cost.Paid)
+                {
+                    sb.Append("Purchased");
                 }
                 else
                 {
-                    ShinyUtility.FlingShinyDown(fsm);
+                    sb.Append(cost.GetCostText());
                 }
             }
-
-            if (fsm.FsmName == "Chest Control" && fsm.gameObject.name == ChestUtility.GetChestName(this))
-            {
-                FsmState init = fsm.GetState("Init");
-                FsmState spawnItems = fsm.GetState("Spawn Items");
-
-                FsmStateAction checkAction = new Lambda(() => fsm.SendEvent(AllObtained() ? "ACTIVATE" : null));
-
-                init.RemoveActionsOfType<BoolTest>();
-                init.AddAction(checkAction);
-
-                // Destroy any existing shinies in the chest
-                GameObject itemParent = fsm.gameObject.transform.Find("Item").gameObject;
-                foreach (Transform t in itemParent.transform)
-                {
-                    GameObject.Destroy(t.gameObject);
-                }
-
-                // Remove pre-existing geo from chest
-                foreach (FlingObjectsFromGlobalPool fling in spawnItems.GetActionsOfType<FlingObjectsFromGlobalPool>())
-                {
-                    fling.spawnMin = 0;
-                    fling.spawnMax = 0;
-                }
-
-                // Need to check SpawnFromPool action too because of Mantis Lords chest
-                foreach (SpawnFromPool spawn in spawnItems.GetActionsOfType<SpawnFromPool>())
-                {
-                    spawn.spawnMin = 0;
-                    spawn.spawnMax = 0;
-                }
-
-                FsmStateAction generateItems = new Lambda(() =>
-                {
-                    for (int i = 0; i < Items.Count; i++)
-                    {
-                        AbstractItem item = Items[i];
-                        Cost cost = item.GetTag<CostTag>()?.Cost;
-
-                        if (!item.IsObtained())
-                        {
-                            if (cost != null && !cost.Paid&& !cost.CanPay()) continue;
-                            if (cost != null && !cost.Paid) cost.Pay();
-                            if (item.GiveEarly(Container.Chest))
-                            {
-                                item.Give(this, new GiveInfo
-                                {
-                                    Container = Container.Chest,
-                                    FlingType = chestLocation.flingType,
-                                    Transform = fsm.gameObject.transform,
-                                    MessageType = MessageType.Corner,
-                                });
-                            }
-                            else
-                            {
-                                GameObject shiny = ShinyUtility.MakeNewShiny(this, item, Location.flingType);
-                                ShinyUtility.PutShinyInContainer(itemParent, shiny);
-                            }
-                        }
-                    }
-                });
-
-                fsm.GetState("Open").AddAction(generateItems);
-            }
-        }
-
-        public override string OnLanguageGet(string convo, string sheet)
-        {
-            if (sheet == "ItemChanger.Locations" && convo == TabletUtility.GetTabletName(this))
-            {
-                StringBuilder sb = new StringBuilder("Chest Contents<br>");
-                for (int i = 0; i < Items.Count; i++)
-                {
-                    AbstractItem item = Items[i];
-                    Cost cost = item.GetTag<CostTag>()?.Cost;
-
-                    sb.Append("<br>");
-                    sb.Append(item.UIDef?.GetPostviewName() ?? "Unknown Item");
-                    sb.Append("  -  ");
-                    if (item.IsObtained())
-                    {
-                        sb.Append("Obtained");
-                    }
-                    else if (cost is null)
-                    {
-                        sb.Append("Free");
-                    }
-                    else if (cost.Paid)
-                    {
-                        sb.Append("Purchased");
-                    }
-                    else
-                    {
-                        sb.Append(cost.GetCostText());
-                    }
-                }
-                return sb.ToString();
-            }
-            return base.OnLanguageGet(convo, sheet);
+            return sb.ToString();
         }
     }
 }

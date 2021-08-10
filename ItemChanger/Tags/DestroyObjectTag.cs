@@ -12,10 +12,11 @@ namespace ItemChanger.Tags
         public override bool Intrinsic => true;
 
         public string objectName;
+        public string sceneName;
 
-        public void OnActiveSceneChanged(Scene from, Scene to, AbstractPlacement placement)
+        public void OnActiveSceneChanged(Scene from, Scene to)
         {
-            if (to.name == placement.SceneName)
+            if (to.name == sceneName)
             {
                 GameObject obj = Locations.ObjectLocation.FindGameObject(objectName);
                 if (obj) GameObject.Destroy(obj);

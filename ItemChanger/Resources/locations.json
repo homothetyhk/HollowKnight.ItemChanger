@@ -10,7 +10,22 @@
     "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
     "objectName": "Sly Shop",
     "fsmName": "Conversation Control",
+    "defaultShopItems": "None",
+    "requiredPlayerDataBool": "",
+    "dungDiscount": false,
     "name": "Sly",
+    "sceneName": "Room_shop",
+    "flingType": "DirectDeposit",
+    "tags": null
+  },
+  "Sly_(Key)": {
+    "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
+    "objectName": "Sly",
+    "fsmName": "Conversation Control",
+    "defaultShopItems": "None",
+    "requiredPlayerDataBool": "gaveSlykey",
+    "dungDiscount": false,
+    "name": "Sly_(Key)",
     "sceneName": "Room_shop",
     "flingType": "DirectDeposit",
     "tags": null
@@ -19,6 +34,9 @@
     "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
     "objectName": "Iselda",
     "fsmName": "Conversation Control",
+    "defaultShopItems": "None",
+    "requiredPlayerDataBool": "",
+    "dungDiscount": false,
     "name": "Iselda",
     "sceneName": "Room_mapper",
     "flingType": "DirectDeposit",
@@ -28,6 +46,9 @@
     "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
     "objectName": "Charm Slug",
     "fsmName": "Conversation Control",
+    "defaultShopItems": "None",
+    "requiredPlayerDataBool": "",
+    "dungDiscount": false,
     "name": "Salubra",
     "sceneName": "Room_Charm_Shop",
     "flingType": "DirectDeposit",
@@ -37,6 +58,9 @@
     "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
     "objectName": "Leg_Eater",
     "fsmName": "Conversation Control",
+    "defaultShopItems": "None",
+    "requiredPlayerDataBool": "",
+    "dungDiscount": false,
     "name": "Leg_Eater",
     "sceneName": "Fungus2_26",
     "flingType": "DirectDeposit",
@@ -326,7 +350,8 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "defeatedDungDefender"
+      "boolName": "defeatedDungDefender",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
@@ -454,7 +479,8 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "slugEncounterComplete"
+      "boolName": "slugEncounterComplete",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
@@ -660,7 +686,8 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "killedPaleLurker"
+      "boolName": "killedPaleLurker",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.SpecialLocations.PaleLurkerDropLocation, ItemChanger",
@@ -1058,7 +1085,7 @@
     "tags": null,
     "HintActive": true
   },
-  "Geo_Chest-False_Knight": {
+  "200_Geo-False_Knight_Chest": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
@@ -1068,7 +1095,7 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Geo_Chest-Soul_Master": {
+  "380_Geo-Soul_Master_Chest": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
@@ -1078,7 +1105,7 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Geo_Chest-Watcher_Knights": {
+  "655_Geo-Watcher_Knights_Chest": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
@@ -1088,7 +1115,7 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Geo_Chest-Greenpath": {
+  "85_Geo-Greenpath_Chest": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
@@ -1098,7 +1125,7 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Geo_Chest-Mantis_Lords": {
+  "620_Geo-Mantis_Lords_Chest": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Mantis Chest (2)",
     "elevation": 0.0,
@@ -1108,7 +1135,7 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Geo_Chest-Resting_Grounds": {
+  "150_Geo-Resting_Grounds_Chest": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
@@ -1118,7 +1145,7 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Geo_Chest-Crystal_Peak": {
+  "80_Geo-Crystal_Peak_Chest": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
@@ -1128,7 +1155,7 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Geo_Chest-Weavers_Den": {
+  "160_Geo-Weavers_Den_Chest": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
@@ -2502,7 +2529,7 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Deepnest_Map-Right": {
+  "Deepnest_Map-Right_[Gives_Quill]": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
     "objectName": "Cornifer Deepnest",
     "name": "Deepnest_Map-Right_[Gives_Quill]",
@@ -5011,7 +5038,8 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "megaMossChargerDefeated"
+      "boolName": "megaMossChargerDefeated",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyFsmLocation, ItemChanger",
@@ -5057,7 +5085,8 @@
     "Test": {
       "$type": "ItemChanger.SDBool, ItemChanger",
       "id": "Battle Scene v2",
-      "sceneName": "Ruins1_23"
+      "sceneName": "Ruins1_23",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",
@@ -5092,7 +5121,8 @@
     "Test": {
       "$type": "ItemChanger.SDBool, ItemChanger",
       "id": "Battle Scene v2",
-      "sceneName": "Ruins1_31b"
+      "sceneName": "Ruins1_31b",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",
@@ -5126,7 +5156,8 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "defeatedMegaBeamMiner"
+      "boolName": "defeatedMegaBeamMiner",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyFsmLocation, ItemChanger",
@@ -5160,7 +5191,8 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "defeatedMegaBeamMiner2"
+      "boolName": "defeatedMegaBeamMiner2",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyFsmLocation, ItemChanger",
@@ -5195,7 +5227,8 @@
     "Test": {
       "$type": "ItemChanger.SDBool, ItemChanger",
       "id": "Battle Scene",
-      "sceneName": "Crossroads_04"
+      "sceneName": "Crossroads_04",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.SpecialLocations.GruzMotherDropLocation, ItemChanger",
@@ -5227,7 +5260,8 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "zoteRescuedBuzzer"
+      "boolName": "zoteRescuedBuzzer",
+      "Value": false
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",

@@ -21,9 +21,12 @@ namespace ItemChanger
         public const string GeoRock = "GeoRock";
         public const string Chest = "Chest";
         public const string Tablet = "Tablet";
+        public const string Shop = "Shop";
+        public const string Enemy = "Enemy";
 
         public static Container GetContainer(string containerType)
         {
+            if (string.IsNullOrEmpty(containerType)) return null;
             if (_containers.TryGetValue(containerType, out Container value)) return value;
             return null;
         }
@@ -74,6 +77,12 @@ namespace ItemChanger
             if (info != null)
             {
                 var container = GetContainer(info.containerType);
+                if (container == null)
+                {
+                    ItemChanger.instance.LogError($"Unable to find Container definition for {info.containerType}!");
+                    return;
+                }
+
 
                 var give = info.giveInfo;
                 var scene = info.changeSceneInfo;

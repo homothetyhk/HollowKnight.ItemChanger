@@ -16,7 +16,7 @@ namespace ItemChanger.Util
     {
         public const float CHEST_ELEVATION = 0.5f;
 
-        public static GameObject MakeNewChest(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        public static GameObject MakeNewChest(AbstractPlacement placement)
         {
             GameObject chest = ObjectCache.Chest;
             chest.name = GetChestName(placement);
@@ -25,7 +25,22 @@ namespace ItemChanger.Util
             chest.transform.Find("Bouncer").GetComponent<BoxCollider2D>().size = chest.GetComponent<BoxCollider2D>().size = new Vector2(2.4f, 1.2f);
             chest.AddComponent<DropIntoPlace>();
 
+            // Destroy any existing shinies in the chest
+            GameObject itemParent = chest.transform.Find("Item").gameObject;
+            foreach (Transform t in itemParent.transform)
+            {
+                UnityEngine.Object.Destroy(t.gameObject);
+            }
+
+            return chest;
+        }
+
+        public static GameObject MakeNewChest(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        {
+            GameObject chest = MakeNewChest(placement);
+
             var info = chest.GetOrAddComponent<ContainerInfo>();
+            info.containerType = Container.Chest;
             info.giveInfo = new ContainerGiveInfo
             {
                 placement = placement,
@@ -68,12 +83,14 @@ namespace ItemChanger.Util
             FsmState init = chestFsm.GetState("Init");
             FsmState spawnItems = chestFsm.GetState("Spawn Items");
 
+            // TODO: Is this the right predicate?
             FsmStateAction checkAction = new Lambda(() => chestFsm.SendEvent(placement.CheckVisited() ? "ACTIVATE" : null));
 
             init.RemoveActionsOfType<BoolTest>();
             init.AddAction(checkAction);
 
             // Destroy any existing shinies in the chest
+            // Moved to MakeNewChest, this code can likely be removed safely
             GameObject itemParent = chestFsm.gameObject.transform.Find("Item").gameObject;
             foreach (Transform t in itemParent.transform)
             {
@@ -94,7 +111,7 @@ namespace ItemChanger.Util
                 spawn.spawnMax = 0;
             }
 
-            foreach (AbstractItem item in items)
+            foreach (AbstractItem item in items.Where(i => !i.IsObtained()))
             {
                 if (item.GiveEarly(Container.Chest))
                 {

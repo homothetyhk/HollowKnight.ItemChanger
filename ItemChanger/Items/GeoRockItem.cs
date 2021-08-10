@@ -14,6 +14,7 @@ namespace ItemChanger.Items
         {
             switch (containerType)
             {
+                //case Container.Enemy: // Not included, so that the geo rock spawns on death!
                 case Container.Chest:
                 case Container.GeoRock:
                 case Container.GrubJar:

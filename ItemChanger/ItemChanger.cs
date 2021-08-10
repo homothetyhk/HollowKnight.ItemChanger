@@ -60,9 +60,9 @@ namespace ItemChanger
             ObjectCache.Setup(preloadedObjects);
             MessageController.Setup();
 
-
-            
-            ModHooks.Instance.NewGameHook += OnStart;
+            On.GameManager.StartNewGame += BeforeStartNewGameHook;
+            BeforeStartNewGame += OnStart;
+            //ModHooks.Instance.NewGameHook += OnStart;
             ModHooks.Instance.SavegameLoadHook += OnLoad;
             On.GameManager.ResetSemiPersistentItems += ResetSemiPersistentItems;
             CustomSkillManager.Hook();
@@ -74,11 +74,15 @@ namespace ItemChanger
             On.GameManager.OnNextLevelReady += OnOnNextLevelReady;
             On.GameManager.SceneLoadInfo.NotifyFetchComplete += OnNotifyFetchComplete;
             ModHooks.Instance.LanguageGetHook += OnLanguageGet;
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.CreateRespawnMarker;
+            StartDef.HookBenchwarp();
         }
+
+        
 
         private void OnStart()
         {
-            //Tests.Tests.ShapeOfUnnTest();
+            Tests.Tests.RGStagTest();
             foreach (var loc in SET.GetPlacements()) loc.OnLoad();
         }
 
@@ -268,15 +272,49 @@ namespace ItemChanger
             return ObjectCache.GetPreloadNames();
         }
 
+        public static event Action BeforeStartNewGame;
+        public static event Action AfterStartNewGame;
+        private void BeforeStartNewGameHook(On.GameManager.orig_StartNewGame orig, GameManager self, bool permadeathMode, bool bossRushMode)
+        {
+            try
+            {
+                BeforeStartNewGame?.Invoke();
+            }
+            catch(Exception e)
+            {
+                LogError($"Error in BeforeStartNewGame event:\n{e}");
+                throw;
+            }
+
+            if (StartDef.start != null)
+            {
+                StartDef.OverrideStartNewGame(orig, self, permadeathMode, bossRushMode);
+            }
+            else
+            {
+                orig(self, permadeathMode, bossRushMode);
+            }
+
+            try
+            {
+                AfterStartNewGame?.Invoke();
+            }
+            catch (Exception e)
+            {
+                LogError($"Error in AfterStartNewGame event:\n{e}");
+                throw;
+            }
+        }
+
         public static void ChangeStartGame(StartDef start)
         {
-            if (receivedChangeStartRequest) return;
-            receivedChangeStartRequest = true;
+            //if (receivedChangeStartRequest) return;
+            //receivedChangeStartRequest = true;
             
             StartDef.start = start;
-            On.GameManager.StartNewGame += StartDef.OverrideStartNewGame;
-            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.CreateRespawnMarker;
-            StartDef.HookBenchwarp();
+            //On.GameManager.StartNewGame += StartDef.OverrideStartNewGame;
+            //UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.CreateRespawnMarker;
+            //StartDef.HookBenchwarp();
         }
     }
     

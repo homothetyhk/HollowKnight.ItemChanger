@@ -80,10 +80,13 @@
   <ItemGroup>
     <Compile Include="IBool.cs" />
     <Compile Include="ISprite.cs" />
+    <Compile Include="Items\NailUpgradeItem.cs" />
     <Compile Include="Items\UnbreakableCharmItem.cs" />
     <Compile Include="Items\IsmaItem.cs" />
     <Compile Include="Items\SpellItem.cs" />
     <Compile Include="Locations\DualLocation.cs" />
+    <Compile Include="Locations\SpecialLocations\StagLocation.cs" />
+    <Compile Include="Placements\MultiLocationPlacement.cs" />
     <Compile Include="Placements\DualPlacement.cs" />
     <Compile Include="TaggableObject.cs" />
     <Compile Include="Containers\ChestContainer.cs" />
@@ -92,6 +95,9 @@
     <Compile Include="Containers\GrubJarContainer.cs" />
     <Compile Include="Containers\ShinyContainer.cs" />
     <Compile Include="IString.cs" />
+    <Compile Include="Tags\IOnLoadActionTag.cs" />
+    <Compile Include="Tags\SetPDBoolOnLoadTag.cs" />
+    <Compile Include="Tags\DestroyGrubRewardTag.cs" />
     <Compile Include="Tests\Tests.cs" />
     <Compile Include="UIDefs\MsgUIDef.cs" />
     <Compile Include="Util\YNUtil.cs" />
@@ -112,7 +118,7 @@
     <Compile Include="Tags\DestroyObjectTag.cs" />
     <Compile Include="Tags\IActiveSceneChangedTag.cs" />
     <Compile Include="Tags\ItemChainTag.cs" />
-    <Compile Include="Tags\SetPDBoolTag.cs" />
+    <Compile Include="Tags\SetPDBoolOnGiveTag.cs" />
     <Compile Include="Tags\PDBoolShopRemoveTag.cs" />
     <Compile Include="Tags\PDBoolShopReqTag.cs" />
     <Compile Include="Tags\PDIntShopReqTag.cs" />
@@ -445,6 +451,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\items.json" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Resources\locations.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

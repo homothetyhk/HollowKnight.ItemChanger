@@ -16,7 +16,7 @@ namespace ItemChanger
         [Newtonsoft.Json.JsonIgnore]
         public abstract AbstractLocation Location { get; }
         private bool visited;
-
+        IEnumerable<Tag> CombinedTags => Location.tags.Concat(Items.SelectMany(i => i.tags));
 
         #region Give
 
@@ -145,7 +145,7 @@ namespace ItemChanger
         {
             foreach (var tag in Location.GetTags<Tags.IActiveSceneChangedTag>())
             {
-                tag.OnActiveSceneChanged(from, to, this);
+                tag.OnActiveSceneChanged(from, to);
             }
             Location.OnActiveSceneChanged(from, to);
         }

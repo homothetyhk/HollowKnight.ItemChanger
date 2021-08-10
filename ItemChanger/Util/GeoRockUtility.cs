@@ -58,6 +58,7 @@ namespace ItemChanger.Util
             rock.GetComponent<BoxCollider2D>().isTrigger = false; // some rocks only have trigger colliders
 
             var info = rock.AddComponent<ContainerInfo>();
+            info.containerType = Container.GeoRock;
             info.giveInfo = new ContainerGiveInfo
             {
                 placement = placement,
@@ -129,7 +130,9 @@ namespace ItemChanger.Util
             FsmState payout = rockFsm.GetState("Destroy");
             FsmState broken = rockFsm.GetState("Broken");
 
-            FsmStateAction checkAction = new Lambda(() => rockFsm.SendEvent(placement.CheckVisited() ? "BROKEN" : null));
+            FsmStateAction checkAction = new BoolTestMod(
+                () => placement.CheckVisited() && items.Where(i => i.GiveEarly(Container.GeoRock)).All(i => i.WasEverObtained()),
+                "BROKEN", null);
 
             init.RemoveActionsOfType<IntCompare>();
             init.AddAction(checkAction);
@@ -152,30 +155,37 @@ namespace ItemChanger.Util
             itemParent.transform.localPosition = Vector3.zero;
             itemParent.SetActive(true);
 
-            FsmStateAction spawnShinies = new ActivateAllChildren { gameObject = new FsmGameObject { Value = itemParent, }, activate = true };
-            payout.AddAction(spawnShinies);
-            broken.AddAction(spawnShinies);
+            FsmStateAction giveItems = new Lambda(InstantiateShiniesAndGiveEarly);
+            payout.AddAction(giveItems);
+            broken.AddAction(giveItems);
 
-            foreach (AbstractItem item in items)
+            void InstantiateShiniesAndGiveEarly()
             {
-                if (item.GiveEarly(Container.GeoRock))
+                GiveInfo info = new GiveInfo
                 {
-                    GiveInfo info = new GiveInfo
-                    {
-                        Container = Container.GeoRock,
-                        FlingType = flingType,
-                        Transform = rockFsm.transform,
-                        MessageType = MessageType.Corner,
-                    };
+                    Container = Container.GrubJar,
+                    FlingType = flingType,
+                    Transform = rock.transform,
+                    MessageType = MessageType.Corner,
+                };
 
-                    FsmStateAction giveAction = new Lambda(() => item.Give(placement, info));
-                    payout.AddAction(giveAction);
-                }
-                else
+                foreach (AbstractItem item in items)
                 {
-                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
-                    ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                    if (!item.IsObtained())
+                    {
+                        if (item.GiveEarly(Container.GeoRock))
+                        {
+                            item.Give(placement, info);
+                        }
+                        else
+                        {
+                            GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
+                            ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                        }
+                    }
                 }
+
+                foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
             }
         }
 

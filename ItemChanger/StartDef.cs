@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace ItemChanger
 {
-    public struct StartDef
+    public class StartDef
     {
         public const string RESPAWN_MARKER_NAME = "ITEMCHANGER_RESPAWN_MARKER";
         public const string RESPAWN_TAG = "RespawnPoint";
@@ -27,11 +27,13 @@ namespace ItemChanger
 
         internal static void CreateRespawnMarker(Scene from, Scene to)
         {
-            if (to.name == start.startSceneName)
+            if (start != null && to.name == start.startSceneName)
             {
-                GameObject marker = new GameObject();
-                marker.name = StartDef.RESPAWN_MARKER_NAME;
-                marker.tag = StartDef.RESPAWN_TAG;
+                GameObject marker = new GameObject
+                {
+                    name = StartDef.RESPAWN_MARKER_NAME,
+                    tag = StartDef.RESPAWN_TAG
+                };
                 marker.transform.position = new Vector3(start.startX, start.startY, 7.4f);
             }
         }
@@ -40,7 +42,7 @@ namespace ItemChanger
             (string respawnScene, string respawnMarkerName, int respawnType, int mapZone),
             (string respawnScene, string respawnMarkerName, int respawnType, int mapZone)
             >
-            BenchwarpGetStartDef = def => (start.startSceneName, RESPAWN_MARKER_NAME, 0, 2);
+            BenchwarpGetStartDef = def => start == null ? def : (start.startSceneName, RESPAWN_MARKER_NAME, 0, 2);
 
         internal static void HookBenchwarp()
         {

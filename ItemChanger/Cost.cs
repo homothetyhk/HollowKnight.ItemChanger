@@ -33,6 +33,9 @@ namespace ItemChanger
 
         public static Cost operator +(Cost a, Cost b)
         {
+            if (a == null) return b;
+            if (b == null) return a;
+
             MultiCost aa = a as MultiCost;
             MultiCost bb = b as MultiCost;
             
