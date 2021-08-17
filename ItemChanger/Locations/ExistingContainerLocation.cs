@@ -1,4 +1,5 @@
 ﻿using ItemChanger.Components;
+using ItemChanger.Extensions;
 using ItemChanger.Util;
 using System;
 using System.Collections.Generic;

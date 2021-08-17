@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using Modding;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using static ItemChanger.Internal.SpriteManager;
 using System;
+using ItemChanger.Internal;
 
 namespace ItemChanger.Components
 {
@@ -60,7 +61,7 @@ namespace ItemChanger.Components
 
         public void Start()
         {
-            SereCore.Ref.GM.SaveGame(SereCore.Ref.GM.profileID, x => { });
+            Ref.GM.SaveGame(Ref.GM.profileID, x => { });
             StartCoroutine(ShowPopup());
         }
 
@@ -92,10 +93,10 @@ namespace ItemChanger.Components
                 new CanvasUtil.RectData(size, Vector2.zero, new Vector2(0.5f, 0.75f), new Vector2(0.5f, 0.8f)));
             GameObject topTextOne = CanvasUtil.CreateTextPanel(gameObject, _takeText, 34, TextAnchor.MiddleCenter,
                 new CanvasUtil.RectData(new Vector2(1920, 100), Vector2.zero, new Vector2(0.5f, 0.55f),
-                    new Vector2(0.5f, 0.55f)), Fonts.Get("Perpetua"));
+                    new Vector2(0.5f, 0.55f)), CanvasUtil.GetFont("Perpetua"));
             GameObject topTextTwo = CanvasUtil.CreateTextPanel(gameObject, _nameText, 76, TextAnchor.MiddleCenter,
                 new CanvasUtil.RectData(new Vector2(1920, 300), Vector2.zero, new Vector2(0.5f, 0.49f),
-                    new Vector2(0.5f, 0.49f)));
+                    new Vector2(0.5f, 0.49f)), CanvasUtil.GetFont("TrajanPro-Bold"));
 
             CanvasGroup topImageCG = topImage.AddComponent<CanvasGroup>();
             CanvasGroup topTextOneCG = topTextOne.AddComponent<CanvasGroup>();
@@ -127,13 +128,13 @@ namespace ItemChanger.Components
             // Fade in the remaining text
             GameObject botTextOne = CanvasUtil.CreateTextPanel(gameObject, _buttonText, 34, TextAnchor.MiddleCenter,
                 new CanvasUtil.RectData(new Vector2(1920, 100), Vector2.zero, new Vector2(0.5f, 0.335f),
-                    new Vector2(0.5f, 0.335f)), Fonts.Get("Perpetua"));
+                    new Vector2(0.5f, 0.335f)), CanvasUtil.GetFont("Perpetua"));
             GameObject botTextTwo = CanvasUtil.CreateTextPanel(gameObject, _descOneText, 34, TextAnchor.MiddleCenter,
                 new CanvasUtil.RectData(new Vector2(1920, 100), Vector2.zero, new Vector2(0.5f, 0.26f),
-                    new Vector2(0.5f, 0.26f)), Fonts.Get("Perpetua"));
+                    new Vector2(0.5f, 0.26f)), CanvasUtil.GetFont("Perpetua"));
             GameObject botTextThree = CanvasUtil.CreateTextPanel(gameObject, _descTwoText, 34, TextAnchor.MiddleCenter,
                 new CanvasUtil.RectData(new Vector2(1920, 100), Vector2.zero, new Vector2(0.5f, 0.205f),
-                    new Vector2(0.5f, 0.205f)), Fonts.Get("Perpetua"));
+                    new Vector2(0.5f, 0.205f)), CanvasUtil.GetFont("Perpetua"));
 
             CanvasGroup botTextOneCG = botTextOne.AddComponent<CanvasGroup>();
             CanvasGroup botTextTwoCG = botTextTwo.AddComponent<CanvasGroup>();
@@ -185,7 +186,7 @@ namespace ItemChanger.Components
             // Wait for the user to cancel the menu
             while (true)
             {
-                HeroActions actions = SereCore.Ref.Input.inputActions;
+                HeroActions actions = Ref.GM.inputHandler.inputActions;
                 if (actions.jump.WasPressed || actions.attack.WasPressed || actions.menuCancel.WasPressed)
                 {
                     break;
@@ -246,7 +247,7 @@ namespace ItemChanger.Components
         {
             while (true)
             {
-                HeroActions actions = SereCore.Ref.Input.inputActions;
+                HeroActions actions = Ref.GM.inputHandler.inputActions;
                 if (actions.jump.WasPressed || actions.attack.WasPressed || actions.menuCancel.WasPressed)
                 {
                     _showInstantly = true;

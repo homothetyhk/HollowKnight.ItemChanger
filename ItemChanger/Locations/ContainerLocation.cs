@@ -16,7 +16,7 @@ namespace ItemChanger.Locations
 
         public void GetContainer(out GameObject obj, out string containerType)
         {
-            ItemChanger.instance.Log($"Location: {name}, Placement? {Placement != null}");
+            ItemChangerMod.instance.Log($"Location: {name}, Placement? {Placement != null}");
             (Placement as IContainerPlacement).GetContainer(this, out obj, out containerType);
             Transform = obj.transform;
         }

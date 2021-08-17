@@ -47,7 +47,7 @@ namespace ItemChanger.Placements
             var container = Container.GetContainer(containerType);
             if (containerType == null)
             {
-                ItemChanger.instance.LogError($"Unknown container type {containerType} used for {Name}!");
+                ItemChangerMod.instance.LogError($"Unknown container type {containerType} used for {Name}!");
             }
 
             obj = container.GetNewContainer(this, Items, location.flingType);

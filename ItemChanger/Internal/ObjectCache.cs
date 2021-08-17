@@ -1,4 +1,4 @@
-﻿using SereCore;
+﻿using ItemChanger.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace ItemChanger.Internal
                 (SceneNames.Cliffs_02, "Soul Totem 5"),
                 (SceneNames.Ruins_House_01, "Grub Bottle"),
             };
-            if (!ItemChanger.GS.ReducePreloads)
+            if (!ItemChangerMod.GS.ReducePreloads)
             {
                 preloads.AddRange(new List<(string, string)>
                 {
@@ -87,11 +87,11 @@ namespace ItemChanger.Internal
 
             HealthManager health = objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"].GetComponent<HealthManager>();
             _smallGeo = UnityEngine.Object.Instantiate(
-                ReflectionHelper.GetAttr<HealthManager, GameObject>(health, "smallGeoPrefab"));
+                ReflectionHelper.GetField<HealthManager, GameObject>(health, "smallGeoPrefab"));
             _mediumGeo =
-                UnityEngine.Object.Instantiate(ReflectionHelper.GetAttr<HealthManager, GameObject>(health, "mediumGeoPrefab"));
+                UnityEngine.Object.Instantiate(ReflectionHelper.GetField<HealthManager, GameObject>(health, "mediumGeoPrefab"));
             _largeGeo = UnityEngine.Object.Instantiate(
-                ReflectionHelper.GetAttr<HealthManager, GameObject>(health, "largeGeoPrefab"));
+                ReflectionHelper.GetField<HealthManager, GameObject>(health, "largeGeoPrefab"));
 
             _smallGeo.SetActive(false);
             _mediumGeo.SetActive(false);
@@ -101,7 +101,7 @@ namespace ItemChanger.Internal
             UnityEngine.Object.DontDestroyOnLoad(_largeGeo);
 
             PlayMakerFSM soulFsm = objectsByScene[SceneNames.Cliffs_02]["Soul Totem 5"].LocateMyFSM("soul_totem");
-            _soul = UnityEngine.Object.Instantiate(soulFsm.GetState("Hit").GetActionOfType<FlingObjectsFromGlobalPool>().gameObject.Value);
+            _soul = UnityEngine.Object.Instantiate(soulFsm.GetState("Hit").GetFirstActionOfType<FlingObjectsFromGlobalPool>().gameObject.Value);
             _soul.SetActive(false);
             UnityEngine.Object.DontDestroyOnLoad(_soul);
 
@@ -116,7 +116,7 @@ namespace ItemChanger.Internal
             UnityEngine.Object.DontDestroyOnLoad(_smallPlatform);
 
             _grubJar = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle"];
-            GrubCries = _grubJar.transform.Find("Grub").gameObject.LocateMyFSM("Grub Control").GetState("Leave").GetActionOfType<AudioPlayRandom>().audioClips;
+            GrubCries = _grubJar.transform.Find("Grub").gameObject.LocateMyFSM("Grub Control").GetState("Leave").GetFirstActionOfType<AudioPlayRandom>().audioClips;
             UnityEngine.Object.DontDestroyOnLoad(_grubJar);
             foreach (AudioClip clip in GrubCries)
             {
@@ -125,11 +125,11 @@ namespace ItemChanger.Internal
 
             _loreTablet = objectsByScene[SceneNames.Tutorial_01]["_Props/Tut_tablet_top (1)"];
             _loreTablet.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-            LoreSound = (AudioClip)_loreTablet.LocateMyFSM("Inspection").GetState("Prompt Up").GetActionOfType<AudioPlayerOneShotSingle>().audioClip.Value;
+            LoreSound = (AudioClip)_loreTablet.LocateMyFSM("Inspection").GetState("Prompt Up").GetFirstActionOfType<AudioPlayerOneShotSingle>().audioClip.Value;
             UnityEngine.Object.DontDestroyOnLoad(LoreSound);
             UnityEngine.Object.DontDestroyOnLoad(_loreTablet);
 
-            if (ItemChanger.GS.ReducePreloads)
+            if (ItemChangerMod.GS.ReducePreloads)
             {
                 _geoRocks = new Dictionary<GeoRockSubtype, GameObject>()
                 {

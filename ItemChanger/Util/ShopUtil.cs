@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 using UnityEngine;
 using TMPro;
-using SereCore;
+using ItemChanger.Extensions;
 using ItemChanger.Components;
 
 namespace ItemChanger.Util

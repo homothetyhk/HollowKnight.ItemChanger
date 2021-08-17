@@ -8,7 +8,7 @@ using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Internal;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

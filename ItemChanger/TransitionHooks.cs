@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using HutongGames.PlayMaker;
 using ItemChanger.FsmStateActions;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -50,7 +50,7 @@ namespace ItemChanger
                 case SceneNames.Deepnest_41:
                     if (GameManager.instance.entryGateName.StartsWith("left1"))
                     {
-                        foreach (Transform t in GameObject.Find("Collapser Small (2)").FindGameObjectInChildren("floor1").transform)
+                        foreach (Transform t in GameObject.Find("Collapser Small (2)").FindChild("floor1").transform)
                         {
                             if (t.gameObject.name.StartsWith("msk")) GameObject.Destroy(t.gameObject);
                         }
@@ -59,16 +59,16 @@ namespace ItemChanger
                 case SceneNames.Deepnest_East_02:
                     if (GameManager.instance.entryGateName.StartsWith("bot2"))
                     {
-                        GameObject.Destroy(GameObject.Find("Quake Floor").FindGameObjectInChildren("Active").FindGameObjectInChildren("msk_generic"));
-                        GameObject.Destroy(GameObject.Find("Quake Floor").FindGameObjectInChildren("Active").FindGameObjectInChildren("msk_generic (1)"));
-                        GameObject.Destroy(GameObject.Find("Quake Floor").FindGameObjectInChildren("Active").FindGameObjectInChildren("msk_generic (2)"));
-                        GameObject.Destroy(GameObject.Find("Quake Floor").FindGameObjectInChildren("Active").FindGameObjectInChildren("msk_generic (3)"));
+                        GameObject.Destroy(GameObject.Find("Quake Floor").FindChild("Active").FindChild("msk_generic"));
+                        GameObject.Destroy(GameObject.Find("Quake Floor").FindChild("Active").FindChild("msk_generic (1)"));
+                        GameObject.Destroy(GameObject.Find("Quake Floor").FindChild("Active").FindChild("msk_generic (2)"));
+                        GameObject.Destroy(GameObject.Find("Quake Floor").FindChild("Active").FindChild("msk_generic (3)"));
                     }
                     break;
                 case SceneNames.Fungus2_15:
                     if (GameManager.instance.entryGateName.StartsWith("left"))
                     {
-                        GameObject.Destroy(GameObject.Find("deepnest_mantis_gate").FindGameObjectInChildren("Collider"));
+                        GameObject.Destroy(GameObject.Find("deepnest_mantis_gate").FindChild("Collider"));
                         GameObject.Destroy(GameObject.Find("deepnest_mantis_gate"));
                     }
                     break;
@@ -89,7 +89,7 @@ namespace ItemChanger
                 // old randomizer stuff, hopefully shouldn't cause issues 
                 case SceneNames.Ruins1_24:
                     // Stop the weird invisible floor from appearing if dive has been obtained
-                    if (SereCore.Ref.PD.quakeLevel > 0)
+                    if (PlayerData.instance.GetInt(nameof(PlayerData.quakeLevel)) > 0)
                     {
                         GameObject.Destroy(GameObject.Find("Roof Collider Battle"));
                     }
@@ -97,7 +97,7 @@ namespace ItemChanger
                     // Change battle gate to be destroyed if Soul Master is dead instead of it the player has quake
                     FsmState checkQuake = FSMUtility.LocateFSM(GameObject.Find("Battle Gate (1)"), "Destroy if Quake").GetState("Check");
                     checkQuake.RemoveActionsOfType<FsmStateAction>();
-                    checkQuake.AddAction(new RandomizerBoolTest(nameof(PlayerData.killedMageLord), null, "DESTROY", true));
+                    checkQuake.AddLastAction(new BoolTestMod(() => PlayerData.instance.GetBool(nameof(PlayerData.killedMageLord)), null, "DESTROY"));
                     break;
 
                 case SceneNames.Waterways_04:
@@ -306,10 +306,10 @@ namespace ItemChanger
                     }
                     break;
                 case SceneNames.Crossroads_04:
-                    SereCore.Ref.PD.menderState = 2;
-                    SereCore.Ref.PD.menderDoorOpened = true;
-                    SereCore.Ref.PD.hasMenderKey = true;
-                    SereCore.Ref.PD.menderSignBroken = true;
+                    PlayerData.instance.SetInt(nameof(PlayerData.menderState), 2);
+                    PlayerData.instance.SetBool(nameof(PlayerData.menderDoorOpened), true);
+                    PlayerData.instance.SetBool(nameof(PlayerData.hasMenderKey), true);
+                    PlayerData.instance.SetBool(nameof(PlayerData.menderSignBroken), true);
                     if (entryGateName.StartsWith("d"))
                     {
                         GameManager.instance.sceneData.SaveMyState(new PersistentBoolData

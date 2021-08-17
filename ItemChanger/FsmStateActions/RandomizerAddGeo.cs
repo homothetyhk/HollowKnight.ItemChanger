@@ -1,6 +1,6 @@
 ﻿using HutongGames.PlayMaker;
 using ItemChanger.Internal;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using Random = System.Random;
 
@@ -119,10 +119,10 @@ namespace ItemChanger.FsmStateActions
         public override void OnEnter()
         {
             // Special case for pickups where you don't have an opportunity to pick up the geo
-            string sceneName = SereCore.Ref.GM.GetSceneNameString();
+            string sceneName = GameManager.instance.GetSceneNameString();
             if (sceneName == SceneNames.Dream_Nailcollection || sceneName == SceneNames.Room_Sly_Storeroom || sceneName == SceneNames.Abyss_08)
             {
-                SereCore.Ref.Hero.AddGeo(_count);
+                HeroController.instance.AddGeo(_count);
                 Finish();
                 return;
             }

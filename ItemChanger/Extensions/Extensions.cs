@@ -5,7 +5,7 @@ using System.Text;
 using HutongGames.PlayMaker;
 using UnityEngine;
 
-namespace ItemChanger
+namespace ItemChanger.Extensions
 {
     public static class Extensions
     {
@@ -54,22 +54,5 @@ namespace ItemChanger
         {
             yield return t;
         }
-
-        public static FsmBool AddFsmBool(this PlayMakerFSM fsm, string name, bool value)
-        {
-            FsmBool fb = new FsmBool
-            {
-                Name = name,
-                Value = value
-            };
-
-            FsmBool[] bools = new FsmBool[fsm.FsmVariables.BoolVariables.Length + 1];
-            fsm.FsmVariables.BoolVariables.CopyTo(bools, 0);
-            bools[bools.Length - 1] = fb;
-            fsm.FsmVariables.BoolVariables = bools;
-
-            return fb;
-        }
-
     }
 }

@@ -8,7 +8,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
@@ -56,14 +56,12 @@ namespace ItemChanger.Locations.SpecialLocations
             }
         }
 
-        public override string OnLanguageGet(string convo, string sheet)
+        public override void OnLanguageGet(LanguageGetArgs args)
         {
-            if (sheet == "Cornifer" && convo == "CORNIFER_PROMPT" && GameManager.instance.sceneName == sceneName)
+            if (args.sheet == "Cornifer" && args.convo == "CORNIFER_PROMPT" && GameManager.instance.sceneName == sceneName)
             {
-                return Placement.GetUIName();
+                args.current = Placement.GetUIName();
             }
-
-            return base.OnLanguageGet(convo, sheet);
         }
     }
 }

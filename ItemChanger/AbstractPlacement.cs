@@ -15,7 +15,8 @@ namespace ItemChanger
         public List<AbstractItem> Items { get; set; } = new List<AbstractItem>();
         [Newtonsoft.Json.JsonIgnore]
         public abstract AbstractLocation Location { get; }
-        private bool visited;
+        [Newtonsoft.Json.JsonProperty]
+        private VisitState visited;
         IEnumerable<Tag> CombinedTags => Location.tags.Concat(Items.SelectMany(i => i.tags));
 
         #region Give
@@ -52,7 +53,7 @@ namespace ItemChanger
             
             GiveRecursive();
 
-            void GiveRecursive()
+            void GiveRecursive(AbstractItem _ = null)
             {
                 while (enumerator.MoveNext())
                 {
@@ -61,7 +62,9 @@ namespace ItemChanger
                         continue;
                     }
 
-                    enumerator.Current.Give(this, info.Clone());
+                    var next = info.Clone();
+                    next.Callback = GiveRecursive;
+                    enumerator.Current.Give(this, next);
                     return;
                 }
 
@@ -90,7 +93,7 @@ namespace ItemChanger
         {
             IEnumerable<string> itemNames = Items.Where(i => !i.IsObtained()).Select(i => i.UIDef?.GetPostviewName() ?? "Unknown Item");
             string itemText = string.Join(", ", itemNames.ToArray());
-            if (itemText.Length > maxLength) itemText = itemText.Substring(0, 117) + "...";
+            if (itemText.Length > maxLength) itemText = itemText.Substring(0, maxLength > 3 ? maxLength - 3 : 0) + "...";
             return itemText;
         }
 
@@ -112,12 +115,23 @@ namespace ItemChanger
             return Items.All(i => i.IsObtained());
         }
 
-        public void SetVisited()
+        public void AddVisitFlag(VisitState flag)
         {
-            visited = true;
+            Events.InvokeOnVisitStateChanged(this, flag);
+            visited |= flag;
         }
 
-        public bool CheckVisited()
+        public bool CheckVisitedAny(VisitState flags)
+        {
+            return (visited & flags) != VisitState.None;
+        }
+
+        public bool CheckVisitedAll(VisitState flags)
+        {
+            return (visited & flags) == flags;
+        }
+
+        public VisitState GetVisitState()
         {
             return visited;
         }
@@ -158,11 +172,11 @@ namespace ItemChanger
 
 
         /// <summary>
-        /// Override for custom text. Return null if text was not modified.
+        /// Override for custom text.
         /// </summary>
-        public virtual string OnLanguageGet(string convo, string sheet)
+        public virtual void OnLanguageGet(LanguageGetArgs args)
         {
-            return Location.OnLanguageGet(convo, sheet);
+            Location.OnLanguageGet(args);
         }
 
         /// <summary>
@@ -185,9 +199,16 @@ namespace ItemChanger
         public virtual string GetContainerType(AbstractItem item) => MainContainerType;
         public virtual string GetContainerType(AbstractLocation location) => MainContainerType;
 
-        public virtual void AddItem(AbstractItem item)
+        public virtual AbstractPlacement AddItem(AbstractItem item)
         {
             Items.Add(item);
+            return this;
         }
+
+        public virtual AbstractPlacement AddItems(IEnumerable<AbstractItem> items)
+        {
+            foreach (var i in items) AddItem(i);
+            return this;
+        } 
     }
 }

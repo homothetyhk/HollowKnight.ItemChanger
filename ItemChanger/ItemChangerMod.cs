@@ -8,7 +8,7 @@ using HutongGames.PlayMaker;
 using ItemChanger.UIDefs;
 using Modding;
 using MonoMod;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ItemChanger.Components;
@@ -17,40 +17,22 @@ using ItemChanger.Placements;
 using ItemChanger.Util;
 using TMPro;
 using ItemChanger.Internal;
-using Ref = ItemChanger.Internal.Ref;
 
 namespace ItemChanger
 {
-    public class ItemChanger : Mod
+    public class ItemChangerMod : Mod, IGlobalSettings<GlobalSettings>, ILocalSettings<Settings>
     {
-        internal static ItemChanger instance;
-        internal static bool readyForChangeItems = false;
-        internal static bool receivedChangeItemsRequest = false;
-        internal static bool receivedChangeStartRequest = false;
+        internal static ItemChangerMod instance;
 
-        public SaveSettings Settings { get; set; } = new SaveSettings();
-        public ModSettings _SaveSettings
+        internal static Settings SET { get; private set; } = new Settings();
+        internal static GlobalSettings GS { get; private set; } = new GlobalSettings();
+
+        public ItemChangerMod()
         {
-            get => Settings = Settings;
-            set => Settings = value as SaveSettings;
-        }
+            if (instance != null) throw new NotSupportedException("Cannot construct multiple instances of ItemChangerMod.");
 
-
-        public Settings SET = new Settings();
-        public override ModSettings SaveSettings
-        {
-            get => SET = SET ?? new Settings();
-            set => SET = value as Settings;
-        }
-
-        private GlobalSettings _globalSettings { get; set; } = new GlobalSettings();
-        public override ModSettings GlobalSettings { get => _globalSettings; set => _globalSettings = value as GlobalSettings; }
-        public static GlobalSettings GS => instance._globalSettings;
-
-        public ItemChanger()
-        {
             instance = this;
-            SpriteManager.Setup();
+            SpriteManager.LoadEmbeddedPngs("ItemChanger.Resources.");
             LanguageStringManager.Load();
             Finder.Load();
         }
@@ -63,7 +45,7 @@ namespace ItemChanger
             On.GameManager.StartNewGame += BeforeStartNewGameHook;
             BeforeStartNewGame += OnStart;
             //ModHooks.Instance.NewGameHook += OnStart;
-            ModHooks.Instance.SavegameLoadHook += OnLoad;
+            ModHooks.SavegameLoadHook += OnLoad;
             On.GameManager.ResetSemiPersistentItems += ResetSemiPersistentItems;
             CustomSkillManager.Hook();
             DialogueCenter.Hook();
@@ -73,16 +55,14 @@ namespace ItemChanger
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnActiveSceneChanged;
             On.GameManager.OnNextLevelReady += OnOnNextLevelReady;
             On.GameManager.SceneLoadInfo.NotifyFetchComplete += OnNotifyFetchComplete;
-            ModHooks.Instance.LanguageGetHook += OnLanguageGet;
-            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.CreateRespawnMarker;
+            ModHooks.LanguageGetHook += OnLanguageGet;
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.OnSceneChange;
             StartDef.HookBenchwarp();
         }
 
-        
-
         private void OnStart()
         {
-            Tests.Tests.RGStagTest();
+            //Tests.Tests.CostChestTest();
             foreach (var loc in SET.GetPlacements()) loc.OnLoad();
         }
 
@@ -242,22 +222,21 @@ namespace ItemChanger
             Container.OnEnable(fsm);
         }
 
-        private string OnLanguageGet(string convo, string sheet)
+        private string OnLanguageGet(string convo, string sheet, string orig)
         {
-            return SET?.GetPlacements().Select(p => SafeLanguageGet(p, convo, sheet)).FirstOrDefault(p => p != null) ?? Language.Language.GetInternal(convo, sheet);
-        }
-
-        private string SafeLanguageGet(AbstractPlacement p, string convo, string sheet)
-        {
-            try
+            LanguageGetArgs args = new LanguageGetArgs(convo, sheet, orig);
+            foreach (AbstractPlacement p in SET?.GetPlacements())
             {
-                return p?.OnLanguageGet(convo, sheet);
+                try
+                {
+                    p.OnLanguageGet(args);
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error in OnLanguageGet for {p?.Name ?? "Unknown Placement"}:\n{e}");
+                }
             }
-            catch (Exception e)
-            {
-                LogError($"Error in OnLanguageGet for {p?.Name ?? "Unknown Placement"}:\n{e}");
-                return null;
-            }
+            return args.current;
         }
 
         public override string GetVersion()
@@ -286,7 +265,7 @@ namespace ItemChanger
                 throw;
             }
 
-            if (StartDef.start != null)
+            if (StartDef.Start != null)
             {
                 StartDef.OverrideStartNewGame(orig, self, permadeathMode, bossRushMode);
             }
@@ -311,10 +290,86 @@ namespace ItemChanger
             //if (receivedChangeStartRequest) return;
             //receivedChangeStartRequest = true;
             
-            StartDef.start = start;
+            SET.Start = start;
             //On.GameManager.StartNewGame += StartDef.OverrideStartNewGame;
             //UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.CreateRespawnMarker;
             //StartDef.HookBenchwarp();
+        }
+
+        /// <summary>
+        /// Adds placements to local settings, with handling for placements with the same name.
+        /// </summary>
+        /// <param name="placements">The placements to add to the local settings.</param>
+        /// <param name="conflictResolution">The action if a placement already exists in settings with the same name.</param>
+        public static void AddPlacements(IEnumerable<AbstractPlacement> placements, PlacementConflictResolution conflictResolution = PlacementConflictResolution.MergeKeepingNew)
+        {
+            bool inGame = GameManager.instance?.sceneName != "Menu_Title";
+            foreach (var p in placements)
+            {
+                if (SET.Placements.TryGetValue(p.Name, out var existsP))
+                {
+                    switch (conflictResolution)
+                    {
+                        case PlacementConflictResolution.MergeKeepingNew:
+                            p.Items.AddRange(existsP.Items);
+                            SET.Placements[p.Name] = p;
+                            break;
+                        case PlacementConflictResolution.MergeKeepingOld:
+                            existsP.Items.AddRange(p.Items);
+                            break;
+                        case PlacementConflictResolution.Replace:
+                            SET.Placements[p.Name] = p;
+                            break;
+                        case PlacementConflictResolution.Ignore:
+                            break;
+                        case PlacementConflictResolution.Throw:
+                            throw new ArgumentException($"A placement with name {p.Name} already exists.");
+                    }
+                }
+                else SET.Placements.Add(p.Name, p);
+                if (inGame && p == SET.Placements[p.Name]) p.OnLoad();
+            }
+        }
+
+        public enum PlacementConflictResolution
+        {
+            /// <summary>
+            /// Keep new placement, discard old placement, and append items of old placement to new placement.
+            /// </summary>
+            MergeKeepingNew,
+            /// <summary>
+            /// Keep old placement, discard new placement, and append items of new placement to old placement.
+            /// </summary>
+            MergeKeepingOld,
+            /// <summary>
+            /// Keep new placement, discard old placement
+            /// </summary>
+            Replace,
+            /// <summary>
+            /// Keep old placement, discard new placement
+            /// </summary>
+            Ignore,
+            Throw
+        }
+
+        public void OnLoadLocal(Settings s)
+        {
+            SET = s;
+        }
+
+        public Settings OnSaveLocal()
+        {
+            return SET;
+        }
+
+        public void OnLoadGlobal(GlobalSettings s)
+        {
+            GS = s;
+        }
+
+        public GlobalSettings OnSaveGlobal()
+        {
+            return GS;
         }
     }
     

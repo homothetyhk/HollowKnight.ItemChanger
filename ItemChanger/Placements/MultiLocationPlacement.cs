@@ -60,12 +60,13 @@ namespace ItemChanger.Placements
             }
         }
 
-        public override string OnLanguageGet(string convo, string sheet)
+        public override void OnLanguageGet(LanguageGetArgs args)
         {
-            return base.OnLanguageGet(convo, sheet) 
-                ?? SecondaryLocations
-                .Select(loc => loc.OnLanguageGet(convo, sheet))
-                .FirstOrDefault(s => s != null);
+            base.OnLanguageGet(args);
+            foreach (var loc in SecondaryLocations)
+            {
+                loc.OnLanguageGet(args);
+            }
         }
 
         public override void OnNextSceneReady(Scene next)

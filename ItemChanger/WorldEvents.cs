@@ -13,7 +13,8 @@ namespace ItemChanger
         {
             { nameof(slyRescued), false },
             { nameof(slyBasementCompleted), false },
-            { nameof(dreamNailCutsceneCompleted), false }
+            { nameof(dreamNailCutsceneCompleted), false },
+            { nameof(nonlinearColosseums), true }
         };
 
         /// <returns>The value of the bool, or False if it was not found.</returns>
@@ -56,6 +57,15 @@ namespace ItemChanger
         /// Controls whether the dreamer cutscene and binding shield appear in RestingGrounds_04.
         /// </summary>
         public bool dreamNailCutsceneCompleted
+        {
+            get => Get();
+            set => Set(value);
+        }
+
+        /// <summary>
+        /// Controls whether colosseum trials can be accessed out of order.
+        /// </summary>
+        public bool nonlinearColosseums
         {
             get => Get();
             set => Set(value);

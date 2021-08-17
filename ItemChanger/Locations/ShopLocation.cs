@@ -8,7 +8,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
@@ -215,11 +215,11 @@ namespace ItemChanger.Locations
                         Lambda setSprite = new Lambda(ResetSprites);
                         Lambda setDesc = new Lambda(SetDesc);
                         Lambda getNotchCost = new Lambda(GetNotchCost);
-                        BoolTestMod canBuy = new BoolTestMod(CanBuy, checkCanBuy.GetActionOfType<BoolTest>());
+                        BoolTestMod canBuy = new BoolTestMod(CanBuy, checkCanBuy.GetFirstActionOfType<BoolTest>());
                         Lambda setConfirmName = new Lambda(SetConfirmName);
                         Lambda addIntToConfirm = new Lambda(AddIntToConfirm);
 
-                        init.AddAction(resetSprites);
+                        init.AddLastAction(resetSprites);
                         getDetailsInit.Actions = new[] { setName, setSprite };
                         getDetails.Actions = new[] { setName };
                         charmsRequiredInit.Actions = new[] { setDesc };
@@ -251,7 +251,7 @@ namespace ItemChanger.Locations
                             activateConfirm.Actions[14],
                             activateConfirm.Actions[15],
                         };
-                        activateUI.AddAction(addIntToConfirm);
+                        activateUI.AddLastAction(addIntToConfirm);
                     }
                     break;
                 case "Confirm Control":
@@ -330,12 +330,12 @@ namespace ItemChanger.Locations
                             fade.fadeOutTimeFast = fade.fadeOutTime = 0.01f;
                         }
                         menuDown.AddFirstAction(new Lambda(ReduceFadeOutTime));
-                        menuDown.GetActionOfType<Wait>().time = 0.01f;
+                        menuDown.GetFirstActionOfType<Wait>().time = 0.01f;
                         foreach (var a in menuDown.GetActionsOfType<SendEventByName>())
                         {
                             if (a.sendEvent.Value == "DOWN")
                             {
-                                ItemChanger.instance.Log("Changing event");
+                                ItemChangerMod.instance.Log("Changing event");
                                 a.sendEvent.Value = "DOWN INSTANT";
                             }
                         }
@@ -346,22 +346,23 @@ namespace ItemChanger.Locations
                             fade.fadeInTime = 0.01f;
                         }
 
-                        blankName.AddAction(new Lambda(ReduceFadeInTime));
-                        activateConfirm.GetActionOfType<Wait>().time = 0.01f;
+                        blankName.AddLastAction(new Lambda(ReduceFadeInTime));
+                        activateConfirm.GetFirstActionOfType<Wait>().time = 0.01f;
                     }
                     break;
 
                 case "Confirm Control":
                     {
                         FsmState particles = fsm.GetState("Particles");
-                        particles.GetActionOfType<Wait>().time = 0.2f;
+                        particles.GetFirstActionOfType<Wait>().time = 0.2f;
                         FsmState bob = fsm.GetState("Bob");
                         bob.Actions = new[] { bob.Actions[0], bob.Actions[1] };
-                        bob.Transitions[0].ToState = "Reset";
+                        FsmState reset = fsm.GetState("Reset");
+                        bob.Transitions[0].SetToState(reset);
 
                         FsmState thankFade = fsm.GetState("Thank Fade");
-                        thankFade.GetActionOfType<SendEventByName>().sendEvent.Value = "DOWN INSTANT";
-                        thankFade.GetActionOfType<Wait>().time = 0.01f;
+                        thankFade.GetFirstActionOfType<SendEventByName>().sendEvent.Value = "DOWN INSTANT";
+                        thankFade.GetFirstActionOfType<Wait>().time = 0.01f;
                     }
                     break;
 
@@ -369,34 +370,34 @@ namespace ItemChanger.Locations
                     {
                         FsmState confirm = fsm.GetState("Confirm");
                         FsmState cancel = fsm.GetState("Cancel");
-                        confirm.GetActionOfType<Wait>().time = 0.01f;
-                        cancel.GetActionOfType<Wait>().time = 0.01f;
+                        confirm.GetFirstActionOfType<Wait>().time = 0.01f;
+                        cancel.GetFirstActionOfType<Wait>().time = 0.01f;
 
                         FsmState stillUp = fsm.GetState("Still Up?");
                         FsmState stillLeft = fsm.GetState("Still Left?");
                         FsmState stillRight = fsm.GetState("Still Right?");
                         FsmState stillDown = fsm.GetState("Still Down?");
-                        stillUp.GetActionOfType<Wait>().time = 0.15f;
-                        stillLeft.GetActionOfType<Wait>().time = 0.15f;
-                        stillRight.GetActionOfType<Wait>().time = 0.15f;
-                        stillDown.GetActionOfType<Wait>().time = 0.15f;
+                        stillUp.GetFirstActionOfType<Wait>().time = 0.15f;
+                        stillLeft.GetFirstActionOfType<Wait>().time = 0.15f;
+                        stillRight.GetFirstActionOfType<Wait>().time = 0.15f;
+                        stillDown.GetFirstActionOfType<Wait>().time = 0.15f;
 
                         FsmState repeatUp = fsm.GetState("Repeat Up");
                         FsmState repeatLeft = fsm.GetState("Repeat Left");
                         FsmState repeatRight = fsm.GetState("Repeat Right");
                         FsmState repeatDown = fsm.GetState("Repeat Down");
-                        repeatUp.GetActionOfType<Wait>().time = 0.1f;
-                        repeatLeft.GetActionOfType<Wait>().time = 0.1f;
-                        repeatRight.GetActionOfType<Wait>().time = 0.1f;
-                        repeatDown.GetActionOfType<Wait>().time = 0.1f;
+                        repeatUp.GetFirstActionOfType<Wait>().time = 0.1f;
+                        repeatLeft.GetFirstActionOfType<Wait>().time = 0.1f;
+                        repeatRight.GetFirstActionOfType<Wait>().time = 0.1f;
+                        repeatDown.GetFirstActionOfType<Wait>().time = 0.1f;
                     }
                     break;
                 case "ui_list" when fsm.gameObject.name == "UI List":
                     {
                         FsmState selectionMade = fsm.GetState("Selection Made");
                         FsmState selectionMadeCancel = fsm.GetState("Selection Made Cancel");
-                        selectionMade.GetActionOfType<Wait>().time = 0.01f;
-                        selectionMadeCancel.GetActionOfType<Wait>().time = 0.01f;
+                        selectionMade.GetFirstActionOfType<Wait>().time = 0.01f;
+                        selectionMadeCancel.GetFirstActionOfType<Wait>().time = 0.01f;
                     }
                     break;
                 case "ui_list_button_listen" when fsm.gameObject.name == "UI List":
@@ -404,8 +405,8 @@ namespace ItemChanger.Locations
                         FsmState selectPressed = fsm.GetState("Select Pressed");
                         FsmState cancelPressed = fsm.GetState("Cancel Pressed");
 
-                        selectPressed.GetActionOfType<Wait>().time = 0.1f;
-                        cancelPressed.GetActionOfType<Wait>().time = 0.1f;
+                        selectPressed.GetFirstActionOfType<Wait>().time = 0.1f;
+                        cancelPressed.GetFirstActionOfType<Wait>().time = 0.1f;
                     }
                     break;
             }

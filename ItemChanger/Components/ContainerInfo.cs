@@ -6,7 +6,7 @@ using UnityEngine;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
-using SereCore;
+using ItemChanger.Extensions;
 using ItemChanger.Util;
 
 namespace ItemChanger.Components

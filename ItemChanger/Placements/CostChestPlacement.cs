@@ -5,7 +5,7 @@ using System.Text;
 using HutongGames.PlayMaker;
 using ItemChanger.FsmStateActions;
 using UnityEngine;
-using SereCore;
+using ItemChanger.Extensions;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.Locations;
 using ItemChanger.Util;
@@ -38,7 +38,7 @@ namespace ItemChanger.Placements
             }
             else if (location == tabletLocation)
             {
-                ItemChanger.instance.Log("Getting tablet");
+                ItemChangerMod.instance.Log("Getting tablet");
                 obj = TabletUtility.MakeNewTablet(this, BuildText);
                 containerType = Container.Tablet;
             }
@@ -55,7 +55,7 @@ namespace ItemChanger.Placements
             FsmStateAction checkAction = new Lambda(() => chestFsm.SendEvent(AllObtained() ? "ACTIVATE" : null));
 
             init.RemoveActionsOfType<BoolTest>();
-            init.AddAction(checkAction);
+            init.AddLastAction(checkAction);
 
             // Destroy any existing shinies in the chest
             // Moved to MakeNewChest, this code can likely be removed safely
@@ -111,7 +111,7 @@ namespace ItemChanger.Placements
                 }
             }
 
-            spawnItems.AddAction(new Lambda(OnOpenChest));
+            spawnItems.AddLastAction(new Lambda(OnOpenChest));
         }
 
         public string BuildText()

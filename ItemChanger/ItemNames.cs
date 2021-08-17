@@ -1,7 +1,18 @@
+using System.Linq;
+using System.Reflection;
+
 namespace ItemChanger
 {
     public static class ItemNames
     {
+        public static string[] ToArray()
+        {
+            return typeof(ItemNames).GetFields(BindingFlags.Public | BindingFlags.Static)
+            .Where(f => f.IsLiteral)
+            .Select(f => (string)f.GetRawConstantValue())
+            .ToArray();
+        }
+
         public const string Lurien = "Lurien";
         public const string Monomon = "Monomon";
         public const string Herrah = "Herrah";

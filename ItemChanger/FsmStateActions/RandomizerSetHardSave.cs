@@ -1,7 +1,8 @@
 ﻿using HutongGames.PlayMaker;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using static Modding.Logger;
+using ItemChanger.Internal;
 
 namespace ItemChanger.FsmStateActions
 {
@@ -9,7 +10,7 @@ namespace ItemChanger.FsmStateActions
     {
         public override void OnEnter()
         {
-            GameManager gm = SereCore.Ref.GM;
+            GameManager gm = Ref.GM;
 
             if (gm == null)
             {
@@ -31,7 +32,7 @@ namespace ItemChanger.FsmStateActions
             {
                 LogWarn(
                     "RandomizerSetHardSave action present in scene with no respawn points: " +
-                    SereCore.Ref.GM.GetSceneNameString());
+                    Ref.GM.GetSceneNameString());
                 Finish();
                 return;
             }
@@ -50,7 +51,7 @@ namespace ItemChanger.FsmStateActions
             {
                 LogWarn(
                     "RandomizerSetHardSave could not identify type of RespawnPoint object in scene " +
-                    SereCore.Ref.GM.GetSceneNameString());
+                    Ref.GM.GetSceneNameString());
                 Finish();
                 return;
             }

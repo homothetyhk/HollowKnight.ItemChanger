@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Modding;
 using UnityEngine;
-using SereCore;
+using ItemChanger.Extensions;
 using HutongGames.PlayMaker.Actions;
 using HutongGames.PlayMaker;
 using GlobalEnums;
@@ -16,8 +16,8 @@ namespace ItemChanger.Internal
         public static void Hook()
         {
             UnHook();
-            ModHooks.Instance.GetPlayerBoolHook += SkillBoolGetOverride;
-            ModHooks.Instance.SetPlayerBoolHook += SkillBoolSetOverride;
+            ModHooks.GetPlayerBoolHook += SkillBoolGetOverride;
+            ModHooks.SetPlayerBoolHook += SkillBoolSetOverride;
             On.PlayMakerFSM.OnEnable += ModifyFsm;
             On.HeroController.CanFocus += ModifyFocus;
             On.HeroController.CanDash += ModifyDash;
@@ -27,8 +27,8 @@ namespace ItemChanger.Internal
 
         public static void UnHook()
         {
-            ModHooks.Instance.GetPlayerBoolHook -= SkillBoolGetOverride;
-            ModHooks.Instance.SetPlayerBoolHook -= SkillBoolSetOverride;
+            ModHooks.GetPlayerBoolHook -= SkillBoolGetOverride;
+            ModHooks.SetPlayerBoolHook -= SkillBoolSetOverride;
             On.PlayMakerFSM.OnEnable -= ModifyFsm;
             On.HeroController.CanFocus -= ModifyFocus;
             On.HeroController.CanDash -= ModifyDash;
@@ -60,7 +60,7 @@ namespace ItemChanger.Internal
         }
 
 
-        private static bool SkillBoolGetOverride(string boolName)
+        private static bool SkillBoolGetOverride(string boolName, bool value)
         {
             switch (boolName)
             {
@@ -88,10 +88,10 @@ namespace ItemChanger.Internal
                 case "hasWalljumpAny":
                     return Ref.SKILLS.hasWalljumpLeft ^ Ref.SKILLS.hasWalljumpRight || Ref.PD.GetBoolInternal(nameof(PlayerData.hasWalljump));
             }
-            return Ref.PD.GetBoolInternal(boolName);
+            return value;
         }
 
-        private static void SkillBoolSetOverride(string boolName, bool value)
+        private static bool SkillBoolSetOverride(string boolName, bool value)
         {
             switch (boolName)
             {
@@ -145,14 +145,14 @@ namespace ItemChanger.Internal
                     break;
             }
             // Send the set through to the actual set
-            Ref.PD.SetBoolInternal(boolName, value);
+            return value;
         }
 
         private static void ShowSkillsInInventory(PlayMakerFSM self)
         {
             if (self.FsmName == "Build Equipment List" && self.gameObject.name == "Equipment")
             {
-                self.GetState("Walljump").GetActionOfType<PlayerDataBoolTest>().boolName.Value = "hasWalljumpAny";
+                self.GetState("Walljump").GetFirstActionOfType<PlayerDataBoolTest>().boolName.Value = "hasWalljumpAny";
 
                 PlayerDataBoolTest[] dashChecks = self.GetState("Dash").GetActionsOfType<PlayerDataBoolTest>();
                 dashChecks[0].boolName.Value = "hasDashAny";
@@ -202,7 +202,7 @@ namespace ItemChanger.Internal
         }
         private static Direction GetDashDirection(HeroController hc)
         {
-            InputHandler input = ReflectionHelper.GetAttr<HeroController, InputHandler>(hc, "inputHandler");
+            InputHandler input = ReflectionHelper.GetField<HeroController, InputHandler>(hc, "inputHandler");
             if (!hc.cState.onGround && input.inputActions.down.IsPressed && hc.playerData.GetBool("equippedCharm_31")
                     && !(input.inputActions.left.IsPressed || input.inputActions.right.IsPressed))
             {

@@ -6,7 +6,7 @@ using Modding;
 
 namespace ItemChanger.Internal
 {
-    public class GlobalSettings : ModSettings
+    public class GlobalSettings
     {
         public bool ReducePreloads;
     }

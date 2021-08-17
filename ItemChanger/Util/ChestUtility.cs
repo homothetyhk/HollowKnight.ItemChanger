@@ -6,7 +6,7 @@ using UnityEngine;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
-using SereCore;
+using ItemChanger.Extensions;
 using ItemChanger.Components;
 using ItemChanger.Internal;
 
@@ -83,11 +83,10 @@ namespace ItemChanger.Util
             FsmState init = chestFsm.GetState("Init");
             FsmState spawnItems = chestFsm.GetState("Spawn Items");
 
-            // TODO: Is this the right predicate?
-            FsmStateAction checkAction = new Lambda(() => chestFsm.SendEvent(placement.CheckVisited() ? "ACTIVATE" : null));
+            FsmStateAction checkAction = new Lambda(() => chestFsm.SendEvent(placement.CheckVisitedAny(VisitState.Opened) ? "ACTIVATE" : null));
 
             init.RemoveActionsOfType<BoolTest>();
-            init.AddAction(checkAction);
+            init.AddLastAction(checkAction);
 
             // Destroy any existing shinies in the chest
             // Moved to MakeNewChest, this code can likely be removed safely
@@ -122,7 +121,7 @@ namespace ItemChanger.Util
                         Transform = chestFsm.transform,
                         MessageType = MessageType.Corner,
                     };
-                    spawnItems.AddAction(new Lambda(() => item.Give(placement, info)));
+                    spawnItems.AddLastAction(new Lambda(() => item.Give(placement, info)));
                 }
                 else
                 {
@@ -131,6 +130,8 @@ namespace ItemChanger.Util
                     ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
                 }
             }
+
+            spawnItems.AddLastAction(new Lambda(() => placement.AddVisitFlag(VisitState.Opened)));
         }
     }
 }

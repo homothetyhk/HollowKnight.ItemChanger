@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using ItemChanger.Locations;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -48,7 +48,7 @@ namespace ItemChanger.Placements
                         case Container.GeoRock:
                         case Container.GrubJar:
                         default:
-                            if (!CheckVisited() && location.flingType == FlingType.Everywhere)
+                            if (!CheckVisitedAny(VisitState.Opened) && location.flingType == FlingType.Everywhere)
                             {
                                 ShinyUtility.FlingShinyRandomly(fsm);
                             }
@@ -127,7 +127,7 @@ namespace ItemChanger.Placements
             var container = Container.GetContainer(containerType);
             if (containerType == null)
             {
-                ItemChanger.instance.LogError($"Unknown container type {containerType} used for {Name}!");
+                ItemChangerMod.instance.LogError($"Unknown container type {containerType} used for {Name}!");
             }
 
             obj = container.GetNewContainer(this, Items, location.flingType);

@@ -8,6 +8,9 @@ namespace ItemChanger.Locations
 {
     public class StartLocation : AbstractLocation
     {
+        [System.ComponentModel.DefaultValue(MessageType.Corner)]
+        public MessageType MessageType = MessageType.Corner;
+
         public override void OnLoad()
         {
             base.OnLoad();
@@ -17,7 +20,7 @@ namespace ItemChanger.Locations
             base.OnNextSceneReady(next);
             if (GameManager.instance?.IsGameplayScene() ?? false)
             {
-                Placement.GiveAll(MessageType.Corner); // use the latest scene change hook, so it's most likely to appear onscreen
+                Placement.GiveAll(MessageType); // use the latest scene change hook, so it's most likely to appear onscreen
             }
         }
 

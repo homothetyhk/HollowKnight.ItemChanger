@@ -93,7 +93,7 @@ namespace ItemChanger
             ResolveItem(giveArgs);
 
             SetObtained();
-            placement.SetVisited();
+            placement.AddVisitFlag(VisitState.ObtainedAnyItem);
 
             AbstractItem item = giveArgs.Item;
             placement = giveArgs.Placement;

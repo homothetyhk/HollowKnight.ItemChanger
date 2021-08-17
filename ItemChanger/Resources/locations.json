@@ -483,8 +483,10 @@
       "Value": false
     },
     "falseLocation": {
-      "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "containerType": "Shiny",
       "objectName": "Shiny Item",
+      "fsmName": "Shiny Control",
       "elevation": 0.0,
       "forceShiny": false,
       "name": "Shape_of_Unn",
@@ -493,8 +495,10 @@
       "tags": null
     },
     "trueLocation": {
-      "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "containerType": "Shiny",
       "objectName": "Shiny Item Return",
+      "fsmName": "Shiny Control",
       "elevation": 0.0,
       "forceShiny": false,
       "name": "Shape_of_Unn",
@@ -972,10 +976,10 @@
     "tags": null
   },
   "Charm_Notch-Shrumal_Ogres": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+    "containerType": "Shiny",
     "objectName": "Shiny Item",
-    "elevation": 0.0,
-    "forceShiny": false,
+    "fsmName": "Shiny Control",
     "name": "Charm_Notch-Shrumal_Ogres",
     "sceneName": "Fungus2_05",
     "flingType": "Everywhere",
@@ -1085,82 +1089,82 @@
     "tags": null,
     "HintActive": true
   },
-  "200_Geo-False_Knight_Chest": {
+  "Geo_Chest-False_Knight": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
     "forceShiny": false,
-    "name": "200_Geo-False_Knight_Chest",
+    "name": "Geo_Chest-False_Knight",
     "sceneName": "Crossroads_10",
     "flingType": "Everywhere",
     "tags": null
   },
-  "380_Geo-Soul_Master_Chest": {
+  "Geo_Chest-Soul_Master": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
     "forceShiny": false,
-    "name": "380_Geo-Soul_Master_Chest",
+    "name": "Geo_Chest-Soul_Master",
     "sceneName": "Ruins1_32",
     "flingType": "Everywhere",
     "tags": null
   },
-  "655_Geo-Watcher_Knights_Chest": {
+  "Geo_Chest-Watcher_Knights": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
     "forceShiny": false,
-    "name": "655_Geo-Watcher_Knights_Chest",
+    "name": "Geo_Chest-Watcher_Knights",
     "sceneName": "Ruins2_03",
     "flingType": "Everywhere",
     "tags": null
   },
-  "85_Geo-Greenpath_Chest": {
+  "Geo_Chest-Greenpath": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
     "forceShiny": false,
-    "name": "85_Geo-Greenpath_Chest",
+    "name": "Geo_Chest-Greenpath",
     "sceneName": "Fungus1_13",
     "flingType": "Everywhere",
     "tags": null
   },
-  "620_Geo-Mantis_Lords_Chest": {
+  "Geo_Chest-Mantis_Lords": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Mantis Chest (2)",
     "elevation": 0.0,
     "forceShiny": false,
-    "name": "620_Geo-Mantis_Lords_Chest",
+    "name": "Geo_Chest-Mantis_Lords",
     "sceneName": "Fungus2_31",
     "flingType": "Everywhere",
     "tags": null
   },
-  "150_Geo-Resting_Grounds_Chest": {
+  "Geo_Chest-Resting_Grounds": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
     "forceShiny": false,
-    "name": "150_Geo-Resting_Grounds_Chest",
+    "name": "Geo_Chest-Resting_Grounds",
     "sceneName": "RestingGrounds_10",
     "flingType": "Everywhere",
     "tags": null
   },
-  "80_Geo-Crystal_Peak_Chest": {
+  "Geo_Chest-Crystal_Peak": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
     "forceShiny": false,
-    "name": "80_Geo-Crystal_Peak_Chest",
+    "name": "Geo_Chest-Crystal_Peak",
     "sceneName": "Mines_37",
     "flingType": "Everywhere",
     "tags": null
   },
-  "160_Geo-Weavers_Den_Chest": {
+  "Geo_Chest-Weavers_Den": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Chest",
     "elevation": 0.0,
     "forceShiny": false,
-    "name": "160_Geo-Weavers_Den_Chest",
+    "name": "Geo_Chest-Weavers_Den",
     "sceneName": "Deepnest_45_v02",
     "flingType": "Everywhere",
     "tags": null
@@ -2463,7 +2467,13 @@
     "name": "Grub-Collector_1",
     "sceneName": "Ruins2_11",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Ruins2_11",
+        "objectName": "Grubs Folder"
+      }
+    ]
   },
   "Grub-Collector_2": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
@@ -2475,7 +2485,13 @@
     "name": "Grub-Collector_2",
     "sceneName": "Ruins2_11",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Ruins2_11",
+        "objectName": "Grubs Folder"
+      }
+    ]
   },
   "Grub-Collector_3": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
@@ -2487,7 +2503,13 @@
     "name": "Grub-Collector_3",
     "sceneName": "Ruins2_11",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Ruins2_11",
+        "objectName": "Grubs Folder"
+      }
+    ]
   },
   "Crossroads_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -2529,10 +2551,10 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Deepnest_Map-Right_[Gives_Quill]": {
+  "Deepnest_Map-Right": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
     "objectName": "Cornifer Deepnest",
-    "name": "Deepnest_Map-Right_[Gives_Quill]",
+    "name": "Deepnest_Map-Right",
     "sceneName": "Fungus2_25",
     "flingType": "Everywhere",
     "tags": null
@@ -2614,7 +2636,7 @@
     "tags": null
   },
   "Crossroads_Stag": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",
     "x": 19.7,
     "y": 6.4,
     "elevation": 0.0,
@@ -2626,7 +2648,7 @@
     "tags": null
   },
   "Greenpath_Stag": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",
     "x": 19.7,
     "y": 6.4,
     "elevation": 0.0,
@@ -2638,7 +2660,7 @@
     "tags": null
   },
   "Queen's_Station_Stag": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",
     "x": 20.3,
     "y": 6.4,
     "elevation": 0.0,
@@ -2650,7 +2672,7 @@
     "tags": null
   },
   "Queen's_Gardens_Stag": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",
     "x": 159.8,
     "y": 13.4,
     "elevation": 0.0,
@@ -2662,7 +2684,7 @@
     "tags": null
   },
   "City_Storerooms_Stag": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",
     "x": 28.1,
     "y": 6.4,
     "elevation": 0.0,
@@ -2674,7 +2696,7 @@
     "tags": null
   },
   "King's_Station_Stag": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",
     "x": 28.1,
     "y": 6.4,
     "elevation": 0.0,
@@ -2686,7 +2708,7 @@
     "tags": null
   },
   "Resting_Grounds_Stag": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",
     "x": 27.6,
     "y": 6.4,
     "elevation": 0.001,
@@ -2698,7 +2720,7 @@
     "tags": null
   },
   "Distant_Village_Stag": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",
     "x": 27.6,
     "y": 6.4,
     "elevation": 0.0,
@@ -2710,7 +2732,7 @@
     "tags": null
   },
   "Hidden_Station_Stag": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",
     "x": 28.0,
     "y": 6.4,
     "elevation": 0.0,
@@ -5883,7 +5905,7 @@
   },
   "Lore_Tablet-City_Entrance": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-City_Entrance",
@@ -5893,7 +5915,7 @@
   },
   "Lore_Tablet-Pleasure_House": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Pleasure_House",
@@ -5903,7 +5925,7 @@
   },
   "Lore_Tablet-Sanctum_Entrance": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Sanctum_Entrance",
@@ -5913,7 +5935,7 @@
   },
   "Lore_Tablet-Sanctum_Past_Soul_Master": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Sanctum_Past_Soul_Master",
@@ -5923,7 +5945,7 @@
   },
   "Lore_Tablet-Watcher's_Spire": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Watcher's_Spire",
@@ -5933,7 +5955,7 @@
   },
   "Lore_Tablet-Archives_Upper": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Archives_Upper",
@@ -5943,7 +5965,7 @@
   },
   "Lore_Tablet-Archives_Left": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region (2)",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Archives_Left",
@@ -5953,7 +5975,7 @@
   },
   "Lore_Tablet-Archives_Right": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region (1)",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Archives_Right",
@@ -5963,7 +5985,7 @@
   },
   "Lore_Tablet-Pilgrim's_Way_1": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Pilgrim's_Way_1",
@@ -5973,7 +5995,7 @@
   },
   "Lore_Tablet-Pilgrim's_Way_2": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Pilgrim's_Way_2",
@@ -5983,7 +6005,7 @@
   },
   "Lore_Tablet-Mantis_Outskirts": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Mantis_Outskirts",
@@ -5993,7 +6015,7 @@
   },
   "Lore_Tablet-Mantis_Village": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Mantis_Village",
@@ -6003,7 +6025,7 @@
   },
   "Lore_Tablet-Greenpath_Upper_Hidden": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Greenpath_Upper_Hidden",
@@ -6013,7 +6035,7 @@
   },
   "Lore_Tablet-Greenpath_Below_Toll": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Greenpath_Below_Toll",
@@ -6023,7 +6045,7 @@
   },
   "Lore_Tablet-Greenpath_Lifeblood": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Greenpath_Lifeblood",
@@ -6033,7 +6055,7 @@
   },
   "Lore_Tablet-Greenpath_Stag": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Greenpath_Stag",
@@ -6043,7 +6065,7 @@
   },
   "Lore_Tablet-Greenpath_QG": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Greenpath_QG",
@@ -6053,7 +6075,7 @@
   },
   "Lore_Tablet-Greenpath_Lower_Hidden": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Greenpath_Lower_Hidden",
@@ -6063,7 +6085,7 @@
   },
   "Lore_Tablet-Dung_Defender": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Dung_Defender",
@@ -6073,7 +6095,7 @@
   },
   "Lore_Tablet-Spore_Shroom": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Spore_Shroom",
@@ -6083,7 +6105,7 @@
   },
   "Lore_Tablet-Fungal_Wastes_Hidden": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Fungal_Wastes_Hidden",
@@ -6093,7 +6115,7 @@
   },
   "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres",
@@ -6103,7 +6125,7 @@
   },
   "Lore_Tablet-Fungal_Core": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Fungal_Core",
@@ -6113,8 +6135,8 @@
   },
   "Lore_Tablet-Ancient_Basin": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
-    "fsmName": null,
+    "objectName": "Tut_tablet_Abyss",
+    "fsmName": "Inspection",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Ancient_Basin",
     "sceneName": "Abyss_06_Core",
@@ -6123,8 +6145,8 @@
   },
   "Lore_Tablet-King's_Pass_Focus": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
-    "fsmName": null,
+    "objectName": "Tut_tablet_top",
+    "fsmName": "Inspection",
     "containerType": "Tablet",
     "name": "Lore_Tablet-King's_Pass_Focus",
     "sceneName": "Tutorial_01",
@@ -6133,8 +6155,8 @@
   },
   "Lore_Tablet-King's_Pass_Fury": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
-    "fsmName": null,
+    "objectName": "Tut_tablet_top (2)",
+    "fsmName": "Inspection",
     "containerType": "Tablet",
     "name": "Lore_Tablet-King's_Pass_Fury",
     "sceneName": "Tutorial_01",
@@ -6143,8 +6165,8 @@
   },
   "Lore_Tablet-King's_Pass_Exit": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
-    "fsmName": null,
+    "objectName": "Tut_tablet_top (1)",
+    "fsmName": "Inspection",
     "containerType": "Tablet",
     "name": "Lore_Tablet-King's_Pass_Exit",
     "sceneName": "Tutorial_01",
@@ -6153,8 +6175,8 @@
   },
   "Lore_Tablet-World_Sense": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
-    "fsmName": null,
+    "objectName": "Tut_tablet_top",
+    "fsmName": "Inspection",
     "containerType": "Tablet",
     "name": "Lore_Tablet-World_Sense",
     "sceneName": "Room_Final_Boss_Atrium",
@@ -6163,8 +6185,8 @@
   },
   "Lore_Tablet-Howling_Cliffs": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
-    "fsmName": null,
+    "objectName": "Tut_tablet_top",
+    "fsmName": "Inspection",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Howling_Cliffs",
     "sceneName": "Cliffs_01",
@@ -6173,8 +6195,8 @@
   },
   "Lore_Tablet-Kingdom's_Edge": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
-    "fsmName": null,
+    "objectName": "Tut_tablet_top",
+    "fsmName": "Inspection",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Kingdom's_Edge",
     "sceneName": "Deepnest_East_17",
@@ -6183,7 +6205,7 @@
   },
   "Lore_Tablet-Palace_Workshop": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Palace_Workshop",
@@ -6193,7 +6215,7 @@
   },
   "Lore_Tablet-Palace_Throne": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "objectName": null,
+    "objectName": "Inspect Region (1)",
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "name": "Lore_Tablet-Palace_Throne",

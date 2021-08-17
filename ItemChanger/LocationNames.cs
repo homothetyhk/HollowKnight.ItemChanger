@@ -1,7 +1,18 @@
+using System.Linq;
+using System.Reflection;
+
 namespace ItemChanger
 {
     public static class LocationNames
     {
+        public static string[] ToArray()
+        {
+            return typeof(LocationNames).GetFields(BindingFlags.Public | BindingFlags.Static)
+            .Where(f => f.IsLiteral)
+            .Select(f => (string)f.GetRawConstantValue())
+            .ToArray();
+        }
+
         public const string Start = "Start";
         public const string Sly = "Sly";
         public const string Sly_Key = "Sly_(Key)";

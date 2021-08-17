@@ -7,7 +7,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,7 +23,7 @@ namespace ItemChanger.Locations.SpecialLocations
             {
                 FsmState geo = fsm.GetState("Geo");
                 if (removeGeo) geo.Actions = new FsmStateAction[0];
-                geo.AddAction(new Lambda(() => PlaceContainer(fsm.gameObject)));
+                geo.AddLastAction(new Lambda(() => PlaceContainer(fsm.gameObject)));
             }
         }
 

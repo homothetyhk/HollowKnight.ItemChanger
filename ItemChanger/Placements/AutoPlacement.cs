@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using ItemChanger.Locations;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

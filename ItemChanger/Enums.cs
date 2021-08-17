@@ -22,6 +22,29 @@ namespace ItemChanger
         Refreshed
     }
 
+    [Flags]
+    public enum VisitState
+    {
+        None = 0,
+        ObtainedAnyItem = 1 << 0,
+        /// <summary>
+        /// Applies to shops, placements with preview dialogues, and placements with hint boxes.
+        /// </summary>
+        Previewed = 1 << 1, // TODO: add to shops, add to preview dialogues
+        /// <summary>
+        /// Corresponds to opening a container: e.g. opening a chest, breaking a grub jar or geo rock, etc.
+        /// </summary>
+        Opened = 1 << 2,
+        /// <summary>
+        /// Applies to enemy drop items.
+        /// </summary>
+        Dropped = 1 << 3,
+        /// <summary>
+        /// Defined on a per-placement basis.
+        /// </summary>
+        Special = 1 << 31,
+    }
+
     public enum Persistence
     {
         Single,

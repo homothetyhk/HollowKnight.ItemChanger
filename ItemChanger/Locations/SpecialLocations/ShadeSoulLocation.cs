@@ -8,7 +8,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
@@ -22,7 +22,7 @@ namespace ItemChanger.Locations.SpecialLocations
                     {
                         FsmState gotSpell = fsm.GetState("Got Spell?");
                         gotSpell.RemoveActionsOfType<IntCompare>();
-                        gotSpell.AddAction(new BoolTestMod(Placement.AllObtained, "ACTIVATED", null));
+                        gotSpell.AddLastAction(new BoolTestMod(Placement.AllObtained, "ACTIVATED", null));
                     }
                     break;
 

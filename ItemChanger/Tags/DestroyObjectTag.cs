@@ -19,7 +19,12 @@ namespace ItemChanger.Tags
             if (to.name == sceneName)
             {
                 GameObject obj = Locations.ObjectLocation.FindGameObject(objectName);
-                if (obj) GameObject.Destroy(obj);
+                if (obj)
+                {
+                    GameObject.Destroy(obj);
+                    //ItemChangerMod.instance.Log($"Destroyed object {objectName} in {sceneName}");
+                }
+                //else ItemChangerMod.instance.Log($"Could not find object {objectName} in {sceneName}");
             }
         }
     }

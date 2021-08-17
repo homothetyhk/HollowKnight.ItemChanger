@@ -7,7 +7,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Internal;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 
 namespace ItemChanger.Util
@@ -68,8 +68,9 @@ namespace ItemChanger.Util
                         TextType.MajorLore)),
             };
             FsmState setBool = inspectFsm.GetState("Set Bool");
-            foreach (var t in promptUp.Transitions) t.ToState = "Turn Back";
-            foreach (var t in setBool.Transitions) t.ToState = "Turn Back";
+            FsmState turnBack = inspectFsm.GetState("Turn Back");
+            foreach (var t in promptUp.Transitions) t.SetToState(turnBack);
+            foreach (var t in setBool.Transitions) t.SetToState(turnBack);
 
 
             return tablet;
@@ -117,8 +118,8 @@ namespace ItemChanger.Util
                     }
                 }
 
-                init.AddAction(new Lambda(DisableInspect));
-                regainControl.AddAction(new Lambda(DisableInspect));
+                init.AddLastAction(new Lambda(DisableInspect));
+                regainControl.AddLastAction(new Lambda(DisableInspect));
 
                 FsmState promptUp = inspectFsm.GetState("Prompt Up");
                 promptUp.Actions = new FsmStateAction[]
@@ -140,8 +141,9 @@ namespace ItemChanger.Util
                     }, callback)),
                 };
                 FsmState setBool = inspectFsm.GetState("Set Bool");
-                foreach (var t in promptUp.Transitions) t.ToState = "Turn Back";
-                foreach (var t in setBool.Transitions) t.ToState = "Turn Back";
+                FsmState turnBack = inspectFsm.GetState("Turn Back");
+                foreach (var t in promptUp.Transitions) t.SetToState(turnBack);
+                foreach (var t in setBool.Transitions) t.SetToState(turnBack);
             }
             else if (inspectFsm.FsmName == "inspect_region")
             {
@@ -150,7 +152,7 @@ namespace ItemChanger.Util
                 FsmState convoEnd = inspectFsm.GetState("Convo End");
                 FsmState canTalkBool = inspectFsm.GetState("Can Talk Bool?");
 
-                foreach (var t in heroLookUp.Transitions) t.ToState = "Cancel";
+                foreach (var t in heroLookUp.Transitions) t.SetToState(cancel);
                 cancel.Actions = new FsmStateAction[]
                 {
                     new AsyncLambda(callback => ItemUtility.GiveSequentially(items, placement, new GiveInfo

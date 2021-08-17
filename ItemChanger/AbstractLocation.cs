@@ -13,9 +13,9 @@ namespace ItemChanger
         public string name;
         public string sceneName;
         public FlingType flingType;
-        public List<Tag> tags;
 
         [JsonIgnore]
+        [Obsolete("This was probably a bad idea.")]
         public Transform Transform { get; set; }
 
         [JsonIgnore]
@@ -32,7 +32,7 @@ namespace ItemChanger
         /// PlaymakerFSM.OnEnable
         /// </summary>
         public virtual void OnEnableGlobal(PlayMakerFSM fsm) { }
-        public virtual string OnLanguageGet(string convo, string sheet) { return null; }
+        public virtual void OnLanguageGet(LanguageGetArgs args) { }
         public virtual void OnLoad() { }
         public virtual void OnUnload() { }
 

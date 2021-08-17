@@ -8,7 +8,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine.SceneManagement;
 using ItemChanger.Internal;
 
@@ -34,6 +34,7 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnEnableLocal(fsm);
             switch (fsm.FsmName)
             {
+                // For testing only! Skip to end after first wave.
                 case "Battle Control" when fsm.gameObject.name == "Colosseum Manager":
                     {
                         FsmState wave1 = fsm.GetState("Wave 1");
@@ -125,7 +126,7 @@ namespace ItemChanger.Locations.SpecialLocations
                     break;
             }
 
-            sb.AppendLine($"Fight for {Placement.GetUIName(30)} and geo.");
+            sb.AppendLine($"Fight for {Placement.GetUIName(75)} and geo.");
             sb.Append("Place a mark and begin the Trial?");
             return sb.ToString();
         }
@@ -152,19 +153,16 @@ namespace ItemChanger.Locations.SpecialLocations
             return sb.ToString();
         }
 
-        public override string OnLanguageGet(string convo, string sheet)
+        public override void OnLanguageGet(LanguageGetArgs args)
         {
-            if (convo == GetTrialBoardConvo() && sheet == "Prompts")
+            if (args.convo == GetTrialBoardConvo() && args.sheet == "Prompts")
             {
                 if (HintActive && !Placement.AllObtained())
                 {
-                    return GetTrialBoardHint();
+                    args.current = GetTrialBoardHint();
                 }
-                else return GetTrialBoardNullHint();
+                else args.current = GetTrialBoardNullHint();
             }
-
-            return base.OnLanguageGet(convo, sheet);
         }
-
     }
 }

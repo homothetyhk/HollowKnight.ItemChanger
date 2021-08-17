@@ -7,7 +7,7 @@ using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Components;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using System.Collections;
 using TMPro;
@@ -94,6 +94,7 @@ namespace ItemChanger.Util
         public static void FlingShinyRandomly(PlayMakerFSM shinyFsm)
         {
             FsmState shinyFling = shinyFsm.GetState("Fling?");
+            if (shinyFling.Actions.Length < 10 || shinyFling.Transitions.Length < 6) return; // Fling? has already been edited.
             shinyFling.Actions = new FsmStateAction[]
             {
                 // shinyFling.Actions[0], // BoolTest -- Fling on start
@@ -128,7 +129,7 @@ namespace ItemChanger.Util
             else
             {
                 FsmState finish = shinyFsm.GetState("Finish");
-                finish.AddAction(new RandomizerChangeScene(toScene, toGate));
+                finish.AddLastAction(new RandomizerChangeScene(toScene, toGate));
             }
         }
 
@@ -154,7 +155,7 @@ namespace ItemChanger.Util
 
             // Change pd bool test to our new bool
             pdBool.RemoveActionsOfType<PlayerDataBoolTest>();
-            pdBool.AddAction(checkAction);
+            pdBool.AddLastAction(checkAction);
 
             // Charm must be preserved as the entry point for AddYNDialogueToShiny
             charm.ClearTransitions();
@@ -197,7 +198,7 @@ namespace ItemChanger.Util
 
             // Change pd bool test to our new bool
             pdBool.RemoveActionsOfType<PlayerDataBoolTest>();
-            pdBool.AddAction(checkAction);
+            pdBool.AddLastAction(checkAction);
 
             // Charm must be preserved as the entry point for AddYNDialogueToShiny
             charm.ClearTransitions();
@@ -247,22 +248,22 @@ namespace ItemChanger.Util
                 gameObject = new FsmOwnerDefault
                 {
                     OwnerOption = OwnerDefaultOption.SpecifyGameObject,
-                    GameObject = SereCore.Ref.Hero.gameObject
+                    GameObject = HeroController.instance.gameObject
                 },
                 clipName = "Collect Normal 3",
                 animationTriggerEvent = null,
                 animationCompleteEvent = FsmEvent.GetFsmEvent("FINISHED")
             };
 
-            noState.AddAction(closeYNDialogue);
-            noState.AddAction(heroUp);
+            noState.AddLastAction(closeYNDialogue);
+            noState.AddLastAction(heroUp);
 
             giveControl.ClearTransitions();
             giveControl.RemoveActionsOfType<FsmStateAction>();
 
             giveControl.AddTransition("FINISHED", "Idle");
 
-            giveControl.AddAction(new Lambda(() => PlayMakerFSM.BroadcastEvent("END INSPECT")));
+            giveControl.AddLastAction(new Lambda(() => PlayMakerFSM.BroadcastEvent("END INSPECT")));
 
             shinyFsm.AddState(noState);
             shinyFsm.AddState(giveControl);

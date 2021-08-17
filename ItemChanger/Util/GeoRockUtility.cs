@@ -6,7 +6,7 @@ using ItemChanger.Items;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using System.Collections;
 using ItemChanger.Components;
@@ -131,11 +131,11 @@ namespace ItemChanger.Util
             FsmState broken = rockFsm.GetState("Broken");
 
             FsmStateAction checkAction = new BoolTestMod(
-                () => placement.CheckVisited() && items.Where(i => i.GiveEarly(Container.GeoRock)).All(i => i.WasEverObtained()),
+                () => placement.CheckVisitedAny(VisitState.Opened),
                 "BROKEN", null);
 
             init.RemoveActionsOfType<IntCompare>();
-            init.AddAction(checkAction);
+            init.AddLastAction(checkAction);
 
             idle.RemoveActionsOfType<SetPosition>(); // otherwise the rock warps back after falling
 
@@ -145,7 +145,7 @@ namespace ItemChanger.Util
             hit.AddTransition("FINISHED", "Idle");
             //hit.RemoveActionsOfType<FlingObjectsFromGlobalPool>();
 
-            var payoutAction = payout.GetActionOfType<FlingObjectsFromGlobalPool>();
+            var payoutAction = payout.GetFirstActionOfType<FlingObjectsFromGlobalPool>();
             payoutAction.spawnMin.Value = 0;
             payoutAction.spawnMax.Value = 0;
 
@@ -156,8 +156,8 @@ namespace ItemChanger.Util
             itemParent.SetActive(true);
 
             FsmStateAction giveItems = new Lambda(InstantiateShiniesAndGiveEarly);
-            payout.AddAction(giveItems);
-            broken.AddAction(giveItems);
+            payout.AddLastAction(giveItems);
+            broken.AddLastAction(giveItems);
 
             void InstantiateShiniesAndGiveEarly()
             {
@@ -186,6 +186,7 @@ namespace ItemChanger.Util
                 }
 
                 foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
+                placement.AddVisitFlag(VisitState.Opened);
             }
         }
 

@@ -7,7 +7,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,7 +25,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         FsmState init = fsm.GetState("Init");
                         init.Actions = new FsmStateAction[] { init.Actions[0], init.Actions[1] }; // remove find child shiny item
 
-                        fsm.GetState("Activate Item").AddAction(new SendEvent
+                        fsm.GetState("Activate Item").AddLastAction(new SendEvent
                         {
                             eventTarget = new FsmEventTarget
                             {

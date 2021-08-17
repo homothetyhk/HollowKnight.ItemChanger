@@ -7,7 +7,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,10 +43,9 @@ namespace ItemChanger.Locations.SpecialLocations
             }
         }
 
-        public override string OnLanguageGet(string convo, string sheet)
+        public override void OnLanguageGet(LanguageGetArgs args)
         {
-            if (sheet == "Prompts" && convo == "NAILMASTER_FREE") return Placement.GetUIName();
-            return base.OnLanguageGet(convo, sheet);
+            if (args.sheet == "Prompts" && args.convo == "NAILMASTER_FREE") args.current = Placement.GetUIName();
         }
     }
 }

@@ -6,7 +6,7 @@ using ItemChanger.Items;
 using ItemChanger.Locations;
 using ItemChanger.Placements;
 using ItemChanger.Tags;
-using SereCore;
+using ItemChanger.Extensions;
 
 namespace ItemChanger
 {

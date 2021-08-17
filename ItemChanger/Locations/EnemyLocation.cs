@@ -5,7 +5,7 @@ using System.Text;
 using ItemChanger.Components;
 using ItemChanger.Placements;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,6 +38,7 @@ namespace ItemChanger.Locations
             Transform = target.transform;
             HealthManager hm = target.GetComponent<HealthManager>();
             hm.OnDeath += GiveEarly;
+            hm.OnDeath += () => Placement.AddVisitFlag(VisitState.Dropped);
 
             SpawnOnDeath drop = target.AddComponent<SpawnOnDeath>();
             drop.item = obj;

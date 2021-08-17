@@ -1,5 +1,5 @@
 ﻿using ItemChanger.Internal;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using Random = System.Random;
 
@@ -33,21 +33,21 @@ namespace ItemChanger.Components
                 degrees = damagesEnemy.FsmVariables.FindFsmFloat("direction").Value;
             }
 
-            Vector3 position = SereCore.Ref.Hero.transform.position;
+            Vector3 position = HeroController.instance.transform.position;
             Vector3 euler = Vector3.zero;
             switch (DirectionUtils.GetCardinalDirection(degrees))
             {
                 case 0:
-                    SereCore.Ref.Hero.RecoilLeft();
+                    HeroController.instance.RecoilLeft();
                     position = new Vector3(position.x + 2, position.y, 0.002f);
                     break;
                 case 1:
-                    SereCore.Ref.Hero.RecoilDown();
+                    HeroController.instance.RecoilDown();
                     position = new Vector3(position.x, position.y + 2, 0.002f);
                     euler = new Vector3(0, 0, 90);
                     break;
                 case 2:
-                    SereCore.Ref.Hero.RecoilRight();
+                    HeroController.instance.RecoilRight();
                     position = new Vector3(position.x - 2, position.y, 0.002f);
                     euler = new Vector3(0, 0, 180);
                     break;

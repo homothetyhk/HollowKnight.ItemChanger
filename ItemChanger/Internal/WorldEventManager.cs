@@ -5,7 +5,7 @@ using System.Text;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using Modding;
 
@@ -16,7 +16,7 @@ namespace ItemChanger.Internal
         public static void Hook()
         {
             On.PlayMakerFSM.OnEnable += OnEnable;
-            ModHooks.Instance.GetPlayerBoolHook += OverrideGetBool;
+            ModHooks.GetPlayerBoolHook += OverrideGetBool;
         }
 
         public static void UnHook()
@@ -24,7 +24,7 @@ namespace ItemChanger.Internal
             On.PlayMakerFSM.OnEnable -= OnEnable;
         }
 
-        private static bool OverrideGetBool(string boolName)
+        private static bool OverrideGetBool(string boolName, bool value)
         {
             switch (boolName)
             {
@@ -39,7 +39,7 @@ namespace ItemChanger.Internal
                         || PlayerData.instance.GetBool(nameof(PlayerData.hasDashSlash))
                         || PlayerData.instance.GetBool(nameof(PlayerData.hasUpwardSlash));
                 default:
-                    return PlayerData.instance.GetBoolInternal(boolName);
+                    return value;
             }
         }
 
@@ -87,6 +87,21 @@ namespace ItemChanger.Internal
                             break;
                     }
                     break;
+                case SceneNames.Room_Colosseum_01 when Ref.WORLD.nonlinearColosseums:
+                    if (fsm.FsmName == "Conversation Control")
+                    {
+                        switch (fsm.gameObject.name)
+                        {
+                            case "Silver Trial Board":
+                            case "Gold Trial Board":
+                                {
+                                    FsmState stateCheck = fsm.GetState("State Check");
+                                    if (stateCheck != null) stateCheck.RemoveTransitionsOn("LOCKED");
+                                }
+                                break;
+                        }
+                    }
+                    break;
             }
         }
 
@@ -96,19 +111,19 @@ namespace ItemChanger.Internal
             FsmState convo = dazedSly.GetState("Convo Choice");
             FsmState meet = dazedSly.GetState("Meet");
 
-            if (active.GetActionOfType<BoolTest>() is BoolTest test1)
+            if (active.GetFirstActionOfType<BoolTest>() is BoolTest test1)
             {
-                active.AddAction(new Lambda(() => dazedSly.SendEvent(Ref.WORLD.slyRescued ? test1.isTrue?.Name : test1.isFalse?.Name)));
+                active.AddLastAction(new Lambda(() => dazedSly.SendEvent(Ref.WORLD.slyRescued ? test1.isTrue?.Name : test1.isFalse?.Name)));
                 active.RemoveActionsOfType<BoolTest>();
             }
 
-            if (convo.GetActionOfType<BoolTest>() is BoolTest test2)
+            if (convo.GetFirstActionOfType<BoolTest>() is BoolTest test2)
             {
-                active.AddAction(new Lambda(() => dazedSly.SendEvent(Ref.WORLD.slyRescued ? test2.isTrue?.Name : test2.isFalse?.Name)));
+                active.AddLastAction(new Lambda(() => dazedSly.SendEvent(Ref.WORLD.slyRescued ? test2.isTrue?.Name : test2.isFalse?.Name)));
                 active.RemoveActionsOfType<BoolTest>();
             }
 
-            meet.AddAction(new Lambda(() => Ref.WORLD.slyRescued = true));
+            meet.AddLastAction(new Lambda(() => Ref.WORLD.slyRescued = true));
         }
 
 

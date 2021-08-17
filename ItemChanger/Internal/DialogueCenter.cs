@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using HutongGames.PlayMaker;
-using SereCore;
+using ItemChanger.Extensions;
 using TMPro;
 using UnityEngine;
 

@@ -7,7 +7,7 @@ using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Components;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using ItemChanger.Internal;
 
@@ -93,7 +93,7 @@ namespace ItemChanger.Util
             shatter.RemoveActionsOfType<SendMessage>();
 
             FsmStateAction checkAction = new BoolTestMod(
-                () => placement.CheckVisited() && items.Where(i => i.GiveEarly(Container.GrubJar)).All(i => i.WasEverObtained()),
+                () => placement.CheckVisitedAny(VisitState.Opened),
                 "ACTIVATE", null);
             init.AddFirstAction(checkAction);
 
@@ -103,15 +103,17 @@ namespace ItemChanger.Util
             itemParent.transform.localPosition = Vector3.zero;
             itemParent.SetActive(true);
 
-            FsmStateAction spawnShinies = new ActivateAllChildren { gameObject = new FsmGameObject { Value = itemParent, }, activate = true };
-            FsmStateAction removeParent = new Lambda(() => itemParent.transform.parent = null);
-
             shatter.AddFirstAction(new BoolTestMod(() => CheckRigidBodyStatus(jar), null, "CANCEL"));
-            activate.AddFirstAction(removeParent); // activate has a destroy all children action
+            activate.AddFirstAction(new Lambda(() =>
+                {
+                    itemParent.transform.SetParent(null);
+                }));
+
+            activate.GetFirstActionOfType<DestroyAllChildren>().gameObject.Value = jar; // the target is null otherwise for some reason??
 
             FsmStateAction giveItems = new Lambda(InstantiateShiniesAndGiveEarly);
-            shatter.AddAction(giveItems);
-            activate.AddAction(giveItems);
+            shatter.AddLastAction(giveItems);
+            activate.AddLastAction(giveItems);
 
             void InstantiateShiniesAndGiveEarly()
             {
@@ -140,6 +142,7 @@ namespace ItemChanger.Util
                 }
 
                 foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
+                placement.AddVisitFlag(VisitState.Opened);
             }
         }
 

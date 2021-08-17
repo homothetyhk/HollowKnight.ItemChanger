@@ -8,7 +8,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
@@ -36,7 +36,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
 
                 init.RemoveActionsOfType<IntCompare>();
-                init.AddAction(check);
+                init.AddLastAction(check);
 
                 get.Actions = new FsmStateAction[0];
                 callUI.Actions = new[] { give };

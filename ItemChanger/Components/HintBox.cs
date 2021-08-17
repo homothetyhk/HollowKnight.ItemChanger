@@ -8,7 +8,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -16,11 +16,12 @@ namespace ItemChanger.Components
 {
     public class HintBox : MonoBehaviour
     {
-        public static HintBox Create(Vector2 pos, Func<string> getDisplayText, Func<bool> displayTest = null)
+        public static HintBox Create(Vector2 pos, Func<string> getDisplayText, Func<bool> displayTest = null, Action onDisplay = null)
         {
             var hint = HintBox.Create(pos, new Vector2(5f, 5f));
             hint.GetDisplayText = getDisplayText;
             hint.DisplayTest = displayTest;
+            hint.OnDisplay = onDisplay;
             return hint;
         }
 
@@ -29,9 +30,8 @@ namespace ItemChanger.Components
             var hint = HintBox.Create(transform.position, new Vector2(5f, 5f));
             hint.GetDisplayText = placement.GetUIName;
             hint.DisplayTest = () => !placement.AllObtained();
-            ItemChanger.instance.Log($"Created HintBox at {transform.position}");
+            hint.OnDisplay = () => placement.AddVisitFlag(VisitState.Previewed);
             return hint;
-            
         }
 
         public static HintBox Create(Vector2 pos, Vector2 size)
@@ -49,6 +49,7 @@ namespace ItemChanger.Components
 
         public Func<bool> DisplayTest;
         public Func<string> GetDisplayText;
+        public Action OnDisplay;
         PlayMakerFSM display;
 
         public void Setup(GameObject prefab)
@@ -77,6 +78,7 @@ namespace ItemChanger.Components
                 {
                     SetText(s);
                     ShowConvo();
+                    OnDisplay?.Invoke();
                 }
             }
         }

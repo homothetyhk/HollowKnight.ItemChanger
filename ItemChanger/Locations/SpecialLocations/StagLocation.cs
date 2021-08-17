@@ -5,7 +5,7 @@ using System.Text;
 using HutongGames.PlayMaker;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 
 namespace ItemChanger.Locations.SpecialLocations

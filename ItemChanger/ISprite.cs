@@ -15,12 +15,15 @@ namespace ItemChanger
     public class ItemChangerSprite : ISprite
     {
         public string key;
+
+        [Newtonsoft.Json.JsonIgnore]
         public Sprite Value => Internal.SpriteManager.GetSprite(key);
         public ISprite Clone() => (ISprite)MemberwiseClone();
     }
 
     public class EmptySprite : ISprite
     {
+        [Newtonsoft.Json.JsonIgnore]
         public Sprite Value => Modding.CanvasUtil.NullSprite();
         public ISprite Clone() => (ISprite)MemberwiseClone();
     }

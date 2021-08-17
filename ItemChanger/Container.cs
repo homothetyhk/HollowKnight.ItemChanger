@@ -79,7 +79,7 @@ namespace ItemChanger
                 var container = GetContainer(info.containerType);
                 if (container == null)
                 {
-                    ItemChanger.instance.LogError($"Unable to find Container definition for {info.containerType}!");
+                    ItemChangerMod.instance.LogError($"Unable to find Container definition for {info.containerType}!");
                     return;
                 }
 

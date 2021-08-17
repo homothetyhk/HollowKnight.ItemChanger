@@ -21,7 +21,7 @@ namespace ItemChanger.Internal
         {
             if (!loaded)
             {
-                Assembly a = typeof(ItemChanger).Assembly;
+                Assembly a = typeof(ItemChangerMod).Assembly;
                 Stream xmlStream = a.GetManifestResourceStream("ItemChanger.Resources.language.xml");
 
                 // Load XmlDocument from resource stream
@@ -51,11 +51,11 @@ namespace ItemChanger.Internal
                 }
             }
             loaded = true;
-            ModHooks.Instance.LanguageGetHook += GetLanguageString;
+            ModHooks.LanguageGetHook += GetLanguageString;
         }
         internal static void Unhook()
         {
-            ModHooks.Instance.LanguageGetHook -= GetLanguageString;
+            ModHooks.LanguageGetHook -= GetLanguageString;
         }
 
         public static void SetString(string sheetName, string key, string text)
@@ -88,7 +88,7 @@ namespace ItemChanger.Internal
         }
 
         // keep this private -- the api hook does weird stuff with GetInternal
-        private static string GetLanguageString(string key, string sheetTitle)
+        private static string GetLanguageString(string key, string sheetTitle, string orig)
         {
             if (key.StartsWith("RANDOMIZER_NAME_ESSENCE_"))
             {
@@ -116,7 +116,7 @@ namespace ItemChanger.Internal
                 return LanguageStrings[sheetTitle][key];
             }
 
-            return Language.Language.GetInternal(key, sheetTitle);
+            return orig;
         }
     }
 }

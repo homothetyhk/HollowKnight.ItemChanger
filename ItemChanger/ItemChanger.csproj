@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ItemChanger</RootNamespace>
     <AssemblyName>ItemChanger</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,16 +31,36 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="MMHOOK_Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_PlayMaker">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MMHOOK_PlayMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.RuntimeDetour">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MonoMod.RuntimeDetour.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoMod.Utils">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\MonoMod.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PlayMaker">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\PlayMaker.dll</HintPath>
-    </Reference>
-    <Reference Include="SereCore">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\SereCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,6 +77,10 @@
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.JSONSerializeModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -78,16 +104,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\UnityExtensions.cs" />
+    <Compile Include="Extensions\PlayMakerExtensions.cs" />
     <Compile Include="IBool.cs" />
     <Compile Include="ISprite.cs" />
     <Compile Include="Items\NailUpgradeItem.cs" />
     <Compile Include="Items\UnbreakableCharmItem.cs" />
     <Compile Include="Items\IsmaItem.cs" />
     <Compile Include="Items\SpellItem.cs" />
+    <Compile Include="LanguageGetArgs.cs" />
     <Compile Include="Locations\DualLocation.cs" />
     <Compile Include="Locations\SpecialLocations\StagLocation.cs" />
     <Compile Include="Placements\MultiLocationPlacement.cs" />
     <Compile Include="Placements\DualPlacement.cs" />
+    <Compile Include="SceneNames.cs" />
     <Compile Include="TaggableObject.cs" />
     <Compile Include="Containers\ChestContainer.cs" />
     <Compile Include="Containers\TabletContainer.cs" />
@@ -98,7 +128,6 @@
     <Compile Include="Tags\IOnLoadActionTag.cs" />
     <Compile Include="Tags\SetPDBoolOnLoadTag.cs" />
     <Compile Include="Tags\DestroyGrubRewardTag.cs" />
-    <Compile Include="Tests\Tests.cs" />
     <Compile Include="UIDefs\MsgUIDef.cs" />
     <Compile Include="Util\YNUtil.cs" />
     <Compile Include="Container.cs" />
@@ -136,7 +165,6 @@
     <Compile Include="Tags\IShopRequirementTag.cs" />
     <Compile Include="Tags\IShopNotchCostTag.cs" />
     <Compile Include="Tags\PersistentItemTag.cs" />
-    <Compile Include="Tags\AdditiveGroupTag.cs" />
     <Compile Include="Tags\IModifyItemTag.cs" />
     <Compile Include="Tags\CostTag.cs" />
     <Compile Include="AbstractLocation.cs" />
@@ -231,7 +259,6 @@
     <Compile Include="Items\IntItem.cs" />
     <Compile Include="AbstractPlacement.cs" />
     <Compile Include="Placements\ShopPlacement.cs" />
-    <Compile Include="Platform.cs" />
     <Compile Include="Components\RandomizerTinkEffect.cs" />
     <Compile Include="TransitionHooks.cs" />
     <Compile Include="StartDef.cs" />
@@ -239,11 +266,8 @@
     <Compile Include="Components\BigItemPopup.cs" />
     <Compile Include="Components\ObjectDestroyer.cs" />
     <Compile Include="FsmStateActions\RandomizerAddGeo.cs" />
-    <Compile Include="FsmStateActions\RandomizerBoolTest.cs" />
-    <Compile Include="FsmStateActions\RandomizerCallStaticMethod.cs" />
     <Compile Include="FsmStateActions\RandomizerChangeScene.cs" />
     <Compile Include="FsmStateActions\Lambda.cs" />
-    <Compile Include="FsmStateActions\RandomizerSetBool.cs" />
     <Compile Include="FsmStateActions\RandomizerSetHardSave.cs" />
     <Compile Include="Internal\LanguageStringManager.cs" />
     <Compile Include="Internal\SaveSettings.cs" />
@@ -251,7 +275,7 @@
     <Compile Include="UIDefs\BigUIDef.cs" />
     <Compile Include="UIDef.cs" />
     <Compile Include="Internal\ObjectCache.cs" />
-    <Compile Include="ItemChanger.cs" />
+    <Compile Include="ItemChangerMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -457,7 +481,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods"</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetPath)" "C:\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed\Mods\ItemChanger"</PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions />
 </Project>

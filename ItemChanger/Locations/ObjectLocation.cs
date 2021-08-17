@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using ItemChanger.Placements;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,7 +34,7 @@ namespace ItemChanger.Locations
             GameObject target = FindGameObject(objectName);
             if (!target)
             {
-                ItemChanger.instance.LogError($"Unable to find {objectName} for ObjectLocation {name}!");
+                ItemChangerMod.instance.LogError($"Unable to find {objectName} for ObjectLocation {name}!");
                 return;
             }
 
@@ -47,13 +47,19 @@ namespace ItemChanger.Locations
         {
             Scene currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
 
-            string[] objectHierarchy = objectName.Split('\\');
-            int i = 1;
-            GameObject obj = currentScene.FindGameObject(objectHierarchy[0]);
-            while (i < objectHierarchy.Length)
+            objectName = objectName.Replace('\\', '/');
+            GameObject obj;
+
+            if (!objectName.Contains('/'))
             {
-                obj = obj.FindGameObjectInChildren(objectHierarchy[i++]);
+                obj = currentScene.FindGameObjectByName(objectName);
             }
+            else
+            {
+                obj = currentScene.FindGameObject(objectName);
+            }
+
+            if (obj == null) ItemChangerMod.instance.LogWarn($"Failed to find {objectName} in scene {currentScene}!");
 
             return obj;
         }

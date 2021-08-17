@@ -1,7 +1,8 @@
 ﻿using GlobalEnums;
 using HutongGames.PlayMaker;
 using Modding;
-using SereCore;
+using ItemChanger.Extensions;
+using ItemChanger.Internal;
 
 namespace ItemChanger.FsmStateActions
 {
@@ -35,7 +36,7 @@ namespace ItemChanger.FsmStateActions
                 return;
             }
 
-            SceneLoad load = ReflectionHelper.GetAttr<GameManager, SceneLoad>(SereCore.Ref.GM, "sceneLoad");
+            SceneLoad load = ReflectionHelper.GetField<GameManager, SceneLoad>(Ref.GM, "sceneLoad");
             if (load != null)
             {
                 load.Finish += () =>
@@ -51,10 +52,10 @@ namespace ItemChanger.FsmStateActions
 
         private static void LoadScene(string sceneName, string gateName, float delay)
         {
-            SereCore.Ref.GM.StopAllCoroutines();
-            ReflectionHelper.SetAttr<GameManager, SceneLoad>(SereCore.Ref.GM, "sceneLoad", null);
+            Ref.GM.StopAllCoroutines();
+            ReflectionHelper.SetField<GameManager, SceneLoad>(Ref.GM, "sceneLoad", null);
 
-            SereCore.Ref.GM.BeginSceneTransition(new GameManager.SceneLoadInfo
+            Ref.GM.BeginSceneTransition(new GameManager.SceneLoadInfo
             {
                 IsFirstLevelForPlayer = false,
                 SceneName = sceneName,

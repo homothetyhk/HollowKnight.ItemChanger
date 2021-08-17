@@ -8,7 +8,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
@@ -19,6 +19,12 @@ namespace ItemChanger.Locations.SpecialLocations
     public class GrimmkinLocation : AutoLocation
     {
         public int grimmkinLevel;
+        public override GiveInfo GetGiveInfo()
+        {
+            var info = base.GetGiveInfo();
+            info.MessageType = MessageType.Corner;
+            return info;
+        }
 
         public override void OnEnableLocal(PlayMakerFSM fsm)
         {
@@ -56,7 +62,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         get.Actions = new FsmStateAction[]
                         {
                             get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
-                            new AsyncLambda(GiveAll),
+                            new AsyncLambda((callback) => GiveAll(callback)),
                         };
 
                     }

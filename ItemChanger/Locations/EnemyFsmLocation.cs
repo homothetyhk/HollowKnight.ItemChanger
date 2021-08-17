@@ -38,6 +38,7 @@ namespace ItemChanger.Locations
             HealthManager hm = enemy.GetComponent<HealthManager>();
             SpawnOnDeath drop = enemy.AddComponent<SpawnOnDeath>();
             hm.OnDeath += GiveEarly;
+            hm.OnDeath += () => Placement.AddVisitFlag(VisitState.Dropped);
             drop.item = item;
             item.SetActive(false);
 

@@ -22,10 +22,10 @@ namespace ItemChanger.FsmStateActions
         public BoolTestMod(Func<bool> test, string trueEvent, string falseEvent)
         {
             this.test = test;
-            isTrue = trueEvent == null ? null 
-                : FsmEvent.EventListContains(trueEvent) ? FsmEvent.GetFsmEvent(trueEvent) : new FsmEvent(trueEvent);
+            isTrue = trueEvent == null ? null
+                : FsmEvent.GetFsmEvent(trueEvent);
             isFalse = falseEvent == null ? null
-                : FsmEvent.EventListContains(falseEvent) ? FsmEvent.GetFsmEvent(falseEvent) : new FsmEvent(falseEvent);
+                : FsmEvent.GetFsmEvent(falseEvent);
         }
 
         public BoolTestMod(Func<bool> test, FsmEvent isTrue, FsmEvent isFalse)

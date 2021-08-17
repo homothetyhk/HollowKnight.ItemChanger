@@ -1,4 +1,5 @@
 ﻿using ItemChanger.Components;
+using ItemChanger.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,24 +19,23 @@ namespace ItemChanger.Locations.SpecialLocations
             base.PlaceContainer(obj, containerType);
         }
 
-        public override string OnLanguageGet(string convo, string sheet)
+        public override void OnLanguageGet(LanguageGetArgs args)
         {
-            if (HintActive && sheet == "Lore Tablets" && convo == "DUSK_KNIGHT_CORPSE")
+            if (HintActive && args.sheet == "Lore Tablets" && args.convo == "DUSK_KNIGHT_CORPSE")
             {
                 string item = Placement.GetUIName();
                 if (!string.IsNullOrEmpty(item))
                 {
-                    return "A corpse in white armour. You can clearly see the "
+                    args.current = "A corpse in white armour. You can clearly see the "
                                 + Placement.GetUIName() + " it's holding, " +
                                 "but for some reason you get the feeling you're going to have to go" +
                                 " through an unnecessarily long gauntlet of spikes and sawblades just to pick it up.";
                 }
                 else
                 {
-                    return "A corpse in white armour. You already got the stuff it was holding.";
+                    args.current = "A corpse in white armour. You already got the stuff it was holding.";
                 }
             }
-            return base.OnLanguageGet(convo, sheet);
         }
     }
 }

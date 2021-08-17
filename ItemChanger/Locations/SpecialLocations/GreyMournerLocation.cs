@@ -8,7 +8,7 @@ using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using SereCore;
+using ItemChanger.Extensions;
 using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
@@ -51,13 +51,12 @@ namespace ItemChanger.Locations.SpecialLocations
             }
         }
 
-        public override string OnLanguageGet(string convo, string sheet)
+        public override void OnLanguageGet(LanguageGetArgs args)
         {
-            if (HintActive && sheet == "Prompts" && convo == "XUN_OFFER")
+            if (HintActive && args.sheet == "Prompts" && args.convo == "XUN_OFFER")
             {
-                return $"Accept the Gift, even knowing you'll only get a lousy {Placement.GetUIName()}?";
+                args.current = $"Accept the Gift, even knowing you'll only get a lousy {Placement.GetUIName()}?";
             }
-            return base.OnLanguageGet(convo, sheet);
         }
     }
 }
