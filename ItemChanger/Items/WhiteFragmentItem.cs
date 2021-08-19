@@ -14,7 +14,7 @@ namespace ItemChanger.Items
             if (!PlayerData.instance.GetBool(nameof(PlayerData.gotCharm_36)))
             {
                 PlayerData.instance.SetBool(nameof(PlayerData.gotCharm_36), true);
-                PlayerData.instance.IncrementInt(nameof(PlayerData.charmsOwned));
+                PlayerData.instance.SetBool(nameof(PlayerData.hasCharm), true);
             }
 
             PlayerData.instance.SetInt(nameof(PlayerData.royalCharmState), royalCharmLevel);
@@ -27,6 +27,8 @@ namespace ItemChanger.Items
                 PlayerData.instance.SetBool(nameof(PlayerData.equippedCharm_36), true);
                 if (!PlayerData.instance.equippedCharms.Contains(36)) PlayerData.instance.equippedCharms.Add(36);
             }
+
+            PlayerData.instance.CountCharms();
         }
 
         public override bool Redundant()

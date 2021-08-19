@@ -2462,8 +2462,8 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": "Kingsoul",
-        "successor": null
+        "predecessor": null,
+        "successor": "Kingsoul"
       }
     ],
     "obtainState": "Unobtained"
@@ -2567,7 +2567,7 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": "King_Fragment",
+        "predecessor": "Kingsoul",
         "successor": null
       }
     ],
