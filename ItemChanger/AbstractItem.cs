@@ -102,10 +102,28 @@ namespace ItemChanger
             readOnlyArgs = new ReadOnlyGiveEventArgs(giveArgs.Orig, giveArgs.Item, giveArgs.Placement, giveArgs.Info);
             Events.OnGiveInvoke(readOnlyArgs);
 
-            item.GiveImmediate(info);
+            try
+            {
+                item.GiveImmediate(info);
+            }
+            catch (Exception e)
+            {
+                ItemChangerMod.instance.LogError($"Error on GiveImmediate for item {item?.name}:\n{e}");
+                Internal.MessageController.Error();
+            }
+            
             if (item.UIDef != null)
             {
-                item.UIDef.SendMessage(info.MessageType, () => info.Callback?.Invoke(item));
+                try
+                {
+                    item.UIDef.SendMessage(info.MessageType, () => info.Callback?.Invoke(item));
+                }
+                catch (Exception e)
+                {
+                    ItemChangerMod.instance.LogError($"Error on SendMessage for item {item?.name}:\n{e}");
+                    Internal.MessageController.Error();
+                    info.Callback?.Invoke(item);
+                }
             }
             else info.Callback?.Invoke(item);
 

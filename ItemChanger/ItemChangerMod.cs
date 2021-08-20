@@ -168,16 +168,6 @@ namespace ItemChanger
                 TitleReset();
             }
 
-            /*
-            foreach (var f in FsmVariables.GlobalVariables.GameObjectVariables)
-            {
-                if (f.Value != null)
-                {
-                    ItemChanger.instance.Log(f.Name);
-                }
-            }
-            */
-
             foreach (var placement in SET?.GetPlacements())
             {
                 if (placement is null) continue;

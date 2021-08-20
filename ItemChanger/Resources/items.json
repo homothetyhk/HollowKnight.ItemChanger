@@ -4100,15 +4100,14 @@
     "$type": "ItemChanger.Items.GrubItem, ItemChanger",
     "name": "Grub",
     "UIDef": {
-      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "$type": "ItemChanger.UIDefs.GrubUIDef, ItemChanger",
       "name": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_GRUB",
-        "sheet": "UI"
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "A Grub"
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_GRUB",
+        "key": "RANDOMIZER_DESC_GRUB",
         "sheet": "UI"
       },
       "sprite": {

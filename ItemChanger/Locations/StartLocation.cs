@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,23 @@ namespace ItemChanger.Locations
             base.OnNextSceneReady(next);
             if (GameManager.instance?.IsGameplayScene() ?? false)
             {
-                Placement.GiveAll(MessageType); // use the latest scene change hook, so it's most likely to appear onscreen
+                WaitAndGive();
             }
+        }
+
+        private void WaitAndGive()
+        {
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.OnFinishedEnteringScene += GiveHook;
+            }
+            else Placement.GiveAll(MessageType);
+        }
+
+        private void GiveHook()
+        {
+            Placement.GiveAll(MessageType);
+            GameManager.instance.OnFinishedEnteringScene -= GiveHook;
         }
 
         public override AbstractPlacement Wrap()

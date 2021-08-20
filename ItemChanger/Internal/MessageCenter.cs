@@ -28,6 +28,11 @@ namespace ItemChanger.Internal
             instance.messages.Enqueue((sprite, text));
         }
 
+        public static void Error()
+        {
+            Enqueue(Modding.CanvasUtil.NullSprite(), "Error: see ModLog for details.");
+        }
+
         private IEnumerator SendMessage(Sprite sprite, string text)
         {
             GameObject popup = ObjectCache.RelicGetMsg;
