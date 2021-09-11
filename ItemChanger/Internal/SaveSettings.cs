@@ -14,6 +14,7 @@ namespace ItemChanger
         public CustomSkills CustomSkills = new CustomSkills();
         public WorldEvents WorldEvents = new WorldEvents();
         public Dictionary<string, AbstractPlacement> Placements = new Dictionary<string, AbstractPlacement>();
+        public Dictionary<Transition, ITransition> TransitionOverrides = new Dictionary<Transition, ITransition>();
 
         public StartDef Start = null;
 

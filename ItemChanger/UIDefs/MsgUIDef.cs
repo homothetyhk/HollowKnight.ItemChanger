@@ -34,14 +34,16 @@ namespace ItemChanger.UIDefs
 
         public override void SendMessage(MessageType type, Action callback)
         {
+            ItemChangerMod.instance.Log($"{GetPostviewName()}/{GetType().Name}");
             if ((type & MessageType.Corner) == MessageType.Corner)
             {
-                Internal.MessageController.Enqueue(GetSprite(), GetPostviewName());
+                Internal.MessageController.Enqueue(GetSprite(), (this as UIDef).GetPostviewName());
             }
 
             callback?.Invoke();
         }
 
+        // Remember that Clone is not memberwise, so it must be overridden in any descendent.
         public override UIDef Clone()
         {
             return new MsgUIDef

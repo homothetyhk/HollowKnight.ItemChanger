@@ -14,5 +14,15 @@ namespace ItemChanger.UIDefs
         {
             return $"A Grub! ({PlayerData.instance.GetInt(nameof(PlayerData.grubsCollected))}/46)";
         }
+
+        public override UIDef Clone()
+        {
+            return new GrubUIDef
+            {
+                name = name.Clone(),
+                shopDesc = shopDesc.Clone(),
+                sprite = sprite.Clone(),
+            };
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace ItemChanger
             ObjectCache.Setup(preloadedObjects);
             MessageController.Setup();
 
+            On.GameManager.BeginSceneTransition += EditTransition;
             On.GameManager.StartNewGame += BeforeStartNewGameHook;
             BeforeStartNewGame += OnStart;
             //ModHooks.Instance.NewGameHook += OnStart;
@@ -58,6 +59,76 @@ namespace ItemChanger
             ModHooks.LanguageGetHook += OnLanguageGet;
             UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.OnSceneChange;
             StartDef.HookBenchwarp();
+        }
+
+        /// <summary>
+        /// Called after transition overrides have been applied with the current target transition, immediately prior to the BeginSceneTransition routine.
+        /// </summary>
+        public event Action<Transition> OnBeginSceneTransition;
+
+        /// <summary>
+        /// Adds the override to SaveSettings. Overwrites any existing override for source.
+        /// </summary>
+        public static void AddTransitionOverride(Transition source, ITransition target)
+        {
+            SET.TransitionOverrides[source] = target;
+        }
+
+        private void EditTransition(On.GameManager.orig_BeginSceneTransition orig, GameManager self, GameManager.SceneLoadInfo info)
+        {
+            string sceneName = self.sceneName;
+            string gateName = null;
+            TransitionPoint tp = UnityEngine.Object.FindObjectsOfType<TransitionPoint>().FirstOrDefault(x => x.entryPoint == info.EntryGateName && x.targetScene == info.SceneName);
+            if (!tp)
+            {
+                switch (sceneName)
+                {
+                    case SceneNames.Fungus3_44 when info.EntryGateName == "left1":
+                    case SceneNames.Crossroads_02 when info.EntryGateName == "left1":
+                    case SceneNames.Crossroads_06 when info.EntryGateName == "left1":
+                    case SceneNames.Deepnest_10 when info.EntryGateName == "left1":
+                    case SceneNames.Ruins1_04 when info.SceneName == SceneNames.Room_nailsmith:
+                    case SceneNames.Fungus3_48 when info.SceneName == SceneNames.Room_Queen:
+                        gateName = "door1";
+                        break;
+                    case SceneNames.Town when info.SceneName == SceneNames.Room_shop:
+                        gateName = "door_sly";
+                        break;
+                    case SceneNames.Town when info.SceneName == SceneNames.Room_Town_Stag_Station:
+                        gateName = "door_station";
+                        break;
+                    case SceneNames.Town when info.SceneName == SceneNames.Room_Bretta:
+                        gateName = "door_bretta";
+                        break;
+                    case SceneNames.Crossroads_04 when info.SceneName == SceneNames.Room_Charm_Shop:
+                        gateName = "door_charmshop";
+                        break;
+                    case SceneNames.Crossroads_04 when info.SceneName == SceneNames.Room_Mender_House:
+                        gateName = "door_Mender_House";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                gateName = tp.name.Split(null)[0];
+                if (sceneName == SceneNames.Fungus2_14 && gateName[0] == 'b') gateName = "bot3";
+                else if (sceneName == SceneNames.Fungus2_15 && gateName[0] == 't') gateName = "top3";
+            }
+
+            if (sceneName != null && gateName != null)
+            {
+                Transition source = new Transition(sceneName, gateName);
+                if (SET.TransitionOverrides.TryGetValue(source, out ITransition target))
+                {
+                    info.SceneName = target.SceneName;
+                    info.EntryGateName = target.GateName;
+                }
+            }
+
+            OnBeginSceneTransition?.Invoke(new Transition(info.SceneName, info.EntryGateName));
+            orig(self, info);
         }
 
         private void OnStart()

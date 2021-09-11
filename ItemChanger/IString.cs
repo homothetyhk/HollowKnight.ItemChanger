@@ -16,6 +16,7 @@ namespace ItemChanger
         public string key;
         public string sheet;
 
+        [Newtonsoft.Json.JsonIgnore]
         public string Value => Language.Language.Get(key, sheet)?.Replace("<br>", "\n");
         public IString Clone() => (IString)MemberwiseClone();
     }
