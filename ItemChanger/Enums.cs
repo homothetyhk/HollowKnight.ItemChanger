@@ -65,6 +65,26 @@ namespace ItemChanger
         DirectDeposit
     }
 
+    public enum PlacementConflictResolution
+    {
+        /// <summary>
+        /// Keep new placement, discard old placement, and append items of old placement to new placement.
+        /// </summary>
+        MergeKeepingNew,
+        /// <summary>
+        /// Keep old placement, discard new placement, and append items of new placement to old placement.
+        /// </summary>
+        MergeKeepingOld,
+        /// <summary>
+        /// Keep new placement, discard old placement
+        /// </summary>
+        Replace,
+        /// <summary>
+        /// Keep old placement, discard new placement
+        /// </summary>
+        Ignore,
+        Throw
+    }
 
     public enum CostType
     {

@@ -17,26 +17,28 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public bool HintActive { get; set; } = true;
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            base.OnEnableLocal(fsm);
-            switch (fsm.gameObject.name)
-            {
-                case "Scream 2 Get" when fsm.FsmName == "Scream Get":
-                    {
-                        Transform = fsm.transform;
-                        if (HintActive) HintBox.Create(Transform, Placement);
+            Events.AddFsmEdit(sceneName, new("Scream 2 Get", "Scream Get"), ChangeShriekGet);
+        }
 
-                        FsmState init = fsm.GetState("Init");
-                        init.RemoveActionsOfType<IntCompare>();
-                        init.AddFirstAction(new BoolTestMod(Placement.AllObtained, "INERT", null));
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new("Scream 2 Get", "Scream Get"), ChangeShriekGet);
+        }
 
-                        FsmState uiMsg = fsm.GetState("Ui Msg");
-                        FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
-                        uiMsg.Actions = new[] { give };
-                    }
-                    break;
-            }
+        private void ChangeShriekGet(PlayMakerFSM fsm)
+        {
+            Transform t = fsm.transform;
+            if (HintActive) HintBox.Create(t, Placement);
+
+            FsmState init = fsm.GetState("Init");
+            init.RemoveActionsOfType<IntCompare>();
+            init.AddFirstAction(new BoolTestMod(Placement.AllObtained, "INERT", null));
+
+            FsmState uiMsg = fsm.GetState("Ui Msg");
+            FsmStateAction give = new AsyncLambda(GiveAllAsync(t), "GET ITEM MSG END");
+            uiMsg.Actions = new[] { give };
         }
     }
 }

@@ -15,7 +15,7 @@ namespace ItemChanger.Internal
     {
         public static void Hook()
         {
-            UnHook();
+            Unhook();
             ModHooks.GetPlayerBoolHook += SkillBoolGetOverride;
             ModHooks.SetPlayerBoolHook += SkillBoolSetOverride;
             On.PlayMakerFSM.OnEnable += ModifyFsm;
@@ -25,7 +25,7 @@ namespace ItemChanger.Internal
             CustomSkills.AfterSetBool += OnSetCustomSkill;
         }
 
-        public static void UnHook()
+        public static void Unhook()
         {
             ModHooks.GetPlayerBoolHook -= SkillBoolGetOverride;
             ModHooks.SetPlayerBoolHook -= SkillBoolSetOverride;

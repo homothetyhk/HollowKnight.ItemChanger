@@ -5,12 +5,23 @@ using System.Text;
 
 namespace ItemChanger.Tags
 {
-    public class ItemChainTag : Tag, IModifyItemTag
+    public class ItemChainTag : Tag
     {
         public string predecessor;
         public string successor;
 
-        public override bool Intrinsic => true;
+        public override void Load(object parent)
+        {
+            AbstractItem item = (AbstractItem)parent;
+            item.ModifyItem += ModifyItem;
+        }
+
+        public override void Unload(object parent)
+        {
+            AbstractItem item = (AbstractItem)parent;
+            item.ModifyItem -= ModifyItem;
+        }
+
 
         protected virtual AbstractItem GetItem(string name)
         {

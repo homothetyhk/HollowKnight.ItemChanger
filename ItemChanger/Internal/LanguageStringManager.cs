@@ -100,7 +100,6 @@ namespace ItemChanger.Internal
                 return key.Split('_').Last() + " Geo";
             }
 
-            // TODO: Decide what to do for shops
             if (key.StartsWith("RANDOMIZER_NAME_GRUB"))
             {
                 return $"A grub! ({PlayerData.instance.grubsCollected}/46)";

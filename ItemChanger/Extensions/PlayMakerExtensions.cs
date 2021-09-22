@@ -63,6 +63,8 @@ namespace ItemChanger.Extensions
             state.Actions = actions;
         }
 
+        public static void ClearActions(this FsmState state) => state.Actions = Array.Empty<FsmStateAction>();
+
         public static void RemoveActionsOfType<T>(this FsmState state) where T : FsmStateAction
         {
             state.Actions = state.Actions.Where(a => !(a is T)).ToArray();
@@ -100,6 +102,22 @@ namespace ItemChanger.Extensions
             return fb;
         }
 
+        public static FsmInt AddFsmInt(this PlayMakerFSM fsm, string name, int value)
+        {
+            FsmInt fi = new FsmInt
+            {
+                Name = name,
+                Value = value
+            };
+
+            FsmInt[] ints = new FsmInt[fsm.FsmVariables.IntVariables.Length + 1];
+            fsm.FsmVariables.IntVariables.CopyTo(ints, 0);
+            ints[ints.Length - 1] = fi;
+            fsm.FsmVariables.IntVariables = ints;
+
+            return fi;
+        }
+
         public static FsmTransition AddTransition(this FsmState state, FsmEvent fsmEvent, FsmState toState)
         {
             FsmTransition[] transitions = new FsmTransition[state.Transitions.Length + 1];
@@ -124,7 +142,7 @@ namespace ItemChanger.Extensions
 
         public static FsmTransition AddTransition(this FsmState state, string eventName, string toState)
         {
-            return state.AddTransition(FsmEvent.GetFsmEvent(eventName), state.Fsm.GetState(toState));
+            return state.AddTransition(eventName == "FINISHED" ? FsmEvent.Finished : FsmEvent.GetFsmEvent(eventName), state.Fsm.GetState(toState));
         }
 
         public static void RemoveTransitionsTo(this FsmState state, string toState)

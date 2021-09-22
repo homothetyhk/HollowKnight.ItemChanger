@@ -20,23 +20,27 @@ namespace ItemChanger.Locations.SpecialLocations
     /// </summary>
     public class DreamNailLocation : ObjectLocation
     {
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            if (fsm.FsmName == "Control" && fsm.gameObject.name == "Witch Control")
-            {
-                fsm.GetState("Convo Ready").RemoveActionsOfType<SetCollider>(); // not important, but prevents null ref unity logs after destroying Moth NPC object
-            }
+            base.OnLoad();
+            Events.AddFsmEdit(sceneName, new("Witch Control", "Control"), RemoveSetCollider);
+            Events.AddFsmEdit(sceneName, new("Shiny Control"), EditShiny);
+        }
 
-            if (fsm.FsmName == "Shiny Control")
+        private void RemoveSetCollider(PlayMakerFSM fsm)
+        {
+            fsm.GetState("Convo Ready").RemoveActionsOfType<SetCollider>(); // not important, but prevents null ref unity logs after destroying Moth NPC object
+        }
+
+        // TODO: implement this to be compatible with Container and to not use WorldEvent
+        private void EditShiny(PlayMakerFSM fsm)
+        {
+            fsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
+            fsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
             {
-                fsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
-                fsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
-                {
-                    PlayerData.instance.dreamReturnScene = "RestingGrounds_07";
-                    Internal.Ref.WORLD.dreamNailCutsceneCompleted = true;
-                    HeroController.instance.proxyFSM.FsmVariables.GetFsmBool("No Charms").Value = false;
-                }));
-            }
+                PlayerData.instance.dreamReturnScene = "RestingGrounds_07";
+                HeroController.instance.proxyFSM.FsmVariables.GetFsmBool("No Charms").Value = false;
+            }));
         }
     }
 }

@@ -20,12 +20,12 @@ namespace ItemChanger.UIDefs
             if ((type & MessageType.Big) == MessageType.Big)
             {
                 BigItemPopup.Show(
-                    bigSprite.Value,
-                    take.Value.Replace('\n', ' '),
+                    bigSprite.GetValue(),
+                    take.GetValue().Replace('\n', ' '),
                     GetPostviewName(),
-                    button.Value.Replace('\n', ' '),
-                    descOne.Value.Replace('\n', ' '),
-                    descTwo.Value.Replace('\n', ' '),
+                    button.GetValue().Replace('\n', ' '),
+                    descOne.GetValue().Replace('\n', ' '),
+                    descTwo.GetValue().Replace('\n', ' '),
                     callback);
             }
             else base.SendMessage(type, callback);

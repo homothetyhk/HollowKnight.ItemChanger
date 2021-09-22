@@ -100,7 +100,11 @@ namespace ItemChanger
         public const string Godtuner = "Godtuner";
         public const string Collectors_Map = "Collector's_Map";
         public const string Mask_Shard = "Mask_Shard";
+        public const string Double_Mask_Shard = "Double_Mask_Shard";
+        public const string Full_Mask = "Full_Mask";
         public const string Vessel_Fragment = "Vessel_Fragment";
+        public const string Double_Vessel_Fragment = "Double_Vessel_Fragment";
+        public const string Full_Soul_Vessel = "Full_Soul_Vessel";
         public const string Charm_Notch = "Charm_Notch";
         public const string Pale_Ore = "Pale_Ore";
         public const string Geo_Chest_False_Knight = "Geo_Chest-False_Knight";

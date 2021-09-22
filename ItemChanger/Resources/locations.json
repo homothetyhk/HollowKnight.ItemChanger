@@ -4,6 +4,7 @@
     "name": "Start",
     "sceneName": null,
     "flingType": "DirectDeposit",
+    "MessageType": "None",
     "tags": null
   },
   "Sly": {
@@ -119,6 +120,9 @@
     "objectName": "Shiny Item",
     "elevation": 0.0,
     "forceShiny": false,
+    "fsmName": "Control",
+    "fsmParent": "Cloak Corpse",
+    "fsmVariable": "Shiny Item",
     "name": "Mothwing_Cloak",
     "sceneName": "Fungus1_04",
     "flingType": "Everywhere",
@@ -997,7 +1001,6 @@
   },
   "Charm_Notch-Colosseum": {
     "$type": "ItemChanger.Locations.SpecialLocations.ColosseumLocation, ItemChanger",
-    "preOpenTrial": true,
     "fsmName": "Geo Pool",
     "fsmParent": "Colosseum Manager",
     "fsmVariable": "Shiny Obj",
@@ -1076,7 +1079,6 @@
   },
   "Pale_Ore-Colosseum": {
     "$type": "ItemChanger.Locations.SpecialLocations.ColosseumLocation, ItemChanger",
-    "preOpenTrial": true,
     "fsmName": "Geo Pool",
     "fsmParent": "Colosseum Manager",
     "fsmVariable": "Shiny Obj",

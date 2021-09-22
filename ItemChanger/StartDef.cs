@@ -13,17 +13,17 @@ namespace ItemChanger
     {
         public const string RESPAWN_MARKER_NAME = "ITEMCHANGER_RESPAWN_MARKER";
         public const string RESPAWN_TAG = "RespawnPoint";
-        public string startSceneName;
-        public float startX;
-        public float startY;
-        public int mapZone = 2;
+        public virtual string SceneName { get; set; }
+        public virtual float X { get; set; }
+        public virtual float Y { get; set; }
+        public virtual int MapZone { get; set; } = 2;
         internal static StartDef Start => Internal.Ref.Settings.Start;
 
         public void ApplyToPlayerData(PlayerData pd)
         {
             pd.respawnMarkerName = RESPAWN_MARKER_NAME;
-            pd.respawnScene = startSceneName;
-            pd.mapZone = (GlobalEnums.MapZone)mapZone;
+            pd.respawnScene = SceneName;
+            pd.mapZone = (GlobalEnums.MapZone)MapZone;
         }
 
         public virtual void CreateRespawnMarker(Scene startScene)
@@ -33,19 +33,23 @@ namespace ItemChanger
                 name = StartDef.RESPAWN_MARKER_NAME,
                 tag = StartDef.RESPAWN_TAG
             };
-            marker.transform.position = new Vector3(Start.startX, Start.startY, 7.4f);
+            marker.transform.position = new Vector3(Start.X, Start.Y, 7.4f);
         }
 
-        internal static void OverrideStartNewGame(On.GameManager.orig_StartNewGame orig, GameManager self, bool permadeathMode, bool bossRushMode)
+        internal static void Hook()
         {
-            if (permadeathMode) self.playerData.permadeathMode = 1;
-            Start.ApplyToPlayerData(self.playerData);
-            self.StartCoroutine(self.RunContinueGame());
+            HookBenchwarp();
+            Events.OnSceneChange += OnSceneChange;
         }
 
-        internal static void OnSceneChange(Scene from, Scene to)
+        internal static void Unhook()
         {
-            if (Start != null && to.name == Start.startSceneName)
+            UnHookBenchwarp();
+        }
+
+        internal static void OnSceneChange(Scene to)
+        {
+            if (Start != null && to.name == Start.SceneName)
             {
                 Start.CreateRespawnMarker(to);
             }
@@ -55,7 +59,7 @@ namespace ItemChanger
             (string respawnScene, string respawnMarkerName, int respawnType, int mapZone),
             (string respawnScene, string respawnMarkerName, int respawnType, int mapZone)
             >
-            BenchwarpGetStartDef = def => Start == null ? def : (Start.startSceneName, RESPAWN_MARKER_NAME, 0, Start.mapZone);
+            BenchwarpGetStartDef = def => Start == null ? def : (Start.SceneName, RESPAWN_MARKER_NAME, 0, Start.MapZone);
 
         internal static void HookBenchwarp()
         {
@@ -107,7 +111,7 @@ namespace ItemChanger
                 name = StartDef.RESPAWN_MARKER_NAME,
                 tag = StartDef.RESPAWN_TAG
             };
-            marker.transform.position = new Vector3(go.transform.position.x + Start.startX, go.transform.position.y + Start.startY, 7.4f);
+            marker.transform.position = new Vector3(go.transform.position.x + Start.X, go.transform.position.y + Start.Y, 7.4f);
         }
     }
 
@@ -126,27 +130,27 @@ namespace ItemChanger
         {
             var def = new TransitionBasedStartDef
             {
-                startSceneName = sceneName,
+                SceneName = sceneName,
                 objPath = entryGateName,
-                mapZone = mapZone,
-                startX = 0f,
-                startY = 0f,
+                MapZone = mapZone,
+                X = 0f,
+                Y = 0f,
             };
 
             switch (entryGateName[0])
             {
                 case 'l':
-                    def.startX += 1.5f;
+                    def.X += 1.5f;
                     break;
                 case 'b':
-                    def.startX += 3f;
-                    def.startY += 5f;
+                    def.X += 3f;
+                    def.Y += 5f;
                     break;
                 case 't':
-                    def.startY -= 1.5f;
+                    def.Y -= 1.5f;
                     break;
                 case 'r':
-                    def.startX -= 1.5f;
+                    def.X -= 1.5f;
                     break;
                 case 'd':
                     break;
@@ -183,7 +187,7 @@ namespace ItemChanger
                 name = StartDef.RESPAWN_MARKER_NAME,
                 tag = StartDef.RESPAWN_TAG
             };
-            marker.transform.position = new Vector3(go.transform.position.x + Start.startX, go.transform.position.y + Start.startY, 7.4f);
+            marker.transform.position = new Vector3(go.transform.position.x + Start.X, go.transform.position.y + Start.Y, 7.4f);
         }
 
     }

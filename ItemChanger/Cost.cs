@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ItemChanger.Extensions;
+using Newtonsoft.Json;
 
 namespace ItemChanger
 {
@@ -16,6 +17,8 @@ namespace ItemChanger
         }
 
         public virtual void OnPay() { }
+
+        [JsonProperty]
         public bool Paid { get; protected set; }
 
         public abstract string GetCostText();

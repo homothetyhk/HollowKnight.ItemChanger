@@ -13,9 +13,6 @@ namespace ItemChanger.Tags
         [System.ComponentModel.DefaultValue(ComparisonOperator.Ge)]
         public ComparisonOperator op = ComparisonOperator.Ge;
 
-        public bool MeetsRequirement()
-        {
-            return PlayerData.instance.GetInt(fieldName).Compare(op, threshold);
-        }
+        public bool MeetsRequirement => PlayerData.instance.GetInt(fieldName).Compare(op, threshold);
     }
 }

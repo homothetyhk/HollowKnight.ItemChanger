@@ -7,6 +7,6 @@ namespace ItemChanger.Tags
 {
     interface IShopRequirementTag
     {
-        bool MeetsRequirement();
+        bool MeetsRequirement { get; }
     }
 }

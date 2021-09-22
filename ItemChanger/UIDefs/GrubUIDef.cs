@@ -10,9 +10,17 @@ namespace ItemChanger.UIDefs
 {
     public class GrubUIDef : MsgUIDef
     {
+        public class AfterGrubObtainString : IString
+        {
+            public string Value => $"A Grub! ({PlayerData.instance.GetInt(nameof(PlayerData.grubsCollected))}/46)";
+            public IString Clone() => (IString)MemberwiseClone();
+        }
+        private static readonly AfterGrubObtainString postviewName = new();
+
+
         public override string GetPostviewName()
         {
-            return $"A Grub! ({PlayerData.instance.GetInt(nameof(PlayerData.grubsCollected))}/46)";
+            return postviewName.GetValue();
         }
 
         public override UIDef Clone()

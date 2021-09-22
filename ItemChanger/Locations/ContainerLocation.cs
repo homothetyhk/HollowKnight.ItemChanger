@@ -16,9 +16,7 @@ namespace ItemChanger.Locations
 
         public void GetContainer(out GameObject obj, out string containerType)
         {
-            ItemChangerMod.instance.Log($"Location: {name}, Placement? {Placement != null}");
             (Placement as IContainerPlacement).GetContainer(this, out obj, out containerType);
-            Transform = obj.transform;
         }
 
         public virtual bool Supports(string containerType)
@@ -28,9 +26,9 @@ namespace ItemChanger.Locations
 
         public override AbstractPlacement Wrap()
         {
-            return new MutablePlacement
+            return new MutablePlacement(name)
             {
-                location = this,
+                Location = this,
             };
         }
     }

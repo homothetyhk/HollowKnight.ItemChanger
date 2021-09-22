@@ -3037,6 +3037,52 @@
     "tags": null,
     "obtainState": "Unobtained"
   },
+  "Double_Mask_Shard": {
+    "$type": "ItemChanger.Items.MaskShardItem, ItemChanger",
+    "amount": 2,
+    "name": "Double_Mask_Shard",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Double Mask Shard"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_MASK_SHARD",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.MaskShard"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Full_Mask": {
+    "$type": "ItemChanger.Items.MaskShardItem, ItemChanger",
+    "amount": 4,
+    "name": "Full_Mask",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Full Mask"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_MASK_SHARD",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.MaskShard"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
   "Vessel_Fragment": {
     "$type": "ItemChanger.Items.VesselFragmentItem, ItemChanger",
     "amount": 1,
@@ -3047,6 +3093,52 @@
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_NAME_VESSEL_FRAGMENT",
         "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_VESSEL_FRAGMENT",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.VesselFragment"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Double_Vessel_Fragment": {
+    "$type": "ItemChanger.Items.VesselFragmentItem, ItemChanger",
+    "amount": 2,
+    "name": "Double_Vessel_Fragment",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Double Vessel Fragment"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_VESSEL_FRAGMENT",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.VesselFragment"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Full_Soul_Vessel": {
+    "$type": "ItemChanger.Items.VesselFragmentItem, ItemChanger",
+    "amount": 3,
+    "name": "Full_Soul_Vessel",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Full Soul Vessel"
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",

@@ -20,24 +20,36 @@ namespace ItemChanger.Placements
 
     public class ShopPlacement : AbstractPlacement, IShopPlacement
     {
-        public ShopLocation location;
-        public override AbstractLocation Location => location;
+        public ShopPlacement(string Name) : base(Name) { }
+
+        public ShopLocation Location;
         public override string MainContainerType => "Shop";
+
+        protected override void OnLoad()
+        {
+            Location.Placement = this;
+            Location.Load();
+        }
+
+        protected override void OnUnload()
+        {
+            Location.Unload();
+        }
 
         public string requiredPlayerDataBool
         { 
-            get => location.requiredPlayerDataBool; 
-            set => location.requiredPlayerDataBool = value; 
+            get => Location.requiredPlayerDataBool; 
+            set => Location.requiredPlayerDataBool = value; 
         }
         public bool dungDiscount
         {
-            get => location.dungDiscount;
-            set => location.dungDiscount = value;
+            get => Location.dungDiscount;
+            set => Location.dungDiscount = value;
         }
         public DefaultShopItems defaultShopItems
         {
-            get => location.defaultShopItems;
-            set => location.defaultShopItems = value;
+            get => Location.defaultShopItems;
+            set => Location.defaultShopItems = value;
         }
 
         public void AddItemWithCost(AbstractItem item, Cost cost)
@@ -105,7 +117,7 @@ namespace ItemChanger.Placements
 
         public bool KeepOldItem(ShopItemStats stats)
         {
-            DefaultShopItems? itemType = ShopUtil.GetVanillaShopItemType(SceneName, stats);
+            DefaultShopItems? itemType = ShopUtil.GetVanillaShopItemType(Location.sceneName, stats);
             if (itemType == null) return true; // unrecognized items are kept by default
             return (itemType & defaultShopItems) == itemType;
         }

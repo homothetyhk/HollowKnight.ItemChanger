@@ -14,8 +14,17 @@ namespace ItemChanger.Locations
         // enemy info - look for fsm in OnEnable, rather than object on scene entry
         public string enemyFsm;
         public string enemyObj;
-
         public bool removeGeo;
+
+        protected override void OnLoad()
+        {
+            Events.AddFsmEdit(sceneName, new(enemyObj, enemyFsm), OnEnable);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new(enemyObj, enemyFsm), OnEnable);
+        }
 
         public override bool Supports(string containerType)
         {
@@ -23,21 +32,17 @@ namespace ItemChanger.Locations
             return base.Supports(containerType);
         }
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        public void OnEnable(PlayMakerFSM fsm)
         {
-            if (fsm.FsmName == enemyFsm && fsm.gameObject.name == enemyObj)
-            {
-                base.GetContainer(out GameObject obj, out _);
-                AddDeathEvent(fsm.gameObject, obj);
-            }
+            base.GetContainer(out GameObject obj, out _);
+            AddDeathEvent(fsm.gameObject, obj);
         }
 
         public void AddDeathEvent(GameObject enemy, GameObject item)
         {
-            Transform = enemy.transform;
             HealthManager hm = enemy.GetComponent<HealthManager>();
             SpawnOnDeath drop = enemy.AddComponent<SpawnOnDeath>();
-            hm.OnDeath += GiveEarly;
+            hm.OnDeath += () => GiveEarly(enemy.transform);
             hm.OnDeath += () => Placement.AddVisitFlag(VisitState.Dropped);
             drop.item = item;
             item.SetActive(false);
@@ -50,7 +55,7 @@ namespace ItemChanger.Locations
             }
         }
 
-        private void GiveEarly()
+        private void GiveEarly(Transform t)
         {
             Util.ItemUtility.GiveSequentially(
                 Placement.Items.Where(i => i.GiveEarly("Enemy")), 
@@ -60,7 +65,7 @@ namespace ItemChanger.Locations
                     Container = "Enemy",
                     FlingType = flingType,
                     MessageType = MessageType.Corner,
-                    Transform = Transform,
+                    Transform = t,
                 });
         }
     }

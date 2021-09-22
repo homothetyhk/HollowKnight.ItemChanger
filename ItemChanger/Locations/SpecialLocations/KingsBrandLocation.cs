@@ -7,16 +7,20 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class KingsBrandLocation : ObjectLocation
     {
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            base.OnEnableLocal(fsm);
-            switch (fsm.gameObject.name)
-            {
-                case "Avalanche" when fsm.FsmName == "Activate":
-                case "Avalanche End" when fsm.FsmName == "Control":
-                    UnityEngine.Object.Destroy(fsm.gameObject);
-                    break;
-            }
+            base.OnLoad();
+            Events.AddFsmEdit(sceneName, new("Avalanche", "Activate"), Destroy);
+            Events.AddFsmEdit(sceneName, new("Avalanche End", "Control"), Destroy);
         }
+
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new("Avalanche", "Activate"), Destroy);
+            Events.RemoveFsmEdit(sceneName, new("Avalanche End", "Control"), Destroy);
+        }
+
+        private void Destroy(PlayMakerFSM fsm) => UnityEngine.Object.Destroy(fsm.gameObject);
     }
 }

@@ -15,7 +15,8 @@ namespace ItemChanger.Components
 
         public void Awake()
         {
-            rb = GetComponent<Rigidbody2D>() ?? gameObject.AddComponent<Rigidbody2D>();
+            rb = GetComponent<Rigidbody2D>();
+            if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
             v = rb.velocity;
         }
 
@@ -30,6 +31,5 @@ namespace ItemChanger.Components
             // freefall is dv.y == -1.2f, approximately
             return dv.y < -0.6f;
         }
-
     }
 }

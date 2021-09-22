@@ -14,33 +14,37 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class ShadeSoulLocation : AutoLocation
     {
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            switch (fsm.gameObject.name)
+            Events.AddFsmEdit(sceneName, new("Ruins Shaman", "Ruins Shaman"), EditRuinsShaman);
+            Events.AddFsmEdit(sceneName, new("Knight Get Fireball Lv2", "Get Fireball"), EditGetFireball);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new("Ruins Shaman", "Ruins Shaman"), EditRuinsShaman);
+            Events.RemoveFsmEdit(sceneName, new("Knight Get Fireball Lv2", "Get Fireball"), EditGetFireball);
+        }
+
+        private void EditRuinsShaman(PlayMakerFSM fsm)
+        {
+            FsmState gotSpell = fsm.GetState("Got Spell?");
+            gotSpell.RemoveActionsOfType<IntCompare>();
+            gotSpell.AddLastAction(new BoolTestMod(Placement.AllObtained, "ACTIVATED", null));
+        }
+
+        private void EditGetFireball(PlayMakerFSM fsm)
+        {
+            FsmState getPD = fsm.GetState("Get PlayerData");
+            FsmState UIMsg = fsm.GetState("Call UI Msg");
+
+            FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
+
+            getPD.RemoveActionsOfType<SetPlayerDataInt>();
+            UIMsg.Actions = new FsmStateAction[]
             {
-                case "Ruins Shaman" when fsm.FsmName == "Ruins Shaman":
-                    {
-                        FsmState gotSpell = fsm.GetState("Got Spell?");
-                        gotSpell.RemoveActionsOfType<IntCompare>();
-                        gotSpell.AddLastAction(new BoolTestMod(Placement.AllObtained, "ACTIVATED", null));
-                    }
-                    break;
-
-                case "Knight Get Fireball Lv2" when fsm.FsmName == "Get Fireball":
-                    {
-                        FsmState getPD = fsm.GetState("Get PlayerData");
-                        FsmState UIMsg = fsm.GetState("Call UI Msg");
-
-                        FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
-
-                        getPD.RemoveActionsOfType<SetPlayerDataInt>();
-                        UIMsg.Actions = new FsmStateAction[]
-                        {
-                            give
-                        };
-                    }
-                    break;
-            }
+                give
+            };
         }
     }
 }

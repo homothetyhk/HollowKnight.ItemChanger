@@ -15,21 +15,28 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class BasinFountainLocation : FsmObjectLocation
     {
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            if (fsm.FsmName == fsmName && fsm.gameObject.name == fsmParent)
+            base.OnLoad();
+            Events.AddFsmEdit(sceneName, new(fsmParent, fsmName), EditFountain);
+        }
+
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new(fsmParent, fsmName), EditFountain);
+        }
+
+        private void EditFountain(PlayMakerFSM fsm)
+        {
+            FsmState idle = fsm.GetState("Idle");
+            idle.Actions = new FsmStateAction[]
             {
-                FsmState idle = fsm.GetState("Idle");
-                idle.Actions = new FsmStateAction[]
-                {
                     idle.Actions[0],
                     idle.Actions[1],
                     // idle.Actions[2], // FindChild -- Vessel Fragment
                     idle.Actions[3],
-                };
-            }
+            };
         }
-
-
     }
 }

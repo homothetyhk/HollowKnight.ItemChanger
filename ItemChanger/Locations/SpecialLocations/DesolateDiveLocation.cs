@@ -15,34 +15,42 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class DesolateDiveLocation : FsmObjectLocation
     {
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            switch (fsm.FsmName)
-            {
-                case "Destroy if Quake":
-                    {
-                        FsmState check = fsm.GetState("Check");
-                        check.Actions = new[] { new BoolTestMod(() => PlayerData.instance.GetBool(nameof(PlayerData.mageLordDefeated)), "DESTROY", null) };
-                    }
-                    break;
+            base.OnLoad();
+            Events.AddFsmEdit(sceneName, new("Quake Pickup", "Pickup"), EditQuakePickup);
+            Events.AddFsmEdit(sceneName, new("BG Control"), EditBGControl);
+            Events.AddFsmEdit(sceneName, new("Destroy if Quake"), EditDestroyIfQuake);
+        }
 
-                case "BG Control":
-                    {
-                        foreach (FsmState state in fsm.FsmStates)
-                        {
-                            if (state.Transitions.FirstOrDefault(t => t.EventName == "BG OPEN") is FsmTransition transition)
-                            {
-                                state.AddTransition("QUAKE PICKUP START", transition.ToState);
-                            }
-                        }
-                    }
-                    break;
-                case "Pickup" when fsm.gameObject.name == "Quake Pickup":
-                    {
-                        FsmState idle = fsm.GetState("Idle");
-                        idle.RemoveActionsOfType<IntCompare>();
-                    }
-                    break;
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new("Quake Pickup", "Pickup"), EditQuakePickup);
+            Events.RemoveFsmEdit(sceneName, new("BG Control"), EditBGControl);
+            Events.RemoveFsmEdit(sceneName, new("Destroy if Quake"), EditDestroyIfQuake);
+        }
+
+        private void EditQuakePickup(PlayMakerFSM fsm)
+        {
+            FsmState idle = fsm.GetState("Idle");
+            idle.RemoveActionsOfType<IntCompare>();
+        }
+
+        private void EditDestroyIfQuake(PlayMakerFSM fsm)
+        {
+            FsmState check = fsm.GetState("Check");
+            check.Actions = new[] { new BoolTestMod(() => PlayerData.instance.GetBool(nameof(PlayerData.mageLordDefeated)), "DESTROY", null) };
+        }
+
+        private void EditBGControl(PlayMakerFSM fsm)
+        {
+            foreach (FsmState state in fsm.FsmStates)
+            {
+                if (state.Transitions.FirstOrDefault(t => t.EventName == "BG OPEN") is FsmTransition transition)
+                {
+                    state.AddTransition("QUAKE PICKUP START", transition.ToState);
+                }
             }
         }
     }

@@ -16,7 +16,7 @@ namespace ItemChanger.UIDefs
         {
             if ((type & MessageType.Lore) == MessageType.Lore)
             {
-                DialogueCenter.SendLoreMessage(lore.Value, callback, textType);
+                DialogueCenter.SendLoreMessage(lore.GetValue(), callback, textType);
             }
             else base.SendMessage(type, callback);
         }

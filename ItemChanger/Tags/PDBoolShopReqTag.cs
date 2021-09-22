@@ -11,9 +11,6 @@ namespace ItemChanger.Tags
         [System.ComponentModel.DefaultValue(true)]
         public bool reqVal = true;
 
-        public bool MeetsRequirement()
-        {
-            return PlayerData.instance.GetBool(fieldName) == reqVal;
-        }
+        public bool MeetsRequirement => PlayerData.instance.GetBool(fieldName) == reqVal;
     }
 }

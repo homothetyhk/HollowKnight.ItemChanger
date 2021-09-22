@@ -20,17 +20,25 @@ namespace ItemChanger.Locations.SpecialLocations
     /// </summary>
     public class NailmastersGloryObjectLocation : ObjectLocation
     {
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            if (fsm.FsmName == "Shiny Control")
+            base.OnLoad();
+            Events.AddFsmEdit(sceneName, new("Shiny Control"), EditShiny);
+        }
+
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new("Shiny Control"), EditShiny);
+        }
+
+        private void EditShiny(PlayMakerFSM fsm)
+        {
+            fsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
+            fsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
             {
-                fsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
-                fsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
-                {
-                    PlayerData.instance.dreamReturnScene = "Town";
-                    Internal.Ref.WORLD.slyBasementCompleted = true;
-                }));
-            }
+                PlayerData.instance.dreamReturnScene = "Town";
+            }));
         }
     }
 }

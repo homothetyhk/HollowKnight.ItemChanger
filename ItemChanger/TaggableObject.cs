@@ -10,6 +10,18 @@ namespace ItemChanger
         [Newtonsoft.Json.JsonProperty]
         public List<Tag> tags;
 
+        protected void LoadTags()
+        {
+            if (tags == null) return;
+            foreach (Tag tag in tags) tag.Load(this);
+        }
+
+        protected void UnloadTags()
+        {
+            if (tags == null) return;
+            foreach (Tag tag in tags) tag.Unload(this);
+        }
+
         public T AddTag<T>() where T : Tag, new()
         {
             if (tags == null) tags = new List<Tag>();

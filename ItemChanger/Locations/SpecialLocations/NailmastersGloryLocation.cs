@@ -18,24 +18,30 @@ namespace ItemChanger.Locations.SpecialLocations
     /// </summary>
     public class NailmastersGloryLocation : AutoLocation
     {
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            if (fsm.FsmName == "Conversation Control" && fsm.gameObject.name == "Sly Basement NPC")
-            {
-                FsmState convo = fsm.GetState("Convo Choice");
-                FsmState give = fsm.GetState("Give");
-                FsmState end = fsm.GetState("End");
-
-                convo.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)convo.Actions[0]);
-
-                give.Actions = new FsmStateAction[]
-                {
-                    new AsyncLambda(GiveAll),
-                };
-
-                end.AddFirstAction(new RandomizerChangeScene("Town", "door_sly"));
-            }
+            Events.AddFsmEdit(sceneName, new("Sly Basement NPC", "Conversation Control"), EditSlyConvo);
         }
 
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new("Sly Basement NPC", "Conversation Control"), EditSlyConvo);
+        }
+
+        private void EditSlyConvo(PlayMakerFSM fsm)
+        {
+            FsmState convo = fsm.GetState("Convo Choice");
+            FsmState give = fsm.GetState("Give");
+            FsmState end = fsm.GetState("End");
+
+            convo.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)convo.Actions[0]);
+
+            give.Actions = new FsmStateAction[]
+            {
+                    new AsyncLambda(GiveAll),
+            };
+
+            end.AddFirstAction(new RandomizerChangeScene("Town", "door_sly"));
+        }
     }
 }

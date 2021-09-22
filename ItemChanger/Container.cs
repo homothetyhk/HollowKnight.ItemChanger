@@ -82,7 +82,7 @@ namespace ItemChanger
                     ItemChangerMod.instance.LogError($"Unable to find Container definition for {info.containerType}!");
                     return;
                 }
-
+                // TODO: add fsmName check here
 
                 var give = info.giveInfo;
                 var scene = info.changeSceneInfo;
@@ -118,12 +118,6 @@ namespace ItemChanger
         public virtual void AddCostToFsm(PlayMakerFSM fsm, CostInfo info)
         {
             info.applied = true;
-        }
-
-
-        public virtual void ModifyFsm(PlayMakerFSM fsm, ContainerInfo info)
-        {
-            // TODO: implement ModifyFsm in each derived class!
         }
     }
 }

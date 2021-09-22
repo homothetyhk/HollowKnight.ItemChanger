@@ -86,6 +86,32 @@ namespace ItemChanger.Extensions
         }
 
         /// <summary>
+        /// Returns a list of objects in the scene hierarchy, ordered by depth-first-search.
+        /// <br/>The list consists of pairs where the first entry is the object path and the second entry is the object.
+        /// </summary>
+        public static List<(string path, GameObject go)> Traverse(this Scene s)
+        {
+            s.GetRootGameObjects(rootObjects);
+            List<(string, GameObject)> results = new();
+            foreach (GameObject g in rootObjects)
+            {
+                TraverseInternal(string.Empty, g.transform, results);
+            }
+            return results;
+        }
+
+        private static void TraverseInternal(string path, Transform t, List<(string, GameObject)> results)
+        {
+            path = $"{path}/{t.name}";
+            results.Add((path, t.gameObject));
+            foreach (Transform u in t)
+            {
+                TraverseInternal(path, u, results);
+            }
+        }
+
+
+        /// <summary>
         /// Breadth first search. Returns GameObject with given name, or null if not found. Parent object not included in search.
         /// </summary>
         public static GameObject FindChildInHierarchy(this GameObject g, string name)

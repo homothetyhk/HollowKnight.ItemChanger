@@ -16,16 +16,25 @@ namespace ItemChanger.Locations
         public string objectName;
         public bool removeGeo;
 
+        protected override void OnLoad()
+        {
+            Events.AddSceneChangeEdit(sceneName, OnActiveSceneChanged);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveSceneChangeEdit(sceneName, OnActiveSceneChanged);
+        }
+
         public override bool Supports(string containerType)
         {
             if (containerType == Container.Chest) return false;
             return base.Supports(containerType);
         }
 
-        public override void OnActiveSceneChanged(Scene from, Scene to)
+        public void OnActiveSceneChanged(Scene to)
         {
-            base.OnActiveSceneChanged(from, to);
-            if (!managed && to.name == sceneName)
+            if (!managed)
             {
                 base.GetContainer(out GameObject obj, out string containerType);
                 PlaceContainer(obj, containerType);
@@ -35,9 +44,8 @@ namespace ItemChanger.Locations
         public override void PlaceContainer(GameObject obj, string containerType)
         {
             GameObject target = ObjectLocation.FindGameObject(objectName);
-            Transform = target.transform;
             HealthManager hm = target.GetComponent<HealthManager>();
-            hm.OnDeath += GiveEarly;
+            hm.OnDeath += () => GiveEarly(target.transform);
             hm.OnDeath += () => Placement.AddVisitFlag(VisitState.Dropped);
 
             SpawnOnDeath drop = target.AddComponent<SpawnOnDeath>();
@@ -52,7 +60,7 @@ namespace ItemChanger.Locations
             }
         }
 
-        private void GiveEarly()
+        private void GiveEarly(Transform t)
         {
             Util.ItemUtility.GiveSequentially(
                 Placement.Items.Where(i => i.GiveEarly("Enemy")),
@@ -62,7 +70,7 @@ namespace ItemChanger.Locations
                     Container = "Enemy",
                     FlingType = flingType,
                     MessageType = MessageType.Corner,
-                    Transform = Transform,
+                    Transform = t,
                 });
         }
 

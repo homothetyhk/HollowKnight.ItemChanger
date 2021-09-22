@@ -1,31 +1,18 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using GlobalEnums;
-using HutongGames.PlayMaker;
-using ItemChanger.UIDefs;
-using Modding;
-using MonoMod;
-using ItemChanger.Extensions;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using ItemChanger.Components;
-using ItemChanger.Locations;
-using ItemChanger.Placements;
-using ItemChanger.Util;
-using TMPro;
 using ItemChanger.Internal;
+using ItemChanger.Util;
+using Modding;
+using UnityEngine;
 
 namespace ItemChanger
 {
-    public class ItemChangerMod : Mod, IGlobalSettings<GlobalSettings>, ILocalSettings<Settings>
+    public class ItemChangerMod : Mod, ILocalSettings<SaveSettings>
     {
         internal static ItemChangerMod instance;
-
-        internal static Settings SET { get; private set; } = new Settings();
-        internal static GlobalSettings GS { get; private set; } = new GlobalSettings();
+        internal static Settings SET;
+        private bool _hooked = false;
 
         public ItemChangerMod()
         {
@@ -33,38 +20,73 @@ namespace ItemChanger
 
             instance = this;
             SpriteManager.LoadEmbeddedPngs("ItemChanger.Resources.");
-            LanguageStringManager.Load();
             Finder.Load();
+            LanguageStringManager.Load();
         }
 
         public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
         {
             ObjectCache.Setup(preloadedObjects);
             MessageController.Setup();
+        }
 
-            On.GameManager.BeginSceneTransition += EditTransition;
-            On.GameManager.StartNewGame += BeforeStartNewGameHook;
-            BeforeStartNewGame += OnStart;
-            //ModHooks.Instance.NewGameHook += OnStart;
-            ModHooks.SavegameLoadHook += OnLoad;
-            On.GameManager.ResetSemiPersistentItems += ResetSemiPersistentItems;
-            CustomSkillManager.Hook();
-            DialogueCenter.Hook();
-            WorldEventManager.Hook();
-            ShopUtil.HookShops();
-            On.PlayMakerFSM.OnEnable += ApplyLocationFsmEdits;
-            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += OnActiveSceneChanged;
-            On.GameManager.OnNextLevelReady += OnOnNextLevelReady;
-            On.GameManager.SceneLoadInfo.NotifyFetchComplete += OnNotifyFetchComplete;
-            ModHooks.LanguageGetHook += OnLanguageGet;
-            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.OnSceneChange;
-            StartDef.HookBenchwarp();
+        internal void HookItemChanger()
+        {
+            Log("Hooking ItemChanger.");
+            try
+            {
+                if (SET == null) throw new NullReferenceException("ItemChanger hooked with null settings.");
+                if (_hooked) throw new InvalidOperationException("Attempted to rehook ItemChanger.");
+                _hooked = true;
+                Events.Hook();
+                CustomSkillManager.Hook();
+                DialogueCenter.Hook();
+                ShopUtil.HookShops();
+                StartDef.Hook();
+            }
+            catch (Exception e)
+            {
+                LogError(e);
+                throw;
+            }
+        }
+
+        internal void UnhookItemChanger()
+        {
+            Log("Unhooking ItemChanger.");
+            try
+            {
+                if (!_hooked) throw new InvalidOperationException("Attempted to unhook ItemChanger before hooked.");
+                _hooked = false;
+                Events.Unhook();
+                CustomSkillManager.Unhook();
+                DialogueCenter.Unhook();
+                ShopUtil.UnhookShops();
+                StartDef.Unhook();
+            }
+            catch (Exception e)
+            {
+                LogError(e);
+                throw;
+            }
         }
 
         /// <summary>
-        /// Called after transition overrides have been applied with the current target transition, immediately prior to the BeginSceneTransition routine.
+        /// Required before all operations which modify settings data.
         /// </summary>
-        public event Action<Transition> OnBeginSceneTransition;
+        /// <param name="overwrite">If settings data already exists, should it be overwritten?</param>
+        public static void CreateSettingsProfile(bool overwrite = true)
+        {
+            if (overwrite && Settings.loaded) throw new InvalidOperationException("Cannot overwrite loaded settings.");
+
+            if (SET == null || overwrite)
+            {
+                SET = new();
+                if (!instance._hooked) instance.HookItemChanger();
+            }
+        }
+
+        public static ModuleCollection Modules => SET.mods;
 
         /// <summary>
         /// Adds the override to SaveSettings. Overwrites any existing override for source.
@@ -74,287 +96,18 @@ namespace ItemChanger
             SET.TransitionOverrides[source] = target;
         }
 
-        private void EditTransition(On.GameManager.orig_BeginSceneTransition orig, GameManager self, GameManager.SceneLoadInfo info)
+        /// <summary>
+        /// Add an event to instantiate an object at a given place to Settings. Primarily used for adding platforms, and similar preloaded objects.
+        /// </summary>
+        public static void AddDeployer(IDeployer deployer)
         {
-            string sceneName = self.sceneName;
-            string gateName = null;
-            TransitionPoint tp = UnityEngine.Object.FindObjectsOfType<TransitionPoint>().FirstOrDefault(x => x.entryPoint == info.EntryGateName && x.targetScene == info.SceneName);
-            if (!tp)
-            {
-                switch (sceneName)
-                {
-                    case SceneNames.Fungus3_44 when info.EntryGateName == "left1":
-                    case SceneNames.Crossroads_02 when info.EntryGateName == "left1":
-                    case SceneNames.Crossroads_06 when info.EntryGateName == "left1":
-                    case SceneNames.Deepnest_10 when info.EntryGateName == "left1":
-                    case SceneNames.Ruins1_04 when info.SceneName == SceneNames.Room_nailsmith:
-                    case SceneNames.Fungus3_48 when info.SceneName == SceneNames.Room_Queen:
-                        gateName = "door1";
-                        break;
-                    case SceneNames.Town when info.SceneName == SceneNames.Room_shop:
-                        gateName = "door_sly";
-                        break;
-                    case SceneNames.Town when info.SceneName == SceneNames.Room_Town_Stag_Station:
-                        gateName = "door_station";
-                        break;
-                    case SceneNames.Town when info.SceneName == SceneNames.Room_Bretta:
-                        gateName = "door_bretta";
-                        break;
-                    case SceneNames.Crossroads_04 when info.SceneName == SceneNames.Room_Charm_Shop:
-                        gateName = "door_charmshop";
-                        break;
-                    case SceneNames.Crossroads_04 when info.SceneName == SceneNames.Room_Mender_House:
-                        gateName = "door_Mender_House";
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                gateName = tp.name.Split(null)[0];
-                if (sceneName == SceneNames.Fungus2_14 && gateName[0] == 'b') gateName = "bot3";
-                else if (sceneName == SceneNames.Fungus2_15 && gateName[0] == 't') gateName = "top3";
-            }
-
-            if (sceneName != null && gateName != null)
-            {
-                Transition source = new Transition(sceneName, gateName);
-                if (SET.TransitionOverrides.TryGetValue(source, out ITransition target))
-                {
-                    info.SceneName = target.SceneName;
-                    info.EntryGateName = target.GateName;
-                }
-            }
-
-            OnBeginSceneTransition?.Invoke(new Transition(info.SceneName, info.EntryGateName));
-            orig(self, info);
-        }
-
-        private void OnStart()
-        {
-            //Tests.Tests.CostChestTest();
-            foreach (var loc in SET.GetPlacements()) loc.OnLoad();
-        }
-
-        private void OnLoad(int id)
-        {
-            foreach (var loc in SET.GetPlacements()) loc.OnLoad();
-        }
-
-        private void ResetSemiPersistentItems(On.GameManager.orig_ResetSemiPersistentItems orig, GameManager self)
-        {
-            orig(self);
-            Ref.Settings.ResetSemiPersistentItems();
-        }
-
-        /*
-         Scene Change event order
-        - BeginSceneTransition = Modhooks.BeforeSceneLoad
-        - IsReadyToActivate: fires over 100 times
-        - NotifyFetchComplete
-        - {long break}
-        - SceneManager.sceneLoaded
-        - SceneManager.activeSceneChanged
-        - GameManager.BeginScene
-        - {short break}
-        - GameManager.OnNextLevelReady -> GameManager.EnterHero -> HeroController.EnterScene
-        */
-
-        private void OnNotifyFetchComplete(On.GameManager.SceneLoadInfo.orig_NotifyFetchComplete orig, GameManager.SceneLoadInfo self)
-        {
-            Scene target = UnityEngine.SceneManagement.SceneManager.GetSceneByName(self.SceneName);
-            if (!target.IsValid())
-            {
-                orig(self);
-                target = UnityEngine.SceneManagement.SceneManager.GetSceneByName(self.SceneName);
-                if (!target.IsValid())
-                {
-                    LogWarn($"Unable to find scene {self.SceneName} in OnNotifyFetchComplete!");
-                    return;
-                }
-                InvokeOnSceneFetched(target);
-                return;
-            }
-
-            InvokeOnSceneFetched(target);
-            orig(self);
-        }
-
-        private void InvokeOnSceneFetched(Scene target)
-        {
-            foreach (var placement in SET?.GetPlacements())
-            {
-                if (placement is null) continue;
-                else
-                {
-                    try
-                    {
-                        placement.OnSceneFetched(target);
-                    }
-                    catch (Exception e)
-                    {
-                        LogError($"Error in OnSceneFetched for {placement?.Name ?? "Unknown Placement"}:\n{e}");
-                    }
-                }
-            }
-        }
-
-        private void OnOnNextLevelReady(On.GameManager.orig_OnNextLevelReady orig, GameManager self)
-        {
-            Scene next = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-            foreach (var placement in SET?.GetPlacements())
-            {
-                if (placement is null) continue;
-                else
-                {
-                    try
-                    {
-                        placement.OnNextSceneReady(next);
-                    }
-                    catch (Exception e)
-                    {
-                        LogError($"Error in OnNextLevelReady for {placement?.Name ?? "Unknown Placement"}:\n{e}");
-                    }
-                }
-            }
-
-            orig(self);
-        }
-
-        private void TitleReset()
-        {
-            foreach (var placement in SET?.GetPlacements())
-            {
-                placement?.OnUnload();
-            }
-            SET = new Settings();
-        }
-
-        private void OnActiveSceneChanged(Scene from, Scene to)
-        {
-            Ref.Settings.ResetPersistentItems();
-            if (to.name == SceneNames.Menu_Title)
-            {
-                TitleReset();
-            }
-
-            foreach (var placement in SET?.GetPlacements())
-            {
-                if (placement is null) continue;
-                else
-                {
-                    try
-                    {
-                        placement.OnActiveSceneChanged(from, to);
-                    }
-                    catch (Exception e)
-                    {
-                        LogError($"Error in OnActiveSceneChanged for {placement?.Name ?? "Unknown Placement"}:\n{e}");
-                    }
-                }
-            }
-        }
-
-        private void ApplyLocationFsmEdits(On.PlayMakerFSM.orig_OnEnable orig, PlayMakerFSM fsm)
-        {
-            orig(fsm);
-
-            // component-based default container support, called before and after placement hooks
-            Container.OnEnable(fsm);
-
-            string sceneName = fsm.gameObject.scene.name;
-            foreach (var loc in SET?.GetPlacements() ?? new AbstractPlacement[0])
-            {
-                loc?.OnEnableGlobal(fsm);
-                if (!string.IsNullOrEmpty(loc?.SceneName) && SceneUtil.IsSubscene(sceneName, loc.SceneName))
-                {
-                    try
-                    {
-                        loc.OnEnableLocal(fsm);
-                    }
-                    catch (Exception e)
-                    {
-                        LogError($"Error in LocationFsmEdits for {loc?.Name ?? "Unknown Location"}:\n{e}");
-                    }
-                }
-            }
-
-            Container.OnEnable(fsm);
-        }
-
-        private string OnLanguageGet(string convo, string sheet, string orig)
-        {
-            LanguageGetArgs args = new LanguageGetArgs(convo, sheet, orig);
-            foreach (AbstractPlacement p in SET?.GetPlacements())
-            {
-                try
-                {
-                    p.OnLanguageGet(args);
-                }
-                catch (Exception e)
-                {
-                    LogError($"Error in OnLanguageGet for {p?.Name ?? "Unknown Placement"}:\n{e}");
-                }
-            }
-            return args.current;
-        }
-
-        public override string GetVersion()
-        {
-            return "1.0.1";
-        }
-
-        public override int LoadPriority() => -2;
-
-        public override List<(string, string)> GetPreloadNames()
-        {
-            return ObjectCache.GetPreloadNames();
-        }
-
-        public static event Action BeforeStartNewGame;
-        public static event Action AfterStartNewGame;
-        private void BeforeStartNewGameHook(On.GameManager.orig_StartNewGame orig, GameManager self, bool permadeathMode, bool bossRushMode)
-        {
-            try
-            {
-                BeforeStartNewGame?.Invoke();
-            }
-            catch(Exception e)
-            {
-                LogError($"Error in BeforeStartNewGame event:\n{e}");
-                throw;
-            }
-
-            if (StartDef.Start != null)
-            {
-                StartDef.OverrideStartNewGame(orig, self, permadeathMode, bossRushMode);
-            }
-            else
-            {
-                orig(self, permadeathMode, bossRushMode);
-            }
-
-            try
-            {
-                AfterStartNewGame?.Invoke();
-            }
-            catch (Exception e)
-            {
-                LogError($"Error in AfterStartNewGame event:\n{e}");
-                throw;
-            }
+            SET.Deployers.Add(deployer);
+            if (Settings.loaded) Events.AddSceneChangeEdit(deployer.SceneName, deployer.OnSceneChange);
         }
 
         public static void ChangeStartGame(StartDef start)
         {
-            //if (receivedChangeStartRequest) return;
-            //receivedChangeStartRequest = true;
-            
             SET.Start = start;
-            //On.GameManager.StartNewGame += StartDef.OverrideStartNewGame;
-            //UnityEngine.SceneManagement.SceneManager.activeSceneChanged += StartDef.CreateRespawnMarker;
-            //StartDef.HookBenchwarp();
         }
 
         /// <summary>
@@ -364,7 +117,6 @@ namespace ItemChanger
         /// <param name="conflictResolution">The action if a placement already exists in settings with the same name.</param>
         public static void AddPlacements(IEnumerable<AbstractPlacement> placements, PlacementConflictResolution conflictResolution = PlacementConflictResolution.MergeKeepingNew)
         {
-            bool inGame = GameManager.instance?.sceneName != "Menu_Title";
             foreach (var p in placements)
             {
                 if (SET.Placements.TryGetValue(p.Name, out var existsP))
@@ -388,51 +140,50 @@ namespace ItemChanger
                     }
                 }
                 else SET.Placements.Add(p.Name, p);
-                if (inGame && p == SET.Placements[p.Name]) p.OnLoad();
+                if (Settings.loaded && p == SET.Placements[p.Name]) p.Load();
             }
         }
 
-        public enum PlacementConflictResolution
+        public override string GetVersion()
         {
-            /// <summary>
-            /// Keep new placement, discard old placement, and append items of old placement to new placement.
-            /// </summary>
-            MergeKeepingNew,
-            /// <summary>
-            /// Keep old placement, discard new placement, and append items of new placement to old placement.
-            /// </summary>
-            MergeKeepingOld,
-            /// <summary>
-            /// Keep new placement, discard old placement
-            /// </summary>
-            Replace,
-            /// <summary>
-            /// Keep old placement, discard new placement
-            /// </summary>
-            Ignore,
-            Throw
+            return "1.0.1";
         }
 
-        public void OnLoadLocal(Settings s)
+        public override int LoadPriority() => -2;
+
+        public override List<(string, string)> GetPreloadNames()
         {
+            return ObjectCache.GetPreloadNames();
+        }
+
+        public void OnLoadLocal(SaveSettings s)
+        {
+            if (Settings.loaded)
+            {
+                try
+                {
+                    SET.Unload();
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error unloading settings:\n{e}");
+                }
+            }
+
             SET = s;
+            if (SET == null && _hooked)
+            {
+                UnhookItemChanger();
+            }
+            else if (SET != null && !_hooked)
+            {
+                HookItemChanger();
+            }
         }
 
-        public Settings OnSaveLocal()
+        public SaveSettings OnSaveLocal()
         {
             return SET;
         }
-
-        public void OnLoadGlobal(GlobalSettings s)
-        {
-            GS = s;
-        }
-
-        public GlobalSettings OnSaveGlobal()
-        {
-            return GS;
-        }
     }
-    
-    
 }

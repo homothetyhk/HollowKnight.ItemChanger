@@ -11,9 +11,6 @@ namespace ItemChanger.Tags
         [System.ComponentModel.DefaultValue(true)]
         public bool removeVal = true;
 
-        public bool Remove()
-        {
-            return PlayerData.instance.GetBool(fieldName) == removeVal;
-        }
+        public bool Remove => PlayerData.instance.GetBool(fieldName) == removeVal;
     }
 }

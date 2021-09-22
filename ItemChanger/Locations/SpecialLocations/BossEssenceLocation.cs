@@ -20,21 +20,24 @@ namespace ItemChanger.Locations.SpecialLocations
 
         // TODO: change bool test, so that location can be checked multiple times if necessary
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            if (fsm.FsmName == fsmName && fsm.gameObject.name == objName)
-            {
-                Transform = fsm.transform;
+            Events.AddFsmEdit(sceneName, new(objName, fsmName), EditBossConvo);
+        }
 
-                FsmState get = fsm.GetState("Get");
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new(objName, fsmName), EditBossConvo);
+        }
 
-                List<FsmStateAction> fsmActions = get.Actions.ToList();
-                fsmActions.RemoveAt(fsmActions.Count - 1); // SendEventByName (essence counter)
-                fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
-                fsmActions.Add(new AsyncLambda(GiveAll));
-
-                get.Actions = fsmActions.ToArray();
-            }
+        private void EditBossConvo(PlayMakerFSM fsm)
+        {
+            FsmState get = fsm.GetState("Get");
+            List<FsmStateAction> fsmActions = get.Actions.ToList();
+            fsmActions.RemoveAt(fsmActions.Count - 1); // SendEventByName (essence counter)
+            fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
+            fsmActions.Add(new AsyncLambda(GiveAllAsync(fsm.transform)));
+            get.Actions = fsmActions.ToArray();
         }
     }
 }

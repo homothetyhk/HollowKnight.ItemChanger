@@ -23,7 +23,6 @@ namespace ItemChanger.Containers
 
         public override void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)
         {
-            // TODO: add fsmName check?
             ShinyUtility.ModifyMultiShiny(fsm, info.flingType, info.placement, info.items);
             base.AddGiveEffectToFsm(fsm, info);
         }

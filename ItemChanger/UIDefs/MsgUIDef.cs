@@ -14,30 +14,29 @@ namespace ItemChanger.UIDefs
 
         public override string GetPostviewName()
         {
-            return name.Value;
+            return name.GetValue();
         }
 
         public override string GetPreviewName()
         {
-            return name.Value;
+            return name.GetValue();
         }
 
         public override string GetShopDesc()
         {
-            return shopDesc.Value;
+            return shopDesc.GetValue();
         }
 
         public override Sprite GetSprite()
         {
-            return sprite.Value;
+            return sprite.GetValue();
         }
 
         public override void SendMessage(MessageType type, Action callback)
         {
-            ItemChangerMod.instance.Log($"{GetPostviewName()}/{GetType().Name}");
             if ((type & MessageType.Corner) == MessageType.Corner)
             {
-                Internal.MessageController.Enqueue(GetSprite(), (this as UIDef).GetPostviewName());
+                Internal.MessageController.Enqueue(GetSprite(), GetPostviewName());
             }
 
             callback?.Invoke();

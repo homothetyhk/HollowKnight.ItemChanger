@@ -26,5 +26,4 @@ namespace ItemChanger
         public string Value { get; set; }
         public IString Clone() => (IString)MemberwiseClone();
     }
-
 }

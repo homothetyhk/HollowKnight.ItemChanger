@@ -12,7 +12,20 @@ namespace ItemChanger.Placements
 {
     public class AutoPlacement : AbstractPlacement
     {
-        public AutoLocation location;
-        public override AbstractLocation Location => location;
+        public AutoPlacement(string Name) : base(Name) { }
+
+        public AutoLocation Location;
+
+        protected override void OnLoad()
+        {
+            Location.Placement = this;
+            Location.Load();
+        }
+
+        protected override void OnUnload()
+        {
+            Location.Unload();
+        }
+
     }
 }

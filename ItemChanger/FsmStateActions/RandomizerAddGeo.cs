@@ -13,18 +13,13 @@ namespace ItemChanger.FsmStateActions
 
         private readonly GameObject _gameObject;
         private readonly bool _minimize;
-        private int _count;
+        private FsmInt _amount;
 
-        public RandomizerAddGeo(GameObject baseObj, int amount, bool minimizeObjects = false)
+        public RandomizerAddGeo(GameObject baseObj, FsmInt amount, bool minimizeObjects = false)
         {
-            _count = amount;
+            _amount = amount;
             _gameObject = baseObj;
             _minimize = minimizeObjects;
-        }
-
-        public void SetGeo(int geo)
-        {
-            _count = geo;
         }
 
         public static void SpawnGeo(int _count, bool _minimize, FlingType fling, Transform _transform, bool normalizeZ = true)
@@ -120,6 +115,8 @@ namespace ItemChanger.FsmStateActions
         {
             // Special case for pickups where you don't have an opportunity to pick up the geo
             string sceneName = GameManager.instance.GetSceneNameString();
+            int _count = _amount.Value;
+
             if (sceneName == SceneNames.Dream_Nailcollection || sceneName == SceneNames.Room_Sly_Storeroom || sceneName == SceneNames.Abyss_08)
             {
                 HeroController.instance.AddGeo(_count);

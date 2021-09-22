@@ -15,7 +15,19 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class BroodingMawlekLocation : FsmObjectLocation
     {
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
+        {
+            base.OnLoad();
+            Events.AddFsmEdit(sceneName, new("Battle Scene", "Battle Control"), RemoveHeartPieceActions);
+        }
+
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new("Battle Scene", "Battle Control"), RemoveHeartPieceActions);
+        }
+
+        private void RemoveHeartPieceActions(PlayMakerFSM fsm)
         {
             switch (fsm.FsmName)
             {

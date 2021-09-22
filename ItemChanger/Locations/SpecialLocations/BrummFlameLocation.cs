@@ -16,34 +16,35 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class BrummFlameLocation : AutoLocation
     {
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            switch (fsm.FsmName)
+            Events.AddFsmEdit(sceneName, new("Brumm Torch NPC", "Conversation Control"), EditBrummConvo);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new("Brumm Torch NPC", "Conversation Control"), EditBrummConvo);
+        }
+
+        private void EditBrummConvo(PlayMakerFSM fsm)
+        {
+            FsmState checkActive = fsm.GetState("Check Active");
+            FsmState convo1 = fsm.GetState("Convo 1");
+            FsmState get = fsm.GetState("Get");
+
+            checkActive.Actions = new FsmStateAction[]
             {
-                case "Conversation Control" when fsm.gameObject.name == "Brumm Torch NPC":
-                    {
-                        Transform = fsm.transform;
+                new BoolTestMod(() => IsBrummActive() && !Placement.AllObtained(), (PlayerDataBoolTest)checkActive.Actions[0])
+            };
 
-                        FsmState checkActive = fsm.GetState("Check Active");
-                        FsmState convo1 = fsm.GetState("Convo 1");
-                        FsmState get = fsm.GetState("Get");
+            convo1.RemoveActionsOfType<IntCompare>();
 
-                        checkActive.Actions = new FsmStateAction[] 
-                        {
-                            new BoolTestMod(() => IsBrummActive() && !Placement.AllObtained(), (PlayerDataBoolTest)checkActive.Actions[0])
-                        };
-                        
-                        convo1.RemoveActionsOfType<IntCompare>();
-
-                        get.Actions = new FsmStateAction[]
-                        {
-                            get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
-                            get.Actions[14], // set gotBrummsFlame
-                            new AsyncLambda(GiveAll),
-                        };
-                    }
-                    break;
-            }
+            get.Actions = new FsmStateAction[]
+            {
+                get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
+                get.Actions[14], // set gotBrummsFlame
+                new AsyncLambda(GiveAllAsync(fsm.transform)),
+            };
         }
 
         private static bool IsBrummActive()

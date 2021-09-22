@@ -10,7 +10,17 @@ namespace ItemChanger.Locations
         public float y;
         public float elevation;
 
-        public override void OnActiveSceneChanged(Scene from, Scene to)
+        protected override void OnLoad()
+        {
+            Events.AddSceneChangeEdit(sceneName, OnActiveSceneChanged);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveSceneChangeEdit(sceneName, OnActiveSceneChanged);
+        }
+
+        public void OnActiveSceneChanged(Scene to)
         {
             if (!managed && to.name == sceneName)
             {

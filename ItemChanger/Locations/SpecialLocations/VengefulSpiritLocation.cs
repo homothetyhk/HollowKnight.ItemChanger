@@ -15,36 +15,45 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class VengefulSpiritLocation : FsmObjectLocation
     {
+        protected override void OnLoad()
+        {
+            base.OnLoad();
+            Events.AddFsmEdit(sceneName, new("Shaman Meeting", "Conversation Control"), EditShamanConvo);
+            Events.AddFsmEdit(sceneName, new("Shaman Trapped", "Conversation Control"), Destroy);
+            Events.AddFsmEdit(sceneName, new("Bone Gate", "Bone Gate"), Destroy);
+        }
+
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new("Shaman Meeting", "Conversation Control"), EditShamanConvo);
+            Events.RemoveFsmEdit(sceneName, new("Shaman Trapped", "Conversation Control"), Destroy);
+            Events.RemoveFsmEdit(sceneName, new("Bone Gate", "Bone Gate"), Destroy);
+        }
+
+
         public override void PlaceContainer(GameObject obj, string containerType)
         {
             base.PlaceContainer(obj, containerType);
-
-            // TODO: move to world event?
             if (PlayerData.instance.GetInt(nameof(PlayerData.shaman)) >= 1) obj.SetActive(true);
-            UnityEngine.Object.Destroy(GameObject.Find("Bone Gate"));
         }
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        private void EditShamanConvo(PlayMakerFSM fsm)
         {
-            switch (fsm.gameObject.name)
-            {
-                case "Shaman Meeting" when fsm.FsmName == "Conversation Control":
-                    {
-                        FsmState checkActive = fsm.GetState("Check Active");
-                        FsmState checkSummoned = fsm.GetState("Check Summoned");
-                        FsmState spellAppear = fsm.GetState("Spell Appear");
+            FsmState checkActive = fsm.GetState("Check Active");
+            FsmState checkSummoned = fsm.GetState("Check Summoned");
+            FsmState spellAppear = fsm.GetState("Spell Appear");
 
-                        checkActive.Actions = new FsmStateAction[0];
-                        checkSummoned.RemoveActionsOfType<FindChild>();
-                        checkSummoned.GetActionsOfType<ActivateGameObject>().First(a => a.gameObject.GameObject.Name == "Vengeful Spirit").recursive = false;
-                        spellAppear.GetActionsOfType<ActivateGameObject>().First(a => a.gameObject.GameObject.Name == "Vengeful Spirit").recursive = false;
-                        spellAppear.Actions[8] = new Lambda(() => { }); // this replaces a wait after the spawn animation and seems to prevent a freeze
-                    }
-                    break;
-                case "Shaman Trapped":
-                    UnityEngine.Object.Destroy(fsm.gameObject);
-                    break;
-            }
+            checkActive.Actions = new FsmStateAction[0];
+            checkSummoned.RemoveActionsOfType<FindChild>();
+            checkSummoned.GetActionsOfType<ActivateGameObject>().First(a => a.gameObject.GameObject.Name == "Vengeful Spirit").recursive = false;
+            spellAppear.GetActionsOfType<ActivateGameObject>().First(a => a.gameObject.GameObject.Name == "Vengeful Spirit").recursive = false;
+            spellAppear.Actions[8] = new Lambda(() => { }); // this replaces a wait after the spawn animation and seems to prevent a freeze
+        }
+
+        private void Destroy(PlayMakerFSM fsm)
+        {
+            UnityEngine.Object.Destroy(fsm.gameObject);
         }
     }
 }

@@ -7,10 +7,8 @@ namespace ItemChanger
 {
     public abstract class Tag
     {
-        [Newtonsoft.Json.JsonIgnore]
-        /// <summary>
-        /// Intrinsic tags are cloned when the parent is cloned. Extrinsic tags are cloned when the parent is replaced.
-        /// </summary>
-        public virtual bool Intrinsic => false;
+        public virtual void Load(object parent) { }
+        public virtual void Unload(object parent) { }
+        public virtual Tag Clone() => (Tag)MemberwiseClone();
     }
 }

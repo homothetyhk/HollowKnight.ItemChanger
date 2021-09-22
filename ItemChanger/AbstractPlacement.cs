@@ -2,50 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using UnityEngine.SceneManagement;
 
 namespace ItemChanger
 {
-    public abstract class AbstractPlacement
+    public abstract class AbstractPlacement : TaggableObject
     {
-        [Newtonsoft.Json.JsonIgnore]
-        public string Name => Location.name;
-        [Newtonsoft.Json.JsonIgnore]
-        public string SceneName => Location.sceneName;
-        public List<AbstractItem> Items { get; set; } = new List<AbstractItem>();
-        [Newtonsoft.Json.JsonIgnore]
-        public abstract AbstractLocation Location { get; }
-        [Newtonsoft.Json.JsonProperty]
-        private VisitState visited;
-        IEnumerable<Tag> CombinedTags => Location.tags.Concat(Items.SelectMany(i => i.tags));
+        public AbstractPlacement(string Name)
+        {
+            this.Name = Name;
+        }
+
+        public string Name { get; }
+        public List<AbstractItem> Items { get; } = new();
+        [JsonProperty]
+        public VisitState Visited { get; private set; }
 
         #region Give
-
-        public void GiveAll(MessageType messageType = MessageType.Any, Action callback = null)
-        {
-            IEnumerator<AbstractItem> enumerator = Items.GetEnumerator();
-            GiveInfo info = GetBaseGiveInfo();
-            info.Container = MainContainerType;
-            info.MessageType = messageType;
-            info.Callback = _ => GiveRecursive();
-            GiveRecursive();
-
-            void GiveRecursive()
-            {
-                while (enumerator.MoveNext())
-                {
-                    if (enumerator.Current.IsObtained())
-                    {
-                        continue;
-                    }
-
-                    enumerator.Current.Give(this, info.Clone());
-                    return;
-                }
-
-                callback?.Invoke();
-            }
-        }
 
         public void GiveAll(GiveInfo info, Action callback = null)
         {
@@ -72,18 +46,6 @@ namespace ItemChanger
             }
         }
 
-        public void GiveEarly()
-        {
-            GiveInfo info = GetBaseGiveInfo();
-            info.MessageType = MessageType.Corner;
-            info.Container = MainContainerType;
-
-            foreach (AbstractItem item in Items)
-            {
-                if (!item.IsObtained() && item.GiveEarly(MainContainerType)) item.Give(this, info.Clone());
-            }
-        }
-
         public string GetUIName()
         {
             return GetUIName(maxLength: 120);
@@ -97,15 +59,6 @@ namespace ItemChanger
             return itemText;
         }
 
-        private GiveInfo GetBaseGiveInfo()
-        {
-            return new GiveInfo
-            {
-                FlingType = Location.flingType,
-                Transform = Location.Transform,
-            };
-        }
-
         #endregion
 
         #region Control
@@ -117,87 +70,72 @@ namespace ItemChanger
 
         public void AddVisitFlag(VisitState flag)
         {
-            Events.InvokeOnVisitStateChanged(this, flag);
-            visited |= flag;
+            InvokeVisitStateChanged(flag);
+            Visited |= flag;
         }
 
         public bool CheckVisitedAny(VisitState flags)
         {
-            return (visited & flags) != VisitState.None;
+            return (Visited & flags) != VisitState.None;
         }
 
         public bool CheckVisitedAll(VisitState flags)
         {
-            return (visited & flags) == flags;
+            return (Visited & flags) == flags;
         }
 
         public VisitState GetVisitState()
         {
-            return visited;
+            return Visited;
         }
 
         #endregion
 
         #region Hooks
 
-        public virtual void OnEnableGlobal(PlayMakerFSM fsm)
+        public void Load()
         {
-            Location.OnEnableGlobal(fsm);
+            LoadTags();
+            foreach (AbstractItem item in Items) item.Load();
+            OnLoad();
         }
 
-        public virtual void OnEnableLocal(PlayMakerFSM fsm)
+        public void Unload()
         {
-            Location.OnEnableLocal(fsm);
+            UnloadTags();
+            foreach (AbstractItem item in Items) item.Unload();
+            OnUnload();
         }
 
-        public virtual void OnSceneFetched(Scene target)
-        {
-            Location.OnSceneFetched(target);
-        }
-
-        public virtual void OnActiveSceneChanged(Scene from, Scene to)
-        {
-            foreach (var tag in Location.GetTags<Tags.IActiveSceneChangedTag>())
-            {
-                tag.OnActiveSceneChanged(from, to);
-            }
-            Location.OnActiveSceneChanged(from, to);
-        }
-
-        public virtual void OnNextSceneReady(Scene next)
-        {
-            Location.OnNextSceneReady(next);
-        }
-
-
-
-        /// <summary>
-        /// Override for custom text.
-        /// </summary>
-        public virtual void OnLanguageGet(LanguageGetArgs args)
-        {
-            Location.OnLanguageGet(args);
-        }
 
         /// <summary>
         /// Called on each location when the location list is first read. Dispose hooks in OnUnHook.
         /// </summary>
-        public virtual void OnLoad()
-        {
-            Location.Placement = this;
-            Location.OnLoad();
-        }
+        protected abstract void OnLoad();
 
-        public virtual void OnUnload()
+        protected abstract void OnUnload();
+
+        public static event Action<VisitStateChangedEventArgs> OnVisitStateChangedGlobal;
+        [field: Newtonsoft.Json.JsonIgnore]
+        public event Action<VisitStateChangedEventArgs> OnVisitStateChanged;
+        private void InvokeVisitStateChanged(VisitState newFlags)
         {
-            Location.OnUnload();
+            VisitStateChangedEventArgs args = new(this, newFlags);
+            try
+            {
+                OnVisitStateChangedGlobal?.Invoke(args);
+                OnVisitStateChanged?.Invoke(args);
+            }
+            catch (Exception e)
+            {
+                ItemChangerMod.instance.LogError($"Error invoking OnVisitStateChanged for placement {Name}:\n{e}");
+            }
         }
 
         #endregion
+
         [Newtonsoft.Json.JsonIgnore]
         public virtual string MainContainerType => Container.Unknown;
-        public virtual string GetContainerType(AbstractItem item) => MainContainerType;
-        public virtual string GetContainerType(AbstractLocation location) => MainContainerType;
 
         public virtual AbstractPlacement AddItem(AbstractItem item)
         {

@@ -17,14 +17,23 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public bool removeGeo = true;
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            if (fsm.FsmName == "burster" && fsm.gameObject.name.StartsWith("Corpse Big Fly Burster"))
-            {
-                FsmState geo = fsm.GetState("Geo");
-                if (removeGeo) geo.Actions = new FsmStateAction[0];
-                geo.AddLastAction(new Lambda(() => PlaceContainer(fsm.gameObject)));
-            }
+            Events.AddFsmEdit(sceneName, new("burster"), EditCorpseBurst);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new("burster"), EditCorpseBurst);
+        }
+
+        private void EditCorpseBurst(PlayMakerFSM fsm)
+        {
+            if (!fsm.gameObject.name.StartsWith("Corpse Big Fly Burster")) return;
+
+            FsmState geo = fsm.GetState("Geo");
+            if (removeGeo) geo.Actions = new FsmStateAction[0];
+            geo.AddLastAction(new Lambda(() => PlaceContainer(fsm.gameObject)));
         }
 
         private void PlaceContainer(GameObject gruz)

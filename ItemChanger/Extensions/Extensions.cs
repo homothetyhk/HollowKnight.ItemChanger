@@ -16,6 +16,21 @@ namespace ItemChanger.Extensions
             else return t;
         }
 
+        public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, TValue add = default)
+        {
+            if (!dict.TryGetValue(key, out TValue value))
+            {
+                value = add;
+                dict.Add(key, value);
+            }
+
+            return value;
+        }
+
+        public static TValue GetOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, TValue @default = default)
+            => dict.TryGetValue(key, out TValue value) ? value : @default;
+
+
         /// <summary>
         /// Returns true when the collection has a previously given item, or is null or empty.
         /// </summary>
@@ -26,7 +41,6 @@ namespace ItemChanger.Extensions
 
         public static bool Compare(this int a, ComparisonOperator op, int b)
         {
-            GameObject g;
             switch (op)
             {
                 default:

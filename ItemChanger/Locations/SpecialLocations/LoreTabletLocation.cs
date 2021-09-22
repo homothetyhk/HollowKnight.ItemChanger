@@ -12,24 +12,29 @@ namespace ItemChanger.Locations.SpecialLocations
         public string inspectName;
         public string inspectFsm;
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            base.OnEnableLocal(fsm);
-
-            // disable inspect region
-            if (fsm.FsmName == inspectFsm && fsm.gameObject.name == inspectName)
-            {
-                if (fsm.GetState("Init") is FsmState init)
-                {
-                    init.ClearTransitions();
-                }
-
-                if (fsm.GetState("Inert") is FsmState inert)
-                {
-                    inert.ClearTransitions();
-                }
-            }
+            base.OnLoad();
+            Events.AddFsmEdit(sceneName, new(inspectName, inspectFsm), DisableInspectRegion);
         }
 
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new(inspectName, inspectFsm), DisableInspectRegion);
+        }
+
+        private void DisableInspectRegion(PlayMakerFSM fsm)
+        {
+            if (fsm.GetState("Init") is FsmState init)
+            {
+                init.ClearTransitions();
+            }
+
+            if (fsm.GetState("Inert") is FsmState inert)
+            {
+                inert.ClearTransitions();
+            }
+        }
     }
 }

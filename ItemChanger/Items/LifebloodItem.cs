@@ -11,6 +11,13 @@ namespace ItemChanger.Items
 
         public override void GiveImmediate(GiveInfo info)
         {
+            try
+            {
+                PlayMakerFSM blueHealthControl = PlayMakerFSM.FsmList.FirstOrDefault(f => f != null && f.FsmName == "Blue Health Control");
+                if (blueHealthControl != null) blueHealthControl.SendEvent("INVENTORY OPENED");
+            }
+            catch (Exception) { }
+
             for (int i = 0; i < amount; i++)
             {
                 EventRegister.SendEvent("ADD BLUE HEALTH");

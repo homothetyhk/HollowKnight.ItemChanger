@@ -19,6 +19,19 @@ namespace ItemChanger.Locations.SpecialLocations
     public class GrimmkinLocation : AutoLocation
     {
         public int grimmkinLevel;
+
+        protected override void OnLoad()
+        {
+            Events.AddFsmEdit(sceneName, new("Control"), EditFlamebearerControl);
+            Events.AddFsmEdit(sceneName, new("Flamebearer Spawn", "Spawn Control"), EditFlamebearerSpawn);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new("Control"), EditFlamebearerControl);
+            Events.RemoveFsmEdit(sceneName, new("Flamebearer Spawn", "Spawn Control"), EditFlamebearerSpawn);
+        }
+
         public override GiveInfo GetGiveInfo()
         {
             var info = base.GetGiveInfo();
@@ -26,48 +39,42 @@ namespace ItemChanger.Locations.SpecialLocations
             return info;
         }
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        private void EditFlamebearerControl(PlayMakerFSM fsm)
         {
-            switch (fsm.FsmName)
+            if (!fsm.gameObject.name.StartsWith("Flamebearer")) return;
+
+            FsmState init = fsm.GetState("Init");
+            init.Actions[2] = new SetIntValue
             {
-                case "Control" when fsm.gameObject.name.StartsWith("Flamebearer"):
-                    {
-                        FsmState init = fsm.GetState("Init");
-                        init.Actions[2] = new SetIntValue
-                        {
-                            intVariable = ((GetPlayerDataInt)init.Actions[2]).storeValue,
-                            intValue = grimmkinLevel
-                        };
-                    }
-                    break;
-                case "Spawn Control" when fsm.gameObject.name == "Flamebearer Spawn":
-                    {
-                        FsmState state = fsm.GetState("State");
-                        FsmState get = fsm.GetState("Get");
+                intVariable = ((GetPlayerDataInt)init.Actions[2]).storeValue,
+                intValue = grimmkinLevel
+            };
+        }
 
-                        // Override Grimmchild level check
-                        state.ClearTransitions();
-                        state.AddTransition("FINISHED", $"Level {grimmkinLevel}");
-                        state.AddTransition("KILLED", "Do Nothing");
-                        bool Check()
-                        {
-                            return Placement.AllObtained() || !GrimmchildRequirement();
-                        }
+        private void EditFlamebearerSpawn(PlayMakerFSM fsm)
+        {
+            FsmState state = fsm.GetState("State");
+            FsmState get = fsm.GetState("Get");
 
-                        state.Actions = new FsmStateAction[]
-                        {
-                            new BoolTestMod(Check, (BoolTest)state.Actions[0])
-                        };
-
-                        get.Actions = new FsmStateAction[]
-                        {
-                            get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
-                            new AsyncLambda((callback) => GiveAll(callback)),
-                        };
-
-                    }
-                    break;
+            // Override Grimmchild level check
+            state.ClearTransitions();
+            state.AddTransition("FINISHED", $"Level {grimmkinLevel}");
+            state.AddTransition("KILLED", "Do Nothing");
+            bool Check()
+            {
+                return Placement.AllObtained() || !GrimmchildRequirement();
             }
+
+            state.Actions = new FsmStateAction[]
+            {
+                new BoolTestMod(Check, (BoolTest)state.Actions[0])
+            };
+
+            get.Actions = new FsmStateAction[]
+            {
+                get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
+                new AsyncLambda((callback) => GiveAll(callback)),
+            };
         }
 
         public bool GrimmchildRequirement()

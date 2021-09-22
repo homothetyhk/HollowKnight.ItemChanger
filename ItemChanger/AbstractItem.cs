@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ItemChanger.Locations;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace ItemChanger
@@ -22,44 +23,6 @@ namespace ItemChanger
 
     }
 
-    public class GiveEventArgs : EventArgs
-    {
-        public GiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement placement, GiveInfo info)
-        {
-            this.Orig = orig;
-            this.Item = item;
-            this.Placement = placement;
-            this.Info = info;
-        }
-
-        public AbstractItem Orig { get; private set; }
-        public AbstractItem Item { get; set; }
-        public AbstractPlacement Placement { get; }
-        public GiveInfo Info { get; set; }
-    }
-
-    public class ReadOnlyGiveEventArgs : EventArgs
-    {
-        private readonly GiveInfo info;
-
-        public ReadOnlyGiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement placement, GiveInfo info)
-        {
-            this.Orig = orig;
-            this.Item = item;
-            this.Placement = placement;
-            this.info = info;
-        }
-
-        public AbstractItem Orig { get; private set; }
-        public AbstractItem Item { get; private set; }
-        public AbstractPlacement Placement { get; private set; }
-        public string Container => info.Container;
-        public FlingType Fling => info.FlingType;
-        public Transform Transform => info.Transform;
-        public MessageType MessageType => info.MessageType;
-        public Action<AbstractItem> Callback => info.Callback;
-    }
-
 
     public abstract class AbstractItem : TaggableObject
     {
@@ -70,6 +33,22 @@ namespace ItemChanger
         /// The UIDef associated to an item. GetResolvedUIDef() should be used instead for most purposes.
         /// </summary>
         public UIDef UIDef;
+
+        protected virtual void OnLoad() { }
+        public void Load()
+        {
+            LoadTags();
+            OnLoad();
+        }
+
+        protected virtual void OnUnload() { }
+        public void Unload()
+        {
+            UnloadTags();
+            OnUnload();
+        }
+
+
 
         public virtual string GetPreferredContainer() => Container.Unknown;
 
@@ -87,7 +66,7 @@ namespace ItemChanger
         public void Give(AbstractPlacement placement, GiveInfo info)
         {
             ReadOnlyGiveEventArgs readOnlyArgs = new ReadOnlyGiveEventArgs(this, this, placement, info);
-            Events.BeforeGiveInvoke(readOnlyArgs);
+            BeforeGiveInvoke(readOnlyArgs);
 
             GiveEventArgs giveArgs = new GiveEventArgs(this, this, placement, info);
             ResolveItem(giveArgs);
@@ -100,7 +79,7 @@ namespace ItemChanger
             info = giveArgs.Info;
 
             readOnlyArgs = new ReadOnlyGiveEventArgs(giveArgs.Orig, giveArgs.Item, giveArgs.Placement, giveArgs.Info);
-            Events.OnGiveInvoke(readOnlyArgs);
+            OnGiveInvoke(readOnlyArgs);
 
             try
             {
@@ -127,11 +106,7 @@ namespace ItemChanger
             }
             else info.Callback?.Invoke(item);
 
-            foreach (var t in GetTags<Tags.IGiveEffectTag>())
-            {
-                t.OnGive(readOnlyArgs);
-            }
-            Events.AfterGiveInvoke(readOnlyArgs);
+            AfterGiveInvoke(readOnlyArgs);
         }
 
         public abstract void GiveImmediate(GiveInfo info);
@@ -145,15 +120,11 @@ namespace ItemChanger
 
         public virtual void ResolveItem(GiveEventArgs args)
         {
-            foreach (var tag in GetTags<IModifyItemTag>())
-            {
-                tag.ModifyItem(args);
-            }
-            Events.ModifyItemInvoke(args);
+            ModifyItemInvoke(args);
 
             if (args.Item?.Redundant() ?? true)
             {
-                Events.ModifyRedundantItemInvoke(args);
+                ModifyRedundantItemInvoke(args);
             }
 
             if (args.Item == null)
@@ -191,8 +162,89 @@ namespace ItemChanger
         {
             AbstractItem item = (AbstractItem)MemberwiseClone();
             item.UIDef = UIDef?.Clone();
-            item.tags = tags?.Where(t => t.Intrinsic)?.ToList();
+            item.tags = tags?.Select(t => t.Clone())?.ToList();
             return item;
         }
+
+        [field: JsonIgnore]
+        public event Action<ReadOnlyGiveEventArgs> BeforeGive;
+        public static event Action<ReadOnlyGiveEventArgs> BeforeGiveGlobal;
+        private void BeforeGiveInvoke(ReadOnlyGiveEventArgs args)
+        {
+            try
+            {
+                BeforeGiveGlobal?.Invoke(args);
+                BeforeGive?.Invoke(args);
+            }
+            catch (Exception e)
+            {
+                ItemChangerMod.instance.LogError($"Error invoking BeforeGive for item {name} at placement {args.Placement.Name}:\n{e}");
+            }
+        }
+
+        [field: JsonIgnore]
+        public event Action<GiveEventArgs> ModifyItem;
+        public event Action<GiveEventArgs> ModifyItemGlobal;
+        private void ModifyItemInvoke(GiveEventArgs args)
+        {
+            try
+            {
+                ModifyItemGlobal?.Invoke(args);
+                ModifyItem?.Invoke(args);
+            }
+            catch (Exception e)
+            {
+                ItemChangerMod.instance.LogError($"Error invoking ModifyItem for item {name} at placement {args.Placement.Name}:\n{e}");
+            }
+        }
+
+        [field: JsonIgnore]
+        public event Action<GiveEventArgs> ModifyRedundantItem;
+        public event Action<GiveEventArgs> ModifyRedundantItemGlobal;
+        private void ModifyRedundantItemInvoke(GiveEventArgs args)
+        {
+            try
+            {
+                ModifyRedundantItemGlobal?.Invoke(args);
+                ModifyRedundantItem?.Invoke(args);
+            }
+            catch (Exception e) 
+            {
+                ItemChangerMod.instance.LogError($"Error invoking ModifyRedundantItem for item {name} at placement {args.Placement.Name}:\n{e}"); 
+            }
+        }
+
+        [field: JsonIgnore]
+        public event Action<ReadOnlyGiveEventArgs> OnGive;
+        public event Action<ReadOnlyGiveEventArgs> OnGiveGlobal;
+        private void OnGiveInvoke(ReadOnlyGiveEventArgs args)
+        {
+            try
+            {
+                OnGiveGlobal?.Invoke(args);
+                OnGive?.Invoke(args);
+            }
+            catch (Exception e) 
+            {
+                ItemChangerMod.instance.LogError($"Error invoking OnGive for item {name} at placement {args.Placement.Name}:\n{e}"); 
+            }
+        }
+
+        [field: JsonIgnore]
+        public event Action<ReadOnlyGiveEventArgs> AfterGive;
+        public event Action<ReadOnlyGiveEventArgs> AfterGiveGlobal;
+        private void AfterGiveInvoke(ReadOnlyGiveEventArgs args)
+        {
+            try
+            {
+                AfterGiveGlobal?.Invoke(args);
+                AfterGive?.Invoke(args);
+            }
+            catch (Exception e) 
+            {
+                ItemChangerMod.instance.LogError($"Error invoking BeforeGive for item {name} at placement {args.Placement.Name}:\n{e}"); 
+            }
+        }
+
     }
 }

@@ -8,7 +8,6 @@ namespace ItemChanger.Util
 {
     public static class SceneUtil
     {
-        /*
         static Dictionary<string, string> subScenes = new Dictionary<string, string>
         {
             { "Crossroads_10_preload", SceneNames.Crossroads_10 },
@@ -27,13 +26,16 @@ namespace ItemChanger.Util
             { "Cliffs_02_boss", SceneNames.Cliffs_02 },
             { "RestingGrounds_02_boss", SceneNames.RestingGrounds_02 },
             { "Mines_18_boss", SceneNames.Mines_18 },
-            { "Fungus2_15_boss", SceneNames.Fungus2_15 },
             { "Deepnest_East_Hornet_boss", SceneNames.Deepnest_East_Hornet },
             { "Waterways_05_boss", SceneNames.Waterways_05 },
             { "Waterways_12_boss", SceneNames.Waterways_12 },
             { "Grimm_Main_Tent_boss", SceneNames.Grimm_Main_Tent },
         };
-        */
+
+        public static bool TryGetSuperScene(string subScene, out string superScene)
+        {
+            return subScenes.TryGetValue(subScene, out superScene);
+        }
 
         public static bool IsSubscene(string subscene, string scene)
         {

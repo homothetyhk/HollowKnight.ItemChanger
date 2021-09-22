@@ -14,21 +14,26 @@ namespace ItemChanger.Locations
         public string fsmName;
         public string containerType;
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            base.OnEnableLocal(fsm);
-            if (objectName == fsm.gameObject.name && fsm.FsmName == fsmName)
+            Events.AddFsmEdit(sceneName, new(objectName, fsmName), OnEnable);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new(objectName, fsmName), OnEnable);
+        }
+
+        public void OnEnable(PlayMakerFSM fsm)
+        {
+            var info = fsm.gameObject.GetOrAddComponent<ContainerInfo>();
+            info.containerType = containerType;
+            info.giveInfo = new ContainerGiveInfo
             {
-                Transform = fsm.transform;
-                var info = fsm.gameObject.GetOrAddComponent<ContainerInfo>();
-                info.containerType = containerType;
-                info.giveInfo = new ContainerGiveInfo
-                {
-                    placement = Placement,
-                    items = Placement.Items,
-                    flingType = flingType,
-                };
-            }
+                placement = Placement,
+                items = Placement.Items,
+                flingType = flingType,
+            };
         }
     }
 }

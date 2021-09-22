@@ -17,8 +17,12 @@ namespace ItemChanger.Locations
 {
     public class ShopLocation : AbstractLocation
     {
+        /// <summary>
+        /// The npc's objectName, for spawning items.
+        /// </summary>
         public string objectName;
         public string fsmName;
+
         /// <summary>
         /// If more than one placement modifies the same shop, the intersection of all default shop items are kept.
         /// </summary>
@@ -31,204 +35,227 @@ namespace ItemChanger.Locations
         public string requiredPlayerDataBool = string.Empty;
         public bool dungDiscount;
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            if (fsm.FsmName == fsmName && fsm.gameObject.name == objectName)
+            Events.AddFsmEdit(sceneName, new("Shop Menu", "shop_control"), EditShopControl);
+            Events.AddFsmEdit(sceneName, new("Item List", "Item List Control"), EditItemListControl);
+            Events.AddFsmEdit(sceneName, new("UI List", "Confirm Control"), EditConfirmControl);
+            // brrr
+            Events.AddFsmEdit(sceneName, new("Item List", "Item List Control"), HastenItemListControl);
+            Events.AddFsmEdit(sceneName, new("Item List", "ui_list_getinput"), HastenUIListGetInput);
+            Events.AddFsmEdit(sceneName, new("UI List", "Confirm Control"), HastenConfirmControl);
+            Events.AddFsmEdit(sceneName, new("UI List", "ui_list"), HastenUIList);
+            Events.AddFsmEdit(sceneName, new("UI List", "ui_list_button_listen"), HastenUIListButtonListen);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new("Shop Menu", "shop_control"), EditShopControl);
+            Events.RemoveFsmEdit(sceneName, new("Item List", "Item List Control"), EditItemListControl);
+            Events.RemoveFsmEdit(sceneName, new("UI List", "Confirm Control"), EditConfirmControl);
+            
+            Events.RemoveFsmEdit(sceneName, new("Item List", "Item List Control"), HastenItemListControl);
+            Events.RemoveFsmEdit(sceneName, new("Item List", "ui_list_getinput"), HastenUIListGetInput);
+            Events.RemoveFsmEdit(sceneName, new("UI List", "Confirm Control"), HastenConfirmControl);
+            Events.RemoveFsmEdit(sceneName, new("UI List", "ui_list"), HastenUIList);
+            Events.RemoveFsmEdit(sceneName, new("UI List", "ui_list_button_listen"), HastenUIListButtonListen);
+        }
+
+        /// <summary>
+        /// Change how the shop stock is constructed.
+        /// </summary>
+        private void EditShopControl(PlayMakerFSM fsm)
+        {
+            ShopMenuStock shop = fsm.gameObject.GetComponent<ShopMenuStock>();
+            GameObject itemPrefab = UnityEngine.Object.Instantiate(shop.stock[0]);
+            itemPrefab.SetActive(false);
+
+            shop.stock = (Placement as IShopPlacement).GetNewStock(shop.stock, itemPrefab);
+            if (shop.stockAlt != null)
             {
-                Transform = fsm.transform;
+                shop.stockAlt = (Placement as IShopPlacement).GetNewAltStock(shop.stock, shop.stockAlt, itemPrefab);
+            }
+        }
+
+        /// <summary>
+        /// Change how the shop stock is presented.
+        /// </summary>
+        /// <param name="fsm"></param>
+        private void EditItemListControl(PlayMakerFSM fsm)
+        {
+            FsmState init = fsm.GetState("Init");
+            if (init.GetActionsOfType<Lambda>().Any()) return; // Fsm has already been edited
+            FsmState getDetailsInit = fsm.GetState("Get Details Init");
+            FsmState getDetails = fsm.GetState("Get Details");
+            FsmState charmsRequiredInit = fsm.GetState("Charms Required? Init");
+            FsmState charmsRequired = fsm.GetState("Charms Required?");
+            FsmState notchDisplayInit = fsm.GetState("Notch Display Init");
+            FsmState notchDisplay = fsm.GetState("Notch Display?");
+            FsmState checkCanBuy = fsm.GetState("Check Can Buy");
+            FsmState activateConfirm = fsm.GetState("Activate confirm");
+            FsmState activateUI = fsm.GetState("Activate UI");
+
+            var textSetters = getDetails.GetActionsOfType<SetTextMeshProText>();
+
+            void SetName()
+            {
+                int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
+                GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
+                var mod = shopItem.GetComponent<ModShopItemStats>();
+                string name;
+                if (mod && mod.item != null)
+                {
+                    name = mod.item.GetResolvedUIDef(Placement).GetPreviewName();
+                }
+                else
+                {
+                    name = Language.Language.Get(shopItem.GetComponent<ShopItemStats>().GetNameConvo(), "UI");
+                }
+
+                fsm.FsmVariables.FindFsmGameObject("Item name").Value.GetComponent<TextMeshPro>().text = name;
             }
 
-            switch (fsm.FsmName)
+            void ResetSprites()
             {
-                case "shop_control":
-                    {
-                        ShopMenuStock shop = fsm.gameObject.GetComponent<ShopMenuStock>();
-                        GameObject itemPrefab = UnityEngine.Object.Instantiate(shop.stock[0]);
-                        itemPrefab.SetActive(false);
+                foreach (GameObject shopItem in fsm.gameObject.GetComponent<ShopMenuStock>().stockInv)
+                {
+                    var mod = shopItem.GetComponent<ModShopItemStats>();
+                    if (!mod || mod.item == null) continue;
+                    shopItem.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = mod.item.GetResolvedUIDef(Placement).GetSprite();
+                }
+            }
 
-                        shop.stock = (Placement as IShopPlacement).GetNewStock(shop.stock, itemPrefab);
-                        if (shop.stockAlt != null)
+            void SetDesc()
+            {
+                int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
+                GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
+                var mod = shopItem.GetComponent<ModShopItemStats>();
+                string desc;
+                if (mod && mod.item != null)
+                {
+                    desc = mod.item.GetResolvedUIDef(Placement).GetShopDesc();
+                    if (mod.Cost != null)
+                    {
+                        string costText = mod.Cost.GetShopCostText();
+                        if (!string.IsNullOrEmpty(costText))
                         {
-                            shop.stockAlt = (Placement as IShopPlacement).GetNewAltStock(shop.stock, shop.stockAlt, itemPrefab);
+                            desc += $"\n\n<#888888>{costText}";
                         }
                     }
-                    break;
+                }
+                else
+                {
+                    desc = Language.Language.Get(shopItem.GetComponent<ShopItemStats>().GetDescConvo(), "UI").Replace("<br>", "\n");
+                }
 
-                case "Item List Control":
+                fsm.FsmVariables.FindFsmGameObject("Item desc").Value.GetComponent<TextMeshPro>()
+                    .text = desc;
+            }
+
+            void GetNotchCost()
+            {
+                int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
+                GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
+                var mod = shopItem.GetComponent<ModShopItemStats>();
+                var stats = shopItem.GetComponent<ShopItemStats>();
+                int notchCost = 0;
+                if (mod && mod.item is AbstractItem item)
+                {
+                    if (item.GetTag<IShopNotchCostTag>() is IShopNotchCostTag notchCostTag)
                     {
-                        FsmState init = fsm.GetState("Init");
-                        if (init.GetActionsOfType<Lambda>().Any()) return; // Fsm has already been edited
-                        FsmState getDetailsInit = fsm.GetState("Get Details Init");
-                        FsmState getDetails = fsm.GetState("Get Details");
-                        FsmState charmsRequiredInit = fsm.GetState("Charms Required? Init");
-                        FsmState charmsRequired = fsm.GetState("Charms Required?");
-                        FsmState notchDisplayInit = fsm.GetState("Notch Display Init");
-                        FsmState notchDisplay = fsm.GetState("Notch Display?");
-                        FsmState checkCanBuy = fsm.GetState("Check Can Buy");
-                        FsmState activateConfirm = fsm.GetState("Activate confirm");
-                        FsmState activateUI = fsm.GetState("Activate UI");
-                        
-                        var textSetters = getDetails.GetActionsOfType<SetTextMeshProText>();
+                        notchCost = notchCostTag.GetNotchCost(item);
+                    }
+                    else if (item is Items.CharmItem charm)
+                    {
+                        notchCost = PlayerData.instance.GetInt($"charmCost_{charm.charmNum}");
+                    }
+                    else if (item is Items.EquippedCharmItem echarm)
+                    {
+                        notchCost = PlayerData.instance.GetInt($"charmCost_{echarm.charmNum}");
+                    }
+                }
+                else
+                {
+                    notchCost = stats.GetNotchCost();
+                }
 
-                        void SetName()
-                        {
-                            int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
-                            GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
-                            var mod = shopItem.GetComponent<ModShopItemStats>();
-                            string name;
-                            if (mod && mod.item != null)
-                            {
-                                name = mod.item.GetResolvedUIDef(Placement).GetPreviewName();
-                            }
-                            else
-                            {
-                                name = Language.Language.Get(shopItem.GetComponent<ShopItemStats>().GetNameConvo(), "UI");
-                            }
+                fsm.FsmVariables.FindFsmInt("Notch Cost").Value = notchCost;
+            }
 
-                            fsm.FsmVariables.FindFsmGameObject("Item name").Value.GetComponent<TextMeshPro>().text = name;
-                        }
+            bool CanBuy()
+            {
+                int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
+                GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
+                var mod = shopItem.GetComponent<ModShopItemStats>();
+                if (mod)
+                {
+                    Cost cost = mod.Cost;
+                    return cost == null || cost.Paid || cost.CanPay();
+                }
+                else
+                {
+                    var stats = shopItem.GetComponent<ShopItemStats>();
+                    return stats.cost <= PlayerData.instance.GetInt(nameof(PlayerData.geo));
+                }
+            }
 
-                        void ResetSprites()
-                        {
-                            foreach (GameObject shopItem in fsm.gameObject.GetComponent<ShopMenuStock>().stockInv)
-                            {
-                                var mod = shopItem.GetComponent<ModShopItemStats>();
-                                if (!mod || mod.item == null) continue;
-                                shopItem.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = mod.item.GetResolvedUIDef(Placement).GetSprite();
-                            }                            
-                        }
+            void SetConfirmName()
+            {
+                int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
+                GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
+                var mod = shopItem.GetComponent<ModShopItemStats>();
+                string name;
+                if (mod && mod.item != null)
+                {
+                    name = mod.item.GetResolvedUIDef(Placement).GetPreviewName();
+                }
+                else
+                {
+                    name = Language.Language.Get(shopItem.GetComponent<ShopItemStats>().GetNameConvo(), "UI");
+                }
 
-                        void SetDesc()
-                        {
-                            int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
-                            GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
-                            var mod = shopItem.GetComponent<ModShopItemStats>();
-                            string desc;
-                            if (mod && mod.item != null)
-                            {
-                                desc = mod.item.GetResolvedUIDef(Placement).GetShopDesc();
-                                if (mod.Cost != null)
-                                {
-                                    string costText = mod.Cost.GetShopCostText();
-                                    if (!string.IsNullOrEmpty(costText))
-                                    {
-                                        desc += $"\n\n<#888888>{costText}";
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                desc = Language.Language.Get(shopItem.GetComponent<ShopItemStats>().GetDescConvo(), "UI").Replace("<br>", "\n");
-                            }
-                            
-                            fsm.FsmVariables.FindFsmGameObject("Item desc").Value.GetComponent<TextMeshPro>()
-                                .text = desc;
-                        }
+                fsm.FsmVariables.FindFsmGameObject("Confirm").Value.transform.Find("Item name").GetComponent<TextMeshPro>()
+                    .text = name;
+            }
 
-                        void GetNotchCost()
-                        {
-                            int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
-                            GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
-                            var mod = shopItem.GetComponent<ModShopItemStats>();
-                            var stats = shopItem.GetComponent<ShopItemStats>();
-                            int notchCost = 0;
-                            if (mod && mod.item is AbstractItem item)
-                            {
-                                if (item.GetTag<IShopNotchCostTag>() is IShopNotchCostTag notchCostTag)
-                                {
-                                    notchCost = notchCostTag.GetNotchCost(item);
-                                }
-                                else if (item is Items.CharmItem charm)
-                                {
-                                    notchCost = PlayerData.instance.GetInt($"charmCost_{charm.charmNum}");
-                                }
-                                else if (item is Items.EquippedCharmItem echarm)
-                                {
-                                    notchCost = PlayerData.instance.GetInt($"charmCost_{echarm.charmNum}");
-                                }
-                            }
-                            else
-                            {
-                                notchCost = stats.GetNotchCost();
-                            }
-                            
-                            fsm.FsmVariables.FindFsmInt("Notch Cost").Value = notchCost;
-                        }
+            void AddIntToConfirm()
+            {
+                GameObject uiList = fsm.FsmVariables.FindFsmGameObject("UI List").Value;
+                PlayMakerFSM confirmControl = uiList.LocateFSM("Confirm Control");
+                FsmInt itemIndex = confirmControl.FsmVariables.FindFsmInt("Item Index");
+                if (itemIndex == null)
+                {
+                    int length = confirmControl.FsmVariables.IntVariables.Length;
+                    FsmInt[] fsmInts = new FsmInt[length + 1];
+                    confirmControl.FsmVariables.IntVariables.CopyTo(fsmInts, 0);
+                    itemIndex = fsmInts[length] = new FsmInt
+                    {
+                        Name = "Item Index",
+                    };
+                    confirmControl.FsmVariables.IntVariables = fsmInts;
+                }
+                itemIndex.Value = fsm.FsmVariables.FindFsmInt("Current Item").Value;
+            }
 
-                        bool CanBuy()
-                        {
-                            int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
-                            GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
-                            var mod = shopItem.GetComponent<ModShopItemStats>();
-                            if (mod)
-                            {
-                                Cost cost = mod.Cost;
-                                return cost == null || cost.Paid|| cost.CanPay();
-                            }
-                            else
-                            {
-                                var stats = shopItem.GetComponent<ShopItemStats>();
-                                return stats.cost <= PlayerData.instance.GetInt(nameof(PlayerData.geo));
-                            }
-                        }
+            Lambda resetSprites = new Lambda(ResetSprites);
+            Lambda setName = new Lambda(SetName);
+            Lambda setSprite = new Lambda(ResetSprites);
+            Lambda setDesc = new Lambda(SetDesc);
+            Lambda getNotchCost = new Lambda(GetNotchCost);
+            BoolTestMod canBuy = new BoolTestMod(CanBuy, checkCanBuy.GetFirstActionOfType<BoolTest>());
+            Lambda setConfirmName = new Lambda(SetConfirmName);
+            Lambda addIntToConfirm = new Lambda(AddIntToConfirm);
 
-                        void SetConfirmName()
-                        {
-                            int index = fsm.FsmVariables.FindFsmInt("Current Item").Value;
-                            GameObject shopItem = fsm.gameObject.GetComponent<ShopMenuStock>().stockInv[index];
-                            var mod = shopItem.GetComponent<ModShopItemStats>();
-                            string name;
-                            if (mod && mod.item != null)
-                            {
-                                name = mod.item.GetResolvedUIDef(Placement).GetPreviewName();
-                            }
-                            else
-                            {
-                                name = Language.Language.Get(shopItem.GetComponent<ShopItemStats>().GetNameConvo(), "UI");
-                            }
-
-                            fsm.FsmVariables.FindFsmGameObject("Confirm").Value.transform.Find("Item name").GetComponent<TextMeshPro>()
-                                .text = name;
-                        }
-
-                        void AddIntToConfirm()
-                        {
-                            GameObject uiList = fsm.FsmVariables.FindFsmGameObject("UI List").Value;
-                            PlayMakerFSM confirmControl = uiList.LocateFSM("Confirm Control");
-                            FsmInt itemIndex = confirmControl.FsmVariables.FindFsmInt("Item Index");
-                            if (itemIndex == null)
-                            {
-                                int length = confirmControl.FsmVariables.IntVariables.Length;
-                                FsmInt[] fsmInts = new FsmInt[length + 1];
-                                confirmControl.FsmVariables.IntVariables.CopyTo(fsmInts, 0);
-                                itemIndex = fsmInts[length] = new FsmInt
-                                {
-                                    Name = "Item Index",
-                                };
-                                confirmControl.FsmVariables.IntVariables = fsmInts;
-                            }
-                            itemIndex.Value = fsm.FsmVariables.FindFsmInt("Current Item").Value;
-                        }
-
-                        Lambda resetSprites = new Lambda(ResetSprites);
-                        Lambda setName = new Lambda(SetName);
-                        Lambda setSprite = new Lambda(ResetSprites);
-                        Lambda setDesc = new Lambda(SetDesc);
-                        Lambda getNotchCost = new Lambda(GetNotchCost);
-                        BoolTestMod canBuy = new BoolTestMod(CanBuy, checkCanBuy.GetFirstActionOfType<BoolTest>());
-                        Lambda setConfirmName = new Lambda(SetConfirmName);
-                        Lambda addIntToConfirm = new Lambda(AddIntToConfirm);
-
-                        init.AddLastAction(resetSprites);
-                        getDetailsInit.Actions = new[] { setName, setSprite };
-                        getDetails.Actions = new[] { setName };
-                        charmsRequiredInit.Actions = new[] { setDesc };
-                        charmsRequired.Actions = new[] { setDesc };
-                        notchDisplayInit.AddFirstAction(getNotchCost);
-                        notchDisplay.AddFirstAction(getNotchCost);
-                        checkCanBuy.Actions = new[] { canBuy };
-                        activateConfirm.Actions = new[]
-                        {
+            init.AddLastAction(resetSprites);
+            getDetailsInit.Actions = new[] { setName, setSprite };
+            getDetails.Actions = new[] { setName };
+            charmsRequiredInit.Actions = new[] { setDesc };
+            charmsRequired.Actions = new[] { setDesc };
+            notchDisplayInit.AddFirstAction(getNotchCost);
+            notchDisplay.AddFirstAction(getNotchCost);
+            checkCanBuy.Actions = new[] { canBuy };
+            activateConfirm.Actions = new[]
+            {
                             // Find Children
                             activateConfirm.Actions[0],
                             activateConfirm.Actions[1],
@@ -251,172 +278,161 @@ namespace ItemChanger.Locations
                             activateConfirm.Actions[14],
                             activateConfirm.Actions[15],
                         };
-                        activateUI.AddLastAction(addIntToConfirm);
-                    }
-                    break;
-                case "Confirm Control":
-                    {
-                        FsmState deductSet = fsm.GetState("Deduct Geo and set PD");
-                        if (deductSet.GetActionsOfType<Lambda>().Any()) return; // Fsm has already been edited
-
-                        void Give()
-                        {
-                            int index = fsm.FsmVariables.FindFsmInt("Item Index").Value;
-                            GameObject shopItem = fsm.transform.parent.parent.Find("Item List").GetComponent<ShopMenuStock>().stockInv[index];
-                            var mod = shopItem.GetComponent<ModShopItemStats>();
-
-                            if (mod)
-                            {
-                                mod.item.Give(Placement, new GiveInfo
-                                {
-                                    Container = Placement.MainContainerType,
-                                    FlingType = this.flingType,
-                                    MessageType = MessageType.Corner,
-                                });
-                            }
-                            else
-                            {
-                                string boolName = shopItem.GetComponent<ShopItemStats>().GetPlayerDataBoolName();
-                                PlayerData.instance.SetBool(boolName, true);
-                            }
-                        }
-
-                        void Pay()
-                        {
-                            int index = fsm.FsmVariables.FindFsmInt("Item Index").Value;
-                            GameObject shopItem = fsm.transform.parent.parent.Find("Item List").GetComponent<ShopMenuStock>().stockInv[index];
-                            var mod = shopItem.GetComponent<ModShopItemStats>();
-                            var stats = shopItem.GetComponent<ShopItemStats>();
-
-                            if (mod)
-                            {
-                                Cost cost = mod.Cost;
-                                if (cost is null || cost.Paid) return;
-                                cost.Pay();
-                            }
-                            else
-                            {
-                                if (stats.cost > 0)
-                                {
-                                    HeroController.instance.TakeGeo(stats.cost);
-                                }
-                            }
-                        }
-
-                        Lambda give = new Lambda(Give);
-                        Lambda pay = new Lambda(Pay);
-
-                        deductSet.Actions = new[] { give, pay };
-                    }
-                    break;
-            }
-
-            Hasten(fsm); // brrr
+            activateUI.AddLastAction(addIntToConfirm);
         }
 
-        public void Hasten(PlayMakerFSM fsm)
+        /// <summary>
+        /// Change the effects of purchasing a shop item.
+        /// </summary>
+        private void EditConfirmControl(PlayMakerFSM fsm)
         {
-            switch (fsm.FsmName)
+            FsmState deductSet = fsm.GetState("Deduct Geo and set PD");
+            if (deductSet.GetActionsOfType<Lambda>().Any()) return; // Fsm has already been edited
+
+            void Give()
             {
-                case "Item List Control":
+                int index = fsm.FsmVariables.FindFsmInt("Item Index").Value;
+                GameObject shopItem = fsm.transform.parent.parent.Find("Item List").GetComponent<ShopMenuStock>().stockInv[index];
+                var mod = shopItem.GetComponent<ModShopItemStats>();
+
+                if (mod)
+                {
+                    mod.item.Give(Placement, new GiveInfo
                     {
-                        FsmState menuDown = fsm.GetState("Menu Down");
-                        FsmState blankName = fsm.GetState("Blank Name and Desc");
-                        FsmState activateConfirm = fsm.GetState("Activate confirm");
-
-                        void ReduceFadeOutTime()
-                        {
-                            var fade = fsm.FsmVariables.FindFsmGameObject("Parent").Value.GetComponent<FadeGroup>();
-                            fade.fadeOutTimeFast = fade.fadeOutTime = 0.01f;
-                        }
-                        menuDown.AddFirstAction(new Lambda(ReduceFadeOutTime));
-                        menuDown.GetFirstActionOfType<Wait>().time = 0.01f;
-                        foreach (var a in menuDown.GetActionsOfType<SendEventByName>())
-                        {
-                            if (a.sendEvent.Value == "DOWN")
-                            {
-                                ItemChangerMod.instance.Log("Changing event");
-                                a.sendEvent.Value = "DOWN INSTANT";
-                            }
-                        }
-
-                        void ReduceFadeInTime()
-                        {
-                            var fade = fsm.FsmVariables.FindFsmGameObject("Confirm").Value.GetComponent<FadeGroup>();
-                            fade.fadeInTime = 0.01f;
-                        }
-
-                        blankName.AddLastAction(new Lambda(ReduceFadeInTime));
-                        activateConfirm.GetFirstActionOfType<Wait>().time = 0.01f;
-                    }
-                    break;
-
-                case "Confirm Control":
-                    {
-                        FsmState particles = fsm.GetState("Particles");
-                        particles.GetFirstActionOfType<Wait>().time = 0.2f;
-                        FsmState bob = fsm.GetState("Bob");
-                        bob.Actions = new[] { bob.Actions[0], bob.Actions[1] };
-                        FsmState reset = fsm.GetState("Reset");
-                        bob.Transitions[0].SetToState(reset);
-
-                        FsmState thankFade = fsm.GetState("Thank Fade");
-                        thankFade.GetFirstActionOfType<SendEventByName>().sendEvent.Value = "DOWN INSTANT";
-                        thankFade.GetFirstActionOfType<Wait>().time = 0.01f;
-                    }
-                    break;
-
-                case "ui_list_getinput" when fsm.gameObject.name == "Item List":
-                    {
-                        FsmState confirm = fsm.GetState("Confirm");
-                        FsmState cancel = fsm.GetState("Cancel");
-                        confirm.GetFirstActionOfType<Wait>().time = 0.01f;
-                        cancel.GetFirstActionOfType<Wait>().time = 0.01f;
-
-                        FsmState stillUp = fsm.GetState("Still Up?");
-                        FsmState stillLeft = fsm.GetState("Still Left?");
-                        FsmState stillRight = fsm.GetState("Still Right?");
-                        FsmState stillDown = fsm.GetState("Still Down?");
-                        stillUp.GetFirstActionOfType<Wait>().time = 0.15f;
-                        stillLeft.GetFirstActionOfType<Wait>().time = 0.15f;
-                        stillRight.GetFirstActionOfType<Wait>().time = 0.15f;
-                        stillDown.GetFirstActionOfType<Wait>().time = 0.15f;
-
-                        FsmState repeatUp = fsm.GetState("Repeat Up");
-                        FsmState repeatLeft = fsm.GetState("Repeat Left");
-                        FsmState repeatRight = fsm.GetState("Repeat Right");
-                        FsmState repeatDown = fsm.GetState("Repeat Down");
-                        repeatUp.GetFirstActionOfType<Wait>().time = 0.1f;
-                        repeatLeft.GetFirstActionOfType<Wait>().time = 0.1f;
-                        repeatRight.GetFirstActionOfType<Wait>().time = 0.1f;
-                        repeatDown.GetFirstActionOfType<Wait>().time = 0.1f;
-                    }
-                    break;
-                case "ui_list" when fsm.gameObject.name == "UI List":
-                    {
-                        FsmState selectionMade = fsm.GetState("Selection Made");
-                        FsmState selectionMadeCancel = fsm.GetState("Selection Made Cancel");
-                        selectionMade.GetFirstActionOfType<Wait>().time = 0.01f;
-                        selectionMadeCancel.GetFirstActionOfType<Wait>().time = 0.01f;
-                    }
-                    break;
-                case "ui_list_button_listen" when fsm.gameObject.name == "UI List":
-                    {
-                        FsmState selectPressed = fsm.GetState("Select Pressed");
-                        FsmState cancelPressed = fsm.GetState("Cancel Pressed");
-
-                        selectPressed.GetFirstActionOfType<Wait>().time = 0.1f;
-                        cancelPressed.GetFirstActionOfType<Wait>().time = 0.1f;
-                    }
-                    break;
+                        Container = Placement.MainContainerType,
+                        FlingType = this.flingType,
+                        MessageType = MessageType.Corner,
+                        Transform = GameObject.Find(objectName)?.transform,
+                    });
+                }
+                else
+                {
+                    string boolName = shopItem.GetComponent<ShopItemStats>().GetPlayerDataBoolName();
+                    PlayerData.instance.SetBool(boolName, true);
+                }
             }
+
+            void Pay()
+            {
+                int index = fsm.FsmVariables.FindFsmInt("Item Index").Value;
+                GameObject shopItem = fsm.transform.parent.parent.Find("Item List").GetComponent<ShopMenuStock>().stockInv[index];
+                var mod = shopItem.GetComponent<ModShopItemStats>();
+                var stats = shopItem.GetComponent<ShopItemStats>();
+
+                if (mod)
+                {
+                    Cost cost = mod.Cost;
+                    if (cost is null || cost.Paid) return;
+                    cost.Pay();
+                }
+                else
+                {
+                    if (stats.cost > 0)
+                    {
+                        HeroController.instance.TakeGeo(stats.cost);
+                    }
+                }
+            }
+
+            Lambda give = new Lambda(Give);
+            Lambda pay = new Lambda(Pay);
+
+            deductSet.Actions = new[] { give, pay };
+        }
+
+        private void HastenItemListControl(PlayMakerFSM fsm)
+        {
+            FsmState menuDown = fsm.GetState("Menu Down");
+            FsmState blankName = fsm.GetState("Blank Name and Desc");
+            FsmState activateConfirm = fsm.GetState("Activate confirm");
+
+            void ReduceFadeOutTime()
+            {
+                var fade = fsm.FsmVariables.FindFsmGameObject("Parent").Value.GetComponent<FadeGroup>();
+                fade.fadeOutTimeFast = fade.fadeOutTime = 0.01f;
+            }
+            menuDown.AddFirstAction(new Lambda(ReduceFadeOutTime));
+            menuDown.GetFirstActionOfType<Wait>().time = 0.01f;
+            foreach (var a in menuDown.GetActionsOfType<SendEventByName>())
+            {
+                if (a.sendEvent.Value == "DOWN")
+                {
+                    a.sendEvent.Value = "DOWN INSTANT";
+                }
+            }
+
+            void ReduceFadeInTime()
+            {
+                var fade = fsm.FsmVariables.FindFsmGameObject("Confirm").Value.GetComponent<FadeGroup>();
+                fade.fadeInTime = 0.01f;
+            }
+
+            blankName.AddLastAction(new Lambda(ReduceFadeInTime));
+            activateConfirm.GetFirstActionOfType<Wait>().time = 0.01f;
+        }
+
+        private void HastenConfirmControl(PlayMakerFSM fsm)
+        {
+            FsmState particles = fsm.GetState("Particles");
+            particles.GetFirstActionOfType<Wait>().time = 0.2f;
+            FsmState bob = fsm.GetState("Bob");
+            bob.Actions = new[] { bob.Actions[0], bob.Actions[1] };
+            FsmState reset = fsm.GetState("Reset");
+            bob.Transitions[0].SetToState(reset);
+
+            FsmState thankFade = fsm.GetState("Thank Fade");
+            thankFade.GetFirstActionOfType<SendEventByName>().sendEvent.Value = "DOWN INSTANT";
+            thankFade.GetFirstActionOfType<Wait>().time = 0.01f;
+        }
+
+        private void HastenUIList(PlayMakerFSM fsm)
+        {
+            FsmState selectionMade = fsm.GetState("Selection Made");
+            FsmState selectionMadeCancel = fsm.GetState("Selection Made Cancel");
+            selectionMade.GetFirstActionOfType<Wait>().time = 0.01f;
+            selectionMadeCancel.GetFirstActionOfType<Wait>().time = 0.01f;
+        }
+
+        private void HastenUIListGetInput(PlayMakerFSM fsm)
+        {
+            FsmState confirm = fsm.GetState("Confirm");
+            FsmState cancel = fsm.GetState("Cancel");
+            confirm.GetFirstActionOfType<Wait>().time = 0.01f;
+            cancel.GetFirstActionOfType<Wait>().time = 0.01f;
+
+            FsmState stillUp = fsm.GetState("Still Up?");
+            FsmState stillLeft = fsm.GetState("Still Left?");
+            FsmState stillRight = fsm.GetState("Still Right?");
+            FsmState stillDown = fsm.GetState("Still Down?");
+            stillUp.GetFirstActionOfType<Wait>().time = 0.15f;
+            stillLeft.GetFirstActionOfType<Wait>().time = 0.15f;
+            stillRight.GetFirstActionOfType<Wait>().time = 0.15f;
+            stillDown.GetFirstActionOfType<Wait>().time = 0.15f;
+
+            FsmState repeatUp = fsm.GetState("Repeat Up");
+            FsmState repeatLeft = fsm.GetState("Repeat Left");
+            FsmState repeatRight = fsm.GetState("Repeat Right");
+            FsmState repeatDown = fsm.GetState("Repeat Down");
+            repeatUp.GetFirstActionOfType<Wait>().time = 0.1f;
+            repeatLeft.GetFirstActionOfType<Wait>().time = 0.1f;
+            repeatRight.GetFirstActionOfType<Wait>().time = 0.1f;
+            repeatDown.GetFirstActionOfType<Wait>().time = 0.1f;
+        }
+
+        private void HastenUIListButtonListen(PlayMakerFSM fsm)
+        {
+            FsmState selectPressed = fsm.GetState("Select Pressed");
+            FsmState cancelPressed = fsm.GetState("Cancel Pressed");
+
+            selectPressed.GetFirstActionOfType<Wait>().time = 0.1f;
+            cancelPressed.GetFirstActionOfType<Wait>().time = 0.1f;
         }
 
         public override AbstractPlacement Wrap()
         {
-            return new ShopPlacement
+            return new ShopPlacement(name)
             {
-                location = this,
+                Location = this,
                 defaultShopItems = DefaultShopItems.None,
                 dungDiscount = sceneName == SceneNames.Fungus2_26,
                 requiredPlayerDataBool = name == "Sly_(Key)" ? nameof(PlayerData.gaveSlykey) : string.Empty,

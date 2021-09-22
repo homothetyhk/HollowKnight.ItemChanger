@@ -12,6 +12,18 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public bool HintActive { get; set; }
 
+        protected override void OnLoad()
+        {
+            base.OnLoad();
+            Events.OnLanguageGet += OnLanguageGet;
+        }
+
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.OnLanguageGet -= OnLanguageGet;
+        }
+
         public override void PlaceContainer(GameObject obj, string containerType)
         {
             obj.GetOrAddComponent<ContainerInfo>().changeSceneInfo
@@ -19,7 +31,7 @@ namespace ItemChanger.Locations.SpecialLocations
             base.PlaceContainer(obj, containerType);
         }
 
-        public override void OnLanguageGet(LanguageGetArgs args)
+        private void OnLanguageGet(LanguageGetArgs args)
         {
             if (HintActive && args.sheet == "Lore Tablets" && args.convo == "DUSK_KNIGHT_CORPSE")
             {

@@ -7,14 +7,22 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Tags
 {
-    public class DestroyObjectTag : Tag, IActiveSceneChangedTag
+    public class DestroyObjectTag : Tag
     {
-        public override bool Intrinsic => true;
-
         public string objectName;
         public string sceneName;
 
-        public void OnActiveSceneChanged(Scene from, Scene to)
+        public override void Load(object parent)
+        {
+            Events.AddSceneChangeEdit(sceneName, DestroyObject);
+        }
+
+        public override void Unload(object parent)
+        {
+            Events.RemoveSceneChangeEdit(sceneName, DestroyObject);
+        }
+
+        public void DestroyObject(Scene to)
         {
             if (to.name == sceneName)
             {

@@ -13,13 +13,26 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class CostChestPlacement : MultiLocationPlacement, IContainerPlacement
+    public class CostChestPlacement : AbstractPlacement, IContainerPlacement
     {
-        public override AbstractLocation Location => chestLocation;
-        public override IEnumerable<AbstractLocation> SecondaryLocations => 
-            tabletLocation.Yield<AbstractLocation>();
+        public CostChestPlacement(string Name) : base(Name) { }
+
         public ContainerLocation chestLocation;
         public PlaceableLocation tabletLocation;
+
+        protected override void OnLoad()
+        {
+            chestLocation.Placement = tabletLocation.Placement = this;
+            chestLocation.Load();
+            tabletLocation.Load();
+        }
+
+        protected override void OnUnload()
+        {
+            chestLocation.Unload();
+            tabletLocation.Unload();
+        }
+
 
         public void AddItem(AbstractItem item, Cost cost)
         {

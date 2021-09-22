@@ -48,7 +48,7 @@ namespace ItemChanger.Util
             return self.stock.Any(g => ShopMenuItemAppears(g));
         }
 
-        public static void UnHookShops()
+        public static void UnhookShops()
         {
             On.ShopMenuStock.BuildItemList -= BuildItemList;
             On.ShopMenuStock.StockLeft -= StockLeft;
@@ -127,7 +127,7 @@ namespace ItemChanger.Util
             {
                 foreach (var t in mod.item.GetTags<Tags.IShopRemovalTag>())
                 {
-                    remove |= t.Remove();
+                    remove |= t.Remove;
                 }
             }
 
@@ -136,7 +136,7 @@ namespace ItemChanger.Util
             {
                 foreach (var t in mod.item.GetTags<Tags.IShopRequirementTag>())
                 {
-                    meetsRequirement &= t.MeetsRequirement();
+                    meetsRequirement &= t.MeetsRequirement;
                 }
             }
 

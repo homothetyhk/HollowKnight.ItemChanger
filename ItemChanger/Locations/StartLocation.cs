@@ -7,44 +7,48 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
-    public class StartLocation : AbstractLocation
+    public class StartLocation : AutoLocation
     {
-        [System.ComponentModel.DefaultValue(MessageType.Corner)]
-        public MessageType MessageType = MessageType.Corner;
+        public MessageType MessageType;
 
-        public override void OnLoad()
+        protected override void OnLoad()
         {
-            base.OnLoad();
+            On.GameManager.FinishedEnteringScene += OnFinishedEnteringScene;
         }
-        public override void OnNextSceneReady(Scene next)
+
+        protected override void OnUnload()
         {
-            base.OnNextSceneReady(next);
-            if (GameManager.instance?.IsGameplayScene() ?? false)
+            On.GameManager.FinishedEnteringScene -= OnFinishedEnteringScene;
+        }
+
+
+        private void OnFinishedEnteringScene(On.GameManager.orig_FinishedEnteringScene orig, GameManager self)
+        {
+            orig(self);
+            GiveItems();
+        }
+
+        private void GiveItems()
+        {
+            if (!Placement.AllObtained())
             {
-                WaitAndGive();
+                Placement.GiveAll(new GiveInfo
+                {
+                    MessageType = MessageType,
+                    Container = "Start",
+                    FlingType = flingType,
+                    Transform = null,
+                    Callback = null,
+                });
             }
         }
 
-        private void WaitAndGive()
-        {
-            if (GameManager.instance != null)
-            {
-                GameManager.instance.OnFinishedEnteringScene += GiveHook;
-            }
-            else Placement.GiveAll(MessageType);
-        }
-
-        private void GiveHook()
-        {
-            Placement.GiveAll(MessageType);
-            GameManager.instance.OnFinishedEnteringScene -= GiveHook;
-        }
 
         public override AbstractPlacement Wrap()
         {
-            return new Placements.StartPlacement
+            return new Placements.AutoPlacement(name)
             {
-                location = this,
+                Location = this,
             };
         }
     }

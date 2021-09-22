@@ -17,30 +17,30 @@ namespace ItemChanger.Locations.SpecialLocations
         public string objectName;
         public string fsmName;
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            if (fsm.gameObject.name == objectName && fsm.FsmName == fsmName)
-            {
-                Transform = fsm.transform;
+            Events.AddFsmEdit(sceneName, new(objectName, fsmName), EditCrystalShaman);
+        }
 
-                FsmState init = fsm.GetState("Init");
-                FsmState get = fsm.GetState("Get PlayerData 2");
-                FsmState callUI = fsm.GetState("Call UI Msg 2");
+        protected override void OnUnload()
+        {
+            Events.RemoveFsmEdit(sceneName, new(objectName, fsmName), EditCrystalShaman);
+        }
 
-                FsmStateAction check = new BoolTestMod(Placement.AllObtained, "BROKEN", null);
-                void Callback()
-                {
-                    fsm.SendEvent("GET ITEM MSG END");
-                }
+        private void EditCrystalShaman(PlayMakerFSM fsm)
+        {
+            FsmState init = fsm.GetState("Init");
+            FsmState get = fsm.GetState("Get PlayerData 2");
+            FsmState callUI = fsm.GetState("Call UI Msg 2");
 
-                FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
+            FsmStateAction check = new BoolTestMod(Placement.AllObtained, "BROKEN", null);
+            FsmStateAction give = new AsyncLambda(GiveAllAsync(fsm.transform), "GET ITEM MSG END");
 
-                init.RemoveActionsOfType<IntCompare>();
-                init.AddLastAction(check);
+            init.RemoveActionsOfType<IntCompare>();
+            init.AddLastAction(check);
 
-                get.Actions = new FsmStateAction[0];
-                callUI.Actions = new[] { give };
-            }
+            get.Actions = new FsmStateAction[0];
+            callUI.Actions = new[] { give };
         }
     }
 }

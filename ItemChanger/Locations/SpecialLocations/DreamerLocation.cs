@@ -18,6 +18,48 @@ namespace ItemChanger.Locations.SpecialLocations
         public string previousScene;
         public bool HintActive { get; set; } = true;
 
+        protected override void OnLoad()
+        {
+            base.OnLoad();
+            Events.AddFsmEdit(previousScene, new("Dream Enter", "FSM"), ReplaceCheck);
+            Events.AddFsmEdit(previousScene, new("Dream Enter", "destroy"), ReplaceCheck);
+            if (previousScene == SceneNames.Ruins2_Watcher_Room)
+            {
+                Events.AddFsmEdit(previousScene, new("Dreamer Lurien", "FSM"), ReplaceCheck);
+            }
+            else if (previousScene == SceneNames.Fungus3_archive_02)
+            {
+                Events.AddFsmEdit(previousScene, new("Monomon", "FSM"), ReplaceCheck);
+                Events.AddFsmEdit(previousScene, new("Inspect Region", "FSM"), ReplaceCheck);
+            }
+            else if (previousScene == SceneNames.Deepnest_Spider_Town)
+            {
+                Events.AddSceneChangeEdit(previousScene, HandleHerrahDeactivation);
+            }
+            Events.AddFsmEdit(previousScene, new("Dream Enter", "Control"), MakeHintBox);
+        }
+
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.RemoveFsmEdit(previousScene, new("Dream Enter", "FSM"), ReplaceCheck);
+            Events.RemoveFsmEdit(previousScene, new("Dream Enter", "destroy"), ReplaceCheck);
+            if (previousScene == SceneNames.Ruins2_Watcher_Room)
+            {
+                Events.RemoveFsmEdit(previousScene, new("Dreamer Lurien", "FSM"), ReplaceCheck);
+            }
+            else if (previousScene == SceneNames.Fungus3_archive_02)
+            {
+                Events.RemoveFsmEdit(previousScene, new("Monomon", "FSM"), ReplaceCheck);
+                Events.RemoveFsmEdit(previousScene, new("Inspect Region", "FSM"), ReplaceCheck);
+            }
+            else if (previousScene == SceneNames.Deepnest_Spider_Town)
+            {
+                Events.RemoveSceneChangeEdit(previousScene, HandleHerrahDeactivation);
+            }
+            Events.RemoveFsmEdit(previousScene, new("Dream Enter", "Control"), MakeHintBox);
+        }
+
         public override void PlaceContainer(GameObject obj, string containerType)
         {
             obj.GetOrAddComponent<ContainerInfo>().changeSceneInfo
@@ -25,58 +67,14 @@ namespace ItemChanger.Locations.SpecialLocations
             base.PlaceContainer(obj, containerType);
         }
 
-        public override void OnActiveSceneChanged(Scene from, Scene to)
+        private void HandleHerrahDeactivation(Scene to)
         {
-            base.OnActiveSceneChanged(from, to);
-            if (to.name == previousScene)
+            GameObject herrah = to.FindGameObject("Dreamer Hegemol");
+            if (herrah != null)
             {
-                switch (previousScene)
-                {
-                    case "Deepnest_Spider_Town":
-                        {
-                            GameObject herrah = ObjectLocation.FindGameObject("Dreamer Hegemol");
-                            if (herrah != null)
-                            {
-                                GameObject.Destroy(herrah.GetComponent<DeactivateIfPlayerdataTrue>());
-                                if (Placement.AllObtained()) herrah.SetActive(false);
-                                else herrah.SetActive(true);
-                            }
-                        }
-                        break;
-                }
-            }
-        }
-
-        public override void OnEnableGlobal(PlayMakerFSM fsm)
-        {
-            base.OnEnableGlobal(fsm);
-            if (fsm.gameObject.scene.name == previousScene)
-            {
-                if (fsm.FsmName == "FSM")
-                {
-                    switch (fsm.gameObject.name)
-                    {
-                        case "Inspect Region" when previousScene == SceneNames.Fungus3_archive_02:
-                        case "Dreamer Lurien":
-                        case "Monomon":
-                        //case "Dreamer Hegemol":
-                        case "Dream Enter":
-                            {
-                                ReplaceCheck(fsm);
-                            }
-                            break;
-                    }
-                }
-
-                if (fsm.FsmName == "destroy" && fsm.gameObject.name == "Dream Enter")
-                {
-                    ReplaceCheck(fsm);
-                }
-
-                if (HintActive && fsm.gameObject.name == "Dream Enter" && fsm.FsmName == "Control")
-                {
-                    HintBox.Create(fsm.transform, Placement); // TODO: Check position in each scene, especially for Monomon
-                }
+                GameObject.Destroy(herrah.GetComponent<DeactivateIfPlayerdataTrue>());
+                if (Placement.AllObtained()) herrah.SetActive(false);
+                else herrah.SetActive(true);
             }
         }
 
@@ -87,6 +85,11 @@ namespace ItemChanger.Locations.SpecialLocations
             {
                 check.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
             }
+        }
+
+        private void MakeHintBox(PlayMakerFSM fsm)
+        {
+            if (HintActive) HintBox.Create(fsm.transform, Placement); // TODO: Check position in each scene, especially for Monomon
         }
     }
 }

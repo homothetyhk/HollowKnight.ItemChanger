@@ -18,62 +18,45 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         [System.ComponentModel.DefaultValue(true)]
         public bool HintActive { get; set; } = true;
-        public bool preOpenTrial = true;
 
-        public override void OnLoad()
+        protected override void OnLoad()
         {
             base.OnLoad();
-            if (preOpenTrial)
-            {
-                PlayerData.instance.SetBool(GetOpenBoolName(), true);
-            }
+            Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
+            Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
+            Events.OnLanguageGet += OnLanguageGet;
         }
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnUnload()
         {
-            base.OnEnableLocal(fsm);
-            switch (fsm.FsmName)
-            {
-                // For testing only! Skip to end after first wave.
-                case "Battle Control" when fsm.gameObject.name == "Colosseum Manager":
-                    {
-                        FsmState wave1 = fsm.GetState("Wave 1");
-                        wave1.ClearTransitions();
-                        wave1.AddTransition("WAVE END", "End");
-                    }
-                    break;
-
-                case "Geo Pool" when fsm.gameObject.name == "Colosseum Manager":
-                    {
-                        FsmState openGates = fsm.GetState("Open Gates");
-                        openGates.AddFirstAction(new Lambda(SetCompletionBool));
-                        FsmState giveShiny = fsm.GetState("Give Shiny?");
-                        giveShiny.Actions = new[]
-                        {
-                            giveShiny.Actions[0], // CROWD IDLE
-                            // giveShiny.Actions[1], // bool test on FsmBool Shiny Item
-                            new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)giveShiny.Actions[2]),
-                            // giveShiny.Actions[3], // find child
-                            giveShiny.Actions[4], // activate Shiny Obj
-                        };
-                        giveShiny.AddTransition("FINISHED", "Geo Given Pause");
-                    }
-                    break;
-            }
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
+            Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
+            Events.OnLanguageGet -= OnLanguageGet;
         }
 
-        private string GetOpenBoolName()
+        private void SkipColoForTesting(PlayMakerFSM fsm)
         {
-            switch (sceneName)
+            // For testing only! Skip to end after first wave.
+            FsmState wave1 = fsm.GetState("Wave 1");
+            wave1.ClearTransitions();
+            wave1.AddTransition("WAVE END", "End");
+        }
+
+        private void ChangeColoEnd(PlayMakerFSM fsm)
+        {
+            FsmState openGates = fsm.GetState("Open Gates");
+            openGates.AddFirstAction(new Lambda(SetCompletionBool));
+            FsmState giveShiny = fsm.GetState("Give Shiny?");
+            giveShiny.Actions = new[]
             {
-                default:
-                case SceneNames.Room_Colosseum_Bronze:
-                    return nameof(PlayerData.colosseumBronzeOpened);
-                case SceneNames.Room_Colosseum_Silver:
-                    return nameof(PlayerData.colosseumSilverOpened);
-                case SceneNames.Room_Colosseum_Gold:
-                    return nameof(PlayerData.colosseumGoldOpened);
-            }
+                giveShiny.Actions[0], // CROWD IDLE
+                // giveShiny.Actions[1], // bool test on FsmBool Shiny Item
+                new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)giveShiny.Actions[2]),
+                // giveShiny.Actions[3], // find child
+                giveShiny.Actions[4], // activate Shiny Obj
+            };
+            giveShiny.AddTransition("FINISHED", "Geo Given Pause");
         }
 
         private void SetCompletionBool()
@@ -153,7 +136,7 @@ namespace ItemChanger.Locations.SpecialLocations
             return sb.ToString();
         }
 
-        public override void OnLanguageGet(LanguageGetArgs args)
+        private void OnLanguageGet(LanguageGetArgs args)
         {
             if (args.convo == GetTrialBoardConvo() && args.sheet == "Prompts")
             {

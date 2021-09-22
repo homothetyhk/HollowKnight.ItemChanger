@@ -19,14 +19,20 @@ namespace ItemChanger.Locations
         public string objectName;
         public float elevation;
 
-        public override void OnActiveSceneChanged(Scene from, Scene to)
+        protected override void OnLoad()
         {
-            base.OnActiveSceneChanged(from, to);
-            if (to.name == sceneName)
-            {
-                base.GetContainer(out GameObject obj, out string containerType);
-                PlaceContainer(obj, containerType);
-            }
+            Events.AddSceneChangeEdit(sceneName, OnActiveSceneChanged);
+        }
+
+        protected override void OnUnload()
+        {
+            Events.RemoveSceneChangeEdit(sceneName, OnActiveSceneChanged);
+        }
+
+        public virtual void OnActiveSceneChanged(Scene to)
+        {
+            base.GetContainer(out GameObject obj, out string containerType);
+            PlaceContainer(obj, containerType);
         }
 
         public virtual void PlaceContainer(GameObject obj, string containerType)

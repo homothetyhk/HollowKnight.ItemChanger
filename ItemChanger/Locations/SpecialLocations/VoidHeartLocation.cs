@@ -17,52 +17,47 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public bool HintActive { get; set; } = true;
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            base.OnEnableLocal(fsm);
-            switch (fsm.gameObject.name)
-            {
-                case "End Cutscene" when fsm.FsmName == "Control":
-                    {
-                        FsmState charmPause = fsm.GetState("Charm Pause");
-                        FsmState charmGet = fsm.GetState("Charm Get");
-                        FsmState removeOvercharm = fsm.GetState("Remove Overcharm");
-                        FsmState getMsg = fsm.GetState("Get Msg");
-
-                        FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
-
-                        charmPause.Actions = new FsmStateAction[0];
-                        charmGet.Actions = new FsmStateAction[0];
-                        removeOvercharm.Actions = new FsmStateAction[0];
-                        getMsg.Actions = new[] { give };
-                    }
-                    break;
-            }
+            Events.AddFsmEdit(sceneName, new("End Cutscene", "Control"), EditEndCutscene);
+            Events.AddFsmEdit(SceneNames.Abyss_15, new("Mirror", "FSM"), EditMirror);
+            Events.AddFsmEdit(SceneNames.Abyss_15, new("Dream Enter Abyss", "Control"), EditDreamEnter);
         }
 
-        public override void OnEnableGlobal(PlayMakerFSM fsm)
+        protected override void OnUnload()
         {
-            base.OnEnableGlobal(fsm);
-            if (fsm.gameObject.scene.name == "Abyss_15")
-            {
-                switch (fsm.gameObject.name)
-                {
-                    case "Dream Enter Abyss" when fsm.FsmName == "Control":
-                        {
-                            FsmState init = fsm.GetState("Init");
-                            init.Actions = new[] { init.Actions[0], new BoolTestMod(Placement.AllObtained, "INACTIVE", null) };
-                        }
-                        break;
-                    case "Mirror" when fsm.FsmName == "FSM":
-                        {
-                            if (HintActive) HintBox.Create(fsm.transform, Placement); // TODO: test ingame to see if this extends far enough
+            Events.RemoveFsmEdit(sceneName, new("End Cutscene", "Control"), EditEndCutscene);
+            Events.RemoveFsmEdit(SceneNames.Abyss_15, new("Mirror", "FSM"), EditMirror);
+            Events.RemoveFsmEdit(SceneNames.Abyss_15, new("Dream Enter Abyss", "Control"), EditDreamEnter);
+        }
 
-                            FsmState check = fsm.GetState("Check");
-                            check.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
-                        }
-                        break;
-                }
-            }
+        private void EditEndCutscene(PlayMakerFSM fsm)
+        {
+            FsmState charmPause = fsm.GetState("Charm Pause");
+            FsmState charmGet = fsm.GetState("Charm Get");
+            FsmState removeOvercharm = fsm.GetState("Remove Overcharm");
+            FsmState getMsg = fsm.GetState("Get Msg");
+
+            FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
+
+            charmPause.Actions = new FsmStateAction[0];
+            charmGet.Actions = new FsmStateAction[0];
+            removeOvercharm.Actions = new FsmStateAction[0];
+            getMsg.Actions = new[] { give };
+        }
+
+        private void EditDreamEnter(PlayMakerFSM fsm)
+        {
+            FsmState init = fsm.GetState("Init");
+            init.Actions = new[] { init.Actions[0], new BoolTestMod(Placement.AllObtained, "INACTIVE", null) };
+        }
+
+        private void EditMirror(PlayMakerFSM fsm)
+        {
+            if (HintActive) HintBox.Create(fsm.transform, Placement); // TODO: test ingame to see if this extends far enough
+
+            FsmState check = fsm.GetState("Check");
+            check.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
         }
     }
 }

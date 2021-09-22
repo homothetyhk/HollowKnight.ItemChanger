@@ -16,7 +16,6 @@ namespace ItemChanger.Locations
         {
             return new GiveInfo
             {
-                Transform = Transform,
                 FlingType = flingType,
                 Callback = null,
                 Container = Container.Unknown,
@@ -29,6 +28,13 @@ namespace ItemChanger.Locations
             Placement.GiveAll(GetGiveInfo());
         }
 
+        public Action<Action> GiveAllAsync(Transform t)
+        {
+            GiveInfo gi = GetGiveInfo();
+            gi.Transform = t;
+            return (callback) => Placement.GiveAll(gi, callback);
+        }
+
         public void GiveAll(Action callback)
         {
             Placement.GiveAll(GetGiveInfo(), callback);
@@ -37,9 +43,9 @@ namespace ItemChanger.Locations
 
         public override AbstractPlacement Wrap()
         {
-            return new Placements.AutoPlacement
+            return new Placements.AutoPlacement(name)
             {
-                location = this,
+                Location = this,
             };
         }
 

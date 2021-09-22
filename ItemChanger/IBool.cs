@@ -11,6 +11,12 @@ namespace ItemChanger
         IBool Clone();
     }
 
+    public class BoxedBool : IBool
+    {
+        public bool Value { get; set; }
+        public IBool Clone() => (IBool)MemberwiseClone();
+    }
+
     public class PDBool : IBool
     {
         public string boolName;

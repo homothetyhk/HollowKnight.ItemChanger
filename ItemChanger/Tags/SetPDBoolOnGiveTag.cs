@@ -5,11 +5,23 @@ using System.Text;
 
 namespace ItemChanger.Tags
 {
-    public class SetPDBoolOnGiveTag : Tag, IGiveEffectTag
+    public class SetPDBoolOnGiveTag : Tag
     {
         public string fieldName;
         [System.ComponentModel.DefaultValue(true)]
         public bool setValue = true;
+
+        public override void Load(object parent)
+        {
+            AbstractItem item = (AbstractItem)parent;
+            item.OnGive += OnGive;
+        }
+
+        public override void Unload(object parent)
+        {
+            AbstractItem item = (AbstractItem)parent;
+            item.OnGive -= OnGive;
+        }
 
         public void OnGive(ReadOnlyGiveEventArgs args)
         {

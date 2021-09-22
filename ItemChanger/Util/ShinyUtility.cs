@@ -17,7 +17,8 @@ namespace ItemChanger.Util
 {
     public static class ShinyUtility
     {
-        [Obsolete("Uses which depend on naming to identify shiny should be removed.")]
+        public static readonly Color WasEverObtainedColor = new(1f, 213f / 255f, 0.5f);
+
         /// <summary>
         /// Makes a Shiny Item with a name tied to location and item index. Apply FSM edits in OnEnable instead.
         /// </summary>
@@ -33,6 +34,7 @@ namespace ItemChanger.Util
                 items = item.Yield(),
                 flingType = flingType,
             };
+            if (item.WasEverObtained()) shiny.GetComponent<SpriteRenderer>().color = WasEverObtainedColor;
 
             return shiny;
         }
@@ -58,6 +60,8 @@ namespace ItemChanger.Util
                     previewItems = items,
                 };
             }
+
+            if (items.All(i => i.WasEverObtained())) shiny.GetComponent<SpriteRenderer>().color = WasEverObtainedColor;
 
             return shiny;
         }
@@ -88,7 +92,7 @@ namespace ItemChanger.Util
         {
             shiny.SetActive(false);
             shiny.transform.SetParent(container.transform);
-            shiny.transform.position = container.transform.position;
+            shiny.transform.position = new(container.transform.position.x, container.transform.position.y, 0);
         }
 
         public static void FlingShinyRandomly(PlayMakerFSM shinyFsm)
@@ -179,6 +183,7 @@ namespace ItemChanger.Util
 
         public static void ModifyMultiShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
+            FsmState init = shinyFsm.GetState("Init");
             FsmState pdBool = shinyFsm.GetState("PD Bool?");
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
@@ -194,10 +199,10 @@ namespace ItemChanger.Util
             FsmStateAction giveAction = new Lambda(() => ItemUtility.GiveSequentially(items, placement, info, callback: () => shinyFsm.SendEvent("GAVE ITEM")));
 
             // Remove actions that stop shiny from spawning
-            pdBool.RemoveActionsOfType<StringCompare>();
+            init.RemoveActionsOfType<BoolTest>();
+            pdBool.ClearActions();
 
             // Change pd bool test to our new bool
-            pdBool.RemoveActionsOfType<PlayerDataBoolTest>();
             pdBool.AddLastAction(checkAction);
 
             // Charm must be preserved as the entry point for AddYNDialogueToShiny

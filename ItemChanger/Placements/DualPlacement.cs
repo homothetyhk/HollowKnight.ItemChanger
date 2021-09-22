@@ -9,6 +9,8 @@ namespace ItemChanger.Placements
 {
     public class DualPlacement : AbstractPlacement, IContainerPlacement
     {
+        public DualPlacement(string Name) : base(Name) { }
+
         public AbstractLocation trueLocation;
         public AbstractLocation falseLocation;
 
@@ -18,21 +20,33 @@ namespace ItemChanger.Placements
         public string containerType = Container.Unknown;
         public override string MainContainerType => containerType;
 
-        public override AbstractLocation Location => cachedValue ? trueLocation : falseLocation;
-
+        [Newtonsoft.Json.JsonIgnore]
+        public AbstractLocation Location => cachedValue ? trueLocation : falseLocation;
         
-        public override void OnLoad()
+        protected override void OnLoad()
         {
             cachedValue = Test.Value;
             trueLocation.Placement = this;
             falseLocation.Placement = this;
-            base.OnLoad();
+            Location.Load();
+            Events.OnBeginSceneTransition += OnBeginSceneTransition;
         }
 
-        public override void OnSceneFetched(Scene target)
+        protected override void OnUnload()
         {
-            cachedValue = Test.Value;
-            base.OnSceneFetched(target);
+            Location.Unload();
+            Events.OnBeginSceneTransition -= OnBeginSceneTransition;
+        }
+
+        private void OnBeginSceneTransition(Transition obj)
+        {
+            bool value = Test.Value;
+            if (cachedValue != value)
+            {
+                Location.Unload();
+                cachedValue = value;
+                Location.Load();
+            }
         }
 
         // MutablePlacement implementation of GetContainer

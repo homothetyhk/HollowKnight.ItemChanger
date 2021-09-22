@@ -107,6 +107,7 @@ namespace ItemChanger.Util
             activate.AddFirstAction(new Lambda(() =>
                 {
                     itemParent.transform.SetParent(null);
+                    jar.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
                 }));
 
             activate.GetFirstActionOfType<DestroyAllChildren>().gameObject.Value = jar; // the target is null otherwise for some reason??

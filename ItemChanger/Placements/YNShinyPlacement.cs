@@ -11,14 +11,21 @@ namespace ItemChanger.Placements
 {
     public class YNShinyPlacement : AbstractPlacement, IContainerPlacement, ISingleCostPlacement
     {
-        public ContainerLocation location;
-        public override AbstractLocation Location => location;
+        public YNShinyPlacement(string Name) : base(Name) { }
+
+        public ContainerLocation Location;
 
         public Cost Cost { get; set; }
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            base.OnEnableLocal(fsm);
+            Location.Placement = this;
+            Location.Load();
+        }
+
+        protected override void OnUnload()
+        {
+            Location.Unload();
         }
 
         public void AddItemWithCost(AbstractItem item, Cost cost)

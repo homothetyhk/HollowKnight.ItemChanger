@@ -14,20 +14,28 @@ namespace ItemChanger.Locations.SpecialLocations
         [System.ComponentModel.DefaultValue(true)]
         public bool HintActive { get; set; } = true;
 
+        protected override void OnLoad()
+        {
+            On.DreamPlant.Awake += DreamPlant_Awake;
+            On.DreamPlant.Start += DreamPlant_Start;
+            On.DreamPlant.CheckOrbs += DreamPlant_CheckOrbs;
+            On.DreamPlant.OnTriggerEnter2D += DreamPlant_OnTriggerEnter2D;
+        }
+
+        protected override void OnUnload()
+        {
+            On.DreamPlant.Awake -= DreamPlant_Awake;
+            On.DreamPlant.Start -= DreamPlant_Start;
+            On.DreamPlant.CheckOrbs -= DreamPlant_CheckOrbs;
+            On.DreamPlant.OnTriggerEnter2D += DreamPlant_OnTriggerEnter2D;
+        }
+
+
         public override GiveInfo GetGiveInfo()
         {
             var info = base.GetGiveInfo();
             info.MessageType = MessageType.Corner;
             return info;
-        }
-
-        public override void OnLoad()
-        {
-            base.OnLoad();
-            On.DreamPlant.Awake += DreamPlant_Awake;
-            On.DreamPlant.Start += DreamPlant_Start;
-            On.DreamPlant.CheckOrbs += DreamPlant_CheckOrbs;
-            On.DreamPlant.OnTriggerEnter2D += DreamPlant_OnTriggerEnter2D;
         }
 
         private void DreamPlant_OnTriggerEnter2D(On.DreamPlant.orig_OnTriggerEnter2D orig, DreamPlant self, Collider2D collision)
@@ -40,14 +48,6 @@ namespace ItemChanger.Locations.SpecialLocations
             }
         }
 
-        public override void OnUnload()
-        {
-            base.OnUnload();
-            On.DreamPlant.Awake -= DreamPlant_Awake;
-            On.DreamPlant.Start -= DreamPlant_Start;
-            On.DreamPlant.CheckOrbs -= DreamPlant_CheckOrbs;
-        }
-
 
         private System.Collections.IEnumerator DreamPlant_CheckOrbs(On.DreamPlant.orig_CheckOrbs orig, DreamPlant self)
         {
@@ -55,7 +55,13 @@ namespace ItemChanger.Locations.SpecialLocations
 
             if (self.gameObject.scene.name == sceneName)
             {
-                Placement.GiveAll();
+                Placement.GiveAll(new GiveInfo 
+                {
+                    Transform = HeroController.instance.transform,
+                    FlingType = flingType,
+                    Container = "WhisperingRoot",
+                    MessageType = MessageType.Corner,
+                });
             }
         }
 

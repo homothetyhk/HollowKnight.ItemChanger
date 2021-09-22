@@ -17,102 +17,57 @@ namespace ItemChanger.Placements
     /// </summary>
     public class MutablePlacement : AbstractPlacement, IContainerPlacement
     {
-        public ContainerLocation location;
-        public override AbstractLocation Location => location;
+        public MutablePlacement(string Name) : base(Name) { }
+
+        public ContainerLocation Location;
 
         public override string MainContainerType => containerType;
         public string containerType = Container.Unknown;
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnLoad()
         {
-            base.OnEnableLocal(fsm);
-            switch (fsm.FsmName)
+            Location.Placement = this;
+            Location.Load();
+        }
+
+        protected override void OnUnload()
+        {
+            Location.Unload();
+        }
+
+        private void SetShinyFling(PlayMakerFSM fsm)
+        {
+            if (fsm.gameObject.name == ShinyUtility.GetShinyPrefix(this))
             {
-                // Multi Shiny
-                case "Shiny Control" when ShinyUtility.GetShinyPrefix(this) == fsm.gameObject.name:
-                    ShinyUtility.FlingShinyDown(fsm);
-                    fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-                    break;
-                // Shiny
-                case "Shiny Control" when ShinyUtility.TryGetItemFromShinyName(fsm.gameObject.name, this, out _):
-                    switch (containerType)
-                    {
-                        // Leave at location
-                        case Container.Shiny:
-                            ShinyUtility.FlingShinyDown(fsm);
-                            fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-                            break;
-
-                        // Fling from location
-                        case Container.Chest:
-                        case Container.GeoRock:
-                        case Container.GrubJar:
-                        default:
-                            if (!CheckVisitedAny(VisitState.Opened) && location.flingType == FlingType.Everywhere)
-                            {
-                                ShinyUtility.FlingShinyRandomly(fsm);
-                            }
-                            else
-                            {
-                                ShinyUtility.FlingShinyDown(fsm);
-                            }
-                            fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-                            break;
-                    }
-                    break;
-                    /*
-                    // Geo Rock
-                    case "Geo Rock" when fsm.gameObject.name == GeoRockUtility.GetGeoRockName(this):
-                        GeoRockUtility.ModifyGeoRock(fsm, location.flingType, this, Items);
-                        break;
-
-                    // Grub Jar
-                    case "Bottle Control" when fsm.gameObject.name == GrubJarUtility.GetGrubJarName(this):
-                        GrubJarUtility.ModifyBottleFsm(fsm, location.flingType, this, Items);
-                        break;
-
-                    // Chest
-                    case "Chest Control" when fsm.gameObject.name == ChestUtility.GetChestName(this):
-                        ChestUtility.ModifyChest(fsm, location.flingType, this, Items);
-                        break;
-
-                    // Multi Shiny
-                    case "Shiny Control" when ShinyUtility.GetShinyPrefix(this) == fsm.gameObject.name:
-                        ShinyUtility.ModifyMultiShiny(fsm, location.flingType, this, Items);
+                ShinyUtility.FlingShinyDown(fsm);
+                fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
+            }
+            else if (ShinyUtility.TryGetItemFromShinyName(fsm.gameObject.name, this, out _))
+            {
+                switch (containerType)
+                {
+                    // Leave at location
+                    case Container.Shiny:
                         ShinyUtility.FlingShinyDown(fsm);
                         fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
                         break;
 
-                    // Shiny
-                    case "Shiny Control" when ShinyUtility.TryGetItemFromShinyName(fsm.gameObject.name, this, out item):
-                        switch (container)
+                    // Fling from location
+                    case Container.Chest:
+                    case Container.GeoRock:
+                    case Container.GrubJar:
+                    default:
+                        if (!CheckVisitedAny(VisitState.Opened) && Location.flingType == FlingType.Everywhere)
                         {
-                            // Leave at location
-                            case Container.Shiny:
-                                ShinyUtility.ModifyShiny(fsm, location.flingType, this, item);
-                                ShinyUtility.FlingShinyDown(fsm);
-                                fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-                                break;
-
-                            // Fling from location
-                            case Container.Chest:
-                            case Container.GeoRock:
-                            case Container.GrubJar:
-                            default:
-                                ShinyUtility.ModifyShiny(fsm, location.flingType, this, item);
-                                if (!CheckVisited() && location.flingType == FlingType.Everywhere)
-                                {
-                                    ShinyUtility.FlingShinyRandomly(fsm);
-                                }
-                                else
-                                {
-                                    ShinyUtility.FlingShinyDown(fsm);
-                                }
-                                fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-                                break;
+                            ShinyUtility.FlingShinyRandomly(fsm);
                         }
+                        else
+                        {
+                            ShinyUtility.FlingShinyDown(fsm);
+                        }
+                        fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
                         break;
-                    */
+                }
             }
         }
 
@@ -150,18 +105,6 @@ namespace ItemChanger.Placements
             }
 
             return containerType;
-        }
-
-        public override void OnLoad()
-        {
-            base.OnLoad();
-            location.OnLoad();
-        }
-
-        public override void OnUnload()
-        {
-            base.OnUnload();
-            location.OnUnload();
         }
     }
 }

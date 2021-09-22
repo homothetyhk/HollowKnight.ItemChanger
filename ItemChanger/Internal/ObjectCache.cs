@@ -23,26 +23,20 @@ namespace ItemChanger.Internal
                 (SceneNames.Tutorial_01, "_Props/Geo Rock 1"),
                 (SceneNames.Cliffs_02, "Soul Totem 5"),
                 (SceneNames.Ruins_House_01, "Grub Bottle"),
+                (SceneNames.Abyss_19, "Geo Rock Abyss"),
+                (SceneNames.Ruins2_05, "Geo Rock City 1"),
+                (SceneNames.Deepnest_02, "Geo Rock Deepnest"),
+                (SceneNames.Fungus2_11, "Geo Rock Fung 01"),
+                (SceneNames.Fungus2_11, "Geo Rock Fung 02"),
+                (SceneNames.RestingGrounds_10, "Geo Rock Grave 01"),
+                (SceneNames.RestingGrounds_10, "Geo Rock Grave 02"),
+                (SceneNames.Fungus1_12, "Geo Rock Green Path 01"),
+                (SceneNames.Fungus1_12, "Geo Rock Green Path 02"),
+                (SceneNames.Hive_01, "Geo Rock Hive"),
+                (SceneNames.Mines_20, "Geo Rock Mine (4)"),
+                (SceneNames.Deepnest_East_17, "Geo Rock Outskirts"),
+                (SceneNames.Deepnest_East_17, "Giant Geo Egg"),
             };
-            if (!ItemChangerMod.GS.ReducePreloads)
-            {
-                preloads.AddRange(new List<(string, string)>
-                {
-                    (SceneNames.Abyss_19, "Geo Rock Abyss"),
-                    (SceneNames.Ruins2_05, "Geo Rock City 1"),
-                    (SceneNames.Deepnest_02, "Geo Rock Deepnest"),
-                    (SceneNames.Fungus2_11, "Geo Rock Fung 01"),
-                    (SceneNames.Fungus2_11, "Geo Rock Fung 02"),
-                    (SceneNames.RestingGrounds_10, "Geo Rock Grave 01"),
-                    (SceneNames.RestingGrounds_10, "Geo Rock Grave 02"),
-                    (SceneNames.Fungus1_12, "Geo Rock Green Path 01"),
-                    (SceneNames.Fungus1_12, "Geo Rock Green Path 02"),
-                    (SceneNames.Hive_01, "Geo Rock Hive"),
-                    (SceneNames.Mines_20, "Geo Rock Mine (4)"),
-                    (SceneNames.Deepnest_East_17, "Geo Rock Outskirts"),
-                    (SceneNames.Deepnest_East_17, "Giant Geo Egg")
-                });
-            }
             return preloads;
         }
 
@@ -129,33 +123,23 @@ namespace ItemChanger.Internal
             UnityEngine.Object.DontDestroyOnLoad(LoreSound);
             UnityEngine.Object.DontDestroyOnLoad(_loreTablet);
 
-            if (ItemChangerMod.GS.ReducePreloads)
+            _geoRocks = new Dictionary<GeoRockSubtype, GameObject>()
             {
-                _geoRocks = new Dictionary<GeoRockSubtype, GameObject>()
-                {
-                    [GeoRockSubtype.Default] = objectsByScene[SceneNames.Tutorial_01]["_Props/Geo Rock 1"],
-                };
-            }
-            else
-            {
-                _geoRocks = new Dictionary<GeoRockSubtype, GameObject>()
-                {
-                    [GeoRockSubtype.Default] = objectsByScene[SceneNames.Tutorial_01]["_Props/Geo Rock 1"],
-                    [GeoRockSubtype.Abyss] = objectsByScene[SceneNames.Abyss_19]["Geo Rock Abyss"],
-                    [GeoRockSubtype.City] = objectsByScene[SceneNames.Ruins2_05]["Geo Rock City 1"],
-                    [GeoRockSubtype.Deepnest] = objectsByScene[SceneNames.Deepnest_02]["Geo Rock Deepnest"],
-                    [GeoRockSubtype.Fung01] = objectsByScene[SceneNames.Fungus2_11]["Geo Rock Fung 01"],
-                    [GeoRockSubtype.Fung02] = objectsByScene[SceneNames.Fungus2_11]["Geo Rock Fung 02"],
-                    [GeoRockSubtype.Grave01] = objectsByScene[SceneNames.RestingGrounds_10]["Geo Rock Grave 01"],
-                    [GeoRockSubtype.Grave02] = objectsByScene[SceneNames.RestingGrounds_10]["Geo Rock Grave 02"],
-                    [GeoRockSubtype.GreenPath01] = objectsByScene[SceneNames.Fungus1_12]["Geo Rock Green Path 01"],
-                    [GeoRockSubtype.GreenPath02] = objectsByScene[SceneNames.Fungus1_12]["Geo Rock Green Path 02"],
-                    [GeoRockSubtype.Hive] = objectsByScene[SceneNames.Hive_01]["Geo Rock Hive"],
-                    [GeoRockSubtype.Mine] = objectsByScene[SceneNames.Mines_20]["Geo Rock Mine (4)"],
-                    [GeoRockSubtype.Outskirts] = objectsByScene[SceneNames.Deepnest_East_17]["Geo Rock Outskirts"],
-                    [GeoRockSubtype.Outskirts420] = objectsByScene[SceneNames.Deepnest_East_17]["Giant Geo Egg"]
-                };
-            }
+                [GeoRockSubtype.Default] = objectsByScene[SceneNames.Tutorial_01]["_Props/Geo Rock 1"],
+                [GeoRockSubtype.Abyss] = objectsByScene[SceneNames.Abyss_19]["Geo Rock Abyss"],
+                [GeoRockSubtype.City] = objectsByScene[SceneNames.Ruins2_05]["Geo Rock City 1"],
+                [GeoRockSubtype.Deepnest] = objectsByScene[SceneNames.Deepnest_02]["Geo Rock Deepnest"],
+                [GeoRockSubtype.Fung01] = objectsByScene[SceneNames.Fungus2_11]["Geo Rock Fung 01"],
+                [GeoRockSubtype.Fung02] = objectsByScene[SceneNames.Fungus2_11]["Geo Rock Fung 02"],
+                [GeoRockSubtype.Grave01] = objectsByScene[SceneNames.RestingGrounds_10]["Geo Rock Grave 01"],
+                [GeoRockSubtype.Grave02] = objectsByScene[SceneNames.RestingGrounds_10]["Geo Rock Grave 02"],
+                [GeoRockSubtype.GreenPath01] = objectsByScene[SceneNames.Fungus1_12]["Geo Rock Green Path 01"],
+                [GeoRockSubtype.GreenPath02] = objectsByScene[SceneNames.Fungus1_12]["Geo Rock Green Path 02"],
+                [GeoRockSubtype.Hive] = objectsByScene[SceneNames.Hive_01]["Geo Rock Hive"],
+                [GeoRockSubtype.Mine] = objectsByScene[SceneNames.Mines_20]["Geo Rock Mine (4)"],
+                [GeoRockSubtype.Outskirts] = objectsByScene[SceneNames.Deepnest_East_17]["Geo Rock Outskirts"],
+                [GeoRockSubtype.Outskirts420] = objectsByScene[SceneNames.Deepnest_East_17]["Giant Geo Egg"]
+            };
 
             foreach (var entry in _geoRocks)
             {

@@ -17,41 +17,39 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public bool HintActive { get; set; }
 
-        public override void PlaceContainer(GameObject obj, string containerType)
+        protected override void OnLoad()
         {
-            base.PlaceContainer(obj, containerType);
-            GameObject xun = ObjectLocation.FindGameObject("Xun NPC");
-            if (xun != null)
-            {
-                xun.LocateFSM("Conversation Control").FsmVariables.FindFsmGameObject("Heart Piece").Value = obj;
-            }
+            base.OnLoad();
+            Events.AddFsmEdit(sceneName, new("Xun NPC", "Conversation Control"), EditXunConvo);
+            Events.AddFsmEdit(sceneName, new("Heart Piece Folder", "Activate"), EditHeartPieceActivate);
+            Events.OnLanguageGet += OnLanguageGet;
         }
 
-        public override void OnEnableLocal(PlayMakerFSM fsm)
+        protected override void OnUnload()
         {
-            base.OnEnableLocal(fsm);
-            switch (fsm.FsmName)
-            {
-                case "Conversation Control" when fsm.gameObject.name == "Xun NPC":
-                    {
-                        FsmState init = fsm.GetState("Init");
-                        init.Actions = init.Actions.Where(a => !(a is FindChild fc) || fc.childName.Value != "Heart Piece").ToArray();
-
-                        FsmState crumble = fsm.GetState("Crumble");
-                        crumble.RemoveActionsOfType<SetFsmGameObject>();
-                    }
-                    break;
-                case "Activate" when fsm.gameObject.name == "Heart Piece Folder":
-                    {
-                        FsmState activate = fsm.GetState("Activate");
-                        activate.RemoveActionsOfType<FindChild>();
-                        activate.RemoveActionsOfType<SetFsmBool>();
-                    }
-                    break;
-            }
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new("Xun NPC", "Conversation Control"), EditXunConvo);
+            Events.RemoveFsmEdit(sceneName, new("Heart Piece Folder", "Activate"), EditHeartPieceActivate);
+            Events.OnLanguageGet -= OnLanguageGet;
         }
 
-        public override void OnLanguageGet(LanguageGetArgs args)
+        private void EditXunConvo(PlayMakerFSM fsm)
+        {
+            FsmState init = fsm.GetState("Init");
+            init.Actions = init.Actions.Where(a => !(a is FindChild fc) || fc.childName.Value != "Heart Piece").ToArray();
+
+            FsmState crumble = fsm.GetState("Crumble");
+            crumble.RemoveActionsOfType<SetFsmGameObject>();
+        }
+
+        private void EditHeartPieceActivate(PlayMakerFSM fsm)
+        {
+            FsmState activate = fsm.GetState("Activate");
+            activate.RemoveActionsOfType<FindChild>();
+            activate.RemoveActionsOfType<SetFsmBool>();
+        }
+
+        private void OnLanguageGet(LanguageGetArgs args)
         {
             if (HintActive && args.sheet == "Prompts" && args.convo == "XUN_OFFER")
             {

@@ -41,7 +41,7 @@ namespace ItemChanger.Internal
         {
             PlayMakerFSM.BroadcastEvent("LORE PROMPT UP");
             PlayLoreSound();
-            yield return new WaitForSeconds(0.85f);
+            yield return new WaitForSeconds(0.5f); // orig: 0.85f
 
             DialogueText.LocateFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = null;
             DialogueText.transform.localPosition = new Vector3(0, 2.44f, 0);
@@ -54,7 +54,7 @@ namespace ItemChanger.Internal
             yield return new WaitUntil(ConvoEnded);
 
             PlayMakerFSM.BroadcastEvent("LORE PROMPT DOWN");
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.15f); // orig: 0.5f
 
             callback?.Invoke();
 
@@ -67,7 +67,7 @@ namespace ItemChanger.Internal
         public static IEnumerator LoreCoroutine(string text, Action callback)
         {
             BoxOpenFsm.Fsm.Event("BOX UP");
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.15f); // orig: 0.3f
 
             DialogueText.LocateFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = null;
             DialogueText.GetComponent<TextMeshPro>().alignment = TextAlignmentOptions.Top;
@@ -77,7 +77,7 @@ namespace ItemChanger.Internal
             yield return new WaitUntil(ConvoEnded);
 
             BoxOpenFsm.Fsm.Event("BOX DOWN");
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.15f); // orig: 0.5f
 
             callback?.Invoke();
 
@@ -87,7 +87,7 @@ namespace ItemChanger.Internal
         public static IEnumerator LeftLoreCoroutine(string text, Action callback)
         {
             BoxOpenFsm.Fsm.Event("BOX UP");
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.15f); // orig: 0.3f
 
             DialogueText.LocateFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = null;
 
@@ -96,7 +96,7 @@ namespace ItemChanger.Internal
             yield return new WaitUntil(ConvoEnded);
 
             BoxOpenFsm.Fsm.Event("BOX DOWN");
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.15f); // orig: 0.5f
 
             callback?.Invoke();
         }
@@ -140,6 +140,11 @@ namespace ItemChanger.Internal
         public static void Hook()
         {
             On.DialogueBox.HideText += HideTextListener;
+        }
+
+        public static void Unhook()
+        {
+            On.DialogueBox.HideText -= HideTextListener;
         }
 
         private static void HideTextListener(On.DialogueBox.orig_HideText orig, DialogueBox self)

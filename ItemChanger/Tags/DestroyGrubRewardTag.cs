@@ -7,20 +7,27 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Tags
 {
-    public class DestroyGrubRewardTag : Tag, IActiveSceneChangedTag
+    public class DestroyGrubRewardTag : Tag
     {
         public GrubfatherRewards destroyRewards;
 
-        public void OnActiveSceneChanged(Scene from, Scene to)
+        public override void Load(object parent)
         {
-            if (to.name == "Crossroads_38")
+            Events.AddSceneChangeEdit(SceneNames.Crossroads_38, DestroyGrubRewards);
+        }
+
+        public override void Unload(object parent)
+        {
+            Events.RemoveSceneChangeEdit(SceneNames.Crossroads_38, DestroyGrubRewards);
+        }
+
+        private void DestroyGrubRewards(Scene to)
+        {
+            for (int i = 0; i < 46; i++)
             {
-                for (int i = 0; i < 46; i++)
+                if ((destroyRewards & (GrubfatherRewards)((long)1 << i)) != 0)
                 {
-                    if ((destroyRewards & (GrubfatherRewards)((long)1 << i)) != 0)
-                    {
-                        UnityEngine.Object.Destroy(to.FindGameObject($"Grub King\\Reward {i + 1}"));
-                    }
+                    UnityEngine.Object.Destroy(to.FindGameObject($"Grub King\\Reward {i + 1}"));
                 }
             }
         }

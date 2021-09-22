@@ -12,6 +12,7 @@ namespace ItemChanger
 {
     static class VanillaShops
     {
+        /*
         public static AbstractPlacement[] GetVanillaShops()
         {
             AbstractItem mask1 = Finder.GetItem(ItemNames.Mask_Shard);
@@ -76,7 +77,7 @@ namespace ItemChanger
 
             AbstractPlacement sly = new ShopPlacement
             {
-                location = Finder.GetLocation(LocationNames.Sly) as ShopLocation,
+                Location = Finder.GetLocation(LocationNames.Sly) as ShopLocation,
                 Items = new List<AbstractItem>
                 {
                     mask1,
@@ -212,7 +213,7 @@ namespace ItemChanger
 
             AbstractPlacement iselda = new ShopPlacement
             {
-                location = Finder.GetLocation(LocationNames.Iselda) as ShopLocation,
+                Location = Finder.GetLocation(LocationNames.Iselda) as ShopLocation,
                 Items = new List<AbstractItem>
                 {
                     wayward_compass,
@@ -274,7 +275,7 @@ namespace ItemChanger
 
             AbstractPlacement leg_eater = new ShopPlacement
             {
-                location = Finder.GetLocation(LocationNames.Leg_Eater) as ShopLocation,
+                Location = Finder.GetLocation(LocationNames.Leg_Eater) as ShopLocation,
                 Items = new List<AbstractItem>
                 {
                     fragile_heart,
@@ -327,7 +328,7 @@ namespace ItemChanger
 
             AbstractPlacement salubra = new ShopPlacement
             {
-                location = Finder.GetLocation(LocationNames.Salubra) as ShopLocation,
+                Location = Finder.GetLocation(LocationNames.Salubra) as ShopLocation,
                 Items = new List<AbstractItem>
                 {
                     lifeblood_heart,
@@ -353,5 +354,6 @@ namespace ItemChanger
         {
             Finder.Serialize("vanilla.json", GetVanillaShops());
         }
+        */
     }
 }

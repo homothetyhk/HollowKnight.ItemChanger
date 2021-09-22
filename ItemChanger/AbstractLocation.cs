@@ -15,31 +15,29 @@ namespace ItemChanger
         public FlingType flingType;
 
         [JsonIgnore]
-        [Obsolete("This was probably a bad idea.")]
-        public Transform Transform { get; set; }
-
-        [JsonIgnore]
         public AbstractPlacement Placement { get; internal set; }
 
-        public virtual void OnSceneFetched(Scene target) { }
-        public virtual void OnActiveSceneChanged(Scene from, Scene to) { }
-        public virtual void OnNextSceneReady(Scene next) { }
-        /// <summary>
-        /// PlaymakerFSM.OnEnable, filtered to the Scene(s) corresponding to sceneName.
-        /// </summary>
-        public virtual void OnEnableLocal(PlayMakerFSM fsm) { }
-        /// <summary>
-        /// PlaymakerFSM.OnEnable
-        /// </summary>
-        public virtual void OnEnableGlobal(PlayMakerFSM fsm) { }
-        public virtual void OnLanguageGet(LanguageGetArgs args) { }
-        public virtual void OnLoad() { }
-        public virtual void OnUnload() { }
+        public void Load()
+        {
+            LoadTags();
+            OnLoad();
+        }
+
+        public void Unload()
+        {
+            UnloadTags();
+            OnUnload();
+        }
+
+        protected abstract void OnLoad();
+        protected abstract void OnUnload();
 
         public abstract AbstractPlacement Wrap();
         public virtual AbstractLocation Clone()
         {
-            return (AbstractLocation)MemberwiseClone();
+            AbstractLocation location = (AbstractLocation)MemberwiseClone();
+            location.tags = location.tags?.Select(t => t.Clone())?.ToList();
+            return location;
         }
     }
 }

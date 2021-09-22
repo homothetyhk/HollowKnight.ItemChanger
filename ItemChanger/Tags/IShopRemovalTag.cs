@@ -7,6 +7,6 @@ namespace ItemChanger.Tags
 {
     interface IShopRemovalTag
     {
-        bool Remove();
+        bool Remove { get; }
     }
 }
