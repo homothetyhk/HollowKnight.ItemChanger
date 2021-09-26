@@ -184,7 +184,7 @@ namespace ItemChanger
 
         [field: JsonIgnore]
         public event Action<GiveEventArgs> ModifyItem;
-        public event Action<GiveEventArgs> ModifyItemGlobal;
+        public static event Action<GiveEventArgs> ModifyItemGlobal;
         private void ModifyItemInvoke(GiveEventArgs args)
         {
             try
@@ -200,7 +200,7 @@ namespace ItemChanger
 
         [field: JsonIgnore]
         public event Action<GiveEventArgs> ModifyRedundantItem;
-        public event Action<GiveEventArgs> ModifyRedundantItemGlobal;
+        public static event Action<GiveEventArgs> ModifyRedundantItemGlobal;
         private void ModifyRedundantItemInvoke(GiveEventArgs args)
         {
             try
@@ -216,7 +216,7 @@ namespace ItemChanger
 
         [field: JsonIgnore]
         public event Action<ReadOnlyGiveEventArgs> OnGive;
-        public event Action<ReadOnlyGiveEventArgs> OnGiveGlobal;
+        public static event Action<ReadOnlyGiveEventArgs> OnGiveGlobal;
         private void OnGiveInvoke(ReadOnlyGiveEventArgs args)
         {
             try
@@ -232,7 +232,7 @@ namespace ItemChanger
 
         [field: JsonIgnore]
         public event Action<ReadOnlyGiveEventArgs> AfterGive;
-        public event Action<ReadOnlyGiveEventArgs> AfterGiveGlobal;
+        public static event Action<ReadOnlyGiveEventArgs> AfterGiveGlobal;
         private void AfterGiveInvoke(ReadOnlyGiveEventArgs args)
         {
             try

@@ -8,6 +8,7 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class MenderbugUnlock : Module
     {
         public override void Initialize()

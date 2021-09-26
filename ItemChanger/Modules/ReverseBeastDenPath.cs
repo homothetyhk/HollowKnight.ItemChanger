@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class ReverseBeastDenPath : Module
     {
         public override void Initialize()

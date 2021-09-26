@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class SlyBasementEvent : Module
     {
         /// <summary>

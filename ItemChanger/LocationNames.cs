@@ -296,6 +296,7 @@ namespace ItemChanger
         public const string Grimmkin_Flame_Ancient_Basin = "Grimmkin_Flame-Ancient_Basin";
         public const string Grimmkin_Flame_Hive = "Grimmkin_Flame-Hive";
         public const string Grimmkin_Flame_Brumm = "Grimmkin_Flame-Brumm";
+        public const string Elevator_Pass = "Elevator_Pass";
         public const string Split_Mothwing_Cloak = "Split_Mothwing_Cloak";
         public const string Left_Mantis_Claw = "Left_Mantis_Claw";
         public const string Right_Mantis_Claw = "Right_Mantis_Claw";

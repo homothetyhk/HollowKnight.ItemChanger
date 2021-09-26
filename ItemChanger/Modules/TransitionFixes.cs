@@ -11,6 +11,7 @@ using UObject = UnityEngine.Object;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class TransitionFixes : Module
     {
         public override void Initialize()
@@ -538,7 +539,7 @@ namespace ItemChanger.Modules
                 case SceneNames.Deepnest_East_02:
                     if (GameManager.instance.entryGateName.StartsWith("bot2"))
                     {
-                        foreach (Transform t in newScene.FindGameObject("Quake_Floor").transform.Find("Active"))
+                        foreach (Transform t in newScene.FindGameObject("Quake Floor/Active").transform)
                         {
                             if (t.name.StartsWith("msk")) UObject.Destroy(t.gameObject);
                         }
@@ -567,7 +568,7 @@ namespace ItemChanger.Modules
                 case SceneNames.Waterways_04:
                     if (GameManager.instance.entryGateName.StartsWith("b"))
                     {
-                        foreach (Transform t in newScene.FindGameObject("Quake Floor").transform.Find("Active"))
+                        foreach (Transform t in newScene.FindGameObject("Quake Floor/Active").transform)
                         {
                             if (t.name.StartsWith("Mask")) t.gameObject.SetActive(false);
                         }

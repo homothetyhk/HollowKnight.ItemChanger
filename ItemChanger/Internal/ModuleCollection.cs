@@ -43,15 +43,32 @@ namespace ItemChanger.Internal
             }
         }
 
-        public void Add(Module m)
+        public Module Add(Module m)
         {
+            if (m == null) throw new ArgumentNullException(nameof(m));
             Modules.Add(m);
             if (Settings.loaded) m.Initialize();
+            return m;
         }
 
-        public void Add<T>() where T : Module, new()
+        public T Add<T>() where T : Module, new()
         {
-            Add(new T());
+            T t = new();
+            return (T)Add(t);
+        }
+
+        public Module Add(Type T)
+        {
+            try
+            {
+                Module m = (Module)Activator.CreateInstance(T);
+                return Add(m);
+            }
+            catch (Exception e)
+            {
+                ItemChangerMod.instance.LogError($"Unable to instantiate module of type {T.Name} through reflection:\n{e}");
+                throw;
+            }
         }
 
         /// <summary>
@@ -60,6 +77,20 @@ namespace ItemChanger.Internal
         public T Get<T>()
         {
             return Modules.OfType<T>().FirstOrDefault();
+        }
+
+        public T GetOrAdd<T>() where T : Module, new()
+        {
+            T t = Modules.OfType<T>().FirstOrDefault();
+            if (t == null) t = Add<T>();
+            return t;
+        }
+
+        public Module GetOrAdd(Type T)
+        {
+            Module m = Modules.FirstOrDefault(m => T.IsInstanceOfType(m));
+            if (m == null) m = Add(T);
+            return m;
         }
 
         public void Remove(Module m)
@@ -72,6 +103,11 @@ namespace ItemChanger.Internal
             if (Modules.OfType<T>().FirstOrDefault() is Module m) Remove(m);
         }
 
+        public void Remove(Type T)
+        {
+            Modules.RemoveAll(m => m.GetType() == T);
+        }
+
         public void Remove(string name)
         {
             if (Modules.Where(m => m.Name == name).FirstOrDefault() is Module m) Remove(m);
@@ -81,11 +117,12 @@ namespace ItemChanger.Internal
         {
             ModuleCollection mc = new();
 
-            foreach (Type T in typeof(Module).Assembly.GetTypes().Where(t => t.IsSubclassOf(typeof(Module)) && !t.IsAbstract))
+            foreach (Type T in typeof(Module).Assembly.GetTypes()
+                .Where(t => t.IsSubclassOf(typeof(Module)) && !t.IsAbstract && Attribute.IsDefined(t, typeof(DefaultModuleAttribute))))
             {
                 ConstructorInfo ci = T.GetConstructor(Type.EmptyTypes);
                 Module m = ci?.Invoke(Array.Empty<object>()) as Module;
-                if (m?.Default ?? false) mc.Modules.Add(m);
+                if (m != null) mc.Modules.Add(m);
             }
 
             return mc;

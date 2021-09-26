@@ -17,6 +17,7 @@ namespace ItemChanger.Modules
     /// Manage whether Sly has been rescued independently of PlayerData.<br/>
     /// Then, PD controls the door to the shop, while the module controls the dazed sly encounter and prevents Sly from appearing in the shop before the encounter is complete.
     /// </summary>
+    [DefaultModule]
     public class SlyRescuedEvent : Module
     {
         public bool SlyRescued { get; private set; } = false;

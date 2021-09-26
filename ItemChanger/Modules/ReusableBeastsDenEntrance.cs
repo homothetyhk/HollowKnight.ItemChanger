@@ -9,6 +9,7 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class ReusableBeastsDenEntrance : Module
     {
         public override void Initialize()

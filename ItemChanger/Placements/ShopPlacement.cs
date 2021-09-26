@@ -18,7 +18,7 @@ namespace ItemChanger.Placements
         GameObject[] GetNewAltStock(GameObject[] newStock, GameObject[] altStock, GameObject prefab);
     }
 
-    public class ShopPlacement : AbstractPlacement, IShopPlacement
+    public class ShopPlacement : AbstractPlacement, IShopPlacement, IMultiCostPlacement
     {
         public ShopPlacement(string Name) : base(Name) { }
 

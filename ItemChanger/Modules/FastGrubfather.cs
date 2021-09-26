@@ -11,6 +11,7 @@ using UnityEngine;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class FastGrubfather : Module
     {
         public override void Initialize()

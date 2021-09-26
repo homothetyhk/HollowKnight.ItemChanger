@@ -9,6 +9,7 @@ using UObject = UnityEngine.Object;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class CliffsShadeSkipAssist : Module
     {
         public override void Initialize()

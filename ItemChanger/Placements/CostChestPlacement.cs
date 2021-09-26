@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class CostChestPlacement : AbstractPlacement, IContainerPlacement
+    public class CostChestPlacement : AbstractPlacement, IContainerPlacement, IMultiCostPlacement
     {
         public CostChestPlacement(string Name) : base(Name) { }
 

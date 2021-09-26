@@ -39,7 +39,6 @@ namespace ItemChanger
                 if (_hooked) throw new InvalidOperationException("Attempted to rehook ItemChanger.");
                 _hooked = true;
                 Events.Hook();
-                CustomSkillManager.Hook();
                 DialogueCenter.Hook();
                 ShopUtil.HookShops();
                 StartDef.Hook();
@@ -59,7 +58,6 @@ namespace ItemChanger
                 if (!_hooked) throw new InvalidOperationException("Attempted to unhook ItemChanger before hooked.");
                 _hooked = false;
                 Events.Unhook();
-                CustomSkillManager.Unhook();
                 DialogueCenter.Unhook();
                 ShopUtil.UnhookShops();
                 StartDef.Unhook();
@@ -93,6 +91,11 @@ namespace ItemChanger
         /// </summary>
         public static void AddTransitionOverride(Transition source, ITransition target)
         {
+            if (ItemChanger.Modules.RemoveInfectedBlockades.BlockedTransitions.Contains(source))
+            {
+                Modules.GetOrAdd<Modules.RemoveInfectedBlockades>();
+            }
+            
             SET.TransitionOverrides[source] = target;
         }
 

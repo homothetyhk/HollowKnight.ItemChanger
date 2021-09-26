@@ -2916,6 +2916,16 @@
     "flingType": "Everywhere",
     "tags": null
   },
+  "Elevator_Pass": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Toll Machine Lift",
+    "elevation": 0,
+    "forceShiny": true,
+    "name": "Elevator_Pass",
+    "sceneName": "Crossroads_49b",
+    "flingType": "Everywhere",
+    "tags": null
+  },
   "Split_Mothwing_Cloak": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
     "x": 29.5,

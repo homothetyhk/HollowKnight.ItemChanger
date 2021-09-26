@@ -8,6 +8,7 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class PreventLegEaterDeath : Module
     {
         public override void Initialize()

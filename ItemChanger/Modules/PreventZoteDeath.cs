@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class PreventZoteDeath : Module
     {
         public override void Initialize()

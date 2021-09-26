@@ -189,11 +189,10 @@ namespace ItemChanger
         public const string Lifeblood_Cocoon_Small = "Lifeblood_Cocoon_Small";
         public const string Lifeblood_Cocoon_Large = "Lifeblood_Cocoon_Large";
         public const string Grimmkin_Flame = "Grimmkin_Flame";
+        public const string Elevator_Pass = "Elevator_Pass";
         public const string Left_Mothwing_Cloak = "Left_Mothwing_Cloak";
         public const string Right_Mothwing_Cloak = "Right_Mothwing_Cloak";
-        public const string Left_Shade_Cloak = "Left_Shade_Cloak";
-        public const string Right_Shade_Cloak = "Right_Shade_Cloak";
-        public const string Split_Mothwing_Cloak = "Split_Mothwing_Cloak";
+        public const string Split_Shade_Cloak = "Split_Shade_Cloak";
         public const string Left_Mantis_Claw = "Left_Mantis_Claw";
         public const string Right_Mantis_Claw = "Right_Mantis_Claw";
         public const string Leftslash = "Leftslash";

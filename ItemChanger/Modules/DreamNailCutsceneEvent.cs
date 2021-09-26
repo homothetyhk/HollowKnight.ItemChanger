@@ -10,6 +10,7 @@ using ItemChanger.FsmStateActions;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class DreamNailCutsceneEvent : Module
     {
         /// <summary>

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class DualPlacement : AbstractPlacement, IContainerPlacement
+    public class DualPlacement : AbstractPlacement, IContainerPlacement, ISingleCostPlacement
     {
         public DualPlacement(string Name) : base(Name) { }
 
@@ -23,6 +23,8 @@ namespace ItemChanger.Placements
         [Newtonsoft.Json.JsonIgnore]
         public AbstractLocation Location => cachedValue ? trueLocation : falseLocation;
         
+        public Cost Cost { get; set; }
+
         protected override void OnLoad()
         {
             cachedValue = Test.Value;
@@ -54,7 +56,7 @@ namespace ItemChanger.Placements
         {
             if (this.containerType == Container.Unknown)
             {
-                this.containerType = MutablePlacement.ChooseContainerType(location as Locations.ContainerLocation, Items);
+                this.containerType = MutablePlacement.ChooseContainerType(this, location as Locations.ContainerLocation, Items);
             }
 
             containerType = this.containerType;

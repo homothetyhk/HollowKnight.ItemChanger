@@ -15,7 +15,7 @@ namespace ItemChanger.Placements
     /// Chooses an item container for its location based on its item list.
     /// By design, no default support for costs.
     /// </summary>
-    public class MutablePlacement : AbstractPlacement, IContainerPlacement
+    public class MutablePlacement : AbstractPlacement, IContainerPlacement, ISingleCostPlacement
     {
         public MutablePlacement(string Name) : base(Name) { }
 
@@ -23,6 +23,8 @@ namespace ItemChanger.Placements
 
         public override string MainContainerType => containerType;
         public string containerType = Container.Unknown;
+
+        public Cost Cost { get; set; }
 
         protected override void OnLoad()
         {
@@ -75,7 +77,7 @@ namespace ItemChanger.Placements
         {
             if (this.containerType == Container.Unknown)
             {
-                this.containerType = ChooseContainerType(location as ContainerLocation, Items);
+                this.containerType = ChooseContainerType(this, location as ContainerLocation, Items);
             }
             
             containerType = this.containerType;
@@ -88,16 +90,18 @@ namespace ItemChanger.Placements
             obj = container.GetNewContainer(this, Items, location.flingType);
         }
 
-        public static string ChooseContainerType(ContainerLocation location, IEnumerable<AbstractItem> items)
+        public static string ChooseContainerType(ISingleCostPlacement placement, ContainerLocation location, IEnumerable<AbstractItem> items)
         {
             if (location?.forceShiny ?? true)
             {
                 return Container.Shiny;
             }
 
+            bool mustSupportCost = placement.Cost != null;
+
             string containerType = items
                 .Select(i => i.GetPreferredContainer())
-                .FirstOrDefault(c => c != Container.Unknown && location.Supports(c));
+                .FirstOrDefault(c => c != Container.Unknown && location.Supports(c) && (!mustSupportCost || Container.GetContainer(c).SupportsCost));
 
             if (string.IsNullOrEmpty(containerType))
             {

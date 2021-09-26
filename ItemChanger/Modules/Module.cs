@@ -11,6 +11,9 @@ namespace ItemChanger.Modules
         public string Name => GetType().Name;
         public abstract void Initialize();
         public abstract void Unload();
-        public virtual bool Default => true;
     }
+
+    [AttributeUsage(AttributeTargets.Class)]
+    public class DefaultModuleAttribute : Attribute { } // apply to IC module if it should be included with default IC settings
+
 }

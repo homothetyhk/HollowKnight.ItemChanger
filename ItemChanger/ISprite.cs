@@ -12,6 +12,15 @@ namespace ItemChanger
         ISprite Clone();
     }
 
+    /// <summary>
+    /// ISprite wrapper for Sprite. Use only for items created and disposed at runtime--it is not serializable.
+    /// </summary>
+    public class BoxedSprite : ISprite
+    {
+        public Sprite Value { get; set; }
+        public ISprite Clone() => (ISprite)MemberwiseClone();
+    }
+
     public class ItemChangerSprite : ISprite
     {
         public string key;

@@ -8,6 +8,7 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class NonlinearColosseums : Module
     {
         public override void Initialize()

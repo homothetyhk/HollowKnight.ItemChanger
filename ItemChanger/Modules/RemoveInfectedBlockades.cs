@@ -12,7 +12,13 @@ namespace ItemChanger.Modules
 {
     public class RemoveInfectedBlockades : Module
     {
-        public override bool Default => false;
+        public static readonly Transition[] BlockedTransitions = new Transition[]
+        {
+            new(SceneNames.Crossroads_03, "bot1"),
+            new(SceneNames.Crossroads_06, "right1"),
+            new(SceneNames.Crossroads_10, "left1"),
+            new(SceneNames.Crossroads_19, "top1"),
+        };
 
         public override void Initialize()
         {

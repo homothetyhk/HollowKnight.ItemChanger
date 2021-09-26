@@ -8,6 +8,7 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class BaldurHealthCap : Module
     {
         public int cap = 5;

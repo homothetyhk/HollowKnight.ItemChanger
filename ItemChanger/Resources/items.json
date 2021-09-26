@@ -1265,6 +1265,7 @@
   "Focus": {
     "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
     "boolName": "canFocus",
+    "moduleName": "ItemChanger.Modules.FocusSkill, ItemChanger",
     "name": "Focus",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -1313,6 +1314,7 @@
   "Swim": {
     "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
     "boolName": "canSwim",
+    "moduleName": "ItemChanger.Modules.SwimSkill, ItemChanger",
     "name": "Swim",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -5181,10 +5183,33 @@
     "tags": null,
     "obtainState": "Unobtained"
   },
+  "Elevator_Pass": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "hasElevatorPass",
+    "moduleName": "ItemChanger.Modules.ElevatorPass, ItemChanger",
+    "name": "Elevator_Pass",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Elevator Pass"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "What is a Vertical Tram, and why does this say Vertical Tram Pass?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.ElevatorPass"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
   "Left_Mothwing_Cloak": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
-    "fieldName": "canDashLeft",
-    "setValue": true,
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canDashLeft",
+    "moduleName": "ItemChanger.Modules.SplitCloak, ItemChanger",
     "name": "Left_Mothwing_Cloak",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -5229,17 +5254,20 @@
     },
     "tags": [
       {
-        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": null,
-        "successor": "Left_Shade_Cloak"
+        "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
+        "predecessors": null,
+        "successors": [
+          "Right_Mothwing_Cloak",
+          "Split_Shade_Cloak"
+        ]
       }
     ],
     "obtainState": "Unobtained"
   },
   "Right_Mothwing_Cloak": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
-    "fieldName": "canDashRight",
-    "setValue": true,
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canDashRight",
+    "moduleName": "ItemChanger.Modules.SplitCloak, ItemChanger",
     "name": "Right_Mothwing_Cloak",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -5284,73 +5312,23 @@
     },
     "tags": [
       {
-        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": null,
-        "successor": "Right_Shade_Cloak"
+        "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
+        "predecessors": null,
+        "successors": [
+          "Left_Mothwing_Cloak",
+          "Split_Shade_Cloak"
+        ]
       }
     ],
     "obtainState": "Unobtained"
   },
-  "Left_Shade_Cloak": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
-    "fieldName": "canDashLeft",
-    "setValue": true,
-    "name": "Left_Shade_Cloak",
-    "UIDef": {
-      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
-      "bigSprite": {
-        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
-        "key": "Prompts.ShadowdashReflected"
-      },
-      "take": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GET_ITEM_INTRO7",
-        "sheet": "Prompts"
-      },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
-        "sheet": "Prompts"
-      },
-      "descOne": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GET_SHADOWDASH_1",
-        "sheet": "Prompts"
-      },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GET_SHADOWDASH_2",
-        "sheet": "Prompts"
-      },
-      "name": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_SHOP_NAME_LEFT_SHADOWDASH",
-        "sheet": "UI"
-      },
-      "shopDesc": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_SHOP_DESC_LEFT_CLOAK",
-        "sheet": "UI"
-      },
-      "sprite": {
-        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
-        "key": "ShopIcons.Shadowdash"
-      }
-    },
-    "tags": [
-      {
-        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": "Left_Mothwing_Cloak",
-        "successor": null
-      }
+  "Split_Shade_Cloak": {
+    "$type": "ItemChanger.Items.MultiBoolItem, ItemChanger",
+    "fieldNames": [
+      "hasShadowDash",
+      "canShadowDash"
     ],
-    "obtainState": "Unobtained"
-  },
-  "Right_Shade_Cloak": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
-    "fieldName": "canDashRight",
-    "setValue": true,
-    "name": "Right_Shade_Cloak",
+    "name": "Split_Shade_Cloak",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
       "bigSprite": {
@@ -5379,12 +5357,12 @@
       },
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_SHOP_NAME_RIGHT_SHADOWDASH",
+        "key": "RANDOMIZER_SHOP_NAME_SHADOWDASH",
         "sheet": "UI"
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_SHOP_DESC_RIGHT_CLOAK",
+        "key": "RANDOMIZER_SHOP_DESC_SHADOWDASH",
         "sheet": "UI"
       },
       "sprite": {
@@ -5394,42 +5372,20 @@
     },
     "tags": [
       {
-        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": "Right_Mothwing_Cloak",
-        "successor": null
+        "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
+        "predecessors": [
+          "Left_Mothwing_Cloak",
+          "Right_Mothwing_Cloak"
+        ],
+        "successors": null
       }
     ],
     "obtainState": "Unobtained"
   },
-  "Split_Mothwing_Cloak": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
-    "fieldName": null,
-    "setValue": true,
-    "name": "Split_Mothwing_Cloak",
-    "UIDef": {
-      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
-      "name": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": null,
-        "sheet": "UI"
-      },
-      "shopDesc": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": null,
-        "sheet": "UI"
-      },
-      "sprite": {
-        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
-        "key": null
-      }
-    },
-    "tags": null,
-    "obtainState": "Unobtained"
-  },
   "Left_Mantis_Claw": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
-    "fieldName": "hasWalljumpLeft",
-    "setValue": true,
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "hasWalljumpLeft",
+    "moduleName": "ItemChanger.Modules.SplitClaw, ItemChanger",
     "name": "Left_Mantis_Claw",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -5472,19 +5428,13 @@
         "key": "ShopIcons.Walljump"
       }
     },
-    "tags": [
-      {
-        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": null,
-        "successor": null
-      }
-    ],
+    "tags": null,
     "obtainState": "Unobtained"
   },
   "Right_Mantis_Claw": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
-    "fieldName": "hasWalljumpRight",
-    "setValue": true,
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "hasWalljumpRight",
+    "moduleName": "ItemChanger.Modules.SplitClaw, ItemChanger",
     "name": "Right_Mantis_Claw",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -5527,18 +5477,13 @@
         "key": "ShopIcons.Walljump"
       }
     },
-    "tags": [
-      {
-        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": null,
-        "successor": null
-      }
-    ],
+    "tags": null,
     "obtainState": "Unobtained"
   },
   "Leftslash": {
     "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
     "boolName": "canSideslashLeft",
+    "moduleName": "ItemChanger.Modules.SplitNail, ItemChanger",
     "name": "Leftslash",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
@@ -5563,6 +5508,7 @@
   "Rightslash": {
     "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
     "boolName": "canSideslashRight",
+    "moduleName": "ItemChanger.Modules.SplitNail, ItemChanger",
     "name": "Rightslash",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
@@ -5587,6 +5533,7 @@
   "Upslash": {
     "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
     "boolName": "canUpslash",
+    "moduleName": "ItemChanger.Modules.SplitNail, ItemChanger",
     "name": "Upslash",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",

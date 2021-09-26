@@ -13,6 +13,7 @@ namespace ItemChanger.Modules
     /// <summary>
     /// Adds saws to the first room of Path of Pain to allow it to be traversed in reverse.
     /// </summary>
+    [DefaultModule]
     public class ReversePathOfPainSaw : Module
     {
         public override void Initialize()

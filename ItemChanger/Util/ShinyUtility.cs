@@ -52,7 +52,7 @@ namespace ItemChanger.Util
                 flingType = flingType,
             };
 
-            if (placement is Placements.ISingleCostPlacement costPlacement)
+            if (placement is Placements.ISingleCostPlacement costPlacement && costPlacement.Cost != null)
             {
                 info.costInfo = new CostInfo
                 {

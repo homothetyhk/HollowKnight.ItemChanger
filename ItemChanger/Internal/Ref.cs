@@ -8,7 +8,6 @@ namespace ItemChanger.Internal
     public static class Ref
     {
         public static Settings Settings => ItemChangerMod.SET;
-        public static CustomSkills SKILLS => ItemChangerMod.SET.CustomSkills;
         public static PlayerData PD => PlayerData.instance;
         public static GameManager GM => GameManager.instance;
         public static HeroController HC => HeroController.instance;

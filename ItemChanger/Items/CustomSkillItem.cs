@@ -10,15 +10,23 @@ namespace ItemChanger.Items
     public class CustomSkillItem : AbstractItem
     {
         public string boolName;
+        public string moduleName;
+
+        protected override void OnLoad()
+        {
+            Type T = Type.GetType(moduleName);
+            if (T == null || !T.IsSubclassOf(typeof(Modules.Module))) throw new InvalidOperationException($"Module type {moduleName} was not found.");
+            ItemChangerMod.Modules.GetOrAdd(T);
+        }
+
         public override void GiveImmediate(GiveInfo info)
         {
-            Ref.SKILLS.SetBool(boolName, true);
+            PlayerData.instance.SetBool(boolName, true);
         }
 
         public override bool Redundant()
         {
-            return Ref.SKILLS.GetBool(boolName);
+            return PlayerData.instance.GetBool(boolName);
         }
-
     }
 }

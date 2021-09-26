@@ -8,10 +8,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    [DefaultModule]
     public class FixFury : Module
     {
-        public override bool Default => false;
-
         public override void Initialize()
         {
             Events.AddFsmEdit(new("Charm Effects", "Fury"), HookFury);

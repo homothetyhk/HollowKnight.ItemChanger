@@ -29,7 +29,6 @@ namespace ItemChanger
         }
 
         public ModuleCollection mods;
-        public CustomSkills CustomSkills = new CustomSkills();
         public Dictionary<string, AbstractPlacement> Placements = new Dictionary<string, AbstractPlacement>();
         public Dictionary<Transition, ITransition> TransitionOverrides = new Dictionary<Transition, ITransition>();
         public List<IDeployer> Deployers = new();

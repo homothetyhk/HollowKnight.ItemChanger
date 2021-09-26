@@ -15,6 +15,7 @@ namespace ItemChanger.Modules
     /// <summary>
     /// Hackish fix to make World Sense and Focus locations automatically compatible with the corresponding Lore Tablets.
     /// </summary>
+    [DefaultModule]
     public class LocationCompatibility : Module
     {
         public override void Initialize()
