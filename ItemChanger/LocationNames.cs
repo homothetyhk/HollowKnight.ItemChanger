@@ -118,6 +118,11 @@ namespace ItemChanger
         public const string Geo_Chest_Resting_Grounds = "Geo_Chest-Resting_Grounds";
         public const string Geo_Chest_Crystal_Peak = "Geo_Chest-Crystal_Peak";
         public const string Geo_Chest_Weavers_Den = "Geo_Chest-Weavers_Den";
+        public const string Geo_Chest_Junk_Pit_1 = "Geo_Chest-Junk_Pit_1";
+        public const string Geo_Chest_Junk_Pit_2 = "Geo_Chest-Junk_Pit_2";
+        public const string Geo_Chest_Junk_Pit_3 = "Geo_Chest-Junk_Pit_3";
+        public const string Geo_Chest_Junk_Pit_5 = "Geo_Chest-Junk_Pit_5";
+        public const string Lumafly_Escape_Chest = "Lumafly_Escape_Chest";
         public const string Rancid_Egg_Grubs = "Rancid_Egg-Grubs";
         public const string Rancid_Egg_Sheo = "Rancid_Egg-Sheo";
         public const string Rancid_Egg_Fungal_Core = "Rancid_Egg-Fungal_Core";

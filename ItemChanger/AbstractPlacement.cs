@@ -53,7 +53,7 @@ namespace ItemChanger
 
         public string GetUIName(int maxLength)
         {
-            IEnumerable<string> itemNames = Items.Where(i => !i.IsObtained()).Select(i => i.UIDef?.GetPostviewName() ?? "Unknown Item");
+            IEnumerable<string> itemNames = Items.Where(i => !i.IsObtained()).Select(i => i.UIDef?.GetPreviewName() ?? "Unknown Item");
             string itemText = string.Join(", ", itemNames.ToArray());
             if (itemText.Length > maxLength) itemText = itemText.Substring(0, maxLength > 3 ? maxLength - 3 : 0) + "...";
             return itemText;
@@ -137,16 +137,22 @@ namespace ItemChanger
         [Newtonsoft.Json.JsonIgnore]
         public virtual string MainContainerType => Container.Unknown;
 
-        public virtual AbstractPlacement AddItem(AbstractItem item)
+        public virtual AbstractPlacement Add(AbstractItem item)
         {
             Items.Add(item);
             return this;
         }
 
-        public virtual AbstractPlacement AddItems(IEnumerable<AbstractItem> items)
+        public AbstractPlacement Add(IEnumerable<AbstractItem> items)
         {
-            foreach (var i in items) AddItem(i);
+            foreach (var i in items) Add(i);
             return this;
-        } 
+        }
+
+        public AbstractPlacement Add(params AbstractItem[] items)
+        {
+            foreach (AbstractItem item in items) Add(item);
+            return this;
+        }
     }
 }

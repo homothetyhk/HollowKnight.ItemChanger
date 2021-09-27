@@ -23,20 +23,20 @@ namespace ItemChanger.Containers
 
         public override void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)
         {
+            if (fsm.FsmName != "Shiny Control") return;
             ShinyUtility.ModifyMultiShiny(fsm, info.flingType, info.placement, info.items);
-            base.AddGiveEffectToFsm(fsm, info);
         }
 
         public override void AddChangeSceneToFsm(PlayMakerFSM fsm, ChangeSceneInfo info)
         {
+            if (fsm.FsmName != "Shiny Control") return;
             ShinyUtility.AddChangeSceneToShiny(fsm, info.toScene, info.toGate);
-            base.AddChangeSceneToFsm(fsm, info);
         }
 
         public override void AddCostToFsm(PlayMakerFSM fsm, CostInfo info)
         {
+            if (fsm.FsmName != "Shiny Control") return;
             ShinyUtility.AddYNDialogueToShiny(fsm, info.cost, info.previewItems);
-            base.AddCostToFsm(fsm, info);
         }
     }
 }

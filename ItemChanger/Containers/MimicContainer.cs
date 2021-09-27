@@ -2,27 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEngine;
-using ItemChanger.Util;
+using System.Threading.Tasks;
+using HutongGames.PlayMaker;
 using ItemChanger.Components;
+using ItemChanger.Util;
+using UnityEngine;
 
 namespace ItemChanger.Containers
 {
-    public class GeoRockContainer : Container
+    public class MimicContainer : Container
     {
-        public override string Name => Container.GeoRock;
+        public override string Name => Mimic;
         public override bool SupportsDrop => true;
 
         public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
         {
-            return GeoRockUtility.MakeNewGeoRock(placement, items, flingType);
+            return MimicUtil.CreateNewMimic(placement, items, flingType);
         }
 
         public override void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)
         {
-            if (fsm.FsmName != "Geo Rock") return;
-            GeoRockUtility.ModifyGeoRock(fsm, info.flingType, info.placement, info.items);
+            if (fsm.FsmName == "Grub Control")
+            {
+                MimicUtil.ModifyMimic(fsm, info.flingType, info.placement, info.items);
+            }
         }
-
     }
 }

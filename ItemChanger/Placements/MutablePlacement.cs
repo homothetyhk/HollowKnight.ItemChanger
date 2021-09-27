@@ -30,11 +30,13 @@ namespace ItemChanger.Placements
         {
             Location.Placement = this;
             Location.Load();
+            Events.AddFsmEdit(new("Shiny Control"), SetShinyFling);
         }
 
         protected override void OnUnload()
         {
             Location.Unload();
+            Events.RemoveFsmEdit(new("Shiny Control"), SetShinyFling);
         }
 
         private void SetShinyFling(PlayMakerFSM fsm)

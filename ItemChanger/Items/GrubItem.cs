@@ -12,8 +12,7 @@ namespace ItemChanger.Items
         public override string GetPreferredContainer() => Container.GrubJar;
         public override bool GiveEarly(string containerType)
         {
-            if (containerType == Container.GrubJar) return true;
-            else return false;
+            return containerType == Container.GrubJar;
         }
         public override void GiveImmediate(GiveInfo info)
         {

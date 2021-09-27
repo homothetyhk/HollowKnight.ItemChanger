@@ -6,6 +6,7 @@ using System.Text;
 using UnityEngine;
 using Modding;
 using HutongGames.PlayMaker.Actions;
+using UObject = UnityEngine.Object;
 
 namespace ItemChanger.Internal
 {
@@ -22,7 +23,12 @@ namespace ItemChanger.Internal
                 (SceneNames.Tutorial_01, "_Props/Tut_tablet_top (1)"),
                 (SceneNames.Tutorial_01, "_Props/Geo Rock 1"),
                 (SceneNames.Cliffs_02, "Soul Totem 5"),
-                (SceneNames.Ruins_House_01, "Grub Bottle"),
+                (SceneNames.Deepnest_36, "Grub Bottle"),
+                (SceneNames.Deepnest_36, "Grub Mimic Bottle"),
+                (SceneNames.Deepnest_36, "Grub Mimic Top"),
+                //(SceneNames.Deepnest_36, "Dream Dialogue"),
+                (SceneNames.Deepnest_36, "d_break_0047_deep_lamp2/lamp_bug_escape (7)"),
+                // extra geo rocks
                 (SceneNames.Abyss_19, "Geo Rock Abyss"),
                 (SceneNames.Ruins2_05, "Geo Rock City 1"),
                 (SceneNames.Deepnest_02, "Geo Rock Deepnest"),
@@ -41,20 +47,26 @@ namespace ItemChanger.Internal
         }
 
 
-        public static GameObject Chest => UnityEngine.Object.Instantiate(_chest);
-        public static GameObject ShinyItem => UnityEngine.Object.Instantiate(_shinyItem);
-        public static GameObject SmallGeo => UnityEngine.Object.Instantiate(_smallGeo);
-        public static GameObject MediumGeo => UnityEngine.Object.Instantiate(_mediumGeo);
-        public static GameObject LargeGeo => UnityEngine.Object.Instantiate(_largeGeo);
-        public static GameObject TinkEffect => UnityEngine.Object.Instantiate(_tinkEffect);
-        public static GameObject SmallPlatform => UnityEngine.Object.Instantiate(_smallPlatform);
-        public static GameObject Soul => UnityEngine.Object.Instantiate(_soul);
-        public static GameObject RelicGetMsg => UnityEngine.Object.Instantiate(_relicGetMsg);
-        public static GameObject GrubJar => UnityEngine.Object.Instantiate(_grubJar);
-        public static GameObject LoreTablet => UnityEngine.Object.Instantiate(_loreTablet);
+        public static GameObject Chest => UObject.Instantiate(_chest);
+        public static GameObject ShinyItem => UObject.Instantiate(_shinyItem);
+        public static GameObject SmallGeo => UObject.Instantiate(_smallGeo);
+        public static GameObject MediumGeo => UObject.Instantiate(_mediumGeo);
+        public static GameObject LargeGeo => UObject.Instantiate(_largeGeo);
+        public static GameObject SmallPlatform => UObject.Instantiate(_smallPlatform);
+        public static GameObject Soul => UObject.Instantiate(_soul);
+        public static GameObject RelicGetMsg => UObject.Instantiate(_relicGetMsg);
+        public static GameObject GrubJar => UObject.Instantiate(_grubJar);
+        public static GameObject MimicBottle => UObject.Instantiate(_mimicBottle);
+        public static GameObject MimicTop => UObject.Instantiate(_mimicTop);
+        public static GameObject MimicDreamDialogue => UObject.Instantiate(_mimicDialogue);
+        public static GameObject LumaflyEscape => UObject.Instantiate(_lumaflyEscape);
+        public static GameObject LoreTablet => UObject.Instantiate(_loreTablet);
+
 
         public static AudioClip LoreSound;
         public static AudioClip[] GrubCries;
+        public static AudioClip MimicScream;
+        public static AudioClip BigItemJingle; // TODO: add this to BigItemPopup
 
         public static GeoRockSubtype GetPreloadedRockType(GeoRockSubtype t)
         {
@@ -63,7 +75,7 @@ namespace ItemChanger.Internal
 
         public static GameObject GeoRock(GeoRockSubtype t)
         {
-            return UnityEngine.Object.Instantiate(_geoRocks[GetPreloadedRockType(t)]);
+            return UObject.Instantiate(_geoRocks[GetPreloadedRockType(t)]);
         }
 
         public static void Setup(Dictionary<string, Dictionary<string, GameObject>> objectsByScene)
@@ -72,56 +84,74 @@ namespace ItemChanger.Internal
             _shinyItem = _chest.transform.Find("Item").Find("Shiny Item (1)").gameObject;
             _shinyItem.transform.parent = null;
             _shinyItem.name = "Shiny Item Mod";
-            UnityEngine.Object.DontDestroyOnLoad(_chest);
-            UnityEngine.Object.DontDestroyOnLoad(_shinyItem);
+            UObject.DontDestroyOnLoad(_chest);
+            UObject.DontDestroyOnLoad(_shinyItem);
             PlayMakerFSM shinyFSM = _shinyItem.LocateFSM("Shiny Control");
-            _relicGetMsg = UnityEngine.Object.Instantiate(shinyFSM.GetState("Trink Flash").GetActionsOfType<SpawnObjectFromGlobalPool>()[1].gameObject.Value);
+            _relicGetMsg = UObject.Instantiate(shinyFSM.GetState("Trink Flash").GetActionsOfType<SpawnObjectFromGlobalPool>()[1].gameObject.Value);
             _relicGetMsg.SetActive(false);
-            UnityEngine.Object.DontDestroyOnLoad(_relicGetMsg);
+            UObject.DontDestroyOnLoad(_relicGetMsg);
+
+            BigItemJingle = (AudioClip)(shinyFSM.GetState("Walljump")
+                .GetFirstActionOfType<CreateUIMsgGetItem>().gameObject.Value
+                .LocateMyFSM("Msg Control")
+                .GetState("Top Up")
+                .GetFirstActionOfType<AudioPlayerOneShotSingle>().audioClip.Value);
+            UObject.DontDestroyOnLoad(BigItemJingle);
 
             HealthManager health = objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"].GetComponent<HealthManager>();
-            _smallGeo = UnityEngine.Object.Instantiate(
+            _smallGeo = UObject.Instantiate(
                 ReflectionHelper.GetField<HealthManager, GameObject>(health, "smallGeoPrefab"));
             _mediumGeo =
-                UnityEngine.Object.Instantiate(ReflectionHelper.GetField<HealthManager, GameObject>(health, "mediumGeoPrefab"));
-            _largeGeo = UnityEngine.Object.Instantiate(
+                UObject.Instantiate(ReflectionHelper.GetField<HealthManager, GameObject>(health, "mediumGeoPrefab"));
+            _largeGeo = UObject.Instantiate(
                 ReflectionHelper.GetField<HealthManager, GameObject>(health, "largeGeoPrefab"));
 
             _smallGeo.SetActive(false);
             _mediumGeo.SetActive(false);
             _largeGeo.SetActive(false);
-            UnityEngine.Object.DontDestroyOnLoad(_smallGeo);
-            UnityEngine.Object.DontDestroyOnLoad(_mediumGeo);
-            UnityEngine.Object.DontDestroyOnLoad(_largeGeo);
+            UObject.DontDestroyOnLoad(_smallGeo);
+            UObject.DontDestroyOnLoad(_mediumGeo);
+            UObject.DontDestroyOnLoad(_largeGeo);
 
             PlayMakerFSM soulFsm = objectsByScene[SceneNames.Cliffs_02]["Soul Totem 5"].LocateMyFSM("soul_totem");
-            _soul = UnityEngine.Object.Instantiate(soulFsm.GetState("Hit").GetFirstActionOfType<FlingObjectsFromGlobalPool>().gameObject.Value);
+            _soul = UObject.Instantiate(soulFsm.GetState("Hit").GetFirstActionOfType<FlingObjectsFromGlobalPool>().gameObject.Value);
             _soul.SetActive(false);
-            UnityEngine.Object.DontDestroyOnLoad(_soul);
+            UObject.DontDestroyOnLoad(_soul);
 
-            UnityEngine.Object.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"]);
-            UnityEngine.Object.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"]);
-
-            _tinkEffect = UnityEngine.Object.Instantiate(objectsByScene[SceneNames.Tutorial_01]["_Props/Cave Spikes (1)"].GetComponent<TinkEffect>().blockEffect);
-            _tinkEffect.SetActive(false);
-            UnityEngine.Object.DontDestroyOnLoad(_tinkEffect);
+            UObject.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"]);
 
             _smallPlatform = objectsByScene[SceneNames.Tutorial_01]["_Scenery/plat_float_17"];
-            UnityEngine.Object.DontDestroyOnLoad(_smallPlatform);
+            UObject.DontDestroyOnLoad(_smallPlatform);
 
-            _grubJar = objectsByScene[SceneNames.Ruins_House_01]["Grub Bottle"];
+            _grubJar = objectsByScene[SceneNames.Deepnest_36]["Grub Bottle"];
             GrubCries = _grubJar.transform.Find("Grub").gameObject.LocateMyFSM("Grub Control").GetState("Leave").GetFirstActionOfType<AudioPlayRandom>().audioClips;
-            UnityEngine.Object.DontDestroyOnLoad(_grubJar);
+            UObject.DontDestroyOnLoad(_grubJar);
             foreach (AudioClip clip in GrubCries)
             {
-                UnityEngine.Object.DontDestroyOnLoad(clip);
+                UObject.DontDestroyOnLoad(clip);
             }
+
+            _mimicBottle = objectsByScene[SceneNames.Deepnest_36]["Grub Mimic Bottle"];
+            UObject.DontDestroyOnLoad(_mimicBottle);
+            _mimicTop = objectsByScene[SceneNames.Deepnest_36]["Grub Mimic Top"];
+            UObject.DontDestroyOnLoad(_mimicTop);
+            MimicScream = (AudioClip)_mimicTop.transform.Find("Grub Mimic 1").gameObject.LocateMyFSM("Grub Mimic").GetState("Scream")
+                .GetFirstActionOfType<AudioPlaySimple>().oneShotClip.Value;
+            UObject.DontDestroyOnLoad(MimicScream);
+            /*
+            _mimicDialogue = objectsByScene[SceneNames.Deepnest_36]["Dream Dialogue"];
+            UObject.DontDestroyOnLoad(_mimicDialogue);
+            */
+
+            _lumaflyEscape = objectsByScene[SceneNames.Deepnest_36]["d_break_0047_deep_lamp2/lamp_bug_escape (7)"];
+            FixLumaflyEscape();
+            UObject.DontDestroyOnLoad(_lumaflyEscape);
 
             _loreTablet = objectsByScene[SceneNames.Tutorial_01]["_Props/Tut_tablet_top (1)"];
             _loreTablet.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
             LoreSound = (AudioClip)_loreTablet.LocateMyFSM("Inspection").GetState("Prompt Up").GetFirstActionOfType<AudioPlayerOneShotSingle>().audioClip.Value;
-            UnityEngine.Object.DontDestroyOnLoad(LoreSound);
-            UnityEngine.Object.DontDestroyOnLoad(_loreTablet);
+            UObject.DontDestroyOnLoad(LoreSound);
+            UObject.DontDestroyOnLoad(_loreTablet);
 
             _geoRocks = new Dictionary<GeoRockSubtype, GameObject>()
             {
@@ -143,7 +173,7 @@ namespace ItemChanger.Internal
 
             foreach (var entry in _geoRocks)
             {
-                UnityEngine.Object.DontDestroyOnLoad(entry.Value);
+                UObject.DontDestroyOnLoad(entry.Value);
             }
         }
 
@@ -152,12 +182,56 @@ namespace ItemChanger.Internal
         private static GameObject _smallGeo;
         private static GameObject _mediumGeo;
         private static GameObject _largeGeo;
-        private static GameObject _tinkEffect;
         private static GameObject _smallPlatform;
         private static GameObject _grubJar;
+        private static GameObject _mimicBottle;
+        private static GameObject _mimicTop;
+        private static GameObject _mimicDialogue;
+        private static GameObject _lumaflyEscape;
         private static GameObject _soul;
         private static GameObject _relicGetMsg;
         private static GameObject _loreTablet;
         private static Dictionary<GeoRockSubtype, GameObject> _geoRocks;
+
+        private static void FixLumaflyEscape()
+        {
+            ParticleSystem.MainModule psm = _lumaflyEscape.GetComponent<ParticleSystem>().main;
+            ParticleSystem.EmissionModule pse = _lumaflyEscape.GetComponent<ParticleSystem>().emission;
+            ParticleSystem.ShapeModule pss = _lumaflyEscape.GetComponent<ParticleSystem>().shape;
+            ParticleSystem.TextureSheetAnimationModule pst = _lumaflyEscape.GetComponent<ParticleSystem>().textureSheetAnimation;
+            ParticleSystem.ForceOverLifetimeModule psf = _lumaflyEscape.GetComponent<ParticleSystem>().forceOverLifetime;
+
+            psm.duration = 1f;
+            psm.startLifetimeMultiplier = 4f;
+            psm.startSizeMultiplier = 2f;
+            psm.startSizeXMultiplier = 2f;
+            psm.gravityModifier = -0.2f;
+            psm.maxParticles = 99;              // In practice it only spawns 9 lumaflies
+            pse.rateOverTimeMultiplier = 10f;
+            pss.radius = 0.5868902f;
+            pst.cycleCount = 15;
+            psf.xMultiplier = 3;
+            psf.yMultiplier = 8;
+
+            // I have no idea what this is supposed to be lmao
+            AnimationCurve yMax = new AnimationCurve(new Keyframe(0, 0.0810811371f), new Keyframe(0.230769232f, 0.108108163f),
+                new Keyframe(0.416873455f, -0.135135055f), new Keyframe(0.610421836f, -0.054053992f), new Keyframe(0.799007416f, -0.29729721f));
+            AnimationCurve yMin = new AnimationCurve(new Keyframe(0, 0.486486584f), new Keyframe(0.220843673f, 0.567567647f),
+                new Keyframe(0.411910683f, 0.270270377f), new Keyframe(0.605459034f, 0.405405462f), new Keyframe(0.801488876f, 0.108108193f));
+            psf.y = new ParticleSystem.MinMaxCurve(8, yMin, yMax);
+
+            psf.x.curveMax.keys[0].value = -0.324324369f;
+            psf.x.curveMax.keys[1].value = -0.432432413f;
+
+            psf.x.curveMin.keys[0].value = 0.162162244f;
+            psf.x.curveMin.keys[1].time = 0.159520522f;
+            psf.x.curveMin.keys[1].value = 0.35135144f;
+
+            Transform t = _lumaflyEscape.GetComponent<Transform>();
+            Vector3 loc = t.localScale;
+            loc.x = 1f;
+            t.localScale = loc;
+        }
+
     }
 }

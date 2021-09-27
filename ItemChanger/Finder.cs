@@ -39,7 +39,6 @@ namespace ItemChanger
         {
             JsonSerializer js = new JsonSerializer
             {
-                DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate,
                 Formatting = Formatting.Indented,
                 TypeNameHandling = TypeNameHandling.Auto,
             };

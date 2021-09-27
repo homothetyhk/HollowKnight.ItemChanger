@@ -21,14 +21,14 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             Events.AddFsmEdit(sceneName, new(objectName, "Conversation Control"), HandleCorniferConvo);
             Events.AddFsmEdit(sceneName, new("Cornifer Card", "FSM"), HandleCorniferCard);
-            Events.OnLanguageGet += OnLanguageGet;
+            Events.AddLanguageEdit(new("Cornifer", "CORNIFER_PROMPT"), OnLanguageGet);
         }
 
         protected override void OnUnload()
         {
             Events.RemoveFsmEdit(sceneName, new(objectName, "Conversation Control"), HandleCorniferConvo);
             Events.RemoveFsmEdit(sceneName, new("Cornifer Card", "FSM"), HandleCorniferCard);
-            Events.OnLanguageGet -= OnLanguageGet;
+            Events.RemoveLanguageEdit(new("Cornifer", "CORNIFER_PROMPT"), OnLanguageGet);
         }
 
         private void HandleCorniferConvo(PlayMakerFSM fsm)
@@ -63,12 +63,13 @@ namespace ItemChanger.Locations.SpecialLocations
             check.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
         }
 
-        private void OnLanguageGet(LanguageGetArgs args)
+        private string OnLanguageGet(string orig)
         {
-            if (args.sheet == "Cornifer" && args.convo == "CORNIFER_PROMPT" && GameManager.instance.sceneName == sceneName)
+            if (GameManager.instance.sceneName == sceneName)
             {
-                args.current = Placement.GetUIName();
+                return Placement.GetUIName();
             }
+            else return orig;
         }
     }
 }

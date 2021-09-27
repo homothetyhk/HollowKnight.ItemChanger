@@ -20,7 +20,6 @@ namespace ItemChanger.Containers
         public override void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)
         {
             TabletUtility.ModifyTablet(fsm, info.flingType, info.placement, info.items);
-            base.AddGiveEffectToFsm(fsm, info);
         }
     }
 }

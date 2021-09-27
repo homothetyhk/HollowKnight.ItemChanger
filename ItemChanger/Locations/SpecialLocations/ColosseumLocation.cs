@@ -24,7 +24,7 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnLoad();
             Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
             Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
-            Events.OnLanguageGet += OnLanguageGet;
+            Events.AddLanguageEdit(new("Prompts", GetTrialBoardConvo()), OnLanguageGet);
         }
 
         protected override void OnUnload()
@@ -32,7 +32,7 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnUnload();
             Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
             Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
-            Events.OnLanguageGet -= OnLanguageGet;
+            Events.RemoveLanguageEdit(new("Prompts", GetTrialBoardConvo()), OnLanguageGet);
         }
 
         private void SkipColoForTesting(PlayMakerFSM fsm)
@@ -136,16 +136,13 @@ namespace ItemChanger.Locations.SpecialLocations
             return sb.ToString();
         }
 
-        private void OnLanguageGet(LanguageGetArgs args)
+        private string OnLanguageGet(string orig)
         {
-            if (args.convo == GetTrialBoardConvo() && args.sheet == "Prompts")
+            if (HintActive && !Placement.AllObtained())
             {
-                if (HintActive && !Placement.AllObtained())
-                {
-                    args.current = GetTrialBoardHint();
-                }
-                else args.current = GetTrialBoardNullHint();
+                return GetTrialBoardHint();
             }
+            else return GetTrialBoardNullHint();
         }
     }
 }

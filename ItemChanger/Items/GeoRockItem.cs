@@ -12,16 +12,16 @@ namespace ItemChanger.Items
         public override string GetPreferredContainer() => Container.GeoRock;
         public override bool GiveEarly(string containerType)
         {
-            switch (containerType)
+            return containerType switch
             {
-                //case Container.Enemy: // Not included, so that the geo rock spawns on death!
-                case Container.Chest:
-                case Container.GeoRock:
-                case Container.GrubJar:
-                    return true;
-                default:
-                    return false;
-            }
+                // Container.Enemy // Not included, so that the geo rock spawns on death!
+                Container.Chest 
+                or Container.GeoRock 
+                or Container.GrubJar 
+                or Container.Mimic
+                  => true,
+                _ => false,
+            };
         }
 
         public GeoRockSubtype geoRockSubtype;

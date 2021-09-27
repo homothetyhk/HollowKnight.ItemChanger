@@ -10,6 +10,8 @@ namespace ItemChanger.Components
     public class DropIntoPlace : MonoBehaviour
     {
         Rigidbody2D rb;
+        public event Action OnLand;
+
         public void Awake()
         {
             rb = gameObject.GetComponent<Rigidbody2D>();
@@ -31,6 +33,7 @@ namespace ItemChanger.Components
             {
                 yield return null;
             }
+            OnLand?.Invoke();
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }

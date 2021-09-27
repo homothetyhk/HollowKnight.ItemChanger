@@ -15,16 +15,16 @@ namespace ItemChanger.Items
 
         public override bool GiveEarly(string containerType)
         {
-            switch (containerType)
+            return containerType switch
             {
-                case Container.Enemy:
-                case Container.Chest:
-                case Container.GeoRock:
-                case Container.GrubJar:
-                    return true;
-                default:
-                    return false;
-            }
+                Container.Enemy 
+                or Container.Chest 
+                or Container.GeoRock 
+                or Container.GrubJar 
+                or Container.Mimic
+                  => true,
+                _ => false,
+            };
         }
 
         public override void GiveImmediate(GiveInfo info)

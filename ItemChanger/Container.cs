@@ -23,6 +23,7 @@ namespace ItemChanger
         public const string Tablet = "Tablet";
         public const string Shop = "Shop";
         public const string Enemy = "Enemy";
+        public const string Mimic = "Mimic";
 
         public static Container GetContainer(string containerType)
         {
@@ -45,7 +46,8 @@ namespace ItemChanger
                 { GrubJar, new GrubJarContainer() },
                 { GeoRock, new GeoRockContainer() },
                 { Chest, new ChestContainer() },
-                { Tablet, new TabletContainer() }
+                { Tablet, new TabletContainer() },
+                { Mimic, new MimicContainer() }
             };
         }
 
@@ -64,6 +66,7 @@ namespace ItemChanger
             obj.transform.position = target.transform.position;
             obj.transform.localPosition = target.transform.localPosition;
             obj.SetActive(target.activeSelf);
+            obj.transform.SetPositionZ(0);
         }
 
         public virtual void ApplyTargetContext(GameObject obj, float x, float y, float elevation)
@@ -91,33 +94,27 @@ namespace ItemChanger
                 if (give != null && !give.applied)
                 {
                     container.AddGiveEffectToFsm(fsm, give);
+                    give.applied = true;
                 }
 
                 if (scene != null && !scene.applied)
                 {
                     container.AddChangeSceneToFsm(fsm, scene);
+                    scene.applied = true;
                 }
 
                 if (cost != null && !cost.applied)
                 {
                     container.AddCostToFsm(fsm, cost);
+                    cost.applied = true;
                 }
             }
         }
 
-        public virtual void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)
-        {
-            info.applied = true;
-        }
+        public virtual void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info) { }
 
-        public virtual void AddChangeSceneToFsm(PlayMakerFSM fsm, ChangeSceneInfo info)
-        {
-            info.applied = true;
-        }
+        public virtual void AddChangeSceneToFsm(PlayMakerFSM fsm, ChangeSceneInfo info) { }
 
-        public virtual void AddCostToFsm(PlayMakerFSM fsm, CostInfo info)
-        {
-            info.applied = true;
-        }
+        public virtual void AddCostToFsm(PlayMakerFSM fsm, CostInfo info) { }
     }
 }

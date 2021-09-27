@@ -115,6 +115,11 @@ namespace ItemChanger
         public const string Geo_Chest_Resting_Grounds = "Geo_Chest-Resting_Grounds";
         public const string Geo_Chest_Crystal_Peak = "Geo_Chest-Crystal_Peak";
         public const string Geo_Chest_Weavers_Den = "Geo_Chest-Weavers_Den";
+        public const string Geo_Chest_Junk_Pit_1 = "Geo_Chest-Junk_Pit_1";
+        public const string Geo_Chest_Junk_Pit_2 = "Geo_Chest-Junk_Pit_2";
+        public const string Geo_Chest_Junk_Pit_3 = "Geo_Chest-Junk_Pit_3";
+        public const string Geo_Chest_Junk_Pit_5 = "Geo_Chest-Junk_Pit_5";
+        public const string Lumafly_Escape = "Lumafly_Escape";
         public const string One_Geo = "One_Geo";
         public const string Rancid_Egg = "Rancid_Egg";
         public const string Wanderers_Journal = "Wanderer's_Journal";
@@ -149,6 +154,7 @@ namespace ItemChanger
         public const string Boss_Essence_White_Defender = "Boss_Essence-White_Defender";
         public const string Boss_Essence_Grey_Prince_Zote = "Boss_Essence-Grey_Prince_Zote";
         public const string Grub = "Grub";
+        public const string Mimic_Grub = "Mimic_Grub";
         public const string Quill = "Quill";
         public const string Bench_Pin = "Bench_Pin";
         public const string Cocoon_Pin = "Cocoon_Pin";

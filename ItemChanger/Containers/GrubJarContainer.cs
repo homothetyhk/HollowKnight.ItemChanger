@@ -21,7 +21,6 @@ namespace ItemChanger.Containers
         {
             if (fsm.FsmName != "Bottle Control") return;
             GrubJarUtility.ModifyBottleFsm(fsm, info.flingType, info.placement, info.items);
-            base.AddGiveEffectToFsm(fsm, info);
         }
     }
 }

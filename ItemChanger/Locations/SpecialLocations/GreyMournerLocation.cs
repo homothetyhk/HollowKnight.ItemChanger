@@ -22,7 +22,7 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnLoad();
             Events.AddFsmEdit(sceneName, new("Xun NPC", "Conversation Control"), EditXunConvo);
             Events.AddFsmEdit(sceneName, new("Heart Piece Folder", "Activate"), EditHeartPieceActivate);
-            Events.OnLanguageGet += OnLanguageGet;
+            Events.AddLanguageEdit(new("Prompts", "XUN_OFFER"), OnLanguageGet);
         }
 
         protected override void OnUnload()
@@ -30,7 +30,7 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnUnload();
             Events.RemoveFsmEdit(sceneName, new("Xun NPC", "Conversation Control"), EditXunConvo);
             Events.RemoveFsmEdit(sceneName, new("Heart Piece Folder", "Activate"), EditHeartPieceActivate);
-            Events.OnLanguageGet -= OnLanguageGet;
+            Events.RemoveLanguageEdit(new("Prompts", "XUN_OFFER"), OnLanguageGet);
         }
 
         private void EditXunConvo(PlayMakerFSM fsm)
@@ -49,12 +49,13 @@ namespace ItemChanger.Locations.SpecialLocations
             activate.RemoveActionsOfType<SetFsmBool>();
         }
 
-        private void OnLanguageGet(LanguageGetArgs args)
+        private string OnLanguageGet(string orig)
         {
-            if (HintActive && args.sheet == "Prompts" && args.convo == "XUN_OFFER")
+            if (HintActive)
             {
-                args.current = $"Accept the Gift, even knowing you'll only get a lousy {Placement.GetUIName()}?";
+                return $"Accept the Gift, even knowing you'll only get a lousy {Placement.GetUIName()}?";
             }
+            else return orig;
         }
     }
 }

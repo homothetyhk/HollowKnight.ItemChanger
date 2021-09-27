@@ -15,13 +15,13 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.OnLanguageGet += OnLanguageGet;
+            Events.AddLanguageEdit(new("Lore Tablets", "DUSK_KNIGHT_CORPSE"), OnLanguageGet);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.OnLanguageGet -= OnLanguageGet;
+            Events.RemoveLanguageEdit(new("Lore Tablets", "DUSK_KNIGHT_CORPSE"), OnLanguageGet);
         }
 
         public override void PlaceContainer(GameObject obj, string containerType)
@@ -31,23 +31,24 @@ namespace ItemChanger.Locations.SpecialLocations
             base.PlaceContainer(obj, containerType);
         }
 
-        private void OnLanguageGet(LanguageGetArgs args)
+        private string OnLanguageGet(string orig)
         {
-            if (HintActive && args.sheet == "Lore Tablets" && args.convo == "DUSK_KNIGHT_CORPSE")
+            if (HintActive)
             {
                 string item = Placement.GetUIName();
                 if (!string.IsNullOrEmpty(item))
                 {
-                    args.current = "A corpse in white armour. You can clearly see the "
+                    return "A corpse in white armour. You can clearly see the "
                                 + Placement.GetUIName() + " it's holding, " +
                                 "but for some reason you get the feeling you're going to have to go" +
                                 " through an unnecessarily long gauntlet of spikes and sawblades just to pick it up.";
                 }
                 else
                 {
-                    args.current = "A corpse in white armour. You already got the stuff it was holding.";
+                    return "A corpse in white armour. You already got the stuff it was holding.";
                 }
             }
+            else return orig;
         }
     }
 }

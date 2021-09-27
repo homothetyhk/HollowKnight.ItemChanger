@@ -3397,6 +3397,123 @@
     "tags": null,
     "obtainState": "Unobtained"
   },
+  "Geo_Chest-Junk_Pit_1": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 8,
+    "name": "Geo_Chest-Junk_Pit_1",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_8GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_8GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Junk_Pit_2": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 8,
+    "name": "Geo_Chest-Junk_Pit_2",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_8GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_8GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Junk_Pit_3": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 25,
+    "name": "Geo_Chest-Junk_Pit_3",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_25GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_25GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Geo_Chest-Junk_Pit_5": {
+    "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
+    "amount": 10,
+    "name": "Geo_Chest-Junk_Pit_5",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_10GEO",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_10GEO",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Geo"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Lumafly_Escape": {
+    "$type": "ItemChanger.Items.SpawnLumafliesItem, ItemChanger",
+    "name": "Lumafly_Escape",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Nothing?"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "But is it really nothing though?"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.LampBug"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
   "One_Geo": {
     "$type": "ItemChanger.Items.SpawnGeoItem, ItemChanger",
     "amount": 1,
@@ -4196,6 +4313,32 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.GrubUIDef, ItemChanger",
       "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "A Grub"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_GRUB",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Grub"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Mimic_Grub": {
+    "$type": "ItemChanger.Items.MimicItem, ItemChanger",
+    "name": "Mimic_Grub",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.SplitUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Not a Grub"
+      },
+      "preview": {
         "$type": "ItemChanger.BoxedString, ItemChanger",
         "Value": "A Grub"
       },

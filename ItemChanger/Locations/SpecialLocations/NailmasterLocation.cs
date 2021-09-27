@@ -21,13 +21,13 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             Events.AddFsmEdit(sceneName, new(objectName, fsmName), EditNailmasterConvo);
-            Events.OnLanguageGet += OnLanguageGet;
+            Events.AddLanguageEdit(new("Prompts", "NAILMASTER_FREE"), OnLanguageGet);
         }
 
         protected override void OnUnload()
         {
             Events.RemoveFsmEdit(sceneName, new(objectName, fsmName), EditNailmasterConvo);
-            Events.OnLanguageGet -= OnLanguageGet;
+            Events.RemoveLanguageEdit(new("Prompts", "NAILMASTER_FREE"), OnLanguageGet);
         }
 
         private void EditNailmasterConvo(PlayMakerFSM fsm)
@@ -50,9 +50,10 @@ namespace ItemChanger.Locations.SpecialLocations
             };
         }
 
-        private void OnLanguageGet(LanguageGetArgs args)
+        private string OnLanguageGet(string orig)
         {
-            if (args.sheet == "Prompts" && args.convo == "NAILMASTER_FREE") args.current = Placement.GetUIName();
+            if (GameManager.instance.sceneName == sceneName) return Placement.GetUIName();
+            else return orig;
         }
     }
 }
