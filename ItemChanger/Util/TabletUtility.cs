@@ -29,8 +29,6 @@ namespace ItemChanger.Util
             tablet.name = GetTabletName(placement);
             tablet.SetActive(true);
 
-
-
             return tablet;
         }
 
@@ -41,10 +39,10 @@ namespace ItemChanger.Util
             GameObject lit_tablet = tablet.transform.Find("lit_tablet").gameObject; // doesn't appear after instantiation, for some reason
             GameObject lit = new GameObject();
             lit.transform.SetParent(tablet.transform);
-            lit.transform.localPosition = new Vector3(-0.1f, 0.1f, -1.8f);
+            lit.transform.localPosition = new Vector3(-0.1f, 0.1f, -3f);
             lit.transform.localScale = Vector3.one;
             lit.AddComponent<SpriteRenderer>().sprite = lit_tablet.GetComponent<SpriteRenderer>().sprite;
-            lit.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
+            lit.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
 
             tablet.name = GetTabletName(placement);
             tablet.SetActive(true);
@@ -60,7 +58,7 @@ namespace ItemChanger.Util
                     promptUp.Actions[3], // vibration
                     //promptUp.Actions[4], // change text align
                     //promptUp.Actions[5], // move text
-                    promptUp.Actions[6], // HUD Canvas OUT
+                    //promptUp.Actions[6], // HUD Canvas OUT
                     //promptUp.Actions[7], // LORE PROMPT UP
                     new AsyncLambda(callback => DialogueCenter.SendLoreMessage(
                         textGenerator?.Invoke() ?? string.Empty,
@@ -130,7 +128,7 @@ namespace ItemChanger.Util
                     promptUp.Actions[3], // vibration
                     //promptUp.Actions[4], // change text align
                     //promptUp.Actions[5], // move text
-                    promptUp.Actions[6], // HUD Canvas OUT
+                    //promptUp.Actions[6], // HUD Canvas OUT
                     //promptUp.Actions[7], // LORE PROMPT UP
                     new AsyncLambda(callback => ItemUtility.GiveSequentially(items, placement, new GiveInfo
                     {
@@ -143,6 +141,35 @@ namespace ItemChanger.Util
                 FsmState setBool = inspectFsm.GetState("Set Bool");
                 FsmState turnBack = inspectFsm.GetState("Turn Back");
                 foreach (var t in promptUp.Transitions) t.SetToState(turnBack);
+
+                // the abyss tablet doesn't have the hero damaged behavior, so we add it back in for consistency
+                if (setBool == null)
+                {
+                    if (inspectFsm.FsmVariables.FindFsmBool("Hero Damaged") is not FsmBool heroDamaged)
+                    {
+                        heroDamaged = inspectFsm.AddFsmBool("Hero Damaged", false);
+                    }
+                    turnBack.AddFirstAction(new BoolTest
+                    {
+                        boolVariable = heroDamaged,
+                        isFalse = null,
+                        isTrue = FsmEvent.Finished,
+                    });
+                    setBool = new FsmState(inspectFsm.Fsm)
+                    {
+                        Name = "Set Bool",
+                        Actions = new FsmStateAction[] { new SetBoolValue { boolVariable = heroDamaged, boolValue = true } },
+                        Transitions = new FsmTransition[] { new FsmTransition { FsmEvent = FsmEvent.Finished, ToFsmState = inspectFsm.GetState("Down"), ToState = "Down", } },
+                    };
+                    inspectFsm.AddState(setBool);
+                    inspectFsm.Fsm.GlobalTransitions = inspectFsm.Fsm.GlobalTransitions.Prepend(new FsmTransition
+                    {
+                        FsmEvent = FsmEvent.GetFsmEvent("HERO DAMAGED"),
+                        ToFsmState = setBool,
+                        ToState = setBool.Name,
+                    }).ToArray();
+                    inspectFsm.GetState("Take Control").AddFirstAction(new SetBoolValue { boolVariable = heroDamaged, boolValue = false });
+                }
                 foreach (var t in setBool.Transitions) t.SetToState(turnBack);
             }
             else if (inspectFsm.FsmName == "inspect_region")

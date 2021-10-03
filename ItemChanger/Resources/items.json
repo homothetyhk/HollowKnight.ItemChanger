@@ -5326,6 +5326,169 @@
     "tags": null,
     "obtainState": "Unobtained"
   },
+  "Hunter's_Journal": {
+    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "fieldName": "hasJournal",
+    "setValue": true,
+    "name": "Hunter's_Journal",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Journal"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO1",
+        "sheet": "Prompts"
+      },
+      "button": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_EMPTY",
+        "sheet": "Prompts"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_JOURNAL_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_JOURNAL_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_JOURNAL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Records every creature you've killed, so you never forget how you murdered them in cold blood."
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Journal"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Journal_Entry-Void_Tendrils": {
+    "$type": "ItemChanger.Items.JournalEntryItem, ItemChanger",
+    "playerDataName": "AbyssTendril",
+    "name": "Journal_Entry-Void_Tendrils",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Void Tendrils Journal Entry"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.PaywallString, ItemChanger",
+        "key": "NOTE_ABYSS_TENDRIL",
+        "sheet": "Journal"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.JournalEntry"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Journal_Entry-Charged_Lumafly": {
+    "$type": "ItemChanger.Items.JournalEntryItem, ItemChanger",
+    "playerDataName": "ZapBug",
+    "name": "Journal_Entry-Charged_Lumafly",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Charged Lumafly Journal Entry"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.PaywallString, ItemChanger",
+        "key": "NOTE_ZAP_BUG",
+        "sheet": "Journal"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.JournalEntry"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Journal_Entry-Goam": {
+    "$type": "ItemChanger.Items.JournalEntryItem, ItemChanger",
+    "playerDataName": "Worm",
+    "name": "Journal_Entry-Goam",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Goam Journal Entry"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.PaywallString, ItemChanger",
+        "key": "NOTE_WORM",
+        "sheet": "Journal"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.JournalEntry"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Journal_Entry-Garpede": {
+    "$type": "ItemChanger.Items.JournalEntryItem, ItemChanger",
+    "playerDataName": "BigCentipede",
+    "name": "Journal_Entry-Garpede",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Garpede Journal Entry"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.PaywallString, ItemChanger",
+        "key": "NOTE_BIG_CENTIPEDE",
+        "sheet": "Journal"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.JournalEntry"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Journal_Entry-Seal_of_Binding": {
+    "$type": "ItemChanger.Items.JournalEntryItem, ItemChanger",
+    "playerDataName": "BindingSeal",
+    "name": "Journal_Entry-Seal_of_Binding",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.BoxedString, ItemChanger",
+        "Value": "Seal of Binding Journal Entry"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.PaywallString, ItemChanger",
+        "key": "DESC_KIN_SEAL",
+        "sheet": "Journal"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.JournalEntry"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
   "Elevator_Pass": {
     "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
     "boolName": "hasElevatorPass",

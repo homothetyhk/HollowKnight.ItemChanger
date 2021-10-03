@@ -50,10 +50,9 @@ namespace ItemChanger.Locations.SpecialLocations
             };
         }
 
-        private string OnLanguageGet(string orig)
+        private void OnLanguageGet(ref string value)
         {
-            if (GameManager.instance.sceneName == sceneName) return Placement.GetUIName();
-            else return orig;
+            if (GameManager.instance.sceneName == sceneName) value = Placement.GetUIName();
         }
     }
 }

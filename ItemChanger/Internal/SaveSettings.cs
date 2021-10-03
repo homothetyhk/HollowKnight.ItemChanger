@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using ItemChanger.Locations;
 using ItemChanger.Internal;
+using Newtonsoft.Json;
 
 namespace ItemChanger
 {
@@ -30,6 +31,7 @@ namespace ItemChanger
 
         public ModuleCollection mods;
         public Dictionary<string, AbstractPlacement> Placements = new Dictionary<string, AbstractPlacement>();
+        [JsonConverter(typeof(Transition.TransitionDictConverter))]
         public Dictionary<Transition, ITransition> TransitionOverrides = new Dictionary<Transition, ITransition>();
         public List<IDeployer> Deployers = new();
 

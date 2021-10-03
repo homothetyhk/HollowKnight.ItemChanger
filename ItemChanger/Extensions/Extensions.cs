@@ -31,6 +31,8 @@ namespace ItemChanger.Extensions
             => dict.TryGetValue(key, out TValue value) ? value : @default;
 
 
+        public static string CapLength(this string s, int length) => s.Length > length ? s.Substring(0, length) : s;
+
         /// <summary>
         /// Returns true when the collection has a previously given item, or is null or empty.
         /// </summary>
@@ -39,24 +41,30 @@ namespace ItemChanger.Extensions
             return items == null || !items.Any() || items.Any(i => i.WasEverObtained());
         }
 
+        public static bool Compare<T>(this T t, ComparisonOperator op, T u) where T : IComparable
+        {
+            return op switch
+            {
+                ComparisonOperator.Neq => t.CompareTo(u) != 0,
+                ComparisonOperator.Ge => t.CompareTo(u) >= 0,
+                ComparisonOperator.Gt => t.CompareTo(u) > 0,
+                ComparisonOperator.Le => t.CompareTo(u) <= 0,
+                ComparisonOperator.Lt => t.CompareTo(u) < 0,
+                _ => t.CompareTo(u) == 0,
+            };
+        }
+
         public static bool Compare(this int a, ComparisonOperator op, int b)
         {
-            switch (op)
+            return op switch
             {
-                default:
-                case ComparisonOperator.Eq:
-                    return a == b;
-                case ComparisonOperator.Neq:
-                    return a != b;
-                case ComparisonOperator.Ge:
-                    return a >= b;
-                case ComparisonOperator.Gt:
-                    return a > b;
-                case ComparisonOperator.Le:
-                    return a <= b;
-                case ComparisonOperator.Lt:
-                    return a < b;
-            }
+                ComparisonOperator.Neq => a != b,
+                ComparisonOperator.Ge => a >= b,
+                ComparisonOperator.Gt => a > b,
+                ComparisonOperator.Le => a <= b,
+                ComparisonOperator.Lt => a < b,
+                _ => a == b,
+            };
         }
 
         public static int IndexOf<T>(this IEnumerable<T> ts, T t)

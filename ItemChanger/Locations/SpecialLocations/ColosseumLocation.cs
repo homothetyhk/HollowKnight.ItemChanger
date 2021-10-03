@@ -136,13 +136,13 @@ namespace ItemChanger.Locations.SpecialLocations
             return sb.ToString();
         }
 
-        private string OnLanguageGet(string orig)
+        private void OnLanguageGet(ref string value)
         {
             if (HintActive && !Placement.AllObtained())
             {
-                return GetTrialBoardHint();
+                value = GetTrialBoardHint();
             }
-            else return GetTrialBoardNullHint();
+            else value = GetTrialBoardNullHint();
         }
     }
 }

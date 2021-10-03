@@ -613,7 +613,7 @@
   "Void_Heart": {
     "$type": "ItemChanger.Locations.SpecialLocations.VoidHeartLocation, ItemChanger",
     "name": "Void_Heart",
-    "sceneName": "Abyss_15",
+    "sceneName": "Dream_Abyss",
     "flingType": "DirectDeposit",
     "tags": null,
     "HintActive": true
@@ -1212,12 +1212,12 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Lumafly_Escape_Chest": {
+  "Lumafly_Escape-Junk_Pit_Chest_4": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
     "containerType": "Chest",
     "fsmName": "Chest Control",
     "objectName": "Chest (3)",
-    "name": "Lumafly_Escape_Chest",
+    "name": "Lumafly_Escape-Junk_Pit_Chest_4",
     "sceneName": "GG_Waterways",
     "flingType": "Everywhere",
     "tags": null
@@ -2564,6 +2564,98 @@
       }
     ]
   },
+  "Mimic_Grub-Deepnest_1": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 58.5,
+    "y": 8.5,
+    "elevation": 0.1,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Mimic_Grub-Deepnest_1",
+    "sceneName": "Deepnest_36",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Deepnest_36",
+        "objectName": "Grub Mimic Top"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Deepnest_36",
+        "objectName": "Grub Mimic Bottle"
+      }
+    ]
+  },
+  "Mimic_Grub-Deepnest_2": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 36.3,
+    "y": 7.5,
+    "elevation": 0.1,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Mimic_Grub-Deepnest_2",
+    "sceneName": "Deepnest_36",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Deepnest_36",
+        "objectName": "Grub Mimic Top (1)"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Deepnest_36",
+        "objectName": "Grub Mimic Bottle (1)"
+      }
+    ]
+  },
+  "Mimic_Grub-Deepnest_3": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 73.4,
+    "y": 6.6,
+    "elevation": 0.2,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Mimic_Grub-Deepnest_3",
+    "sceneName": "Deepnest_36",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Deepnest_36",
+        "objectName": "Grub Mimic Top (2)"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Deepnest_36",
+        "objectName": "Grub Mimic Bottle (2)"
+      }
+    ]
+  },
+  "Mimic_Grub-Crystal_Peak": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 34.5,
+    "y": 3.6,
+    "elevation": 0.2,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Mimic_Grub-Crystal_Peak",
+    "sceneName": "Mines_16",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Mines_16",
+        "objectName": "Grub Mimic Top"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "sceneName": "Mines_16",
+        "objectName": "Grub Mimic Bottle"
+      }
+    ]
+  },
   "Crossroads_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
     "objectName": "Cornifer",
@@ -2967,6 +3059,56 @@
     "flingType": "Everywhere",
     "tags": null
   },
+  "Hunter's_Journal": {
+    "$type": "ItemChanger.Locations.SpecialLocations.HuntersJournalLocation, ItemChanger",
+    "objectName": "Hunter Eyes/Shiny Item",
+    "elevation": 0,
+    "forceShiny": false,
+    "name": "Hunter's_Journal",
+    "sceneName": "Fungus1_08",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Journal_Entry-Void_Tendrils": {
+    "$type": "ItemChanger.Locations.SpecialLocations.StaticJournalEntryLocation, ItemChanger",
+    "objectName": "AbyssTendril Inspect",
+    "name": "Journal_Entry-Void_Tendrils",
+    "sceneName": "Abyss_09",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Journal_Entry-Charged_Lumafly": {
+    "$type": "ItemChanger.Locations.SpecialLocations.StaticJournalEntryLocation, ItemChanger",
+    "objectName": "Zap Bug Inspect",
+    "name": "Journal_Entry-Charged_Lumafly",
+    "sceneName": "Fungus3_archive_02",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Journal_Entry-Goam": {
+    "$type": "ItemChanger.Locations.SpecialLocations.StaticJournalEntryLocation, ItemChanger",
+    "objectName": "Goam Inspect",
+    "name": "Journal_Entry-Goam",
+    "sceneName": "Crossroads_52",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Journal_Entry-Garpede": {
+    "$type": "ItemChanger.Locations.SpecialLocations.StaticJournalEntryLocation, ItemChanger",
+    "objectName": "Centipede Inspect",
+    "name": "Journal_Entry-Garpede",
+    "sceneName": "Deepnest_44",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Journal_Entry-Seal_of_Binding": {
+    "$type": "ItemChanger.Locations.SpecialLocations.StaticJournalEntryLocation, ItemChanger",
+    "objectName": "End Scene",
+    "name": "Journal_Entry-Seal_of_Binding",
+    "sceneName": "White_Palace_20",
+    "flingType": "DirectDeposit",
+    "tags": null
+  },
   "Elevator_Pass": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Toll Machine Lift",
@@ -2978,12 +3120,34 @@
     "tags": null
   },
   "Split_Mothwing_Cloak": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
-    "x": 29.5,
-    "y": 28.4,
-    "elevation": 0.0,
-    "managed": false,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.PDBool, ItemChanger",
+      "boolName": "hornet1Defeated"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.EnemyFsmLocation, ItemChanger",
+      "enemyFsm": "Control",
+      "enemyObj": "Hornet Boss 1",
+      "removeGeo": false,
+      "forceShiny": false,
+      "name": "Split_Mothwing_Cloak",
+      "sceneName": "Fungus1_04",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 29.5,
+      "y": 28.4,
+      "elevation": 0.0,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Split_Mothwing_Cloak",
+      "sceneName": "Fungus1_04",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Split_Mothwing_Cloak",
     "sceneName": "Fungus1_04",
     "flingType": "Everywhere",
@@ -3013,39 +3177,22 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Leftslash": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
-    "x": 33.0,
-    "y": 11.4,
-    "elevation": 0.0,
-    "managed": false,
-    "forceShiny": false,
-    "name": "Leftslash",
-    "sceneName": "Tutorial_01",
-    "flingType": "Everywhere",
-    "tags": null
-  },
-  "Rightslash": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
-    "x": 38.0,
-    "y": 11.4,
-    "elevation": 0.0,
-    "managed": false,
-    "forceShiny": false,
-    "name": "Rightslash",
-    "sceneName": "Tutorial_01",
-    "flingType": "Everywhere",
-    "tags": null
-  },
-  "Upslash": {
-    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
-    "x": 50.0,
-    "y": 11.4,
-    "elevation": 0.0,
-    "managed": false,
-    "forceShiny": false,
-    "name": "Upslash",
-    "sceneName": "Tutorial_01",
+  "Egg_Shop": {
+    "$type": "ItemChanger.Locations.SpecialLocations.EggShopLocation, ItemChanger",
+    "location": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 24.5,
+      "y": 7.5,
+      "elevation": 0,
+      "managed": true,
+      "forceShiny": false,
+      "name": "Egg_Shop",
+      "sceneName": "Room_Ouiji",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "name": "Egg_Shop",
+    "sceneName": "Room_Ouiji",
     "flingType": "Everywhere",
     "tags": null
   },
@@ -3451,8 +3598,8 @@
   },
   "Geo_Rock-Crossroads_Goam_Alcove": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Geo Rock 1",
-    "elevation": 2.5,
+    "objectName": "Geo Rock 2",
+    "elevation": -0.8,
     "forceShiny": false,
     "name": "Geo_Rock-Crossroads_Goam_Alcove",
     "sceneName": "Crossroads_42",
@@ -3461,8 +3608,8 @@
   },
   "Geo_Rock-Crossroads_Goam_Damage_Boost": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Geo Rock 2",
-    "elevation": -0.8,
+    "objectName": "Geo Rock 1",
+    "elevation": 2.5,
     "forceShiny": false,
     "name": "Geo_Rock-Crossroads_Goam_Damage_Boost",
     "sceneName": "Crossroads_42",

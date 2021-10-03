@@ -17,6 +17,13 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public bool HintActive { get; set; } = true;
 
+        public override GiveInfo GetGiveInfo()
+        {
+            GiveInfo info = base.GetGiveInfo();
+            info.MessageType &= ~MessageType.Lore; // lore is invisble behind the blanker
+            return info;
+        }
+
         protected override void OnLoad()
         {
             Events.AddFsmEdit(sceneName, new("End Cutscene", "Control"), EditEndCutscene);

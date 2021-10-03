@@ -63,13 +63,12 @@ namespace ItemChanger.Locations.SpecialLocations
             check.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
         }
 
-        private string OnLanguageGet(string orig)
+        private void OnLanguageGet(ref string value)
         {
             if (GameManager.instance.sceneName == sceneName)
             {
-                return Placement.GetUIName();
+                value = Placement.GetUIName();
             }
-            else return orig;
         }
     }
 }

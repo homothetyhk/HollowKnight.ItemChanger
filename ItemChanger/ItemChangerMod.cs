@@ -40,6 +40,7 @@ namespace ItemChanger
                 _hooked = true;
                 Events.Hook();
                 DialogueCenter.Hook();
+                SceneDataUtil.Hook();
                 ShopUtil.HookShops();
                 StartDef.Hook();
             }
@@ -59,6 +60,7 @@ namespace ItemChanger
                 _hooked = false;
                 Events.Unhook();
                 DialogueCenter.Unhook();
+                SceneDataUtil.Unhook();
                 ShopUtil.UnhookShops();
                 StartDef.Unhook();
             }

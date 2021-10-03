@@ -195,6 +195,12 @@ namespace ItemChanger
         public const string Lifeblood_Cocoon_Small = "Lifeblood_Cocoon_Small";
         public const string Lifeblood_Cocoon_Large = "Lifeblood_Cocoon_Large";
         public const string Grimmkin_Flame = "Grimmkin_Flame";
+        public const string Hunters_Journal = "Hunter's_Journal";
+        public const string Journal_Entry_Void_Tendrils = "Journal_Entry-Void_Tendrils";
+        public const string Journal_Entry_Charged_Lumafly = "Journal_Entry-Charged_Lumafly";
+        public const string Journal_Entry_Goam = "Journal_Entry-Goam";
+        public const string Journal_Entry_Garpede = "Journal_Entry-Garpede";
+        public const string Journal_Entry_Seal_of_Binding = "Journal_Entry-Seal_of_Binding";
         public const string Elevator_Pass = "Elevator_Pass";
         public const string Left_Mothwing_Cloak = "Left_Mothwing_Cloak";
         public const string Right_Mothwing_Cloak = "Right_Mothwing_Cloak";

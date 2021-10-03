@@ -31,24 +31,23 @@ namespace ItemChanger.Locations.SpecialLocations
             base.PlaceContainer(obj, containerType);
         }
 
-        private string OnLanguageGet(string orig)
+        private void OnLanguageGet(ref string value)
         {
             if (HintActive)
             {
                 string item = Placement.GetUIName();
                 if (!string.IsNullOrEmpty(item))
                 {
-                    return "A corpse in white armour. You can clearly see the "
+                    value = "A corpse in white armour. You can clearly see the "
                                 + Placement.GetUIName() + " it's holding, " +
                                 "but for some reason you get the feeling you're going to have to go" +
                                 " through an unnecessarily long gauntlet of spikes and sawblades just to pick it up.";
                 }
                 else
                 {
-                    return "A corpse in white armour. You already got the stuff it was holding.";
+                    value = "A corpse in white armour. You already got the stuff it was holding.";
                 }
             }
-            else return orig;
         }
     }
 }

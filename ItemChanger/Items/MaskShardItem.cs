@@ -19,18 +19,24 @@ namespace ItemChanger.Items
             PlayerData.instance.SetBool(nameof(PlayerData.heartPieceCollected), true);
             PlayerData.instance.IncrementInt(nameof(PlayerData.heartPieces));
 
-            if (PlayerData.instance.GetInt(nameof(PlayerData.heartPieces)) >= 4)
+            while (PlayerData.instance.GetInt(nameof(PlayerData.heartPieces)) >= 4)
             {
+                PlayMakerFSM.BroadcastEvent("HERO HEALED FULL");
                 HeroController.instance.AddToMaxHealth(1);
                 PlayMakerFSM.BroadcastEvent("MAX HP UP");
-                PlayMakerFSM.BroadcastEvent("HERO HEALED FULL");
-            }
 
-            if (PlayerData.instance.GetInt(nameof(PlayerData.maxHealthBase)) == PlayerData.instance.GetInt(nameof(PlayerData.maxHealthCap)))
-            {
-                PlayerData.instance.SetInt(nameof(PlayerData.heartPieces), 4);
+                if (PlayerData.instance.GetInt(nameof(PlayerData.maxHealthBase)) == PlayerData.instance.GetInt(nameof(PlayerData.maxHealthCap)))
+                {
+                    PlayerData.instance.SetInt(nameof(PlayerData.heartPieces), 0);
+                    PlayerData.instance.SetBool(nameof(PlayerData.heartPieceMax), true);
+                }
+                else PlayerData.instance.IntAdd(nameof(PlayerData.heartPieces), -4);
             }
-            else PlayerData.instance.IntAdd(nameof(PlayerData.heartPieces), -4);
+        }
+
+        public override bool Redundant()
+        {
+            return PlayerData.instance.GetInt(nameof(PlayerData.maxHealthBase)) == PlayerData.instance.GetInt(nameof(PlayerData.maxHealthCap));
         }
 
     }

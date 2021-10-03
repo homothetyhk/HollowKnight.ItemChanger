@@ -16,7 +16,7 @@ namespace ItemChanger
             Paid = true;
         }
 
-        public virtual void OnPay() { }
+        public abstract void OnPay();
 
         [JsonProperty]
         public bool Paid { get; protected set; }
@@ -138,7 +138,7 @@ namespace ItemChanger
         public string uiText;
 
         public override bool CanPay() => PlayerData.instance.GetBool(fieldName);
-
+        public override void OnPay() { }
         public override string GetCostText()
         {
             return uiText;
@@ -153,7 +153,7 @@ namespace ItemChanger
         public ComparisonOperator op = ComparisonOperator.Ge;
 
         public override bool CanPay() => PlayerData.instance.GetInt(fieldName).Compare(op, amount);
-
+        public override void OnPay() { }
         public override string GetCostText()
         {
             return uiText;

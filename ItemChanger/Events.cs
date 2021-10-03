@@ -123,18 +123,21 @@ namespace ItemChanger
             }
         }
 
+        public delegate void LanguageEdit(ref string value);
+
         /// <summary>
-        /// Hooks LanguageGet for the given key. Throws an exception if the key has already been hooked.
+        /// Hooks LanguageGet for the given key.
         /// </summary>
-        public static void AddLanguageEdit(LanguageKey key, Func<string, string> func)
+        public static void AddLanguageEdit(LanguageKey key, LanguageEdit func)
         {
-            languageHooks.Add(key, func);
+            if (languageHooks.ContainsKey(key)) languageHooks[key] += func;
+            else languageHooks[key] =  func;
         }
 
         /// <summary>
         /// Unhooks LanguageGet for the given key, provided that the given delegate matches the delegate at the key.
         /// </summary>
-        public static void RemoveLanguageEdit(LanguageKey key, Func<string, string> func)
+        public static void RemoveLanguageEdit(LanguageKey key, LanguageEdit func)
         {
             if (languageHooks.TryGetValue(key, out var func2) && func2 == func)
             {
@@ -151,7 +154,7 @@ namespace ItemChanger
         private static readonly Dictionary<FsmID, Action<PlayMakerFSM>> globalOnEnable = new();
         private static readonly Dictionary<string, Dictionary<FsmID, Action<PlayMakerFSM>>> localOnEnable = new();
         private static readonly Dictionary<string, Action<Scene>> activeSceneChangeEdits = new();
-        private static readonly Dictionary<LanguageKey, Func<string, string>> languageHooks = new();
+        private static readonly Dictionary<LanguageKey, LanguageEdit> languageHooks = new();
 
         internal static void Hook()
         {
@@ -281,23 +284,29 @@ namespace ItemChanger
             }
         }
 
-        private static string LanguageGetHook(string key, string sheetTitle, string orig)
+        private static string LanguageGetHook(string key, string sheetTitle, string value)
         {
             LanguageKey lk = new(sheetTitle, key);
             LanguageKey wk = new(key);
 
             try
             {
-                Func<string, string> func;
-                if (languageHooks.TryGetValue(lk, out func)) return func(orig);
-                if (languageHooks.TryGetValue(wk, out func)) return func(orig);
+                LanguageEdit func;
+                if (languageHooks.TryGetValue(lk, out func))
+                {
+                    func?.Invoke(ref value);
+                }
+                if (languageHooks.TryGetValue(wk, out func))
+                {
+                    func?.Invoke(ref value);
+                }
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error in Events.OnLanguageGet for {lk}::{orig}:\n{e}");
+                ItemChangerMod.instance.LogError($"Error in Events.OnLanguageGet for {lk}::{value}:\n{e}");
             }
 
-            return orig;
+            return value;
         }
 
 

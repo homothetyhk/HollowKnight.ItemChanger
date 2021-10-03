@@ -44,22 +44,20 @@ namespace ItemChanger.Locations.SpecialLocations
                 .gameObject.GameObject = obj;
         }
 
-        private string ChangeCoffinText(string orig)
+        private void ChangeCoffinText(ref string value)
         {
             if (HintActive)
             {
-                return $"A cocoon containing {Placement.GetUIName(maxLength: 40)}.\nUse simple key?";
+                value = $"A cocoon containing {Placement.GetUIName(maxLength: 40)}.\nUse simple key?";
             }
-            else return orig;
         }
 
-        private string ChangeNoKeyCoffinText(string orig)
+        private void ChangeNoKeyCoffinText(ref string value)
         {
             if (HintActive)
             {
-                return $"A cocoon chained with a simple lock. You can sense the {Placement.GetUIName()} inside.";
+                value = $"A cocoon chained with a simple lock. You can sense the {Placement.GetUIName()} inside.";
             }
-            else return orig;
         }
     }
 }

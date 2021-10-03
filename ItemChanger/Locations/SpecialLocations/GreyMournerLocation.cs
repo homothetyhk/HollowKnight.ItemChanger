@@ -49,13 +49,12 @@ namespace ItemChanger.Locations.SpecialLocations
             activate.RemoveActionsOfType<SetFsmBool>();
         }
 
-        private string OnLanguageGet(string orig)
+        private void OnLanguageGet(ref string value)
         {
             if (HintActive)
             {
-                return $"Accept the Gift, even knowing you'll only get a lousy {Placement.GetUIName()}?";
+                value = $"Accept the Gift, even knowing you'll only get a lousy {Placement.GetUIName()}?";
             }
-            else return orig;
         }
     }
 }
