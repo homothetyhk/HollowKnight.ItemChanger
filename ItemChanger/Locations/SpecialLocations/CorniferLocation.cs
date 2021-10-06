@@ -36,9 +36,11 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState checkActive = fsm.GetState("Check Active");
             FsmState convoChoice = fsm.GetState("Convo Choice");
             FsmState get = fsm.GetState("Geo Pause and GetMap");
+            FsmState sendText = fsm.GetState("Send Text");
 
             checkActive.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)checkActive.Actions[0]);
             convoChoice.Actions[1] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)convoChoice.Actions[1]);
+            sendText.AddFirstAction(new Lambda(() => Placement.AddVisitFlag(VisitState.Previewed)));
 
             get.Actions = new FsmStateAction[]
             {

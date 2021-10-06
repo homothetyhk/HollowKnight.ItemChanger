@@ -28,7 +28,7 @@ namespace ItemChanger.Util
             var mod = self.gameObject.GetComponent<ModShopItemStats>();
             if (mod)
             {
-                if (mod.Cost == null || mod.Cost.Paid|| mod.Cost.CanPay())
+                if (mod.cost == null || mod.cost.Paid|| mod.cost.CanPay())
                 {
                     self.transform.Find("Geo Sprite").gameObject.GetComponent<SpriteRenderer>().color = self.activeColour;
                     self.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().color = self.activeColour;
@@ -101,7 +101,8 @@ namespace ItemChanger.Util
                         // Instantiate can't copy custom classes
                         var origMod = self.stock[i].GetComponent<ModShopItemStats>();
                         mod.item = origMod.item;
-                        mod.Cost = origMod.Cost;
+                        mod.cost = origMod.cost;
+                        mod.placement = origMod.placement;
                     }
                     gameObject.transform.SetParent(self.transform, false);
                     gameObject.transform.localPosition = new Vector3(0f, num, 0f);

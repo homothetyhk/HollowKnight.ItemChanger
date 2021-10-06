@@ -141,6 +141,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (HintActive && !Placement.AllObtained())
             {
                 value = GetTrialBoardHint();
+                Placement.AddVisitFlag(VisitState.Previewed); // hopefully this shouldn't be possible to trigger except when the board is read, might be better in the board fsm
             }
             else value = GetTrialBoardNullHint();
         }

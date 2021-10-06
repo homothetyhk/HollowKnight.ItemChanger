@@ -19,12 +19,14 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             base.OnLoad();
             Events.AddFsmEdit(sceneName, new(fsmParent, fsmName), EditFountain);
+            Events.AddLanguageEdit(new("Prompts", "GEO_RELIEVE"), EditFountainText);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
             Events.RemoveFsmEdit(sceneName, new(fsmParent, fsmName), EditFountain);
+            Events.RemoveLanguageEdit(new("Prompts", "GEO_RELIEVE"), EditFountainText);
         }
 
         private void EditFountain(PlayMakerFSM fsm)
@@ -37,6 +39,12 @@ namespace ItemChanger.Locations.SpecialLocations
                     // idle.Actions[2], // FindChild -- Vessel Fragment
                     idle.Actions[3],
             };
+        }
+
+        private void EditFountainText(ref string value)
+        {
+            value = value.Replace("?", $" for {(Placement.Items.Count > 0 ? "a " : "")}{Placement.GetUIName(40)}");
+            Placement.AddVisitFlag(VisitState.Previewed);
         }
     }
 }

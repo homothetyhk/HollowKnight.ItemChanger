@@ -91,7 +91,8 @@ namespace ItemChanger.Placements
 
             var mod = stats.gameObject.AddComponent<ModShopItemStats>();
             mod.item = item;
-            mod.Cost = cost;
+            mod.cost = cost;
+            mod.placement = this;
 
             // Apply all the stored values
             stats.playerDataBoolName = string.Empty;

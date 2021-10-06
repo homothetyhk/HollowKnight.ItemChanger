@@ -10,6 +10,7 @@ using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
 using ItemChanger.Extensions;
 using UnityEngine.SceneManagement;
+using System.Reflection;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
@@ -37,6 +38,16 @@ namespace ItemChanger.Locations.SpecialLocations
                 Events.AddSceneChangeEdit(previousScene, HandleHerrahDeactivation);
             }
             Events.AddFsmEdit(previousScene, new("Dream Enter", "Control"), MakeHintBox);
+            try
+            {
+                Type.GetType("QoL.SettingsOverride, QoL")
+                    ?.GetMethod("OverrideSettingToggle", BindingFlags.Public | BindingFlags.Static)
+                    ?.Invoke(null, new object[] { "SkipCutscenes", "DreamersGet", false });
+            }
+            catch (Exception e)
+            {
+                ItemChangerMod.instance.LogError(e);
+            }
         }
 
         protected override void OnUnload()
@@ -58,6 +69,16 @@ namespace ItemChanger.Locations.SpecialLocations
                 Events.RemoveSceneChangeEdit(previousScene, HandleHerrahDeactivation);
             }
             Events.RemoveFsmEdit(previousScene, new("Dream Enter", "Control"), MakeHintBox);
+            try
+            {
+                Type.GetType("QoL.SettingsOverride, QoL")
+                    ?.GetMethod("RemoveSettingOverride", BindingFlags.Public | BindingFlags.Static)
+                    ?.Invoke(null, new object[] { "SkipCutscenes", "DreamersGet" });
+            }
+            catch (Exception e)
+            {
+                ItemChangerMod.instance.LogError(e);
+            }
         }
 
         public override void PlaceContainer(GameObject obj, string containerType)

@@ -70,6 +70,7 @@ namespace ItemChanger
 
         public void AddVisitFlag(VisitState flag)
         {
+            if ((Visited & flag) == flag) return;
             InvokeVisitStateChanged(flag);
             Visited |= flag;
         }

@@ -111,7 +111,7 @@ namespace ItemChanger
 
         public abstract void GiveImmediate(GiveInfo info);
 
-        public UIDef GetResolvedUIDef(AbstractPlacement placement)
+        public UIDef GetResolvedUIDef(AbstractPlacement placement = null)
         {
             GiveEventArgs args = new GiveEventArgs(this, this, placement, null);
             ResolveItem(args);

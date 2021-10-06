@@ -84,7 +84,19 @@ namespace ItemChanger.Locations
         private void EditItemListControl(PlayMakerFSM fsm)
         {
             FsmState init = fsm.GetState("Init");
-            if (init.GetActionsOfType<Lambda>().Any()) return; // Fsm has already been edited
+            
+            bool hasBeenEdited = init.GetActionsOfType<Lambda>().Any(); // for cases like sly, sly key, only one placement needs to edit the shop functionality
+            void RecordPreview()
+            {
+                if (string.IsNullOrEmpty(requiredPlayerDataBool) || PlayerData.instance.GetBool(requiredPlayerDataBool)) Placement.AddVisitFlag(VisitState.Previewed);
+            }
+            init.AddFirstAction(new Lambda(RecordPreview)); // we do still need to handle visit flags though
+
+            if (hasBeenEdited)
+            {
+                return;
+            }
+
             FsmState getDetailsInit = fsm.GetState("Get Details Init");
             FsmState getDetails = fsm.GetState("Get Details");
             FsmState charmsRequiredInit = fsm.GetState("Charms Required? Init");
@@ -105,7 +117,7 @@ namespace ItemChanger.Locations
                 string name;
                 if (mod && mod.item != null)
                 {
-                    name = mod.item.GetResolvedUIDef(Placement).GetPreviewName();
+                    name = mod.UIDef.GetPreviewName();
                 }
                 else
                 {
@@ -121,7 +133,7 @@ namespace ItemChanger.Locations
                 {
                     var mod = shopItem.GetComponent<ModShopItemStats>();
                     if (!mod || mod.item == null) continue;
-                    shopItem.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = mod.item.GetResolvedUIDef(Placement).GetSprite();
+                    shopItem.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = mod.UIDef.GetSprite();
                 }
             }
 
@@ -133,10 +145,10 @@ namespace ItemChanger.Locations
                 string desc;
                 if (mod && mod.item != null)
                 {
-                    desc = mod.item.GetResolvedUIDef(Placement).GetShopDesc();
-                    if (mod.Cost != null)
+                    desc = mod.UIDef.GetShopDesc();
+                    if (mod.cost != null)
                     {
-                        string costText = mod.Cost.GetShopCostText();
+                        string costText = mod.cost.GetShopCostText();
                         if (!string.IsNullOrEmpty(costText))
                         {
                             desc += $"\n\n<#888888>{costText}";
@@ -189,7 +201,7 @@ namespace ItemChanger.Locations
                 var mod = shopItem.GetComponent<ModShopItemStats>();
                 if (mod)
                 {
-                    Cost cost = mod.Cost;
+                    Cost cost = mod.cost;
                     return cost == null || cost.Paid || cost.CanPay();
                 }
                 else
@@ -207,7 +219,7 @@ namespace ItemChanger.Locations
                 string name;
                 if (mod && mod.item != null)
                 {
-                    name = mod.item.GetResolvedUIDef(Placement).GetPreviewName();
+                    name = mod.UIDef.GetPreviewName();
                 }
                 else
                 {
@@ -256,28 +268,28 @@ namespace ItemChanger.Locations
             checkCanBuy.Actions = new[] { canBuy };
             activateConfirm.Actions = new[]
             {
-                            // Find Children
-                            activateConfirm.Actions[0],
-                            activateConfirm.Actions[1],
-                            activateConfirm.Actions[2],
-                            // 3-4 Set Confirm Name -- replace
-                            setConfirmName,
-                            // 5-6 Set Confirm Cost
-                            activateConfirm.Actions[5],
-                            activateConfirm.Actions[6],
-                            // 7-10 Set and adjust sprite
-                            activateConfirm.Actions[7],
-                            activateConfirm.Actions[8],
-                            activateConfirm.Actions[9],
-                            activateConfirm.Actions[10],
-                            // 11 Set relic number
-                            activateConfirm.Actions[11],
-                            // 12-15 Activate and send events
-                            activateConfirm.Actions[12],
-                            activateConfirm.Actions[13],
-                            activateConfirm.Actions[14],
-                            activateConfirm.Actions[15],
-                        };
+                // Find Children
+                activateConfirm.Actions[0],
+                activateConfirm.Actions[1],
+                activateConfirm.Actions[2],
+                // 3-4 Set Confirm Name -- replace
+                setConfirmName,
+                // 5-6 Set Confirm Cost
+                activateConfirm.Actions[5],
+                activateConfirm.Actions[6],
+                // 7-10 Set and adjust sprite
+                activateConfirm.Actions[7],
+                activateConfirm.Actions[8],
+                activateConfirm.Actions[9],
+                activateConfirm.Actions[10],
+                // 11 Set relic number
+                activateConfirm.Actions[11],
+                // 12-15 Activate and send events
+                activateConfirm.Actions[12],
+                activateConfirm.Actions[13],
+                activateConfirm.Actions[14],
+                activateConfirm.Actions[15],
+            };
             activateUI.AddLastAction(addIntToConfirm);
         }
 
@@ -287,7 +299,10 @@ namespace ItemChanger.Locations
         private void EditConfirmControl(PlayMakerFSM fsm)
         {
             FsmState deductSet = fsm.GetState("Deduct Geo and set PD");
-            if (deductSet.GetActionsOfType<Lambda>().Any()) return; // Fsm has already been edited
+            if (deductSet.GetActionsOfType<Lambda>().Any())
+            {
+                return; // Fsm has already been edited
+            }
 
             void Give()
             {
@@ -297,9 +312,9 @@ namespace ItemChanger.Locations
 
                 if (mod)
                 {
-                    mod.item.Give(Placement, new GiveInfo
+                    mod.item.Give(mod.placement, new GiveInfo
                     {
-                        Container = Placement.MainContainerType,
+                        Container = mod.placement.MainContainerType,
                         FlingType = this.flingType,
                         MessageType = MessageType.Corner,
                         Transform = GameObject.Find(objectName)?.transform,
@@ -321,7 +336,7 @@ namespace ItemChanger.Locations
 
                 if (mod)
                 {
-                    Cost cost = mod.Cost;
+                    Cost cost = mod.cost;
                     if (cost is null || cost.Paid) return;
                     cost.Pay();
                 }

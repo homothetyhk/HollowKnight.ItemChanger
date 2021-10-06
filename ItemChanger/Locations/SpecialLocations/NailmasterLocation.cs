@@ -35,12 +35,13 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState convo = fsm.GetState("Convo Choice");
             FsmState getMsg = fsm.GetState("Get Msg");
             FsmState fade = fsm.GetState("Fade Back");
+            FsmState sendText = fsm.GetState("Send Text");
 
             FsmStateAction test = new BoolTestMod(Placement.AllObtained, null, "REOFFER");
             FsmStateAction give = new AsyncLambda(GiveAllAsync(fsm.transform), "GET ITEM MSG END");
 
             convo.Actions[objectName == "NM Sheo NPC" ? 2 : 1] = test;
-
+            sendText.AddFirstAction(new Lambda(() => Placement.AddVisitFlag(VisitState.Previewed)));
             getMsg.Actions = new FsmStateAction[]
             {
                     getMsg.Actions[0],

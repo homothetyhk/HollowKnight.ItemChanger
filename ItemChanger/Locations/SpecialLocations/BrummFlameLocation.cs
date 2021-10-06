@@ -19,11 +19,13 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             Events.AddFsmEdit(sceneName, new("Brumm Torch NPC", "Conversation Control"), EditBrummConvo);
+            Events.AddLanguageEdit(new("CP2", "BRUMM_DEEPNEST_3"), EditBrummText);
         }
 
         protected override void OnUnload()
         {
             Events.RemoveFsmEdit(sceneName, new("Brumm Torch NPC", "Conversation Control"), EditBrummConvo);
+            Events.RemoveLanguageEdit(new("CP2", "BRUMM_DEEPNEST_3"), EditBrummText);
         }
 
         private void EditBrummConvo(PlayMakerFSM fsm)
@@ -46,6 +48,8 @@ namespace ItemChanger.Locations.SpecialLocations
                 new AsyncLambda(GiveAllAsync(fsm.transform)),
             };
         }
+
+        private void EditBrummText(ref string value) => value = value.Replace("flame", Placement.GetUIName(40));
 
         private static bool IsBrummActive()
         {

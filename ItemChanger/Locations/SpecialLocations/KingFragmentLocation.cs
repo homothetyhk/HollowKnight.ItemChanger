@@ -42,6 +42,7 @@ namespace ItemChanger.Locations.SpecialLocations
                                 + Placement.GetUIName() + " it's holding, " +
                                 "but for some reason you get the feeling you're going to have to go" +
                                 " through an unnecessarily long gauntlet of spikes and sawblades just to pick it up.";
+                    Placement.AddVisitFlag(VisitState.Previewed);
                 }
                 else
                 {

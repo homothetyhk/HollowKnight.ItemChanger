@@ -9,10 +9,12 @@ namespace ItemChanger.Components
     public class ModShopItemStats : MonoBehaviour
     {
         public AbstractItem item;
-        public Cost Cost
+        public AbstractPlacement placement;
+        public UIDef UIDef => item.GetResolvedUIDef(placement);
+        public Cost cost
         {
             get => item.GetTag<CostTag>()?.Cost;
-            set => item.GetOrAddTag<CostTag>().Cost = Cost;
+            set => item.GetOrAddTag<CostTag>().Cost = cost;
         }
     }
 }

@@ -49,6 +49,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (HintActive)
             {
                 value = $"A cocoon containing {Placement.GetUIName(maxLength: 40)}.\nUse simple key?";
+                Placement.AddVisitFlag(VisitState.Previewed);
             }
         }
 
@@ -57,6 +58,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (HintActive)
             {
                 value = $"A cocoon chained with a simple lock. You can sense the {Placement.GetUIName()} inside.";
+                Placement.AddVisitFlag(VisitState.Previewed);
             }
         }
     }

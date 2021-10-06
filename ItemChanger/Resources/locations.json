@@ -2778,7 +2778,13 @@
     "name": "Dirtmouth_Stag",
     "sceneName": "Room_Town_Stag_Station",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Gate Switch",
+        "sceneName": "Room_Town_Stag_Station"
+      }
+    ]
   },
   "Crossroads_Stag": {
     "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",

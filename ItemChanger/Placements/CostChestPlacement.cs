@@ -136,7 +136,7 @@ namespace ItemChanger.Placements
                 Cost cost = item.GetTag<CostTag>()?.Cost;
 
                 sb.Append("<br>");
-                sb.Append(item?.GetResolvedUIDef(this)?.GetPostviewName() ?? "Unknown Item");
+                sb.Append(item?.GetResolvedUIDef(this)?.GetPreviewName() ?? "Unknown Item");
                 sb.Append("  -  ");
                 if (item.IsObtained())
                 {
@@ -155,6 +155,7 @@ namespace ItemChanger.Placements
                     sb.Append(cost.GetCostText());
                 }
             }
+            AddVisitFlag(VisitState.Previewed);
             return sb.ToString();
         }
     }
