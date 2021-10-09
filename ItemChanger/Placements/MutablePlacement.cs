@@ -89,7 +89,7 @@ namespace ItemChanger.Placements
                 ItemChangerMod.instance.LogError($"Unknown container type {containerType} used for {Name}!");
             }
 
-            obj = container.GetNewContainer(this, Items, location.flingType);
+            obj = container.GetNewContainer(this, Items, location.flingType, Cost);
         }
 
         public static string ChooseContainerType(ISingleCostPlacement placement, ContainerLocation location, IEnumerable<AbstractItem> items)
@@ -107,7 +107,8 @@ namespace ItemChanger.Placements
 
             if (string.IsNullOrEmpty(containerType))
             {
-                containerType = items.Count() == 1 ? Container.Shiny : Container.Chest;
+                if (mustSupportCost || items.Count() == 1) containerType = Container.Shiny;
+                else containerType = Container.Chest;
             }
 
             return containerType;

@@ -36,7 +36,7 @@ namespace ItemChanger.Placements
 
         public void GetContainer(AbstractLocation location, out GameObject obj, out string containerType)
         {
-            obj = ShinyUtility.MakeNewMultiItemShiny(this, Items, Location.flingType);
+            obj = ShinyUtility.MakeNewMultiItemShiny(this, Items, Location.flingType, Cost);
             containerType = Container.Shiny;
         }
     }

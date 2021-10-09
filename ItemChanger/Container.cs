@@ -55,7 +55,7 @@ namespace ItemChanger
         public virtual bool SupportsCost => false;
         public virtual bool SupportsSceneChange => false;
         public virtual bool SupportsDrop => false;
-        public abstract GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType);
+        public abstract GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null);
         public virtual void ApplyTargetContext(GameObject obj, GameObject target, float elevation)
         {
             if (target.transform.parent != null)

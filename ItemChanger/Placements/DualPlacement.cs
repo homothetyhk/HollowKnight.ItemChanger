@@ -66,7 +66,7 @@ namespace ItemChanger.Placements
                 ItemChangerMod.instance.LogError($"Unknown container type {containerType} used for {Name}!");
             }
 
-            obj = container.GetNewContainer(this, Items, location.flingType);
+            obj = container.GetNewContainer(this, Items, location.flingType, Cost);
         }
     }
 }

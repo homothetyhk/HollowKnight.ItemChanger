@@ -20,7 +20,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (sceneName == SceneNames.RestingGrounds_09)
             {
                 Events.AddFsmEdit(sceneName, new("Station Bell Lever", "Stag Bell"), EditStationBell);
-                Events.AddFsmEdit(sceneName, new("Switch Control", "Ruins Lever"), DestroyRestingGroundsLever);
+                Events.AddFsmEdit(sceneName, new("Ruins Lever", "Switch Control"), DestroyRestingGroundsLever);
             }
             else
             {

@@ -12,7 +12,7 @@ namespace ItemChanger.Containers
     {
         public override string Name => Container.Tablet;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
         {
             return TabletUtility.MakeNewTablet(placement, items, flingType);
         }

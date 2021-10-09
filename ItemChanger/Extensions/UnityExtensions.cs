@@ -27,6 +27,12 @@ namespace ItemChanger.Extensions
             return t.gameObject;
         }
 
+        public static string GetPathInHierarchy(this Transform t)
+        {
+            if (t.parent == null) return t.name;
+            else return $"{t.parent.GetPathInHierarchy()}/{t.name}";
+        }
+
         static readonly List<GameObject> rootObjects = new List<GameObject>(500);
         /// <summary>
         /// Finds a GameObject in the given scene by its full path.

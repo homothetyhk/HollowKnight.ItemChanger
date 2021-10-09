@@ -13,7 +13,7 @@ namespace ItemChanger.Containers
         public override string Name => Container.Chest;
         public override bool SupportsDrop => true;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
         {
             return ChestUtility.MakeNewChest(placement, items, flingType);
         }

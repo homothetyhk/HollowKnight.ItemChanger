@@ -15,7 +15,7 @@ namespace ItemChanger.Containers
         public override string Name => Mimic;
         public override bool SupportsDrop => true;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
         {
             return MimicUtil.CreateNewMimic(placement, items, flingType);
         }

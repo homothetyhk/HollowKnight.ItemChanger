@@ -19,7 +19,7 @@ namespace ItemChanger.Internal
         static GameObject Stop => DialogueText.transform.parent.Find("Stop").gameObject;
 
         static DialogueBox DialogueBox => DialogueText.GetComponent<DialogueBox>();
-        static DialogueBox DialogueBoxYN => null;
+        static DialogueBox DialogueBoxYN => DialogueManager.FindChild("Text YN").GetComponent<DialogueBox>();
 
         public static void SendLoreMessage(string text, Action callback, TextType type)
         {

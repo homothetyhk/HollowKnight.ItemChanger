@@ -39,7 +39,7 @@ namespace ItemChanger.Util
             return shiny;
         }
 
-        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
         {
             GameObject shiny = ObjectCache.ShinyItem;
             shiny.name = GetShinyPrefix(placement);
@@ -52,11 +52,11 @@ namespace ItemChanger.Util
                 flingType = flingType,
             };
 
-            if (placement is Placements.ISingleCostPlacement costPlacement && costPlacement.Cost != null)
+            if (cost != null)
             {
                 info.costInfo = new CostInfo
                 {
-                    cost = costPlacement.Cost,
+                    cost = cost,
                     previewItems = items,
                 };
             }
@@ -245,8 +245,8 @@ namespace ItemChanger.Util
 
             noState.ClearTransitions();
             noState.RemoveActionsOfType<FsmStateAction>();
-            noState.AddTransition("FINISHED", "Give Control");
-            noState.AddTransition("HERO DAMAGED", "Give Control");
+            noState.AddTransition(FsmEvent.Finished, giveControl);
+            noState.AddTransition("HERO DAMAGED", giveControl);
 
             Tk2dPlayAnimationWithEvents heroUp = new Tk2dPlayAnimationWithEvents
             {
