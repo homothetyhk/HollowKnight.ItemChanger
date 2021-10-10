@@ -19,19 +19,10 @@ namespace ItemChanger.Items
             PlayerData.instance.IncrementInt(nameof(PlayerData.grubsCollected));
             if (info.Container == Container.GrubJar) return;
 
-            int clipIndex = new System.Random().Next(2);
-            AudioSource.PlayClipAtPoint(ObjectCache.GrubCries[clipIndex],
-                new Vector3(
-                    Camera.main.transform.position.x - 2,
-                    Camera.main.transform.position.y,
-                    Camera.main.transform.position.z + 2
-                ));
-            AudioSource.PlayClipAtPoint(ObjectCache.GrubCries[clipIndex],
-                new Vector3(
-                    Camera.main.transform.position.x + 2,
-                    Camera.main.transform.position.y,
-                    Camera.main.transform.position.z + 2
-                ));
+            SoundManager.PlayClipAtPoint(SoundManager.RandomGrubCry, 
+                info.Transform != null ? info.Transform.position
+                : HeroController.instance != null ? HeroController.instance.transform.position
+                : Camera.main.transform.position + 2 * Vector3.up);
         }
     }
 }

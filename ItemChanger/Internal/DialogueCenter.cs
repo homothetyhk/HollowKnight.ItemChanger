@@ -103,18 +103,8 @@ namespace ItemChanger.Internal
 
         public static void PlayLoreSound()
         {
-            AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
-                new Vector3(
-                    Camera.main.transform.position.x - 2,
-                    Camera.main.transform.position.y,
-                    Camera.main.transform.position.z + 2
-                ));
-            AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
-                new Vector3(
-                    Camera.main.transform.position.x + 2,
-                    Camera.main.transform.position.y,
-                    Camera.main.transform.position.z + 2
-                ));
+            Vector3 pos = HeroController.instance != null ? HeroController.instance.transform.position : Camera.main.transform.position + 2 * Vector3.up;
+            SoundManager.LoreSound.PlayClipAtPoint(pos);
         }
 
         public static void StartConversation(string text)

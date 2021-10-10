@@ -13,11 +13,13 @@
     <None Remove="**\*.png" />
     <None Remove="**\*.json" />
     <None Remove="**\*.xml" />
+    <None Remove="**\*.wav" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="**\*.png" />
     <EmbeddedResource Include="**\*.json" />
     <EmbeddedResource Include="**\*.xml" />
+    <EmbeddedResource Include="**\*.wav" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">

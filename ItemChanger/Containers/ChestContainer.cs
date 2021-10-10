@@ -12,6 +12,7 @@ namespace ItemChanger.Containers
     {
         public override string Name => Container.Chest;
         public override bool SupportsDrop => true;
+        public override bool SupportsInstantiate => true;
 
         public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
         {
@@ -23,6 +24,16 @@ namespace ItemChanger.Containers
             if (fsm.FsmName != "Chest Control") return;
             ChestUtility.ModifyChest(fsm, info.flingType, info.placement, info.items);
             base.AddGiveEffectToFsm(fsm, info);
+        }
+
+        public override void ApplyTargetContext(GameObject obj, float x, float y, float elevation)
+        {
+            ChestUtility.MoveChest(obj, x, y, elevation);
+        }
+
+        public override void ApplyTargetContext(GameObject obj, GameObject target, float elevation)
+        {
+            ChestUtility.MoveChest(obj, target, elevation);
         }
     }
 }

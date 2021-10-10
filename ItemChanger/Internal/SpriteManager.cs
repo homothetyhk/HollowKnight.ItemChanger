@@ -12,25 +12,20 @@ namespace ItemChanger.Internal
 {
     internal static class SpriteManager
     {
-        private static Dictionary<string, Sprite> _sprites;
-
-        public static void LoadEmbeddedPngs(string prefix)
-        {
-            Assembly a = typeof(SpriteManager).Assembly;
-            _sprites = new Dictionary<string, Sprite>();
-            foreach (string name in a.GetManifestResourceNames().Where(name => name.Substring(name.Length - 3).ToLower() == "png"))
-            {
-                string altName = prefix != null ? name.Substring(prefix.Length) : name;
-                altName = altName.Remove(altName.Length - 4);
-                Sprite sprite = FromStream(a.GetManifestResourceStream(name));
-                _sprites[altName] = sprite;
-            }
-        }
+        private static readonly Dictionary<string, Sprite> _sprites = new();
+        private static readonly Dictionary<string, string> _resourceNames = typeof(SpriteManager).Assembly.GetManifestResourceNames()
+            .Where(n => n.EndsWith(".png"))
+            .ToDictionary(n => n.Substring("ItemChanger.Resources.".Length, n.Length - "ItemChanger.Resources.".Length - ".png".Length));
 
         public static Sprite GetSprite(string name)
         {
-            if (_sprites != null && _sprites.TryGetValue(name, out Sprite sprite)) return sprite;
-            else return FromStream(typeof(SpriteManager).Assembly.GetManifestResourceStream(name));
+            if (_sprites.TryGetValue(name, out Sprite sprite)) return sprite;
+            else if (_resourceNames.TryGetValue(name, out string path))
+            {
+                using Stream s = typeof(SpriteManager).Assembly.GetManifestResourceStream(path);
+                return _sprites[name] = FromStream(s);
+            }
+            else throw new ArgumentException($"{name} did not correspond to an embedded image file.");
         }
 
         private static Sprite FromStream(Stream s)
@@ -44,11 +39,9 @@ namespace ItemChanger.Internal
 
         private static byte[] ToArray(Stream s)
         {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                s.CopyTo(ms);
-                return ms.ToArray();
-            }
+            using MemoryStream ms = new();
+            s.CopyTo(ms);
+            return ms.ToArray();
         }
     }
 }

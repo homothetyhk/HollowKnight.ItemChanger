@@ -67,7 +67,11 @@ namespace ItemChanger.Placements
                 containers[i] = container;
             }
             Container c = Container.GetContainer(container);
-            if (c == null) throw new NullReferenceException($"Container {container} was not defined.");
+            if (c == null || !c.SupportsInstantiate)
+            {
+                containers[i] = Container.Shiny;
+                c = Container.GetContainer(Container.Shiny);
+            }
 
             GameObject obj = c.GetNewContainer(this, Items[i].Yield(), Location.flingType);
             Location.PlaceContainer(obj, container);

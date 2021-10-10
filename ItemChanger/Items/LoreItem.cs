@@ -16,18 +16,10 @@ namespace ItemChanger.Items
         public override void GiveImmediate(GiveInfo info)
         {
             if ((info.MessageType & MessageType.Lore) == MessageType.Lore) return;
-            AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
-                new Vector3(
-                    Camera.main.transform.position.x - 2,
-                    Camera.main.transform.position.y,
-                    Camera.main.transform.position.z + 2
-                ));
-            AudioSource.PlayClipAtPoint(ObjectCache.LoreSound,
-                new Vector3(
-                    Camera.main.transform.position.x + 2,
-                    Camera.main.transform.position.y,
-                    Camera.main.transform.position.z + 2
-                ));
+            SoundManager.PlayClipAtPoint(SoundManager.LoreSound,
+                info.Transform != null ? info.Transform.position
+                : HeroController.instance != null ? HeroController.instance.transform.position
+                : Camera.main.transform.position + 2 * Vector3.up);
         }
 
     }

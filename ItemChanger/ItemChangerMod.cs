@@ -8,10 +8,11 @@ using UnityEngine;
 
 namespace ItemChanger
 {
-    public class ItemChangerMod : Mod, ILocalSettings<SaveSettings>
+    public class ItemChangerMod : Mod, ILocalSettings<SaveSettings>, IGlobalSettings<GlobalSettings>, IMenuMod
     {
         internal static ItemChangerMod instance;
         internal static Settings SET;
+        internal static GlobalSettings GS = new();
         private bool _hooked = false;
 
         public ItemChangerMod()
@@ -19,7 +20,6 @@ namespace ItemChanger
             if (instance != null) throw new NotSupportedException("Cannot construct multiple instances of ItemChangerMod.");
 
             instance = this;
-            SpriteManager.LoadEmbeddedPngs("ItemChanger.Resources.");
             Finder.Load();
             LanguageStringManager.Load();
         }
@@ -189,6 +189,25 @@ namespace ItemChanger
         public SaveSettings OnSaveLocal()
         {
             return SET;
+        }
+
+        public void OnLoadGlobal(GlobalSettings s)
+        {
+            GS = s;
+        }
+
+        public GlobalSettings OnSaveGlobal()
+        {
+            return GS;
+        }
+
+        public bool ToggleButtonInsideMenu => false;
+
+        public List<IMenuMod.MenuEntry> GetMenuData(IMenuMod.MenuEntry? toggleButtonEntry)
+        {
+            List<IMenuMod.MenuEntry> entries = new();
+            GS.AddEntries(entries);
+            return entries;
         }
     }
 }

@@ -1,13 +1,16 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Modding;
 
 namespace ItemChanger.Internal
 {
     public class GlobalSettings
     {
-        public bool ReducePreloads;
+        public PreloadSettings PreloadSettings = new();
+
+        internal void AddEntries(List<IMenuMod.MenuEntry> entries)
+        {
+            PreloadSettings.AddEntries(entries);
+        }
     }
 }

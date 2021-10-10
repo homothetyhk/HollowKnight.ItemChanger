@@ -12,6 +12,7 @@ namespace ItemChanger.Containers
     {
         public override string Name => Container.GeoRock;
         public override bool SupportsDrop => true;
+        public override bool SupportsInstantiate => Internal.ObjectCache.GeoRockPreloader.PreloadLevel != Internal.PreloadLevel.None;
 
         public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
         {
@@ -24,5 +25,14 @@ namespace ItemChanger.Containers
             GeoRockUtility.ModifyGeoRock(fsm, info.flingType, info.placement, info.items);
         }
 
+        public override void ApplyTargetContext(GameObject obj, float x, float y, float elevation)
+        {
+            GeoRockUtility.SetRockContext(obj, x, y, elevation);
+        }
+
+        public override void ApplyTargetContext(GameObject obj, GameObject target, float elevation)
+        {
+            GeoRockUtility.SetRockContext(obj, target, elevation);
+        }
     }
 }

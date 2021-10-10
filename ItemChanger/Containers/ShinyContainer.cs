@@ -15,6 +15,7 @@ namespace ItemChanger.Containers
         public override bool SupportsCost => true;
         public override bool SupportsSceneChange => true;
         public override bool SupportsDrop => true;
+        public override bool SupportsInstantiate => true;
 
         public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
         {

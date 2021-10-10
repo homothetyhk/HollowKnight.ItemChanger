@@ -132,6 +132,19 @@ namespace ItemChanger
         Outskirts420
     }
 
+    public enum SoulTotemSubtype
+    {
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+        G,
+        Palace,
+        PathOfPain
+    }
+
     public enum TextType
     {
         LeftLore,         // Some lore tablets (the Lurien tablet) have their text left aligned

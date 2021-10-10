@@ -84,9 +84,11 @@ namespace ItemChanger.Placements
             
             containerType = this.containerType;
             var container = Container.GetContainer(containerType);
-            if (containerType == null)
+            if (container == null || !container.SupportsInstantiate)
             {
-                ItemChangerMod.instance.LogError($"Unknown container type {containerType} used for {Name}!");
+                this.containerType = containerType = ChooseContainerType(this, location as ContainerLocation, Items);
+                container = Container.GetContainer(containerType);
+                if (container == null) throw new InvalidOperationException($"Unable to resolve container type {containerType} for placement {Name}!");
             }
 
             obj = container.GetNewContainer(this, Items, location.flingType, Cost);
@@ -103,7 +105,7 @@ namespace ItemChanger.Placements
 
             string containerType = items
                 .Select(i => i.GetPreferredContainer())
-                .FirstOrDefault(c => c != Container.Unknown && location.Supports(c) && (!mustSupportCost || Container.GetContainer(c).SupportsCost));
+                .FirstOrDefault(c => Container.GetContainer(c) is Container container && container.SupportsInstantiate && location.Supports(c) && (!mustSupportCost || container.SupportsCost));
 
             if (string.IsNullOrEmpty(containerType))
             {

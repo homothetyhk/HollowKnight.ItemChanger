@@ -88,6 +88,8 @@ namespace ItemChanger.Components
             float scaler = _imagePrompt.texture.height / 400f;
             Vector2 size = new Vector2(_imagePrompt.texture.width / scaler, _imagePrompt.texture.height / scaler);
 
+            SoundManager.PlayClipAtPoint(SoundManager.BigItemJingle, HeroController.instance.transform.position);
+
             // Begin fading in the top bits of the popup
             GameObject topImage = CanvasUtil.CreateImagePanel(gameObject, _imagePrompt,
                 new CanvasUtil.RectData(size, Vector2.zero, new Vector2(0.5f, 0.75f), new Vector2(0.5f, 0.8f)));
