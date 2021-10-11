@@ -23,6 +23,8 @@ namespace ItemChanger.Modules
             Events.AddFsmEdit(new("Equipment", "Build Equipment List"), EditInventory);
             Modding.ModHooks.GetPlayerBoolHook += SkillBoolGetOverride;
             Modding.ModHooks.SetPlayerBoolHook += SkillBoolSetOverride;
+            Events.AddLanguageEdit(new("UI", "INV_NAME_WALLJUMP"), EditClawName);
+            Events.AddLanguageEdit(new("UI", "INV_DESC_WALLJUMP"), EditClawDesc);
         }
 
         public override void Unload()
@@ -30,6 +32,8 @@ namespace ItemChanger.Modules
             Events.RemoveFsmEdit(new("Equipment", "Build Equipment List"), EditInventory);
             Modding.ModHooks.GetPlayerBoolHook -= SkillBoolGetOverride;
             Modding.ModHooks.SetPlayerBoolHook -= SkillBoolSetOverride;
+            Events.RemoveLanguageEdit(new("UI", "INV_NAME_WALLJUMP"), EditClawName);
+            Events.RemoveLanguageEdit(new("UI", "INV_DESC_WALLJUMP"), EditClawDesc);
         }
 
         private void EditInventory(PlayMakerFSM fsm)
@@ -82,5 +86,28 @@ namespace ItemChanger.Modules
             return value;
         }
 
+        private void EditClawName(ref string value)
+        {
+            if (hasWalljumpLeft && !hasWalljumpRight)
+            {
+                value = "Left Mantis Claw";
+            }
+            else if (!hasWalljumpLeft && hasWalljumpRight)
+            {
+                value = "Right Mantis Claw";
+            }
+        }
+
+        private void EditClawDesc(ref string value)
+        {
+            if (hasWalljumpLeft && !hasWalljumpRight)
+            {
+                value = "Part of a claw carved from bone. Allows the wearer to cling to walls on the left and leap off of them.";
+            }
+            else if (!hasWalljumpLeft && hasWalljumpRight)
+            {
+                value = "Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.";
+            }
+        }
     }
 }

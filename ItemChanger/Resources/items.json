@@ -1373,7 +1373,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_1",
+        "key": "CHARM_DESC_1",
         "sheet": "UI"
       },
       "sprite": {
@@ -1397,7 +1397,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_2",
+        "key": "CHARM_DESC_2",
         "sheet": "UI"
       },
       "sprite": {
@@ -1421,7 +1421,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_3",
+        "key": "CHARM_DESC_3",
         "sheet": "UI"
       },
       "sprite": {
@@ -1445,7 +1445,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_4",
+        "key": "CHARM_DESC_4",
         "sheet": "UI"
       },
       "sprite": {
@@ -1469,7 +1469,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_5",
+        "key": "CHARM_DESC_5",
         "sheet": "UI"
       },
       "sprite": {
@@ -1493,7 +1493,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_6",
+        "key": "CHARM_DESC_6",
         "sheet": "UI"
       },
       "sprite": {
@@ -1517,7 +1517,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_7",
+        "key": "CHARM_DESC_7",
         "sheet": "UI"
       },
       "sprite": {
@@ -1541,7 +1541,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_8",
+        "key": "CHARM_DESC_8",
         "sheet": "UI"
       },
       "sprite": {
@@ -1565,7 +1565,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_9",
+        "key": "CHARM_DESC_9",
         "sheet": "UI"
       },
       "sprite": {
@@ -1589,7 +1589,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_10",
+        "key": "CHARM_DESC_10",
         "sheet": "UI"
       },
       "sprite": {
@@ -1613,7 +1613,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_11",
+        "key": "CHARM_DESC_11",
         "sheet": "UI"
       },
       "sprite": {
@@ -1637,7 +1637,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_12",
+        "key": "CHARM_DESC_12",
         "sheet": "UI"
       },
       "sprite": {
@@ -1661,7 +1661,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_13",
+        "key": "CHARM_DESC_13",
         "sheet": "UI"
       },
       "sprite": {
@@ -1685,7 +1685,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_14",
+        "key": "CHARM_DESC_14",
         "sheet": "UI"
       },
       "sprite": {
@@ -1709,7 +1709,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_15",
+        "key": "CHARM_DESC_15",
         "sheet": "UI"
       },
       "sprite": {
@@ -1733,7 +1733,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_16",
+        "key": "CHARM_DESC_16",
         "sheet": "UI"
       },
       "sprite": {
@@ -1757,7 +1757,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_17",
+        "key": "CHARM_DESC_17",
         "sheet": "UI"
       },
       "sprite": {
@@ -1781,7 +1781,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_18",
+        "key": "CHARM_DESC_18",
         "sheet": "UI"
       },
       "sprite": {
@@ -1805,7 +1805,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_19",
+        "key": "CHARM_DESC_19",
         "sheet": "UI"
       },
       "sprite": {
@@ -1829,7 +1829,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_20",
+        "key": "CHARM_DESC_20",
         "sheet": "UI"
       },
       "sprite": {
@@ -1853,7 +1853,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_21",
+        "key": "CHARM_DESC_21",
         "sheet": "UI"
       },
       "sprite": {
@@ -1877,7 +1877,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_22",
+        "key": "CHARM_DESC_22",
         "sheet": "UI"
       },
       "sprite": {
@@ -2135,7 +2135,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_26",
+        "key": "CHARM_DESC_26",
         "sheet": "UI"
       },
       "sprite": {
@@ -2159,7 +2159,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_27",
+        "key": "CHARM_DESC_27",
         "sheet": "UI"
       },
       "sprite": {
@@ -2183,7 +2183,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_28",
+        "key": "CHARM_DESC_28",
         "sheet": "UI"
       },
       "sprite": {
@@ -2207,7 +2207,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_29",
+        "key": "CHARM_DESC_29",
         "sheet": "UI"
       },
       "sprite": {
@@ -2231,7 +2231,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_30",
+        "key": "CHARM_DESC_30",
         "sheet": "UI"
       },
       "sprite": {
@@ -2255,7 +2255,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_31",
+        "key": "CHARM_DESC_31",
         "sheet": "UI"
       },
       "sprite": {
@@ -2279,7 +2279,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_32",
+        "key": "CHARM_DESC_32",
         "sheet": "UI"
       },
       "sprite": {
@@ -2303,7 +2303,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_33",
+        "key": "CHARM_DESC_33",
         "sheet": "UI"
       },
       "sprite": {
@@ -2327,7 +2327,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_34",
+        "key": "CHARM_DESC_34",
         "sheet": "UI"
       },
       "sprite": {
@@ -2351,7 +2351,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_35",
+        "key": "CHARM_DESC_35",
         "sheet": "UI"
       },
       "sprite": {
@@ -2588,7 +2588,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_37",
+        "key": "CHARM_DESC_37",
         "sheet": "UI"
       },
       "sprite": {
@@ -2612,7 +2612,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_38",
+        "key": "CHARM_DESC_38",
         "sheet": "UI"
       },
       "sprite": {
@@ -2636,7 +2636,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_39",
+        "key": "CHARM_DESC_39",
         "sheet": "UI"
       },
       "sprite": {
@@ -2682,7 +2682,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "CHARM_NAME_40",
+        "key": "CHARM_DESC_40",
         "sheet": "UI"
       },
       "sprite": {
@@ -2707,7 +2707,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_CITYKEY",
+        "key": "INV_DESC_CITYKEY",
         "sheet": "UI"
       },
       "sprite": {
@@ -2732,7 +2732,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_LANTERN",
+        "key": "INV_DESC_LANTERN",
         "sheet": "UI"
       },
       "sprite": {
@@ -2757,7 +2757,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_TRAM_PASS",
+        "key": "INV_DESC_TRAM_PASS",
         "sheet": "UI"
       },
       "sprite": {
@@ -2782,7 +2782,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_SIMPLEKEY",
+        "key": "INV_DESC_SIMPLEKEY",
         "sheet": "UI"
       },
       "sprite": {
@@ -2807,7 +2807,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_STOREKEY",
+        "key": "INV_DESC_STOREKEY",
         "sheet": "UI"
       },
       "sprite": {
@@ -2832,7 +2832,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_WHITEKEY",
+        "key": "INV_DESC_WHITEKEY",
         "sheet": "UI"
       },
       "sprite": {
@@ -2857,7 +2857,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_LOVEKEY",
+        "key": "INV_DESC_LOVEKEY",
         "sheet": "UI"
       },
       "sprite": {
@@ -3028,7 +3028,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_MASK_SHARD",
+        "key": "RANDOMIZER_DESC_MASK_SHARD",
         "sheet": "UI"
       },
       "sprite": {
@@ -3051,7 +3051,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_MASK_SHARD",
+        "key": "RANDOMIZER_DESC_MASK_SHARD",
         "sheet": "UI"
       },
       "sprite": {
@@ -3074,7 +3074,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_MASK_SHARD",
+        "key": "RANDOMIZER_DESC_MASK_SHARD",
         "sheet": "UI"
       },
       "sprite": {
@@ -3098,7 +3098,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_VESSEL_FRAGMENT",
+        "key": "RANDOMIZER_DESC_VESSEL_FRAGMENT",
         "sheet": "UI"
       },
       "sprite": {
@@ -3121,7 +3121,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_VESSEL_FRAGMENT",
+        "key": "RANDOMIZER_DESC_VESSEL_FRAGMENT",
         "sheet": "UI"
       },
       "sprite": {
@@ -3144,7 +3144,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_VESSEL_FRAGMENT",
+        "key": "RANDOMIZER_DESC_VESSEL_FRAGMENT",
         "sheet": "UI"
       },
       "sprite": {
@@ -3169,7 +3169,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_CHARM_NOTCH",
+        "key": "RANDOMIZER_DESC_CHARM_NOTCH",
         "sheet": "UI"
       },
       "sprite": {
@@ -3194,7 +3194,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_PALE_ORE",
+        "key": "RANDOMIZER_DESC_PALE_ORE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3218,7 +3218,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_200GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3242,7 +3242,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_380GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3266,7 +3266,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_655GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3290,7 +3290,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_85GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3314,7 +3314,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_620GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3338,7 +3338,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_150GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3362,7 +3362,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_80GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3386,7 +3386,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_160GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3410,7 +3410,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_8GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3434,7 +3434,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_8GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3458,7 +3458,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_25GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3482,7 +3482,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_10GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3527,7 +3527,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_1GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -3552,7 +3552,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_RANCIDEGG",
+        "key": "INV_DESC_RANCIDEGG",
         "sheet": "UI"
       },
       "sprite": {
@@ -3576,7 +3576,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_TRINKET1",
+        "key": "INV_DESC_TRINKET1",
         "sheet": "UI"
       },
       "sprite": {
@@ -3600,7 +3600,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_TRINKET2",
+        "key": "INV_DESC_TRINKET2",
         "sheet": "UI"
       },
       "sprite": {
@@ -3624,7 +3624,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_TRINKET3",
+        "key": "INV_DESC_TRINKET3",
         "sheet": "UI"
       },
       "sprite": {
@@ -3648,7 +3648,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_TRINKET4",
+        "key": "INV_DESC_TRINKET4",
         "sheet": "UI"
       },
       "sprite": {
@@ -3672,7 +3672,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_29",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3696,7 +3696,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_44",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3720,7 +3720,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_20",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3744,7 +3744,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_18",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3768,7 +3768,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_45",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3792,7 +3792,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_29",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3816,7 +3816,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_51",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3840,7 +3840,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_35",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3864,7 +3864,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_28",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3888,7 +3888,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_20",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3912,7 +3912,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_34",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3936,7 +3936,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_21",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3960,7 +3960,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_46",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -3984,7 +3984,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_42",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4008,7 +4008,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_20",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4032,7 +4032,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_100",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4056,7 +4056,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_100",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4080,7 +4080,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_100",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4104,7 +4104,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_150",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4128,7 +4128,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_200",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4152,7 +4152,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_200",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4176,7 +4176,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_250",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4200,7 +4200,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4224,7 +4224,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4248,7 +4248,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_400",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4272,7 +4272,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4296,7 +4296,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_ESSENCE_300",
+        "key": "RANDOMIZER_DESC_ESSENCE",
         "sheet": "UI"
       },
       "sprite": {
@@ -4680,7 +4680,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_CROSSROADS",
+        "key": "RANDOMIZER_MAP_DESC_CROSSROADS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4704,7 +4704,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_GREENPATH",
+        "key": "RANDOMIZER_MAP_DESC_GREENPATH",
         "sheet": "UI"
       },
       "sprite": {
@@ -4728,7 +4728,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_FOG_CANYON",
+        "key": "RANDOMIZER_MAP_DESC_FOG_CANYON",
         "sheet": "UI"
       },
       "sprite": {
@@ -4752,7 +4752,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_FUNGAL_WASTES",
+        "key": "RANDOMIZER_MAP_DESC_FUNGAL_WASTES",
         "sheet": "UI"
       },
       "sprite": {
@@ -4776,7 +4776,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_DEEPNEST",
+        "key": "RANDOMIZER_MAP_DESC_DEEPNEST",
         "sheet": "UI"
       },
       "sprite": {
@@ -4800,7 +4800,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_ABYSS",
+        "key": "RANDOMIZER_MAP_DESC_ABYSS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4824,7 +4824,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_OUTSKIRTS",
+        "key": "RANDOMIZER_MAP_DESC_OUTSKIRTS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4848,7 +4848,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_CITY",
+        "key": "RANDOMIZER_MAP_DESC_CITY",
         "sheet": "UI"
       },
       "sprite": {
@@ -4872,7 +4872,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_WATERWAYS",
+        "key": "RANDOMIZER_MAP_DESC_WATERWAYS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4896,7 +4896,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_CLIFFS",
+        "key": "RANDOMIZER_MAP_DESC_CLIFFS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4920,7 +4920,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_MINES",
+        "key": "RANDOMIZER_MAP_DESC_MINES",
         "sheet": "UI"
       },
       "sprite": {
@@ -4944,7 +4944,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_ROYAL_GARDENS",
+        "key": "RANDOMIZER_MAP_DESC_ROYAL_GARDENS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4968,7 +4968,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MAP_NAME_RESTING_GROUNDS",
+        "key": "RANDOMIZER_MAP_DESC_RESTING_GROUNDS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4991,7 +4991,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_DIRTMOUTH",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5015,7 +5015,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_CROSSROADS",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5039,7 +5039,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_GREENPATH",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5063,7 +5063,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_QUEENSSTATION",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5087,7 +5087,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_QUEENSGARDENS",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5111,7 +5111,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_STOREROOMS",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5135,7 +5135,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_KINGSSTATION",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5159,7 +5159,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_RESTINGGROUNDS",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5183,7 +5183,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_DEEPNEST",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5207,7 +5207,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_HIDDENSTATION",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5232,7 +5232,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_STAG_NAME_STAGNEST",
+        "key": "RANDOMIZER_STAG_DESC",
         "sheet": "UI"
       },
       "sprite": {
@@ -5256,7 +5256,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_LIFEBLOOD_COCOON_SMALL",
+        "key": "RANDOMIZER_DESC_LIFEBLOOD_COCOON",
         "sheet": "UI"
       },
       "sprite": {
@@ -5285,7 +5285,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_LIFEBLOOD_COCOON_LARGE",
+        "key": "RANDOMIZER_DESC_LIFEBLOOD_COCOON",
         "sheet": "UI"
       },
       "sprite": {
@@ -5315,7 +5315,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_GRIMMKIN_FLAME",
+        "key": "RANDOMIZER_DESC_GRIMMKIN_FLAME",
         "sheet": "UI"
       },
       "sprite": {
@@ -5560,12 +5560,9 @@
     },
     "tags": [
       {
-        "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
-        "predecessors": null,
-        "successors": [
-          "Right_Mothwing_Cloak",
-          "Split_Shade_Cloak"
-        ]
+        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
+        "predecessor": null,
+        "successor": "Split_Shade_Cloak"
       }
     ],
     "obtainState": "Unobtained"
@@ -5619,11 +5616,8 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
-        "predecessors": null,
-        "successors": [
-          "Left_Mothwing_Cloak",
-          "Split_Shade_Cloak"
-        ]
+        "predecessor": null,
+        "successor": "Split_Shade_Cloak"
       }
     ],
     "obtainState": "Unobtained"
@@ -5663,12 +5657,12 @@
       },
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_SHOP_NAME_SHADOWDASH",
+        "key": "INV_NAME_SHADOWDASH",
         "sheet": "UI"
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_SHOP_DESC_SHADOWDASH",
+        "key": "INV_DESC_SHADOWDASH",
         "sheet": "UI"
       },
       "sprite": {
@@ -5678,12 +5672,9 @@
     },
     "tags": [
       {
-        "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
-        "predecessors": [
-          "Left_Mothwing_Cloak",
-          "Right_Mothwing_Cloak"
-        ],
-        "successors": null
+        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
+        "predecessor": "Left_Mothwing_Cloak",
+        "successor": null
       }
     ],
     "obtainState": "Unobtained"
@@ -5800,7 +5791,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_LEFTSLASH",
+        "key": "RANDOMIZER_DESC_LEFTSLASH",
         "sheet": "UI"
       },
       "sprite": {
@@ -5825,7 +5816,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_RIGHTSLASH",
+        "key": "RANDOMIZER_DESC_RIGHTSLASH",
         "sheet": "UI"
       },
       "sprite": {
@@ -5850,7 +5841,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_UPSLASH",
+        "key": "RANDOMIZER_DESC_UPSLASH",
         "sheet": "UI"
       },
       "sprite": {
@@ -5875,7 +5866,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_15GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -5900,7 +5891,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_15GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -5925,7 +5916,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_35GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -5950,7 +5941,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_26GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -5975,7 +5966,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_44GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6000,7 +5991,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_420GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6025,7 +6016,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_30GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6050,7 +6041,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_22GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6075,7 +6066,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_17GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6100,7 +6091,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_30GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6125,7 +6116,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_56GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6150,7 +6141,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_24GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6175,7 +6166,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_25GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6200,7 +6191,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_25GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6224,7 +6215,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_300GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6248,7 +6239,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_420GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6272,7 +6263,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_200GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6296,7 +6287,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_200GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6320,7 +6311,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_385GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6344,7 +6335,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_550GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6368,7 +6359,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_50GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6392,7 +6383,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_65GEO",
+        "key": "RANDOMIZER_DESC_GEO",
         "sheet": "UI"
       },
       "sprite": {
@@ -6416,7 +6407,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_SOUL",
+        "key": "RANDOMIZER_DESC_SOUL",
         "sheet": "UI"
       },
       "sprite": {

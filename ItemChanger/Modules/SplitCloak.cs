@@ -26,6 +26,10 @@ namespace ItemChanger.Modules
             ModHooks.GetPlayerBoolHook += SkillBoolGetOverride;
             ModHooks.SetPlayerBoolHook += SkillBoolSetOverride;
             On.HeroController.CanDash += ModifyDash;
+            Events.AddLanguageEdit(new("UI", "INV_NAME_DASH"), EditMothwingCloakName);
+            Events.AddLanguageEdit(new("UI", "INV_NAME_SHADOWDASH"), EditShadeCloakName);
+            Events.AddLanguageEdit(new("UI", "INV_DESC_DASH"), EditMothwingCloakDesc);
+            Events.AddLanguageEdit(new("UI", "INV_DESC_SHADOWDASH"), EditShadeCloakDesc);
         }
 
         public override void Unload()
@@ -34,6 +38,10 @@ namespace ItemChanger.Modules
             ModHooks.GetPlayerBoolHook -= SkillBoolGetOverride;
             ModHooks.SetPlayerBoolHook -= SkillBoolSetOverride;
             On.HeroController.CanDash -= ModifyDash;
+            Events.RemoveLanguageEdit(new("UI", "INV_NAME_DASH"), EditMothwingCloakName);
+            Events.RemoveLanguageEdit(new("UI", "INV_NAME_SHADOWDASH"), EditShadeCloakName);
+            Events.RemoveLanguageEdit(new("UI", "INV_DESC_DASH"), EditMothwingCloakDesc);
+            Events.RemoveLanguageEdit(new("UI", "INV_DESC_SHADOWDASH"), EditShadeCloakDesc);
         }
 
         private void EditInventory(PlayMakerFSM fsm)
@@ -119,6 +127,54 @@ namespace ItemChanger.Modules
             leftward,
             rightward,
             downward
+        }
+
+        private void EditMothwingCloakName(ref string value)
+        {
+            if (canDashLeft && !canDashRight)
+            {
+                value = "Left Mothwing Cloak";
+            }
+            else if (!canDashLeft && canDashRight)
+            {
+                value = "Right Mothwing Cloak";
+            }
+        }
+
+        private void EditShadeCloakName(ref string value)
+        {
+            if (canDashLeft && !canDashRight)
+            {
+                value = "Left Shade Cloak";
+            }
+            else if (!canDashLeft && canDashRight)
+            {
+                value = "Right Shade Cloak";
+            }
+        }
+
+        private void EditMothwingCloakDesc(ref string value)
+        {
+            if (canDashLeft && !canDashRight)
+            {
+                value = "Cloak threaded with mothwing strands. Allows the wearer to dash to the left along the ground or through the air.";
+            }
+            else if (!canDashLeft && canDashRight)
+            {
+                value = "Cloak threaded with mothwing strands. Allows the wearer to dash to the right along the ground or through the air.";
+            }
+        }
+
+        private void EditShadeCloakDesc(ref string value)
+        {
+            if (canDashLeft && !canDashRight)
+            {
+                value = "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the left through enemies and their attacks without taking damage.";
+            }
+            else if (!canDashLeft && canDashRight)
+            {
+                value = "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the right through enemies and their attacks without taking damage.";
+            }
         }
     }
 }

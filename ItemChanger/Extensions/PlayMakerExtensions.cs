@@ -150,7 +150,7 @@ namespace ItemChanger.Extensions
 
         public static void RemoveTransitionsTo(this FsmState state, string toState)
         {
-            state.Transitions = state.Transitions.Where(t => (t.ToFsmState?.Name ?? t.ToState) == toState).ToArray();
+            state.Transitions = state.Transitions.Where(t => (t.ToFsmState?.Name ?? t.ToState) != toState).ToArray();
         }
 
         public static void RemoveTransitionsOn(this FsmState state, string eventName)

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HutongGames.PlayMaker;
 using ItemChanger.Extensions;
+using ItemChanger.FsmStateActions;
 
 namespace ItemChanger.Modules
 {
@@ -18,6 +19,7 @@ namespace ItemChanger.Modules
         {
             Events.AddFsmEdit(SceneNames.Fungus2_26, new("Leg Eater", "Conversation Control"), RemoveConversationOptions);
             Modding.ModHooks.GetPlayerBoolHook += GetPlayerBoolHook;
+
         }
 
         public override void Unload()
@@ -28,23 +30,18 @@ namespace ItemChanger.Modules
 
         private bool GetPlayerBoolHook(string name, bool orig)
         {
-            if (name == nameof(PlayerData.legEaterLeft)) return false;
+            if (name == nameof(PlayerData.legEaterLeft)) return false; // this shouldn't actually be necessary, but better safe than sorry
             else return orig;
         }
 
         private void RemoveConversationOptions(PlayMakerFSM fsm)
         {
+            ItemChangerMod.instance.Log("Editing Leg Eater");
             FsmState legEaterChoice = fsm.GetState("Convo Choice");
-            legEaterChoice.RemoveTransitionsTo("Convo 1");
-            legEaterChoice.RemoveTransitionsTo("Convo 2");
-            legEaterChoice.RemoveTransitionsTo("Convo 3");
-            legEaterChoice.RemoveTransitionsTo("Infected Crossroad");
-            legEaterChoice.RemoveTransitionsTo("Bought Charm");
-            legEaterChoice.RemoveTransitionsTo("Gold Convo");
-            legEaterChoice.RemoveTransitionsTo("All Gold");
-            legEaterChoice.RemoveTransitionsTo("Ready To Leave");
+            legEaterChoice.RemoveAction(2); // remove the check for the all unbreakables convo
+
             FsmState allGold = fsm.GetState("All Gold?");
-            allGold.RemoveTransitionsTo("No Shop");
+            allGold.RemoveTransitionsTo("No Shop"); // remove the check which deactivates the shop
         }
     }
 }

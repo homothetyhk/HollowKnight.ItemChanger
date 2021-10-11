@@ -8,7 +8,7 @@ using ItemChanger.Internal;
 namespace ItemChanger.Modules
 {
     /// <summary>
-    /// Module which adds extra information to the inventory for grubs, dreamers, custom skills, and similar things that cannot otherwise be checked.
+    /// Module which adds extra information to the inventory for grubs, dreamers, and similar things that cannot otherwise be checked.
     /// </summary>
     [DefaultModule]
     public class InventoryTracker : Module
@@ -17,10 +17,6 @@ namespace ItemChanger.Modules
         {
             Events.AddLanguageEdit(new("UI", "INV_NAME_SPELL_FOCUS"), EditFocusName);
             Events.AddLanguageEdit(new("UI", "INV_DESC_SPELL_FOCUS"), EditFocusDesc);
-            Events.AddLanguageEdit(new("UI", "INV_NAME_DASH"), EditMothwingCloakName);
-            Events.AddLanguageEdit(new("UI", "INV_DESC_DASH"), EditMothwingCloakDesc);
-            Events.AddLanguageEdit(new("UI", "INV_NAME_WALLJUMP"), EditClawName);
-            Events.AddLanguageEdit(new("UI", "INV_DESC_WALLJUMP"), EditClawDesc);
             for (int i = 1; i <= 5; i++) Events.AddLanguageEdit(new("UI", "INV_DESC_NAIL" + i), EditNailDesc);
         }
 
@@ -28,10 +24,6 @@ namespace ItemChanger.Modules
         {
             Events.RemoveLanguageEdit(new("UI", "INV_NAME_SPELL_FOCUS"), EditFocusName);
             Events.RemoveLanguageEdit(new("UI", "INV_DESC_SPELL_FOCUS"), EditFocusDesc);
-            Events.RemoveLanguageEdit(new("UI", "INV_NAME_DASH"), EditMothwingCloakName);
-            Events.RemoveLanguageEdit(new("UI", "INV_DESC_DASH"), EditMothwingCloakDesc);
-            Events.RemoveLanguageEdit(new("UI", "INV_NAME_WALLJUMP"), EditClawName);
-            Events.RemoveLanguageEdit(new("UI", "INV_DESC_WALLJUMP"), EditClawDesc);
             for (int i = 1; i <= 5; i++) Events.RemoveLanguageEdit(new("UI", "INV_DESC_NAIL" + i), EditNailDesc);
         }
 
@@ -39,7 +31,7 @@ namespace ItemChanger.Modules
 
         private void EditFocusDesc(ref string value)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             ModuleCollection mods = ItemChangerMod.Modules;
             FocusSkill fs = mods.Get<FocusSkill>();
             SwimSkill ss = mods.Get<SwimSkill>();
@@ -116,70 +108,5 @@ namespace ItemChanger.Modules
                 value += sb.ToString();
             }
         }
-
-        private void EditMothwingCloakName(ref string value)
-        {
-            SplitCloak sc = ItemChangerMod.Modules.Get<SplitCloak>();
-            if (sc != null)
-            {
-                if (sc.canDashLeft && !sc.canDashRight)
-                {
-                    value = "Left Mothwing Cloak";
-                }
-                else if (!sc.canDashLeft && sc.canDashRight)
-                {
-                    value = "Right Mothwing Cloak";
-                }
-            }
-        }
-
-        private void EditMothwingCloakDesc(ref string value)
-        {
-            SplitCloak sc = ItemChangerMod.Modules.Get<SplitCloak>();
-            if (sc != null)
-            {
-                if (sc.canDashLeft && !sc.canDashRight)
-                {
-                    value = "Cloak threaded with mothwing strands. Allows the wearer to dash to the left along the ground or through the air.";
-                }
-                else if (!sc.canDashLeft && sc.canDashRight)
-                {
-                    value = "Cloak threaded with mothwing strands. Allows the wearer to dash to the right along the ground or through the air.";
-                }
-            }
-        }
-
-        private void EditClawName(ref string value)
-        {
-            SplitClaw sc = ItemChangerMod.Modules.Get<SplitClaw>();
-            if (sc != null)
-            {
-                if (sc.hasWalljumpLeft && !sc.hasWalljumpRight)
-                {
-                    value = "Left Mantis Claw";
-                }
-                else if (!sc.hasWalljumpLeft && sc.hasWalljumpRight)
-                {
-                    value = "Right Mantis Claw";
-                }
-            }
-        }
-
-        private void EditClawDesc(ref string value)
-        {
-            SplitClaw sc = ItemChangerMod.Modules.Get<SplitClaw>();
-            if (sc != null)
-            {
-                if (sc.hasWalljumpLeft && !sc.hasWalljumpRight)
-                {
-                    value = "Part of a claw carved from bone. Allows the wearer to cling to walls on the left and leap off of them.";
-                }
-                else if (!sc.hasWalljumpLeft && sc.hasWalljumpRight)
-                {
-                    value = "Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.";
-                }
-            }
-        }
-
     }
 }

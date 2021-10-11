@@ -2761,8 +2761,10 @@
     "tags": null
   },
   "Resting_Grounds_Map": {
-    "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
-    "objectName": null,
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Cornifer Card",
+    "elevation": -0.9,
+    "forceShiny": false,
     "name": "Resting_Grounds_Map",
     "sceneName": "RestingGrounds_09",
     "flingType": "Everywhere",
