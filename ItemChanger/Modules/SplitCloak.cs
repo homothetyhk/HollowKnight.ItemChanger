@@ -10,6 +10,9 @@ using Modding;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which implements the split cloak custom skills.
+    /// </summary>
     public class SplitCloak : Module
     {
         public bool canDashLeft { get; set; }

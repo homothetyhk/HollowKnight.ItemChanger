@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// FsmObjectLocation which replaces Vengeful Spirit and disables the Ancestral Mound trap sequence.
+    /// </summary>
     public class VengefulSpiritLocation : FsmObjectLocation
     {
         protected override void OnLoad()

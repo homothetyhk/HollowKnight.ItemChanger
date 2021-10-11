@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which gives the specified number of vessel fragments.
+    /// </summary>
     public class VesselFragmentItem : AbstractItem
     {
         public int amount;

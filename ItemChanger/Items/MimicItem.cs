@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which plays the MimicScream clip if the placement did not use a mimic container.
+    /// </summary>
     public class MimicItem : AbstractItem
     {
         public override string GetPreferredContainer()

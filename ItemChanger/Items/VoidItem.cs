@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which does nothing.
+    /// </summary>
     public class VoidItem : AbstractItem
     {
         public static VoidItem Nothing => new VoidItem()

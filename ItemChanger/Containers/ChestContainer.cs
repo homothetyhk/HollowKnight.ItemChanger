@@ -8,6 +8,9 @@ using ItemChanger.Components;
 
 namespace ItemChanger.Containers
 {
+    /// <summary>
+    /// Container for creating and modifying chests.
+    /// </summary>
     public class ChestContainer : Container
     {
         public override string Name => Container.Chest;

@@ -10,6 +10,9 @@ using ItemChanger.FsmStateActions;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location which gives items directly from inspecting a static journal entry location.
+    /// </summary>
     public class StaticJournalEntryLocation : AutoLocation
     {
         public string objectName;
@@ -33,7 +36,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         FsmState journal = fsm.GetState("Journal");
                         journal.Actions = new FsmStateAction[]
                         {
-                            new BoolTestMod(Placement.AllObtained, journal.GetFirstActionOfType<PlayerDataBoolTest>()),
+                            new DelegateBoolTest(Placement.AllObtained, journal.GetFirstActionOfType<PlayerDataBoolTest>()),
                             new AsyncLambda(GiveAllAsync(fsm.transform)),
                         };
                     }
@@ -52,7 +55,7 @@ namespace ItemChanger.Locations.SpecialLocations
                         give.AddTransition(FsmEvent.Finished, fadeOut);
                         give.Actions = new FsmStateAction[]
                         {
-                            new BoolTestMod(Placement.AllObtained, FsmEvent.Finished, null),
+                            new DelegateBoolTest(Placement.AllObtained, FsmEvent.Finished, null),
                             new AsyncLambda(GiveAllAsync(fsm.transform)),
                         };
                     }

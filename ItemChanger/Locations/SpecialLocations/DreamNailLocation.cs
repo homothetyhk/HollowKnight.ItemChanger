@@ -15,8 +15,7 @@ using UnityEngine.SceneManagement;
 namespace ItemChanger.Locations.SpecialLocations
 {
     /// <summary>
-    /// Class which modifies the Dream Nail sequence and its triggers. 
-    /// Use only when a unique shiny item is placed in Dream_Nailcollection.
+    /// ObjectLocation which places a shiny at the end of the Dream Nail sequence that triggers a scene change to the Seer's room. Expects that no other shinies are placed in the Dream Nail sequence.
     /// </summary>
     public class DreamNailLocation : ObjectLocation
     {

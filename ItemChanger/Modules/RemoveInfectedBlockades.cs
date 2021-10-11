@@ -10,6 +10,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which completely removes all four blockades from Infected Crossroads.
+    /// </summary>
     public class RemoveInfectedBlockades : Module
     {
         public static readonly Transition[] BlockedTransitions = new Transition[]

@@ -11,6 +11,9 @@ using ItemChanger.Util;
 
 namespace ItemChanger.Components
 {
+    /// <summary>
+    /// Component to be attached to a container GameObject to allow the Container class to make changes.
+    /// </summary>
     public class ContainerInfo : MonoBehaviour
     {
         public string containerType;
@@ -20,15 +23,20 @@ namespace ItemChanger.Components
         public CostInfo costInfo;
     }
 
-    
+    /// <summary>
+    /// Instructions for a container to give items.
+    /// </summary>
     public class ContainerGiveInfo
     {
         public IEnumerable<AbstractItem> items;
         public AbstractPlacement placement;
-        public FlingType flingType; // TODO: Should the FlingType parameter be replaced with GiveInfo?
+        public FlingType flingType;
         public bool applied;
     }
 
+    /// <summary>
+    /// Instructions for a container to change scene.
+    /// </summary>
     public class ChangeSceneInfo
     {
         public const string door_dreamReturn = "door_dreamReturn";
@@ -38,6 +46,9 @@ namespace ItemChanger.Components
         public bool applied;
     }
 
+    /// <summary>
+    /// Instructions for a container to enforce a Cost.
+    /// </summary>
     public class CostInfo
     {
         public Cost cost;

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which gives Grimmchild, activates the Nightmare Lantern, and auto-completes the first two flame collection quests.
+    /// </summary>
     public class Grimmchild2Item : AbstractItem
     {
         public override void GiveImmediate(GiveInfo info)

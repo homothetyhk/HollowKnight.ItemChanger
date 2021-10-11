@@ -7,19 +7,22 @@ using HutongGames.PlayMaker.Actions;
 
 namespace ItemChanger.FsmStateActions
 {
-    public class BoolTestMod : FsmStateAction
+    /// <summary>
+    /// FsmStateAction which invokes a supplied test to choose an FsmEvent.
+    /// </summary>
+    public class DelegateBoolTest : FsmStateAction
     {
         Func<bool> test;
         FsmEvent isTrue;
         FsmEvent isFalse;
 
-        public BoolTestMod(Func<bool> newTest, BoolTest oldTest)
+        public DelegateBoolTest(Func<bool> newTest, BoolTest oldTest)
             : this(newTest, oldTest.isTrue, oldTest.isFalse) { }
 
-        public BoolTestMod(Func<bool> newTest, PlayerDataBoolTest oldTest)
+        public DelegateBoolTest(Func<bool> newTest, PlayerDataBoolTest oldTest)
             : this(newTest, oldTest.isTrue, oldTest.isFalse) { }
 
-        public BoolTestMod(Func<bool> test, string trueEvent, string falseEvent)
+        public DelegateBoolTest(Func<bool> test, string trueEvent, string falseEvent)
         {
             this.test = test;
             isTrue = trueEvent == null ? null
@@ -28,7 +31,7 @@ namespace ItemChanger.FsmStateActions
                 : FsmEvent.GetFsmEvent(falseEvent);
         }
 
-        public BoolTestMod(Func<bool> test, FsmEvent isTrue, FsmEvent isFalse)
+        public DelegateBoolTest(Func<bool> test, FsmEvent isTrue, FsmEvent isFalse)
         {
             this.test = test;
             this.isTrue = isTrue;

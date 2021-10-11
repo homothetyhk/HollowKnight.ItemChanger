@@ -8,6 +8,9 @@ using ItemChanger.Components;
 
 namespace ItemChanger.Containers
 {
+    /// <summary>
+    /// Container for creating and modifying geo rocks.
+    /// </summary>
     public class GeoRockContainer : Container
     {
         public override string Name => Container.GeoRock;

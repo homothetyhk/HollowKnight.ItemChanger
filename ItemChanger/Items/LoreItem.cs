@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which plays a lore sound when the context does not support sending up a lore prompt.
+    /// </summary>
     public class LoreItem : AbstractItem
     {
         public string loreSheet;

@@ -191,7 +191,7 @@ namespace ItemChanger.Util
                         }, callback)),
                 };
                 convoEnd.RemoveActionsOfType<SetTextMeshProAlignment>();
-                canTalkBool.AddFirstAction(new BoolTestMod(() => items.All(i => i.IsObtained()), "FALSE", null));
+                canTalkBool.AddFirstAction(new DelegateBoolTest(() => items.All(i => i.IsObtained()), "FALSE", null));
             }
         }
 

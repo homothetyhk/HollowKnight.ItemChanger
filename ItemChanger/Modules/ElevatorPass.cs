@@ -6,6 +6,9 @@ using System.Text;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which implements the Elevator Pass custom skill.
+    /// </summary>
     public class ElevatorPass : Module
     {
         public bool hasElevatorPass { get; set; }

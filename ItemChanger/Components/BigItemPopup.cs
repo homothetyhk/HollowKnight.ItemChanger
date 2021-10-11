@@ -10,6 +10,9 @@ using ItemChanger.Internal;
 
 namespace ItemChanger.Components
 {
+    /// <summary>
+    /// Component which creates a full-screen popup when an item is obtained.
+    /// </summary>
     internal class BigItemPopup : MonoBehaviour
     {
         private static readonly Sprite BlackPixel = CanvasUtil.NullSprite(new byte[] {0x00, 0x00, 0x00, 0xAA});

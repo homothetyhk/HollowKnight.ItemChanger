@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// FsmObjectLocation with fsm edits for spawning an item from the Brooding Mawlek fight.
+    /// </summary>
     public class BroodingMawlekLocation : FsmObjectLocation
     {
         protected override void OnLoad()

@@ -7,6 +7,9 @@ using HutongGames.PlayMaker;
 
 namespace ItemChanger.Extensions
 {
+    /// <summary>
+    /// Extensions for interacting with and modifying FSMs.
+    /// </summary>
     public static class PlayMakerExtensions
     {
         public static void AddState(this PlayMakerFSM fsm, FsmState state)

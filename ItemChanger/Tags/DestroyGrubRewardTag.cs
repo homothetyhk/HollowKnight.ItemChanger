@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Tags
 {
+    /// <summary>
+    /// Tag for destroying grub rewards according to the flags of the enumeration.
+    /// </summary>
     public class DestroyGrubRewardTag : Tag
     {
         public GrubfatherRewards destroyRewards;
@@ -25,7 +28,7 @@ namespace ItemChanger.Tags
         {
             for (int i = 0; i < 46; i++)
             {
-                if ((destroyRewards & (GrubfatherRewards)((long)1 << i)) != 0)
+                if ((destroyRewards & (GrubfatherRewards)(1L << i)) != 0)
                 {
                     UnityEngine.Object.Destroy(to.FindGameObject($"Grub King\\Reward {i + 1}"));
                 }

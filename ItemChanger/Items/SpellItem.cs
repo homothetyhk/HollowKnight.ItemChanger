@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which increments a spell level and sets the hasSpell bool.
+    /// </summary>
     public class SpellItem : AbstractItem
     {
         public string fieldName;

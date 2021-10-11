@@ -9,7 +9,7 @@ using ItemChanger.Extensions;
 namespace ItemChanger.Modules
 {
     /// <summary>
-    /// Changes the blue hp threshold for the LBC door. TransitionFixes handles opening the door when entering from behind.
+    /// Module which changes the blue hp threshold for the LBC door to the specified value. TransitionFixes handles opening the door when entering from behind.
     /// </summary>
     [DefaultModule]
     public class BlueDoorUnlock : Module

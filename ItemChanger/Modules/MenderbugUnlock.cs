@@ -8,6 +8,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which unlocks the door to Menderbug's house by default.
+    /// </summary>
     [DefaultModule]
     public class MenderbugUnlock : Module
     {

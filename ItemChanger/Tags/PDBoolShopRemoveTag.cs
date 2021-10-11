@@ -5,10 +5,12 @@ using System.Text;
 
 namespace ItemChanger.Tags
 {
+    /// <summary>
+    /// Tag which indicates that an item should be removed from the shop's stock if the PlayerData bool evaluates to the specified value.
+    /// </summary>
     public class PDBoolShopRemoveTag : Tag, IShopRemovalTag
     {
         public string fieldName;
-        [System.ComponentModel.DefaultValue(true)]
         public bool removeVal = true;
 
         public bool Remove => PlayerData.instance.GetBool(fieldName) == removeVal;

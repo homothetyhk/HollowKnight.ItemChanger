@@ -8,6 +8,9 @@ using ItemChanger.Components;
 
 namespace ItemChanger.Containers
 {
+    /// <summary>
+    /// Container for creating and modifying grubs.
+    /// </summary>
     public class GrubJarContainer : Container
     {
         public override string Name => Container.GrubJar;

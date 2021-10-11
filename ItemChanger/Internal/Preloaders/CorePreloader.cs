@@ -12,8 +12,6 @@ namespace ItemChanger.Internal.Preloaders
         public override IEnumerable<(string, string)> GetPreloadNames()
         {
             yield return (SceneNames.Tutorial_01, "_Props/Chest");
-            yield return (SceneNames.Tutorial_01, "_Enemies/Crawler 1");
-            yield return (SceneNames.Tutorial_01, "_Props/Cave Spikes (1)");
             yield return (SceneNames.Tutorial_01, "_Scenery/plat_float_17");
             yield return (SceneNames.Tutorial_01, "_Props/Tut_tablet_top (1)");
             yield return (SceneNames.Deepnest_36, "d_break_0047_deep_lamp2/lamp_bug_escape (7)");
@@ -32,23 +30,6 @@ namespace ItemChanger.Internal.Preloaders
             _relicGetMsg.SetActive(false);
             UObject.DontDestroyOnLoad(_relicGetMsg);
 
-            HealthManager health = objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"].GetComponent<HealthManager>();
-            _smallGeo = UObject.Instantiate(
-                ReflectionHelper.GetField<HealthManager, GameObject>(health, "smallGeoPrefab"));
-            _mediumGeo =
-                UObject.Instantiate(ReflectionHelper.GetField<HealthManager, GameObject>(health, "mediumGeoPrefab"));
-            _largeGeo = UObject.Instantiate(
-                ReflectionHelper.GetField<HealthManager, GameObject>(health, "largeGeoPrefab"));
-
-            _smallGeo.SetActive(false);
-            _mediumGeo.SetActive(false);
-            _largeGeo.SetActive(false);
-            UObject.DontDestroyOnLoad(_smallGeo);
-            UObject.DontDestroyOnLoad(_mediumGeo);
-            UObject.DontDestroyOnLoad(_largeGeo);
-
-            UObject.Destroy(objectsByScene[SceneNames.Tutorial_01]["_Enemies/Crawler 1"]);
-
             _smallPlatform = objectsByScene[SceneNames.Tutorial_01]["_Scenery/plat_float_17"];
             UObject.DontDestroyOnLoad(_smallPlatform);
 
@@ -63,9 +44,6 @@ namespace ItemChanger.Internal.Preloaders
 
         public GameObject Chest => UObject.Instantiate(_chest);
         public GameObject ShinyItem => UObject.Instantiate(_shinyItem);
-        public GameObject SmallGeo => UObject.Instantiate(_smallGeo);
-        public GameObject MediumGeo => UObject.Instantiate(_mediumGeo);
-        public GameObject LargeGeo => UObject.Instantiate(_largeGeo);
         public GameObject SmallPlatform => UObject.Instantiate(_smallPlatform);
         public GameObject RelicGetMsg => UObject.Instantiate(_relicGetMsg);
         public GameObject LoreTablet => UObject.Instantiate(_loreTablet);
@@ -74,9 +52,6 @@ namespace ItemChanger.Internal.Preloaders
         private GameObject _chest;
         private GameObject _shinyItem;
         private GameObject _relicGetMsg;
-        private GameObject _smallGeo;
-        private GameObject _mediumGeo;
-        private GameObject _largeGeo;
         private GameObject _smallPlatform;
         private GameObject _loreTablet;
         private GameObject _lumaflyEscape;

@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace ItemChanger.Components
 {
+    /// <summary>
+    /// Component which causes a RigidBody to fall vertically and lock position when it lands.
+    /// </summary>
     public class DropIntoPlace : MonoBehaviour
     {
         Rigidbody2D rb;

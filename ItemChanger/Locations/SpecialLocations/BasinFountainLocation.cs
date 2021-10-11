@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// FsmObjectLocation with text and fsm edits for spawning an item from the donation fountain.
+    /// </summary>
     public class BasinFountainLocation : FsmObjectLocation
     {
         protected override void OnLoad()

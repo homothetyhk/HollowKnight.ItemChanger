@@ -6,11 +6,14 @@ using UnityEngine;
 
 namespace ItemChanger.FsmStateActions
 {
-    public class RandomizerAddSoul : FsmStateAction
+    /// <summary>
+    /// FsmStateAction with static methods for flinging soul from a transform.
+    /// </summary>
+    public class FlingSoulAction : FsmStateAction
     {
         private readonly GameObject _gameObject;
 
-        public RandomizerAddSoul(GameObject baseObj)
+        public FlingSoulAction(GameObject baseObj)
         {
             _gameObject = baseObj;
         }
@@ -24,16 +27,9 @@ namespace ItemChanger.FsmStateActions
 
         public static void SpawnSoul(Transform transform, int total)
         {
-            GameObject soulPrefab = ObjectCache.Soul;
-
-            // Workaround because Spawn extension is slightly broken
-            Object.Destroy(soulPrefab.Spawn());
-
-            soulPrefab.SetActive(true);
-
-            FlingUtils.Config flingConfig = new FlingUtils.Config
+            FlingUtils.Config flingConfig = new()
             {
-                Prefab = soulPrefab,
+                Prefab = ObjectCache.SoulOrbPrefab,
                 AmountMin = total,
                 AmountMax = total,
                 SpeedMin = 10f,
@@ -43,8 +39,6 @@ namespace ItemChanger.FsmStateActions
             };
 
             FlingUtils.SpawnAndFling(flingConfig, transform, new Vector3(0f, 0f, 0f));
-
-            soulPrefab.SetActive(false);
         }
 
         public static void SpawnSoul(Transform transform, int total, int spawnsPerFrame)
@@ -55,17 +49,9 @@ namespace ItemChanger.FsmStateActions
 
         private static IEnumerator SpawnSoulRoutine(Transform transform, int total, int spawnsPerFrame)
         {
-            GameObject soulPrefab = ObjectCache.Soul;
-            soulPrefab.GetComponent<SoulOrb>().dontRecycle = true; // can't be correctly recycled, spams nres on application quit otherwise
-
-            // Workaround because Spawn extension is slightly broken
-            Object.Destroy(soulPrefab.Spawn());
-
-            soulPrefab.SetActive(true);
-
-            FlingUtils.Config flingConfig = new FlingUtils.Config
+            FlingUtils.Config flingConfig = new()
             {
-                Prefab = soulPrefab,
+                Prefab = ObjectCache.SoulOrbPrefab,
                 AmountMin = spawnsPerFrame,
                 AmountMax = spawnsPerFrame,
                 SpeedMin = 10f,

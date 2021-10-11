@@ -6,7 +6,10 @@ using ItemChanger.Internal;
 
 namespace ItemChanger.FsmStateActions
 {
-    internal class RandomizerSetHardSave : FsmStateAction
+    /// <summary>
+    /// FsmStateAction for setting the player's respawn point to the RespawnPoint found in the active scene.
+    /// </summary>
+    public class SetHardSaveAction : FsmStateAction
     {
         public override void OnEnter()
         {
@@ -31,7 +34,7 @@ namespace ItemChanger.FsmStateActions
             if (spawnPoint == null)
             {
                 LogWarn(
-                    "RandomizerSetHardSave action present in scene with no respawn points: " +
+                    "SetHardSaveAction present in scene with no respawn points: " +
                     Ref.GM.GetSceneNameString());
                 Finish();
                 return;
@@ -50,7 +53,7 @@ namespace ItemChanger.FsmStateActions
             else
             {
                 LogWarn(
-                    "RandomizerSetHardSave could not identify type of RespawnPoint object in scene " +
+                    "SetHardSaveAction could not identify type of RespawnPoint object in scene " +
                     Ref.GM.GetSceneNameString());
                 Finish();
                 return;

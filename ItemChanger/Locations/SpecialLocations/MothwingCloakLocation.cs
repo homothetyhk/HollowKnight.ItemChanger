@@ -13,7 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
-    // TODO: Change Dreamer Cutscene 1 into a WorldEvent, instead of destroying it
+    /// <summary>
+    /// FsmObjectLocation with changes to prevent the dreamer cutscene after the Hornet 1 fight.
+    /// </summary>
     public class MothwingCloakLocation : FsmObjectLocation
     {
         protected override void OnLoad()
@@ -55,6 +57,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (!PlayerData.instance.hornet1Defeated) UnityEngine.Object.Destroy(fsm);
         }
 
+        // TODO: Is there a way to deactivate Dreamer Cutscene 1 without destroying it?
         private void DestroyDreamerScene(Scene to)
         {
             ObjectDestroyer.Destroy(sceneName, "Dreamer Scene 1");

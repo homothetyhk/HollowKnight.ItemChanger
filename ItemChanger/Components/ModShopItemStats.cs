@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace ItemChanger.Components
 {
+    /// <summary>
+    /// A component which is specially handled by ShopLocation to be used as a shop item.
+    /// </summary>
     public class ModShopItemStats : MonoBehaviour
     {
         public AbstractItem item;

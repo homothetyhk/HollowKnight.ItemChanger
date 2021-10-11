@@ -15,8 +15,7 @@ using UnityEngine.SceneManagement;
 namespace ItemChanger.Locations.SpecialLocations
 {
     /// <summary>
-    /// Class which modifies the Sly Basement sequence and triggers.
-    /// Use only when a unique shiny item is placed in Room_Sly_Storeroom.
+    /// ObjectLocation which places a shiny which triggers a scene change to Dirtmouth. Expects no other shinies are placed in Room_Sly_Storeroom.
     /// </summary>
     public class NailmastersGloryObjectLocation : ObjectLocation
     {

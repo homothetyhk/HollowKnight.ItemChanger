@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which gives a grub and requests a Grub Jar container.
+    /// </summary>
     public class GrubItem : AbstractItem
     {
         public override string GetPreferredContainer() => Container.GrubJar;

@@ -92,7 +92,7 @@ namespace ItemChanger.Util
             shatter.RemoveActionsOfType<IncrementPlayerDataInt>();
             shatter.RemoveActionsOfType<SendMessage>();
 
-            FsmStateAction checkAction = new BoolTestMod(
+            FsmStateAction checkAction = new DelegateBoolTest(
                 () => placement.CheckVisitedAny(VisitState.Opened),
                 "ACTIVATE", null);
             init.AddFirstAction(checkAction);
@@ -103,7 +103,7 @@ namespace ItemChanger.Util
             itemParent.transform.localPosition = Vector3.zero;
             itemParent.SetActive(true);
 
-            shatter.AddFirstAction(new BoolTestMod(() => CheckRigidBodyStatus(jar), null, "CANCEL"));
+            shatter.AddFirstAction(new DelegateBoolTest(() => CheckRigidBodyStatus(jar), null, "CANCEL"));
             activate.AddFirstAction(new Lambda(() =>
                 {
                     itemParent.transform.SetParent(null);

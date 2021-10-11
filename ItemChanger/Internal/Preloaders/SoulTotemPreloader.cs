@@ -14,7 +14,10 @@ namespace ItemChanger.Internal.Preloaders
     {
         public override IEnumerable<(string, string)> GetPreloadNames()
         {
-            yield return (SceneNames.Deepnest_East_17, "Soul Totem mini_two_horned");
+            if (PreloadLevel != PreloadLevel.None)
+            {
+                yield return (SceneNames.Deepnest_East_17, "Soul Totem mini_two_horned");
+            }
             if (PreloadLevel == PreloadLevel.Full)
             {
                 yield return (SceneNames.Cliffs_02, "Soul Totem 5");
@@ -44,43 +47,24 @@ namespace ItemChanger.Internal.Preloaders
                     [SoulTotemSubtype.Palace] = objectsByScene[SceneNames.White_Palace_02]["Soul Totem white"],
                     [SoulTotemSubtype.PathOfPain] = objectsByScene[SceneNames.White_Palace_18]["Soul Totem white_Infinte"]
                 };
+                foreach (GameObject g in _soulTotems.Values) UObject.DontDestroyOnLoad(g);
             }
-            else
+            else if (PreloadLevel == PreloadLevel.Reduced)
             {
                 _soulTotems = new()
                 {
                     [SoulTotemSubtype.B] = objectsByScene[SceneNames.Deepnest_East_17]["Soul Totem mini_two_horned"]
                 };
+                foreach (GameObject g in _soulTotems.Values) UObject.DontDestroyOnLoad(g);
             }
-
-            foreach (GameObject g in _soulTotems.Values) UObject.DontDestroyOnLoad(g);
-
-            _soul = UObject.Instantiate(objectsByScene[SceneNames.Cliffs_02]["Soul Totem 5"]
-                .LocateMyFSM("soul_totem").GetState("Hit").GetFirstActionOfType<FlingObjectsFromGlobalPool>().gameObject.Value);
-            _soul.GetComponent<AudioSource>().priority = 200;
-            // priority is from 0 to 255
-            // almost all sources (including soul) default to 128
-            // if number of sources playing exceeds limit, larger priority is culled first
-            // if we spawn several soul orbs at once and they have default priority, more important sounds could be culled
-            // so we raise the priority on each soul orb
-            _soul.SetActive(false);
-            UObject.DontDestroyOnLoad(_soul);
         }
 
-        private GameObject _soul;
         private Dictionary<SoulTotemSubtype, GameObject> _soulTotems;
-
-        public GameObject Soul
-        {
-            get
-            {
-                return _soul; // currently always preloaded
-            }
-        }
 
         public GameObject SoulTotem(SoulTotemSubtype t)
         {
-            return UObject.Instantiate(_soulTotems[GetPreloadedTotemType(t)]); // currently a totem is always preloaded, so no exception check is needed
+            if (PreloadLevel == PreloadLevel.None) throw NotPreloadedException();
+            return UObject.Instantiate(_soulTotems[GetPreloadedTotemType(t)]);
         }
 
         public SoulTotemSubtype GetPreloadedTotemType(SoulTotemSubtype t)

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// BoolItem which unlocks the map panel and opens Iselda.
+    /// </summary>
     public class MapItem : AbstractItem
     {
         public string fieldName;

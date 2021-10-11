@@ -14,8 +14,8 @@ using UObject = UnityEngine.Object;
 namespace ItemChanger.Modules
 {
     /// <summary>
-    /// Manage whether Sly has been rescued independently of PlayerData.<br/>
-    /// Then, PD controls the door to the shop, while the module controls the dazed sly encounter and prevents Sly from appearing in the shop before the encounter is complete.
+    /// Module which manages whether Sly has been rescued independently of PlayerData, and prevents Sly from appearing in the shop before being rescued. 
+    /// <br />The PlayerData bool instead solely controls whether the door to the shop is unlocked.
     /// </summary>
     [DefaultModule]
     public class SlyRescuedEvent : Module

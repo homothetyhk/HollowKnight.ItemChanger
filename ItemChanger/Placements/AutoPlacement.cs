@@ -10,11 +10,16 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class AutoPlacement : AbstractPlacement
+    /// <summary>
+    /// Placement for self-implementing locations, usually acting through cutscene or conversation fsms.
+    /// </summary>
+    public class AutoPlacement : AbstractPlacement, IPrimaryLocationPlacement
     {
         public AutoPlacement(string Name) : base(Name) { }
 
         public AutoLocation Location;
+
+        AbstractLocation IPrimaryLocationPlacement.Location => Location;
 
         protected override void OnLoad()
         {

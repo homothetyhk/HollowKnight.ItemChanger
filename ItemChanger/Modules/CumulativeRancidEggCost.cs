@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Subtractive rancid egg cost which adjusts for the number of eggs previously spent on this type of cost.
+    /// </summary>
     public class CumulativeRancidEggCost : Cost
     {
         public int Total;
@@ -31,6 +34,9 @@ namespace ItemChanger.Modules
         }
     }
 
+    /// <summary>
+    /// Module which tracks the number of rancid eggs that have been spent via CumulativeRancidEggCost.
+    /// </summary>
     [DefaultModule]
     public class CumulativeEggCostModule : Module
     {

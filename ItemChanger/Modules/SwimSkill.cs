@@ -10,6 +10,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which implements the split swim custom skill.
+    /// </summary>
     public class SwimSkill : Module
     {
         public bool canSwim { get; set; }

@@ -10,6 +10,9 @@ using UnityEngine;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// CoordinateLocation which also edits the stag by removing the toll and allowing use of the stag without unlocking the station.
+    /// </summary>
     public class StagLocation : CoordinateLocation
     {
         protected override void OnLoad()

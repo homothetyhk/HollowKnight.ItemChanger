@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace ItemChanger.Components
 {
+    /// <summary>
+    /// Component which performs an extremely inefficient search every frame until it finds and destroys the specified object.
+    /// </summary>
     internal class ObjectDestroyer : MonoBehaviour
     {
         private string _objectName;

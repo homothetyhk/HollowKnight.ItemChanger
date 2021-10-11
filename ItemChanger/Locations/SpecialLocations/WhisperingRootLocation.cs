@@ -9,9 +9,11 @@ using ItemChanger.Util;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location which prevents DreamPlantOrbs from giving essence and gives items directly after completing the whispering root. Supports a HintBox around the whispering root.
+    /// </summary>
     public class WhisperingRootLocation : AutoLocation, ILocalHintLocation
     {
-        [System.ComponentModel.DefaultValue(true)]
         public bool HintActive { get; set; } = true;
 
         protected override void OnLoad()

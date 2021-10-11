@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace ItemChanger.UIDefs
 {
+    /// <summary>
+    /// UIDef which starts a text conversation with the specified text and type, otherwise defaulting to the action of MsgUIDef.
+    /// </summary>
     public class LoreUIDef : MsgUIDef
     {
         public IString lore;

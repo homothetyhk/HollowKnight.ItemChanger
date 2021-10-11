@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which sets each of the provided PlayerData fields to true.
+    /// </summary>
     public class MultiBoolItem : AbstractItem
     {
         public string[] fieldNames;

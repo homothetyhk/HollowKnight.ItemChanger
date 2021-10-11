@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which makes the glass jars in the Collector's room respawn after breaking.
+    /// </summary>
     [DefaultModule]
     public class RespawnCollectorJars : Module
     {

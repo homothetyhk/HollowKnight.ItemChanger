@@ -7,6 +7,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// ObjectLocation which replaces a lore tablet and must disable its inspect region.
+    /// </summary>
     public class LoreTabletLocation : ObjectLocation
     {
         public string inspectName;

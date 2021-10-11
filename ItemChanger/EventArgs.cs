@@ -13,7 +13,7 @@ namespace ItemChanger
         {
             Placement = placement;
             NewFlags = newFlags;
-            Orig = placement.GetVisitState();
+            Orig = placement.Visited;
         }
 
         public AbstractPlacement Placement { get; }

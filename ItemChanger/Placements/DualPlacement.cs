@@ -7,7 +7,10 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class DualPlacement : AbstractPlacement, IContainerPlacement, ISingleCostPlacement
+    /// <summary>
+    /// Placement which handles switching between two possible locations according to a test.
+    /// </summary>
+    public class DualPlacement : AbstractPlacement, IContainerPlacement, ISingleCostPlacement, IPrimaryLocationPlacement
     {
         public DualPlacement(string Name) : base(Name) { }
 

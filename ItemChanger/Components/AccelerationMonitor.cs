@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace ItemChanger.Components
 {
+    /// <summary>
+    /// Component which tracks the per-frame acceleration of a RigidBody to determine whether it is falling.
+    /// </summary>
     public class AccelerationMonitor : MonoBehaviour
     {
         Rigidbody2D rb;

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which give the charm with the corresponding charmNum and equips it, activating overcharmed if necessary.
+    /// </summary>
     public class EquippedCharmItem : AbstractItem
     {
         public int charmNum;

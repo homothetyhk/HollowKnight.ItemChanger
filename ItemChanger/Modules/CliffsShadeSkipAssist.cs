@@ -9,6 +9,9 @@ using UObject = UnityEngine.Object;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which removes scenery objects above the chest above Baldur shell, to make the passage to Howling Cliffs visible.
+    /// </summary>
     [DefaultModule]
     public class CliffsShadeSkipAssist : Module
     {

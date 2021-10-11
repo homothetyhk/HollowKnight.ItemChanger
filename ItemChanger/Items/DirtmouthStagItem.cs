@@ -6,6 +6,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which sets the flags to open the Dirtmouth stag door, and additionally sends the event to open the door if in the corresponding scene.
+    /// </summary>
     public class DirtmouthStagItem : AbstractItem
     {
         public override void GiveImmediate(GiveInfo info)
@@ -18,6 +21,6 @@ namespace ItemChanger.Items
             }
         }
 
-        // AlreadyObtained may conflict with transition fixes?
+        // TODO: AlreadyObtained may conflict with transition fixes?
     }
 }

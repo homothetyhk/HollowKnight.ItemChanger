@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace ItemChanger.Components
 {
+    /// <summary>
+    /// A component which cancels out the increment essence effect of a DreamPlantOrb.
+    /// </summary>
     public class RandomizerDreamPlantOrb : MonoBehaviour
     {
         public void Awake()

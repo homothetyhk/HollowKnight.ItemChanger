@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which prevents Zote from dying for any reason.
+    /// </summary>
     [DefaultModule]
     public class PreventZoteDeath : Module
     {

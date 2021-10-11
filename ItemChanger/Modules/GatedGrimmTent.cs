@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 namespace ItemChanger.Modules
 {
     /// <summary>
-    /// Adds a gate in Grimm_Main_Tent when the Nightmare Lantern has not been lit.
+    /// Module which adds a gate in Grimm_Main_Tent when the Nightmare Lantern has not been lit.
     /// </summary>
     [DefaultModule]
     public class GatedGrimmTent : Module

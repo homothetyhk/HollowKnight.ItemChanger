@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// CharmItem which gives the unbreakable version of the charm.
+    /// </summary>
     public class UnbreakableCharmItem : CharmItem
     {
         public string unbreakableBool

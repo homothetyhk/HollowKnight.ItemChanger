@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// FsmObjectLocation with various changes to support being spawned from the Quake Pickup after Soul Master.
+    /// </summary>
     public class DesolateDiveLocation : FsmObjectLocation
     {
         protected override void OnLoad()
@@ -40,7 +43,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditDestroyIfQuake(PlayMakerFSM fsm)
         {
             FsmState check = fsm.GetState("Check");
-            check.Actions = new[] { new BoolTestMod(() => PlayerData.instance.GetBool(nameof(PlayerData.mageLordDefeated)), "DESTROY", null) };
+            check.Actions = new[] { new DelegateBoolTest(() => PlayerData.instance.GetBool(nameof(PlayerData.mageLordDefeated)), "DESTROY", null) };
         }
 
         private void EditBGControl(PlayMakerFSM fsm)

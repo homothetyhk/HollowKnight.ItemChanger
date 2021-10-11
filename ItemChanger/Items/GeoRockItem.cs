@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which spawns the specified amount of geo, and requests a geo rock container of the specified GeoRockSubtype.
+    /// </summary>
     public class GeoRockItem : AbstractItem
     {
         public override string GetPreferredContainer() => Container.GeoRock;
@@ -65,7 +68,7 @@ namespace ItemChanger.Items
                 smallNum = amount - largeNum * 25 - medNum * 5;
             }
 
-            FsmStateActions.RandomizerAddGeo.SpawnGeo(smallNum, medNum, largeNum, info.FlingType, info.Transform);
+            FsmStateActions.FlingGeoAction.SpawnGeo(smallNum, medNum, largeNum, info.FlingType, info.Transform);
         }
     }
 }

@@ -7,6 +7,9 @@ using Modding;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which overrides the PlayerData.flamesCollected field to ensure having more than 3 flames is compatible with the Grimm quest.
+    /// </summary>
     [DefaultModule]
     public class GrimmkinFlameManager : Module
     {

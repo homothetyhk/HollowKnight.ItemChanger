@@ -8,6 +8,9 @@ using System.Text;
 
 namespace ItemChanger.Locations
 {
+    /// <summary>
+    /// A location for modifying an object in-place with the specified Container.
+    /// </summary>
     public class ExistingContainerLocation : AutoLocation
     {
         public string objectName;

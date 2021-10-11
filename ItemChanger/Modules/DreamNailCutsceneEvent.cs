@@ -10,6 +10,9 @@ using ItemChanger.FsmStateActions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which modifies the Dream Nail cutscene to be independent of having the Dream Nail item.
+    /// </summary>
     [DefaultModule]
     public class DreamNailCutsceneEvent : Module
     {

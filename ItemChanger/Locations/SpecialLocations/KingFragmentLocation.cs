@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// ObjectLocation which supports a hint at the Kingsmould corpse in Abyss_05 and triggers a scene change to Abyss_05 when its items are obtained.
+    /// </summary>
     public class KingFragmentLocation : ObjectLocation, ILocalHintLocation
     {
         public bool HintActive { get; set; }

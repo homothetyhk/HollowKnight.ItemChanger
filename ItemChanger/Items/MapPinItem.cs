@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// BoolItem which unlocks the map and map pin panels, triggers a map update, and opens Iselda.
+    /// </summary>
     public class MapPinItem : AbstractItem
     {
         public string fieldName;

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// ObjectLocation which prevents the King's Brand avalanche sequence from occuring.
+    /// </summary>
     public class KingsBrandLocation : ObjectLocation
     {
         protected override void OnLoad()

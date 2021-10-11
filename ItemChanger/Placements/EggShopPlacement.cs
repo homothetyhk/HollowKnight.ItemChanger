@@ -13,13 +13,18 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class EggShopPlacement : AbstractPlacement, IMultiCostPlacement
+    /// <summary>
+    /// Placement which implements a shop at Jiji. 
+    /// <br />Talking to Jiji gives the option to pay costs, and choosing to do so leads to Jiji spawning the corresponding items wrapped in individual containers.
+    /// </summary>
+    public class EggShopPlacement : AbstractPlacement, IMultiCostPlacement, IPrimaryLocationPlacement
     {
         public EggShopPlacement(string Name) : base(Name) { }
 
         public Dictionary<int, string> containers = new();
 
         public PlaceableLocation Location;
+        AbstractLocation IPrimaryLocationPlacement.Location => Location;
 
         [Newtonsoft.Json.JsonProperty]
         public bool PurchasedAll { get; private set; }
@@ -118,7 +123,7 @@ namespace ItemChanger.Placements
             greet.AddTransition("CONVO_FINISH", offer); // Always display the Jiji:SHADE_OFFER convo
 
             // replace IntCompare for rancid eggs with test based on item costs
-            haveEggs.Actions[0] = new BoolTestMod(CanPurchaseAny, "YES", "NO");
+            haveEggs.Actions[0] = new DelegateBoolTest(CanPurchaseAny, "YES", "NO");
 
             // remove shade info edits
             yes.RemoveActionsOfType<SetPlayerDataString>();

@@ -6,6 +6,9 @@ using HutongGames.PlayMaker;
 
 namespace ItemChanger.FsmStateActions
 {
+    /// <summary>
+    /// FsmStateAction which invokes a delegate with a callback parameter, used to finish the action or trigger an event.
+    /// </summary>
     public class AsyncLambda : FsmStateAction
     {
         private readonly Action<Action> _method;

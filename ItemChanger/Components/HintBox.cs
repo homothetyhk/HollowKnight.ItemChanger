@@ -14,8 +14,14 @@ using TMPro;
 
 namespace ItemChanger.Components
 {
+    /// <summary>
+    /// A component which displays custom dream text when triggered by proximity.
+    /// </summary>
     public class HintBox : MonoBehaviour
     {
+        /// <summary>
+        /// Create a HintBox at the specified position with the specified delegates.
+        /// </summary>
         public static HintBox Create(Vector2 pos, Func<string> getDisplayText, Func<bool> displayTest = null, Action onDisplay = null)
         {
             var hint = HintBox.Create(pos, new Vector2(5f, 5f));
@@ -25,6 +31,9 @@ namespace ItemChanger.Components
             return hint;
         }
 
+        /// <summary>
+        /// Create a HintBox at the position of the transform using the placement's GetUIName, AllObtained, and AddVisitFlag(VisitState.Previewed) methods.
+        /// </summary>
         public static HintBox Create(Transform transform, AbstractPlacement placement)
         {
             var hint = HintBox.Create(transform.position, new Vector2(5f, 5f));
@@ -34,6 +43,9 @@ namespace ItemChanger.Components
             return hint;
         }
 
+        /// <summary>
+        /// Creates a HintBox of specified position and size. The delegate fields of the HintBox are not set.
+        /// </summary>
         public static HintBox Create(Vector2 pos, Vector2 size)
         {
             GameObject obj = new GameObject("Hint Box");

@@ -130,7 +130,7 @@ namespace ItemChanger.Util
             FsmState payout = rockFsm.GetState("Destroy");
             FsmState broken = rockFsm.GetState("Broken");
 
-            FsmStateAction checkAction = new BoolTestMod(
+            FsmStateAction checkAction = new DelegateBoolTest(
                 () => placement.CheckVisitedAny(VisitState.Opened),
                 "BROKEN", null);
 
@@ -140,7 +140,7 @@ namespace ItemChanger.Util
             idle.RemoveActionsOfType<SetPosition>(); // otherwise the rock warps back after falling
 
             hit.ClearTransitions();
-            hit.Actions = new[] { new BoolTestMod(() => CheckRigidBodyStatus(rockFsm.gameObject), "HIT", "FINISHED") };
+            hit.Actions = new[] { new DelegateBoolTest(() => CheckRigidBodyStatus(rockFsm.gameObject), "HIT", "FINISHED") };
             hit.AddTransition("HIT", "Pause Frame");
             hit.AddTransition("FINISHED", "Idle");
             //hit.RemoveActionsOfType<FlingObjectsFromGlobalPool>();

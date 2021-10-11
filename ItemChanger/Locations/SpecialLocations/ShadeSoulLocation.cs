@@ -12,6 +12,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location which directly gives items after interacting with the vanilla Shade Soul location.
+    /// </summary>
     public class ShadeSoulLocation : AutoLocation
     {
         protected override void OnLoad()
@@ -30,7 +33,7 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             FsmState gotSpell = fsm.GetState("Got Spell?");
             gotSpell.RemoveActionsOfType<IntCompare>();
-            gotSpell.AddLastAction(new BoolTestMod(Placement.AllObtained, "ACTIVATED", null));
+            gotSpell.AddLastAction(new DelegateBoolTest(Placement.AllObtained, "ACTIVATED", null));
         }
 
         private void EditGetFireball(PlayMakerFSM fsm)

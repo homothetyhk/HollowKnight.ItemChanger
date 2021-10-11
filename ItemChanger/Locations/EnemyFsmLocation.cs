@@ -8,7 +8,9 @@ using UnityEngine;
 
 namespace ItemChanger.Locations
 {
-    // A variant of EnemyLocation which accounts for the fact that some enemies may not be loaded at activeSceneChanged
+    /// <summary>
+    /// /A variant of EnemyLocation which accounts for the fact that some enemies may not be loaded at activeSceneChanged, and are easier to locate by fsm.
+    /// </summary>
     public class EnemyFsmLocation : ContainerLocation
     {
         // enemy info - look for fsm in OnEnable, rather than object on scene entry

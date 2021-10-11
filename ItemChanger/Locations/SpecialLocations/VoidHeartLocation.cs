@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location which directly gives items in place of Void Heart following the Dream_Abyss sequence.
+    /// </summary>
     public class VoidHeartLocation : AutoLocation, ILocalHintLocation
     {
         public bool HintActive { get; set; } = true;
@@ -56,7 +59,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditDreamEnter(PlayMakerFSM fsm)
         {
             FsmState init = fsm.GetState("Init");
-            init.Actions = new[] { init.Actions[0], new BoolTestMod(Placement.AllObtained, "INACTIVE", null) };
+            init.Actions = new[] { init.Actions[0], new DelegateBoolTest(Placement.AllObtained, "INACTIVE", null) };
         }
 
         private void EditMirror(PlayMakerFSM fsm)
@@ -64,7 +67,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (HintActive) HintBox.Create(fsm.transform, Placement); // TODO: test ingame to see if this extends far enough
 
             FsmState check = fsm.GetState("Check");
-            check.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
+            check.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
         }
     }
 }

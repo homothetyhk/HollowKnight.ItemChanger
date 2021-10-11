@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which ensures that the corresponding custom skill module is enabled on load, and otherwise acts as a BoolItem.
+    /// </summary>
     public class CustomSkillItem : AbstractItem
     {
         public string boolName;

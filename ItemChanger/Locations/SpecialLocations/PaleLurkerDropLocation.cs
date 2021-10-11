@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Enemy location which destroys the static simple key shiny that appears upon reentering after killing Pale Lurker.
+    /// </summary>
     public class PaleLurkerDropLocation : EnemyLocation
     {
         protected override void OnLoad()

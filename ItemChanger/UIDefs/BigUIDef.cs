@@ -7,6 +7,9 @@ using ItemChanger.Internal;
 
 namespace ItemChanger.UIDefs
 {
+    /// <summary>
+    /// UIDef which produces a full-screen message using BigItemPopup if possible, otherwise defaulting to the action of MsgUIDef.
+    /// </summary>
     public class BigUIDef : MsgUIDef
     {
         public ISprite bigSprite;

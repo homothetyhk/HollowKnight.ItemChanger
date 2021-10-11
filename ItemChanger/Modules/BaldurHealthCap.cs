@@ -8,6 +8,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which sets Baldur hp to the specified value and allows Baldurs to spit before Vengeful Spirit is obtained.
+    /// </summary>
     [DefaultModule]
     public class BaldurHealthCap : Module
     {

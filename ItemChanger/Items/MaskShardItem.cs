@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which gives the specified number of mask shards.
+    /// </summary>
     public class MaskShardItem : AbstractItem
     {
         public int amount;

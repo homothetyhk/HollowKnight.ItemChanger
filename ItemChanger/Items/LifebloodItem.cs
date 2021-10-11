@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which gives the specified amount of blue health.
+    /// </summary>
     public class LifebloodItem : AbstractItem
     {
         public int amount;

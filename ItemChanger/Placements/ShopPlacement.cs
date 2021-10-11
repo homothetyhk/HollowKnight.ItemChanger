@@ -12,17 +12,24 @@ using Newtonsoft.Json;
 
 namespace ItemChanger.Placements
 {
+    /// <summary>
+    /// Interface which exposes the stock methods of ShopPlacement for use by ShopLocation.
+    /// </summary>
     public interface IShopPlacement
     {
         GameObject[] GetNewStock(GameObject[] oldStock, GameObject prefab);
         GameObject[] GetNewAltStock(GameObject[] newStock, GameObject[] altStock, GameObject prefab);
     }
 
-    public class ShopPlacement : AbstractPlacement, IShopPlacement, IMultiCostPlacement
+    /// <summary>
+    /// Placement which handles ShopLocation. Its main role is to handle adding its items to the shop stock as objects with the ModShopItemStats component.
+    /// </summary>
+    public class ShopPlacement : AbstractPlacement, IShopPlacement, IMultiCostPlacement, IPrimaryLocationPlacement
     {
         public ShopPlacement(string Name) : base(Name) { }
 
         public ShopLocation Location;
+        AbstractLocation IPrimaryLocationPlacement.Location => Location;
         public override string MainContainerType => "Shop";
 
         protected override void OnLoad()

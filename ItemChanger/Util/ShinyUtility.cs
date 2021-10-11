@@ -133,7 +133,7 @@ namespace ItemChanger.Util
             else
             {
                 FsmState finish = shinyFsm.GetState("Finish");
-                finish.AddLastAction(new RandomizerChangeScene(toScene, toGate));
+                finish.AddLastAction(new ChangeSceneAction(toScene, toGate));
             }
         }
 

@@ -12,6 +12,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location which gives items directly upon shattering the Crystal Shaman.
+    /// </summary>
     public class DescendingDarkLocation : AutoLocation
     {
         public string objectName;
@@ -33,7 +36,7 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState get = fsm.GetState("Get PlayerData 2");
             FsmState callUI = fsm.GetState("Call UI Msg 2");
 
-            FsmStateAction check = new BoolTestMod(Placement.AllObtained, "BROKEN", null);
+            FsmStateAction check = new DelegateBoolTest(Placement.AllObtained, "BROKEN", null);
             FsmStateAction give = new AsyncLambda(GiveAllAsync(fsm.transform), "GET ITEM MSG END");
 
             init.RemoveActionsOfType<IntCompare>();

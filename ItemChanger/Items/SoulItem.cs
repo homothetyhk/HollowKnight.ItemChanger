@@ -6,6 +6,9 @@ using ItemChanger.FsmStateActions;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which spawns a certain amount of soul, and requests a soul totem container.
+    /// </summary>
     public class SoulItem : AbstractItem
     {
         /// <summary>
@@ -35,11 +38,11 @@ namespace ItemChanger.Items
             }
             else if (info.Transform != null)
             {
-                RandomizerAddSoul.SpawnSoul(info.Transform, soul, 11);
+                FlingSoulAction.SpawnSoul(info.Transform, soul, 11);
             }
             else
             {
-                RandomizerAddSoul.SpawnSoul(HeroController.instance.transform, soul, 11);
+                FlingSoulAction.SpawnSoul(HeroController.instance.transform, soul, 11);
             }
         }
     }

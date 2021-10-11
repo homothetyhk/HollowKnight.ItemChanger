@@ -6,7 +6,7 @@ using System.Text;
 namespace ItemChanger.Items
 {
     /// <summary>
-    /// Item designed to be compatible with Nailsmith upgrades and quest
+    /// Item designed to be compatible with Nailsmith upgrades and quest.
     /// </summary>
     public class NailUpgradeItem : AbstractItem
     {

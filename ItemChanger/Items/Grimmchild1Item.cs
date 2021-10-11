@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which gives Grimmchild and activates the Nightmare Lantern.
+    /// </summary>
     public class Grimmchild1Item : AbstractItem
     {
         public override void GiveImmediate(GiveInfo info)

@@ -9,6 +9,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which allows the bench entrance to Beast's Den to be reused, and prevents its hard save.
+    /// </summary>
     [DefaultModule]
     public class ReusableBeastsDenEntrance : Module
     {

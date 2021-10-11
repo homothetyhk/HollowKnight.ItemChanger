@@ -9,6 +9,9 @@ using ItemChanger.Util;
 
 namespace ItemChanger.Containers
 {
+    /// <summary>
+    /// Container for creating and modifying shiny items.
+    /// </summary>
     public class ShinyContainer : Container
     {
         public override string Name => Container.Shiny;

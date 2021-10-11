@@ -8,6 +8,9 @@ using ItemChanger.Components;
 
 namespace ItemChanger.Containers
 {
+    /// <summary>
+    /// Container for creating and modifying lore tablets.
+    /// </summary>
     public class TabletContainer : Container
     {
         public override string Name => Container.Tablet;

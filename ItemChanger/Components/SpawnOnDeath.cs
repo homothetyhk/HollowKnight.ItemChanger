@@ -8,6 +8,9 @@ using ItemChanger.Util;
 
 namespace ItemChanger.Components
 {
+    /// <summary>
+    /// Component which activates an object and makes it fall when the parent's HealthManager dies.
+    /// </summary>
     public class SpawnOnDeath : MonoBehaviour
     {
         public GameObject item;

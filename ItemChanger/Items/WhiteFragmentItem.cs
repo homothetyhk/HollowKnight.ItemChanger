@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which sets all of the flags associated to its royalCharmLevel (e.g. L/R White Fragment, Kingsoul, Void Heart)
+    /// </summary>
     public class WhiteFragmentItem : AbstractItem
     {
         public int royalCharmLevel;

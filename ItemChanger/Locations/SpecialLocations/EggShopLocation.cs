@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ItemChanger.Locations.SpecialLocations
 {
     /// <summary>
-    /// Bad location to allow auto-wrapping a PlaceableLocation as an EggShopPlacement (instead of MutablePlacement)
+    /// Wrapper location to allow converting a PlaceableLocation to an EggShopPlacement (instead of MutablePlacement)
     /// </summary>
     public class EggShopLocation : AbstractLocation
     {

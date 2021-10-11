@@ -7,6 +7,9 @@ using ItemChanger.Internal;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which adds extra information to the inventory for grubs, dreamers, custom skills, and similar things that cannot otherwise be checked.
+    /// </summary>
     [DefaultModule]
     public class InventoryTracker : Module
     {

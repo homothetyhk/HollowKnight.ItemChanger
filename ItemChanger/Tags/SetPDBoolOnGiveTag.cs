@@ -5,10 +5,12 @@ using System.Text;
 
 namespace ItemChanger.Tags
 {
+    /// <summary>
+    /// Tag which adds setting a PlayerData bool as a side effect to an item.
+    /// </summary>
     public class SetPDBoolOnGiveTag : Tag
     {
         public string fieldName;
-        [System.ComponentModel.DefaultValue(true)]
         public bool setValue = true;
 
         public override void Load(object parent)

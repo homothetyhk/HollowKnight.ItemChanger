@@ -11,6 +11,9 @@ using UnityEngine;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which edits Grubfather to give all unlocked rewards at once.
+    /// </summary>
     [DefaultModule]
     public class FastGrubfather : Module
     {
@@ -37,7 +40,7 @@ namespace ItemChanger.Modules
             recheck.AddTransition("FINISHED", activateReward);
 
             FsmInt geoTotal = fsm.AddFsmInt("Geo Total", 0);
-            allGiven.AddLastAction(new RandomizerAddGeo(fsm.gameObject, geoTotal, true));
+            allGiven.AddLastAction(new FlingGeoAction(fsm.gameObject, geoTotal, true));
 
             activateReward.Actions = new[]
             {

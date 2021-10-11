@@ -14,6 +14,9 @@ using System.Reflection;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// ObjectLocation which places an item within the Dreamer's dream and supports a HintBox outside the dream.
+    /// </summary>
     public class DreamerLocation : ObjectLocation, ILocalHintLocation
     {
         public string previousScene;
@@ -104,7 +107,7 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState check = fsm.GetState("Check");
             if (check != null) // Monomon has a second, different "FSM"
             {
-                check.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
+                check.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
             }
         }
 

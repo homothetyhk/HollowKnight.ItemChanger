@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Tags
 {
+    /// <summary>
+    /// Tag for destroying an object in a specific scene. Can search by name or by path.
+    /// </summary>
     public class DestroyObjectTag : Tag
     {
         public string objectName;

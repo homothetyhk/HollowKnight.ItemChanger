@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// ContainerLocation for dropping an item when Gruz Mother is killed.
+    /// </summary>
     public class GruzMotherDropLocation : ContainerLocation
     {
         public bool removeGeo = true;

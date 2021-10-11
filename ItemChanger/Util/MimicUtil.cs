@@ -43,7 +43,7 @@ namespace ItemChanger.Util
 
             PlayMakerFSM bottleControl = mimicBottle.LocateFSM("Bottle Control");
             FsmState init = bottleControl.GetState("Init");
-            init.Actions[0] = new BoolTestMod(() => placement.CheckVisitedAny(VisitState.Dropped), (BoolTest)init.Actions[0]);
+            init.Actions[0] = new DelegateBoolTest(() => placement.CheckVisitedAny(VisitState.Dropped), (BoolTest)init.Actions[0]);
             init.GetFirstActionOfType<SendEventByName>().eventTarget.gameObject.GameObject = mimicTop;
             FsmState shatter = bottleControl.GetState("Shatter");
             shatter.AddFirstAction(new Lambda(() => placement.AddVisitFlag(VisitState.Dropped)));
@@ -74,7 +74,7 @@ namespace ItemChanger.Util
                 init.Actions[2],
                 init.Actions[6],
                 init.Actions[7],
-                new BoolTestMod(() => placement.CheckVisitedAny(VisitState.Opened), (BoolTest)init.Actions[8])
+                new DelegateBoolTest(() => placement.CheckVisitedAny(VisitState.Opened), (BoolTest)init.Actions[8])
                 // the removed actions are all various tests to check if the mimic is dead
                 // we tie it to the placement to make it easier to control
             };

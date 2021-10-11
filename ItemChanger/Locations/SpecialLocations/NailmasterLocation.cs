@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location which gives items when a Nailmaster would teach their nail art.
+    /// </summary>
     public class NailmasterLocation : AutoLocation
     {
         public string objectName;
@@ -37,7 +40,7 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState fade = fsm.GetState("Fade Back");
             FsmState sendText = fsm.GetState("Send Text");
 
-            FsmStateAction test = new BoolTestMod(Placement.AllObtained, null, "REOFFER");
+            FsmStateAction test = new DelegateBoolTest(Placement.AllObtained, null, "REOFFER");
             FsmStateAction give = new AsyncLambda(GiveAllAsync(fsm.transform), "GET ITEM MSG END");
 
             convo.Actions[objectName == "NM Sheo NPC" ? 2 : 1] = test;

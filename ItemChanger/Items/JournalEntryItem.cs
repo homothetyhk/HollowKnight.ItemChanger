@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which fully unlocks and completes the corresponding entry of the Hunter's Journal.
+    /// </summary>
     public class JournalEntryItem : AbstractItem
     {
+        /// <summary>
+        /// If the journal entry corresponds to fields "killed{name}", "kills{name}", and "newData{name}", then this field is "{name}"
+        /// </summary>
         public string playerDataName;
 
         public override void GiveImmediate(GiveInfo info)

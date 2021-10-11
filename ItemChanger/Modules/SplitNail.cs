@@ -9,6 +9,9 @@ using UnityEngine;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which implements the split nail custom skills.
+    /// </summary>
     public class SplitNail : Module
     {
         public bool canSideslashLeft { get; set; }

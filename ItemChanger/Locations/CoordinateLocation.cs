@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
+    /// <summary>
+    /// Location which places a container at a specified coordinate position.
+    /// </summary>
     public class CoordinateLocation : PlaceableLocation
     {
         public float x;

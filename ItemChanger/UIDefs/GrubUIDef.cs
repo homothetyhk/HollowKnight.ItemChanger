@@ -8,6 +8,9 @@ using ItemChanger.Internal;
 
 namespace ItemChanger.UIDefs
 {
+    /// <summary>
+    /// MsgUIDef with special text showing the number of grubs in postview.
+    /// </summary>
     public class GrubUIDef : MsgUIDef
     {
         public class AfterGrubObtainString : IString

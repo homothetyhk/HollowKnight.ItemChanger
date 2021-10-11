@@ -9,6 +9,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which implements the split claw custom skills.
+    /// </summary>
     public class SplitClaw : Module
     {
         public bool hasWalljumpLeft { get; set; }

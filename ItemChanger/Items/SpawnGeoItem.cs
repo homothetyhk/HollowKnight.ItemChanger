@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which spawns a specified amount of geo.
+    /// </summary>
     public class SpawnGeoItem : AbstractItem
     {
         public int amount;
@@ -38,7 +41,7 @@ namespace ItemChanger.Items
                 }
                 return;
             }
-            FsmStateActions.RandomizerAddGeo.SpawnGeo(amount, false, info.FlingType, info.Transform);
+            FsmStateActions.FlingGeoAction.SpawnGeo(amount, false, info.FlingType, info.Transform);
         }
     }
 }

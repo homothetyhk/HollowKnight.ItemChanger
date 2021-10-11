@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which spawns escaped lumaflies.
+    /// </summary>
     public class SpawnLumafliesItem : AbstractItem
     {
         public override bool GiveEarly(string containerType) => containerType switch

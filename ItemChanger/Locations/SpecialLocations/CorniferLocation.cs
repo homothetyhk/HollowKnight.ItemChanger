@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location which gives items through the interface to purchase a map from Cornifer.
+    /// </summary>
     public class CorniferLocation : AutoLocation
     {
         public string objectName;
@@ -38,8 +41,8 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState get = fsm.GetState("Geo Pause and GetMap");
             FsmState sendText = fsm.GetState("Send Text");
 
-            checkActive.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)checkActive.Actions[0]);
-            convoChoice.Actions[1] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)convoChoice.Actions[1]);
+            checkActive.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)checkActive.Actions[0]);
+            convoChoice.Actions[1] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)convoChoice.Actions[1]);
             sendText.AddFirstAction(new Lambda(() => Placement.AddVisitFlag(VisitState.Previewed)));
 
             get.Actions = new FsmStateAction[]
@@ -55,14 +58,14 @@ namespace ItemChanger.Locations.SpecialLocations
 
             if (fsm.GetState("Deepnest Check") is FsmState deepnestCheck)
             {
-                deepnestCheck.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)deepnestCheck.Actions[0]);
+                deepnestCheck.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)deepnestCheck.Actions[0]);
             }
         }
 
         private void HandleCorniferCard(PlayMakerFSM fsm)
         {
             FsmState check = fsm.GetState("Check");
-            check.Actions[0] = new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
+            check.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
         }
 
         private void OnLanguageGet(ref string value)

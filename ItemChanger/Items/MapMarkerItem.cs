@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// BoolItem which unlocks the map and marker panels and opens Iselda.
+    /// </summary>
     public class MapMarkerItem : AbstractItem
     {
         public string fieldName;

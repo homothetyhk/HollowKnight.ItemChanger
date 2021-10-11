@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which allows the deepest part of Beast's Den to be reached from the secret shortcut, by destroying the breakable floor above the grub.
+    /// </summary>
     [DefaultModule]
     public class ReverseBeastDenPath : Module
     {

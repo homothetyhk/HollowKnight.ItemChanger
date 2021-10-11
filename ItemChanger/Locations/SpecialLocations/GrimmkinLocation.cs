@@ -67,7 +67,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
             state.Actions = new FsmStateAction[]
             {
-                new BoolTestMod(Check, (BoolTest)state.Actions[0])
+                new DelegateBoolTest(Check, (BoolTest)state.Actions[0])
             };
 
             get.Actions = new FsmStateAction[]

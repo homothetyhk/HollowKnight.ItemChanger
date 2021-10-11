@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// FsmObjectLocation with edits to support dropping from the Grey Mourner and giving a hint when the Delicate Flower is offered.
+    /// </summary>
     public class GreyMournerLocation : FsmObjectLocation, ILocalHintLocation
     {
         public bool HintActive { get; set; }

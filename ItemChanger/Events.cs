@@ -10,6 +10,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger
 {
+    /// <summary>
+    /// The main class in ItemChanger for organizing events. Some specific events are defined in AbstractPlacement and AbstractItem instead.
+    /// </summary>
     public static class Events
     {
         /// <summary>
@@ -76,6 +79,9 @@ namespace ItemChanger
             }
         }
 
+        /// <summary>
+        /// Removes the action from the global hook associated to the FsmID.
+        /// </summary>
         public static void RemoveFsmEdit(FsmID id, Action<PlayMakerFSM> action)
         {
             if (globalOnEnable.ContainsKey(id))
@@ -98,6 +104,9 @@ namespace ItemChanger
             else dict[id] = action;
         }
 
+        /// <summary>
+        /// Removes the action from the scene-specific hook associated to the FsmID.
+        /// </summary>
         public static void RemoveFsmEdit(string sceneName, FsmID id, Action<PlayMakerFSM> action)
         {
             if (localOnEnable.TryGetValue(sceneName, out var dict) && dict.ContainsKey(id))
@@ -115,6 +124,9 @@ namespace ItemChanger
             else activeSceneChangeEdits[sceneName] = action;
         }
 
+        /// <summary>
+        /// Removes the action from the scene-specific active scene hook.
+        /// </summary>
         public static void RemoveSceneChangeEdit(string sceneName, Action<Scene> action)
         {
             if (activeSceneChangeEdits.ContainsKey(sceneName))
@@ -123,6 +135,9 @@ namespace ItemChanger
             }
         }
 
+        /// <summary>
+        /// Delegate type which allows subscriber to optionally edit the input string.
+        /// </summary>
         public delegate void LanguageEdit(ref string value);
 
         /// <summary>

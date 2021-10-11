@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
+    /// <summary>
+    /// Location for giving items at the start of the scene, late enough that they appear on the UI and soul is not removed if during respawn.
+    /// </summary>
     public class StartLocation : AutoLocation
     {
         public MessageType MessageType;

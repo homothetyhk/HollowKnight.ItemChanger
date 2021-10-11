@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace ItemChanger.Tags
 {
     /// <summary>
-    /// Similar to ItemChainTag, but allows for predecessors and successors to be ordered lists.
-    /// <br/> Unlike ItemChainTag, does not recursively check tags to traverse item tree; i.e. all tree members must be predecessors or successors.
+    /// Tag which carries ordered lists of predecessors and successors item names.
+    /// <br/>Hooks AbstractItem.ModifyItem, and returns the first item in the sequence which is not redundant.
+    /// <br/> Note that unlike ItemChainTag, this does not recursively check tags of the predecessors and successors.
     /// </summary>
-    public class ItemTreeTag : Tag
+    public class ItemTreeTag : Tag, IItemModifierTag
     {
         public string[] predecessors;
         public string[] successors;

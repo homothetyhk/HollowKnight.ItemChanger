@@ -6,13 +6,15 @@ using ItemChanger.Internal;
 
 namespace ItemChanger.FsmStateActions
 {
-    internal class RandomizerChangeScene : FsmStateAction
+    /// <summary>
+    /// FsmStateAction for triggering a scene transition from within an fsm.
+    /// </summary>
+    public class ChangeSceneAction : FsmStateAction
     {
         private readonly string _gateName;
-
         private readonly string _sceneName;
 
-        public RandomizerChangeScene(string scene, string gate)
+        public ChangeSceneAction(string scene, string gate)
         {
             _sceneName = scene;
             _gateName = gate;

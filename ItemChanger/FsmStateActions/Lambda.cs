@@ -3,7 +3,10 @@ using HutongGames.PlayMaker;
 
 namespace ItemChanger.FsmStateActions
 {
-    internal class Lambda : FsmStateAction
+    /// <summary>
+    /// FsmStateAction which invokes a delegate.
+    /// </summary>
+    public class Lambda : FsmStateAction
     {
         private readonly Action _method;
 

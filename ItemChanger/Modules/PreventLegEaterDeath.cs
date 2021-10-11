@@ -8,6 +8,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which prevents Leg Eater from leaving when Divine's questline is finished.
+    /// </summary>
     [DefaultModule]
     public class PreventLegEaterDeath : Module
     {

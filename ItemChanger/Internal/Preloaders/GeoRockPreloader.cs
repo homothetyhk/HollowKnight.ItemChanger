@@ -8,7 +8,10 @@ namespace ItemChanger.Internal.Preloaders
     {
         public override IEnumerable<(string, string)> GetPreloadNames()
         {
-            if (PreloadLevel != PreloadLevel.None) yield return (SceneNames.Tutorial_01, "_Props/Geo Rock 1");
+            if (PreloadLevel != PreloadLevel.None)
+            {
+                yield return (SceneNames.Tutorial_01, "_Props/Geo Rock 1");
+            }
             if (PreloadLevel == PreloadLevel.Full)
             {
                 yield return (SceneNames.Abyss_19, "Geo Rock Abyss");

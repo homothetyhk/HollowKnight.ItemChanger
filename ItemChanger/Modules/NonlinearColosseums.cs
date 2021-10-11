@@ -8,6 +8,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which unlocks the Colosseum boards and makes it possible to interact with them regardless of which trials have been completed.
+    /// </summary>
     [DefaultModule]
     public class NonlinearColosseums : Module
     {

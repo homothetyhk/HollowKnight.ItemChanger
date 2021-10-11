@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location for giving items through the Abyss Shriek cutscene.
+    /// </summary>
     public class AbyssShriekLocation : AutoLocation, ILocalHintLocation
     {
         public bool HintActive { get; set; } = true;
@@ -34,7 +37,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
             FsmState init = fsm.GetState("Init");
             init.RemoveActionsOfType<IntCompare>();
-            init.AddFirstAction(new BoolTestMod(Placement.AllObtained, "INERT", null));
+            init.AddFirstAction(new DelegateBoolTest(Placement.AllObtained, "INERT", null));
 
             FsmState uiMsg = fsm.GetState("Ui Msg");
             FsmStateAction give = new AsyncLambda(GiveAllAsync(t), "GET ITEM MSG END");

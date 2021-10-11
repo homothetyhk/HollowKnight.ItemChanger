@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which gives the charm with the corresponding charmNum.
+    /// </summary>
     public class CharmItem : AbstractItem
     {
         public int charmNum;

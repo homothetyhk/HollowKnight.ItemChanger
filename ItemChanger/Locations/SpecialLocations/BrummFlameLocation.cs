@@ -14,6 +14,9 @@ using ItemChanger.Internal;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location which gives items when Brumm's Grimmkin flame would be received.
+    /// </summary>
     public class BrummFlameLocation : AutoLocation
     {
         protected override void OnLoad()
@@ -36,7 +39,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
             checkActive.Actions = new FsmStateAction[]
             {
-                new BoolTestMod(() => IsBrummActive() && !Placement.AllObtained(), (PlayerDataBoolTest)checkActive.Actions[0])
+                new DelegateBoolTest(() => IsBrummActive() && !Placement.AllObtained(), (PlayerDataBoolTest)checkActive.Actions[0])
             };
 
             convo1.RemoveActionsOfType<IntCompare>();

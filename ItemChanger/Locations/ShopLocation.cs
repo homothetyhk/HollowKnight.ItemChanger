@@ -15,6 +15,9 @@ using UnityEngine;
 
 namespace ItemChanger.Locations
 {
+    /// <summary>
+    /// Location for modifying any of the vanilla shops.
+    /// </summary>
     public class ShopLocation : AbstractLocation
     {
         /// <summary>
@@ -29,9 +32,8 @@ namespace ItemChanger.Locations
         public DefaultShopItems defaultShopItems;
 
         /// <summary>
-        /// If this field is set, it is applied to all items in addition to any individual requirements.
+        /// If this field is set, the PlayerData requirement to appear in stock is applied to all items at this location in addition to any item-specific requirements.
         /// </summary>
-        [System.ComponentModel.DefaultValue("")]
         public string requiredPlayerDataBool = string.Empty;
         public bool dungDiscount;
 
@@ -254,7 +256,7 @@ namespace ItemChanger.Locations
             Lambda setSprite = new Lambda(ResetSprites);
             Lambda setDesc = new Lambda(SetDesc);
             Lambda getNotchCost = new Lambda(GetNotchCost);
-            BoolTestMod canBuy = new BoolTestMod(CanBuy, checkCanBuy.GetFirstActionOfType<BoolTest>());
+            DelegateBoolTest canBuy = new DelegateBoolTest(CanBuy, checkCanBuy.GetFirstActionOfType<BoolTest>());
             Lambda setConfirmName = new Lambda(SetConfirmName);
             Lambda addIntToConfirm = new Lambda(AddIntToConfirm);
 

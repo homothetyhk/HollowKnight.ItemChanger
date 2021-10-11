@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which sets a PlayerData bool to the specified value.
+    /// </summary>
     public class BoolItem : AbstractItem
     {
         public string fieldName;

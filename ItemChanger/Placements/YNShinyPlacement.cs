@@ -9,11 +9,15 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class YNShinyPlacement : AbstractPlacement, IContainerPlacement, ISingleCostPlacement
+    /// <summary>
+    /// Variant of MutablePlacement which only uses the shiny container type.
+    /// </summary>
+    public class YNShinyPlacement : AbstractPlacement, IContainerPlacement, ISingleCostPlacement, IPrimaryLocationPlacement
     {
         public YNShinyPlacement(string Name) : base(Name) { }
 
         public ContainerLocation Location;
+        AbstractLocation IPrimaryLocationPlacement.Location => Location;
 
         public Cost Cost { get; set; }
 

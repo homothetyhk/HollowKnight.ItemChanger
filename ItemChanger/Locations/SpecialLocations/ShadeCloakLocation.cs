@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location with directly gives items after entering the Shade Cloak dish platform.
+    /// </summary>
     public class ShadeCloakLocation : AutoLocation
     {
         protected override void OnLoad()
@@ -28,7 +31,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditDashPlat(PlayMakerFSM fsm)
         {
             FsmState init = fsm.GetState("Init");
-            init.Actions[0] = new BoolTestMod(Placement.AllObtained, init.Actions[0] as PlayerDataBoolTest);
+            init.Actions[0] = new DelegateBoolTest(Placement.AllObtained, init.Actions[0] as PlayerDataBoolTest);
 
             FsmState takeControl = fsm.GetState("Take Control");
             takeControl.RemoveActionsOfType<ActivateGameObject>();

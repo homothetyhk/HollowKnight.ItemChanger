@@ -6,6 +6,9 @@ using System.Text;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which implements the Focus custom skill.
+    /// </summary>
     public class FocusSkill : Module
     {
         public bool canFocus { get; set; }

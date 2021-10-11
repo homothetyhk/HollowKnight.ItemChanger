@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which gives the specified amount of essence.
+    /// </summary>
     public class EssenceItem : AbstractItem
     {
         public int amount;

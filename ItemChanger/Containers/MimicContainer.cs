@@ -10,6 +10,9 @@ using UnityEngine;
 
 namespace ItemChanger.Containers
 {
+    /// <summary>
+    /// Container for creating and modifying mimics.
+    /// </summary>
     public class MimicContainer : Container
     {
         public override string Name => Mimic;

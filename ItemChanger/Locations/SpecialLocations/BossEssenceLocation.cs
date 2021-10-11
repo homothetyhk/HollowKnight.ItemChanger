@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location for giving an item from talking to the defeated boss ghost.
+    /// </summary>
     public class BossEssenceLocation : AutoLocation
     {
         public string fsmName;

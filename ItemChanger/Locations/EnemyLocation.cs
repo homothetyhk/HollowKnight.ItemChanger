@@ -11,6 +11,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
+    /// <summary>
+    /// A location for modifying an enemy to drop an item container on death.
+    /// </summary>
     public class EnemyLocation : PlaceableLocation
     {
         public string objectName;

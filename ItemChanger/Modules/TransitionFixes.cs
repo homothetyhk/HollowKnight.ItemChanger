@@ -12,6 +12,9 @@ using SD = ItemChanger.Util.SceneDataUtil;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which applies a large number of fixes to allow entering rooms from unintended directions.
+    /// </summary>
     [DefaultModule]
     public class TransitionFixes : Module
     {

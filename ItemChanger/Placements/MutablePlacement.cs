@@ -13,13 +13,13 @@ namespace ItemChanger.Placements
     /// <summary>
     /// The default placement for most use cases.
     /// Chooses an item container for its location based on its item list.
-    /// By design, no default support for costs.
     /// </summary>
-    public class MutablePlacement : AbstractPlacement, IContainerPlacement, ISingleCostPlacement
+    public class MutablePlacement : AbstractPlacement, IContainerPlacement, ISingleCostPlacement, IPrimaryLocationPlacement
     {
         public MutablePlacement(string Name) : base(Name) { }
 
         public ContainerLocation Location;
+        AbstractLocation IPrimaryLocationPlacement.Location => Location;
 
         public override string MainContainerType => containerType;
         public string containerType = Container.Unknown;

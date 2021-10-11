@@ -11,6 +11,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// ObjectLocation which replaces the Hunter's Journal shiny.
+    /// </summary>
     public class HuntersJournalLocation : ObjectLocation
     {
         public override void OnActiveSceneChanged(Scene to)
@@ -23,7 +26,7 @@ namespace ItemChanger.Locations.SpecialLocations
             checkJournalPlacement.FsmVariables.FindFsmGameObject("Shiny Item").Value = obj;
             FsmState checkJournal = checkJournalPlacement.GetState("Check Journal");
             checkJournal.Actions[0] =
-                new BoolTestMod(() => PlayerData.instance.GetBool(nameof(PlayerData.metHunter)) && !Placement.AllObtained(), "PLACE", null);
+                new DelegateBoolTest(() => PlayerData.instance.GetBool(nameof(PlayerData.metHunter)) && !Placement.AllObtained(), "PLACE", null);
 
             hunterEyes.LocateFSM("Conversation Control").FsmVariables.FindFsmGameObject("Shiny Item").Value = obj;
         }

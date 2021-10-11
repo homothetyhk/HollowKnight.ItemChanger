@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Extensions
 {
+    /// <summary>
+    /// Extensions for Unity objects, and particularly for interacting with Scenes.
+    /// </summary>
     public static class UnityExtensions
     {
         public static PlayMakerFSM LocateFSM(this GameObject g, string name)

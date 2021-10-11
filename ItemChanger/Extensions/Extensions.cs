@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace ItemChanger.Extensions
 {
+    /// <summary>
+    /// Miscellaneous extensions, primarily on System types.
+    /// </summary>
     public static class Extensions
     {
         public static T GetOrAddComponent<T>(this GameObject go) where T : Component

@@ -13,12 +13,17 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {
-    public class CostChestPlacement : AbstractPlacement, IContainerPlacement, IMultiCostPlacement
+    /// <summary>
+    /// Placement which allows shop-like behavior, with a tablet showing item names and costs near a chest. 
+    /// <br />When the chest is opened, any costs that can be paid are paid and the corresponding items are spawned.
+    /// </summary>
+    public class CostChestPlacement : AbstractPlacement, IContainerPlacement, IMultiCostPlacement, IPrimaryLocationPlacement
     {
         public CostChestPlacement(string Name) : base(Name) { }
 
         public ContainerLocation chestLocation;
         public PlaceableLocation tabletLocation;
+        AbstractLocation IPrimaryLocationPlacement.Location => chestLocation;
 
         protected override void OnLoad()
         {

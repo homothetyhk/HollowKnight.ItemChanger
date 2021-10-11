@@ -8,6 +8,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which makes Void Heart unequippable and makes Siblings and the Shade hostile even after obtaining Void Heart.
+    /// </summary>
     [DefaultModule]
     public class RemoveVoidHeartEffects : Module
     {

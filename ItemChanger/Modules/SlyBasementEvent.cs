@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which sets the Sly Basement event to occur when the player has 3 nail arts, independently of Nailmaster's Glory. Makes room in the shop for Sly and the basement entrance.
+    /// </summary>
     [DefaultModule]
     public class SlyBasementEvent : Module
     {

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ItemChanger.Items
 {
+    /// <summary>
+    /// Item which sets the specified field true and increments the number of unlocked stag stations toward Stag Nest.
+    /// </summary>
     public class StagItem : AbstractItem
     {
         public string fieldName;

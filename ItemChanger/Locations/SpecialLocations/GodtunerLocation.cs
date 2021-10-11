@@ -10,6 +10,9 @@ using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// ObjectLocation which places an item inside the Godseeker's coffin and supports a hint through the coffin's inspect text.
+    /// </summary>
     public class GodtunerLocation : ObjectLocation, ILocalHintLocation
     {
         public bool HintActive { get; set; } = true;

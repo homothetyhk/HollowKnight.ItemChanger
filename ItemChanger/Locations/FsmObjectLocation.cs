@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 namespace ItemChanger.Locations
 {
     /// <summary>
-    /// ObjectLocation which replaces an FsmGameObject
+    /// ObjectLocation which replaces an FsmGameObject.
     /// </summary>
     public class FsmObjectLocation : ObjectLocation
     {

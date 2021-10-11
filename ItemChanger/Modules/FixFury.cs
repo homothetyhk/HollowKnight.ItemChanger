@@ -8,6 +8,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which makes Fury of the Fallen compatible with max hp 1.
+    /// </summary>
     [DefaultModule]
     public class FixFury : Module
     {

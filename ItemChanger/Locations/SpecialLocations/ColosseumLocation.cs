@@ -14,9 +14,11 @@ using ItemChanger.Internal;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// FsmObjectLocation with various changes to support items at the end of a Colosseum trial.
+    /// </summary>
     public class ColosseumLocation : FsmObjectLocation, ILocalHintLocation
     {
-        [System.ComponentModel.DefaultValue(true)]
         public bool HintActive { get; set; } = true;
 
         protected override void OnLoad()
@@ -52,7 +54,7 @@ namespace ItemChanger.Locations.SpecialLocations
             {
                 giveShiny.Actions[0], // CROWD IDLE
                 // giveShiny.Actions[1], // bool test on FsmBool Shiny Item
-                new BoolTestMod(Placement.AllObtained, (PlayerDataBoolTest)giveShiny.Actions[2]),
+                new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)giveShiny.Actions[2]),
                 // giveShiny.Actions[3], // find child
                 giveShiny.Actions[4], // activate Shiny Obj
             };
