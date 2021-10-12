@@ -141,7 +141,9 @@ namespace ItemChanger
                 ItemChangerMod.instance.LogError($"Error on GiveImmediate for item {item?.name}:\n{e}");
                 Internal.MessageController.Error();
             }
-            
+
+            AfterGiveInvoke(readOnlyArgs);
+
             if (item.UIDef != null)
             {
                 try
@@ -156,8 +158,6 @@ namespace ItemChanger
                 }
             }
             else info.Callback?.Invoke(item);
-
-            AfterGiveInvoke(readOnlyArgs);
         }
 
         /// <summary>

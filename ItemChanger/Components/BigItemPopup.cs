@@ -4,7 +4,6 @@ using ItemChanger.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-using static ItemChanger.Internal.SpriteManager;
 using System;
 using ItemChanger.Internal;
 
@@ -32,15 +31,15 @@ namespace ItemChanger.Components
         {
             Frames = new[]
             {
-                GetSprite("Anim.BigItemFleur.0"),
-                GetSprite("Anim.BigItemFleur.1"),
-                GetSprite("Anim.BigItemFleur.2"),
-                GetSprite("Anim.BigItemFleur.3"),
-                GetSprite("Anim.BigItemFleur.4"),
-                GetSprite("Anim.BigItemFleur.5"),
-                GetSprite("Anim.BigItemFleur.6"),
-                GetSprite("Anim.BigItemFleur.7"),
-                GetSprite("Anim.BigItemFleur.8")
+                SpriteManager.Instance.GetSprite("Anim.BigItemFleur.0"),
+                SpriteManager.Instance.GetSprite("Anim.BigItemFleur.1"),
+                SpriteManager.Instance.GetSprite("Anim.BigItemFleur.2"),
+                SpriteManager.Instance.GetSprite("Anim.BigItemFleur.3"),
+                SpriteManager.Instance.GetSprite("Anim.BigItemFleur.4"),
+                SpriteManager.Instance.GetSprite("Anim.BigItemFleur.5"),
+                SpriteManager.Instance.GetSprite("Anim.BigItemFleur.6"),
+                SpriteManager.Instance.GetSprite("Anim.BigItemFleur.7"),
+                SpriteManager.Instance.GetSprite("Anim.BigItemFleur.8")
             };
         }
 
@@ -163,10 +162,10 @@ namespace ItemChanger.Components
             yield return WaitForSeconds(1.5f);
 
             // Can I offer you an egg in this trying time?
-            GameObject egg = CanvasUtil.CreateImagePanel(gameObject, GetSprite("UI.egg"),
+            GameObject egg = CanvasUtil.CreateImagePanel(gameObject, SpriteManager.Instance.GetSprite("UI.egg"),
                 new CanvasUtil.RectData(
-                    new Vector2(GetSprite("UI.egg").texture.width / 1.65f,
-                        GetSprite("UI.egg").texture.height / 1.65f), Vector2.zero,
+                    new Vector2(SpriteManager.Instance.GetSprite("UI.egg").texture.width / 1.65f,
+                        SpriteManager.Instance.GetSprite("UI.egg").texture.height / 1.65f), Vector2.zero,
                     new Vector2(0.5f, 0.1075f), new Vector2(0.5f, 0.1075f)));
             CanvasGroup eggCG = egg.AddComponent<CanvasGroup>();
 

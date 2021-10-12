@@ -15,8 +15,8 @@ namespace ItemChanger.Items
             name = "Nothing",
             UIDef = new UIDefs.MsgUIDef
             {
-                name = new BoxedString { Value = "Nothing" },
-                shopDesc = new BoxedString { Value = "" },
+                name = new BoxedString("Nothing"),
+                shopDesc = new BoxedString(""),
                 sprite = new EmptySprite(),
             }
         };

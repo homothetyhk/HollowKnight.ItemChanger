@@ -11,16 +11,17 @@ namespace ItemChanger.Items
     public class SpellItem : AbstractItem
     {
         public string fieldName;
+        public int spellLevel;
 
         public override void GiveImmediate(GiveInfo info)
         {
             PlayerData.instance.SetBool(nameof(PlayerData.hasSpell), true);
-            PlayerData.instance.IncrementInt(fieldName);
+            PlayerData.instance.SetInt(fieldName, spellLevel);
         }
 
         public override bool Redundant()
         {
-            return PlayerData.instance.GetInt(fieldName) > 2;
+            return PlayerData.instance.GetInt(fieldName) >= spellLevel;
         }
     }
 }

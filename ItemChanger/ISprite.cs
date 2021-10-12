@@ -18,18 +18,28 @@ namespace ItemChanger
     public class BoxedSprite : ISprite
     {
         public Sprite Value { get; set; }
+
+        public BoxedSprite(Sprite Value) => this.Value = Value;
+
         public ISprite Clone() => (ISprite)MemberwiseClone();
     }
 
+    [Serializable]
     public class ItemChangerSprite : ISprite
     {
         public string key;
 
+        public ItemChangerSprite(string key)
+        {
+            this.key = key;
+        }
+
         [Newtonsoft.Json.JsonIgnore]
-        public Sprite Value => Internal.SpriteManager.GetSprite(key);
+        public Sprite Value => Internal.SpriteManager.Instance.GetSprite(key);
         public ISprite Clone() => (ISprite)MemberwiseClone();
     }
 
+    [Serializable]
     public class EmptySprite : ISprite
     {
         [Newtonsoft.Json.JsonIgnore]

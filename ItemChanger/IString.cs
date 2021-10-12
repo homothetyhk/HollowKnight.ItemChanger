@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ItemChanger.Extensions;
+using Newtonsoft.Json;
 
 namespace ItemChanger
 {
@@ -14,10 +15,16 @@ namespace ItemChanger
 
     public class LanguageString : IString
     {
-        public string key;
         public string sheet;
+        public string key;
 
-        [Newtonsoft.Json.JsonIgnore]
+        public LanguageString(string sheet, string key)
+        {
+            this.sheet = sheet;
+            this.key = key;
+        }
+
+        [JsonIgnore]
         public string Value => Language.Language.Get(key, sheet)?.Replace("<br>", "\n");
         public IString Clone() => (IString)MemberwiseClone();
     }
@@ -25,6 +32,9 @@ namespace ItemChanger
     public class BoxedString : IString
     {
         public string Value { get; set; }
+
+        public BoxedString(string Value) => this.Value = Value;
+        
         public IString Clone() => (IString)MemberwiseClone();
     }
 
@@ -33,7 +43,13 @@ namespace ItemChanger
         public string key;
         public string sheet;
 
-        [Newtonsoft.Json.JsonIgnore]
+        public PaywallString(string sheet, string key)
+        {
+            this.sheet = sheet;
+            this.key = key;
+        }
+
+        [JsonIgnore]
         public string Value => Language.Language.Get(key, sheet)?.Replace("<br>", "\n").CapLength(125) 
             + "...\nYou have reached your monthly free article limit. To continue reading, subscribe now with this limited time offer!";
         public IString Clone() => (IString)MemberwiseClone();

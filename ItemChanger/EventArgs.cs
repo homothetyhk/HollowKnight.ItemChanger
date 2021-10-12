@@ -7,6 +7,22 @@ using UnityEngine;
 
 namespace ItemChanger
 {
+    public class GetItemEventArgs : EventArgs
+    {
+        public string ItemName { get; }
+        public AbstractItem Current { get; set; }
+
+        public GetItemEventArgs(string itemName) => this.ItemName = itemName;
+    }
+
+    public class GetLocationEventArgs : EventArgs
+    {
+        public string LocationName { get; }
+        public AbstractLocation Current { get; set; }
+
+        public GetLocationEventArgs(string locationName) => this.LocationName = locationName;
+    }
+
     public class VisitStateChangedEventArgs : EventArgs
     {
         public VisitStateChangedEventArgs(AbstractPlacement placement, VisitState newFlags)

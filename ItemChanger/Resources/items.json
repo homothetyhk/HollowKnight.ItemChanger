@@ -746,6 +746,7 @@
   "Vengeful_Spirit": {
     "$type": "ItemChanger.Items.SpellItem, ItemChanger",
     "fieldName": "fireballLevel",
+    "spellLevel": 1,
     "name": "Vengeful_Spirit",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -800,6 +801,7 @@
   "Shade_Soul": {
     "$type": "ItemChanger.Items.SpellItem, ItemChanger",
     "fieldName": "fireballLevel",
+    "spellLevel": 2,
     "name": "Shade_Soul",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -854,6 +856,7 @@
   "Desolate_Dive": {
     "$type": "ItemChanger.Items.SpellItem, ItemChanger",
     "fieldName": "quakeLevel",
+    "spellLevel": 1,
     "name": "Desolate_Dive",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -908,6 +911,7 @@
   "Descending_Dark": {
     "$type": "ItemChanger.Items.SpellItem, ItemChanger",
     "fieldName": "quakeLevel",
+    "spellLevel": 2,
     "name": "Descending_Dark",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -962,6 +966,7 @@
   "Howling_Wraiths": {
     "$type": "ItemChanger.Items.SpellItem, ItemChanger",
     "fieldName": "screamLevel",
+    "spellLevel": 1,
     "name": "Howling_Wraiths",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -1016,6 +1021,7 @@
   "Abyss_Shriek": {
     "$type": "ItemChanger.Items.SpellItem, ItemChanger",
     "fieldName": "screamLevel",
+    "spellLevel": 2,
     "name": "Abyss_Shriek",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
@@ -6673,8 +6679,8 @@
   },
   "Soul_Totem-Path_of_Pain": {
     "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
-    "hitCount": 5,
-    "soul": 90,
+    "hitCount": -1,
+    "soul": 200,
     "soulTotemSubtype": "PathOfPain",
     "name": "Soul_Totem-Path_of_Pain",
     "UIDef": {

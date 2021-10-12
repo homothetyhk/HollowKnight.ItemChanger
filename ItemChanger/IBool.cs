@@ -15,12 +15,18 @@ namespace ItemChanger
     public class BoxedBool : IBool
     {
         public bool Value { get; set; }
+
+        public BoxedBool(bool Value) => this.Value = Value;
+
         public IBool Clone() => (IBool)MemberwiseClone();
     }
 
     public class PDBool : IBool
     {
         public string boolName;
+
+        public PDBool(string boolName) => this.boolName = boolName;
+
         [JsonIgnore]
         public bool Value => PlayerData.instance.GetBool(boolName);
         public IBool Clone() => (IBool)MemberwiseClone();
@@ -31,18 +37,25 @@ namespace ItemChanger
         public string id;
         public string sceneName;
 
+        public SDBool(string id, string sceneName)
+        {
+            this.id = id;
+            this.sceneName = sceneName;
+        }
+
         [JsonIgnore]
         public bool Value => SceneData.instance.FindMyState(new PersistentBoolData
         {
             id = id,
             sceneName = sceneName,
         })?.activated ?? false;
+
         public IBool Clone() => (IBool)MemberwiseClone();
     }
 
     public class Disjunction : IBool
     {
-        public readonly List<IBool> bools = new();
+        public List<IBool> bools = new();
         public Disjunction() { }
         public Disjunction(IEnumerable<IBool> bools)
         {
@@ -52,6 +65,7 @@ namespace ItemChanger
         {
             this.bools.AddRange(bools);
         }
+
         [JsonIgnore]
         public bool Value => bools.Any(b => b.Value);
 
@@ -65,7 +79,7 @@ namespace ItemChanger
 
     public class Conjunction : IBool
     {
-        public readonly List<IBool> bools = new();
+        public List<IBool> bools = new();
         public Conjunction() { }
         public Conjunction(IEnumerable<IBool> bools)
         {
@@ -75,6 +89,7 @@ namespace ItemChanger
         {
             this.bools.AddRange(bools);
         }
+
         [JsonIgnore]
         public bool Value => bools.All(b => b.Value);
 
@@ -88,12 +103,14 @@ namespace ItemChanger
 
     public class Negation : IBool
     {
-        public readonly IBool Bool;
+        public IBool Bool;
+
         [JsonConstructor]
         public Negation(IBool Bool)
         {
             this.Bool = Bool;
         }
+
         [JsonIgnore]
         public bool Value => !Bool.Value;
 
