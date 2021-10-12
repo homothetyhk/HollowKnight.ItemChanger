@@ -232,7 +232,16 @@ namespace ItemChanger
         public const string Boss_Geo_Enraged_Guardian = "Boss_Geo-Enraged_Guardian";
         public const string Boss_Geo_Gruz_Mother = "Boss_Geo-Gruz_Mother";
         public const string Boss_Geo_Vengefly_King = "Boss_Geo-Vengefly_King";
-        public const string Soul_Totem = "Soul_Totem";
+        public const string Soul_Refill = "Soul_Refill";
+        public const string Soul_Totem_A = "Soul_Totem-A";
+        public const string Soul_Totem_B = "Soul_Totem-B";
+        public const string Soul_Totem_C = "Soul_Totem-C";
+        public const string Soul_Totem_D = "Soul_Totem-D";
+        public const string Soul_Totem_E = "Soul_Totem-E";
+        public const string Soul_Totem_F = "Soul_Totem-F";
+        public const string Soul_Totem_G = "Soul_Totem-G";
+        public const string Soul_Totem_Palace = "Soul_Totem-Palace";
+        public const string Soul_Totem_Path_of_Pain = "Soul_Totem-Path_of_Pain";
         public const string Lore_Tablet_City_Entrance = "Lore_Tablet-City_Entrance";
         public const string Lore_Tablet_Pleasure_House = "Lore_Tablet-Pleasure_House";
         public const string Lore_Tablet_Sanctum_Entrance = "Lore_Tablet-Sanctum_Entrance";

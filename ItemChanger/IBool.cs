@@ -95,7 +95,7 @@ namespace ItemChanger
             this.Bool = Bool;
         }
         [JsonIgnore]
-        public bool Value => Bool.Value;
+        public bool Value => !Bool.Value;
 
         public IBool Clone()
         {

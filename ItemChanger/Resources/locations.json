@@ -1,10 +1,10 @@
 {
   "Start": {
     "$type": "ItemChanger.Locations.StartLocation, ItemChanger",
+    "MessageType": "None",
     "name": "Start",
     "sceneName": null,
     "flingType": "DirectDeposit",
-    "MessageType": "None",
     "tags": null
   },
   "Sly": {
@@ -117,12 +117,12 @@
   },
   "Mothwing_Cloak": {
     "$type": "ItemChanger.Locations.SpecialLocations.MothwingCloakLocation, ItemChanger",
-    "objectName": "Shiny Item",
-    "elevation": 0.0,
-    "forceShiny": false,
     "fsmName": "Control",
     "fsmParent": "Cloak Corpse",
     "fsmVariable": "Shiny Item",
+    "objectName": "Shiny Item",
+    "elevation": 0.0,
+    "forceShiny": false,
     "name": "Mothwing_Cloak",
     "sceneName": "Fungus1_04",
     "flingType": "Everywhere",
@@ -354,8 +354,7 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "defeatedDungDefender",
-      "Value": false
+      "boolName": "defeatedDungDefender"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
@@ -483,16 +482,13 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "slugEncounterComplete",
-      "Value": false
+      "boolName": "slugEncounterComplete"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-      "containerType": "Shiny",
       "objectName": "Shiny Item",
       "fsmName": "Shiny Control",
-      "elevation": 0.0,
-      "forceShiny": false,
+      "containerType": "Shiny",
       "name": "Shape_of_Unn",
       "sceneName": "Fungus1_Slug",
       "flingType": "StraightUp",
@@ -500,11 +496,9 @@
     },
     "trueLocation": {
       "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-      "containerType": "Shiny",
       "objectName": "Shiny Item Return",
       "fsmName": "Shiny Control",
-      "elevation": 0.0,
-      "forceShiny": false,
+      "containerType": "Shiny",
       "name": "Shape_of_Unn",
       "sceneName": "Fungus1_Slug",
       "flingType": "StraightUp",
@@ -694,8 +688,7 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "killedPaleLurker",
-      "Value": false
+      "boolName": "killedPaleLurker"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.SpecialLocations.PaleLurkerDropLocation, ItemChanger",
@@ -758,11 +751,11 @@
     "objectName": "Shiny Item Godfinder",
     "elevation": 0.0,
     "forceShiny": false,
-    "HintActive": true,
     "name": "Godtuner",
     "sceneName": "GG_Waterways",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": null,
+    "HintActive": true
   },
   "Collector's_Map": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
@@ -982,9 +975,9 @@
   },
   "Charm_Notch-Shrumal_Ogres": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Shiny",
     "objectName": "Shiny Item",
     "fsmName": "Shiny Control",
+    "containerType": "Shiny",
     "name": "Charm_Notch-Shrumal_Ogres",
     "sceneName": "Fungus2_05",
     "flingType": "Everywhere",
@@ -1094,9 +1087,9 @@
   },
   "Geo_Chest-False_Knight": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-False_Knight",
     "sceneName": "Crossroads_10",
     "flingType": "Everywhere",
@@ -1104,9 +1097,9 @@
   },
   "Geo_Chest-Soul_Master": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Soul_Master",
     "sceneName": "Ruins1_32",
     "flingType": "Everywhere",
@@ -1114,9 +1107,9 @@
   },
   "Geo_Chest-Watcher_Knights": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Watcher_Knights",
     "sceneName": "Ruins2_03",
     "flingType": "Everywhere",
@@ -1124,9 +1117,9 @@
   },
   "Geo_Chest-Greenpath": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Greenpath",
     "sceneName": "Fungus1_13",
     "flingType": "Everywhere",
@@ -1134,9 +1127,9 @@
   },
   "Geo_Chest-Mantis_Lords": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Mantis Chest (2)",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Mantis_Lords",
     "sceneName": "Fungus2_31",
     "flingType": "Everywhere",
@@ -1144,9 +1137,9 @@
   },
   "Geo_Chest-Resting_Grounds": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Resting_Grounds",
     "sceneName": "RestingGrounds_10",
     "flingType": "Everywhere",
@@ -1154,9 +1147,9 @@
   },
   "Geo_Chest-Crystal_Peak": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Crystal_Peak",
     "sceneName": "Mines_37",
     "flingType": "Everywhere",
@@ -1164,9 +1157,9 @@
   },
   "Geo_Chest-Weavers_Den": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Weavers_Den",
     "sceneName": "Deepnest_45_v02",
     "flingType": "Everywhere",
@@ -1174,9 +1167,9 @@
   },
   "Geo_Chest-Junk_Pit_1": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Junk_Pit_1",
     "sceneName": "GG_Waterways",
     "flingType": "Everywhere",
@@ -1184,9 +1177,9 @@
   },
   "Geo_Chest-Junk_Pit_2": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest (1)",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Junk_Pit_2",
     "sceneName": "GG_Waterways",
     "flingType": "Everywhere",
@@ -1194,9 +1187,9 @@
   },
   "Geo_Chest-Junk_Pit_3": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest (2)",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Junk_Pit_3",
     "sceneName": "GG_Waterways",
     "flingType": "Everywhere",
@@ -1204,9 +1197,9 @@
   },
   "Geo_Chest-Junk_Pit_5": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest (4)",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Geo_Chest-Junk_Pit_5",
     "sceneName": "GG_Waterways",
     "flingType": "Everywhere",
@@ -1214,9 +1207,9 @@
   },
   "Lumafly_Escape-Junk_Pit_Chest_4": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
-    "containerType": "Chest",
-    "fsmName": "Chest Control",
     "objectName": "Chest (3)",
+    "fsmName": "Chest Control",
+    "containerType": "Chest",
     "name": "Lumafly_Escape-Junk_Pit_Chest_4",
     "sceneName": "GG_Waterways",
     "flingType": "Everywhere",
@@ -1255,30 +1248,102 @@
     "tags": null
   },
   "Rancid_Egg-Queen's_Gardens": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": 0.001,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Fungus3_34"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Queen's_Gardens",
+      "sceneName": "Fungus3_34",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 48.6,
+      "y": 18.4,
+      "elevation": 0.001,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Queen's_Gardens",
+      "sceneName": "Fungus3_34",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Queen's_Gardens",
     "sceneName": "Fungus3_34",
     "flingType": "Everywhere",
     "tags": null
   },
   "Rancid_Egg-Blue_Lake": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": -0.1,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Crossroads_50"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Blue_Lake",
+      "sceneName": "Crossroads_50",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 117.7,
+      "y": 43.3,
+      "elevation": -0.1,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Blue_Lake",
+      "sceneName": "Crossroads_50",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Blue_Lake",
     "sceneName": "Crossroads_50",
     "flingType": "Everywhere",
     "tags": null
   },
   "Rancid_Egg-Crystal_Peak_Dive_Entrance": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": -0.1,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Mines_01"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
+      "sceneName": "Mines_01",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 28.2,
+      "y": 35.3,
+      "elevation": -0.1,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
+      "sceneName": "Mines_01",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
     "sceneName": "Mines_01",
     "flingType": "Everywhere",
@@ -1295,10 +1360,34 @@
     "tags": null
   },
   "Rancid_Egg-Crystal_Peak_Tall_Room": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": -0.1,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Mines_20"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Crystal_Peak_Tall_Room",
+      "sceneName": "Mines_20",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 30.9,
+      "y": 149.3,
+      "elevation": -0.1,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Crystal_Peak_Tall_Room",
+      "sceneName": "Mines_20",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Crystal_Peak_Tall_Room",
     "sceneName": "Mines_20",
     "flingType": "Everywhere",
@@ -1325,20 +1414,68 @@
     "tags": null
   },
   "Rancid_Egg-Beast's_Den": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": 0.1,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Deepnest_Spider_Town"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Beast's_Den",
+      "sceneName": "Deepnest_Spider_Town",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 112.3,
+      "y": 80.5,
+      "elevation": 0.1,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Beast's_Den",
+      "sceneName": "Deepnest_Spider_Town",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Beast's_Den",
     "sceneName": "Deepnest_Spider_Town",
     "flingType": "Everywhere",
     "tags": null
   },
   "Rancid_Egg-Dark_Deepnest": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": 0.001,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Deepnest_39"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Dark_Deepnest",
+      "sceneName": "Deepnest_39",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 41.9,
+      "y": 5.4,
+      "elevation": 0.001,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Dark_Deepnest",
+      "sceneName": "Deepnest_39",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Dark_Deepnest",
     "sceneName": "Deepnest_39",
     "flingType": "Everywhere",
@@ -1355,10 +1492,34 @@
     "tags": null
   },
   "Rancid_Egg-Near_Quick_Slash": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": 0.001,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Deepnest_East_14"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Near_Quick_Slash",
+      "sceneName": "Deepnest_East_14",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 75.5,
+      "y": 24.4,
+      "elevation": 0.001,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Near_Quick_Slash",
+      "sceneName": "Deepnest_East_14",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Near_Quick_Slash",
     "sceneName": "Deepnest_East_14",
     "flingType": "Everywhere",
@@ -1375,30 +1536,102 @@
     "tags": null
   },
   "Rancid_Egg-Waterways_East": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": 0.001,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Waterways_07"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Waterways_East",
+      "sceneName": "Waterways_07",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 61.8,
+      "y": 30.4,
+      "elevation": 0.001,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Waterways_East",
+      "sceneName": "Waterways_07",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Waterways_East",
     "sceneName": "Waterways_07",
     "flingType": "Everywhere",
     "tags": null
   },
   "Rancid_Egg-Waterways_Main": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": -0.2,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Waterways_02"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Waterways_Main",
+      "sceneName": "Waterways_02",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 65.3,
+      "y": 18.2,
+      "elevation": -0.2,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Waterways_Main",
+      "sceneName": "Waterways_02",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Waterways_Main",
     "sceneName": "Waterways_02",
     "flingType": "Everywhere",
     "tags": null
   },
   "Rancid_Egg-Waterways_West_Bluggsac": {
-    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Egg Sac",
-    "elevation": 0.001,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Egg Sac",
+      "sceneName": "Waterways_04"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+      "objectName": "Corpse Egg Sac(Clone)",
+      "fsmName": "Control",
+      "containerType": "Bluggsac",
+      "name": "Rancid_Egg-Waterways_West_Bluggsac",
+      "sceneName": "Waterways_04",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 31.6,
+      "y": 16.4,
+      "elevation": 0.001,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Rancid_Egg-Waterways_West_Bluggsac",
+      "sceneName": "Waterways_04",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Rancid_Egg-Waterways_West_Bluggsac",
     "sceneName": "Waterways_04",
     "flingType": "Everywhere",
@@ -2523,8 +2756,8 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Ruins2_11",
-        "objectName": "Grubs Folder"
+        "objectName": "Grubs Folder",
+        "sceneName": "Ruins2_11"
       }
     ]
   },
@@ -2541,8 +2774,8 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Ruins2_11",
-        "objectName": "Grubs Folder"
+        "objectName": "Grubs Folder",
+        "sceneName": "Ruins2_11"
       }
     ]
   },
@@ -2559,8 +2792,8 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Ruins2_11",
-        "objectName": "Grubs Folder"
+        "objectName": "Grubs Folder",
+        "sceneName": "Ruins2_11"
       }
     ]
   },
@@ -2577,13 +2810,13 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Deepnest_36",
-        "objectName": "Grub Mimic Top"
+        "objectName": "Grub Mimic Top",
+        "sceneName": "Deepnest_36"
       },
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Deepnest_36",
-        "objectName": "Grub Mimic Bottle"
+        "objectName": "Grub Mimic Bottle",
+        "sceneName": "Deepnest_36"
       }
     ]
   },
@@ -2600,13 +2833,13 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Deepnest_36",
-        "objectName": "Grub Mimic Top (1)"
+        "objectName": "Grub Mimic Top (1)",
+        "sceneName": "Deepnest_36"
       },
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Deepnest_36",
-        "objectName": "Grub Mimic Bottle (1)"
+        "objectName": "Grub Mimic Bottle (1)",
+        "sceneName": "Deepnest_36"
       }
     ]
   },
@@ -2623,13 +2856,13 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Deepnest_36",
-        "objectName": "Grub Mimic Top (2)"
+        "objectName": "Grub Mimic Top (2)",
+        "sceneName": "Deepnest_36"
       },
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Deepnest_36",
-        "objectName": "Grub Mimic Bottle (2)"
+        "objectName": "Grub Mimic Bottle (2)",
+        "sceneName": "Deepnest_36"
       }
     ]
   },
@@ -2646,13 +2879,13 @@
     "tags": [
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Mines_16",
-        "objectName": "Grub Mimic Top"
+        "objectName": "Grub Mimic Top",
+        "sceneName": "Mines_16"
       },
       {
         "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
-        "sceneName": "Mines_16",
-        "objectName": "Grub Mimic Bottle"
+        "objectName": "Grub Mimic Bottle",
+        "sceneName": "Mines_16"
       }
     ]
   },
@@ -3070,7 +3303,7 @@
   "Hunter's_Journal": {
     "$type": "ItemChanger.Locations.SpecialLocations.HuntersJournalLocation, ItemChanger",
     "objectName": "Hunter Eyes/Shiny Item",
-    "elevation": 0,
+    "elevation": 0.0,
     "forceShiny": false,
     "name": "Hunter's_Journal",
     "sceneName": "Fungus1_08",
@@ -3120,7 +3353,7 @@
   "Elevator_Pass": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Toll Machine Lift",
-    "elevation": 0,
+    "elevation": 0.0,
     "forceShiny": true,
     "name": "Elevator_Pass",
     "sceneName": "Crossroads_49b",
@@ -3191,7 +3424,7 @@
       "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
       "x": 24.5,
       "y": 7.5,
-      "elevation": 0,
+      "elevation": 0.0,
       "managed": true,
       "forceShiny": false,
       "name": "Egg_Shop",
@@ -5278,8 +5511,7 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "megaMossChargerDefeated",
-      "Value": false
+      "boolName": "megaMossChargerDefeated"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyFsmLocation, ItemChanger",
@@ -5325,8 +5557,7 @@
     "Test": {
       "$type": "ItemChanger.SDBool, ItemChanger",
       "id": "Battle Scene v2",
-      "sceneName": "Ruins1_23",
-      "Value": false
+      "sceneName": "Ruins1_23"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",
@@ -5361,8 +5592,7 @@
     "Test": {
       "$type": "ItemChanger.SDBool, ItemChanger",
       "id": "Battle Scene v2",
-      "sceneName": "Ruins1_31b",
-      "Value": false
+      "sceneName": "Ruins1_31b"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",
@@ -5396,8 +5626,7 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "defeatedMegaBeamMiner",
-      "Value": false
+      "boolName": "defeatedMegaBeamMiner"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyFsmLocation, ItemChanger",
@@ -5431,8 +5660,7 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "defeatedMegaBeamMiner2",
-      "Value": false
+      "boolName": "defeatedMegaBeamMiner2"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyFsmLocation, ItemChanger",
@@ -5467,8 +5695,7 @@
     "Test": {
       "$type": "ItemChanger.SDBool, ItemChanger",
       "id": "Battle Scene",
-      "sceneName": "Crossroads_04",
-      "Value": false
+      "sceneName": "Crossroads_04"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.SpecialLocations.GruzMotherDropLocation, ItemChanger",
@@ -5500,8 +5727,7 @@
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
       "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "zoteRescuedBuzzer",
-      "Value": false
+      "boolName": "zoteRescuedBuzzer"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",

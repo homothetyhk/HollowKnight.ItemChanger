@@ -6394,10 +6394,289 @@
     "tags": null,
     "obtainState": "Unobtained"
   },
-  "Soul_Totem": {
+  "Soul_Refill": {
     "$type": "ItemChanger.Items.SoulItem, ItemChanger",
-    "soul": 100,
-    "name": "Soul_Totem",
+    "soul": 200,
+    "name": "Soul_Refill",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem-A": {
+    "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
+    "hitCount": 5,
+    "soul": 90,
+    "soulTotemSubtype": "A",
+    "name": "Soul_Totem-A",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem-B": {
+    "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
+    "hitCount": 3,
+    "soul": 54,
+    "soulTotemSubtype": "B",
+    "name": "Soul_Totem-B",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem-C": {
+    "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
+    "hitCount": 3,
+    "soul": 54,
+    "soulTotemSubtype": "C",
+    "name": "Soul_Totem-C",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem-D": {
+    "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
+    "hitCount": 5,
+    "soul": 90,
+    "soulTotemSubtype": "D",
+    "name": "Soul_Totem-D",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem-E": {
+    "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
+    "hitCount": 5,
+    "soul": 90,
+    "soulTotemSubtype": "E",
+    "name": "Soul_Totem-E",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem-F": {
+    "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
+    "hitCount": 5,
+    "soul": 90,
+    "soulTotemSubtype": "F",
+    "name": "Soul_Totem-F",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem-G": {
+    "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
+    "hitCount": 5,
+    "soul": 90,
+    "soulTotemSubtype": "G",
+    "name": "Soul_Totem-G",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem-Palace": {
+    "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
+    "hitCount": 5,
+    "soul": 90,
+    "soulTotemSubtype": "Palace",
+    "name": "Soul_Totem-Palace",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_NAME_SOUL",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "RANDOMIZER_DESC_SOUL",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Soul"
+      }
+    },
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.PersistentItemTag, ItemChanger",
+        "Persistence": "SemiPersistent"
+      }
+    ],
+    "obtainState": "Unobtained"
+  },
+  "Soul_Totem-Path_of_Pain": {
+    "$type": "ItemChanger.Items.SoulTotemItem, ItemChanger",
+    "hitCount": 5,
+    "soul": 90,
+    "soulTotemSubtype": "PathOfPain",
+    "name": "Soul_Totem-Path_of_Pain",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {

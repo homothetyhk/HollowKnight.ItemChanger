@@ -29,7 +29,8 @@ namespace ItemChanger.Locations
 
         public void OnEnable(PlayMakerFSM fsm)
         {
-            var info = fsm.gameObject.GetOrAddComponent<ContainerInfo>();
+            if (fsm.gameObject.GetComponent<ContainerInfo>() is ContainerInfo info && info != null) return;
+            info = fsm.gameObject.AddComponent<ContainerInfo>();
             info.containerType = containerType;
             info.giveInfo = new ContainerGiveInfo
             {

@@ -25,6 +25,8 @@ namespace ItemChanger.Items
                 or Container.GeoRock 
                 or Container.GrubJar 
                 or Container.Mimic
+                or Container.Totem
+                or Container.Bluggsac
                   => true,
                 _ => false,
             };

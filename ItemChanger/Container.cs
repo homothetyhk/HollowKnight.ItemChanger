@@ -27,6 +27,8 @@ namespace ItemChanger
         public const string Shop = "Shop";
         public const string Enemy = "Enemy";
         public const string Mimic = "Mimic";
+        public const string Totem = "Totem";
+        public const string Bluggsac = "Bluggsac";
 
         /// <summary>
         /// Gets the container definition for the given string. Returns null if no such container has been defined.
@@ -56,7 +58,9 @@ namespace ItemChanger
                 { GeoRock, new GeoRockContainer() },
                 { Chest, new ChestContainer() },
                 { Tablet, new TabletContainer() },
-                { Mimic, new MimicContainer() }
+                { Mimic, new MimicContainer() },
+                { Bluggsac, new BluggsacContainer() },
+                { Totem, new SoulTotemContainer() },
             };
         }
 
