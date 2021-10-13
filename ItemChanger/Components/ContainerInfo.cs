@@ -53,6 +53,7 @@ namespace ItemChanger.Components
     {
         public Cost cost;
         public IEnumerable<AbstractItem> previewItems;
+        public AbstractPlacement placement;
         public bool applied;
     }
 }

@@ -46,7 +46,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void EditFountainText(ref string value)
         {
-            value = value.Replace("?", $" for {(Placement.Items.Count > 0 ? "a " : "")}{Placement.GetUIName(40)}");
+            value = value.Replace("?", $" for {(Placement.Items.Count > 0 ? "a " : "")}{Placement.GetUIName(40)}?");
             Placement.AddVisitFlag(VisitState.Previewed);
         }
     }

@@ -40,7 +40,7 @@ namespace ItemChanger.Containers
         public override void AddCostToFsm(PlayMakerFSM fsm, CostInfo info)
         {
             if (fsm.FsmName != "Shiny Control") return;
-            ShinyUtility.AddYNDialogueToShiny(fsm, info.cost, info.previewItems);
+            ShinyUtility.AddYNDialogueToShiny(fsm, info.cost, info.placement, info.previewItems);
         }
     }
 }

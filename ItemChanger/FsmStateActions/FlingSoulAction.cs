@@ -27,9 +27,14 @@ namespace ItemChanger.FsmStateActions
 
         public static void SpawnSoul(Transform transform, int total)
         {
+            GameObject soulPrefab = ObjectCache.SoulOrb;
+            // Workaround because Spawn extension is slightly broken
+            Object.Destroy(soulPrefab.Spawn());
+            soulPrefab.SetActive(true);
+
             FlingUtils.Config flingConfig = new()
             {
-                Prefab = ObjectCache.SoulOrbPrefab,
+                Prefab = soulPrefab,
                 AmountMin = total,
                 AmountMax = total,
                 SpeedMin = 10f,
@@ -39,6 +44,7 @@ namespace ItemChanger.FsmStateActions
             };
 
             FlingUtils.SpawnAndFling(flingConfig, transform, new Vector3(0f, 0f, 0f));
+            soulPrefab.SetActive(false);
         }
 
         public static void SpawnSoul(Transform transform, int total, int spawnsPerFrame)
@@ -49,9 +55,14 @@ namespace ItemChanger.FsmStateActions
 
         private static IEnumerator SpawnSoulRoutine(Transform transform, int total, int spawnsPerFrame)
         {
+            GameObject soulPrefab = ObjectCache.SoulOrb;
+            // Workaround because Spawn extension is slightly broken
+            Object.Destroy(soulPrefab.Spawn());
+            soulPrefab.SetActive(true);
+
             FlingUtils.Config flingConfig = new()
             {
-                Prefab = ObjectCache.SoulOrbPrefab,
+                Prefab = soulPrefab,
                 AmountMin = spawnsPerFrame,
                 AmountMax = spawnsPerFrame,
                 SpeedMin = 10f,
@@ -70,6 +81,7 @@ namespace ItemChanger.FsmStateActions
 
             flingConfig.AmountMin = flingConfig.AmountMax = total % spawnsPerFrame;
             FlingUtils.SpawnAndFling(flingConfig, transform, new Vector3(0f, 0f, 0f));
+            soulPrefab.SetActive(false);
         }
     }
 }

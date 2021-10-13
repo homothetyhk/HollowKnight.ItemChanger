@@ -34,7 +34,7 @@ namespace ItemChanger.FsmStateActions
 
             if (!_minimize)
             {
-                Random random = new Random();
+                Random random = new();
 
                 smallNum = random.Next(0, _count / 10);
                 _count -= smallNum;
@@ -58,11 +58,21 @@ namespace ItemChanger.FsmStateActions
 
         public static void SpawnGeo(int smallNum, int medNum, int largeNum, FlingType fling, Transform transform, bool normalizeZ = true)
         {
-            FlingUtils.Config flingConfig = new FlingUtils.Config
+            GameObject smallPrefab = ObjectCache.SmallGeo;
+            GameObject mediumPrefab = ObjectCache.MediumGeo;
+            GameObject largePrefab = ObjectCache.LargeGeo;
+
+            // Workaround because Spawn extension is slightly broken
+            Object.Destroy(smallPrefab.Spawn());
+            Object.Destroy(mediumPrefab.Spawn());
+            Object.Destroy(largePrefab.Spawn());
+
+            smallPrefab.SetActive(true);
+            mediumPrefab.SetActive(true);
+            largePrefab.SetActive(true);
+
+            FlingUtils.Config flingConfig = new()
             {
-                Prefab = ObjectCache.SmallGeoPrefab,
-                AmountMin = smallNum,
-                AmountMax = smallNum,
                 SpeedMin = 15f,
                 SpeedMax = 30f,
                 AngleMin = 80f,
@@ -79,22 +89,28 @@ namespace ItemChanger.FsmStateActions
 
             if (smallNum > 0)
             {
+                flingConfig.Prefab = smallPrefab;
+                flingConfig.AmountMin = flingConfig.AmountMax = smallNum;
                 FlingUtils.SpawnAndFling(flingConfig, transform, offset);
             }
 
             if (medNum > 0)
             {
-                flingConfig.Prefab = ObjectCache.MediumGeoPrefab;
+                flingConfig.Prefab = mediumPrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = medNum;
                 FlingUtils.SpawnAndFling(flingConfig, transform, offset);
             }
 
             if (largeNum > 0)
             {
-                flingConfig.Prefab = ObjectCache.LargeGeoPrefab;
+                flingConfig.Prefab = largePrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = largeNum;
                 FlingUtils.SpawnAndFling(flingConfig, transform, offset);
             }
+
+            smallPrefab.SetActive(false);
+            mediumPrefab.SetActive(false);
+            largePrefab.SetActive(false);
         }
 
 
@@ -111,13 +127,26 @@ namespace ItemChanger.FsmStateActions
                 return;
             }
 
+            GameObject smallPrefab = ObjectCache.SmallGeo;
+            GameObject mediumPrefab = ObjectCache.MediumGeo;
+            GameObject largePrefab = ObjectCache.LargeGeo;
+
+            // Workaround because Spawn extension is slightly broken
+            Object.Destroy(smallPrefab.Spawn());
+            Object.Destroy(mediumPrefab.Spawn());
+            Object.Destroy(largePrefab.Spawn());
+
+            smallPrefab.SetActive(true);
+            mediumPrefab.SetActive(true);
+            largePrefab.SetActive(true);
+
             int smallNum;
             int medNum;
             int largeNum;
 
             if (!_minimize)
             {
-                Random random = new Random();
+                Random random = new();
 
                 smallNum = random.Next(0, _count / 10);
                 _count -= smallNum;
@@ -136,11 +165,8 @@ namespace ItemChanger.FsmStateActions
                 smallNum = _count;
             }
 
-            FlingUtils.Config flingConfig = new FlingUtils.Config
+            FlingUtils.Config flingConfig = new()
             {
-                Prefab = ObjectCache.SmallGeoPrefab,
-                AmountMin = smallNum,
-                AmountMax = smallNum,
                 SpeedMin = 15f,
                 SpeedMax = 30f,
                 AngleMin = 80f,
@@ -157,22 +183,28 @@ namespace ItemChanger.FsmStateActions
 
             if (smallNum > 0)
             {
+                flingConfig.Prefab = smallPrefab;
+                flingConfig.AmountMin = flingConfig.AmountMax = smallNum;
                 FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, new Vector3(0f, 0f, 0f));
             }
 
             if (medNum > 0)
             {
-                flingConfig.Prefab = ObjectCache.MediumGeoPrefab;
+                flingConfig.Prefab = mediumPrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = medNum;
                 FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, new Vector3(0f, 0f, 0f));
             }
 
             if (largeNum > 0)
             {
-                flingConfig.Prefab = ObjectCache.LargeGeoPrefab;
+                flingConfig.Prefab = largePrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = largeNum;
                 FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, new Vector3(0f, 0f, 0f));
             }
+
+            smallPrefab.SetActive(false);
+            mediumPrefab.SetActive(false);
+            largePrefab.SetActive(false);
 
             Finish();
         }

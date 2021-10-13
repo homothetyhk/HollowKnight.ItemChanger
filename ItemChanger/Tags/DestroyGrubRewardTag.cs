@@ -30,7 +30,7 @@ namespace ItemChanger.Tags
             {
                 if ((destroyRewards & (GrubfatherRewards)(1L << i)) != 0)
                 {
-                    UnityEngine.Object.Destroy(to.FindGameObject($"Grub King\\Reward {i + 1}"));
+                    UnityEngine.Object.Destroy(to.FindGameObject($"Grub King/Rewards Parent/Reward {i + 1}"));
                 }
             }
         }

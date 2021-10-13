@@ -3404,7 +3404,13 @@
     "name": "Left_Mantis_Claw",
     "sceneName": "Fungus2_14",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Shiny Item Stand",
+        "sceneName": "Fungus2_14"
+      }
+    ]
   },
   "Right_Mantis_Claw": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
@@ -3416,7 +3422,13 @@
     "name": "Right_Mantis_Claw",
     "sceneName": "Fungus2_14",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Shiny Item Stand",
+        "sceneName": "Fungus2_14"
+      }
+    ]
   },
   "Egg_Shop": {
     "$type": "ItemChanger.Locations.SpecialLocations.EggShopLocation, ItemChanger",

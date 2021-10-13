@@ -56,7 +56,6 @@ namespace ItemChanger.Placements
             }
             else if (location == tabletLocation)
             {
-                ItemChangerMod.instance.Log("Getting tablet");
                 obj = TabletUtility.MakeNewTablet(this, BuildText);
                 containerType = Container.Tablet;
             }

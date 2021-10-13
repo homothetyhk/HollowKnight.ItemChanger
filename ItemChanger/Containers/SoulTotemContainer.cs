@@ -40,6 +40,10 @@ namespace ItemChanger.Containers
                 t.localScale = new Vector3(t.localScale.x * k, t.localScale.y * k, t.localScale.z);
             }
 
+            totem.AddComponent<DropIntoPlace>();
+            totem.GetComponent<BoxCollider2D>().isTrigger = false; // some rocks only have trigger colliders
+
+
             ContainerInfo info = totem.AddComponent<ContainerInfo>();
             info.containerType = Container.Totem;
             info.giveInfo = new()

@@ -58,6 +58,7 @@ namespace ItemChanger.Util
                 {
                     cost = cost,
                     previewItems = items,
+                    placement = placement,
                 };
             }
 
@@ -228,7 +229,7 @@ namespace ItemChanger.Util
         /// <summary>
         /// Call after ModifyShiny to add cost.
         /// </summary>
-        public static void AddYNDialogueToShiny(PlayMakerFSM shinyFsm, Cost cost, IEnumerable<AbstractItem> items)
+        public static void AddYNDialogueToShiny(PlayMakerFSM shinyFsm, Cost cost, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState yesState = shinyFsm.GetState(charm.Transitions[0].ToState);
@@ -283,6 +284,7 @@ namespace ItemChanger.Util
             yesState.AddFirstAction(closeYNDialogue);
 
             charm.AddFirstAction(new Lambda(() => OpenYNDialogue(shinyFsm.gameObject, items, cost)));
+            charm.AddFirstAction(new Lambda(() => placement.AddVisitFlag(VisitState.Previewed)));
         }
 
         private static void OpenYNDialogue(GameObject shiny, IEnumerable<AbstractItem> items, Cost cost)

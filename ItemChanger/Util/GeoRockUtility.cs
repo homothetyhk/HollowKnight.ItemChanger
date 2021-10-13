@@ -54,7 +54,7 @@ namespace ItemChanger.Util
             rock.AddComponent<GeoRockInfo>().type = type;
             rock.name = GetGeoRockName(placement);
 
-            rock.AddComponent<DropIntoPlace>(); // 420 geo rock has clipping issues
+            rock.AddComponent<DropIntoPlace>();
             rock.GetComponent<BoxCollider2D>().isTrigger = false; // some rocks only have trigger colliders
 
             var info = rock.AddComponent<ContainerInfo>();

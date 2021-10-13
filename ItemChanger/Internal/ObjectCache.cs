@@ -55,30 +55,43 @@ namespace ItemChanger.Internal
                 switch (o.prefab.name)
                 {
                     case "Geo Small":
-                        SmallGeoPrefab = o.prefab;
+                        _smallGeo = UObject.Instantiate(o.prefab);
+                        _smallGeo.SetActive(false);
+                        UObject.DontDestroyOnLoad(_smallGeo);
                         break;
-                    case "Geo Medium":
-                        MediumGeoPrefab = o.prefab;
+                    case "Geo Med":
+                        _mediumGeo = UObject.Instantiate(o.prefab);
+                        _mediumGeo.SetActive(false);
+                        UObject.DontDestroyOnLoad(_mediumGeo);
                         break;
                     case "Geo Large":
-                        LargeGeoPrefab = o.prefab;
+                        _largeGeo = UObject.Instantiate(o.prefab);
+                        _largeGeo.SetActive(false);
+                        UObject.DontDestroyOnLoad(_largeGeo);
                         break;
                     case "Soul Orb R":
-                        SoulOrbPrefab = o.prefab;
-                        o.prefab.GetComponent<AudioSource>().priority = 200;
-                        // kind of bad to change a shared prefab, but this guarantees
-                        // that when we spawn several soul orbs, they don't force other audio sources to become virtual and stop playing sound
+                        _soulOrb = UObject.Instantiate(o.prefab);
+                        _soulOrb.GetComponent<AudioSource>().priority = 200;
+                        // this guarantees that when we spawn several soul orbs,
+                        // they don't force other audio sources to become virtual and stop playing sound
                         // normally, this has the default priority 128 (on a [0, 255] scale)
+                        _soulOrb.SetActive(false);
+                        UObject.DontDestroyOnLoad(_soulOrb);
                         break;
                 }
             }
 
         }
 
-        public static GameObject SmallGeoPrefab { get; private set; }
-        public static GameObject MediumGeoPrefab { get; private set; }
-        public static GameObject LargeGeoPrefab { get; private set; }
-        public static GameObject SoulOrbPrefab { get; private set; }
+        private static GameObject _smallGeo;
+        private static GameObject _mediumGeo;
+        private static GameObject _largeGeo;
+        private static GameObject _soulOrb;
+
+        public static GameObject SmallGeo => UObject.Instantiate(_smallGeo);
+        public static GameObject MediumGeo => UObject.Instantiate(_mediumGeo);
+        public static GameObject LargeGeo => UObject.Instantiate(_largeGeo);
+        public static GameObject SoulOrb => UObject.Instantiate(_soulOrb);
 
 
         public static GameObject Chest => CorePreloader.Chest;

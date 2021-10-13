@@ -20,7 +20,8 @@ namespace ItemChanger.Extensions
 
         public static GameObject FindChild(this GameObject g, string name)
         {
-            return g.transform.Find(name).gameObject;
+            Transform t = g.transform.Find(name);
+            return t != null ? t.gameObject : null;
         }
 
         public static GameObject FindChild(this GameObject g, IEnumerable<string> steps)

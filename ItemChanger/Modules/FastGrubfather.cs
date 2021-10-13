@@ -29,6 +29,7 @@ namespace ItemChanger.Modules
 
         private void CombineRewards(PlayMakerFSM fsm)
         {
+            PlayerData.instance.grubsCollected = 5;
             FsmState finalReward = fsm.GetState("Final Reward?");
             FsmState recheck = fsm.GetState("Recheck");
             FsmState allGiven = fsm.GetState("All Given");
@@ -55,17 +56,18 @@ namespace ItemChanger.Modules
             public override void OnEnter()
             {
                 int rewardNum = Fsm.GetFsmInt("Rewards Given").Value;
-                if (Fsm.GameObject.FindChild($"Reward {rewardNum}") is GameObject grubReward && grubReward != null)
+                GameObject rewardsParent = Fsm.GameObject.FindChild("Rewards Parent");
+                if (rewardsParent == null) return;
+                GameObject grubReward = rewardsParent.FindChild($"Reward {rewardNum}");
+                if (grubReward == null) return;
+
+                if (grubReward.gameObject.LocateFSM("grub_reward_geo") is PlayMakerFSM geoFsm && geoFsm != null && geoFsm.FsmVariables.FindFsmInt("Geo") is FsmInt geoInt)
                 {
-                    if (grubReward.LocateFSM("grub_reward_geo") is PlayMakerFSM geoFsm && geoFsm != null && geoFsm.FsmVariables.FindFsmInt("Geo") is FsmInt geoInt)
-                    {
-                        Fsm.GetFsmInt("Geo Total").Value += geoInt.Value;
-                        geoFsm.FsmVariables.FindFsmBool("Activated").Value = true;
-                    }
-                    else
-                    {
-                        Fsm.BroadcastEventToGameObject(grubReward, "GIVE", sendToChildren: false, excludeSelf: true);
-                    }
+                    Fsm.GetFsmInt("Geo Total").Value += geoInt.Value;
+                }
+                else
+                {
+                    Fsm.BroadcastEventToGameObject(grubReward.gameObject, "GIVE", sendToChildren: false, excludeSelf: true);
                 }
 
                 Finish();
