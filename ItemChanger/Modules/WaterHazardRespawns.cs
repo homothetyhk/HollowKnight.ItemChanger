@@ -55,7 +55,7 @@ namespace ItemChanger.Modules
                     CreateWaterSpawn(81f, 63f, 1f, 6f, false);
                     CreateWaterSpawn(91f, 63f, 1f, 6f, true);
                     CreateWaterSpawn(95f, 49.75f, 5.5f, 6f, false);
-                    CreateWaterSpawn(127f, 62f, 1f, 24f, false);
+                    CreateWaterSpawn(128f, 62f, 1f, 22f, false);
                     break;
 
                 case SceneNames.RestingGrounds_08:
@@ -131,7 +131,7 @@ namespace ItemChanger.Modules
                 case SceneNames.Ruins2_07:
                     CreateWaterSpawn(30.4f, 8.25f, 1f, 7.5f, true);
                     CreateWaterSpawn(65f, 14f, 1f, 6f, false);
-                    CreateWaterSpawn(81.5f, 19.5f, 1f, 19f, true);
+                    CreateWaterSpawn(81.5f, 15f, 1f, 8f, true);
                     break;
 
                 case SceneNames.Waterways_01:
@@ -175,7 +175,7 @@ namespace ItemChanger.Modules
 
         private static void CreateWaterSpawn(float x, float y, float xSize, float ySize, bool respawnFacingRight = true)
         {
-            GameObject go = new GameObject("Randomizer Hazard Respawn");
+            GameObject go = new("ItemChanger Hazard Respawn");
             go.transform.SetPosition2D(new Vector2(x, y));
 
             BoxCollider2D box = go.AddComponent<BoxCollider2D>();

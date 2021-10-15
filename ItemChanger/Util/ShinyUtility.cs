@@ -231,25 +231,12 @@ namespace ItemChanger.Util
         /// </summary>
         public static void AddYNDialogueToShiny(PlayMakerFSM shinyFsm, Cost cost, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
+            FsmState idle = shinyFsm.GetState("Idle");
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState yesState = shinyFsm.GetState(charm.Transitions[0].ToState);
-            FsmState noState = new FsmState(shinyFsm.GetState("Idle"))
-            {
-                Name = "YN No"
-            };
-            FsmState giveControl = new FsmState(shinyFsm.GetState("Idle"))
-            {
-                Name = "Give Control"
-            };
 
-            FsmStateAction closeYNDialogue = new Lambda(() => YNUtil.CloseYNDialogue());
 
-            noState.ClearTransitions();
-            noState.RemoveActionsOfType<FsmStateAction>();
-            noState.AddTransition(FsmEvent.Finished, giveControl);
-            noState.AddTransition("HERO DAMAGED", giveControl);
-
-            Tk2dPlayAnimationWithEvents heroUp = new Tk2dPlayAnimationWithEvents
+            Tk2dPlayAnimationWithEvents heroUp = new()
             {
                 gameObject = new FsmOwnerDefault
                 {
@@ -260,27 +247,49 @@ namespace ItemChanger.Util
                 animationTriggerEvent = null,
                 animationCompleteEvent = FsmEvent.GetFsmEvent("FINISHED")
             };
+            Lambda closeYNDialogue = new(YNUtil.CloseYNDialogue);
+            Lambda endInspect = new(() => PlayMakerFSM.BroadcastEvent("END INSPECT"));
 
-            noState.AddLastAction(closeYNDialogue);
-            noState.AddLastAction(heroUp);
 
-            giveControl.ClearTransitions();
-            giveControl.RemoveActionsOfType<FsmStateAction>();
+            FsmState giveControl = new(shinyFsm.Fsm)
+            {
+                Name = "Give Control",
+                Transitions = new FsmTransition[] { new() { FsmEvent = FsmEvent.Finished, ToFsmState = idle, ToState = idle.Name } },
+                Actions = new FsmStateAction[] { endInspect },
+            };
 
-            giveControl.AddTransition("FINISHED", "Idle");
+            FsmState noState = new(shinyFsm.Fsm)
+            {
+                Name = "YN No",
+                Transitions = new FsmTransition[] 
+                { 
+                    new() { FsmEvent = FsmEvent.Finished, ToFsmState = giveControl, ToState = giveControl.Name },
+                    new() { FsmEvent = FsmEvent.GetFsmEvent("HERO DAMAGED"), ToFsmState = giveControl, ToState = giveControl.Name }
+                },
+                Actions = new FsmStateAction[] { closeYNDialogue, heroUp },
+            };
 
-            giveControl.AddLastAction(new Lambda(() => PlayMakerFSM.BroadcastEvent("END INSPECT")));
+            // For some reason playing the animation doesn't work if we come here from being damaged, locking us in the
+            // YN No state. I think just having a separate state to come from if we were damaged is the simplest fix.
+            FsmState damageState = new(shinyFsm.Fsm)
+            {
+                Name = "YN Damaged",
+                Transitions = new FsmTransition[] { new() { FsmEvent = FsmEvent.Finished, ToFsmState = giveControl, ToState = giveControl.Name } },
+                Actions = new FsmStateAction[] { new Lambda(YNUtil.CloseYNDialogue) },
+            };
+
 
             shinyFsm.AddState(noState);
             shinyFsm.AddState(giveControl);
+            shinyFsm.AddState(damageState);
 
             charm.ClearTransitions();
 
-            charm.AddTransition("HERO DAMAGED", noState.Name);
-            charm.AddTransition("NO", noState.Name);
-            charm.AddTransition("YES", yesState.Name);
+            charm.AddTransition("HERO DAMAGED", damageState);
+            charm.AddTransition("NO", noState);
+            charm.AddTransition("YES", yesState);
 
-            yesState.AddFirstAction(new Lambda(() => cost.Pay()));
+            yesState.AddFirstAction(new Lambda(cost.Pay));
             yesState.AddFirstAction(closeYNDialogue);
 
             charm.AddFirstAction(new Lambda(() => OpenYNDialogue(shinyFsm.gameObject, items, cost)));
@@ -291,7 +300,7 @@ namespace ItemChanger.Util
         {
             // If the text pushes the Y/N buttons off of the page, it results in an input lock
             // 120 characters is a little generous--all MMMMMs will still overflow
-            string itemText = string.Join(", ", items.Select(i => i.UIDef.GetPostviewName()).ToArray());
+            string itemText = string.Join(", ", items.Select(i => i.UIDef.GetPreviewName()).ToArray());
             if (itemText.Length > 120)
             {
                 itemText = itemText.Substring(0, 117) + "...";
@@ -304,8 +313,6 @@ namespace ItemChanger.Util
             }
 
             YNUtil.OpenYNDialogue(shiny, $"{itemText}\n{costText}", cost.CanPay());
-        }
-
-        
+        }   
     }
 }

@@ -29,7 +29,6 @@ namespace ItemChanger.Modules
 
         private void CombineRewards(PlayMakerFSM fsm)
         {
-            PlayerData.instance.grubsCollected = 5;
             FsmState finalReward = fsm.GetState("Final Reward?");
             FsmState recheck = fsm.GetState("Recheck");
             FsmState allGiven = fsm.GetState("All Given");

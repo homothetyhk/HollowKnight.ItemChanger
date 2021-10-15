@@ -107,7 +107,7 @@ namespace ItemChanger.Modules
 
         private static Direction GetDashDirection(HeroController hc)
         {
-            InputHandler input = ReflectionHelper.GetField<HeroController, InputHandler>(hc, "inputHandler");
+            InputHandler input = InputHandler.Instance;
             if (!hc.cState.onGround && input.inputActions.down.IsPressed && hc.playerData.GetBool("equippedCharm_31")
                     && !(input.inputActions.left.IsPressed || input.inputActions.right.IsPressed))
             {
