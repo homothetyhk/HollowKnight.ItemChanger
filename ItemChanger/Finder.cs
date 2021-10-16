@@ -85,63 +85,6 @@ namespace ItemChanger
             {
                 Locations = js.Deserialize<Dictionary<string, AbstractLocation>>(jtr);
             }
-
-            AbstractLocation[] locs = Locations.Values.ToArray();
-            Locations.ExistingContainerLocation GetLocation(Locations.ObjectLocation ol)
-            {
-                return new Locations.ExistingContainerLocation
-                {
-                    name = ol.name,
-                    sceneName = ol.sceneName,
-                    flingType = ol.flingType,
-                    containerType = Container.Shiny,
-                    elevation = ol.elevation,
-                    fsmName = "Shiny Control",
-                    nonreplaceable = false,
-                    objectName = ol.objectName,
-                };
-            }
-
-            foreach (var loc in locs)
-            {
-                if (loc is Locations.ObjectLocation ol && loc.GetType() == typeof(Locations.ObjectLocation) && ol.objectName.StartsWith("Shiny"))
-                {
-                    if (ol.objectName.Contains('/') || ol.objectName.Contains('\\'))
-                    {
-                        ItemChangerMod.instance.LogError(ol.name);
-                        throw new ArgumentException(ol.name);
-                    }
-
-                    Locations[ol.name] = GetLocation(ol);
-                }
-                else if (loc is Locations.DualLocation dl)
-                {
-                    if (dl.name.StartsWith("Boss_Geo")) continue;
-                    if (dl.falseLocation is Locations.ObjectLocation fol && fol.GetType() == typeof(Locations.ObjectLocation) && fol.objectName.StartsWith("Shiny"))
-                    {
-                        dl.falseLocation = GetLocation(fol);
-                    }
-                    if (dl.trueLocation is Locations.ObjectLocation tol && tol.GetType() == typeof(Locations.ObjectLocation) && tol.objectName.StartsWith("Shiny"))
-                    {
-                        dl.trueLocation = GetLocation(tol);
-                    }
-                }
-                else if (loc is Locations.ExistingContainerLocation ecl)
-                {
-                    if (ecl.name.StartsWith("Lore_Tablet")) continue;
-                    if (ecl.containerType == Container.Chest)
-                    {
-                        ecl.nonreplaceable = true;
-                    }
-                }
-            }
-
-            var cst0 = Locations["King_Fragment"].AddTag<Tags.ChangeSceneTag>();
-            cst0.changeTo = Transition.GetDreamReturn("Abyss_05");
-            var cst1 = Locations["Lifeblood_Core"].AddTag<Tags.ChangeSceneTag>();
-            cst1.changeTo = Transition.GetDreamReturn(SceneNames.Abyss_06_Core);
-
-            Serialize("locations.json", Locations);
         }
 
         internal static void Serialize(string filename, object o)
