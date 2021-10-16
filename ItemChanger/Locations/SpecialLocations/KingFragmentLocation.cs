@@ -27,13 +27,6 @@ namespace ItemChanger.Locations.SpecialLocations
             Events.RemoveLanguageEdit(new("Lore Tablets", "DUSK_KNIGHT_CORPSE"), OnLanguageGet);
         }
 
-        public override void PlaceContainer(GameObject obj, string containerType)
-        {
-            obj.GetOrAddComponent<ContainerInfo>().changeSceneInfo
-                = new ChangeSceneInfo { toScene = "Abyss_05" };
-            base.PlaceContainer(obj, containerType);
-        }
-
         private void OnLanguageGet(ref string value)
         {
             if (HintActive)

@@ -17,7 +17,7 @@ namespace ItemChanger.Containers
         public override bool SupportsDrop => true;
         public override bool SupportsInstantiate => true;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
+        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
         {
             return ChestUtility.MakeNewChest(placement, items, flingType);
         }

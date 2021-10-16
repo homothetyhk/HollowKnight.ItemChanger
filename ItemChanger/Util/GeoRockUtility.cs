@@ -77,16 +77,7 @@ namespace ItemChanger.Util
         public static void SetRockContext(GameObject rock, float x, float y, float elevation)
         {
             GeoRockSubtype rockType = rock.GetComponent<GeoRockInfo>()?.type ?? GeoRockSubtype.Default;
-            rock.transform.position = new Vector3(x, y + GetElevation(rockType) - elevation);
-
-            /*
-            if (rockType == GeoRockSubtype.Outskirts420)
-            {
-                var t = rock.transform;
-                t.localScale = new Vector3(t.localScale.x * 0.5f, t.localScale.y * 0.5f, t.localScale.z);
-            }
-            */
-
+            rock.transform.position = new Vector3(x, y + GetElevation(rockType) - elevation, 0);
             rock.SetActive(true);
         }
 
@@ -99,7 +90,7 @@ namespace ItemChanger.Util
 
             rock.transform.position = target.transform.position;
             rock.transform.localPosition = target.transform.localPosition;
-            rock.transform.SetPositionZ(0.02f);
+            rock.transform.SetPositionZ(0);
 
             GeoRockSubtype rockType = rock.GetComponent<GeoRockInfo>()?.type ?? GeoRockSubtype.Default;
             rock.transform.position += Vector3.up * (GetElevation(rockType) - elevation);

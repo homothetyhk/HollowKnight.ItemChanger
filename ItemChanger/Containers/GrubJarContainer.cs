@@ -16,7 +16,7 @@ namespace ItemChanger.Containers
         public override string Name => Container.GrubJar;
         public override bool SupportsInstantiate => Internal.ObjectCache.GrubPreloader.PreloadLevel != Internal.PreloadLevel.None;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
+        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
         {
             return GrubJarUtility.MakeNewGrubJar(placement, items, flingType);
         }

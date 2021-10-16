@@ -39,7 +39,7 @@ namespace ItemChanger.Util
             return shiny;
         }
 
-        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
+        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
         {
             GameObject shiny = ObjectCache.ShinyItem;
             shiny.name = GetShinyPrefix(placement);
@@ -59,6 +59,14 @@ namespace ItemChanger.Util
                     cost = cost,
                     previewItems = items,
                     placement = placement,
+                };
+            }
+
+            if (changeSceneTo.HasValue)
+            {
+                info.changeSceneInfo = new ChangeSceneInfo
+                {
+                    transition = changeSceneTo.Value,
                 };
             }
 
@@ -121,20 +129,20 @@ namespace ItemChanger.Util
             flingObj.speedMin = flingObj.speedMax = 0.1f;
         }
 
-        public static void AddChangeSceneToShiny(PlayMakerFSM shinyFsm, string toScene, string toGate)
+        public static void AddChangeSceneToShiny(PlayMakerFSM shinyFsm, Transition t)
         {
-            if (toGate == ChangeSceneInfo.door_dreamReturn)
+            if (t.GateName == ChangeSceneInfo.door_dreamReturn)
             {
                 shinyFsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
                 shinyFsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
                 {
-                    PlayerData.instance.SetString(nameof(PlayerData.dreamReturnScene), toScene);
+                    PlayerData.instance.SetString(nameof(PlayerData.dreamReturnScene), t.SceneName);
                 }));
             }
             else
             {
                 FsmState finish = shinyFsm.GetState("Finish");
-                finish.AddLastAction(new ChangeSceneAction(toScene, toGate));
+                finish.AddLastAction(new ChangeSceneAction(t.SceneName, t.GateName));
             }
         }
 
@@ -245,7 +253,7 @@ namespace ItemChanger.Util
                 },
                 clipName = "Collect Normal 3",
                 animationTriggerEvent = null,
-                animationCompleteEvent = FsmEvent.GetFsmEvent("FINISHED")
+                animationCompleteEvent = FsmEvent.Finished
             };
             Lambda closeYNDialogue = new(YNUtil.CloseYNDialogue);
             Lambda endInspect = new(() => PlayMakerFSM.BroadcastEvent("END INSPECT"));
@@ -275,7 +283,7 @@ namespace ItemChanger.Util
             {
                 Name = "YN Damaged",
                 Transitions = new FsmTransition[] { new() { FsmEvent = FsmEvent.Finished, ToFsmState = giveControl, ToState = giveControl.Name } },
-                Actions = new FsmStateAction[] { new Lambda(YNUtil.CloseYNDialogue) },
+                Actions = new FsmStateAction[] { closeYNDialogue },
             };
 
 

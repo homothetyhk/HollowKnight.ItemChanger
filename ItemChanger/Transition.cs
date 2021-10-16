@@ -20,6 +20,7 @@ namespace ItemChanger
     {
         public string SceneName { get; }
         public string GateName { get; }
+        public const string door_dreamReturn = "door_dreamReturn";
 
         [JsonConstructor]
         public Transition(string SceneName, string GateName)
@@ -28,6 +29,10 @@ namespace ItemChanger
             this.GateName = GateName;
         }
 
+        public static Transition GetDreamReturn(string sceneName)
+        {
+            return new(sceneName, door_dreamReturn);
+        }
 
         public override string ToString()
         {

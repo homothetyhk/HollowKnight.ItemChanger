@@ -87,7 +87,7 @@ namespace ItemChanger.Locations.SpecialLocations
         public override void PlaceContainer(GameObject obj, string containerType)
         {
             obj.GetOrAddComponent<ContainerInfo>().changeSceneInfo
-                = new ChangeSceneInfo { toScene = previousScene };
+                = new ChangeSceneInfo { transition = Transition.GetDreamReturn(previousScene) };
             base.PlaceContainer(obj, containerType);
         }
 

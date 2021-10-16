@@ -69,7 +69,6 @@ namespace ItemChanger.Util
             // Move the chest forward so it appears in front of any background objects
             chest.transform.position = new Vector3(pos.x, pos.y + CHEST_ELEVATION - elevation, 0);
             chest.SetActive(target.activeSelf);
-            //chest.SetActive(true); // is this necessary?
         }
 
         public static void MoveChest(GameObject chest, float x, float y, float elevation)

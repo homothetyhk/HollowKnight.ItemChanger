@@ -56,28 +56,18 @@ namespace ItemChanger.Util
             grubJar.transform.localPosition = target.transform.localPosition;
             var pos = grubJar.transform.position;
             // Move the jar forward so it appears in front of any background objects
-            grubJar.transform.position = new Vector3(pos.x, pos.y + GRUB_JAR_ELEVATION - elevation, pos.z - 0.1f);
+            grubJar.transform.position = new Vector3(pos.x, pos.y + GRUB_JAR_ELEVATION - elevation, -0.1f);
 
             var grub = grubJar.transform.Find("Grub");
-            grub.position = new Vector3(grub.position.x, grub.position.y, pos.z);
+            grub.position = new Vector3(grub.position.x, grub.position.y, 0);
             grubJar.SetActive(target.activeSelf);
-        }
-
-        public static void AdjustGrubJarPosition(GameObject grubJar, float elevation)
-        {
-            var pos = grubJar.transform.position;
-            // Move the jar forward so it appears in front of any background objects
-            grubJar.transform.position = new Vector3(pos.x, pos.y + GRUB_JAR_ELEVATION - elevation, pos.z - 0.1f);
-
-            var grub = grubJar.transform.Find("Grub");
-            grub.position = new Vector3(grub.position.x, grub.position.y, pos.z);
         }
 
         public static void MoveGrubJar(GameObject grubJar, float x, float y, float elevation)
         {
-            grubJar.transform.position = new Vector3(x, y, grubJar.transform.position.z - 0.1f);
+            grubJar.transform.position = new Vector3(x, y + GRUB_JAR_ELEVATION - elevation, -0.1f);
             var grub = grubJar.transform.Find("Grub");
-            grub.position = new Vector3(grub.position.x, grub.position.y + GRUB_JAR_ELEVATION - elevation, grubJar.transform.position.z);
+            grub.position = new Vector3(grub.position.x, grub.position.y + GRUB_JAR_ELEVATION - elevation, 0f);
             grubJar.SetActive(true);
         }
 

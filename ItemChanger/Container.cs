@@ -64,6 +64,14 @@ namespace ItemChanger
             };
         }
 
+        public static bool SupportsAll(string containerName, bool mustSupportInstantiate, bool mustSupportCost, bool mustSupportSceneChange)
+        {
+            return GetContainer(containerName) is Container c
+                && (!mustSupportInstantiate || c.SupportsInstantiate)
+                && (!mustSupportCost || c.SupportsCost)
+                && (!mustSupportSceneChange || c.SupportsSceneChange);
+        }
+
         /// <summary>
         /// The unique name of the container.
         /// </summary>
@@ -93,7 +101,7 @@ namespace ItemChanger
         /// <summary>
         /// Produces a new object of this container type.
         /// </summary>
-        public abstract GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null);
+        public abstract GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null);
 
         /// <summary>
         /// Puts the container in the same position and hierarchy of the target, up to the elevation correction in y.

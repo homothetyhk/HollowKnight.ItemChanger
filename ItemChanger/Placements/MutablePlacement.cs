@@ -91,7 +91,8 @@ namespace ItemChanger.Placements
                 if (container == null) throw new InvalidOperationException($"Unable to resolve container type {containerType} for placement {Name}!");
             }
 
-            obj = container.GetNewContainer(this, Items, location.flingType, Cost);
+            Transition? changeScene = location.GetTags<Tags.ChangeSceneTag>().Concat(GetTags<Tags.ChangeSceneTag>()).FirstOrDefault()?.changeTo;
+            obj = container.GetNewContainer(this, Items, location.flingType, Cost, changeScene);
         }
 
         public static string ChooseContainerType(ISingleCostPlacement placement, ContainerLocation location, IEnumerable<AbstractItem> items)
@@ -102,14 +103,15 @@ namespace ItemChanger.Placements
             }
 
             bool mustSupportCost = placement.Cost != null;
+            bool mustSupportSceneChange = location.GetTags<Tags.ChangeSceneTag>().Any() || (placement as AbstractPlacement).GetTags<Tags.ChangeSceneTag>().Any();
 
             string containerType = items
                 .Select(i => i.GetPreferredContainer())
-                .FirstOrDefault(c => Container.GetContainer(c) is Container container && container.SupportsInstantiate && location.Supports(c) && (!mustSupportCost || container.SupportsCost));
+                .FirstOrDefault(c => location.Supports(c) && Container.SupportsAll(c, true, mustSupportCost, mustSupportSceneChange));
 
             if (string.IsNullOrEmpty(containerType))
             {
-                if (mustSupportCost || items.Count() == 1) containerType = Container.Shiny;
+                if (mustSupportCost || mustSupportSceneChange || items.Count() == 1) containerType = Container.Shiny;
                 else containerType = Container.Chest;
             }
 

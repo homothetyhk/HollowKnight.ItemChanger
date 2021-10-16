@@ -20,9 +20,9 @@ namespace ItemChanger.Containers
         public override bool SupportsDrop => true;
         public override bool SupportsInstantiate => true;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
+        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
         {
-            return ShinyUtility.MakeNewMultiItemShiny(placement, items, flingType, cost);
+            return ShinyUtility.MakeNewMultiItemShiny(placement, items, flingType, cost, changeSceneTo);
         }
 
         public override void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)
@@ -34,7 +34,7 @@ namespace ItemChanger.Containers
         public override void AddChangeSceneToFsm(PlayMakerFSM fsm, ChangeSceneInfo info)
         {
             if (fsm.FsmName != "Shiny Control") return;
-            ShinyUtility.AddChangeSceneToShiny(fsm, info.toScene, info.toGate);
+            ShinyUtility.AddChangeSceneToShiny(fsm, info.transition);
         }
 
         public override void AddCostToFsm(PlayMakerFSM fsm, CostInfo info)

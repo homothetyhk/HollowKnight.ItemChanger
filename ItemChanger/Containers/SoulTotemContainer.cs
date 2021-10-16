@@ -27,7 +27,7 @@ namespace ItemChanger.Containers
         public override string Name => Container.Totem;
         public override bool SupportsInstantiate => ObjectCache.SoulTotemPreloader.PreloadLevel != PreloadLevel.None;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
+        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
         {
             SoulTotemSubtype type = items.OfType<SoulTotemItem>().FirstOrDefault()?.soulTotemSubtype ?? SoulTotemSubtype.B;
             GameObject totem = ObjectCache.SoulTotem(type);
@@ -279,13 +279,13 @@ namespace ItemChanger.Containers
         public override void ApplyTargetContext(GameObject obj, float x, float y, float elevation)
         {
             base.ApplyTargetContext(obj, x, y, elevation);
-            obj.transform.Translate(new(0, Elevation[GetSoulTotemSubtype(obj)], 0.005f));
+            obj.transform.Translate(new(0, Elevation[GetSoulTotemSubtype(obj)], 0));
         }
 
         public override void ApplyTargetContext(GameObject obj, GameObject target, float elevation)
         {
             base.ApplyTargetContext(obj, target, elevation);
-            obj.transform.Translate(new(0, Elevation[GetSoulTotemSubtype(obj)], 0.005f));
+            obj.transform.Translate(new(0, Elevation[GetSoulTotemSubtype(obj)], 0));
         }
 
         public static string GetNewSoulTotemName(AbstractPlacement placement)

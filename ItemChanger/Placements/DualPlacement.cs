@@ -33,6 +33,7 @@ namespace ItemChanger.Placements
             cachedValue = Test.Value;
             trueLocation.Placement = this;
             falseLocation.Placement = this;
+            SetContainerType();
             Location.Load();
             Events.OnBeginSceneTransition += OnBeginSceneTransition;
         }
@@ -70,6 +71,37 @@ namespace ItemChanger.Placements
             }
 
             obj = container.GetNewContainer(this, Items, location.flingType, Cost);
+        }
+
+        private void SetContainerType()
+        {
+            bool mustSupportCost = Cost != null;
+            bool mustSupportSceneChange = falseLocation.GetTags<Tags.ChangeSceneTag>().Any() 
+                || trueLocation.GetTags<Tags.ChangeSceneTag>().Any() || GetTags<Tags.ChangeSceneTag>().Any();
+            if (Container.SupportsAll(containerType, true, mustSupportCost, mustSupportSceneChange)) return;
+
+            if (falseLocation is Locations.ExistingContainerLocation fecl)
+            {
+                if (containerType == fecl.containerType && Container.SupportsAll(containerType, false, mustSupportCost, mustSupportSceneChange)) return;
+                else
+                {
+                    containerType = ExistingContainerPlacement.ChooseContainerType(this, fecl, Items);
+                    return;
+                }
+            }
+            else if (trueLocation is Locations.ExistingContainerLocation tecl)
+            {
+                if (containerType == tecl.containerType && Container.SupportsAll(containerType, false, mustSupportCost, mustSupportSceneChange)) return;
+                else
+                {
+                    containerType = ExistingContainerPlacement.ChooseContainerType(this, tecl, Items);
+                    return;
+                }
+            }
+
+            Locations.ContainerLocation cl = (falseLocation as Locations.ContainerLocation) ?? (trueLocation as Locations.ContainerLocation);
+            if (cl == null) return;
+            containerType = MutablePlacement.ChooseContainerType(this, cl, Items); // container type already failed the initial test
         }
     }
 }

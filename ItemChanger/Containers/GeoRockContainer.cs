@@ -17,7 +17,7 @@ namespace ItemChanger.Containers
         public override bool SupportsDrop => true;
         public override bool SupportsInstantiate => Internal.ObjectCache.GeoRockPreloader.PreloadLevel != Internal.PreloadLevel.None;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
+        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
         {
             return GeoRockUtility.MakeNewGeoRock(placement, items, flingType);
         }

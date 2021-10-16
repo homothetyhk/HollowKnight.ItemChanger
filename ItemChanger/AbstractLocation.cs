@@ -33,7 +33,7 @@ namespace ItemChanger
         /// The placement holding the location. This is usually set by the placement when the placement loads and before the location loads.
         /// </summary>
         [JsonIgnore]
-        public AbstractPlacement Placement { get; internal set; }
+        public AbstractPlacement Placement { get; set; }
 
         /// <summary>
         /// Called on a location by its placement, usually during AbstractPlacement.Load().

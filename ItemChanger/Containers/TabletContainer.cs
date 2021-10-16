@@ -16,7 +16,7 @@ namespace ItemChanger.Containers
         public override string Name => Container.Tablet;
         public override bool SupportsInstantiate => true;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null)
+        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
         {
             return TabletUtility.MakeNewTablet(placement, items, flingType);
         }

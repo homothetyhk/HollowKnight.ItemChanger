@@ -41,8 +41,7 @@ namespace ItemChanger.Components
     {
         public const string door_dreamReturn = "door_dreamReturn";
 
-        public string toScene;
-        public string toGate = door_dreamReturn;
+        public Transition transition;
         public bool applied;
     }
 
