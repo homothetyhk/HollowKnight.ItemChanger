@@ -11,6 +11,21 @@ namespace ItemChanger.Items
     /// </summary>
     public class SpawnGeoItem : AbstractItem
     {
+        public static SpawnGeoItem MakeGeoItem(int amount)
+        {
+            return new()
+            {
+                name = $"{amount}_Geo",
+                amount = amount,
+                UIDef = new UIDefs.MsgUIDef
+                {
+                    name = new BoxedString($"{amount} Geo"),
+                    shopDesc = new LanguageString("UI", "RANDOMIZER_DESC_GEO"),
+                    sprite = new ItemChangerSprite("ShopIcons.Geo"),
+                },
+            };
+        }
+
         public int amount;
 
         public override bool GiveEarly(string containerType)

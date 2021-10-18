@@ -40,6 +40,8 @@ namespace ItemChanger.Locations
             Placement.GiveAll(GetGiveInfo(), callback);
         }
 
+        [Newtonsoft.Json.JsonIgnore]
+        public virtual bool SupportsCost => false;
 
         public override AbstractPlacement Wrap()
         {

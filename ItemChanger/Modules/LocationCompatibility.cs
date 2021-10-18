@@ -36,9 +36,8 @@ namespace ItemChanger.Modules
             if (!Ref.Settings.Placements.ContainsKey(placementName)) return false;
 
             // if placement is modified, then hide the tablet inspect if no ECL uses it
-            return !Ref.Settings.Placements.Values.OfType<AutoPlacement>()
+            return !Ref.Settings.Placements.Values.OfType<ExistingContainerPlacement>()
                 .Select(ap => ap.Location)
-                .OfType<ExistingContainerLocation>()
                 .Any(ecl => ecl.sceneName == sceneName && ecl.containerType == Container.Tablet
                 && ecl.objectName == "Tut_tablet_top" && ecl.fsmName == "Inspection");
         }

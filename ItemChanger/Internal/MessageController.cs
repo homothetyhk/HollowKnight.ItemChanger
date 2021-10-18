@@ -38,6 +38,8 @@ namespace ItemChanger.Internal
             GameObject popup = ObjectCache.RelicGetMsg;
             popup.transform.Find("Text").GetComponent<TMPro.TextMeshPro>().text = text;
             popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sprite = sprite;
+            popup.transform.Find("Icon").GetComponent<SpriteRenderer>().sortingOrder = 1; // show on top of blankers, etc
+
             popup.SetActive(true);
             yield return new WaitForSeconds(3f);
             activeDisplay = null;

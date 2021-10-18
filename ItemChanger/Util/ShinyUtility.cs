@@ -52,7 +52,7 @@ namespace ItemChanger.Util
                 flingType = flingType,
             };
 
-            if (cost != null)
+            if (cost != null && !cost.Paid)
             {
                 info.costInfo = new CostInfo
                 {
@@ -127,6 +127,20 @@ namespace ItemChanger.Util
             FlingObject flingObj = shinyFsm.GetState("Fling R").GetActionsOfType<FlingObject>()[0];
             flingObj.angleMin = flingObj.angleMax = 270;
             flingObj.speedMin = flingObj.speedMax = 0.1f;
+        }
+
+        public static void FlingShinyLeft(PlayMakerFSM shinyFsm)
+        {
+            FsmState fling = shinyFsm.GetState("Fling?");
+            fling.ClearTransitions();
+            fling.AddTransition("FINISHED", "Fling L");
+        }
+
+        public static void FlingShinyRight(PlayMakerFSM shinyFsm)
+        {
+            FsmState fling = shinyFsm.GetState("Fling?");
+            fling.ClearTransitions();
+            fling.AddTransition("FINISHED", "Fling R");
         }
 
         public static void AddChangeSceneToShiny(PlayMakerFSM shinyFsm, Transition t)
@@ -300,27 +314,8 @@ namespace ItemChanger.Util
             yesState.AddFirstAction(new Lambda(cost.Pay));
             yesState.AddFirstAction(closeYNDialogue);
 
-            charm.AddFirstAction(new Lambda(() => OpenYNDialogue(shinyFsm.gameObject, items, cost)));
+            charm.AddFirstAction(new Lambda(() => YNUtil.OpenYNDialogue(shinyFsm.gameObject, items, cost)));
             charm.AddFirstAction(new Lambda(() => placement.AddVisitFlag(VisitState.Previewed)));
         }
-
-        private static void OpenYNDialogue(GameObject shiny, IEnumerable<AbstractItem> items, Cost cost)
-        {
-            // If the text pushes the Y/N buttons off of the page, it results in an input lock
-            // 120 characters is a little generous--all MMMMMs will still overflow
-            string itemText = string.Join(", ", items.Select(i => i.UIDef.GetPreviewName()).ToArray());
-            if (itemText.Length > 120)
-            {
-                itemText = itemText.Substring(0, 117) + "...";
-            }
-
-            string costText = cost.GetCostText();
-            if (costText.Length > 40)
-            {
-                costText = costText.Substring(0, 37) + "...";
-            }
-
-            YNUtil.OpenYNDialogue(shiny, $"{itemText}\n{costText}", cost.CanPay());
-        }   
     }
 }

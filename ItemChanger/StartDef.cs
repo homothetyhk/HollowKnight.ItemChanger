@@ -17,6 +17,7 @@ namespace ItemChanger
         public virtual float X { get; set; }
         public virtual float Y { get; set; }
         public virtual int MapZone { get; set; } = 2;
+        public virtual bool RespawnFacingRight { get; set; } = true;
         internal static StartDef Start => Internal.Ref.Settings.Start;
 
         public void ApplyToPlayerData(PlayerData pd)
@@ -28,11 +29,12 @@ namespace ItemChanger
 
         public virtual void CreateRespawnMarker(Scene startScene)
         {
-            GameObject marker = new GameObject
+            GameObject marker = new()
             {
                 name = StartDef.RESPAWN_MARKER_NAME,
                 tag = StartDef.RESPAWN_TAG
             };
+            marker.AddComponent<RespawnMarker>().respawnFacingRight = RespawnFacingRight;
             marker.transform.position = new Vector3(Start.X, Start.Y, 7.4f);
         }
 
@@ -45,6 +47,7 @@ namespace ItemChanger
         internal static void Unhook()
         {
             UnHookBenchwarp();
+            Events.OnSceneChange -= OnSceneChange;
         }
 
         internal static void OnSceneChange(Scene to)
@@ -106,11 +109,12 @@ namespace ItemChanger
         public override void CreateRespawnMarker(Scene startScene)
         {
             GameObject go = startScene.FindGameObject(objPath);
-            GameObject marker = new GameObject
+            GameObject marker = new()
             {
                 name = StartDef.RESPAWN_MARKER_NAME,
                 tag = StartDef.RESPAWN_TAG
             };
+            marker.AddComponent<RespawnMarker>().respawnFacingRight = RespawnFacingRight;
             marker.transform.position = new Vector3(go.transform.position.x + Start.X, go.transform.position.y + Start.Y, 7.4f);
         }
     }
@@ -182,14 +186,13 @@ namespace ItemChanger
             }
             if (go == null) throw new ArgumentException($"Could not find transition point {objPath}.");
 
-            GameObject marker = new GameObject
+            GameObject marker = new()
             {
                 name = StartDef.RESPAWN_MARKER_NAME,
                 tag = StartDef.RESPAWN_TAG
             };
+            marker.AddComponent<RespawnMarker>().respawnFacingRight = RespawnFacingRight;
             marker.transform.position = new Vector3(go.transform.position.x + Start.X, go.transform.position.y + Start.Y, 7.4f);
         }
-
     }
-
 }

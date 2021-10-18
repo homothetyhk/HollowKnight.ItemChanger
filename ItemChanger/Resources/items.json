@@ -14,21 +14,10 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descOne": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
+      "descOne": null,
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_NAME_LURIEN",
@@ -62,21 +51,10 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descOne": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
+      "descOne": null,
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_NAME_MONOMON",
@@ -110,21 +88,10 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descOne": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
+      "descOne": null,
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_NAME_HERRAH",
@@ -159,21 +126,10 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descOne": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
+      "descOne": null,
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_NAME_WORLD_SENSE",
@@ -207,21 +163,10 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descOne": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
+      "descOne": null,
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_NAME_DREAMER",
@@ -258,11 +203,12 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
+      "heroAction": "DASH",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DASH_1",
@@ -315,11 +261,12 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
+      "heroAction": "JUMP",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_WALLJUMP_1",
@@ -372,11 +319,12 @@
         "key": "GET_ITEM_INTRO2",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
+      "heroAction": "SUPER_DASH",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SUPERDASH_1",
@@ -427,11 +375,12 @@
         "key": "GET_ITEM_INTRO5",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
+      "heroAction": "JUMP",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DOUBLEJUMP_1",
@@ -467,7 +416,7 @@
     "obtainState": "Unobtained"
   },
   "Shade_Cloak": {
-    "$type": "ItemChanger.Items.MultiBoolItem, ItemChanger",
+    "$type": "ItemChanger.Items.ShadeCloakItem, ItemChanger",
     "fieldNames": [
       "hasShadowDash",
       "canShadowDash"
@@ -484,11 +433,12 @@
         "key": "GET_ITEM_INTRO7",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
+      "heroAction": "DASH",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SHADOWDASH_1",
@@ -539,11 +489,8 @@
         "key": "GET_ITEM_INTRO8",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_ACIDARMOUR_1",
@@ -594,11 +541,12 @@
         "key": "GET_ITEM_INTRO5",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
+      "heroAction": "DREAM_NAIL",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DREAMNAIL_1",
@@ -649,11 +597,12 @@
         "key": "GET_ITEM_INTRO5",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
+      "heroAction": "DREAM_NAIL",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DREAMGATE_1",
@@ -704,11 +653,12 @@
         "key": "GET_ITEM_INTRO5",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
+      "heroAction": "DREAM_NAIL",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DREAMNAILUPGRADE_1",
@@ -759,11 +709,12 @@
         "key": "GET_ITEM_INTRO3",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
+      "heroAction": "QUICK_CAST",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_FIREBALL_1",
@@ -814,11 +765,12 @@
         "key": "GET_ITEM_INTRO3",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
+      "heroAction": "QUICK_CAST",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_FIREBALL2_1",
@@ -869,11 +821,12 @@
         "key": "GET_ITEM_INTRO3",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
+      "heroAction": "QUICK_CAST",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_QUAKE_1",
@@ -924,11 +877,12 @@
         "key": "GET_ITEM_INTRO3",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
+      "heroAction": "QUICK_CAST",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_QUAKE2_1",
@@ -979,11 +933,12 @@
         "key": "GET_ITEM_INTRO3",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
+      "heroAction": "QUICK_CAST",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SCREAM_1",
@@ -1034,11 +989,12 @@
         "key": "GET_ITEM_INTRO3",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
+      "heroAction": "QUICK_CAST",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SCREAM2_1",
@@ -1089,11 +1045,12 @@
         "key": "GET_ITEM_INTRO3",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
+      "heroAction": "ATTACK",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_CYCLONE_1",
@@ -1138,11 +1095,12 @@
         "key": "GET_ITEM_INTRO3",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
+      "heroAction": "ATTACK",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DSLASH_1",
@@ -1187,11 +1145,12 @@
         "key": "GET_ITEM_INTRO3",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
+      "heroAction": "ATTACK",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_GSLASH_1",
@@ -1236,10 +1195,8 @@
         "key": "GET_ITEM_INTRO8",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.BoxedString, ItemChanger",
-        "Value": ""
-      },
+      "press": null,
+      "heroAction": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_BLESSING_1",
@@ -1284,21 +1241,18 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
+        "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
+      "heroAction": "CAST",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_DESC_FOCUS",
         "sheet": "Prompts"
       },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_NAME_FOCUS",
@@ -1333,21 +1287,14 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_DESC_SWIM",
         "sheet": "Prompts"
       },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_NAME_SWIM",
@@ -2383,21 +2330,10 @@
         "key": "GET_ITEM_INTRO8",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descOne": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
+      "descOne": null,
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "CHARM_NAME_36_A",
@@ -2437,21 +2373,10 @@
         "key": "GET_ITEM_INTRO8",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descOne": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
+      "descOne": null,
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "CHARM_NAME_36_A",
@@ -2491,18 +2416,10 @@
         "key": "GET_ITEM_INTRO8",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.BoxedString, ItemChanger",
-        "Value": ""
-      },
-      "descOne": {
-        "$type": "ItemChanger.BoxedString, ItemChanger",
-        "Value": ""
-      },
-      "descTwo": {
-        "$type": "ItemChanger.BoxedString, ItemChanger",
-        "Value": ""
-      },
+      "press": null,
+      "heroAction": null,
+      "descOne": null,
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "CHARM_NAME_36_B",
@@ -2542,21 +2459,10 @@
         "key": "GET_ITEM_INTRO8",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descOne": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
-      "descTwo": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
+      "descOne": null,
+      "descTwo": null,
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "CHARM_NAME_36_C",
@@ -2660,8 +2566,8 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "UI",
-        "sheet": "CHARM_NAME_40"
+        "key": "CHARM_NAME_40",
+        "sheet": "UI"
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
@@ -2890,11 +2796,8 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_KINGSBRAND_1",
@@ -2936,33 +2839,30 @@
       },
       "take": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GET_ITEM_INTRO1",
+        "key": "GET_ITEM_INTRO5",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MEME",
-        "sheet": "Prompts"
+        "key": "GET_GODFINDER_1",
+        "sheet": "CP3"
       },
       "descTwo": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
+        "key": "GET_GODFINDER_2",
+        "sheet": "CP3"
       },
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_INV_NAME_GODFINDER",
-        "sheet": "UI"
+        "key": "INV_NAME_GODFINDER",
+        "sheet": "CP3"
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_INV_DESC_GODFINDER",
-        "sheet": "UI"
+        "key": "INV_DESC_GODFINDER",
+        "sheet": "CP3"
       },
       "sprite": {
         "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
@@ -2988,25 +2888,26 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
+        "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
+      "heroAction": "QUICK_MAP",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_MEME",
+        "key": "GET_MAP_2",
         "sheet": "Prompts"
       },
       "descTwo": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
+        "key": "GET_COLLECTOR_MAP",
         "sheet": "Prompts"
       },
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_COLLECTOR_MAP",
-        "sheet": "UI"
+        "key": "COLLECTOR_MAP",
+        "sheet": "Prompts"
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
@@ -3219,7 +3120,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_200GEO",
+        "key": "RANDOMIZER_NAME_GEO_200",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3243,7 +3144,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_380GEO",
+        "key": "RANDOMIZER_NAME_GEO_380",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3267,7 +3168,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_655GEO",
+        "key": "RANDOMIZER_NAME_GEO_655",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3291,7 +3192,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_85GEO",
+        "key": "RANDOMIZER_NAME_GEO_85",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3315,7 +3216,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_620GEO",
+        "key": "RANDOMIZER_NAME_GEO_620",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3339,7 +3240,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_150GEO",
+        "key": "RANDOMIZER_NAME_GEO_150",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3363,7 +3264,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_80GEO",
+        "key": "RANDOMIZER_NAME_GEO_80",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3387,7 +3288,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_160GEO",
+        "key": "RANDOMIZER_NAME_GEO_160",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3411,7 +3312,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_8GEO",
+        "key": "RANDOMIZER_NAME_GEO_8",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3435,7 +3336,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_8GEO",
+        "key": "RANDOMIZER_NAME_GEO_8",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3459,7 +3360,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_25GEO",
+        "key": "RANDOMIZER_NAME_GEO_25",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3483,7 +3384,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_10GEO",
+        "key": "RANDOMIZER_NAME_GEO_10",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -3528,7 +3429,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_1GEO",
+        "key": "RANDOMIZER_NAME_GEO_1",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -5348,11 +5249,8 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
-        "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_EMPTY",
-        "sheet": "Prompts"
-      },
+      "press": null,
+      "heroAction": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_JOURNAL_1",
@@ -5534,11 +5432,12 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
+      "heroAction": "DASH",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_DESC_LEFT_CLOAK",
@@ -5589,11 +5488,12 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
+      "heroAction": "DASH",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_DESC_RIGHT_CLOAK",
@@ -5629,7 +5529,7 @@
     "obtainState": "Unobtained"
   },
   "Split_Shade_Cloak": {
-    "$type": "ItemChanger.Items.MultiBoolItem, ItemChanger",
+    "$type": "ItemChanger.Items.ShadeCloakItem, ItemChanger",
     "fieldNames": [
       "hasShadowDash",
       "canShadowDash"
@@ -5646,11 +5546,12 @@
         "key": "GET_ITEM_INTRO7",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
+      "heroAction": "DASH",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SHADOWDASH_1",
@@ -5701,11 +5602,12 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
+      "heroAction": "JUMP",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_DESC_LEFT_CLAW",
@@ -5750,11 +5652,12 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "button": {
+      "press": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_BUTTON_DESC",
+        "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
+      "heroAction": "JUMP",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "RANDOMIZER_DESC_RIGHT_CLAW",
@@ -5867,7 +5770,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_15GEO",
+        "key": "RANDOMIZER_NAME_GEO_15",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -5892,7 +5795,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_15GEO",
+        "key": "RANDOMIZER_NAME_GEO_15",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -5917,7 +5820,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_35GEO",
+        "key": "RANDOMIZER_NAME_GEO_35",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -5942,7 +5845,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_26GEO",
+        "key": "RANDOMIZER_NAME_GEO_26",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -5967,7 +5870,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_44GEO",
+        "key": "RANDOMIZER_NAME_GEO_44",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -5992,7 +5895,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_420GEO",
+        "key": "RANDOMIZER_NAME_GEO_420",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6017,7 +5920,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_30GEO",
+        "key": "RANDOMIZER_NAME_GEO_30",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6042,7 +5945,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_22GEO",
+        "key": "RANDOMIZER_NAME_GEO_22",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6067,7 +5970,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_17GEO",
+        "key": "RANDOMIZER_NAME_GEO_17",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6092,7 +5995,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_30GEO",
+        "key": "RANDOMIZER_NAME_GEO_30",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6117,7 +6020,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_56GEO",
+        "key": "RANDOMIZER_NAME_GEO_56",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6142,7 +6045,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_24GEO",
+        "key": "RANDOMIZER_NAME_GEO_24",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6167,7 +6070,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_25GEO",
+        "key": "RANDOMIZER_NAME_GEO_25",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6192,7 +6095,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_25GEO",
+        "key": "RANDOMIZER_NAME_GEO_25",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6216,7 +6119,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_300GEO",
+        "key": "RANDOMIZER_NAME_GEO_300",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6240,7 +6143,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_420GEO",
+        "key": "RANDOMIZER_NAME_GEO_420",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6264,7 +6167,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_200GEO",
+        "key": "RANDOMIZER_NAME_GEO_200",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6288,7 +6191,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_200GEO",
+        "key": "RANDOMIZER_NAME_GEO_200",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6312,7 +6215,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_385GEO",
+        "key": "RANDOMIZER_NAME_GEO_385",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6336,7 +6239,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_550GEO",
+        "key": "RANDOMIZER_NAME_GEO_550",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6360,7 +6263,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_50GEO",
+        "key": "RANDOMIZER_NAME_GEO_50",
         "sheet": "UI"
       },
       "shopDesc": {
@@ -6384,7 +6287,7 @@
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "RANDOMIZER_NAME_65GEO",
+        "key": "RANDOMIZER_NAME_GEO_65",
         "sheet": "UI"
       },
       "shopDesc": {

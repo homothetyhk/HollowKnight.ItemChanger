@@ -37,12 +37,12 @@ namespace ItemChanger.Internal
             else throw new ArgumentException($"{name} did not correspond to an embedded image file.");
         }
 
-        public static Sprite Load(Stream data, FilterMode filterMode = FilterMode.Point)
+        public static Sprite Load(Stream data, FilterMode filterMode = FilterMode.Bilinear)
         {
             return Load(ToArray(data), filterMode);
         }
 
-        public static Sprite Load(byte[] data, FilterMode filterMode = FilterMode.Point)
+        public static Sprite Load(byte[] data, FilterMode filterMode)
         {
             Texture2D tex = new(1, 1, TextureFormat.RGBA32, false);
             tex.LoadImage(data, markNonReadable: true);

@@ -13,13 +13,16 @@ namespace ItemChanger.Placements
     /// <summary>
     /// Placement for self-implementing locations, usually acting through cutscene or conversation fsms.
     /// </summary>
-    public class AutoPlacement : AbstractPlacement, IPrimaryLocationPlacement
+    public class AutoPlacement : AbstractPlacement, IPrimaryLocationPlacement, ISingleCostPlacement
     {
         public AutoPlacement(string Name) : base(Name) { }
 
         public AutoLocation Location;
 
         AbstractLocation IPrimaryLocationPlacement.Location => Location;
+
+        public Cost Cost { get; set; }
+        public virtual bool SupportsCost => Location.SupportsCost;
 
         protected override void OnLoad()
         {

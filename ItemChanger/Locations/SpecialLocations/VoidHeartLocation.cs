@@ -20,13 +20,6 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public bool HintActive { get; set; } = true;
 
-        public override GiveInfo GetGiveInfo()
-        {
-            GiveInfo info = base.GetGiveInfo();
-            info.MessageType &= ~MessageType.Lore; // lore is invisble behind the blanker
-            return info;
-        }
-
         protected override void OnLoad()
         {
             Events.AddFsmEdit(sceneName, new("End Cutscene", "Control"), EditEndCutscene);
@@ -43,17 +36,15 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void EditEndCutscene(PlayMakerFSM fsm)
         {
-            FsmState charmPause = fsm.GetState("Charm Pause");
             FsmState charmGet = fsm.GetState("Charm Get");
             FsmState removeOvercharm = fsm.GetState("Remove Overcharm");
             FsmState getMsg = fsm.GetState("Get Msg");
 
             FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
 
-            charmPause.Actions = new FsmStateAction[0];
             charmGet.Actions = new FsmStateAction[0];
             removeOvercharm.Actions = new FsmStateAction[0];
-            getMsg.Actions = new[] { give };
+            getMsg.Actions = new[] { getMsg.Actions[0], give };
         }
 
         private void EditDreamEnter(PlayMakerFSM fsm)

@@ -126,6 +126,7 @@ namespace ItemChanger
         public virtual void ApplyTargetContext(GameObject obj, float x, float y, float elevation)
         {
             obj.transform.position = new Vector2(x, y - elevation);
+            obj.SetActive(true);
         }
 
         /// <summary>

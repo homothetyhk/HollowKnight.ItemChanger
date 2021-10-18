@@ -98,10 +98,8 @@ namespace ItemChanger
 
             js.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
 
-            using (StreamWriter sw = new StreamWriter(Path.Combine(Environment.CurrentDirectory, filename)))
-            {
-                js.Serialize(sw, o);
-            }
+            using StreamWriter sw = new StreamWriter(Path.Combine(Path.GetDirectoryName(typeof(Finder).Assembly.Location), filename));
+            js.Serialize(sw, o);
         }
 
         private static Stream ItemJson => typeof(Finder).Assembly.GetManifestResourceStream("ItemChanger.Resources.items.json");

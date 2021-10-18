@@ -43,10 +43,9 @@ namespace ItemChanger.Internal
             PlayLoreSound();
             yield return new WaitForSeconds(0.5f); // orig: 0.85f
 
-            DialogueText.LocateFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = null;
-            DialogueText.transform.localPosition = new Vector3(0, 2.44f, 0);
-            Stop.transform.localPosition = new Vector3(0, -0.23f, 0);
-            Arrow.transform.localPosition = new Vector3(0, -0.3f, 0);
+            DialogueText.transform.localPosition = new Vector3(0, 2.44f, -1.0f);
+            Stop.transform.localPosition = new Vector3(0, -0.23f, -2.0f);
+            Arrow.transform.localPosition = new Vector3(0, -0.3f, -2.0f);
             DialogueText.GetComponent<TextMeshPro>().alignment = TextAlignmentOptions.Top;
 
             convoEnded = false;
@@ -59,9 +58,9 @@ namespace ItemChanger.Internal
             callback?.Invoke();
 
             DialogueText.GetComponent<TextMeshPro>().alignment = TextAlignmentOptions.TopLeft;
-            DialogueText.transform.localPosition = new Vector3(0, 4.49f, 0);
-            Stop.transform.localPosition = new Vector3(0, 1.695f, 0);
-            Arrow.transform.localPosition = new Vector3(0, 1.695f, 0);
+            DialogueText.transform.localPosition = new Vector3(0, 4.49f, -1.0f);
+            Stop.transform.localPosition = new Vector3(0, 1.695f, -2.0f);
+            Arrow.transform.localPosition = new Vector3(0, 1.695f, -2.0f);
         }
 
         public static IEnumerator LoreCoroutine(string text, Action callback)

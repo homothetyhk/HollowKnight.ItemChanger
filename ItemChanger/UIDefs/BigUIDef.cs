@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using ItemChanger.Components;
 using ItemChanger.Internal;
+using GlobalEnums;
 
 namespace ItemChanger.UIDefs
 {
@@ -14,7 +15,8 @@ namespace ItemChanger.UIDefs
     {
         public ISprite bigSprite;
         public IString take;
-        public IString button;
+        public IString press;
+        public HeroActionButton? heroAction;
         public IString descOne;
         public IString descTwo;
 
@@ -24,11 +26,12 @@ namespace ItemChanger.UIDefs
             {
                 BigItemPopup.Show(
                     bigSprite.GetValue(),
-                    take.GetValue().Replace('\n', ' '),
+                    take?.GetValue()?.Replace('\n', ' '),
                     GetPostviewName(),
-                    button.GetValue().Replace('\n', ' '),
-                    descOne.GetValue().Replace('\n', ' '),
-                    descTwo.GetValue().Replace('\n', ' '),
+                    press?.GetValue()?.Replace('\n', ' '),
+                    heroAction,
+                    descOne?.GetValue()?.Replace('\n', ' '),
+                    descTwo?.GetValue()?.Replace('\n', ' '),
                     callback);
             }
             else base.SendMessage(type, callback);
@@ -38,14 +41,15 @@ namespace ItemChanger.UIDefs
         {
             return new BigUIDef
             {
-                name = name.Clone(),
-                shopDesc = shopDesc.Clone(),
-                sprite = sprite.Clone(),
-                bigSprite = bigSprite.Clone(),
-                button = button.Clone(),
-                take = take.Clone(),
-                descOne = descOne.Clone(),
-                descTwo = descTwo.Clone()
+                name = name?.Clone(),
+                shopDesc = shopDesc?.Clone(),
+                sprite = sprite?.Clone(),
+                bigSprite = bigSprite?.Clone(),
+                press = press?.Clone(),
+                heroAction = heroAction,
+                take = take?.Clone(),
+                descOne = descOne?.Clone(),
+                descTwo = descTwo?.Clone()
             };
         }
     }

@@ -40,6 +40,10 @@ namespace ItemChanger
         /// </summary>
         Dropped = 1 << 3,
         /// <summary>
+        /// Applies to placements offered by NPCs (Cornifer, Nailmasters). Usually set to indicate that the NPC is no longer required to make the offer when items respawn.
+        /// </summary>
+        Accepted = 1 << 4,
+        /// <summary>
         /// Defined on a per-placement basis.
         /// </summary>
         Special = 1 << 31,

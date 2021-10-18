@@ -21,6 +21,10 @@ namespace ItemChanger.Util
             GameObject chest = ObjectCache.Chest;
             chest.name = GetChestName(placement);
 
+            // prevent collision with corpses, etc
+            chest.layer = 0;
+            chest.transform.Find("Opened").gameObject.layer = 0;
+
             // Resize colliders so that chest lands on ground -- orig is size (2.4, 2) with offset (0.1, -1.3)
             chest.transform.Find("Bouncer").GetComponent<BoxCollider2D>().size = chest.GetComponent<BoxCollider2D>().size = new Vector2(2.4f, 1.2f);
             chest.AddComponent<DropIntoPlace>();
