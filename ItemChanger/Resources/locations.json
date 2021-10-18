@@ -708,7 +708,13 @@
     "name": "Grimmchild",
     "sceneName": "Grimm_Main_Tent",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.SetPDBoolOnLoadTag, ItemChanger",
+        "boolName": "metGrimm",
+        "value": true
+      }
+    ]
   },
   "City_Crest": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
@@ -1384,6 +1390,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Queen's_Gardens",
+      "replacePath": "Egg Sac",
       "sceneName": "Fungus3_34",
       "flingType": "Everywhere",
       "tags": null
@@ -1420,6 +1427,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Blue_Lake",
+      "replacePath": "Egg Sac",
       "sceneName": "Crossroads_50",
       "flingType": "Everywhere",
       "tags": null
@@ -1456,6 +1464,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
+      "replacePath": "Egg Sac",
       "sceneName": "Mines_01",
       "flingType": "Everywhere",
       "tags": null
@@ -1504,6 +1513,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Crystal_Peak_Tall_Room",
+      "replacePath": "Egg Sac",
       "sceneName": "Mines_20",
       "flingType": "Everywhere",
       "tags": null
@@ -1564,6 +1574,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Beast's_Den",
+      "replacePath": "Egg Sac",
       "sceneName": "Deepnest_Spider_Town",
       "flingType": "Everywhere",
       "tags": null
@@ -1600,6 +1611,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Dark_Deepnest",
+      "replacePath": "Egg Sac",
       "sceneName": "Deepnest_39",
       "flingType": "Everywhere",
       "tags": null
@@ -1648,6 +1660,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Near_Quick_Slash",
+      "replacePath": "Egg Sac",
       "sceneName": "Deepnest_East_14",
       "flingType": "Everywhere",
       "tags": null
@@ -1696,6 +1709,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Waterways_East",
+      "replacePath": "Egg Sac",
       "sceneName": "Waterways_07",
       "flingType": "Everywhere",
       "tags": null
@@ -1732,6 +1746,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Waterways_Main",
+      "replacePath": "Egg Sac",
       "sceneName": "Waterways_02",
       "flingType": "Everywhere",
       "tags": null
@@ -1768,6 +1783,7 @@
       "nonreplaceable": false,
       "elevation": 0.0,
       "name": "Rancid_Egg-Waterways_West_Bluggsac",
+      "replacePath": "Egg Sac",
       "sceneName": "Waterways_04",
       "flingType": "Everywhere",
       "tags": null

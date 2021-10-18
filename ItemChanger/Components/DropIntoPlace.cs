@@ -14,6 +14,7 @@ namespace ItemChanger.Components
     {
         Rigidbody2D rb;
         public event Action OnLand;
+        public bool Landed { get; private set; } = false;
 
         public void Awake()
         {
@@ -37,6 +38,7 @@ namespace ItemChanger.Components
                 yield return null;
             }
             OnLand?.Invoke();
+            Landed = true;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }

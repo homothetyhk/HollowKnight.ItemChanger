@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {
@@ -17,17 +18,23 @@ namespace ItemChanger.Locations
         public string objectName;
         public string fsmName;
         public string containerType;
+        /// <summary>
+        /// The path to find the object on active scene change, if it is to be replaced. If this is null, replacement happens when the fsm is enabled instead.
+        /// </summary>
+        public string replacePath;
         public bool nonreplaceable;
         public float elevation;
 
         protected override void OnLoad()
         {
             Events.AddFsmEdit(sceneName, new(objectName, fsmName), OnEnable);
+            if (!nonreplaceable && replacePath != null) Events.AddSceneChangeEdit(sceneName, ReplaceOnSceneChange);
         }
 
         protected override void OnUnload()
         {
             Events.RemoveFsmEdit(sceneName, new(objectName, fsmName), OnEnable);
+            Events.RemoveSceneChangeEdit(sceneName, ReplaceOnSceneChange);
         }
 
         public void OnEnable(PlayMakerFSM fsm)
@@ -44,6 +51,17 @@ namespace ItemChanger.Locations
                 GameObject obj = c.GetNewContainer(Placement, Placement.Items, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost);
                 c.ApplyTargetContext(obj, fsm.gameObject, elevation);
                 UnityEngine.Object.Destroy(fsm.gameObject);
+            }
+        }
+
+        public void ReplaceOnSceneChange(Scene to)
+        {
+            if (Placement.MainContainerType != containerType && !nonreplaceable && Container.GetContainer(Placement.MainContainerType) is Container c && c.SupportsInstantiate)
+            {
+                GameObject obj = c.GetNewContainer(Placement, Placement.Items, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost);
+                GameObject target = to.FindGameObject(replacePath);
+                c.ApplyTargetContext(obj, target, elevation);
+                UnityEngine.Object.Destroy(target);
             }
         }
 

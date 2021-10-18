@@ -65,9 +65,13 @@ namespace ItemChanger.Placements
 
             containerType = this.containerType;
             var container = Container.GetContainer(containerType);
-            if (containerType == null)
+            if (containerType == null || !container.SupportsInstantiate)
             {
-                ItemChangerMod.instance.LogError($"Unknown container type {containerType} used for {Name}!");
+                // this means that the container that was chosen on load isn't valid
+                // most likely due from switching from a noninstantiatable ECL to a CL
+                // so, we make a shiny but we don't modify the saved container type
+                containerType = Container.Shiny;
+                container = Container.GetContainer(containerType);
             }
 
             obj = container.GetNewContainer(this, Items, location.flingType, Cost);

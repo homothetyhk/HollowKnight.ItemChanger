@@ -161,85 +161,44 @@ namespace ItemChanger.Util
 
         public static DefaultShopItems? GetVanillaShopItemType(string shopScene, ShopItemStats stats)
         {
-            switch (shopScene)
+            return shopScene switch
             {
-                case SceneNames.Room_mapper:
-                    switch (stats.specialType)
-                    {
-                        // Map marker
-                        case 17:
-                            return DefaultShopItems.IseldaMapMarkers;
-                        // Map pin
-                        case 16:
-                            return DefaultShopItems.IseldaMapPins;
-                        // Quill
-                        case 0 when stats.playerDataBoolName == nameof(PlayerData.hasQuill):
-                            return DefaultShopItems.IseldaQuill;
-                        // Map
-                        case 9:
-                            return DefaultShopItems.IseldaMaps;
-                        default:
-                            return null;
-                    }
-                case SceneNames.Room_shop:
-                    switch (stats.specialType)
-                    {
-                        // sly mask shards
-                        case 1:
-                            return DefaultShopItems.SlyMaskShards;
-                        // sly charms
-                        case 2 when stats.requiredPlayerDataBool != nameof(PlayerData.gaveSlykey):
-                            return DefaultShopItems.SlyCharms;
-                        // sly key charms
-                        case 2 when stats.requiredPlayerDataBool == nameof(PlayerData.gaveSlykey):
-                            return DefaultShopItems.SlyKeyCharms;
-                        // sly vessel fragments
-                        case 3:
-                            return DefaultShopItems.SlyVesselFragments;
-                        // sly simple key
-                        case 10:
-                            return DefaultShopItems.SlySimpleKey;
-                        // sly rancid egg
-                        case 11:
-                            return DefaultShopItems.SlyRancidEgg;
-                        // sly lantern
-                        case 0 when stats.playerDataBoolName == nameof(PlayerData.hasLantern):
-                            return DefaultShopItems.SlyLantern;
-                        // sly key elegant key
-                        case 0 when stats.playerDataBoolName == nameof(PlayerData.hasWhiteKey):
-                            return DefaultShopItems.SlyKeyElegantKey;
-                        default:
-                            return null;
-                    }
-                case SceneNames.Room_Charm_Shop:
-                    switch (stats.specialType)
-                    {
-                        case 2:
-                            return DefaultShopItems.SalubraCharms;
-                        case 8:
-                            return DefaultShopItems.SalubraNotches;
-                        case 15:
-                            return DefaultShopItems.SalubraBlessing;
-                        default:
-                            return null;
-                    }
-                case SceneNames.Fungus2_26:
-                    switch (stats.specialType)
-                    {
-                        // fragile charms
-                        case 2:
-                            return DefaultShopItems.LegEaterCharms;
-                        // fragile repair
-                        case 12:
-                        case 13:
-                        case 14:
-                            return DefaultShopItems.LegEaterRepair;
-                        default:
-                            return null;
-                    }
-                default:
-                    return null;
-            }
+                SceneNames.Room_mapper => stats.specialType switch
+                {
+                    17 => DefaultShopItems.IseldaMapMarkers,
+                    16 => DefaultShopItems.IseldaMapPins,
+                    0 when stats.playerDataBoolName == nameof(PlayerData.hasQuill) => DefaultShopItems.IseldaQuill,
+                    9 => DefaultShopItems.IseldaMaps,
+                    2 => DefaultShopItems.IseldaCharms,
+                    _ => null,
+                },
+                SceneNames.Room_shop => stats.specialType switch
+                {
+                    1 => DefaultShopItems.SlyMaskShards,
+                    2 when stats.requiredPlayerDataBool != nameof(PlayerData.gaveSlykey) => DefaultShopItems.SlyCharms,
+                    2 when stats.requiredPlayerDataBool == nameof(PlayerData.gaveSlykey) => DefaultShopItems.SlyKeyCharms,
+                    3 => DefaultShopItems.SlyVesselFragments,
+                    10 => DefaultShopItems.SlySimpleKey,
+                    11 => DefaultShopItems.SlyRancidEgg,
+                    0 when stats.playerDataBoolName == nameof(PlayerData.hasLantern) => DefaultShopItems.SlyLantern,
+                    0 when stats.playerDataBoolName == nameof(PlayerData.hasWhiteKey) => DefaultShopItems.SlyKeyElegantKey,
+                    _ => null,
+                },
+                SceneNames.Room_Charm_Shop => stats.specialType switch
+                {
+                    2 => DefaultShopItems.SalubraCharms,
+                    8 => DefaultShopItems.SalubraNotches,
+                    15 => DefaultShopItems.SalubraBlessing,
+                    _ => null,
+                },
+                SceneNames.Fungus2_26 => stats.specialType switch
+                {
+                    2 => DefaultShopItems.LegEaterCharms,
+                    12 or 13 or 14 => DefaultShopItems.LegEaterRepair,
+                    _ => null,
+                },
+                _ => null,
+            };
         }
 
     }

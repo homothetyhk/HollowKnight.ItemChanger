@@ -14,6 +14,8 @@ namespace ItemChanger.Containers
 {
     public class BluggsacContainer : Container
     {
+        // reference: sharedassets81
+
         public override string Name => Container.Bluggsac;
 
         public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)

@@ -212,6 +212,23 @@ namespace ItemChanger.Containers
                 return value.Value <= 0;
             }
 
+            // prevent the totem from falling out of the scene when it's depleted before landing
+            if (fsm.GetComponent<DropIntoPlace>())
+            {
+                FsmState depleted = fsm.GetState("Depleted");
+                depleted.RemoveFirstActionOfType<SetCollider>();
+                depleted.AddFirstAction(new Lambda(() =>
+                {
+                    void DisableCollider() => fsm.GetComponent<BoxCollider2D>().enabled = false;
+
+                    var d = fsm.GetComponent<DropIntoPlace>();
+                    if (!d || d.Landed) DisableCollider();
+                    else d.OnLand += DisableCollider;
+                }));
+            }
+            
+            
+
             void InstantiateShiniesAndGiveEarly()
             {
                 GiveInfo gi = new()
