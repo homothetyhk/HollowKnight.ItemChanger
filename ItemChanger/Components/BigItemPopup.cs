@@ -153,13 +153,51 @@ namespace ItemChanger.Components
 
             if (_actionButton.HasValue)
             {
-                GameObject icon = CanvasUtil.CreateImagePanel(gameObject, UIManager.instance.uiButtonSkins.GetButtonSkinFor(_actionButton.Value).sprite,
-                    new CanvasUtil.RectData(new Vector2(80, 60), Vector2.zero, new(0.52f, 0.335f), new(0.52f, 0.335f)));
-                CanvasGroup iconCG = icon.AddComponent<CanvasGroup>();
-                iconCG.blocksRaycasts = false;
-                iconCG.interactable = false;
-                iconCG.alpha = 0;
-                StartCoroutine(FadeInCanvasGroup(iconCG));
+                ButtonSkin bs = UIManager.instance.uiButtonSkins.GetButtonSkinFor(_actionButton.Value);
+
+                Font f = Resources.FindObjectsOfTypeAll<Font>().FirstOrDefault(f => f.name == "Arial");
+
+                // unfortunately, since we use Text and not TextMeshPro, we have this very fragile manual scale adjustment
+                int fontSize = bs.skinType switch
+                {
+                    ButtonSkinType.SQUARE => bs.symbol.Length <= 2 ? 48 : 36, // the accursed F10 bind
+                    ButtonSkinType.WIDE => 24, // the accursed Backspace bind
+                    _ => 48
+                };
+
+                GameObject iconText = bs.skinType switch
+                {
+                    ButtonSkinType.SQUARE => CanvasUtil.CreateTextPanel(
+                        gameObject, bs.symbol, fontSize, TextAnchor.MiddleCenter, new CanvasUtil.RectData(new Vector2(70, 70), Vector2.zero, new(0.52f, 0.336f), new(0.52f, 0.336f)), f),
+                    ButtonSkinType.WIDE => CanvasUtil.CreateTextPanel(
+                        gameObject, bs.symbol, fontSize, TextAnchor.MiddleCenter, new CanvasUtil.RectData(new Vector2(168.5f, 60), Vector2.zero, new(0.54f, 0.3345f), new(0.54f, 0.3345f)), f),
+                    _ => CanvasUtil.CreateTextPanel(
+                        gameObject, bs.symbol, fontSize, TextAnchor.MiddleCenter, new CanvasUtil.RectData(new Vector2(168.5f, 60), Vector2.zero, new(0.52f, 0.335f), new(0.52f, 0.335f)), f),
+                };
+                iconText.GetComponent<Text>().alignByGeometry = true;
+
+
+                GameObject iconSprite = bs.skinType switch
+                {
+                    ButtonSkinType.WIDE => CanvasUtil.CreateImagePanel(
+                        gameObject, bs.sprite, new CanvasUtil.RectData(new Vector2(168.5f, 60), Vector2.zero, new(0.54f, 0.335f), new(0.54f, 0.335f))),
+                    _ => CanvasUtil.CreateImagePanel(
+                        gameObject, bs.sprite, new CanvasUtil.RectData(new Vector2(70, 80), Vector2.zero, new(0.52f, 0.335f), new(0.52f, 0.335f))),
+                };
+
+                
+                CanvasGroup iconTextCG = iconText.AddComponent<CanvasGroup>();
+                iconTextCG.blocksRaycasts = false;
+                iconTextCG.interactable = false;
+                iconTextCG.alpha = 0;
+                
+                CanvasGroup iconSpriteCG = iconSprite.AddComponent<CanvasGroup>();
+                iconSpriteCG.blocksRaycasts = false;
+                iconSpriteCG.interactable = false;
+                iconSpriteCG.alpha = 0;
+                
+                StartCoroutine(FadeInCanvasGroup(iconSpriteCG));
+                StartCoroutine(FadeInCanvasGroup(iconTextCG));
             }
 
             if (!string.IsNullOrEmpty(_descOneText))

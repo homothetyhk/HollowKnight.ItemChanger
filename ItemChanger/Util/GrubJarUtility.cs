@@ -22,9 +22,10 @@ namespace ItemChanger.Util
             GameObject grubJar = ObjectCache.GrubJar;
             grubJar.name = GetGrubJarName(placement);
 
-            // proper collsion layer
+            // proper collsion layer to not collide with corpses while falling
             grubJar.transform.Find("Bottle Physical").gameObject.layer = 0;
             grubJar.layer = 0;
+
 
             var info = grubJar.AddComponent<ContainerInfo>();
             info.containerType = Container.GrubJar;
@@ -35,7 +36,14 @@ namespace ItemChanger.Util
                 flingType = flingType,
             };
 
-            grubJar.AddComponent<DropIntoPlace>();
+
+            grubJar.AddComponent<DropIntoPlace>().OnLand += () =>
+            {
+                grubJar.transform.Find("Bottle Physical").gameObject.layer = 8;
+                grubJar.layer = 19;
+                UnityEngine.Object.Destroy(grubJar.GetComponent<AccelerationMonitor>());
+                UnityEngine.Object.Destroy(grubJar.GetComponent<Rigidbody2D>());
+            };
 
             return grubJar;
         }
@@ -93,12 +101,11 @@ namespace ItemChanger.Util
             itemParent.transform.localPosition = Vector3.zero;
             itemParent.SetActive(true);
 
-            shatter.AddFirstAction(new DelegateBoolTest(() => CheckRigidBodyStatus(jar), null, "CANCEL"));
+            shatter.AddFirstAction(new DelegateBoolTest(() => CheckIfLanded(jar), null, "CANCEL"));
             activate.AddFirstAction(new Lambda(() =>
-                {
-                    itemParent.transform.SetParent(null);
-                    jar.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-                }));
+            {
+                itemParent.transform.SetParent(null);
+            }));
 
             activate.GetFirstActionOfType<DestroyAllChildren>().gameObject.Value = jar; // the target is null otherwise for some reason??
 
@@ -137,10 +144,10 @@ namespace ItemChanger.Util
             }
         }
 
-        public static bool CheckRigidBodyStatus(GameObject jar)
+        public static bool CheckIfLanded(GameObject jar)
         {
-            Rigidbody2D rb = jar.GetComponent<Rigidbody2D>();
-            return !rb || (rb.constraints & RigidbodyConstraints2D.FreezePositionY) == RigidbodyConstraints2D.FreezePositionY;
+            DropIntoPlace dp = jar.GetComponent<DropIntoPlace>();
+            return !dp || dp.Landed;
         }
     }
 }

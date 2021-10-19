@@ -24,6 +24,7 @@ namespace ItemChanger.Components
 
         public void OnEnable()
         {
+            if (Landed) return;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
             AccelerationMonitor am = gameObject.GetComponent<AccelerationMonitor>();
             if (am == null) am = gameObject.AddComponent<AccelerationMonitor>();
