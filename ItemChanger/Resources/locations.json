@@ -1817,6 +1817,13 @@
     "flingType": "Everywhere",
     "tags": null
   },
+  "Rancid_Egg-Tuk": {
+    "$type": "ItemChanger.Locations.SpecialLocations.TukDefendersCrestLocation, ItemChanger",
+    "name": "Rancid_Egg-Tuk",
+    "sceneName": "Waterways_03",
+    "flingType": "Everywhere",
+    "tags": null
+  },
   "Wanderer's_Journal-Cliffs": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
     "objectName": "Shiny Item (1)",

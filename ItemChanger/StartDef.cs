@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Reflection;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using ItemChanger.Extensions;
+using System.Collections;
 
 namespace ItemChanger
 {
+
     public class StartDef
     {
         public const string RESPAWN_MARKER_NAME = "ITEMCHANGER_RESPAWN_MARKER";
@@ -18,13 +18,32 @@ namespace ItemChanger
         public virtual float Y { get; set; }
         public virtual int MapZone { get; set; } = 2;
         public virtual bool RespawnFacingRight { get; set; } = true;
+        public virtual SpecialStartEffects SpecialEffects { get; set; } = SpecialStartEffects.Default;
         internal static StartDef Start => Internal.Ref.Settings.Start;
+
+        public class StartComponent : MonoBehaviour
+        {
+            public StartDef def;
+        }
 
         public void ApplyToPlayerData(PlayerData pd)
         {
             pd.respawnMarkerName = RESPAWN_MARKER_NAME;
             pd.respawnScene = SceneName;
             pd.mapZone = (GlobalEnums.MapZone)MapZone;
+        }
+
+        public GameObject CreateRespawnMarker(Vector3 pos)
+        {
+            GameObject marker = new()
+            {
+                name = StartDef.RESPAWN_MARKER_NAME,
+                tag = StartDef.RESPAWN_TAG
+            };
+            marker.AddComponent<RespawnMarker>().respawnFacingRight = RespawnFacingRight;
+            marker.AddComponent<StartComponent>().def = this;
+            marker.transform.position = pos;
+            return marker;
         }
 
         public virtual void CreateRespawnMarker(Scene startScene)
@@ -35,6 +54,7 @@ namespace ItemChanger
                 tag = StartDef.RESPAWN_TAG
             };
             marker.AddComponent<RespawnMarker>().respawnFacingRight = RespawnFacingRight;
+            marker.AddComponent<StartComponent>().def = this;
             marker.transform.position = new Vector3(Start.X, Start.Y, 7.4f);
         }
 
@@ -42,6 +62,7 @@ namespace ItemChanger
         {
             HookBenchwarp();
             Events.OnSceneChange += OnSceneChange;
+            On.HeroController.Respawn += OnRespawn;
         }
 
         internal static void Unhook()
@@ -97,102 +118,93 @@ namespace ItemChanger
                 return;
             }
         }
-    }
 
-    public class RelativeStartDef : StartDef
-    {
-        /// <summary>
-        /// The full path to the GameObject, with '/' separators.
-        /// </summary>
-        public string objPath;
-
-        public override void CreateRespawnMarker(Scene startScene)
+        private static IEnumerator OnRespawn(On.HeroController.orig_Respawn orig, HeroController self)
         {
-            GameObject go = startScene.FindGameObject(objPath);
-            GameObject marker = new()
+            IEnumerator e = orig(self);
+            FieldInfo state = e.GetType().GetField("<>1__state", BindingFlags.Instance | BindingFlags.NonPublic);
+            int GetState() => (int)state.GetValue(e);
+            void SetState(int i) => state.SetValue(e, i);
+            FieldInfo spawn = e.GetType().GetField("<spawnPoint>5__2", BindingFlags.Instance | BindingFlags.NonPublic);
+            Transform GetSpawnPoint() => (Transform)spawn.GetValue(e);
+
+            while (e.MoveNext())
             {
-                name = StartDef.RESPAWN_MARKER_NAME,
-                tag = StartDef.RESPAWN_TAG
-            };
-            marker.AddComponent<RespawnMarker>().respawnFacingRight = RespawnFacingRight;
-            marker.transform.position = new Vector3(go.transform.position.x + Start.X, go.transform.position.y + Start.Y, 7.4f);
-        }
-    }
-
-    /// <summary>
-    /// Accounts for the fact that transitions are not consistently placed as root gameobjects
-    /// </summary>
-    public class TransitionBasedStartDef : RelativeStartDef
-    {
-        [Newtonsoft.Json.JsonConstructor]
-        private TransitionBasedStartDef() { }
-
-        /// <summary>
-        /// Attempts to find a start location near the corresponding transition. Unlikely to succeed for bottom transitions.
-        /// </summary>
-        public static TransitionBasedStartDef FromGate(string sceneName, string entryGateName, int mapZone = 2)
-        {
-            var def = new TransitionBasedStartDef
-            {
-                SceneName = sceneName,
-                objPath = entryGateName,
-                MapZone = mapZone,
-                X = 0f,
-                Y = 0f,
-            };
-
-            switch (entryGateName[0])
-            {
-                case 'l':
-                    def.X += 1.5f;
-                    break;
-                case 'b':
-                    def.X += 3f;
-                    def.Y += 5f;
-                    break;
-                case 't':
-                    def.Y -= 1.5f;
-                    break;
-                case 'r':
-                    def.X -= 1.5f;
-                    break;
-                case 'd':
-                    break;
-            }
-
-            return def;
-        }
-
-        public override void CreateRespawnMarker(Scene startScene)
-        {
-            GameObject[] objects = startScene.GetRootGameObjects();
-            GameObject go = null;
-            foreach (GameObject g in objects)
-            {
-                if (g.name == objPath && g.GetComponent<TransitionPoint>() != null)
+                yield return e.Current;
+                if (GetState() == 2 && GameManager.instance.GetSceneNameString() != "GG_Atrium")
                 {
-                    go = g;
-                    break;
-                }
-                else if (g.name == "_Transition Gates" && g.GetComponentsInChildren<TransitionPoint>().FirstOrDefault(t => t.gameObject.name == objPath) is TransitionPoint tp)
-                {
-                    go = tp.gameObject;
+                    // HC.Respawn
+                    self.IgnoreInput();
+                    RespawnMarker rm = GetSpawnPoint().GetComponent<RespawnMarker>();
+                    if (rm && !rm.respawnFacingRight) self.FaceLeft();
+                    else self.FaceRight();
+                    (typeof(HeroController).GetField("heroInPosition", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(self) as HeroController.HeroInPosition)?.Invoke(false);
+                    var hac = self.GetComponent<HeroAnimationController>();
+                    float wakeUpTime = hac.GetClipDuration("Wake Up Ground"); // 46 frames, 18 fps, 2.55s
+                    // break from HC.Respawn
+                    var sc = rm.GetComponent<StartComponent>();
+                    if (sc && sc.def != null && (sc.def.SpecialEffects & SpecialStartEffects.DelayedWake) != 0)
+                    {
+                        self.playerData.isInvincible = true;
+                        hac.PlayClip("Prostrate");
+                        self.StopAnimationControl();
+                        self.controlReqlinquished = true;
+                        yield return DoDelayedRespawn(sc.def.SpecialEffects);
+                        hac.animator.PlayFrom("Wake Up Ground", 1.56f);
+                        yield return new WaitForSeconds(wakeUpTime - 1.56f);
+                    }
+                    else
+                    {
+                        hac.PlayClip("Wake Up Ground");
+                        self.StopAnimationControl();
+                        self.controlReqlinquished = true;
+                        yield return new WaitForSeconds(wakeUpTime);
+                    }
+
+                    self.StartAnimationControl();
+                    self.controlReqlinquished = false;
+                    self.proxyFSM.SendEvent("HeroCtrl-Respawned");
+                    typeof(HeroController).GetMethod("FinishedEnteringScene", BindingFlags.NonPublic | BindingFlags.Instance).Invoke(self, new object[] { true, false });
+                    self.playerData.disablePause = false;
+                    if (sc && sc.def != null && (sc.def.SpecialEffects & SpecialStartEffects.ExtraInvincibility) != 0)
+                    {
+                        yield return new WaitForSeconds(0.5f);
+                    }
+                    self.playerData.isInvincible = false;
+                    SetState(-1);
                     break;
                 }
             }
-            if (go == null)
-            {
-                go = objects.SelectMany(g => g.GetComponentsInChildren<TransitionPoint>()).FirstOrDefault(t => t.gameObject.name == objPath).gameObject;
-            }
-            if (go == null) throw new ArgumentException($"Could not find transition point {objPath}.");
+        }
 
-            GameObject marker = new()
+        private static IEnumerator DoDelayedRespawn(SpecialStartEffects effects)
+        {
+            float t = 0f;
+            float u = 0f;
+            bool refillSoul = (effects & SpecialStartEffects.SlowSoulRefill) == SpecialStartEffects.SlowSoulRefill;
+            HeroActions ia = InputHandler.Instance.inputActions;
+
+            while (true)
             {
-                name = StartDef.RESPAWN_MARKER_NAME,
-                tag = StartDef.RESPAWN_TAG
-            };
-            marker.AddComponent<RespawnMarker>().respawnFacingRight = RespawnFacingRight;
-            marker.transform.position = new Vector3(go.transform.position.x + Start.X, go.transform.position.y + Start.Y, 7.4f);
+                if (ia.jump.IsPressed || ia.attack.IsPressed || ia.cast.IsPressed || ia.left.IsPressed || ia.right.IsPressed || ia.up.IsPressed || ia.down.IsPressed)
+                {
+                    yield break;
+                }
+                else if (t < 4f)
+                {
+                    t += 0.02f;
+                }
+                else if (refillSoul && u > 0.09f)
+                {
+                    HeroController.instance.TryAddMPChargeSpa(1);
+                    u = 0f;
+                }
+                else
+                {
+                    u += 0.02f;
+                }
+                yield return new WaitForSeconds(0.02f);
+            }
         }
     }
 }

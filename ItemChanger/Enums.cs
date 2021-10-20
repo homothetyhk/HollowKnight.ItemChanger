@@ -90,32 +90,15 @@ namespace ItemChanger
         Throw
     }
 
-    public enum CostType
+    [Flags]
+    public enum SpecialStartEffects
     {
         None = 0,
-        Geo,
-        Essence,
-        Simple,
-        Grub,
-        Wraiths,
-        Dreamnail,
-        WhisperingRoot,
-        Spore,
-        Flame,
-    }
+        DelayedWake = 1,
+        SlowSoulRefill = 1 | 1 << 1,
+        ExtraInvincibility = 1 << 2,
 
-    public enum ItemType
-    {
-        Big,
-        Charm,
-        Trinket,
-        Shop,
-        Spell,
-        Geo,
-        Soul,
-        Lifeblood,
-        Flame,
-        Lore
+        Default = DelayedWake | SlowSoulRefill | ExtraInvincibility,
     }
 
     public enum GeoRockSubtype

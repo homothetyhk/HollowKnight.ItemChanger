@@ -142,6 +142,7 @@ namespace ItemChanger
         public const string Rancid_Egg_Waterways_Main = "Rancid_Egg-Waterways_Main";
         public const string Rancid_Egg_Waterways_West_Bluggsac = "Rancid_Egg-Waterways_West_Bluggsac";
         public const string Rancid_Egg_Waterways_West_Pickup = "Rancid_Egg-Waterways_West_Pickup";
+        public const string Rancid_Egg_Tuk = "Rancid_Egg-Tuk";
         public const string Wanderers_Journal_Cliffs = "Wanderer's_Journal-Cliffs";
         public const string Wanderers_Journal_Greenpath_Stag = "Wanderer's_Journal-Greenpath_Stag";
         public const string Wanderers_Journal_Greenpath_Lower = "Wanderer's_Journal-Greenpath_Lower";
