@@ -16,9 +16,10 @@ namespace ItemChanger.Modules
     public class SlyBasementEvent : Module
     {
         /// <summary>
-        /// If true, Sly's basement will no longer be available.
+        /// If evaluates true, Sly's basement will no longer be available. If null, basement is always open with all nail arts.
+        /// <br/>Default test is true iff "Nailmaster's_Glory" placement exists and is cleared or "Nailmaster's_Glory" placement does not exist and the vanilla basement sequence is completed.
         /// </summary>
-        public bool Closed = false;
+        public IBool Closed = new PlacementAllObtainedBool(placementName: LocationNames.Nailmasters_Glory, missingPlacementTest: new PDBool(nameof(PlayerData.gotSlyCharm)));
 
         private const float closedOffset = -1.5f;
         private const float openOffset = 0.6f;
@@ -64,23 +65,16 @@ namespace ItemChanger.Modules
             fsm.FsmVariables.FindFsmFloat("Move To X").Value += closedOffset;
         }
 
-        private bool GetPlayerBoolHook(string name, bool orig)
+        private bool GetPlayerBoolHook(string name, bool orig) => name switch
         {
-            switch (name)
-            {
-                case nameof(PlayerData.gotSlyCharm):
-                    return Closed;
-                case nameof(PlayerData.hasAllNailArts):
-                    return PlayerData.instance.GetBool(nameof(PlayerData.hasCyclone))
-                        && PlayerData.instance.GetBool(nameof(PlayerData.hasDashSlash))
-                        && PlayerData.instance.GetBool(nameof(PlayerData.hasUpwardSlash));
-                case nameof(PlayerData.hasNailArt):
-                    return PlayerData.instance.GetBool(nameof(PlayerData.hasCyclone))
-                        || PlayerData.instance.GetBool(nameof(PlayerData.hasDashSlash))
-                        || PlayerData.instance.GetBool(nameof(PlayerData.hasUpwardSlash));
-                default:
-                    return orig;
-            }
-        }
+            nameof(PlayerData.gotSlyCharm) => Closed?.Value ?? false,
+            nameof(PlayerData.hasAllNailArts) => PlayerData.instance.GetBool(nameof(PlayerData.hasCyclone))
+                                                 && PlayerData.instance.GetBool(nameof(PlayerData.hasDashSlash))
+                                                 && PlayerData.instance.GetBool(nameof(PlayerData.hasUpwardSlash)),
+            nameof(PlayerData.hasNailArt) => PlayerData.instance.GetBool(nameof(PlayerData.hasCyclone))
+                                             || PlayerData.instance.GetBool(nameof(PlayerData.hasDashSlash))
+                                             || PlayerData.instance.GetBool(nameof(PlayerData.hasUpwardSlash)),
+            _ => orig,
+        };
     }
 }

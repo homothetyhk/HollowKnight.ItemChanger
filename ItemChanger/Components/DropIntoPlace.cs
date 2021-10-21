@@ -15,11 +15,16 @@ namespace ItemChanger.Components
         Rigidbody2D rb;
         public event Action OnLand;
         public bool Landed { get; private set; } = false;
+        private bool artificialRB = false;
 
         public void Awake()
         {
             rb = gameObject.GetComponent<Rigidbody2D>();
-            if (rb == null) rb = gameObject.AddComponent<Rigidbody2D>();
+            if (rb == null)
+            {
+                rb = gameObject.AddComponent<Rigidbody2D>();
+                artificialRB = true;
+            }
         }
 
         public void OnEnable()
@@ -40,6 +45,12 @@ namespace ItemChanger.Components
             }
             OnLand?.Invoke();
             Landed = true;
+            if (artificialRB)
+            {
+                Destroy(am);
+                Destroy(rb);
+            }
+
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }

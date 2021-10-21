@@ -17,9 +17,10 @@ namespace ItemChanger.Modules
     public class DreamNailCutsceneEvent : Module
     {
         /// <summary>
-        /// If true, interacting with the plaque no longer warps.
+        /// If evaluates true, interacting with the plaque no longer warps. If null, plaque always warps.
+        /// <br/>Default test is true iff "Dream_Nail" placement exists and is cleared or "Dream_Nail" placement does not exist and player has Dream Nail.
         /// </summary>
-        public bool Closed = false;
+        public IBool Closed = new PlacementAllObtainedBool(placementName: LocationNames.Dream_Nail, missingPlacementTest: new PDBool(nameof(PlayerData.hasDreamNail)));
 
         /// <summary>
         /// If true, the binding shield is not activated.
@@ -101,11 +102,8 @@ namespace ItemChanger.Modules
 
         private void FixDreamNailCutsceneBoolTest(PlayMakerFSM fsm, FsmState state)
         {
-            PlayerDataBoolTest pdBoolTest = state.GetActionsOfType<PlayerDataBoolTest>()[0];
-            FsmStateAction action = new Lambda(() => fsm.SendEvent(
-                Closed ? pdBoolTest.isTrue?.Name : pdBoolTest.isFalse?.Name
-                ));
-            state.AddFirstAction(action);
+            PlayerDataBoolTest pdBoolTest = state.GetFirstActionOfType<PlayerDataBoolTest>();
+            state.AddFirstAction(new DelegateBoolTest(() => Closed?.Value ?? false, pdBoolTest.isTrue, pdBoolTest.isFalse));
             state.RemoveActionsOfType<PlayerDataBoolTest>();
         }
     }

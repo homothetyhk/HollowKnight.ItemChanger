@@ -21,15 +21,16 @@ namespace ItemChanger.Util
             GameObject mimicParent = new($"Grub Mimic Parent-{placement.Name}");
             var box = mimicParent.AddComponent<BoxCollider2D>();
             box.size = new(2f, 2.1f);
-            box.offset = new(0, -0.3f);
+            box.offset = new(0, -0.2f);
             mimicParent.layer = 19;
             mimicParent.SetActive(false);
+            mimicParent.AddComponent<NonBouncer>();
             mimicParent.AddComponent<DropIntoPlace>();
 
-            GameObject mimicBottle = ObjectCache.MimicBottle;
-            mimicBottle.name = "Grub Mimic Bottle";
             GameObject mimicTop = ObjectCache.MimicTop;
             mimicTop.name = "Grub Mimic Top";
+            GameObject mimicBottle = ObjectCache.MimicBottle;
+            mimicBottle.name = "Grub Mimic Bottle";
 
             mimicBottle.transform.SetParent(mimicParent.transform);
             mimicTop.transform.SetParent(mimicParent.transform);
@@ -37,8 +38,8 @@ namespace ItemChanger.Util
             mimicTop.SetActive(true);
 
             mimicBottle.transform.localPosition = new(0, 0.3f, -0.1f);
-            mimicTop.transform.localPosition = new(0, 0.25f, -0.1f);
-            mimicTop.transform.Find("Grub Mimic 1").localPosition = new(0, 0, -0.1f);
+            mimicTop.transform.localPosition = new(0, 0.15f, 0f);
+            mimicTop.transform.Find("Grub Mimic 1").localPosition = new(-0.1f, 1.3f, 0f);
             mimicTop.transform.Find("Grub Mimic 1").GetComponent<SetZ>().z = 0f;
 
             PlayMakerFSM bottleControl = mimicBottle.LocateFSM("Bottle Control");

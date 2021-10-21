@@ -53,6 +53,33 @@ namespace ItemChanger
         public IBool Clone() => (IBool)MemberwiseClone();
     }
 
+    public class PlacementAllObtainedBool : IBool
+    {
+        public PlacementAllObtainedBool(string placementName, IBool missingPlacementTest)
+        {
+            this.placementName = placementName;
+            this.missingPlacementTest = missingPlacementTest;
+        }
+
+        public string placementName;
+        public IBool missingPlacementTest;
+
+        [JsonIgnore]
+        public bool Value
+        {
+            get
+            {
+                if (placementName != null && Internal.Ref.Settings is Settings s && s.Placements != null && s.Placements.TryGetValue(placementName, out var p) && p != null)
+                {
+                    return p.AllObtained();
+                }
+                return missingPlacementTest?.Value ?? true;
+            }
+        }
+
+        public IBool Clone() => (IBool)MemberwiseClone();
+    }
+
     public class Disjunction : IBool
     {
         public List<IBool> bools = new();
