@@ -29,6 +29,7 @@ namespace ItemChanger.Modules
         public override void Unload()
         {
             Events.OnBeginSceneTransition -= OnBeginSceneTransition;
+            Events.OnSceneChange -= OnSceneChange;
             Events.RemoveFsmEdit(SceneNames.Abyss_06_Core, new("Blue Door", "Control"), FixReverseBlueDoor);
             Events.RemoveFsmEdit(SceneNames.Abyss_06_Core, new("floor_closed", "Disappear"), FixReverseBirthplace);
         }

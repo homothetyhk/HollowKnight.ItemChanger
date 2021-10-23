@@ -9,9 +9,8 @@ namespace ItemChanger.Modules
     /// <summary>
     /// Subtractive rancid egg cost which adjusts for the number of eggs previously spent on this type of cost.
     /// </summary>
-    public class CumulativeRancidEggCost : Cost
+    public record CumulativeRancidEggCost(int Total) : Cost
     {
-        public int Total;
         public int Balance => Total - ItemChangerMod.Modules.GetOrAdd<CumulativeEggCostModule>().CumulativeEggsSpent;
 
         public override bool CanPay() => Balance <= PlayerData.instance.GetInt(nameof(PlayerData.rancidEggs));
@@ -24,6 +23,13 @@ namespace ItemChanger.Modules
                 PlayerData.instance.IntAdd(nameof(PlayerData.rancidEggs), -bal);
                 ItemChangerMod.Modules.GetOrAdd<CumulativeEggCostModule>().CumulativeEggsSpent += bal;
             }
+        }
+
+        public override bool HasPayEffects() => true;
+        public override bool Includes(Cost c)
+        {
+            if (c is CumulativeRancidEggCost rec) return rec.Total <= Total;
+            else return base.Includes(c);
         }
 
         public override string GetCostText()

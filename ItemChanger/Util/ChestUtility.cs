@@ -27,7 +27,11 @@ namespace ItemChanger.Util
 
             // Resize colliders so that chest lands on ground -- orig is size (2.4, 2) with offset (0.1, -1.3)
             chest.transform.Find("Bouncer").GetComponent<BoxCollider2D>().size = chest.GetComponent<BoxCollider2D>().size = new Vector2(2.4f, 1.2f);
-            chest.AddComponent<DropIntoPlace>();
+            chest.AddComponent<DropIntoPlace>().OnLand += () =>
+            {
+                chest.layer = 8;
+                chest.transform.Find("Opened").gameObject.layer = 8;
+            };
 
             // Destroy any existing shinies in the chest
             GameObject itemParent = chest.transform.Find("Item").gameObject;

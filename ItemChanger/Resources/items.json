@@ -5259,8 +5259,12 @@
         "key": "GET_ITEM_INTRO1",
         "sheet": "Prompts"
       },
-      "press": null,
-      "heroAction": null,
+      "press": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "BUTTON_DESC_PRESS",
+        "sheet": "Prompts"
+      },
+      "heroAction": "INVENTORY",
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_JOURNAL_1",

@@ -13,7 +13,7 @@ namespace ItemChanger.Locations
     /// <summary>
     /// A location for modifying an object in-place with the specified Container.
     /// </summary>
-    public class ExistingContainerLocation : AbstractLocation
+    public class ExistingContainerLocation : AbstractLocation, ILocalHintLocation
     {
         public string objectName;
         public string fsmName;
@@ -24,6 +24,11 @@ namespace ItemChanger.Locations
         public string replacePath;
         public bool nonreplaceable;
         public float elevation;
+
+        /// <summary>
+        /// Creates a HintBox at the transform of the existing container or its replacement.
+        /// </summary>
+        public bool HintActive { get; set; } = false;
 
         protected override void OnLoad()
         {
@@ -45,12 +50,14 @@ namespace ItemChanger.Locations
                 info = fsm.gameObject.AddComponent<ContainerInfo>();
                 FillInfo(info);
                 info.containerType = containerType;
+                if (HintActive) HintBox.Create(fsm.transform, Placement);
             }
-            else
+            else if (replacePath == null)
             {
                 GameObject obj = c.GetNewContainer(Placement, Placement.Items, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost);
                 c.ApplyTargetContext(obj, fsm.gameObject, elevation);
                 UnityEngine.Object.Destroy(fsm.gameObject);
+                if (HintActive) HintBox.Create(obj.transform, Placement);
             }
         }
 
@@ -62,6 +69,7 @@ namespace ItemChanger.Locations
                 GameObject target = to.FindGameObject(replacePath);
                 c.ApplyTargetContext(obj, target, elevation);
                 UnityEngine.Object.Destroy(target);
+                if (HintActive) HintBox.Create(obj.transform, Placement);
             }
         }
 

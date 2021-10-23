@@ -29,7 +29,7 @@ namespace ItemChanger.Locations.SpecialLocations
             On.DreamPlant.Awake -= DreamPlant_Awake;
             On.DreamPlant.Start -= DreamPlant_Start;
             On.DreamPlant.CheckOrbs -= DreamPlant_CheckOrbs;
-            On.DreamPlant.OnTriggerEnter2D += DreamPlant_OnTriggerEnter2D;
+            On.DreamPlant.OnTriggerEnter2D -= DreamPlant_OnTriggerEnter2D;
         }
 
 

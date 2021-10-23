@@ -116,10 +116,11 @@ namespace ItemChanger
         /// </summary>
         public void Give(AbstractPlacement placement, GiveInfo info)
         {
-            ReadOnlyGiveEventArgs readOnlyArgs = new ReadOnlyGiveEventArgs(this, this, placement, info);
+            ObtainState originalState = obtainState;
+            ReadOnlyGiveEventArgs readOnlyArgs = new ReadOnlyGiveEventArgs(this, this, placement, info, originalState);
             BeforeGiveInvoke(readOnlyArgs);
 
-            GiveEventArgs giveArgs = new GiveEventArgs(this, this, placement, info);
+            GiveEventArgs giveArgs = new GiveEventArgs(this, this, placement, info, originalState);
             ResolveItem(giveArgs);
 
             SetObtained();
@@ -129,7 +130,7 @@ namespace ItemChanger
             placement = giveArgs.Placement;
             info = giveArgs.Info;
 
-            readOnlyArgs = new ReadOnlyGiveEventArgs(giveArgs.Orig, giveArgs.Item, giveArgs.Placement, giveArgs.Info);
+            readOnlyArgs = new ReadOnlyGiveEventArgs(giveArgs.Orig, giveArgs.Item, giveArgs.Placement, giveArgs.Info, originalState);
             OnGiveInvoke(readOnlyArgs);
 
             try
@@ -170,7 +171,7 @@ namespace ItemChanger
         /// </summary>
         public UIDef GetResolvedUIDef(AbstractPlacement placement = null)
         {
-            GiveEventArgs args = new GiveEventArgs(this, this, placement, null);
+            GiveEventArgs args = new GiveEventArgs(this, this, placement, null, obtainState);
             ResolveItem(args);
             return args.Item.UIDef;
         }

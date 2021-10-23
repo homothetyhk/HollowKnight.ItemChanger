@@ -116,6 +116,8 @@ namespace ItemChanger.Util
                     }
                 }
 
+                init.GetFirstActionOfType<SetFsmString>().setValue = "Accept";
+
                 init.AddLastAction(new Lambda(DisableInspect));
                 regainControl.AddLastAction(new Lambda(DisableInspect));
 
@@ -178,6 +180,8 @@ namespace ItemChanger.Util
                 FsmState cancel = inspectFsm.GetState("Cancel");
                 FsmState convoEnd = inspectFsm.GetState("Convo End");
                 FsmState canTalkBool = inspectFsm.GetState("Can Talk Bool?");
+
+                inspectFsm.FsmVariables.FindFsmString("Prompt Name").Value = "Accept";
 
                 foreach (var t in heroLookUp.Transitions) t.SetToState(cancel);
                 cancel.Actions = new FsmStateAction[]

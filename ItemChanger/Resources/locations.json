@@ -287,7 +287,16 @@
     "name": "Dash_Slash",
     "sceneName": "Room_nailmaster_03",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 800
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Great_Slash": {
     "$type": "ItemChanger.Locations.SpecialLocations.NailmasterLocation, ItemChanger",
@@ -838,7 +847,17 @@
     "name": "Godtuner",
     "sceneName": "GG_Waterways",
     "flingType": "Everywhere",
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.ConsumablePDIntCost, ItemChanger",
+          "amount": 1,
+          "fieldName": "simpleKeys"
+        },
+        "Inherent": true
+      }
+    ],
     "HintActive": true
   },
   "Collector's_Map": {
@@ -1037,7 +1056,16 @@
     "name": "Vessel_Fragment-Basin",
     "sceneName": "Abyss_04",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 3000
+        },
+        "Inherent": true
+      }
+    ]
   },
   "Vessel_Fragment-Deepnest": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
@@ -3150,7 +3178,16 @@
     "name": "Crossroads_Map",
     "sceneName": "Crossroads_33",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 30
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Greenpath_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3158,7 +3195,16 @@
     "name": "Greenpath_Map",
     "sceneName": "Fungus1_06",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 60
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Fog_Canyon_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3166,7 +3212,16 @@
     "name": "Fog_Canyon_Map",
     "sceneName": "Fungus3_25",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 150
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Fungal_Wastes_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3174,7 +3229,16 @@
     "name": "Fungal_Wastes_Map",
     "sceneName": "Fungus2_18",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 75
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Deepnest_Map-Upper": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3182,7 +3246,16 @@
     "name": "Deepnest_Map-Upper",
     "sceneName": "Deepnest_01b",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 38
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Deepnest_Map-Right": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3190,7 +3263,16 @@
     "name": "Deepnest_Map-Right",
     "sceneName": "Fungus2_25",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 38
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Ancient_Basin_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3198,7 +3280,16 @@
     "name": "Ancient_Basin_Map",
     "sceneName": "Abyss_04",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 112
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Kingdom's_Edge_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3206,7 +3297,16 @@
     "name": "Kingdom's_Edge_Map",
     "sceneName": "Deepnest_East_03",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 112
+        },
+        "Inherent": false
+      }
+    ]
   },
   "City_of_Tears_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3214,7 +3314,16 @@
     "name": "City_of_Tears_Map",
     "sceneName": "Ruins1_31",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 90
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Royal_Waterways_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3222,7 +3331,16 @@
     "name": "Royal_Waterways_Map",
     "sceneName": "Waterways_09",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 75
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Howling_Cliffs_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3230,7 +3348,16 @@
     "name": "Howling_Cliffs_Map",
     "sceneName": "Cliffs_01",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 75
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Crystal_Peak_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3238,7 +3365,16 @@
     "name": "Crystal_Peak_Map",
     "sceneName": "Mines_30",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 112
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Queen's_Gardens_Map": {
     "$type": "ItemChanger.Locations.SpecialLocations.CorniferLocation, ItemChanger",
@@ -3246,7 +3382,16 @@
     "name": "Queen's_Gardens_Map",
     "sceneName": "Fungus1_24",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 150
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Resting_Grounds_Map": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
@@ -3256,7 +3401,16 @@
     "name": "Resting_Grounds_Map",
     "sceneName": "RestingGrounds_09",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.GeoCost, ItemChanger",
+          "amount": 56
+        },
+        "Inherent": false
+      }
+    ]
   },
   "Dirtmouth_Stag": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
@@ -6852,7 +7006,17 @@
     "name": "Lore_Tablet-Spore_Shroom",
     "sceneName": "Fungus2_20",
     "flingType": "Everywhere",
-    "tags": null
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
   },
   "Lore_Tablet-Fungal_Wastes_Hidden": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
@@ -6864,7 +7028,17 @@
     "name": "Lore_Tablet-Fungal_Wastes_Hidden",
     "sceneName": "Fungus2_07",
     "flingType": "Everywhere",
-    "tags": null
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
   },
   "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
@@ -6876,7 +7050,17 @@
     "name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres",
     "sceneName": "Fungus2_04",
     "flingType": "Everywhere",
-    "tags": null
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
   },
   "Lore_Tablet-Fungal_Core": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
@@ -6888,7 +7072,17 @@
     "name": "Lore_Tablet-Fungal_Core",
     "sceneName": "Fungus2_30",
     "flingType": "Everywhere",
-    "tags": null
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
   },
   "Lore_Tablet-Ancient_Basin": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
@@ -6972,7 +7166,17 @@
     "name": "Lore_Tablet-Kingdom's_Edge",
     "sceneName": "Deepnest_East_17",
     "flingType": "Everywhere",
-    "tags": null
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
   },
   "Lore_Tablet-Palace_Workshop": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",

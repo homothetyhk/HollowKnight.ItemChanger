@@ -98,7 +98,7 @@ namespace ItemChanger
         SlowSoulRefill = 1 | 1 << 1,
         ExtraInvincibility = 1 << 2,
 
-        Default = DelayedWake | SlowSoulRefill | ExtraInvincibility,
+        Default = DelayedWake | ExtraInvincibility,
     }
 
     public enum GeoRockSubtype

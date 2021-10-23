@@ -39,30 +39,33 @@ namespace ItemChanger
 
     public class GiveEventArgs : EventArgs
     {
-        public GiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement placement, GiveInfo info)
+        public GiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement placement, GiveInfo info, ObtainState state)
         {
             this.Orig = orig;
             this.Item = item;
             this.Placement = placement;
             this.Info = info;
+            this.OriginalState = state;
         }
 
         public AbstractItem Orig { get; }
         public AbstractItem Item { get; set; }
         public AbstractPlacement Placement { get; }
         public GiveInfo Info { get; set; }
+        public ObtainState OriginalState { get; }
     }
 
     public class ReadOnlyGiveEventArgs : EventArgs
     {
         private readonly GiveInfo info;
 
-        public ReadOnlyGiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement placement, GiveInfo info)
+        public ReadOnlyGiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement placement, GiveInfo info, ObtainState state)
         {
             this.Orig = orig;
             this.Item = item;
             this.Placement = placement;
             this.info = info;
+            this.OriginalState = state;
         }
 
         public AbstractItem Orig { get; }
@@ -73,6 +76,7 @@ namespace ItemChanger
         public Transform Transform => info.Transform;
         public MessageType MessageType => info.MessageType;
         public Action<AbstractItem> Callback => info.Callback;
+        public ObtainState OriginalState { get; }
     }
 
     // Encapsulate the ModHook arguments to make it easier to deal with breaking API changes.
