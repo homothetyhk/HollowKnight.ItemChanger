@@ -7596,7 +7596,7 @@
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "PLAQUE_WARN",
-        "sheet": "Lore Tablets"
+        "sheet": "CP2"
       },
       "textType": "Lore",
       "name": {

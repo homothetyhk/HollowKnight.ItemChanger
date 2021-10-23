@@ -34,7 +34,6 @@ namespace ItemChanger.Util
                 items = item.Yield(),
                 flingType = flingType,
             };
-            if (item.WasEverObtained()) shiny.GetComponent<SpriteRenderer>().color = WasEverObtainedColor;
 
             return shiny;
         }
@@ -70,8 +69,6 @@ namespace ItemChanger.Util
                 };
             }
 
-            if (items.All(i => i.WasEverObtained())) shiny.GetComponent<SpriteRenderer>().color = WasEverObtainedColor;
-
             return shiny;
         }
 
@@ -95,6 +92,14 @@ namespace ItemChanger.Util
         public static string GetShinyPrefix(AbstractPlacement placement)
         {
             return $"Shiny Item-{placement.Name}";
+        }
+
+        public static void SetShinyColor(GameObject shiny, IEnumerable<AbstractItem> items)
+        {
+            SpriteRenderer sr = shiny.GetComponent<SpriteRenderer>();
+            if (!sr || items == null) return;
+            
+            sr.color = items.All(i => i.WasEverObtained()) ? WasEverObtainedColor : Color.white;
         }
 
         public static void PutShinyInContainer(GameObject container, GameObject shiny)
@@ -160,50 +165,6 @@ namespace ItemChanger.Util
             }
         }
 
-        public static void ModifyShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement placement, AbstractItem item)
-        {
-            FsmState pdBool = shinyFsm.GetState("PD Bool?");
-            FsmState charm = shinyFsm.GetState("Charm?");
-            FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
-
-            GiveInfo info = new GiveInfo
-            {
-                Container = Container.Shiny,
-                FlingType = flingType,
-                Transform = shinyFsm.transform,
-                MessageType = MessageType.Any,
-                Callback = _ => shinyFsm.SendEvent("GAVE ITEM"),
-            };
-            FsmStateAction checkAction = new Lambda(() => shinyFsm.SendEvent(item.IsObtained() ? "COLLECTED" : null));
-            FsmStateAction giveAction = new Lambda(() => item.Give(placement, info));
-
-            // Remove actions that stop shiny from spawning
-            pdBool.RemoveActionsOfType<StringCompare>();
-
-            // Change pd bool test to our new bool
-            pdBool.RemoveActionsOfType<PlayerDataBoolTest>();
-            pdBool.AddLastAction(checkAction);
-
-            // Charm must be preserved as the entry point for AddYNDialogueToShiny
-            charm.ClearTransitions();
-            charm.AddTransition("FINISHED", "Trink Flash");
-
-            trinkFlash.ClearTransitions();
-            trinkFlash.Actions = new FsmStateAction[]
-            {
-                trinkFlash.Actions[0], // Audio
-                trinkFlash.Actions[1], // Audio
-                trinkFlash.Actions[2], // visual effect
-                trinkFlash.Actions[3], // hide shiny
-                trinkFlash.Actions[4], // pickup animation
-                // [5] -- spawn message
-                // [6] -- store message text
-                // [7] -- store message icon
-                giveAction, // give item and await callback
-            };
-            trinkFlash.AddTransition("GAVE ITEM", "Hero Up");
-        }
-
         public static void ModifyMultiShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
             FsmState init = shinyFsm.GetState("Init");
@@ -224,6 +185,9 @@ namespace ItemChanger.Util
             // Remove actions that stop shiny from spawning
             init.RemoveActionsOfType<BoolTest>();
             pdBool.ClearActions();
+
+            // Set shiny color to orange when all items have been previously obtained
+            init.AddFirstAction(new Lambda(() => SetShinyColor(shinyFsm.gameObject, items)));
 
             // Change pd bool test to our new bool
             pdBool.AddLastAction(checkAction);

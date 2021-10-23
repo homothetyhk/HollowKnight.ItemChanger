@@ -6870,7 +6870,7 @@
     "fsmName": "inspect_region",
     "containerType": "Tablet",
     "nonreplaceable": false,
-    "elevation": 0.0,
+    "elevation": -1.8,
     "name": "Lore_Tablet-Pilgrim's_Way_1",
     "sceneName": "Crossroads_11_alt",
     "flingType": "Everywhere",

@@ -56,10 +56,17 @@ namespace ItemChanger.Modules
 
             if (PlayerData.instance.GetInt(nameof(PlayerData.grimmChildLevel)) <= 3)
             {
-                sb.AppendLine($"You have {Ref.PD.flamesCollected} unspent Flames.");
+                if (mods.Get<GrimmkinFlameManager>() is GrimmkinFlameManager gfm)
+                {
+                    sb.AppendLine($"You have {gfm.flameBalance} unspent Grimmkin Flame(s). ({gfm.cumulativeFlamesCollected} total)");
+                }
+                else
+                {
+                    sb.AppendLine($"You have {PlayerData.instance.GetInt(nameof(PlayerData.flamesCollected))} unspent Grimmkin Flame(s).");
+                } 
             }
 
-            sb.AppendLine($"You've rescued {PlayerData.instance.grubsCollected} grub(s) so far!");
+            sb.AppendLine($"You've rescued {Ref.PD.GetInt(nameof(PlayerData.grubsCollected))} grub(s) so far!");
             int dreamers = Ref.PD.GetInt(nameof(PlayerData.guardiansDefeated));
             sb.Append($"You've found {dreamers} dreamer(s)");
             if (dreamers > 0)

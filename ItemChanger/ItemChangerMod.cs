@@ -82,7 +82,7 @@ namespace ItemChanger
         /// </summary>
         /// <param name="overwrite">If settings data already exists, should it be overwritten?</param>
         /// <param name="createDefaultModules">If a new profile is created, should it include all default modules?</param>
-        public static void CreateSettingsProfile(bool overwrite = true, bool createDefaultModules = true)
+        public static void CreateSettingsProfile(bool overwrite, bool createDefaultModules)
         {
             if (overwrite && Settings.loaded) throw new InvalidOperationException("Cannot overwrite loaded settings.");
 

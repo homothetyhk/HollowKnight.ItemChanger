@@ -126,7 +126,7 @@ namespace ItemChanger.Extensions
         /// </summary>
         public static GameObject FindChildInHierarchy(this GameObject g, string name)
         {
-            Queue<Transform> q = new Queue<Transform>();
+            Queue<Transform> q = new();
             q.Enqueue(g.transform);
 
             while (q.Any())

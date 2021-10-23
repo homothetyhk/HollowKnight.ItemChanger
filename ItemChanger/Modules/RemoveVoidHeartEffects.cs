@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HutongGames.PlayMaker;
+using HutongGames.PlayMaker.Actions;
 using ItemChanger.Extensions;
+using ItemChanger.FsmStateActions;
 
 namespace ItemChanger.Modules
 {
     /// <summary>
-    /// Module which makes Void Heart unequippable and makes Siblings and the Shade hostile even after obtaining Void Heart.
+    /// Module which makes Void Heart unequippable and makes Siblings and the Shade hostile when Void Heart is not equipped.
     /// </summary>
     [DefaultModule]
     public class RemoveVoidHeartEffects : Module
@@ -39,14 +41,20 @@ namespace ItemChanger.Modules
             setCurrentItemNum.AddTransition("FINISHED", "Return Points");
         }
 
+        private bool TestVoidHeartEquipped()
+        {
+            return PlayerData.instance.GetInt(nameof(PlayerData.royalCharmState)) >= 4 && PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_40));
+        }
+
         private void PreventFriendlyShade(PlayMakerFSM fsm)
         {
-            if (fsm.gameObject != null && fsm.gameObject.name.StartsWith("Hollow Shade"))
+            if (fsm.gameObject != null && fsm.gameObject.name.StartsWith("Hollow Shade") && !fsm.gameObject.name.StartsWith("Hollow Shade Death"))
             {
                 FsmState pause = fsm.GetState("Pause");
-                pause.ClearTransitions();
-                pause.AddTransition("FINISHED", "Init");
-                fsm.FsmVariables.FindFsmBool("Friendly").Value = false;
+                if (pause == null) return;
+                pause.RemoveFirstActionOfType<IntCompare>();
+                pause.RemoveFirstActionOfType<GetPlayerDataInt>();
+                pause.AddFirstAction(new DelegateBoolTest(TestVoidHeartEquipped, null, FsmEvent.Finished));
             }
         }
 
@@ -55,9 +63,11 @@ namespace ItemChanger.Modules
             if (fsm.gameObject != null && fsm.gameObject.name.StartsWith("Shade Sibling"))
             {
                 FsmState pause = fsm.GetState("Pause");
-                pause.ClearTransitions();
-                pause.AddTransition("FINISHED", "Init");
-                fsm.FsmVariables.FindFsmBool("Friendly").Value = false;
+                if (pause == null) return;
+
+                pause.RemoveFirstActionOfType<GetPlayerDataInt>();
+                pause.RemoveFirstActionOfType<IntCompare>();
+                pause.InsertAction(new DelegateBoolTest(TestVoidHeartEquipped, null, FsmEvent.Finished), 2);
             }
         }
 
