@@ -131,12 +131,14 @@ namespace ItemChanger
                         case PlacementConflictResolution.MergeKeepingNew:
                             p.Items.AddRange(existsP.Items);
                             SET.Placements[p.Name] = p;
+                            if (Settings.loaded) existsP.Unload();
                             break;
                         case PlacementConflictResolution.MergeKeepingOld:
                             existsP.Items.AddRange(p.Items);
                             break;
                         case PlacementConflictResolution.Replace:
                             SET.Placements[p.Name] = p;
+                            if (Settings.loaded) existsP.Unload();
                             break;
                         case PlacementConflictResolution.Ignore:
                             break;

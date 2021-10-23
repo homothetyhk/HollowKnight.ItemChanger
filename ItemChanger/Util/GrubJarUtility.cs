@@ -41,8 +41,6 @@ namespace ItemChanger.Util
             {
                 grubJar.transform.Find("Bottle Physical").gameObject.layer = 8;
                 grubJar.layer = 19;
-                UnityEngine.Object.Destroy(grubJar.GetComponent<AccelerationMonitor>());
-                UnityEngine.Object.Destroy(grubJar.GetComponent<Rigidbody2D>());
             };
 
             return grubJar;

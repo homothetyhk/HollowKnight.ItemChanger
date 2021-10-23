@@ -36,7 +36,6 @@ namespace ItemChanger.Modules
 
         private void RemoveConversationOptions(PlayMakerFSM fsm)
         {
-            ItemChangerMod.instance.Log("Editing Leg Eater");
             FsmState legEaterChoice = fsm.GetState("Convo Choice");
             legEaterChoice.RemoveAction(2); // remove the check for the all unbreakables convo
 

@@ -58,7 +58,7 @@ namespace ItemChanger.Internal
             ModHooks.LanguageGetHook -= GetLanguageString;
         }
 
-        public static void SetString(string sheetName, string key, string text)
+        private static void SetString(string sheetName, string key, string text)
         {
             if (string.IsNullOrEmpty(sheetName) || string.IsNullOrEmpty(key) || text == null)
             {
@@ -74,7 +74,7 @@ namespace ItemChanger.Internal
             sheet[key] = text;
         }
 
-        public static void ResetString(string sheetName, string key)
+        private static void ResetString(string sheetName, string key)
         {
             if (string.IsNullOrEmpty(sheetName) || string.IsNullOrEmpty(key))
             {
@@ -90,20 +90,38 @@ namespace ItemChanger.Internal
         // keep this private -- the api hook does weird stuff with GetInternal
         private static string GetLanguageString(string key, string sheetTitle, string orig)
         {
-            if (key.StartsWith("RANDOMIZER_NAME_ESSENCE_"))
+            if (sheetTitle.StartsWith("Internal"))
             {
-                return key.Split('_').Last() + " Essence";
+                return Language.Language.GetInternal(key, sheetTitle[8..]);
             }
 
-            if (key.StartsWith("RANDOMIZER_NAME_GEO_"))
+            if (sheetTitle == "Exact")
             {
-                return key.Split('_').Last() + " Geo";
+                return key;
             }
 
-            if (key.StartsWith("RANDOMIZER_NAME_GRUB"))
+            if (key.StartsWith("ITEMCHANGER_NAME_ESSENCE_"))
             {
-                return $"A grub! ({PlayerData.instance.grubsCollected}/46)";
+                return key["ITEMCHANGER_NAME_ESSENCE_".Length..] + " Essence";
             }
+
+            if (key.StartsWith("ITEMCHANGER_NAME_GEO_"))
+            {
+                return key["ITEMCHANGER_NAME_GEO_".Length..] + " Geo";
+            }
+
+            if (key == "ITEMCHANGER_POSTVIEW_GRUB")
+            {
+                return $"A grub! ({PlayerData.instance.GetInt(nameof(PlayerData.grubsCollected))}/46)";
+            }
+
+            if (key == "ITEMCHANGER_POSTVIEW_GRIMMKIN_FLAME")
+            {
+                int flames = PlayerData.instance.GetInt("cumulativeFlamesCollected");
+                if (flames <= 0) flames = PlayerData.instance.GetInt(nameof(PlayerData.flamesCollected));
+                return $"Grimmkin Flame ({flames}/10)";
+            }
+
 
             if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
             {

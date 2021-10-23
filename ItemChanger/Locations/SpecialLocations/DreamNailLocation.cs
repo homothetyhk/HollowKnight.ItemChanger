@@ -26,6 +26,13 @@ namespace ItemChanger.Locations.SpecialLocations
             Events.AddFsmEdit(sceneName, new("Shiny Control"), EditShiny);
         }
 
+        protected override void OnUnload()
+        {
+            base.OnUnload();
+            Events.RemoveFsmEdit(sceneName, new("Witch Control", "Control"), RemoveSetCollider);
+            Events.RemoveFsmEdit(sceneName, new("Shiny Control"), EditShiny);
+        }
+
         private void RemoveSetCollider(PlayMakerFSM fsm)
         {
             fsm.GetState("Convo Ready").RemoveActionsOfType<SetCollider>(); // not important, but prevents null ref unity logs after destroying Moth NPC object

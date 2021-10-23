@@ -20,7 +20,7 @@ namespace ItemChanger.Items
                 UIDef = new UIDefs.MsgUIDef
                 {
                     name = new BoxedString($"{amount} Geo"),
-                    shopDesc = new LanguageString("UI", "RANDOMIZER_DESC_GEO"),
+                    shopDesc = new LanguageString("UI", "ITEMCHANGER_DESC_GEO"),
                     sprite = new ItemChangerSprite("ShopIcons.Geo"),
                 },
             };

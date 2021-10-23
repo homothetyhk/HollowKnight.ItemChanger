@@ -13,6 +13,8 @@ namespace ItemChanger.Modules
     [DefaultModule]
     public class GrimmkinFlameManager : Module
     {
+        public int cumulativeFlamesCollected => PlayerData.instance.GetIntInternal(nameof(PlayerData.flamesCollected));
+
         public override void Initialize()
         {
             ModHooks.GetPlayerIntHook += OverrideGetFlamesCollected;
@@ -49,6 +51,7 @@ namespace ItemChanger.Modules
         private int OverrideGetFlamesCollected(string name, int orig) => name switch
         {
             nameof(PlayerData.flamesCollected) => Math.Min(PlayerData.instance.GetIntInternal(nameof(PlayerData.flamesCollected)), 3),
+            nameof(cumulativeFlamesCollected) => cumulativeFlamesCollected,
             _ => orig,
         };
     }
