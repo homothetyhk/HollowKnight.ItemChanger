@@ -73,14 +73,17 @@ namespace ItemChanger.Placements
 
         public GameObject[] GetNewStock(GameObject[] oldStock, GameObject shopPrefab)
         {
-            List<GameObject> stock = new List<GameObject>(oldStock.Length + Items.Count());
-            foreach (var item in Items)
+            List<GameObject> stock = new(oldStock.Length + Items.Count());
+            void AddShopItem(AbstractItem item)
             {
                 GameObject shopItem = UnityEngine.Object.Instantiate(shopPrefab);
                 shopItem.SetActive(false);
                 ApplyItemDef(shopItem.GetComponent<ShopItemStats>(), item, item.GetTag<CostTag>()?.Cost);
                 stock.Add(shopItem);
             }
+
+            foreach (var item in Items.Where(i => !i.WasEverObtained())) AddShopItem(item);
+            foreach (var item in Items.Where(i => i.WasEverObtained())) AddShopItem(item); // display refreshed items below unobtained items
 
             stock.AddRange(oldStock.Where(g => KeepOldItem(g.GetComponent<ShopItemStats>())));
 
@@ -109,7 +112,8 @@ namespace ItemChanger.Placements
             stats.removalPlayerDataBool = string.Empty;
             stats.dungDiscount = dungDiscount;
             stats.notchCostBool = string.Empty;
-            stats.SetCost(cost?.GetDisplayGeo() ?? 0);
+            if (cost != null && !cost.Paid) stats.SetCost(cost.GetDisplayGeo());
+            else stats.SetCost(0);
 
             // Need to set all these to make sure the item doesn't break in one of various ways
             stats.priceConvo = string.Empty;

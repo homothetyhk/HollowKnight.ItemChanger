@@ -89,6 +89,7 @@ namespace ItemChanger.Util
         {
             FsmState init = chestFsm.GetState("Init");
             FsmState spawnItems = chestFsm.GetState("Spawn Items");
+            FsmState activated = chestFsm.GetState("Activated");
 
             FsmStateAction checkAction = new Lambda(() => chestFsm.SendEvent(placement.CheckVisitedAny(VisitState.Opened) ? "ACTIVATE" : null));
 
@@ -117,28 +118,50 @@ namespace ItemChanger.Util
                 spawn.spawnMax = 0;
             }
 
-            foreach (AbstractItem item in items.Where(i => !i.IsObtained()))
+            spawnItems.AddFirstAction(new Lambda(OnSpawnItems));
+            spawnItems.AddFirstAction(new Lambda(() => placement.AddVisitFlag(VisitState.Opened)));
+            activated.AddFirstAction(new Lambda(OnActivateChest));
+
+            void OnSpawnItems()
             {
-                if (item.GiveEarly(Container.Chest))
+                GiveInfo info = new()
                 {
-                    GiveInfo info = new GiveInfo
+                    Container = Container.Chest,
+                    FlingType = flingType,
+                    Transform = chestFsm.transform,
+                    MessageType = MessageType.Corner,
+                };
+
+                foreach (AbstractItem item in items)
+                {
+                    if (!item.IsObtained())
                     {
-                        Container = Container.Chest,
-                        FlingType = flingType,
-                        Transform = chestFsm.transform,
-                        MessageType = MessageType.Corner,
-                    };
-                    spawnItems.AddLastAction(new Lambda(() => item.Give(placement, info)));
-                }
-                else
-                {
-                    GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
-                    ShinyUtility.PutShinyInContainer(itemParent, shiny);
-                    ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                        if (item.GiveEarly(Container.Chest))
+                        {
+                            item.Give(placement, info);
+                        }
+                        else
+                        {
+                            GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
+                            ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                            ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                        }
+                    }
                 }
             }
 
-            spawnItems.AddLastAction(new Lambda(() => placement.AddVisitFlag(VisitState.Opened)));
+            void OnActivateChest()
+            {
+                foreach (AbstractItem item in items)
+                {
+                    if (!item.IsObtained())
+                    {
+                        GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
+                        ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                        ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                    }
+                }
+            }
         }
     }
 }

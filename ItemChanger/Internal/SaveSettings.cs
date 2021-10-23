@@ -24,9 +24,9 @@ namespace ItemChanger
 
     public class Settings
     {
-        public Settings() 
+        public Settings(bool createDefaultModules = true) 
         {
-            mods = ModuleCollection.Create();
+            mods = createDefaultModules ? ModuleCollection.Create() : new();
         }
 
         public ModuleCollection mods;

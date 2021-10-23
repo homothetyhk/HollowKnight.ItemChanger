@@ -39,20 +39,22 @@ namespace ItemChanger.Modules
             FsmState active = dazedSly.GetState("Active?");
             FsmState convo = dazedSly.GetState("Convo Choice");
             FsmState meet = dazedSly.GetState("Meet");
+            FsmState repeat = dazedSly.GetState("Repeat");
 
             if (active.GetFirstActionOfType<BoolTest>() is BoolTest test1)
             {
-                active.AddLastAction(new Lambda(() => dazedSly.SendEvent(SlyRescued ? test1.isTrue?.Name : test1.isFalse?.Name)));
+                active.AddLastAction(new DelegateBoolTest(() => SlyRescued, test1));
                 active.RemoveActionsOfType<BoolTest>();
             }
 
             if (convo.GetFirstActionOfType<BoolTest>() is BoolTest test2)
             {
-                active.AddLastAction(new Lambda(() => dazedSly.SendEvent(SlyRescued ? test2.isTrue?.Name : test2.isFalse?.Name)));
-                active.RemoveActionsOfType<BoolTest>();
+                convo.AddLastAction(new DelegateBoolTest(() => SlyRescued, test2));
+                convo.RemoveActionsOfType<BoolTest>();
             }
 
             meet.AddLastAction(new Lambda(() => SlyRescued = true));
+            repeat.AddLastAction(new Lambda(() => SlyRescued = true));
         }
 
         private void DestroyShop(Scene scene)

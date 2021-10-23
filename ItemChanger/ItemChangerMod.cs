@@ -75,13 +75,20 @@ namespace ItemChanger
         /// Required before all operations which modify settings data.
         /// </summary>
         /// <param name="overwrite">If settings data already exists, should it be overwritten?</param>
-        public static void CreateSettingsProfile(bool overwrite = true)
+        public static void CreateSettingsProfile(bool overwrite = true) => CreateSettingsProfile(overwrite, true);
+
+        /// <summary>
+        /// Required before all operations which modify settings data.
+        /// </summary>
+        /// <param name="overwrite">If settings data already exists, should it be overwritten?</param>
+        /// <param name="createDefaultModules">If a new profile is created, should it include all default modules?</param>
+        public static void CreateSettingsProfile(bool overwrite = true, bool createDefaultModules = true)
         {
             if (overwrite && Settings.loaded) throw new InvalidOperationException("Cannot overwrite loaded settings.");
 
             if (SET == null || overwrite)
             {
-                SET = new();
+                SET = new(createDefaultModules);
                 if (!instance._hooked) instance.HookItemChanger();
             }
         }

@@ -117,20 +117,6 @@ namespace ItemChanger.Containers
 
                 init.AddTransition(FsmEvent.GetFsmEvent("DEPLETED"), meshRendererOff);
                 hit.AddTransition(FsmEvent.GetFsmEvent("DEPLETED"), depleted);
-
-                hit.Actions = new FsmStateAction[] // put the hit actions in the order of a normal soul totem fsm
-                {
-                    hit.Actions[0],
-                    hit.Actions[1],
-                    hit.Actions[6],
-                    hit.Actions[7],
-                    hit.Actions[2],
-                    hit.Actions[8],
-                    hit.Actions[3],
-                    hit.Actions[4],
-                    hit.Actions[9],
-                    hit.Actions[5],
-                };
             }
 
             PersistentIntItem pii = fsm.GetComponent<PersistentIntItem>();
@@ -190,20 +176,26 @@ namespace ItemChanger.Containers
                 fsm.GetState("Close").GetFirstActionOfType<EaseColor>().toValue = WasEverObtainedColor;
             }
 
-            hit.Actions = new[]
             {
-                hit.Actions[0], // AudioPlayerOneShotSingle soul_totem_slash
-                hit.Actions[1], // SetMaterialColor Glower (1,1,1,1)
-                hit.Actions[2], // SpawnObjectFromGlobalPool Strike Nail R
-                hit.Actions[3], // SpawnObjectFromGlobalPool White Flash R
-                hit.Actions[4], // SendEventByName Camera EnemyKillShake
-                new DelegateBoolTest(() => value.Value <= 0, FsmEvent.GetFsmEvent("DEPLETED"), null),
-                hit.Actions[5], // FlingObjectsFromGlobalPool Soul Orb R
-                hit.Actions[6], // SetProperty -- // TODO: what happens here?
-                hit.Actions[7], // IntOperator subtract 1 from Value
-                hit.Actions[8], // IntCompare Value <= 0 then DEPLETED else null
-                hit.Actions[9], // Wait 0.25f then FINISHED
-            };
+                // these actions are not in a consistent order for different totem fsms
+                var aposs = hit.GetFirstActionOfType<AudioPlayerOneShotSingle>();
+                var smc = hit.GetFirstActionOfType<SetMaterialColor>();
+                var sofgp0 = hit.Actions.OfType<SpawnObjectFromGlobalPool>().First();
+                var sofgp1 = hit.Actions.OfType<SpawnObjectFromGlobalPool>().ElementAt(1);
+                var sebn = hit.GetFirstActionOfType<SendEventByName>();
+                var fofgp = hit.GetFirstActionOfType<FlingObjectsFromGlobalPool>();
+                var sp = hit.GetFirstActionOfType<SetProperty>();
+                var io = hit.GetFirstActionOfType<IntOperator>();
+                var ic = hit.GetFirstActionOfType<IntCompare>();
+                var w = hit.GetFirstActionOfType<Wait>();
+
+                hit.Actions = new FsmStateAction[]
+                {
+                    aposs, smc, sofgp0, sofgp1, sebn,
+                    new DelegateBoolTest(() => value.Value <= 0, FsmEvent.GetFsmEvent("DEPLETED"), null),
+                    fofgp, sp, io, ic, w
+                };
+            }
 
             bool DepletedTest()
             {
@@ -267,31 +259,6 @@ namespace ItemChanger.Containers
                 spawnedItems.Value = true;
             }
         }
-
-        /*
-             * normal totem layout
-                hit.Actions[0], // AudioPlayerOneShotSingle soul_totem_slash
-                hit.Actions[1], // SetMaterialColor Glower (1,1,1,1)
-                hit.Actions[2], // SpawnObjectFromGlobalPool Strike Nail R
-                hit.Actions[3], // SpawnObjectFromGlobalPool White Flash R
-                hit.Actions[4], // SendEventByName Camera EnemyKillShake
-                hit.Actions[5], // FlingObjectsFromGlobalPool Soul Orb R
-                hit.Actions[6], // SetProperty -- // TODO: what happens here?
-                hit.Actions[7], // IntOperator subtract 1 from Value
-                hit.Actions[8], // IntCompare Value <= 0 then DEPLETED else null
-                hit.Actions[9], // Wait 0.25f then FINISHED
-            * pop totem layout
-                hit.Actions[0], // AudioPlayerOneShotSingle soul_totem_slash
-                hit.Actions[1], // SetMaterialColor Glower (1,1,1,1)
-                hit.Actions[2], // SendEventByName Camera EnemyKillShake    
-                hit.Actions[3], // SetProperty -- // TODO: what happens here?
-                hit.Actions[4], // IntOperator subtract 1 from Value
-                hit.Actions[5], // Wait 0.25f then FINISHED
-                hit.Actions[6], // SpawnObjectFromGlobalPool Strike Nail R
-                hit.Actions[7], // SpawnObjectFromGlobalPool White Flash R
-                hit.Actions[8], // FlingObjectsFromGlobalPool Soul Orb R
-                hit.Actions[9], // IntCompare Value <= 0 then DEPLETED else null
-            */
 
         public override void ApplyTargetContext(GameObject obj, float x, float y, float elevation)
         {

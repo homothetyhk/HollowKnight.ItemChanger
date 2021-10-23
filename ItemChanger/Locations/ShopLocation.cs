@@ -148,7 +148,7 @@ namespace ItemChanger.Locations
                 if (mod && mod.item != null)
                 {
                     desc = mod.UIDef.GetShopDesc();
-                    if (mod.cost != null)
+                    if (mod.cost != null && !mod.cost.Paid)
                     {
                         string costText = mod.cost.GetShopCostText();
                         if (!string.IsNullOrEmpty(costText))
