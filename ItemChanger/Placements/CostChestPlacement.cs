@@ -162,5 +162,12 @@ namespace ItemChanger.Placements
             AddVisitFlag(VisitState.Previewed);
             return sb.ToString();
         }
+
+        public override IEnumerable<Tag> GetPlacementAndLocationTags()
+        {
+            return base.GetPlacementAndLocationTags()
+                .Concat(chestLocation.tags ?? Enumerable.Empty<Tag>())
+                .Concat(tabletLocation.tags ?? Enumerable.Empty<Tag>());
+        }
     }
 }

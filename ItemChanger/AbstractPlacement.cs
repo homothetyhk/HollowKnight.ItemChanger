@@ -192,6 +192,12 @@ namespace ItemChanger
         [JsonIgnore]
         public virtual string MainContainerType => Container.Unknown;
 
+        public virtual IEnumerable<Tag> GetPlacementAndLocationTags()
+        {
+            return tags ?? Enumerable.Empty<Tag>();
+        }
+
+
         /// <summary>
         /// Adds an item to the item list.
         /// </summary>

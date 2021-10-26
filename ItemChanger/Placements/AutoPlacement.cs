@@ -35,5 +35,9 @@ namespace ItemChanger.Placements
             Location.Unload();
         }
 
+        public override IEnumerable<Tag> GetPlacementAndLocationTags()
+        {
+            return base.GetPlacementAndLocationTags().Concat(Location.tags ?? Enumerable.Empty<Tag>());
+        }
     }
 }

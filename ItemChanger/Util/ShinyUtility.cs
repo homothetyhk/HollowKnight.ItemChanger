@@ -34,6 +34,7 @@ namespace ItemChanger.Util
                 items = item.Yield(),
                 flingType = flingType,
             };
+            // don't set ShinyFling for single shinies -- usually the container decides how to fling
 
             return shiny;
         }
@@ -67,6 +68,11 @@ namespace ItemChanger.Util
                 {
                     transition = changeSceneTo.Value,
                 };
+            }
+
+            if (placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().FirstOrDefault() is Tags.ShinyFlingTag sft)
+            {
+                SetShinyFling(shiny.LocateFSM("Shiny Control"), sft.fling);
             }
 
             return shiny;
@@ -109,29 +115,77 @@ namespace ItemChanger.Util
             shiny.transform.position = new(container.transform.position.x, container.transform.position.y, 0);
         }
 
+        public static void SetShinyFling(PlayMakerFSM shinyFsm, ShinyFling fling)
+        {
+            switch (fling)
+            {
+                case ShinyFling.Down:
+                    FlingShinyDown(shinyFsm);
+                    break;
+                case ShinyFling.Left:
+                    FlingShinyLeft(shinyFsm);
+                    break;
+                case ShinyFling.Right:
+                    FlingShinyRight(shinyFsm);
+                    break;
+                case ShinyFling.RandomLR:
+                    FlingShinyRandomly(shinyFsm);
+                    break;
+            }
+        }
+
         public static void FlingShinyRandomly(PlayMakerFSM shinyFsm)
         {
             FsmState shinyFling = shinyFsm.GetState("Fling?");
-            if (shinyFling.Actions.Length < 10 || shinyFling.Transitions.Length < 6) return; // Fling? has already been edited.
-            shinyFling.Actions = new FsmStateAction[]
+            FsmState flingRNG = shinyFsm.GetState("Fling RNG");
+            if (flingRNG == null)
             {
-                // shinyFling.Actions[0], // BoolTest -- Fling on start
-                shinyFling.Actions[1], // PlayParticleEmitter
-                shinyFling.Actions[2], // SetFsmBool -- Inspect Region must be disabled!!!
-                shinyFling.Actions[3], // SetGravity2dScale
-                // shinyFling.Actions[4-8], // Cases for different fling types
-                shinyFling.Actions[9] // SendRandomEvent -- "Fling L" "Fling R"
-            };
+                // this could be done without adding a state, but this minimizes how much we have to edit Fling?, so that the change is easily reverted
+                flingRNG = new(shinyFsm.Fsm)
+                {
+                    Name = "Fling RNG",
+                    Actions = new FsmStateAction[]
+                    {
+                        new SendRandomEvent
+                        {
+                            events = new FsmEvent[]
+                            {
+                                FsmEvent.GetFsmEvent("FLING R"),
+                                FsmEvent.GetFsmEvent("FLING L"),
+                            },
+                            weights = new FsmFloat[]
+                            {
+                                1f, 1f
+                            },
+                            delay = 0f,
+                        }
+                    },
+                };
+                flingRNG.AddTransition("FLING L", "Fling L");
+                flingRNG.AddTransition("FLING R", "Fling R");
+                shinyFsm.AddState(flingRNG);
+            }
+
+            shinyFling.ClearTransitions();
+            shinyFling.AddTransition(FsmEvent.Finished, flingRNG);
         }
 
         public static void FlingShinyDown(PlayMakerFSM shinyFsm)
         {
             FsmState fling = shinyFsm.GetState("Fling?");
+            FsmState flingD = shinyFsm.GetState("Fling D");
+            if (flingD == null)
+            {
+                flingD = new(shinyFsm.GetState("Fling R"));
+                flingD.Name = "Fling D";
+                FlingObject flingObj = flingD.GetFirstActionOfType<FlingObject>();
+                flingObj.angleMin = flingObj.angleMax = 270;
+                flingObj.speedMin = flingObj.speedMax = 0.1f;
+                shinyFsm.AddState(flingD);
+            }
+
             fling.ClearTransitions();
-            fling.AddTransition("FINISHED", "Fling R");
-            FlingObject flingObj = shinyFsm.GetState("Fling R").GetActionsOfType<FlingObject>()[0];
-            flingObj.angleMin = flingObj.angleMax = 270;
-            flingObj.speedMin = flingObj.speedMax = 0.1f;
+            fling.AddTransition(FsmEvent.Finished, flingD);
         }
 
         public static void FlingShinyLeft(PlayMakerFSM shinyFsm)

@@ -3717,7 +3717,12 @@
     "name": "Hunter's_Journal",
     "sceneName": "Fungus1_08",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ShinyFlingTag, ItemChanger",
+        "fling": "Left"
+      }
+    ]
   },
   "Journal_Entry-Void_Tendrils": {
     "$type": "ItemChanger.Locations.SpecialLocations.StaticJournalEntryLocation, ItemChanger",

@@ -177,5 +177,10 @@ namespace ItemChanger.Placements
                 value = "Give Jiji all that you can?";
             }
         }
+
+        public override IEnumerable<Tag> GetPlacementAndLocationTags()
+        {
+            return base.GetPlacementAndLocationTags().Concat(Location.tags ?? Enumerable.Empty<Tag>());
+        }
     }
 }

@@ -44,5 +44,10 @@ namespace ItemChanger.Placements
             obj = ShinyUtility.MakeNewMultiItemShiny(this, Items, Location.flingType, Cost);
             containerType = Container.Shiny;
         }
+
+        public override IEnumerable<Tag> GetPlacementAndLocationTags()
+        {
+            return base.GetPlacementAndLocationTags().Concat(Location.tags ?? Enumerable.Empty<Tag>());
+        }
     }
 }

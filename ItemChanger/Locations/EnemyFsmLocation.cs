@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ItemChanger.Components;
-using ItemChanger.Placements;
 using UnityEngine;
 
 namespace ItemChanger.Locations
@@ -30,30 +28,31 @@ namespace ItemChanger.Locations
 
         public override bool Supports(string containerType)
         {
-            if (containerType == Container.Chest) return false;
+            if (containerType == Container.Chest || containerType == Container.Totem) return false;
+            if (Container.GetContainer(containerType) is not Container c || !c.SupportsDrop) return false;
             return base.Supports(containerType);
         }
 
         public void OnEnable(PlayMakerFSM fsm)
         {
-            base.GetContainer(out GameObject obj, out _);
-            AddDeathEvent(fsm.gameObject, obj);
-        }
-
-        public void AddDeathEvent(GameObject enemy, GameObject item)
-        {
+            GameObject enemy = fsm.gameObject;
             HealthManager hm = enemy.GetComponent<HealthManager>();
-            SpawnOnDeath drop = enemy.AddComponent<SpawnOnDeath>();
-            hm.OnDeath += () => GiveEarly(enemy.transform);
-            hm.OnDeath += () => Placement.AddVisitFlag(VisitState.Dropped);
-            drop.item = item;
-            item.SetActive(false);
+            hm.OnDeath += OnDeath;
 
             if (removeGeo)
             {
                 hm.SetGeoSmall(0);
                 hm.SetGeoMedium(0);
                 hm.SetGeoLarge(0);
+            }
+
+            void OnDeath()
+            {
+                GiveEarly(enemy.transform);
+                Placement.AddVisitFlag(VisitState.Dropped);
+                GetContainer(out GameObject obj, out string containerType);
+                Container c = Container.GetContainer(containerType);
+                c.ApplyTargetContext(obj, enemy.transform.position.x, enemy.transform.position.y, 0);
             }
         }
 

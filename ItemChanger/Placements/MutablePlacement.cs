@@ -30,49 +30,11 @@ namespace ItemChanger.Placements
         {
             Location.Placement = this;
             Location.Load();
-            Events.AddFsmEdit(new("Shiny Control"), SetShinyFling);
         }
 
         protected override void OnUnload()
         {
             Location.Unload();
-            Events.RemoveFsmEdit(new("Shiny Control"), SetShinyFling);
-        }
-
-        private void SetShinyFling(PlayMakerFSM fsm)
-        {
-            if (fsm.gameObject.name == ShinyUtility.GetShinyPrefix(this))
-            {
-                ShinyUtility.FlingShinyDown(fsm);
-                fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-            }
-            else if (ShinyUtility.TryGetItemFromShinyName(fsm.gameObject.name, this, out _))
-            {
-                switch (containerType)
-                {
-                    // Leave at location
-                    case Container.Shiny:
-                        ShinyUtility.FlingShinyDown(fsm);
-                        fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-                        break;
-
-                    // Fling from location
-                    case Container.Chest:
-                    case Container.GeoRock:
-                    case Container.GrubJar:
-                    default:
-                        if (!CheckVisitedAny(VisitState.Opened) && Location.flingType == FlingType.Everywhere)
-                        {
-                            ShinyUtility.FlingShinyRandomly(fsm);
-                        }
-                        else
-                        {
-                            ShinyUtility.FlingShinyDown(fsm);
-                        }
-                        fsm.gameObject.transform.Translate(new Vector3(0, 0, -0.1f));
-                        break;
-                }
-            }
         }
 
         public void GetContainer(AbstractLocation location, out GameObject obj, out string containerType)
@@ -105,17 +67,32 @@ namespace ItemChanger.Placements
             bool mustSupportCost = placement.Cost != null;
             bool mustSupportSceneChange = location.GetTags<Tags.ChangeSceneTag>().Any() || (placement as AbstractPlacement).GetTags<Tags.ChangeSceneTag>().Any();
 
+            HashSet<string> unsupported = new(((placement as AbstractPlacement)?.GetPlacementAndLocationTags() ?? Enumerable.Empty<Tag>())
+                .OfType<Tags.UnsupportedContainerTag>()
+                .Select(t => t.containerType));
+
             string containerType = items
                 .Select(i => i.GetPreferredContainer())
-                .FirstOrDefault(c => location.Supports(c) && Container.SupportsAll(c, true, mustSupportCost, mustSupportSceneChange));
+                .FirstOrDefault(c => location.Supports(c) && !unsupported.Contains(c) && Container.SupportsAll(c, true, mustSupportCost, mustSupportSceneChange));
 
             if (string.IsNullOrEmpty(containerType))
             {
-                if (mustSupportCost || mustSupportSceneChange || items.Count() == 1) containerType = Container.Shiny;
+                if (((placement as AbstractPlacement)?.GetPlacementAndLocationTags() ?? Enumerable.Empty<Tag>())
+                    .OfType<Tags.PreferredDefaultContainerTag>().FirstOrDefault() is Tags.PreferredDefaultContainerTag t
+                    && Container.SupportsAll(t.containerType, true, mustSupportCost, mustSupportSceneChange))
+                {
+                    containerType = t.containerType;
+                }
+                else if (mustSupportCost || mustSupportSceneChange || items.Count() == 1) containerType = Container.Shiny;
                 else containerType = Container.Chest;
             }
 
             return containerType;
+        }
+
+        public override IEnumerable<Tag> GetPlacementAndLocationTags()
+        {
+            return base.GetPlacementAndLocationTags().Concat(Location.tags ?? Enumerable.Empty<Tag>());
         }
     }
 }

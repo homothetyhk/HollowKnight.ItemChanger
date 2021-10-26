@@ -26,6 +26,7 @@ namespace ItemChanger.Containers
 
         public override string Name => Container.Totem;
         public override bool SupportsInstantiate => ObjectCache.SoulTotemPreloader.PreloadLevel != PreloadLevel.None;
+        public override bool SupportsDrop => true;
 
         public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
         {

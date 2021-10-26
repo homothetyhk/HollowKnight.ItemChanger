@@ -69,6 +69,14 @@ namespace ItemChanger
         DirectDeposit
     }
 
+    public enum ShinyFling
+    {
+        Down,
+        Left,
+        Right,
+        RandomLR,
+    }
+
     public enum PlacementConflictResolution
     {
         /// <summary>

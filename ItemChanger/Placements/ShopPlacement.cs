@@ -133,5 +133,10 @@ namespace ItemChanger.Placements
             if (itemType == null) return true; // unrecognized items are kept by default
             return (itemType & defaultShopItems) == itemType;
         }
+
+        public override IEnumerable<Tag> GetPlacementAndLocationTags()
+        {
+            return base.GetPlacementAndLocationTags().Concat(Location.tags ?? Enumerable.Empty<Tag>());
+        }
     }
 }

@@ -107,5 +107,12 @@ namespace ItemChanger.Placements
             if (cl == null) return;
             containerType = MutablePlacement.ChooseContainerType(this, cl, Items); // container type already failed the initial test
         }
+
+        public override IEnumerable<Tag> GetPlacementAndLocationTags()
+        {
+            return base.GetPlacementAndLocationTags()
+                .Concat(falseLocation.tags ?? Enumerable.Empty<Tag>())
+                .Concat(trueLocation.tags ?? Enumerable.Empty<Tag>());
+        }
     }
 }

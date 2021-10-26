@@ -394,12 +394,12 @@ namespace ItemChanger.Locations
             particles.GetFirstActionOfType<Wait>().time = 0.2f;
             FsmState bob = fsm.GetState("Bob");
             bob.Actions = new[] { bob.Actions[0], bob.Actions[1] };
-            FsmState reset = fsm.GetState("Reset");
-            bob.Transitions[0].SetToState(reset);
+            FsmState specialType = fsm.GetState("Special Type?");
+            bob.Transitions[0].SetToState(specialType);
 
-            FsmState thankFade = fsm.GetState("Thank Fade");
-            thankFade.GetFirstActionOfType<SendEventByName>().sendEvent.Value = "DOWN INSTANT";
-            thankFade.GetFirstActionOfType<Wait>().time = 0.01f;
+            //FsmState thankFade = fsm.GetState("Thank Fade");
+            //thankFade.GetFirstActionOfType<SendEventByName>().sendEvent.Value = "DOWN INSTANT";
+            //thankFade.GetFirstActionOfType<Wait>().time = 0.01f;
         }
 
         private void HastenUIList(PlayMakerFSM fsm)

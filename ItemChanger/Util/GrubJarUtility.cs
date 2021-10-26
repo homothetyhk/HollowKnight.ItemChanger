@@ -88,10 +88,9 @@ namespace ItemChanger.Util
             shatter.RemoveActionsOfType<IncrementPlayerDataInt>();
             shatter.RemoveActionsOfType<SendMessage>();
 
-            FsmStateAction checkAction = new DelegateBoolTest(
+            init.AddFirstAction(new DelegateBoolTest(
                 () => placement.CheckVisitedAny(VisitState.Opened),
-                "ACTIVATE", null);
-            init.AddFirstAction(checkAction);
+                "ACTIVATE", null));
 
             GameObject itemParent = new GameObject("item");
             itemParent.transform.SetParent(jar.transform);
@@ -100,20 +99,15 @@ namespace ItemChanger.Util
             itemParent.SetActive(true);
 
             shatter.AddFirstAction(new DelegateBoolTest(() => CheckIfLanded(jar), null, "CANCEL"));
-            activate.AddFirstAction(new Lambda(() =>
-            {
-                itemParent.transform.SetParent(null);
-            }));
+            shatter.AddLastAction(new Lambda(InstantiateShiniesAndGiveEarly));
 
+            activate.AddFirstAction(new Lambda(() => itemParent.transform.SetParent(null)));
             activate.GetFirstActionOfType<DestroyAllChildren>().gameObject.Value = jar; // the target is null otherwise for some reason??
-
-            FsmStateAction giveItems = new Lambda(InstantiateShiniesAndGiveEarly);
-            shatter.AddLastAction(giveItems);
-            activate.AddLastAction(giveItems);
+            activate.AddLastAction(new Lambda(OnAlreadyBroken));
 
             void InstantiateShiniesAndGiveEarly()
             {
-                GiveInfo info = new GiveInfo
+                GiveInfo info = new()
                 {
                     Container = Container.GrubJar,
                     FlingType = flingType,
@@ -133,12 +127,30 @@ namespace ItemChanger.Util
                         {
                             GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
                             ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                            if (flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                            else ShinyUtility.FlingShinyDown(shiny.LocateFSM("Shiny Control"));
                         }
                     }
                 }
 
                 foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
                 placement.AddVisitFlag(VisitState.Opened);
+            }
+
+            void OnAlreadyBroken()
+            {
+                foreach (AbstractItem item in items)
+                {
+                    if (!item.IsObtained())
+                    {
+                        GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
+                        ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                        if (flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                        else ShinyUtility.FlingShinyDown(shiny.LocateFSM("Shiny Control"));
+                    }
+                }
+
+                foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
             }
         }
 

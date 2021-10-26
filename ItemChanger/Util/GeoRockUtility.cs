@@ -94,14 +94,6 @@ namespace ItemChanger.Util
 
             GeoRockSubtype rockType = rock.GetComponent<GeoRockInfo>()?.type ?? GeoRockSubtype.Default;
             rock.transform.position += Vector3.up * (GetElevation(rockType) - elevation);
-            
-            /*
-            if (rockType == GeoRockSubtype.Outskirts420)
-            {
-                var t = rock.transform;
-                t.localScale = new Vector3(t.localScale.x * 0.5f, t.localScale.y * 0.5f, t.localScale.z);
-            }
-            */
 
             rock.SetActive(target.activeSelf);
         }
@@ -121,38 +113,35 @@ namespace ItemChanger.Util
             FsmState payout = rockFsm.GetState("Destroy");
             FsmState broken = rockFsm.GetState("Broken");
 
-            FsmStateAction checkAction = new DelegateBoolTest(
-                () => placement.CheckVisitedAny(VisitState.Opened),
-                "BROKEN", null);
 
             init.RemoveActionsOfType<IntCompare>();
-            init.AddLastAction(checkAction);
+            init.AddLastAction(new DelegateBoolTest(
+                () => placement.CheckVisitedAny(VisitState.Opened),
+                "BROKEN", null));
 
             idle.RemoveActionsOfType<SetPosition>(); // otherwise the rock warps back after falling
 
             hit.ClearTransitions();
-            hit.Actions = new[] { new DelegateBoolTest(() => CheckRigidBodyStatus(rockFsm.gameObject), "HIT", "FINISHED") };
+            hit.Actions = new[] { new DelegateBoolTest(() => CheckIfLanded(rockFsm.gameObject), "HIT", "FINISHED") };
             hit.AddTransition("HIT", "Pause Frame");
             hit.AddTransition("FINISHED", "Idle");
-            //hit.RemoveActionsOfType<FlingObjectsFromGlobalPool>();
 
             var payoutAction = payout.GetFirstActionOfType<FlingObjectsFromGlobalPool>();
             payoutAction.spawnMin.Value = 0;
             payoutAction.spawnMax.Value = 0;
 
-            GameObject itemParent = new GameObject("item");
+            GameObject itemParent = new("item");
             itemParent.transform.SetParent(rock.transform);
             itemParent.transform.position = rock.transform.position;
             itemParent.transform.localPosition = Vector3.zero;
             itemParent.SetActive(true);
 
-            FsmStateAction giveItems = new Lambda(InstantiateShiniesAndGiveEarly);
-            payout.AddLastAction(giveItems);
-            broken.AddLastAction(giveItems);
+            payout.AddLastAction(new Lambda(InstantiateShiniesAndGiveEarly));
+            broken.AddLastAction(new Lambda(OnAlreadyBroken));
 
             void InstantiateShiniesAndGiveEarly()
             {
-                GiveInfo info = new GiveInfo
+                GiveInfo info = new()
                 {
                     Container = Container.GrubJar,
                     FlingType = flingType,
@@ -172,6 +161,8 @@ namespace ItemChanger.Util
                         {
                             GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
                             ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                            if (flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                            else ShinyUtility.FlingShinyDown(shiny.LocateFSM("Shiny Control"));
                         }
                     }
                 }
@@ -179,12 +170,28 @@ namespace ItemChanger.Util
                 foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
                 placement.AddVisitFlag(VisitState.Opened);
             }
+
+            void OnAlreadyBroken()
+            {
+                foreach (AbstractItem item in items)
+                {
+                    if (!item.IsObtained())
+                    {
+                        GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
+                        ShinyUtility.PutShinyInContainer(itemParent, shiny);
+                        if (flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                        else ShinyUtility.FlingShinyDown(shiny.LocateFSM("Shiny Control"));
+                    }
+                }
+
+                foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
+            }
         }
 
-        public static bool CheckRigidBodyStatus(GameObject rock)
+        public static bool CheckIfLanded(GameObject rock)
         {
-            Rigidbody2D rb = rock.GetComponent<Rigidbody2D>();
-            return !rb || (rb.constraints & RigidbodyConstraints2D.FreezePositionY) == RigidbodyConstraints2D.FreezePositionY;
+            DropIntoPlace dp = rock.GetComponent<DropIntoPlace>();
+            return !dp || dp.Landed;
         }
     }
 }
