@@ -23,14 +23,14 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             base.OnLoad();
             Events.AddFsmEdit(sceneName, new("Witch Control", "Control"), RemoveSetCollider);
-            Events.AddFsmEdit(sceneName, new("Shiny Control"), EditShiny);
+            //Events.AddFsmEdit(sceneName, new("Shiny Control"), EditShiny);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
             Events.RemoveFsmEdit(sceneName, new("Witch Control", "Control"), RemoveSetCollider);
-            Events.RemoveFsmEdit(sceneName, new("Shiny Control"), EditShiny);
+            //Events.RemoveFsmEdit(sceneName, new("Shiny Control"), EditShiny);
         }
 
         private void RemoveSetCollider(PlayMakerFSM fsm)
@@ -38,7 +38,8 @@ namespace ItemChanger.Locations.SpecialLocations
             fsm.GetState("Convo Ready").RemoveActionsOfType<SetCollider>(); // not important, but prevents null ref unity logs after destroying Moth NPC object
         }
 
-        // TODO: implement this to be compatible with Container and to not use WorldEvent
+        /*
+         * Moved to tag
         private void EditShiny(PlayMakerFSM fsm)
         {
             fsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
@@ -48,5 +49,6 @@ namespace ItemChanger.Locations.SpecialLocations
                 HeroController.instance.proxyFSM.FsmVariables.GetFsmBool("No Charms").Value = false;
             }));
         }
+        */
     }
 }

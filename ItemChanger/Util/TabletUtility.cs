@@ -102,6 +102,8 @@ namespace ItemChanger.Util
 
         public static void ModifyTablet(PlayMakerFSM inspectFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
+            AddItemParticles(inspectFsm.gameObject, placement, items);
+
             if (inspectFsm.FsmName == "Inspection")
             {
                 FsmState init = inspectFsm.GetState("Init");
@@ -199,11 +201,27 @@ namespace ItemChanger.Util
             }
         }
 
+        public static void AddItemParticles(GameObject parent, AbstractPlacement placement, IEnumerable<AbstractItem> items)
+        {
+            Tags.TabletParticleControlTag tpct = placement.GetPlacementAndLocationTags().OfType<Tags.TabletParticleControlTag>().FirstOrDefault();
+            if (tpct == null || !tpct.forceDisableParticles)
+            {
+                var ip = parent.AddComponent<ItemParticles>();
+                ip.items = items;
+                Vector3 offset = Vector3.zero;
+                if (tpct != null) offset += new Vector3(tpct.offsetX, tpct.offsetY, tpct.offsetZ);
+                if (placement is Placements.ExistingContainerPlacement ecp)
+                {
+                    offset.y -= ecp.Location.elevation;
+                }
+                ip.offset = offset;
+            }
+        }
+
+
         public static string GetTabletName(AbstractPlacement placement)
         {
             return $"Lore Tablet-{placement.Name}";
         }
-
-
     }
 }

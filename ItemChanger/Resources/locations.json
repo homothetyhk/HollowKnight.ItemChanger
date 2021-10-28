@@ -185,7 +185,15 @@
     "name": "Dream_Nail",
     "sceneName": "Dream_Nailcollection",
     "flingType": "DirectDeposit",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ChangeSceneTag, ItemChanger",
+        "changeTo": {
+          "SceneName": "RestingGrounds_07",
+          "GateName": "door_dreamReturn"
+        }
+      }
+    ]
   },
   "Dream_Gate": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
@@ -645,11 +653,9 @@
     "tags": null
   },
   "Queen_Fragment": {
-    "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.QueenFragmentLocation, ItemChanger",
     "objectName": "Shiny Item RoyalCharm",
-    "fsmName": "Shiny Control",
-    "containerType": "Shiny",
-    "nonreplaceable": false,
+    "forceShiny": false,
     "elevation": 0.0,
     "name": "Queen_Fragment",
     "sceneName": "Room_Queen",
@@ -861,16 +867,19 @@
     "HintActive": true
   },
   "Collector's_Map": {
-    "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Shiny Item CollectorMap",
-    "fsmName": "Shiny Control",
-    "containerType": "Shiny",
-    "nonreplaceable": false,
-    "elevation": -0.1,
+    "forceShiny": false,
+    "elevation": 0.0,
     "name": "Collector's_Map",
     "sceneName": "Ruins2_11",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ShinyFlingTag, ItemChanger",
+        "fling": "None"
+      }
+    ]
   },
   "Mask_Shard-Seer": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",

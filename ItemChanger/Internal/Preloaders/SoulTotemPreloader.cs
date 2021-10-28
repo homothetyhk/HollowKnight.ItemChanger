@@ -67,6 +67,15 @@ namespace ItemChanger.Internal.Preloaders
             return UObject.Instantiate(_soulTotems[GetPreloadedTotemType(t)]);
         }
 
+        public GameObject SoulParticles
+        {
+            get
+            {
+                if (PreloadLevel == PreloadLevel.None) throw NotPreloadedException();
+                return UObject.Instantiate(_soulTotems[SoulTotemSubtype.B].transform.Find("Soul Particles").gameObject);
+            }
+        }
+
         public SoulTotemSubtype GetPreloadedTotemType(SoulTotemSubtype t)
         {
             return _soulTotems.ContainsKey(t) ? t : SoulTotemSubtype.B;

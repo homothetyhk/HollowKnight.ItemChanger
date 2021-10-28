@@ -74,6 +74,10 @@ namespace ItemChanger.Util
             {
                 SetShinyFling(shiny.LocateFSM("Shiny Control"), sft.fling);
             }
+            else
+            {
+                SetShinyFling(shiny.LocateFSM("Shiny Control"), ShinyFling.Down);
+            }
 
             return shiny;
         }
@@ -131,6 +135,9 @@ namespace ItemChanger.Util
                 case ShinyFling.RandomLR:
                     FlingShinyRandomly(shinyFsm);
                     break;
+                case ShinyFling.None:
+                    DontFlingShiny(shinyFsm);
+                    break;
             }
         }
 
@@ -168,6 +175,7 @@ namespace ItemChanger.Util
 
             shinyFling.ClearTransitions();
             shinyFling.AddTransition(FsmEvent.Finished, flingRNG);
+            shinyFsm.FsmVariables.FindFsmBool("Fling On Start").Value = true;
         }
 
         public static void FlingShinyDown(PlayMakerFSM shinyFsm)
@@ -176,16 +184,28 @@ namespace ItemChanger.Util
             FsmState flingD = shinyFsm.GetState("Fling D");
             if (flingD == null)
             {
-                flingD = new(shinyFsm.GetState("Fling R"));
-                flingD.Name = "Fling D";
-                FlingObject flingObj = flingD.GetFirstActionOfType<FlingObject>();
-                flingObj.angleMin = flingObj.angleMax = 270;
-                flingObj.speedMin = flingObj.speedMax = 0.1f;
+                flingD = new(shinyFsm.Fsm)
+                {
+                    Actions = new FsmStateAction[]
+                    {
+                        new FlingObject
+                        {
+                            speedMin = 0.1f,
+                            speedMax = 0.1f,
+                            angleMin = 270f,
+                            angleMax = 270f,
+                            flungObject = new FsmOwnerDefault(){ OwnerOption = OwnerDefaultOption.UseOwner },
+                        },
+                    },
+                    Name = "Fling D",
+                };
+                flingD.AddTransition("FINISHED", "In Air");
                 shinyFsm.AddState(flingD);
             }
 
             fling.ClearTransitions();
             fling.AddTransition(FsmEvent.Finished, flingD);
+            shinyFsm.FsmVariables.FindFsmBool("Fling On Start").Value = true;
         }
 
         public static void FlingShinyLeft(PlayMakerFSM shinyFsm)
@@ -193,6 +213,7 @@ namespace ItemChanger.Util
             FsmState fling = shinyFsm.GetState("Fling?");
             fling.ClearTransitions();
             fling.AddTransition("FINISHED", "Fling L");
+            shinyFsm.FsmVariables.FindFsmBool("Fling On Start").Value = true;
         }
 
         public static void FlingShinyRight(PlayMakerFSM shinyFsm)
@@ -200,6 +221,16 @@ namespace ItemChanger.Util
             FsmState fling = shinyFsm.GetState("Fling?");
             fling.ClearTransitions();
             fling.AddTransition("FINISHED", "Fling R");
+            shinyFsm.FsmVariables.FindFsmBool("Fling On Start").Value = true;
+        }
+
+        public static void DontFlingShiny(PlayMakerFSM shinyFsm)
+        {
+            FsmState fling = shinyFsm.GetState("Fling?");
+            fling.ClearTransitions();
+            fling.AddTransition("FINISHED", "Idle");
+            shinyFsm.GetComponent<Rigidbody2D>().gravityScale = 0f;
+            shinyFsm.FsmVariables.FindFsmBool("Fling On Start").Value = false; // skip activating the shiny's trail and its gravity
         }
 
         public static void AddChangeSceneToShiny(PlayMakerFSM shinyFsm, Transition t)
@@ -210,6 +241,9 @@ namespace ItemChanger.Util
                 shinyFsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
                 {
                     PlayerData.instance.SetString(nameof(PlayerData.dreamReturnScene), t.SceneName);
+                    HeroController.instance.proxyFSM.FsmVariables.GetFsmBool("No Charms").Value = false;
+                        // fixes minion spawning issue after Dream Nail, Dreamers, etc
+                        // could extremely rarely be undesired, if the target scene is in Godhome
                 }));
             }
             else

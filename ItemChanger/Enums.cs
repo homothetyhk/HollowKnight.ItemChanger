@@ -75,6 +75,7 @@ namespace ItemChanger
         Left,
         Right,
         RandomLR,
+        None,
     }
 
     public enum PlacementConflictResolution

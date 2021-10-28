@@ -29,6 +29,8 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void EditConvo(PlayMakerFSM fsm)
         {
+            Util.TabletUtility.AddItemParticles(fsm.gameObject, Placement, Placement.Items);
+
             switch (sceneName)
             {
                 default:

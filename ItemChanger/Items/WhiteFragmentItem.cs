@@ -26,7 +26,6 @@ namespace ItemChanger.Items
             {
                 PlayerData.instance.SetBool(nameof(PlayerData.gotShadeCharm), true);
                 PlayerData.instance.SetInt(nameof(PlayerData.charmCost_36), 0);
-                PlayerData.instance.EquipCharm(36);
                 PlayerData.instance.SetBool(nameof(PlayerData.equippedCharm_36), true);
                 if (!PlayerData.instance.equippedCharms.Contains(36)) PlayerData.instance.equippedCharms.Add(36);
             }

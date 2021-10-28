@@ -105,5 +105,6 @@ namespace ItemChanger.Internal
         public static GameObject LoreTablet => CorePreloader.LoreTablet;
         public static GameObject GeoRock(GeoRockSubtype t) => GeoRockPreloader.GeoRock(t);
         public static GameObject SoulTotem(SoulTotemSubtype t) => SoulTotemPreloader.SoulTotem(t);
+        public static GameObject SoulParticles => SoulTotemPreloader.SoulParticles;
     }
 }
