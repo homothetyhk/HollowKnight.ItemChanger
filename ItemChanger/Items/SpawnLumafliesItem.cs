@@ -28,7 +28,7 @@ namespace ItemChanger.Items
             if (t == null) return;
 
             GameObject lumafly = Internal.ObjectCache.LumaflyEscape;
-            lumafly.transform.position = t.position - 5 * Vector3.up;
+            lumafly.transform.position = new(t.position.x, t.position.y, t.position.z - 5);
             lumafly.SetActive(true);
         }
     }

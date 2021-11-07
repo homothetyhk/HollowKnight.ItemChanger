@@ -3063,10 +3063,11 @@
     "obtainState": "Unobtained"
   },
   "Charm_Notch": {
-    "$type": "ItemChanger.Items.IntItem, ItemChanger",
+    "$type": "ItemChanger.Items.NotchItem, ItemChanger",
     "fieldName": "charmSlots",
     "amount": 1,
     "name": "Charm_Notch",
+    "refillHealth": true,
     "UIDef": {
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
       "name": {
@@ -4592,7 +4593,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_CROSSROADS",
+        "key": "MAP_DESC_CROSSROADS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4616,7 +4617,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_GREENPATH",
+        "key": "MAP_DESC_GREENPATH",
         "sheet": "UI"
       },
       "sprite": {
@@ -4640,7 +4641,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_FOG_CANYON",
+        "key": "MAP_DESC_FOG_CANYON",
         "sheet": "UI"
       },
       "sprite": {
@@ -4664,7 +4665,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_FUNGAL_WASTES",
+        "key": "MAP_DESC_FUNGAL_WASTES",
         "sheet": "UI"
       },
       "sprite": {
@@ -4688,7 +4689,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_DEEPNEST",
+        "key": "MAP_DESC_DEEPNEST",
         "sheet": "UI"
       },
       "sprite": {
@@ -4712,7 +4713,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_ABYSS",
+        "key": "MAP_DESC_ABYSS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4736,7 +4737,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_OUTSKIRTS",
+        "key": "MAP_DESC_OUTSKIRTS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4760,7 +4761,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_CITY",
+        "key": "MAP_DESC_CITY",
         "sheet": "UI"
       },
       "sprite": {
@@ -4784,7 +4785,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_WATERWAYS",
+        "key": "MAP_DESC_WATERWAYS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4808,7 +4809,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_CLIFFS",
+        "key": "MAP_DESC_CLIFFS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4832,7 +4833,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_MINES",
+        "key": "MAP_DESC_MINES",
         "sheet": "UI"
       },
       "sprite": {
@@ -4856,7 +4857,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_ROYAL_GARDENS",
+        "key": "MAP_DESC_ROYAL_GARDENS",
         "sheet": "UI"
       },
       "sprite": {
@@ -4880,7 +4881,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_MAP_DESC_RESTING_GROUNDS",
+        "key": "MAP_DESC_RESTING_GROUNDS",
         "sheet": "UI"
       },
       "sprite": {
@@ -5770,6 +5771,31 @@
       "sprite": {
         "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
         "key": "ShopIcons.Upslash"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Downslash": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "canDownslash",
+    "moduleName": "ItemChanger.Modules.SplitNail, ItemChanger",
+    "name": "Downslash",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "ITEMCHANGER_NAME_DOWNSLASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "ITEMCHANGER_DESC_DOWNSLASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Downslash"
       }
     },
     "tags": null,

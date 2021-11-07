@@ -23,8 +23,8 @@ namespace ItemChanger.Items
             PlayerData.instance.IntAdd(nameof(PlayerData.flamesCollected), 6);
             PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerSmall), true);
             PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerMed), true);
-            PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerSmall), 3);
-            PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerMed), 3);
+            PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerSmall), 0);
+            PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerMed), 0);
             PlayerData.instance.SetInt(nameof(PlayerData.grimmChildLevel), 2);
             GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
             {

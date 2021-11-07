@@ -17,6 +17,7 @@ namespace ItemChanger.Modules
         public bool canSideslashLeft { get; set; }
         public bool canSideslashRight { get; set; }
         public bool canUpslash { get; set; }
+        public bool canDownslash { get; set; }
 
         public override void Initialize()
         {
@@ -39,6 +40,7 @@ namespace ItemChanger.Modules
                 nameof(canSideslashLeft) => canSideslashLeft,
                 nameof(canSideslashRight) => canSideslashRight,
                 nameof(canUpslash) => canUpslash,
+                nameof(canDownslash) => canDownslash,
                 _ => value,
             };
         }
@@ -56,6 +58,9 @@ namespace ItemChanger.Modules
                 case nameof(canUpslash):
                     canUpslash = value;
                     break;
+                case nameof(canDownslash):
+                    canDownslash = value;
+                    break;
             }
             return value;
         }
@@ -67,7 +72,7 @@ namespace ItemChanger.Modules
                 Direction.upward => orig(self) && canUpslash,
                 Direction.leftward => orig(self) && canSideslashLeft,
                 Direction.rightward => orig(self) && canSideslashRight,
-                Direction.downward => orig(self),
+                Direction.downward => orig(self) && canDownslash,
                 _ => orig(self),
             };
         }

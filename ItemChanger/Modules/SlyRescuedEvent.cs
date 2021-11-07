@@ -20,7 +20,7 @@ namespace ItemChanger.Modules
     [DefaultModule]
     public class SlyRescuedEvent : Module
     {
-        public bool SlyRescued { get; private set; } = false;
+        public bool SlyRescued { get; set; } = false;
 
         public override void Initialize()
         {

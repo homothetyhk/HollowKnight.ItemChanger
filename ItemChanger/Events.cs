@@ -327,9 +327,9 @@ namespace ItemChanger
 
         private static void OnResetSemiPersistentItems(On.GameManager.orig_ResetSemiPersistentItems orig, GameManager self)
         {
-            orig(self);
             Ref.Settings.ResetSemiPersistentItems();
             OnSemiPersistentUpdate?.Invoke();
+            orig(self);
         }
 
         private static void DoOnEnterGame()

@@ -137,23 +137,17 @@ namespace ItemChanger.Containers
             pid.sceneName = fsm.gameObject.scene.name;
 
             FsmBool spawnedItems = fsm.AddFsmBool("Spawned Items", false);
-            FsmState firstHit = new(fsm.Fsm)
+            FsmState giveItems = new(fsm.Fsm)
             {
-                Name = "First Hit?",
+                Name = "Give Items",
                 Transitions = new[] { new FsmTransition { FsmEvent = FsmEvent.Finished, ToFsmState = hit, ToState = hit.Name, } },
                 Actions = new FsmStateAction[]
                 {
-                    new BoolTest
-                    {
-                        boolVariable = spawnedItems,
-                        isTrue = FsmEvent.Finished,
-                        isFalse = null,
-                    },
                     new Lambda(InstantiateShiniesAndGiveEarly),
                 },
             };
-            fsm.AddState(firstHit);
-            checkIfNail.Transitions.First(t => t.EventName == "DAMAGED").SetToState(firstHit);
+            fsm.AddState(giveItems);
+            checkIfNail.Transitions.First(t => t.EventName == "DAMAGED").SetToState(giveItems);
 
 
             bool shouldBeInfinite = info.items.OfType<SoulTotemItem>().Any(i => i.hitCount < 0);
@@ -244,7 +238,7 @@ namespace ItemChanger.Containers
                         {
                             item.Give(info.placement, gi);
                         }
-                        else
+                        else if (!spawnedItems.Value)
                         {
                             GameObject shiny = ShinyUtility.MakeNewShiny(info.placement, item, info.flingType);
                             ShinyUtility.PutShinyInContainer(itemParent, shiny);

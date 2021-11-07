@@ -62,9 +62,11 @@
   <entry sheet="UI" key="ITEMCHANGER_NAME_LEFTSLASH">Leftslash</entry>
   <entry sheet="UI" key="ITEMCHANGER_NAME_RIGHTSLASH">Rightslash</entry>
   <entry sheet="UI" key="ITEMCHANGER_NAME_UPSLASH">Upslash</entry>
+  <entry sheet="UI" key="ITEMCHANGER_NAME_DOWNSLASH">Downslash</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_LEFTSLASH">Your character seems pretty underpowered, huh. Let's fix that.</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_RIGHTSLASH">Your character seems pretty underpowered, huh. Let's fix that.</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_UPSLASH">Your character seems pretty underpowered, huh. Let's fix that.</entry>
+  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_DOWNSLASH">Your character seems pretty underpowered, huh. Let's fix that.</entry>
 
   <!--Split Claw-->
   <entry sheet="UI" key="ITEMCHANGER_NAME_LEFT_CLAW">Left Mantis Claw</entry>
