@@ -40,7 +40,7 @@ namespace ItemChanger.Modules
             recheck.AddTransition("FINISHED", activateReward);
 
             FsmInt geoTotal = fsm.AddFsmInt("Geo Total", 0);
-            allGiven.AddLastAction(new FlingGeoAction(fsm.gameObject, geoTotal, true));
+            allGiven.AddLastAction(new FlingGeoAction(fsm.gameObject, geoTotal, true, true));
 
             activateReward.Actions = new[]
             {
@@ -55,18 +55,22 @@ namespace ItemChanger.Modules
             public override void OnEnter()
             {
                 int rewardNum = Fsm.GetFsmInt("Rewards Given").Value;
-                GameObject rewardsParent = Fsm.GameObject.FindChild("Rewards Parent");
-                if (rewardsParent == null) return;
-                GameObject grubReward = rewardsParent.FindChild($"Reward {rewardNum}");
-                if (grubReward == null) return;
+                GameObject rewardsParent = Fsm.GetFsmGameObject("Rewards Parent").Value;
 
-                if (grubReward.gameObject.LocateFSM("grub_reward_geo") is PlayMakerFSM geoFsm && geoFsm != null && geoFsm.FsmVariables.FindFsmInt("Geo") is FsmInt geoInt)
+                if (rewardsParent)
                 {
-                    Fsm.GetFsmInt("Geo Total").Value += geoInt.Value;
-                }
-                else
-                {
-                    Fsm.BroadcastEventToGameObject(grubReward.gameObject, "GIVE", sendToChildren: false, excludeSelf: true);
+                    GameObject grubReward = rewardsParent.FindChild($"Reward {rewardNum}");
+                    if (grubReward)
+                    {
+                        if (grubReward.gameObject.LocateFSM("grub_reward_geo") is PlayMakerFSM geoFsm && geoFsm != null && geoFsm.FsmVariables.FindFsmInt("Geo") is FsmInt geoInt)
+                        {
+                            Fsm.GetFsmInt("Geo Total").Value += geoInt.Value;
+                        }
+                        else
+                        {
+                            Fsm.BroadcastEventToGameObject(grubReward.gameObject, "GIVE", sendToChildren: false, excludeSelf: true);
+                        }
+                    }
                 }
 
                 Finish();

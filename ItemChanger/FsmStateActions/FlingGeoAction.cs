@@ -17,14 +17,56 @@ namespace ItemChanger.FsmStateActions
 
         private readonly GameObject _gameObject;
         private readonly bool _minimize;
+        private readonly bool _normalizeZ;
         private FsmInt _amount;
 
-        public FlingGeoAction(GameObject baseObj, FsmInt amount, bool minimizeObjects = false)
+        public FlingGeoAction(GameObject baseObj, FsmInt amount, bool minimizeObjects = false, bool normalizeZ = true)
         {
             _amount = amount;
             _gameObject = baseObj;
             _minimize = minimizeObjects;
+            _normalizeZ = normalizeZ;
         }
+
+        public static void SpawnGeo(int _count, bool _minimize, FlingType fling, Vector3 position)
+        {
+            int smallNum;
+            int medNum;
+            int largeNum;
+
+            if (!_minimize)
+            {
+                Random random = new();
+
+                smallNum = random.Next(0, _count / 10);
+                _count -= smallNum;
+                largeNum = random.Next(_count / (GEO_VALUE_LARGE * 2), _count / GEO_VALUE_LARGE + 1);
+                _count -= largeNum * GEO_VALUE_LARGE;
+                medNum = _count / GEO_VALUE_MEDIUM;
+                _count -= medNum * 5;
+                smallNum += _count;
+            }
+            else
+            {
+                largeNum = _count / GEO_VALUE_LARGE;
+                _count -= largeNum * GEO_VALUE_LARGE;
+                medNum = _count / GEO_VALUE_MEDIUM;
+                _count -= medNum * GEO_VALUE_MEDIUM;
+                smallNum = _count;
+            }
+
+            SpawnGeo(smallNum, medNum, largeNum, fling, position);
+        }
+
+        public static void SpawnGeo(int smallNum, int medNum, int largeNum, FlingType fling, Vector3 position)
+        {
+            GameObject flingSource = new("Geo Fling source");
+            flingSource.transform.position = position;
+            Transform transform = flingSource.transform;
+
+            SpawnGeo(smallNum, medNum, largeNum, fling, transform, false);
+        }
+
 
         public static void SpawnGeo(int _count, bool _minimize, FlingType fling, Transform _transform, bool normalizeZ = true)
         {
@@ -79,7 +121,7 @@ namespace ItemChanger.FsmStateActions
                 AngleMax = 115f
             };
 
-            Vector3 offset = normalizeZ ? Vector3.back * transform.position.z : Vector3.zero;
+            Vector3 offset = normalizeZ ? Vector3.back * (transform.position.z) : Vector3.zero;
 
             if (fling == FlingType.StraightUp)
             {
@@ -173,6 +215,8 @@ namespace ItemChanger.FsmStateActions
                 AngleMax = 115f
             };
 
+            Vector3 offset = _normalizeZ ? Vector3.back * (_gameObject.transform.position.z) : Vector3.zero;
+
             // Special case for thorns of agony, spore shroom, flukenest to stop geo from flying into unreachable spots
             if (sceneName == SceneNames.Fungus1_14 || sceneName == SceneNames.Fungus2_20 ||
                 sceneName == SceneNames.Waterways_12)
@@ -185,21 +229,21 @@ namespace ItemChanger.FsmStateActions
             {
                 flingConfig.Prefab = smallPrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = smallNum;
-                FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, offset);
             }
 
             if (medNum > 0)
             {
                 flingConfig.Prefab = mediumPrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = medNum;
-                FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, offset);
             }
 
             if (largeNum > 0)
             {
                 flingConfig.Prefab = largePrefab;
                 flingConfig.AmountMin = flingConfig.AmountMax = largeNum;
-                FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, _gameObject.transform, offset);
             }
 
             smallPrefab.SetActive(false);

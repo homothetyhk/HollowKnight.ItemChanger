@@ -3410,16 +3410,7 @@
     "name": "Resting_Grounds_Map",
     "sceneName": "RestingGrounds_09",
     "flingType": "Everywhere",
-    "tags": [
-      {
-        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
-        "Cost": {
-          "$type": "ItemChanger.GeoCost, ItemChanger",
-          "amount": 56
-        },
-        "Inherent": false
-      }
-    ]
+    "tags": null
   },
   "Dirtmouth_Stag": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
