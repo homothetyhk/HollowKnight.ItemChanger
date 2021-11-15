@@ -41,7 +41,7 @@ namespace ItemChanger
 
         public override int GetHashCode()
         {
-            return SceneName.GetHashCode() + 31 * GateName.GetHashCode();
+            return SceneName.GetHashCode() + 31 * (GateName?.GetHashCode() ?? 0);
         }
 
         public bool Equals(Transition t)

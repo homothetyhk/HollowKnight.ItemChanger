@@ -25,7 +25,7 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             base.OnLoad();
             Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
-            Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
+            //Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
             Events.AddLanguageEdit(new("Prompts", GetTrialBoardConvo()), OnLanguageGet);
         }
 
@@ -33,10 +33,11 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             base.OnUnload();
             Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
-            Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
+            //Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
             Events.RemoveLanguageEdit(new("Prompts", GetTrialBoardConvo()), OnLanguageGet);
         }
 
+        /*
         private void SkipColoForTesting(PlayMakerFSM fsm)
         {
             // For testing only! Skip to end after first wave.
@@ -44,6 +45,7 @@ namespace ItemChanger.Locations.SpecialLocations
             wave1.ClearTransitions();
             wave1.AddTransition("WAVE END", "End");
         }
+        */
 
         private void ChangeColoEnd(PlayMakerFSM fsm)
         {

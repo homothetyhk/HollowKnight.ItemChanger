@@ -13,7 +13,11 @@ namespace ItemChanger.Items
         public override void GiveImmediate(GiveInfo info)
         {
             base.GiveImmediate(info);
-            if (refillHealth) PlayMakerFSM.BroadcastEvent("HERO HEALED FULL");
+            if (refillHealth)
+            {
+                HeroController.instance.CharmUpdate();
+                EventRegister.SendEvent("UPDATE BLUE HEALTH");
+            }
             GameManager.instance.RefreshOvercharm();
         }
     }

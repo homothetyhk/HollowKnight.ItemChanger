@@ -43,10 +43,20 @@ namespace ItemChanger
         /// <summary>
         /// Adds or overwrites the container definition in the internal dictionary.
         /// </summary>
-        public static void DefineContainer(string containerType, Container container)
+        public static void DefineContainer(Container container)
         {
-            _containers[containerType] = container;
+            _containers[container.Name] = container;
         }
+
+        /// <summary>
+        /// Adds or overwrites the container definition in the internal dictionary.
+        /// </summary>
+        public static Container DefineContainer<T>() where T : Container, new()
+        {
+            Container c = new T();
+            return _containers[c.Name] = c;
+        }
+
 
         private static Dictionary<string, Container> _containers;
         internal static void ResetContainers()

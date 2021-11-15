@@ -34,8 +34,15 @@ namespace ItemChanger.Modules
             Events.RemoveFsmEdit(SceneNames.Abyss_06_Core, new("floor_closed", "Disappear"), FixReverseBirthplace);
         }
 
+        /// <summary>
+        /// Fixes targeted at Transitions in this collection will be ignored.
+        /// </summary>
+        public HashSet<Transition> ExcludedTransitionFixes = new();
+
         private void OnBeginSceneTransition(Transition t)
         {
+            if (ExcludedTransitionFixes.Contains(t)) return;
+
             switch (t.SceneName)
             {
                 case SceneNames.Tutorial_01:
@@ -335,7 +342,7 @@ namespace ItemChanger.Modules
                         SD.Save("Ruins1_31", "Ruins Lever");
                     }
                     break;
-                case "Ruins1_31b":
+                case SceneNames.Ruins1_31b:
                     if (t.GateName == "right1")
                     {
                         SD.Save("Ruins1_31", "Ruins Lever");
@@ -372,7 +379,7 @@ namespace ItemChanger.Modules
                         SD.Save("Ruins_Bathhouse", "Breakable Wall");
                     }
                     break;
-                case "Ruins2_11_b":
+                case SceneNames.Ruins2_11_b:
                     if (t.GateName == "left1")
                     {
                         PlayerData.instance.SetBool(nameof(PlayerData.openedLoveDoor), true);
@@ -478,7 +485,7 @@ namespace ItemChanger.Modules
 
         private void FixReverseBlueDoor(PlayMakerFSM fsm)
         {
-            if (GameManager.instance.entryGateName != "left1") return;
+            if (GameManager.instance.entryGateName != "left1" || ExcludedTransitionFixes.Contains(new(SceneNames.Abyss_06_Core, "left1"))) return;
 
             FsmState init = fsm.GetState("Init");
             FsmState opened = fsm.GetState("Opened");
@@ -491,7 +498,7 @@ namespace ItemChanger.Modules
 
         private void FixReverseBirthplace(PlayMakerFSM fsm)
         {
-            if (GameManager.instance.entryGateName != "bot1") return;
+            if (GameManager.instance.entryGateName != "bot1" || ExcludedTransitionFixes.Contains(new(SceneNames.Abyss_06_Core, "bot1"))) return;
             PlayerData.instance.SetBool(nameof(PlayerData.openedBlackEggPath), true);
 
             // route the floor closed fsm to deactivate regardless of whether charm 36 is equipped
@@ -501,88 +508,80 @@ namespace ItemChanger.Modules
 
         private void OnSceneChange(Scene newScene)
         {
-            switch (newScene.name)
+            Transition t = new(newScene.name, GameManager.instance.entryGateName);
+            if (ExcludedTransitionFixes.Contains(t)) return;
+
+            switch (t.SceneName)
             {
                 case SceneNames.Crossroads_03:
-                    if (GameManager.instance.entryGateName.StartsWith("bot1"))
+                    if (t.GateName.StartsWith("bot1"))
                     {
                         RemoveInfectedBlockades.DestroyBlockade_Crossroads_03(newScene);
                     }
                     break;
                 case SceneNames.Crossroads_06:
-                    if (GameManager.instance.entryGateName.StartsWith("right1"))
+                    if (t.GateName.StartsWith("right1"))
                     {
                         RemoveInfectedBlockades.DestroyBlockade_Crossroads_06(newScene);
                     }
                     break;
                 case SceneNames.Crossroads_10:
-                    if (GameManager.instance.entryGateName.StartsWith("left1"))
+                    if (t.GateName.StartsWith("left1"))
                     {
                         RemoveInfectedBlockades.DestroyBlockade_Crossroads_10(newScene);
                     }
                     break;
                 case SceneNames.Crossroads_19:
-                    if (GameManager.instance.entryGateName.StartsWith("top1"))
+                    if (t.GateName.StartsWith("top1"))
                     {
                         RemoveInfectedBlockades.DestroyBlockade_Crossroads_19(newScene);
                     }
                     break;
                 case SceneNames.Deepnest_41:
-                    if (GameManager.instance.entryGateName.StartsWith("left1"))
+                    if (t.GateName.StartsWith("left1"))
                     {
-                        foreach (Transform t in newScene.FindGameObject("Collapser Small (2)").transform.Find("floor1"))
+                        foreach (Transform u in newScene.FindGameObject("Collapser Small (2)").transform.Find("floor1"))
                         {
-                            if (t.name.StartsWith("msk")) UObject.Destroy(t.gameObject);
+                            if (u.name.StartsWith("msk")) UObject.Destroy(u.gameObject);
                         }
                     }
                     break;
                 case SceneNames.Deepnest_East_02:
-                    if (GameManager.instance.entryGateName.StartsWith("bot2"))
+                    if (t.GateName.StartsWith("bot2"))
                     {
-                        foreach (Transform t in newScene.FindGameObject("Quake Floor/Active").transform)
+                        foreach (Transform u in newScene.FindGameObject("Quake Floor/Active").transform)
                         {
-                            if (t.name.StartsWith("msk")) UObject.Destroy(t.gameObject);
+                            if (u.name.StartsWith("msk")) UObject.Destroy(u.gameObject);
                         }
                     }
                     break;
                 case SceneNames.Fungus2_15:
-                    if (GameManager.instance.entryGateName.StartsWith("left"))
+                    if (t.GateName.StartsWith("left"))
                     {
                         UObject.Destroy(newScene.FindGameObject("deepnest_mantis_gate").FindChild("Collider"));
                         UObject.Destroy(newScene.FindGameObject("deepnest_mantis_gate"));
                     }
                     break;
                 case SceneNames.Fungus2_25:
-                    if (GameManager.instance.entryGateName.StartsWith("right"))
+                    if (t.GateName.StartsWith("right"))
                     {
                         UObject.Destroy(newScene.FindGameObject("mantis_big_door"));
                     }
                     break;
                 case SceneNames.Ruins1_09:
-                    if (GameManager.instance.entryGateName.StartsWith("t"))
+                    if (t.GateName.StartsWith("t"))
                     {
                         UObject.Destroy(newScene.FindGameObject("Battle Gate"));
                         UObject.Destroy(newScene.FindGameObject("Battle Scene"));
                     }
                     break;
                 case SceneNames.Waterways_04:
-                    if (GameManager.instance.entryGateName.StartsWith("b"))
+                    if (t.GateName.StartsWith("b"))
                     {
-                        foreach (Transform t in newScene.FindGameObject("Quake Floor/Active").transform)
+                        foreach (Transform u in newScene.FindGameObject("Quake Floor/Active").transform)
                         {
-                            if (t.name.StartsWith("Mask")) t.gameObject.SetActive(false);
+                            if (u.name.StartsWith("Mask")) u.gameObject.SetActive(false);
                         }
-
-                        /*
-                        GameObject[] gs = UObject.FindObjectsOfType<GameObject>();
-                        foreach (GameObject g in gs)
-                        {
-                            if (g.name.StartsWith("Mask"))
-                            {
-                                g.SetActive(false);
-                            }
-                        }
-                        */
                     }
                     break;
                 case SceneNames.White_Palace_03_hub:
@@ -591,17 +590,6 @@ namespace ItemChanger.Modules
                         UObject.Destroy(newScene.FindGameObject("Progress Gate (1)"));
                         UObject.Destroy(newScene.FindGameObject("Progress Gate (2)"));
                         UObject.Destroy(newScene.FindGameObject("Progress Gate (3)"));
-
-                        /*
-                        GameObject[] gs = UObject.FindObjectsOfType<GameObject>();
-                        foreach (GameObject g in gs)
-                        {
-                            if (g.name.StartsWith("Progress"))
-                            {
-                                UObject.Destroy(g);
-                            }
-                        }
-                        */
                     }
                     break;
                 case SceneNames.White_Palace_06:
