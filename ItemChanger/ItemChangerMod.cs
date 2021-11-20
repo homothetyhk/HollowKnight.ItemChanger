@@ -34,6 +34,7 @@ namespace ItemChanger
                 if (SET == null) throw new NullReferenceException("ItemChanger hooked with null settings.");
                 if (_hooked) throw new InvalidOperationException("Attempted to rehook ItemChanger.");
                 _hooked = true;
+                LanguageStringManager.Hook();
                 Events.Hook();
                 DialogueCenter.Hook();
                 SceneDataUtil.Hook();
@@ -54,6 +55,7 @@ namespace ItemChanger
             {
                 if (!_hooked) throw new InvalidOperationException("Attempted to unhook ItemChanger before hooked.");
                 _hooked = false;
+                LanguageStringManager.Unhook();
                 Events.Unhook();
                 DialogueCenter.Unhook();
                 SceneDataUtil.Unhook();

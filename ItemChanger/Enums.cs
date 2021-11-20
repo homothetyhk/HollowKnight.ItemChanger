@@ -1,19 +1,43 @@
 ﻿namespace ItemChanger
 {
+    /// <summary>
+    /// Enum used to communicate compatibility with different UIDef types.
+    /// </summary>
     [Flags]
     public enum MessageType
     {
         None = 0,
+        /// <summary>
+        /// A message which shows a sprite and text in the bottom-left corner without taking control.
+        /// </summary>
         Corner = 1,
+        /// <summary>
+        /// A message which takes control and shows a fullscreen popup.
+        /// </summary>
         Big = 2,
+        /// <summary>
+        /// A message which takes control and starts a dialogue prompt.
+        /// </summary>
         Lore = 4,
         Any = Corner | Big | Lore,
     }
 
+    /// <summary>
+    /// Enum for the current state of an item, to determine whether it has been given and whether it is eligible to be given.
+    /// </summary>
     public enum ObtainState
     {
+        /// <summary>
+        /// The item has never been given, and is eligible to be given.
+        /// </summary>
         Unobtained,
+        /// <summary>
+        /// The item has been given, and is no longer eligible to be given.
+        /// </summary>
         Obtained,
+        /// <summary>
+        /// The item was previously given, but it has been refreshed and is reeligible to be given.
+        /// </summary>
         Refreshed
     }
 
@@ -44,35 +68,80 @@
         Special = 1 << 31,
     }
 
+    /// <summary>
+    /// Enum for controlling respawn behavior of items.
+    /// </summary>
     public enum Persistence
     {
+        /// <summary>
+        /// Indicates the item should not be respawned.
+        /// </summary>
         Single,
+        /// <summary>
+        /// Indicates the item should be respawned when the game resets semipersistent items (on bench, death, and a few world events).
+        /// </summary>
         SemiPersistent,
+        /// <summary>
+        /// Indicates the item should be respawned after any scene load.
+        /// </summary>
         Persistent,
     }
 
+    /// <summary>
+    /// Unused.
+    /// </summary>
     public enum DropType
     {
         Fling,
         StraightDown,
     }
 
+    /// <summary>
+    /// Enum for controlling how items (particularly geo) should be flung from a location.
+    /// </summary>
     public enum FlingType
     {
+        /// <summary>
+        /// Any fling behavior is acceptable.
+        /// </summary>
         Everywhere,
+        /// <summary>
+        /// Items should not be flung horizontally.
+        /// </summary>
         StraightUp,
+        /// <summary>
+        /// Items should not be flung at all.
+        /// </summary>
         DirectDeposit
     }
 
+    /// <summary>
+    /// Enum for controlling how a shiny should be flung when activated.
+    /// </summary>
     public enum ShinyFling
     {
+        /// <summary>
+        /// The shiny should fall straight down.
+        /// </summary>
         Down,
+        /// <summary>
+        /// The shiny should be flung to the left.
+        /// </summary>
         Left,
+        /// <summary>
+        /// The shiny should be flung to the right.
+        /// </summary>
         Right,
+        /// <summary>
+        /// The shiny should be flung to the left or right, randomly.
+        /// </summary>
         RandomLR,
         None,
     }
 
+    /// <summary>
+    /// Enum for controlling what should happen when a placement is added, and another placement with the same name already exists in settings.
+    /// </summary>
     public enum PlacementConflictResolution
     {
         /// <summary>
@@ -91,9 +160,15 @@
         /// Keep old placement, discard new placement
         /// </summary>
         Ignore,
+        /// <summary>
+        /// A duplicate placement will result in an ArgumentException.
+        /// </summary>
         Throw
     }
 
+    /// <summary>
+    /// Enum for adding special behvaior to the respawn marker tied to a StartDef.
+    /// </summary>
     [Flags]
     public enum SpecialStartEffects
     {
@@ -105,6 +180,9 @@
         Default = DelayedWake | ExtraInvincibility,
     }
 
+    /// <summary>
+    /// Enum used to refer to the different geo rock prefabs that are supported.
+    /// </summary>
     public enum GeoRockSubtype
     {
         Default,
@@ -123,6 +201,9 @@
         Outskirts420
     }
 
+    /// <summary>
+    /// Enum used to refer to the different soul totem prefabs that are supported.
+    /// </summary>
     public enum SoulTotemSubtype
     {
         A,
@@ -136,13 +217,28 @@
         PathOfPain
     }
 
+    /// <summary>
+    /// Enum for describing the text alignment and background of a lore tablet.
+    /// </summary>
     public enum TextType
     {
+        /// <summary>
+        /// Left-aligned text with a normal text box background.
+        /// </summary>
         LeftLore,         // Some lore tablets (the Lurien tablet) have their text left aligned
+        /// <summary>
+        /// Centered text with a normal text box background. Describes the majority of lore tablets.
+        /// </summary>
         Lore,             // Normal Lore tablet (text is top-centre - applies to most, but not all, of the tablets)
+        /// <summary>
+        /// Cenetered text with a special lore prompt background. Used by tablets in King's Pass, Howling Cliffs, Abyss, and Black Egg Temple.
+        /// </summary>
         MajorLore         // "Major" Lore tablet (bring up the lore background, etc)
     }
 
+    /// <summary>
+    /// Flags enum used to specify items that should not be removed from a shop by a ShopLocation.
+    /// </summary>
     [Flags]
     public enum DefaultShopItems
     {
@@ -167,6 +263,9 @@
         SalubraBlessing = 131072,
     }
 
+    /// <summary>
+    /// Flags enum used to specify a subset of rewards from the Seer.
+    /// </summary>
     [Flags]
     public enum SeerRewards
     {
@@ -195,6 +294,9 @@
         // Warning - enum representation chosen by ToString is not specified by c#
     }
 
+    /// <summary>
+    /// Flags enum used to specify a subset of rewards from Grubfather.
+    /// </summary>
     [Flags]
     public enum GrubfatherRewards : long
     {
@@ -256,7 +358,9 @@
         AllNonGeo = MaskShard | Grubsong | RancidEgg | HallownestSeal | PaleOre | KingsIdol | GrubberflysElegy,
     }
 
-
+    /// <summary>
+    /// Enum used to specify an operation for comparing two numbers.
+    /// </summary>
     public enum ComparisonOperator
     {
         Eq,

@@ -43,8 +43,13 @@ namespace ItemChanger.Internal
                 }
             }
             loaded = true;
+        }
+
+        internal static void Hook()
+        {
             ModHooks.LanguageGetHook += GetLanguageString;
         }
+
         internal static void Unhook()
         {
             ModHooks.LanguageGetHook -= GetLanguageString;

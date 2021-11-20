@@ -786,7 +786,7 @@
       "boolName": "killedPaleLurker"
     },
     "falseLocation": {
-      "$type": "ItemChanger.Locations.SpecialLocations.PaleLurkerDropLocation, ItemChanger",
+      "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",
       "objectName": "Lurker Control\\Pale Lurker",
       "removeGeo": false,
       "managed": false,
@@ -794,7 +794,16 @@
       "name": "Simple_Key-Lurker",
       "sceneName": "GG_Lurker",
       "flingType": "Everywhere",
-      "tags": null
+      "tags": [
+        {
+          "$type": "ItemChanger.Tags.DestroyFsmTag, ItemChanger",
+          "id": {
+            "FsmName": "Shiny Control",
+            "ObjectName": "Shiny Item Key"
+          },
+          "sceneName": "GG_Lurker"
+        }
+      ]
     },
     "trueLocation": {
       "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
@@ -3512,7 +3521,16 @@
     "name": "Resting_Grounds_Stag",
     "sceneName": "RestingGrounds_09",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyFsmTag, ItemChanger",
+        "id": {
+          "FsmName": "Switch Control",
+          "ObjectName": "Ruins Lever"
+        },
+        "sceneName": "RestingGrounds_09"
+      }
+    ]
   },
   "Distant_Village_Stag": {
     "$type": "ItemChanger.Locations.SpecialLocations.StagLocation, ItemChanger",

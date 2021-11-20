@@ -17,7 +17,6 @@ namespace ItemChanger.Locations.SpecialLocations
             if (sceneName == SceneNames.RestingGrounds_09)
             {
                 Events.AddFsmEdit(sceneName, new("Station Bell Lever", "Stag Bell"), EditStationBell);
-                Events.AddFsmEdit(sceneName, new("Ruins Lever", "Switch Control"), DestroyRestingGroundsLever);
             }
             else
             {
@@ -33,7 +32,6 @@ namespace ItemChanger.Locations.SpecialLocations
             if (sceneName == SceneNames.RestingGrounds_09)
             {
                 Events.RemoveFsmEdit(sceneName, new("Station Bell Lever", "Stag Bell"), EditStationBell);
-                Events.RemoveFsmEdit(sceneName, new("Switch Control", "Ruins Lever"), DestroyRestingGroundsLever);
             }
             else
             {
@@ -92,11 +90,6 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState init = fsm.GetState("Init");
             init.RemoveActionsOfType<PlayerDataBoolTest>();
             init.AddTransition("FINISHED", "Opened");
-        }
-
-        private void DestroyRestingGroundsLever(PlayMakerFSM fsm)
-        {
-            UnityEngine.Object.Destroy(fsm.gameObject);
         }
     }
 }
