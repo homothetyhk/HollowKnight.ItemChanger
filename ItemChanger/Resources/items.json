@@ -1030,7 +1030,7 @@
     "obtainState": "Unobtained"
   },
   "Cyclone_Slash": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "$type": "ItemChanger.Items.NailArtItem, ItemChanger",
     "fieldName": "hasCyclone",
     "setValue": true,
     "name": "Cyclone_Slash",
@@ -1080,7 +1080,7 @@
     "obtainState": "Unobtained"
   },
   "Dash_Slash": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "$type": "ItemChanger.Items.NailArtItem, ItemChanger",
     "fieldName": "hasUpwardSlash",
     "setValue": true,
     "name": "Dash_Slash",
@@ -1130,7 +1130,7 @@
     "obtainState": "Unobtained"
   },
   "Great_Slash": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "$type": "ItemChanger.Items.NailArtItem, ItemChanger",
     "fieldName": "hasDashSlash",
     "setValue": true,
     "name": "Great_Slash",
