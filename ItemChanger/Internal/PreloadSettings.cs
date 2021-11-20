@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using ItemChanger.Extensions;
 using Modding;
 using Newtonsoft.Json;
@@ -60,7 +57,7 @@ namespace ItemChanger.Internal
             if (propertyName == null || !_preloadOverrides.TryGetValue(propertyName, out PreloadLevel? pl)) throw new ArgumentException("Invalid preload override name.");
             if (pl.HasValue && pl.Value != value)
             {
-                ItemChangerMod.instance.LogWarn($"Incompatible overrides for preload setting {propertyName}. Replacing old override {pl} with new override {value}");
+                LogWarn($"Incompatible overrides for preload setting {propertyName}. Replacing old override {pl} with new override {value}");
             }
 
             _preloadOverrides[propertyName] = value;

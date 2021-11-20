@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GlobalEnums;
-using UnityEngine;
+﻿using GlobalEnums;
 #pragma warning disable IDE1006 // Naming Styles
 
 namespace ItemChanger.Modules

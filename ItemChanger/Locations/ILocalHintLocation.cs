@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ItemChanger.Locations
+﻿namespace ItemChanger.Locations
 {
     /// <summary>
     /// Interface for locations which support a nearby toggleable item preview.

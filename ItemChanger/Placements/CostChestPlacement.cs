@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HutongGames.PlayMaker;
+﻿using System.Text;
 using ItemChanger.FsmStateActions;
-using UnityEngine;
 using ItemChanger.Extensions;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.Locations;
 using ItemChanger.Util;
-using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Placements
 {

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Extensions;
-using ItemChanger.Util;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using ItemChanger.Util;
 
 namespace ItemChanger.Locations
 {

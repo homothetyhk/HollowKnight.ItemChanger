@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using HutongGames.PlayMaker;
-using HutongGames.PlayMaker.Actions;
-using ItemChanger.Components;
-using ItemChanger.FsmStateActions;
-using ItemChanger.Util;
+﻿using HutongGames.PlayMaker.Actions;
 using ItemChanger.Extensions;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 namespace ItemChanger.Components

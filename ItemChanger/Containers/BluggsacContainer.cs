@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HutongGames.PlayMaker;
-using ItemChanger.Components;
+﻿using ItemChanger.Components;
 using ItemChanger.Extensions;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Util;
-using UnityEngine;
 
 namespace ItemChanger.Containers
 {

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Internal;
-using UnityEngine;
-
-namespace ItemChanger.Items
+﻿namespace ItemChanger.Items
 {
     /// <summary>
     /// Item which spawns the specified amount of geo, and requests a geo rock container of the specified GeoRockSubtype.

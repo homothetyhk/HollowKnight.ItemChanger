@@ -1,8 +1,5 @@
 ﻿using System.Collections;
-using HutongGames.PlayMaker;
-using ItemChanger.Extensions;
 using ItemChanger.Internal;
-using UnityEngine;
 
 namespace ItemChanger.FsmStateActions
 {
@@ -29,7 +26,7 @@ namespace ItemChanger.FsmStateActions
         {
             GameObject soulPrefab = ObjectCache.SoulOrb;
             // Workaround because Spawn extension is slightly broken
-            Object.Destroy(soulPrefab.Spawn());
+            UObject.Destroy(soulPrefab.Spawn());
             soulPrefab.SetActive(true);
 
             FlingUtils.Config flingConfig = new()
@@ -57,7 +54,7 @@ namespace ItemChanger.FsmStateActions
         {
             GameObject soulPrefab = ObjectCache.SoulOrb;
             // Workaround because Spawn extension is slightly broken
-            Object.Destroy(soulPrefab.Spawn());
+            UObject.Destroy(soulPrefab.Spawn());
             soulPrefab.SetActive(true);
 
             FlingUtils.Config flingConfig = new()

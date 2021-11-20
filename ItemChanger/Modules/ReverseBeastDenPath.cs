@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
-
-namespace ItemChanger.Modules
+﻿namespace ItemChanger.Modules
 {
     /// <summary>
     /// Module which allows the deepest part of Beast's Den to be reached from the secret shortcut, by destroying the breakable floor above the grub.

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ItemChanger.Items
+﻿namespace ItemChanger.Items
 {
     /// <summary>
     /// Item designed to be compatible with Nailsmith upgrades and quest.

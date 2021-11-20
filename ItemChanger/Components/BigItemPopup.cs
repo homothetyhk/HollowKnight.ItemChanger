@@ -1,10 +1,6 @@
 ﻿using System.Collections;
 using Modding;
-using ItemChanger.Extensions;
-using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
-using System;
 using ItemChanger.Internal;
 using GlobalEnums;
 

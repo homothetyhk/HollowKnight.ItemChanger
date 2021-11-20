@@ -1,6 +1,4 @@
-﻿using UnityEngine.SceneManagement;
-using UnityEngine;
-using ItemChanger.Extensions;
+﻿using ItemChanger.Extensions;
 
 namespace ItemChanger.StartDefs
 {

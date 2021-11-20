@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UObject = UnityEngine.Object;
-using ItemChanger.Extensions;
+﻿using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {

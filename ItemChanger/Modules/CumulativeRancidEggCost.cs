@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ItemChanger.Modules
+﻿namespace ItemChanger.Modules
 {
     /// <summary>
     /// Subtractive rancid egg cost which adjusts for the number of eggs previously spent on this type of cost.

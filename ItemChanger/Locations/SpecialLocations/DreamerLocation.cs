@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using HutongGames.PlayMaker;
-using HutongGames.PlayMaker.Actions;
+﻿using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
-using ItemChanger.Util;
 using ItemChanger.Extensions;
-using UnityEngine.SceneManagement;
 using System.Reflection;
 
 namespace ItemChanger.Locations.SpecialLocations
@@ -49,7 +41,7 @@ namespace ItemChanger.Locations.SpecialLocations
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError(e);
+                LogError(e);
             }
         }
 
@@ -80,7 +72,7 @@ namespace ItemChanger.Locations.SpecialLocations
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError(e);
+                LogError(e);
             }
         }
 

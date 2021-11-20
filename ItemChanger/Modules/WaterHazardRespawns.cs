@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-namespace ItemChanger.Modules
+﻿namespace ItemChanger.Modules
 {
     /// <summary>
     /// Module which adds extra hazard respawn markers to rooms that ordinarily don't contain hazards, but do contain water which can become hazardous without Swim.

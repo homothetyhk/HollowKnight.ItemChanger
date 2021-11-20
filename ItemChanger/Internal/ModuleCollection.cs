@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using ItemChanger.Modules;
 using Module = ItemChanger.Modules.Module;
 
@@ -23,7 +18,7 @@ namespace ItemChanger.Internal
                 }
                 catch (Exception e)
                 {
-                    ItemChangerMod.instance.LogError($"Error initializing module {m.Name}:\n{e}");
+                    LogError($"Error initializing module {m.Name}:\n{e}");
                 }
             }
         }
@@ -38,7 +33,7 @@ namespace ItemChanger.Internal
                 }
                 catch (Exception e)
                 {
-                    ItemChangerMod.instance.LogError($"Error unloading module {m.Name}:\n{e}");
+                    LogError($"Error unloading module {m.Name}:\n{e}");
                 }
             }
         }
@@ -66,7 +61,7 @@ namespace ItemChanger.Internal
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Unable to instantiate module of type {T.Name} through reflection:\n{e}");
+                LogError($"Unable to instantiate module of type {T.Name} through reflection:\n{e}");
                 throw;
             }
         }

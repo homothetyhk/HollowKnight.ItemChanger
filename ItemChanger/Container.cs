@@ -1,9 +1,4 @@
 ﻿using ItemChanger.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
 using ItemChanger.Containers;
 
 namespace ItemChanger
@@ -150,7 +145,7 @@ namespace ItemChanger
                 var container = GetContainer(info.containerType);
                 if (container == null)
                 {
-                    ItemChangerMod.instance.LogError($"Unable to find Container definition for {info.containerType}!");
+                    LogError($"Unable to find Container definition for {info.containerType}!");
                     return;
                 }
                 // TODO: add fsmName check here

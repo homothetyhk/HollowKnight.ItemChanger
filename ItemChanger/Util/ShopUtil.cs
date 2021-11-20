@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
-using UnityEngine;
+﻿using System.Reflection;
 using TMPro;
-using ItemChanger.Extensions;
 using ItemChanger.Components;
 
 namespace ItemChanger.Util
@@ -76,17 +70,6 @@ namespace ItemChanger.Util
             self.stockInv = new GameObject[self.stock.Length];
             for (int i = 0; i < self.stock.Length; i++)
             {
-                /*
-                var stats = self.stock[i].GetComponent<ShopItemStats>();
-                ItemChanger.instance.Log($"Item {i}");
-                ItemChanger.instance.Log(stats.playerDataBoolName);
-                ItemChanger.instance.Log(stats.requiredPlayerDataBool);
-                ItemChanger.instance.Log(stats.removalPlayerDataBool);
-                ItemChanger.instance.Log(stats.nameConvo);
-                ItemChanger.instance.Log(stats.descConvo);
-                ItemChanger.instance.Log(stats.specialType);
-                */
-
                 if (ShopMenuItemAppears(self.stock[i]))
                 {
                     self.itemCount++;

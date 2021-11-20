@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ItemChanger.Extensions;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
@@ -44,9 +37,7 @@ namespace ItemChanger.Modules
 
         private void EditScene(Scene scene)
         {
-            GameObject counter = scene.FindGameObject("_Scenery/Shop Counter");
-            if (counter == null) ItemChangerMod.instance.Log("Unable to find counter!");
-            else counter.transform.Translate(new Vector2(closedOffset, 0f));
+            scene.FindGameObject("_Scenery/Shop Counter").transform.Translate(new Vector2(closedOffset, 0f));
         }
 
         private void EditBasementOpen(PlayMakerFSM fsm)

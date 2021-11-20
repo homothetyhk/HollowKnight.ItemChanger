@@ -1,12 +1,5 @@
 ﻿using ItemChanger.Components;
 using ItemChanger.Extensions;
-using ItemChanger.Util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {

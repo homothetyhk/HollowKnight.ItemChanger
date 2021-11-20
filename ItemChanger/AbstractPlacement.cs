@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
-using UnityEngine.SceneManagement;
+﻿using Newtonsoft.Json;
 
 namespace ItemChanger
 {
@@ -180,7 +175,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error invoking OnVisitStateChanged for placement {Name}:\n{e}");
+                LogError($"Error invoking OnVisitStateChanged for placement {Name}:\n{e}");
             }
         }
 

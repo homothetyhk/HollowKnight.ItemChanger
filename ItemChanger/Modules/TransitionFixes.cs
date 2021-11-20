@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HutongGames.PlayMaker;
-using ItemChanger.Extensions;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UObject = UnityEngine.Object;
+﻿using ItemChanger.Extensions;
 using SD = ItemChanger.Util.SceneDataUtil;
 
 namespace ItemChanger.Modules

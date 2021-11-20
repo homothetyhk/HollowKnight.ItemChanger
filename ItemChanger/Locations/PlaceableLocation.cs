@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-
-namespace ItemChanger.Locations
+﻿namespace ItemChanger.Locations
 {
     /// <summary>
     /// Base type for ContainerLocations which support receiving receiving a container at a placement-controlled time and manner.

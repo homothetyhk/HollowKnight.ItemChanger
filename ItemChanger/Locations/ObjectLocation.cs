@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Placements;
-using ItemChanger.Util;
-using ItemChanger.Extensions;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using ItemChanger.Extensions;
 
 namespace ItemChanger.Locations
 {
@@ -40,7 +31,7 @@ namespace ItemChanger.Locations
             GameObject target = FindGameObject(objectName);
             if (!target)
             {
-                ItemChangerMod.instance.LogError($"Unable to find {objectName} for ObjectLocation {name}!");
+                LogError($"Unable to find {objectName} for ObjectLocation {name}!");
                 return;
             }
 
@@ -65,7 +56,7 @@ namespace ItemChanger.Locations
                 obj = currentScene.FindGameObject(objectName);
             }
 
-            if (obj == null) ItemChangerMod.instance.LogWarn($"Failed to find {objectName} in scene {currentScene}!");
+            if (obj == null) LogWarn($"Failed to find {objectName} in scene {currentScene}!");
 
             return obj;
         }

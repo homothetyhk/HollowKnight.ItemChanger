@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-namespace ItemChanger.Extensions
+﻿namespace ItemChanger.Extensions
 {
     /// <summary>
     /// Extensions for Unity objects, and particularly for interacting with Scenes.

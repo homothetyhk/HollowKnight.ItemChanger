@@ -1,7 +1,4 @@
-﻿using System;
-using HutongGames.PlayMaker;
-
-namespace ItemChanger.FsmStateActions
+﻿namespace ItemChanger.FsmStateActions
 {
     /// <summary>
     /// FsmStateAction which invokes a delegate.

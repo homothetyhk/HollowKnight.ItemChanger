@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ItemChanger.Locations.SpecialLocations;
+﻿using ItemChanger.Locations.SpecialLocations;
 using Modding;
 
 namespace ItemChanger.Modules

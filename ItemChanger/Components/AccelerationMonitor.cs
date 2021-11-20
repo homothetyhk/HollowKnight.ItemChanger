@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-
-namespace ItemChanger.Components
+﻿namespace ItemChanger.Components
 {
     /// <summary>
     /// Component which tracks the per-frame acceleration of a RigidBody to determine whether it is falling.

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using ItemChanger.Internal;
+﻿using ItemChanger.Internal;
 using ItemChanger.Util;
-using UnityEngine;
 
 namespace ItemChanger.Components
 {

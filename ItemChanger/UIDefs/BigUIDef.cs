@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Components;
-using ItemChanger.Internal;
+﻿using ItemChanger.Components;
 using GlobalEnums;
 
 namespace ItemChanger.UIDefs

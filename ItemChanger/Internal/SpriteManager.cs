@@ -1,12 +1,4 @@
-﻿using ItemChanger.Extensions;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using UnityEngine;
+﻿using System.Reflection;
 
 namespace ItemChanger.Internal
 {

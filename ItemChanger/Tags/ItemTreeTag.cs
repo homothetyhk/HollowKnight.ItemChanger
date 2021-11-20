@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ItemChanger.Tags
+﻿namespace ItemChanger.Tags
 {
     /// <summary>
     /// Tag which carries ordered lists of predecessors and successors item names.

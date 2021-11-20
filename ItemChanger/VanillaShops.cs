@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Items;
-using ItemChanger.Locations;
-using ItemChanger.Placements;
-using ItemChanger.Tags;
-using ItemChanger.Extensions;
-
-namespace ItemChanger
+﻿namespace ItemChanger
 {
     static class VanillaShops
     {

@@ -1,11 +1,4 @@
-﻿using Modding;
-using ItemChanger.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Locations;
-using ItemChanger.Internal;
+﻿using ItemChanger.Internal;
 using Newtonsoft.Json;
 
 namespace ItemChanger

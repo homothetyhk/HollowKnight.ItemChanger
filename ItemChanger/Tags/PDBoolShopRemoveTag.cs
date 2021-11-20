@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ItemChanger.Tags
+﻿namespace ItemChanger.Tags
 {
     /// <summary>
     /// Tag which indicates that an item should be removed from the shop's stock if the PlayerData bool evaluates to the specified value.

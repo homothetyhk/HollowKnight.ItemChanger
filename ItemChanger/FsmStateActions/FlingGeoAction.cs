@@ -1,7 +1,4 @@
-﻿using HutongGames.PlayMaker;
-using ItemChanger.Internal;
-using ItemChanger.Extensions;
-using UnityEngine;
+﻿using ItemChanger.Internal;
 using Random = System.Random;
 
 namespace ItemChanger.FsmStateActions
@@ -105,9 +102,9 @@ namespace ItemChanger.FsmStateActions
             GameObject largePrefab = ObjectCache.LargeGeo;
 
             // Workaround because Spawn extension is slightly broken
-            Object.Destroy(smallPrefab.Spawn());
-            Object.Destroy(mediumPrefab.Spawn());
-            Object.Destroy(largePrefab.Spawn());
+            UObject.Destroy(smallPrefab.Spawn());
+            UObject.Destroy(mediumPrefab.Spawn());
+            UObject.Destroy(largePrefab.Spawn());
 
             smallPrefab.SetActive(true);
             mediumPrefab.SetActive(true);
@@ -174,9 +171,9 @@ namespace ItemChanger.FsmStateActions
             GameObject largePrefab = ObjectCache.LargeGeo;
 
             // Workaround because Spawn extension is slightly broken
-            Object.Destroy(smallPrefab.Spawn());
-            Object.Destroy(mediumPrefab.Spawn());
-            Object.Destroy(largePrefab.Spawn());
+            UObject.Destroy(smallPrefab.Spawn());
+            UObject.Destroy(mediumPrefab.Spawn());
+            UObject.Destroy(largePrefab.Spawn());
 
             smallPrefab.SetActive(true);
             mediumPrefab.SetActive(true);

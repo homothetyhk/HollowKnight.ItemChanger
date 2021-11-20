@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-
-namespace ItemChanger.UIDefs
+﻿namespace ItemChanger.UIDefs
 {
     /// <summary>
     /// The standard UIDef. SendMessage results in a sprite and the postview name appearing in the bottom left corner.

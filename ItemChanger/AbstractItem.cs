@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Locations;
-using Newtonsoft.Json;
-using UnityEngine;
+﻿using Newtonsoft.Json;
 
 namespace ItemChanger
 {
@@ -139,7 +133,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error on GiveImmediate for item {item?.name}:\n{e}");
+                LogError($"Error on GiveImmediate for item {item?.name}:\n{e}");
                 Internal.MessageController.Error();
             }
 
@@ -153,7 +147,7 @@ namespace ItemChanger
                 }
                 catch (Exception e)
                 {
-                    ItemChangerMod.instance.LogError($"Error on SendMessage for item {item?.name}:\n{e}");
+                    LogError($"Error on SendMessage for item {item?.name}:\n{e}");
                     Internal.MessageController.Error();
                     info.Callback?.Invoke(item);
                 }
@@ -258,7 +252,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error invoking BeforeGive for item {name} at placement {args.Placement.Name}:\n{e}");
+                LogError($"Error invoking BeforeGive for item {name} at placement {args.Placement.Name}:\n{e}");
             }
         }
 
@@ -282,7 +276,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error invoking ModifyItem for item {name} at placement {args.Placement.Name}:\n{e}");
+                LogError($"Error invoking ModifyItem for item {name} at placement {args.Placement.Name}:\n{e}");
             }
         }
 
@@ -306,7 +300,7 @@ namespace ItemChanger
             }
             catch (Exception e) 
             {
-                ItemChangerMod.instance.LogError($"Error invoking ModifyRedundantItem for item {name} at placement {args.Placement.Name}:\n{e}"); 
+                LogError($"Error invoking ModifyRedundantItem for item {name} at placement {args.Placement.Name}:\n{e}"); 
             }
         }
 
@@ -330,7 +324,7 @@ namespace ItemChanger
             }
             catch (Exception e) 
             {
-                ItemChangerMod.instance.LogError($"Error invoking OnGive for item {name} at placement {args.Placement.Name}:\n{e}"); 
+                LogError($"Error invoking OnGive for item {name} at placement {args.Placement.Name}:\n{e}"); 
             }
         }
 
@@ -354,7 +348,7 @@ namespace ItemChanger
             }
             catch (Exception e) 
             {
-                ItemChangerMod.instance.LogError($"Error invoking BeforeGive for item {name} at placement {args.Placement.Name}:\n{e}"); 
+                LogError($"Error invoking BeforeGive for item {name} at placement {args.Placement.Name}:\n{e}"); 
             }
         }
     }

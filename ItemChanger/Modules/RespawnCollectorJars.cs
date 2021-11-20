@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
-
-namespace ItemChanger.Modules
+﻿namespace ItemChanger.Modules
 {
     /// <summary>
     /// Module which makes the glass jars in the Collector's room respawn after breaking.

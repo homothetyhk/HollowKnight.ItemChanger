@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Items;
-using HutongGames.PlayMaker;
+﻿using ItemChanger.Items;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Extensions;
-using UnityEngine;
-using System.Collections;
 using ItemChanger.Components;
 using ItemChanger.Internal;
 

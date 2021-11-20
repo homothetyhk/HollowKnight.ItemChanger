@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UObject = UnityEngine.Object;
-
-namespace ItemChanger.Modules
+﻿namespace ItemChanger.Modules
 {
     /// <summary>
     /// Module which removes scenery objects above the chest above Baldur shell, to make the passage to Howling Cliffs visible.

@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Extensions;
-using UnityEngine;
-using ItemChanger.Locations;
+﻿using ItemChanger.Locations;
 using ItemChanger.Util;
 using ItemChanger.Components;
-using Newtonsoft.Json;
 
 namespace ItemChanger.Placements
 {

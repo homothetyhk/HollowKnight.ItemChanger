@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Internal;
-using UnityEngine;
-
-namespace ItemChanger
+﻿namespace ItemChanger
 {
     public abstract class UIDef
     {

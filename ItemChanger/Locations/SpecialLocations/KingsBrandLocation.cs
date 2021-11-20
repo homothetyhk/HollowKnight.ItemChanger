@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ItemChanger.Locations.SpecialLocations
+﻿namespace ItemChanger.Locations.SpecialLocations
 {
     /// <summary>
     /// ObjectLocation which prevents the King's Brand avalanche sequence from occuring.

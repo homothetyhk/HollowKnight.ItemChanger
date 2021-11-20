@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace ItemChanger
 {
@@ -102,7 +95,7 @@ namespace ItemChanger
                     }
                     catch (Exception e)
                     {
-                        ItemChangerMod.instance.Log(e);
+                        Log(e);
                     }
                 }
                 return base.ConvertFrom(context, culture, value);

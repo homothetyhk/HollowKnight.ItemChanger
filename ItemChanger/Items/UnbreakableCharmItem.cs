@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ItemChanger.Items
+﻿namespace ItemChanger.Items
 {
     /// <summary>
     /// CharmItem which gives the unbreakable version of the charm.

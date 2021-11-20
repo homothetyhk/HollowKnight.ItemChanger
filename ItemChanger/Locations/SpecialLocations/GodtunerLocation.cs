@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HutongGames.PlayMaker.Actions;
+﻿using HutongGames.PlayMaker.Actions;
 using ItemChanger.Extensions;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations.SpecialLocations
 {

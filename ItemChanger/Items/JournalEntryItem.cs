@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ItemChanger.Items
+﻿namespace ItemChanger.Items
 {
     /// <summary>
     /// Item which fully unlocks and completes the corresponding entry of the Hunter's Journal.

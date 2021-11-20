@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HutongGames.PlayMaker;
-using ItemChanger.Extensions;
+﻿using ItemChanger.Extensions;
 
 namespace ItemChanger.Locations.SpecialLocations
 {

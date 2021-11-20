@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Reflection;
-using UnityEngine.SceneManagement;
-using UnityEngine;
+﻿using System.Reflection;
 using System.Collections;
-using System.Linq;
 
 namespace ItemChanger
 {
@@ -151,7 +145,7 @@ namespace ItemChanger
 
             if (r == null)
             {
-                ItemChangerMod.instance.LogError("Unable to edit HeroController.Respawn--another subscriber has replaced the enumerator.");
+                LogError("Unable to edit HeroController.Respawn--another subscriber has replaced the enumerator.");
                 yield break;
             }
 

@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UObject = UnityEngine.Object;
-
-namespace ItemChanger.Internal.Preloaders
+﻿namespace ItemChanger.Internal.Preloaders
 {
     public class MimicPreloader : Preloader
     {

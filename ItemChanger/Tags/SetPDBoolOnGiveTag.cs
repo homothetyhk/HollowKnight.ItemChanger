@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ItemChanger.Tags
+﻿namespace ItemChanger.Tags
 {
     /// <summary>
     /// Tag which adds setting a PlayerData bool as a side effect to an item.

@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Xml;
-using System.Linq;
+﻿using System.Xml;
 using System.Reflection;
-using Language;
-using static Modding.Logger;
 using Modding;
 
 namespace ItemChanger.Internal
 {
     internal static class LanguageStringManager
     {
-        private static readonly Dictionary<string, Dictionary<string, string>> LanguageStrings =
-            new Dictionary<string, Dictionary<string, string>>();
+        private static readonly Dictionary<string, Dictionary<string, string>> LanguageStrings = new();
         private static bool loaded;
 
         internal static void Load()
@@ -25,7 +17,7 @@ namespace ItemChanger.Internal
                 Stream xmlStream = a.GetManifestResourceStream("ItemChanger.Resources.language.xml");
 
                 // Load XmlDocument from resource stream
-                XmlDocument xml = new XmlDocument();
+                XmlDocument xml = new();
                 xml.Load(xmlStream);
                 xmlStream.Dispose();
 

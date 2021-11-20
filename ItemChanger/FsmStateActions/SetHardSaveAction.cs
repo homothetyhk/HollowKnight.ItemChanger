@@ -1,8 +1,4 @@
-﻿using HutongGames.PlayMaker;
-using ItemChanger.Extensions;
-using UnityEngine;
-using static Modding.Logger;
-using ItemChanger.Internal;
+﻿using ItemChanger.Internal;
 
 namespace ItemChanger.FsmStateActions
 {

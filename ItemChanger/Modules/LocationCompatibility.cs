@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HutongGames.PlayMaker;
-using ItemChanger.Extensions;
+﻿using ItemChanger.Extensions;
 using ItemChanger.Internal;
-using ItemChanger.Locations;
 using ItemChanger.Placements;
-using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Modules
 {

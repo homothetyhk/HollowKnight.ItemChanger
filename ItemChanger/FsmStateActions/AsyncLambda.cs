@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HutongGames.PlayMaker;
-
-namespace ItemChanger.FsmStateActions
+﻿namespace ItemChanger.FsmStateActions
 {
     /// <summary>
     /// FsmStateAction which invokes a delegate with a callback parameter, used to finish the action or trigger an event.

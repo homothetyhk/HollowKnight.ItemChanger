@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-
-
-namespace ItemChanger.Locations
+﻿namespace ItemChanger.Locations
 {
     /// <summary>
     /// Location type which cannot accept a container, and thus must implement itself. Examples include items given in dialogue, etc.

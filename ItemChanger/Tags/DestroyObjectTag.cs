@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-namespace ItemChanger.Tags
+﻿namespace ItemChanger.Tags
 {
     /// <summary>
     /// Tag for destroying an object in a specific scene. Can search by name or by path.
@@ -33,9 +26,9 @@ namespace ItemChanger.Tags
                 if (obj)
                 {
                     GameObject.Destroy(obj);
-                    //ItemChangerMod.instance.Log($"Destroyed object {objectName} in {sceneName}");
+                    //Log($"Destroyed object {objectName} in {sceneName}");
                 }
-                //else ItemChangerMod.instance.Log($"Could not find object {objectName} in {sceneName}");
+                //else Log($"Could not find object {objectName} in {sceneName}");
             }
         }
     }

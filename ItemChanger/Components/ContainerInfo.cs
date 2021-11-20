@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using HutongGames.PlayMaker;
-using HutongGames.PlayMaker.Actions;
-using ItemChanger.FsmStateActions;
-using ItemChanger.Extensions;
-using ItemChanger.Util;
-
-namespace ItemChanger.Components
+﻿namespace ItemChanger.Components
 {
     /// <summary>
     /// Component to be attached to a container GameObject to allow the Container class to make changes.

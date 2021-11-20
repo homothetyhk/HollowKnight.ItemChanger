@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Extensions;
+﻿using ItemChanger.Extensions;
 using ItemChanger.Internal;
 using ItemChanger.Util;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace ItemChanger
 {
@@ -210,7 +204,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error during early container fsm hook on {id}:\n{e}");
+                LogError($"Error during early container fsm hook on {id}:\n{e}");
             }
 
             // Global fsm hooks are run if the fsm matches the id, regardless of scene.
@@ -221,7 +215,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error during global fsm hook on {id}:\n{e}");
+                LogError($"Error during global fsm hook on {id}:\n{e}");
             }
             
             // Local fsm hooks are run if the fsm matches the scene and id.
@@ -235,7 +229,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error during local fsm hook on {id} in scene {sceneName}:\n{e}");
+                LogError($"Error during local fsm hook on {id} in scene {sceneName}:\n{e}");
             }
 
             // Run the local search a second time for boss scenes, etc, in case the more general scene name was used to hook.
@@ -251,7 +245,7 @@ namespace ItemChanger
                 }
                 catch (Exception e)
                 {
-                    ItemChangerMod.instance.LogError($"Error during local fsm hook on {id} in scene {normalizedSceneName}:\n{e}");
+                    LogError($"Error during local fsm hook on {id} in scene {normalizedSceneName}:\n{e}");
                 }
             }
 
@@ -262,7 +256,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error during late container fsm hook on {id}:\n{e}");
+                LogError($"Error during late container fsm hook on {id}:\n{e}");
             }
         }
 
@@ -277,7 +271,7 @@ namespace ItemChanger
             }
             catch(Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error during persistent update leaving {from.name} and entering {to.name}:\n{e}");
+                LogError($"Error during persistent update leaving {from.name} and entering {to.name}:\n{e}");
             }
 
             try
@@ -286,7 +280,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error during Events.OnSceneChange:\n{e}");
+                LogError($"Error during Events.OnSceneChange:\n{e}");
             }
 
             try
@@ -295,7 +289,7 @@ namespace ItemChanger
             }
             catch(Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error during local activeSceneChangeEdits leaving {from.name} and entering {to.name}:\n{e}");
+                LogError($"Error during local activeSceneChangeEdits leaving {from.name} and entering {to.name}:\n{e}");
             }
         }
 
@@ -318,7 +312,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error in Events.OnLanguageGet for {lk}::{value}:\n{e}");
+                LogError($"Error in Events.OnLanguageGet for {lk}::{value}:\n{e}");
             }
 
             return value;
@@ -340,7 +334,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error loading settings:\n{e}");
+                LogError($"Error loading settings:\n{e}");
             }
             
             try
@@ -349,7 +343,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error during Events.OnEnterGame:\n{e}");
+                LogError($"Error during Events.OnEnterGame:\n{e}");
             }
         }
 
@@ -361,7 +355,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error in BeforeStartNewGame event:\n{e}");
+                LogError($"Error in BeforeStartNewGame event:\n{e}");
                 throw;
             }
 
@@ -376,7 +370,7 @@ namespace ItemChanger
                 }
                 catch (Exception e)
                 {
-                    ItemChangerMod.instance.LogError($"Error invoking ModHooks.OnNewGame via reflection:\n{e}");
+                    LogError($"Error invoking ModHooks.OnNewGame via reflection:\n{e}");
                 }
                 
                 self.ContinueGame();
@@ -393,7 +387,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                ItemChangerMod.instance.LogError($"Error in AfterStartNewGame event:\n{e}");
+                LogError($"Error in AfterStartNewGame event:\n{e}");
                 throw;
             }
         }

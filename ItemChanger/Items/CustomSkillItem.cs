@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Internal;
-using UnityEngine;
-
-namespace ItemChanger.Items
+﻿namespace ItemChanger.Items
 {
     /// <summary>
     /// Item which ensures that the corresponding custom skill module is enabled on load, and otherwise acts as a BoolItem.

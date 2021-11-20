@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
-
-namespace ItemChanger.Modules
+﻿namespace ItemChanger.Modules
 {
     [DefaultModule]
     public class RightCityPlatform : Module

@@ -1,7 +1,5 @@
 ﻿using GlobalEnums;
-using HutongGames.PlayMaker;
 using Modding;
-using ItemChanger.Extensions;
 using ItemChanger.Internal;
 
 namespace ItemChanger.FsmStateActions

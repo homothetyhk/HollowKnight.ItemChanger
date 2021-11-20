@@ -1,9 +1,5 @@
 ﻿using ItemChanger.Extensions;
-using System.Collections.Generic;
-using UnityEngine;
-using Modding;
 using HutongGames.PlayMaker.Actions;
-using UObject = UnityEngine.Object;
 
 namespace ItemChanger.Internal.Preloaders
 {

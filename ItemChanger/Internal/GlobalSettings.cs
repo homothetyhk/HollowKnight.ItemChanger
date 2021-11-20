@@ -1,6 +1,4 @@
-﻿
-using System.Collections.Generic;
-using Modding;
+﻿using Modding;
 
 namespace ItemChanger.Internal
 {

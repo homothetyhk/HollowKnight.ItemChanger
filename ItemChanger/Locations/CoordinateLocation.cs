@@ -1,6 +1,4 @@
 ﻿using ItemChanger.Util;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace ItemChanger.Locations
 {

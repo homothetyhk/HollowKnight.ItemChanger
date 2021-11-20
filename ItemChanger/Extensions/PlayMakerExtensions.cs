@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HutongGames.PlayMaker;
-
-namespace ItemChanger.Extensions
+﻿namespace ItemChanger.Extensions
 {
     /// <summary>
     /// Extensions for interacting with and modifying FSMs.

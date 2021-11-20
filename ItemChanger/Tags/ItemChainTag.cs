@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ItemChanger.Tags
+﻿namespace ItemChanger.Tags
 {
     /// <summary>
     /// Tag which triggers a recursive search through the AbstractItem.ModifyItem hook.

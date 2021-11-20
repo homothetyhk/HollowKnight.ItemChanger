@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ItemChanger.Extensions;
-
-namespace ItemChanger.Util
+﻿namespace ItemChanger.Util
 {
     public static class SceneUtil
     {

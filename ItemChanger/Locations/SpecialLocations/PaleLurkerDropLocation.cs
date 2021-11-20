@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using ItemChanger.Components;
-using UnityEngine;
-
-namespace ItemChanger.Locations.SpecialLocations
+﻿namespace ItemChanger.Locations.SpecialLocations
 {
     /// <summary>
     /// Enemy location which destroys the static simple key shiny that appears upon reentering after killing Pale Lurker.
