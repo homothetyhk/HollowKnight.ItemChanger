@@ -46,12 +46,15 @@ namespace ItemChanger.FsmStateActions
 
         public static void SpawnSoul(Transform transform, int total, int spawnsPerFrame)
         {
-            HeroController.instance.StartCoroutine(SpawnSoulRoutine(transform, total, spawnsPerFrame));
+            HeroController.instance.StartCoroutine(SpawnSoulRoutine(transform.position, total, spawnsPerFrame));
         }
 
 
-        private static IEnumerator SpawnSoulRoutine(Transform transform, int total, int spawnsPerFrame)
+        private static IEnumerator SpawnSoulRoutine(Vector3 position, int total, int spawnsPerFrame)
         {
+            Transform spawnPoint = new GameObject("Soul Spawn Point").transform;
+            spawnPoint.position = position;
+
             GameObject soulPrefab = ObjectCache.SoulOrb;
             // Workaround because Spawn extension is slightly broken
             UObject.Destroy(soulPrefab.Spawn());
@@ -72,12 +75,12 @@ namespace ItemChanger.FsmStateActions
 
             for (int i = 0; i < total / spawnsPerFrame; i++)
             {
-                FlingUtils.SpawnAndFling(flingConfig, transform, new Vector3(0f, 0f, 0f));
+                FlingUtils.SpawnAndFling(flingConfig, spawnPoint, new Vector3(0f, 0f, 0f));
                 yield return null;
             }
 
             flingConfig.AmountMin = flingConfig.AmountMax = total % spawnsPerFrame;
-            FlingUtils.SpawnAndFling(flingConfig, transform, new Vector3(0f, 0f, 0f));
+            FlingUtils.SpawnAndFling(flingConfig, spawnPoint, new Vector3(0f, 0f, 0f));
             soulPrefab.SetActive(false);
         }
     }

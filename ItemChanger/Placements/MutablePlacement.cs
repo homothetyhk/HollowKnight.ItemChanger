@@ -75,8 +75,16 @@ namespace ItemChanger.Placements
                 {
                     containerType = t.containerType;
                 }
-                else if (mustSupportCost || mustSupportSceneChange || items.Count() == 1) containerType = Container.Shiny;
-                else containerType = Container.Chest;
+                else if (!mustSupportCost && !mustSupportSceneChange && !unsupported.Contains(Container.Chest)
+                    && items.Skip(1).Any()) // has more than 1 item, and can support Chest
+
+                {
+                    containerType = Container.Chest;
+                }
+                else
+                {
+                    containerType = Container.Shiny;
+                }
             }
 
             return containerType;

@@ -269,7 +269,13 @@
     "name": "Howling_Wraiths",
     "sceneName": "Room_Fungus_Shaman",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Enemy Blocker",
+        "sceneName": "Room_Fungus_Shaman"
+      }
+    ]
   },
   "Abyss_Shriek": {
     "$type": "ItemChanger.Locations.SpecialLocations.AbyssShriekLocation, ItemChanger",

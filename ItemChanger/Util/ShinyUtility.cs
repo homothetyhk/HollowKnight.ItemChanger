@@ -251,7 +251,7 @@ namespace ItemChanger.Util
             FsmState charm = shinyFsm.GetState("Charm?");
             FsmState trinkFlash = shinyFsm.GetState("Trink Flash");
 
-            GiveInfo info = new GiveInfo
+            GiveInfo info = new()
             {
                 Container = Container.Shiny,
                 FlingType = flingType,
@@ -289,6 +289,7 @@ namespace ItemChanger.Util
                 giveAction, // give item
             };
             trinkFlash.AddTransition("GAVE ITEM", "Hero Up");
+            trinkFlash.AddTransition("HERO DAMAGED", "Finish");
         }
 
         /// <summary>

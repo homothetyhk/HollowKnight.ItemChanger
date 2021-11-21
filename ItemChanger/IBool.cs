@@ -8,7 +8,12 @@ namespace ItemChanger
         IBool Clone();
     }
 
-    public class BoxedBool : IBool
+    public interface IWritableBool : IBool
+    {
+        new bool Value { get; set; }
+    }
+
+    public class BoxedBool : IWritableBool
     {
         public bool Value { get; set; }
 
@@ -17,34 +22,59 @@ namespace ItemChanger
         public IBool Clone() => (IBool)MemberwiseClone();
     }
 
-    public class PDBool : IBool
+    public class PDBool : IWritableBool
     {
         public string boolName;
 
         public PDBool(string boolName) => this.boolName = boolName;
 
         [JsonIgnore]
-        public bool Value => PlayerData.instance.GetBool(boolName);
+        public bool Value
+        {
+            get => PlayerData.instance.GetBool(boolName);
+            set => PlayerData.instance.SetBool(boolName, value);
+        }
+
         public IBool Clone() => (IBool)MemberwiseClone();
     }
 
-    public class SDBool : IBool
+    public class SDBool : IWritableBool
     {
         public string id;
         public string sceneName;
+        public bool semiPersistent;
 
+        [JsonConstructor]
         public SDBool(string id, string sceneName)
         {
             this.id = id;
             this.sceneName = sceneName;
+            this.semiPersistent = false;
+        }
+
+        public SDBool(string id, string sceneName, bool semiPersistent)
+        {
+            this.id = id;
+            this.sceneName = sceneName;
+            this.semiPersistent = semiPersistent;
         }
 
         [JsonIgnore]
-        public bool Value => SceneData.instance.FindMyState(new PersistentBoolData
+        public bool Value
         {
-            id = id,
-            sceneName = sceneName,
-        })?.activated ?? false;
+            get
+            {
+                return SceneData.instance.FindMyState(new PersistentBoolData
+                {
+                    id = id,
+                    sceneName = sceneName,
+                })?.activated ?? false;
+            }
+            set
+            {
+                Util.SceneDataUtil.Save(sceneName, id, value, semiPersistent);
+            }
+        }
 
         public IBool Clone() => (IBool)MemberwiseClone();
     }

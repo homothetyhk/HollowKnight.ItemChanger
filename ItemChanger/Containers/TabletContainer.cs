@@ -20,5 +20,11 @@ namespace ItemChanger.Containers
         {
             TabletUtility.ModifyTablet(fsm, info.flingType, info.placement, info.items);
         }
+
+        public override void ApplyTargetContext(GameObject obj, float x, float y, float elevation)
+        {
+            obj.transform.position = new Vector3(x, y - elevation, 2.5f);
+            obj.SetActive(true);
+        }
     }
 }

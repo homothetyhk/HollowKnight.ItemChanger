@@ -57,11 +57,12 @@ namespace ItemChanger.Util
                     new AsyncLambda(callback => DialogueCenter.SendLoreMessage(
                         textGenerator?.Invoke() ?? string.Empty,
                         callback,
-                        TextType.MajorLore)),
+                        TextType.MajorLore), "CONVO_FINISH"),
             };
             FsmState setBool = inspectFsm.GetState("Set Bool");
             FsmState turnBack = inspectFsm.GetState("Turn Back");
-            foreach (var t in promptUp.Transitions) t.SetToState(turnBack);
+            promptUp.ClearTransitions();
+            promptUp.AddTransition("CONVO_FINISH", turnBack);
             foreach (var t in setBool.Transitions) t.SetToState(turnBack);
 
 
@@ -134,11 +135,12 @@ namespace ItemChanger.Util
                         Container = Container.Tablet,
                         MessageType = MessageType.Any,
                         Transform = inspectFsm.transform,
-                    }, callback)),
+                    }, callback), "CONVO_FINISH"),
                 };
                 FsmState setBool = inspectFsm.GetState("Set Bool");
                 FsmState turnBack = inspectFsm.GetState("Turn Back");
-                foreach (var t in promptUp.Transitions) t.SetToState(turnBack);
+                promptUp.ClearTransitions();
+                promptUp.AddTransition("CONVO_FINISH", turnBack);
 
                 // the abyss tablet doesn't have the hero damaged behavior, so we add it back in for consistency
                 if (setBool == null)

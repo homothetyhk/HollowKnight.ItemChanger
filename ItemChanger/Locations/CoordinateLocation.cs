@@ -32,27 +32,8 @@ namespace ItemChanger.Locations
 
         public override void PlaceContainer(GameObject obj, string containerType)
         {
-            switch (containerType)
-            {
-                case Container.GrubJar:
-                    GrubJarUtility.MoveGrubJar(obj, x, y, elevation);
-                    break;
-                case Container.GeoRock:
-                    GeoRockUtility.SetRockContext(obj, x, y, elevation);
-                    break;
-                case Container.Chest:
-                    ChestUtility.MoveChest(obj, x, y, elevation);
-                    break;
-                case Container.Tablet:
-                    obj.transform.position = new Vector3(x, y - elevation, 2.5f);
-                    obj.SetActive(true);
-                    break;
-                case Container.Shiny:
-                default:
-                    obj.transform.position = new Vector3(x, y, 0);
-                    obj.SetActive(true);
-                    break;
-            }
+            Container.GetContainer(containerType).ApplyTargetContext(obj, x, y, elevation);
+            if (!obj.activeSelf) obj.SetActive(true);
         }
     }
 }
