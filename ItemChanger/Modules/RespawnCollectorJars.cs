@@ -1,4 +1,6 @@
-﻿namespace ItemChanger.Modules
+﻿using ItemChanger.Util;
+
+namespace ItemChanger.Modules
 {
     /// <summary>
     /// Module which makes the glass jars in the Collector's room respawn after breaking.
@@ -18,69 +20,15 @@
 
         private void RespawnJars(Scene scene)
         {
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins2_11",
-                id = "Break Jar",
-                activated = false,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins2_11",
-                id = "Break Jar (1)",
-                activated = false,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins2_11",
-                id = "Break Jar (2)",
-                activated = false,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins2_11",
-                id = "Break Jar (3)",
-                activated = false,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins2_11",
-                id = "Break Jar (4)",
-                activated = false,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins2_11",
-                id = "Break Jar (5)",
-                activated = false,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins2_11",
-                id = "Break Jar (6)",
-                activated = false,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins2_11",
-                id = "Break Jar (7)",
-                activated = false,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins2_11",
-                id = "Break Jar (8)",
-                activated = false,
-                semiPersistent = false
-            });
+            SceneDataUtil.Save("Ruins2_11", "Break Jar", false);
+            SceneDataUtil.Save("Ruins2_11", "Break Jar (1)", false);
+            SceneDataUtil.Save("Ruins2_11", "Break Jar (2)", false);
+            SceneDataUtil.Save("Ruins2_11", "Break Jar (3)", false);
+            SceneDataUtil.Save("Ruins2_11", "Break Jar (4)", false);
+            SceneDataUtil.Save("Ruins2_11", "Break Jar (5)", false);
+            SceneDataUtil.Save("Ruins2_11", "Break Jar (6)", false);
+            SceneDataUtil.Save("Ruins2_11", "Break Jar (7)", false);
+            SceneDataUtil.Save("Ruins2_11", "Break Jar (8)", false);
         }
     }
 }

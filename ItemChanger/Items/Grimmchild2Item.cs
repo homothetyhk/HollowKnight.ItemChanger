@@ -1,4 +1,6 @@
-﻿namespace ItemChanger.Items
+﻿using ItemChanger.Util;
+
+namespace ItemChanger.Items
 {
     /// <summary>
     /// Item which gives Grimmchild, activates the Nightmare Lantern, and auto-completes the first two flame collection quests.
@@ -21,48 +23,12 @@
             PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerSmall), 0);
             PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerMed), 0);
             PlayerData.instance.SetInt(nameof(PlayerData.grimmChildLevel), 2);
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Mines_10",
-                id = "Flamebearer Spawn",
-                activated = true,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Ruins1_28",
-                id = "Flamebearer Spawn",
-                activated = true,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Fungus1_10",
-                id = "Flamebearer Spawn",
-                activated = true,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Tutorial_01",
-                id = "Flamebearer Spawn",
-                activated = true,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "RestingGrounds_06",
-                id = "Flamebearer Spawn",
-                activated = true,
-                semiPersistent = false
-            });
-            GameManager.instance.sceneData.SaveMyState(new PersistentBoolData
-            {
-                sceneName = "Deepnest_East_03",
-                id = "Flamebearer Spawn",
-                activated = true,
-                semiPersistent = false
-            });
+            SceneDataUtil.Save("Mines_10", "Flamebearer Spawn");
+            SceneDataUtil.Save("Ruins1_28", "Flamebearer Spawn");
+            SceneDataUtil.Save("Fungus1_10", "Flamebearer Spawn");
+            SceneDataUtil.Save("Tutorial_01", "Flamebearer Spawn");
+            SceneDataUtil.Save("RestingGrounds_06", "Flamebearer Spawn");
+            SceneDataUtil.Save("Deepnest_East_03", "Flamebearer Spawn");
         }
 
         public override bool Redundant()

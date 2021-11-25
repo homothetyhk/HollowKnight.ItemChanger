@@ -11,6 +11,7 @@
             this.FsmName = FsmName;
         }
 
+        [Newtonsoft.Json.JsonConstructor]
         /// <summary>
         /// Create an FsmID which matches any object with this ObjectName and FsmName.
         /// </summary>
