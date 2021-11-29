@@ -43,7 +43,7 @@ namespace ItemChanger.Util
         public static GameObject MakeNewGeoRock(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
         {
             GeoRockSubtype type = items.OfType<GeoRockItem>().FirstOrDefault()?.geoRockSubtype ?? GeoRockSubtype.Default;
-            GameObject rock = ObjectCache.GeoRock(type);
+            GameObject rock = ObjectCache.GeoRock(ref type);
             rock.AddComponent<GeoRockInfo>().type = type;
             rock.name = GetGeoRockName(placement);
 

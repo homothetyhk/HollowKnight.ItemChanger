@@ -76,7 +76,16 @@
     "name": "Lurien",
     "sceneName": "Dream_Guardian_Lurien",
     "flingType": "DirectDeposit",
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "hasDreamNail"
+        },
+        "Inherent": true
+      }
+    ],
     "HintActive": true
   },
   "Monomon": {
@@ -88,7 +97,16 @@
     "name": "Monomon",
     "sceneName": "Dream_Guardian_Monomon",
     "flingType": "DirectDeposit",
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "hasDreamNail"
+        },
+        "Inherent": true
+      }
+    ],
     "HintActive": true
   },
   "Herrah": {
@@ -100,7 +118,16 @@
     "name": "Herrah",
     "sceneName": "Dream_Guardian_Hegemol",
     "flingType": "DirectDeposit",
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "hasDreamNail"
+        },
+        "Inherent": true
+      }
+    ],
     "HintActive": true
   },
   "World_Sense": {
@@ -282,7 +309,18 @@
     "name": "Abyss_Shriek",
     "sceneName": "Abyss_12",
     "flingType": "Everywhere",
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDIntCost, ItemChanger",
+          "fieldName": "screamLevel",
+          "amount": 1,
+          "uiText": "Requires Howling Wraiths"
+        },
+        "Inherent": true
+      }
+    ],
     "HintActive": true
   },
   "Cyclone_Slash": {
@@ -429,8 +467,8 @@
     "objectName": "Shiny Item",
     "fsmName": "Shiny Control",
     "containerType": "Shiny",
-    "nonreplaceable": false,
-    "elevation": 0.0,
+    "nonreplaceable": true,
+    "elevation": 0.9,
     "name": "Flukenest",
     "sceneName": "Waterways_12",
     "flingType": "StraightUp",
@@ -692,7 +730,16 @@
     "name": "Void_Heart",
     "sceneName": "Dream_Abyss",
     "flingType": "DirectDeposit",
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "hasDreamNail"
+        },
+        "Inherent": true
+      }
+    ],
     "HintActive": true
   },
   "Dreamshield": {
@@ -6903,7 +6950,13 @@
     "name": "Lore_Tablet-Pilgrim's_Way_1",
     "sceneName": "Crossroads_11_alt",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.TabletParticleControlTag, ItemChanger",
+        "offsetX": -1.2,
+        "offsetY": 1.8
+      }
+    ]
   },
   "Lore_Tablet-Pilgrim's_Way_2": {
     "$type": "ItemChanger.Locations.ExistingContainerLocation, ItemChanger",

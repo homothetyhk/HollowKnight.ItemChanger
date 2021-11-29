@@ -35,11 +35,11 @@ namespace ItemChanger
                 if (_hooked) throw new InvalidOperationException("Attempted to rehook ItemChanger.");
                 _hooked = true;
                 LanguageStringManager.Hook();
-                Events.Hook();
                 DialogueCenter.Hook();
                 SceneDataUtil.Hook();
                 ShopUtil.HookShops();
                 StartDef.Hook();
+                Events.Hook();
             }
             catch (Exception e)
             {
@@ -56,11 +56,11 @@ namespace ItemChanger
                 if (!_hooked) throw new InvalidOperationException("Attempted to unhook ItemChanger before hooked.");
                 _hooked = false;
                 LanguageStringManager.Unhook();
-                Events.Unhook();
                 DialogueCenter.Unhook();
                 SceneDataUtil.Unhook();
                 ShopUtil.UnhookShops();
                 StartDef.Unhook();
+                Events.Unhook();
             }
             catch (Exception e)
             {

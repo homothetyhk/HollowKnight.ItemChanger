@@ -95,7 +95,7 @@ namespace ItemChanger.Internal
         public static GameObject MimicTop => MimicPreloader.MimicTop;
         public static GameObject LumaflyEscape => CorePreloader.LumaflyEscape;
         public static GameObject LoreTablet => CorePreloader.LoreTablet;
-        public static GameObject GeoRock(GeoRockSubtype t) => GeoRockPreloader.GeoRock(t);
+        public static GameObject GeoRock(ref GeoRockSubtype t) => GeoRockPreloader.GeoRock(ref t);
         public static GameObject SoulTotem(SoulTotemSubtype t) => SoulTotemPreloader.SoulTotem(t);
         public static GameObject SoulParticles => SoulTotemPreloader.SoulParticles;
     }

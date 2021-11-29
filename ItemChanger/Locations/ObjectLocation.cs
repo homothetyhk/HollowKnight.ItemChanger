@@ -56,7 +56,7 @@ namespace ItemChanger.Locations
                 obj = currentScene.FindGameObject(objectName);
             }
 
-            if (obj == null) LogWarn($"Failed to find {objectName} in scene {currentScene}!");
+            if (obj == null) LogWarn($"Failed to find {objectName} in scene {currentScene.name}!");
 
             return obj;
         }

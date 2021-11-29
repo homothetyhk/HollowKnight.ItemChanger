@@ -1,5 +1,6 @@
 ﻿using ItemChanger.FsmStateActions;
 using ItemChanger.Extensions;
+using ItemChanger.Util;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
@@ -33,6 +34,10 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             base.GetContainer(out GameObject obj, out string containerType);
             Container.GetContainer(containerType).ApplyTargetContext(obj, gruz, 0);
+            if (containerType == Container.Shiny && !Placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().Any())
+            {
+                ShinyUtility.SetShinyFling(obj.LocateMyFSM("Shiny Control"), ShinyFling.RandomLR);
+            }
         }
     }
 }

@@ -11,10 +11,11 @@
             this.FsmName = FsmName;
         }
 
-        [Newtonsoft.Json.JsonConstructor]
+
         /// <summary>
         /// Create an FsmID which matches any object with this ObjectName and FsmName.
         /// </summary>
+        [Newtonsoft.Json.JsonConstructor]
         public FsmID(string ObjectName, string FsmName)
         {
             this.ObjectName = ObjectName;

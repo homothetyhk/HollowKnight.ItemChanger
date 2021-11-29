@@ -9,6 +9,8 @@ namespace ItemChanger.Modules
     [DefaultModule]
     public class InventoryTracker : Module
     {
+        public bool TrackGrimmkinFlames = true;
+
         public override void Initialize()
         {
             Events.AddLanguageEdit(new("UI", "INV_NAME_SPELL_FOCUS"), EditFocusName);
@@ -50,7 +52,7 @@ namespace ItemChanger.Modules
                 if (essence > 0) sb.AppendLine($"You have {essence} essence.");
             }
 
-            if (PlayerData.instance.GetInt(nameof(PlayerData.grimmChildLevel)) <= 3)
+            if (TrackGrimmkinFlames && PlayerData.instance.GetInt(nameof(PlayerData.grimmChildLevel)) <= 3)
             {
                 if (mods.Get<GrimmkinFlameManager>() is GrimmkinFlameManager gfm)
                 {

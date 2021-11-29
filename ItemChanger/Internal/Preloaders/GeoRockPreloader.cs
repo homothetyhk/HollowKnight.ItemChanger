@@ -72,10 +72,10 @@
             return _geoRocks.ContainsKey(t) ? t : GeoRockSubtype.Default;
         }
 
-        public GameObject GeoRock(GeoRockSubtype t)
+        public GameObject GeoRock(ref GeoRockSubtype t)
         {
             if (PreloadLevel == PreloadLevel.None) throw NotPreloadedException();
-            return UObject.Instantiate(_geoRocks[GetPreloadedRockType(t)]);
+            return UObject.Instantiate(_geoRocks[t = GetPreloadedRockType(t)]);
         }
 
         private Dictionary<GeoRockSubtype, GameObject> _geoRocks;

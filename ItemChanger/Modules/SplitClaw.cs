@@ -12,6 +12,7 @@ namespace ItemChanger.Modules
         public bool hasWalljumpLeft { get; set; }
         public bool hasWalljumpRight { get; set; }
         public bool hasWalljumpAny => hasWalljumpLeft ^ hasWalljumpRight || PlayerData.instance.GetBoolInternal(nameof(PlayerData.hasWalljump));
+        public ClothFungalEncounterLeaveCondition ClothFungalEncounterHandling = ClothFungalEncounterLeaveCondition.DisappearAfterFullClaw;
 
         public override void Initialize()
         {
@@ -20,6 +21,7 @@ namespace ItemChanger.Modules
             Modding.ModHooks.SetPlayerBoolHook += SkillBoolSetOverride;
             Events.AddLanguageEdit(new("UI", "INV_NAME_WALLJUMP"), EditClawName);
             Events.AddLanguageEdit(new("UI", "INV_DESC_WALLJUMP"), EditClawDesc);
+            Events.AddFsmEdit(SceneNames.Fungus2_09, new("Cloth NPC 1", "Destroy"), EditClothFungalEncounter);
         }
 
         public override void Unload()
@@ -29,6 +31,7 @@ namespace ItemChanger.Modules
             Modding.ModHooks.SetPlayerBoolHook -= SkillBoolSetOverride;
             Events.RemoveLanguageEdit(new("UI", "INV_NAME_WALLJUMP"), EditClawName);
             Events.RemoveLanguageEdit(new("UI", "INV_DESC_WALLJUMP"), EditClawDesc);
+            Events.RemoveFsmEdit(SceneNames.Fungus2_09, new("Cloth NPC 1", "Destroy"), EditClothFungalEncounter);
         }
 
         private void EditInventory(PlayMakerFSM fsm)
@@ -102,6 +105,38 @@ namespace ItemChanger.Modules
             else if (!hasWalljumpLeft && hasWalljumpRight)
             {
                 value = "Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.";
+            }
+        }
+
+        public enum ClothFungalEncounterLeaveCondition
+        {
+            Vanilla,
+            DisappearAfterFullClaw = Vanilla,
+            DisappearAfterEitherClaw,
+            DisappearAfterLeftClaw,
+            DisappearAfterRightClaw,
+            NoClawDependence,
+        }
+        private void EditClothFungalEncounter(PlayMakerFSM fsm)
+        {
+            FsmState check = fsm.GetState("Check");
+            PlayerDataBoolTest pdbt = check.GetFirstActionOfType<PlayerDataBoolTest>();
+            switch (ClothFungalEncounterHandling)
+            {
+                case ClothFungalEncounterLeaveCondition.Vanilla:
+                    break;
+                case ClothFungalEncounterLeaveCondition.DisappearAfterEitherClaw:
+                    pdbt.boolName = nameof(hasWalljumpAny);
+                    break;
+                case ClothFungalEncounterLeaveCondition.DisappearAfterLeftClaw:
+                    pdbt.boolName = nameof(hasWalljumpLeft);
+                    break;
+                case ClothFungalEncounterLeaveCondition.DisappearAfterRightClaw:
+                    pdbt.boolName = nameof(hasWalljumpRight);
+                    break;
+                case ClothFungalEncounterLeaveCondition.NoClawDependence:
+                    check.ClearTransitions();
+                    break;
             }
         }
     }

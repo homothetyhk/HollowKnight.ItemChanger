@@ -46,6 +46,10 @@ namespace ItemChanger.Locations
                 GetContainer(out GameObject obj, out string containerType);
                 Container c = Container.GetContainer(containerType);
                 c.ApplyTargetContext(obj, enemy.transform.position.x, enemy.transform.position.y, 0);
+                if (containerType == Container.Shiny && !Placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().Any())
+                {
+                    ShinyUtility.SetShinyFling(obj.LocateMyFSM("Shiny Control"), ShinyFling.RandomLR);
+                }
             }
         }
 

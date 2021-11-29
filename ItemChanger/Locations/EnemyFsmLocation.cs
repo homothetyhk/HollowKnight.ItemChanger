@@ -1,4 +1,6 @@
-﻿namespace ItemChanger.Locations
+﻿using ItemChanger.Util;
+
+namespace ItemChanger.Locations
 {
     /// <summary>
     /// /A variant of EnemyLocation which accounts for the fact that some enemies may not be loaded at activeSceneChanged, and are easier to locate by fsm.
@@ -47,6 +49,10 @@
                 GetContainer(out GameObject obj, out string containerType);
                 Container c = Container.GetContainer(containerType);
                 c.ApplyTargetContext(obj, enemy.transform.position.x, enemy.transform.position.y, 0);
+                if (containerType == Container.Shiny && !Placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().Any())
+                {
+                    ShinyUtility.SetShinyFling(obj.LocateMyFSM("Shiny Control"), ShinyFling.RandomLR);
+                }
             }
         }
 

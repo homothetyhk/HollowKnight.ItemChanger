@@ -20,7 +20,12 @@ namespace ItemChanger
         public static event Action<SpriteGetArgs> OnSpriteGet;
 
         /// <summary>
-        /// Called after transition overrides have been applied with the current target transition, immediately prior to the BeginSceneTransition routine.
+        /// Called whenever a transition is overriden through ItemChanger, giving access to the original transition data and the result of the override.
+        /// </summary>
+        public static event TransitionOverrideListener OnTransitionOverride;
+
+        /// <summary>
+        /// Called immediately prior to the BeginSceneTransition routine. If transition overrides take place through ItemChanger, these are applied before the event is invoked.
         /// </summary>
         public static event Action<Transition> OnBeginSceneTransition;
 
@@ -33,6 +38,16 @@ namespace ItemChanger
         /// Called after GameManager.StartNewGame.
         /// </summary>
         public static event Action AfterStartNewGame;
+
+        /// <summary>
+        /// Called after ItemChanger hooks, which occurs either when ItemChanger settings are created or when ItemChanger settings are loaded from a save file.
+        /// </summary>
+        public static event Action OnItemChangerHook;
+
+        /// <summary>
+        /// Called after ItemChanger unhooks, which occurs when ItemChanger settings are nulled on returning to menu.
+        /// </summary>
+        public static event Action OnItemChangerUnhook;
 
         /// <summary>
         /// Called on starting or continuing a save.
@@ -130,6 +145,11 @@ namespace ItemChanger
         }
 
         /// <summary>
+        /// Delegate type used to communicate when a transition is overriden.
+        /// </summary>
+        public delegate void TransitionOverrideListener(Transition source, Transition origTarget, ITransition newTarget);
+
+        /// <summary>
         /// Delegate type which allows subscriber to optionally edit the input string.
         /// </summary>
         public delegate void LanguageEdit(ref string value);
@@ -174,6 +194,14 @@ namespace ItemChanger
             On.GameManager.ContinueGame += OnContinueGame;
             On.GameManager.BeginSceneTransition += TransitionHook;
             On.GameManager.ResetSemiPersistentItems += OnResetSemiPersistentItems;
+            try
+            {
+                OnItemChangerHook?.Invoke();
+            }
+            catch (Exception e)
+            {
+                LogError("Error invoking OnItemChangerHook:\n" + e);
+            }
         }
 
         internal static void Unhook()
@@ -185,6 +213,14 @@ namespace ItemChanger
             On.GameManager.ContinueGame -= OnContinueGame;
             On.GameManager.BeginSceneTransition -= TransitionHook;
             On.GameManager.ResetSemiPersistentItems -= OnResetSemiPersistentItems;
+            try
+            {
+                OnItemChangerUnhook?.Invoke();
+            }
+            catch (Exception e)
+            {
+                LogError("Error invoking OnItemChangerUnhook:\n" + e);
+            }
         }
 
 
@@ -322,7 +358,15 @@ namespace ItemChanger
         private static void OnResetSemiPersistentItems(On.GameManager.orig_ResetSemiPersistentItems orig, GameManager self)
         {
             Ref.Settings.ResetSemiPersistentItems();
-            OnSemiPersistentUpdate?.Invoke();
+            try
+            {
+                OnSemiPersistentUpdate?.Invoke();
+            }
+            catch (Exception e)
+            {
+                LogError("Error invoking OnSemiPersistentUpdate:\n" + e);
+            }
+            
             orig(self);
         }
 
@@ -402,56 +446,77 @@ namespace ItemChanger
         {
             string sceneName = self.sceneName;
             string gateName = null;
-            TransitionPoint tp = UnityEngine.Object.FindObjectsOfType<TransitionPoint>().FirstOrDefault(x => x.entryPoint == info.EntryGateName && x.targetScene == info.SceneName);
-            if (!tp)
+            Transition origTarget = new(info.SceneName, info.EntryGateName);
+
+            if (info.GetType() == typeof(GameManager.SceneLoadInfo)) // gives an easy way for mods to avoid the ItemChanger hook by subclassing SceneLoadInfo
             {
-                switch (sceneName)
+                TransitionPoint tp = UnityEngine.Object.FindObjectsOfType<TransitionPoint>().FirstOrDefault(x => x.entryPoint == info.EntryGateName && x.targetScene == info.SceneName);
+                if (!tp)
                 {
-                    case SceneNames.Fungus3_44 when info.EntryGateName == "left1":
-                    case SceneNames.Crossroads_02 when info.EntryGateName == "left1":
-                    case SceneNames.Crossroads_06 when info.EntryGateName == "left1":
-                    case SceneNames.Deepnest_10 when info.EntryGateName == "left1":
-                    case SceneNames.Ruins1_04 when info.SceneName == SceneNames.Room_nailsmith:
-                    case SceneNames.Fungus3_48 when info.SceneName == SceneNames.Room_Queen:
-                        gateName = "door1";
-                        break;
-                    case SceneNames.Town when info.SceneName == SceneNames.Room_shop:
-                        gateName = "door_sly";
-                        break;
-                    case SceneNames.Town when info.SceneName == SceneNames.Room_Town_Stag_Station:
-                        gateName = "door_station";
-                        break;
-                    case SceneNames.Town when info.SceneName == SceneNames.Room_Bretta:
-                        gateName = "door_bretta";
-                        break;
-                    case SceneNames.Crossroads_04 when info.SceneName == SceneNames.Room_Charm_Shop:
-                        gateName = "door_charmshop";
-                        break;
-                    case SceneNames.Crossroads_04 when info.SceneName == SceneNames.Room_Mender_House:
-                        gateName = "door_Mender_House";
-                        break;
-                    default:
-                        break;
+                    switch (sceneName)
+                    {
+                        case SceneNames.Fungus3_44 when info.EntryGateName == "left1":
+                        case SceneNames.Crossroads_02 when info.EntryGateName == "left1":
+                        case SceneNames.Crossroads_06 when info.EntryGateName == "left1":
+                        case SceneNames.Deepnest_10 when info.EntryGateName == "left1":
+                        case SceneNames.Ruins1_04 when info.SceneName == SceneNames.Room_nailsmith:
+                        case SceneNames.Fungus3_48 when info.SceneName == SceneNames.Room_Queen:
+                            gateName = "door1";
+                            break;
+                        case SceneNames.Town when info.SceneName == SceneNames.Room_shop:
+                            gateName = "door_sly";
+                            break;
+                        case SceneNames.Town when info.SceneName == SceneNames.Room_Town_Stag_Station:
+                            gateName = "door_station";
+                            break;
+                        case SceneNames.Town when info.SceneName == SceneNames.Room_Bretta:
+                            gateName = "door_bretta";
+                            break;
+                        case SceneNames.Crossroads_04 when info.SceneName == SceneNames.Room_Charm_Shop:
+                            gateName = "door_charmshop";
+                            break;
+                        case SceneNames.Crossroads_04 when info.SceneName == SceneNames.Room_Mender_House:
+                            gateName = "door_Mender_House";
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    gateName = tp.name.Split(null)[0];
+                    if (sceneName == SceneNames.Fungus2_14 && gateName[0] == 'b') gateName = "bot3";
+                    else if (sceneName == SceneNames.Fungus2_15 && gateName[0] == 't') gateName = "top3";
+                }
+
+                if (sceneName != null && gateName != null)
+                {
+                    Transition source = new(sceneName, gateName);
+                    if (Ref.Settings.TransitionOverrides.TryGetValue(source, out ITransition target))
+                    {
+                        info.SceneName = target.SceneName;
+                        info.EntryGateName = target.GateName;
+                        try
+                        {
+                            OnTransitionOverride?.Invoke(source, origTarget, target);
+                        }
+                        catch (Exception e)
+                        {
+                            LogError($"Error invoking OnTransitionOverride with parameters {source}, {origTarget}, {target}:\n{e}");
+                        }
+                    }
                 }
             }
-            else
+
+            try
             {
-                gateName = tp.name.Split(null)[0];
-                if (sceneName == SceneNames.Fungus2_14 && gateName[0] == 'b') gateName = "bot3";
-                else if (sceneName == SceneNames.Fungus2_15 && gateName[0] == 't') gateName = "top3";
+                OnBeginSceneTransition?.Invoke(origTarget);
+            }
+            catch (Exception e)
+            {
+                LogError($"Error invoking OnBeginSceneTransition with parameter {origTarget}:\n{e}");
             }
 
-            if (sceneName != null && gateName != null)
-            {
-                Transition source = new Transition(sceneName, gateName);
-                if (Ref.Settings.TransitionOverrides.TryGetValue(source, out ITransition target))
-                {
-                    info.SceneName = target.SceneName;
-                    info.EntryGateName = target.GateName;
-                }
-            }
-
-            OnBeginSceneTransition?.Invoke(new Transition(info.SceneName, info.EntryGateName));
             orig(self, info);
         }
 
