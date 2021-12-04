@@ -46,8 +46,8 @@ namespace ItemChanger.Locations.SpecialLocations
                 getMsg.Actions[0],
                 getMsg.Actions[1],
                 getMsg.Actions[2],
-                give,
                 new Lambda(() => Placement.AddVisitFlag(VisitState.Accepted)),
+                give,
             };
 
             if (Placement is Placements.ISingleCostPlacement iscp && iscp.Cost is Cost cost)

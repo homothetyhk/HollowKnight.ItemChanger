@@ -2,6 +2,7 @@
 using ItemChanger.Extensions;
 using Modding;
 using Newtonsoft.Json;
+using MenuEntry = Modding.IMenuMod.MenuEntry;
 
 namespace ItemChanger.Internal
 {
@@ -69,16 +70,16 @@ namespace ItemChanger.Internal
             _preloadOverrides[propertyName] = null;
         }
 
-        internal void AddEntries(List<IMenuMod.MenuEntry> entries)
+        internal MenuEntry[] GetMenuEntries()
         {
             PreloadLevel[] values = Enum.GetValues(typeof(PreloadLevel)).Cast<PreloadLevel>().ToArray();
             string[] names = values.Select(p => p.ToString().FromCamelCase()).ToArray();
-            foreach (string key in PreloadLevels.Keys)
-            {
-                entries.Add(new IMenuMod.MenuEntry(key.FromCamelCase(), names, string.Empty, 
-                    i => PreloadLevels[key] = values[i], 
-                    () => Array.IndexOf(values, PreloadLevels[key])));
-            }
+            return PreloadLevels.Keys.Select(key => new MenuEntry(
+                    name: key.FromCamelCase(),
+                    values: names,
+                    description: string.Empty,
+                    saver: i => PreloadLevels[key] = values[i],
+                    loader: () => Array.IndexOf(values, PreloadLevels[key]))).ToArray();
         }
     }
 }

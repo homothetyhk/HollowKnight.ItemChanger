@@ -51,10 +51,10 @@
 
         private Dictionary<SoulTotemSubtype, GameObject> _soulTotems;
 
-        public GameObject SoulTotem(SoulTotemSubtype t)
+        public GameObject SoulTotem(ref SoulTotemSubtype t)
         {
             if (PreloadLevel == PreloadLevel.None) throw NotPreloadedException();
-            return UObject.Instantiate(_soulTotems[GetPreloadedTotemType(t)]);
+            return UObject.Instantiate(_soulTotems[t = GetPreloadedTotemType(t)]);
         }
 
         public GameObject SoulParticles

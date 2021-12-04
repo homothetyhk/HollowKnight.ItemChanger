@@ -4,7 +4,7 @@ using Modding;
 
 namespace ItemChanger
 {
-    public class ItemChangerMod : Mod, ILocalSettings<SaveSettings>, IGlobalSettings<GlobalSettings>, IMenuMod
+    public class ItemChangerMod : Mod, ILocalSettings<SaveSettings>, IGlobalSettings<GlobalSettings>, ICustomMenuMod
     {
         internal static ItemChangerMod instance;
         internal static Settings SET;
@@ -168,7 +168,7 @@ namespace ItemChanger
             return ObjectCache.GetPreloadNames();
         }
 
-        public void OnLoadLocal(SaveSettings s)
+        void ILocalSettings<SaveSettings>.OnLoadLocal(SaveSettings s)
         {
             if (Settings.loaded)
             {
@@ -193,28 +193,26 @@ namespace ItemChanger
             }
         }
 
-        public SaveSettings OnSaveLocal()
+        SaveSettings ILocalSettings<SaveSettings>.OnSaveLocal()
         {
             return SET;
         }
 
-        public void OnLoadGlobal(GlobalSettings s)
+        void IGlobalSettings<GlobalSettings>.OnLoadGlobal(GlobalSettings s)
         {
             GS = s;
         }
 
-        public GlobalSettings OnSaveGlobal()
+        GlobalSettings IGlobalSettings<GlobalSettings>.OnSaveGlobal()
         {
             return GS;
         }
 
-        public bool ToggleButtonInsideMenu => false;
+        bool ICustomMenuMod.ToggleButtonInsideMenu => false;
 
-        public List<IMenuMod.MenuEntry> GetMenuData(IMenuMod.MenuEntry? toggleButtonEntry)
+        MenuScreen ICustomMenuMod.GetMenuScreen(MenuScreen modListMenu, ModToggleDelegates? toggleDelegates)
         {
-            List<IMenuMod.MenuEntry> entries = new();
-            GS.AddEntries(entries);
-            return entries;
+            return Internal.Menu.ItemChangerMenu.GetMenuScreen(modListMenu, toggleDelegates);
         }
     }
 }

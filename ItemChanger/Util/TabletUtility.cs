@@ -206,9 +206,9 @@ namespace ItemChanger.Util
                 ip.items = items;
                 Vector3 offset = Vector3.zero;
                 if (tpct != null) offset += new Vector3(tpct.offsetX, tpct.offsetY, tpct.offsetZ);
-                if (placement is Placements.ExistingContainerPlacement ecp)
+                if (placement is Placements.ExistingContainerPlacement ecp && ecp.Location is Locations.ExistingFsmContainerLocation efcl)
                 {
-                    offset.y -= ecp.Location.elevation;
+                    offset.y -= efcl.elevation;
                 }
                 ip.offset = offset;
             }

@@ -10,17 +10,17 @@
     <LangVersion>latest</LangVersion>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <ImplicitUsings>true</ImplicitUsings>
-    <NoWarn>1701;1702;CS1591</NoWarn>
+    <NoWarn>1701;1702;CS1591;IDE0018</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Using Remove="System.Net.Http"/>
-    <Using Remove="System.Threading"/>
-    <Using Remove="System.Threading.Tasks"/>
-    <Using Include="ItemChanger.LogHelper" Static="true"/>
-    <Using Include="UnityEngine"/>
-    <Using Include="UnityEngine.Object" Alias="UObject"/>
-    <Using Include="UnityEngine.SceneManagement.Scene" Alias="Scene"/>
-    <Using Include="HutongGames.PlayMaker"/>
+    <Using Remove="System.Net.Http" />
+    <Using Remove="System.Threading" />
+    <Using Remove="System.Threading.Tasks" />
+    <Using Include="ItemChanger.LogHelper" Static="true" />
+    <Using Include="UnityEngine" />
+    <Using Include="UnityEngine.Object" Alias="UObject" />
+    <Using Include="UnityEngine.SceneManagement.Scene" Alias="Scene" />
+    <Using Include="HutongGames.PlayMaker" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="**\*.png" />

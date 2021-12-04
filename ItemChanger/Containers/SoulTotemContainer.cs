@@ -24,8 +24,8 @@ namespace ItemChanger.Containers
         public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
         {
             SoulTotemSubtype type = items.OfType<SoulTotemItem>().FirstOrDefault()?.soulTotemSubtype ?? SoulTotemSubtype.B;
-            GameObject totem = ObjectCache.SoulTotem(type);
-            type = totem.AddComponent<SoulTotemInfo>().type = ObjectCache.SoulTotemPreloader.GetPreloadedTotemType(type);
+            GameObject totem = ObjectCache.SoulTotem(ref type);
+            totem.AddComponent<SoulTotemInfo>().type = type;
             totem.name = GetNewSoulTotemName(placement);
             
             if (ShrinkageFactor.TryGetValue(type, out var k))

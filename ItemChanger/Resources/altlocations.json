@@ -1,0 +1,518 @@
+{
+  "Vengeful_Spirit": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Shaman Meeting",
+    "elevation": 0.5,
+    "forceShiny": false,
+    "name": "Vengeful_Spirit",
+    "sceneName": "Crossroads_ShamanTemple",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Bone Gate",
+        "sceneName": "Crossroads_ShamanTemple"
+      }
+    ]
+  },
+  "Shade_Soul": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Ruins Shaman",
+    "elevation": 0.8,
+    "forceShiny": false,
+    "name": "Shade_Soul",
+    "sceneName": "Ruins1_31b",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Descending_Dark": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Crystal Shaman",
+    "elevation": 3.1,
+    "forceShiny": false,
+    "name": "Descending_Dark",
+    "sceneName": "Mines_35",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Cyclone_Slash": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "NM Mato NPC",
+    "elevation": 1.5,
+    "forceShiny": false,
+    "name": "Cyclone_Slash",
+    "sceneName": "Room_nailmaster",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Dash_Slash": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "NM Oro NPC",
+    "elevation": 1.5,
+    "forceShiny": false,
+    "name": "Dash_Slash",
+    "sceneName": "Room_nailmaster_03",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Great_Slash": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "NM Sheo NPC",
+    "elevation": 1.5,
+    "forceShiny": false,
+    "name": "Great_Slash",
+    "sceneName": "Room_nailmaster_02",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.OverridePDBoolTag, ItemChanger",
+        "boolName": "nailsmithSheo",
+        "value": {
+          "$type": "ItemChanger.BoxedBool, ItemChanger",
+          "Value": false
+        },
+        "overrideSet": false
+      }
+    ]
+  },
+  "Nailmaster's_Glory": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Sly Basement NPC",
+    "elevation": 0.0,
+    "forceShiny": true,
+    "name": "Nailmaster's_Glory",
+    "sceneName": "Room_Sly_Storeroom",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ChangeSceneTag, ItemChanger",
+        "changeTo": {
+          "SceneName": "Town",
+          "GateName": "door_sly"
+        }
+      }
+    ]
+  },
+  "Vessel_Fragment-Basin": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 65.0,
+    "y": 58.0,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Vessel_Fragment-Basin",
+    "sceneName": "Abyss_04",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Fountain Donation",
+        "sceneName": "Abyss_04"
+      }
+    ]
+  },
+  "Crossroads_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 36.5,
+    "y": 34.0,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Crossroads_Map",
+    "sceneName": "Crossroads_33",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Crossroads_33"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Crossroads_33"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Set NPC Leave",
+        "sceneName": "Crossroads_06"
+      }
+    ]
+  },
+  "Greenpath_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 160.0,
+    "y": 3.3,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Greenpath_Map",
+    "sceneName": "Fungus1_06",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Fungus1_06"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Fungus1_06"
+      }
+    ]
+  },
+  "Fog_Canyon_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 36.4,
+    "y": 32.0,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Fog_Canyon_Map",
+    "sceneName": "Fungus3_25",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Fungus3_25"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Fungus3_25"
+      }
+    ]
+  },
+  "Fungal_Wastes_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 11.0,
+    "y": 35.0,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Fungal_Wastes_Map",
+    "sceneName": "Fungus2_18",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Fungus2_18"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Fungus2_18"
+      }
+    ]
+  },
+  "Deepnest_Map-Upper": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 7.8,
+    "y": 4.5,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Deepnest_Map-Upper",
+    "sceneName": "Deepnest_01b",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Deepnest",
+        "sceneName": "Deepnest_01b"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Deepnest_01b"
+      }
+    ]
+  },
+  "Deepnest_Map-Right": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 49.5,
+    "y": 23.2,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Deepnest_Map-Right",
+    "sceneName": "Fungus2_25",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Deepnest",
+        "sceneName": "Fungus2_25"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Fungus2_25"
+      }
+    ]
+  },
+  "Ancient_Basin_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 68.3,
+    "y": 41.4,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Ancient_Basin_Map",
+    "sceneName": "Abyss_04",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Abyss_04"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Abyss_04"
+      }
+    ]
+  },
+  "Kingdom's_Edge_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 7.5,
+    "y": 60.1,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Kingdom's_Edge_Map",
+    "sceneName": "Deepnest_East_03",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Deepnest_East_03"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Deepnest_East_03"
+      }
+    ]
+  },
+  "City_of_Tears_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 35.1,
+    "y": 15.3,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "City_of_Tears_Map",
+    "sceneName": "Ruins1_31",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Ruins1_31"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Ruins1_31"
+      }
+    ]
+  },
+  "Royal_Waterways_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 25.4,
+    "y": 30.5,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Royal_Waterways_Map",
+    "sceneName": "Waterways_09",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Waterways_09"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Waterways_09"
+      }
+    ]
+  },
+  "Howling_Cliffs_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 125.8,
+    "y": 91.6,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Howling_Cliffs_Map",
+    "sceneName": "Cliffs_01",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Cliffs_01"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Cliffs_01"
+      }
+    ]
+  },
+  "Crystal_Peak_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 157.0,
+    "y": 8.4,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Crystal_Peak_Map",
+    "sceneName": "Mines_30",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Mines_30"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Mines_30"
+      }
+    ]
+  },
+  "Queen's_Gardens_Map": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 53.7,
+    "y": 22.3,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Queen's_Gardens_Map",
+    "sceneName": "Fungus1_24",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer",
+        "sceneName": "Fungus1_24"
+      },
+      {
+        "$type": "ItemChanger.Tags.DestroyObjectTag, ItemChanger",
+        "objectName": "Cornifer Card",
+        "sceneName": "Fungus1_24"
+      }
+    ]
+  },
+  "Rancid_Egg-Queen's_Gardens": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Queen's_Gardens",
+    "sceneName": "Fungus3_34",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Blue_Lake": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": -0.1,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Blue_Lake",
+    "sceneName": "Crossroads_50",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Crystal_Peak_Dive_Entrance": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": -0.1,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
+    "sceneName": "Mines_01",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Crystal_Peak_Tall_Room": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": -0.1,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Crystal_Peak_Tall_Room",
+    "sceneName": "Mines_20",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Beast's_Den": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.1,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Beast's_Den",
+    "sceneName": "Deepnest_Spider_Town",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Dark_Deepnest": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Dark_Deepnest",
+    "sceneName": "Deepnest_39",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Near_Quick_Slash": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Near_Quick_Slash",
+    "sceneName": "Deepnest_East_14",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Waterways_East": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Waterways_East",
+    "sceneName": "Waterways_07",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Waterways_Main": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": -0.2,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Waterways_Main",
+    "sceneName": "Waterways_02",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Waterways_West_Bluggsac": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Waterways_West_Bluggsac",
+    "sceneName": "Waterways_04",
+    "flingType": "Everywhere",
+    "tags": null
+  }
+}

@@ -30,8 +30,8 @@ namespace ItemChanger.Modules
             // if placement is modified, then hide the tablet inspect if no ECL uses it
             return !Ref.Settings.Placements.Values.OfType<ExistingContainerPlacement>()
                 .Select(ap => ap.Location)
-                .Any(ecl => ecl.sceneName == sceneName && ecl.containerType == Container.Tablet
-                && ecl.objectName == "Tut_tablet_top" && ecl.fsmName == "Inspection");
+                .Any(ecl => ecl.sceneName == sceneName && ecl.containerType == Container.Tablet && ecl is Locations.ExistingFsmContainerLocation efcl
+                && efcl.objectName == "Tut_tablet_top" && efcl.fsmName == "Inspection");
         }
 
         private void HideFocusInspect(PlayMakerFSM fsm)
