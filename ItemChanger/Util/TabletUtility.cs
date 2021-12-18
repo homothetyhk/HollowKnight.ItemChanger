@@ -195,6 +195,20 @@ namespace ItemChanger.Util
                 convoEnd.RemoveActionsOfType<SetTextMeshProAlignment>();
                 canTalkBool.AddFirstAction(new DelegateBoolTest(() => items.All(i => i.IsObtained()), "FALSE", null));
             }
+            else if (inspectFsm.FsmName == "Conversation Control" && inspectFsm.GetState("Journal") is FsmState journal)
+            {
+                journal.Actions = new FsmStateAction[]
+                {
+                    new DelegateBoolTest(placement.AllObtained, journal.GetFirstActionOfType<PlayerDataBoolTest>()),
+                    new AsyncLambda(callback => ItemUtility.GiveSequentially(items, placement, new GiveInfo
+                        {
+                            FlingType = flingType,
+                            Container = Container.Tablet,
+                            MessageType = MessageType.Any,
+                            Transform = inspectFsm.transform,
+                        }, callback)),
+                };
+            }
         }
 
         public static void AddItemParticles(GameObject parent, AbstractPlacement placement, IEnumerable<AbstractItem> items)

@@ -12,5 +12,13 @@
         {
             return !(Placement.MainContainerType == containerType || nonreplaceable || Container.GetContainer(Placement.MainContainerType) is not Container c || !c.SupportsInstantiate);
         }
+
+        public override AbstractPlacement Wrap()
+        {
+            return new Placements.ExistingContainerPlacement(name)
+            {
+                Location = this,
+            };
+        }
     }
 }

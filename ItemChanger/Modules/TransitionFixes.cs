@@ -410,6 +410,12 @@ namespace ItemChanger.Modules
                         case "door_jiji":
                             PlayerData.instance.SetBool(nameof(PlayerData.jijiDoorUnlocked), true);
                             break;
+                        case "room_grimm":
+                            PlayerData.instance.SetBool(nameof(PlayerData.troupeInTown), true);
+                            break;
+                        case "room_divine":
+                            PlayerData.instance.SetBool(nameof(PlayerData.divineInTown), true);
+                            break;
                     }
                     if (t.GateName != "left1")
                     {

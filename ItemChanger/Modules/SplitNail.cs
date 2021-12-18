@@ -1,4 +1,7 @@
 ﻿using GlobalEnums;
+using HutongGames.PlayMaker.Actions;
+using ItemChanger.Extensions;
+using ItemChanger.FsmStateActions;
 #pragma warning disable IDE1006 // Naming Styles
 
 namespace ItemChanger.Modules
@@ -16,17 +19,41 @@ namespace ItemChanger.Modules
         public override void Initialize()
         {
             On.HeroController.CanAttack += ModifyNail;
+            On.HeroController.DoAttack += PreventAttack;
             Modding.ModHooks.GetPlayerBoolHook += SkillBoolGetOverride;
             Modding.ModHooks.SetPlayerBoolHook += SkillBoolSetOverride;
+            Events.AddFsmEdit(new("Knight", "Dream Nail"), FixDreamNailAnim);
         }
 
         public override void Unload()
         {
             On.HeroController.CanAttack -= ModifyNail;
+            On.HeroController.DoAttack -= PreventAttack;
             Modding.ModHooks.GetPlayerBoolHook -= SkillBoolGetOverride;
             Modding.ModHooks.SetPlayerBoolHook -= SkillBoolSetOverride;
+            Events.RemoveFsmEdit(new("Knight", "Dream Nail"), FixDreamNailAnim);
         }
 
+        private void PreventAttack(On.HeroController.orig_DoAttack orig, HeroController self)
+        {
+            if (CanAttackInAttackDirection(self)) orig(self);
+        }
+        private void FixDreamNailAnim(PlayMakerFSM fsm)
+        {
+            FsmState cancelable = fsm.GetState("Cancelable");
+            FsmState cancelableDash = fsm.GetState("Cancelable Dash");
+            
+            void attackIfAble()
+            {
+                if (InputHandler.Instance.inputActions.attack.WasPressed && CanAttackInAttackDirection(HeroController.instance))
+                {
+                    fsm.Fsm.Event("ATTACK CANCEL");
+                }
+            }
+
+            cancelable.Actions[6] = new LambdaEveryFrame(attackIfAble);
+            cancelableDash.Actions[6] = new LambdaEveryFrame(attackIfAble);
+        }
         private bool SkillBoolGetOverride(string boolName, bool value)
         {
             return boolName switch
@@ -61,13 +88,18 @@ namespace ItemChanger.Modules
 
         private bool ModifyNail(On.HeroController.orig_CanAttack orig, HeroController self)
         {
-            return GetAttackDirection(self) switch
+            return orig(self) && CanAttackInAttackDirection(self);
+        }
+
+        private bool CanAttackInAttackDirection(HeroController hc)
+        {
+            return GetAttackDirection(hc) switch
             {
-                Direction.upward => orig(self) && canUpslash,
-                Direction.leftward => orig(self) && canSideslashLeft,
-                Direction.rightward => orig(self) && canSideslashRight,
-                Direction.downward => orig(self) && canDownslash,
-                _ => orig(self),
+                Direction.upward => canUpslash,
+                Direction.leftward => canSideslashLeft,
+                Direction.rightward => canSideslashRight,
+                Direction.downward => canDownslash,
+                _ => true,
             };
         }
 

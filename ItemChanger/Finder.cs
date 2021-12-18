@@ -224,11 +224,15 @@ namespace ItemChanger
         {
             Default = 0,
             AvoidNPCItemDialogue = 1,
+            AvoidBluggsacs = 2,
+            RetainTabletsOnReplace = 3,
         }
         private static readonly (FinderLocationSheets sheet, string file)[] locationResourcePaths = new[]
         {
             (FinderLocationSheets.Default, "locations.json"),
-            (FinderLocationSheets.AvoidNPCItemDialogue, "altlocations.json")
+            (FinderLocationSheets.AvoidNPCItemDialogue, "nondialoguelocations.json"),
+            (FinderLocationSheets.AvoidBluggsacs, "nonbluggsaclocations.json"),
+            (FinderLocationSheets.RetainTabletsOnReplace, "retaintablets.json"),
         };
     }
 }

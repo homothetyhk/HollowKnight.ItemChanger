@@ -14,6 +14,7 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnLoad();
             Events.AddFsmEdit(sceneName, new("Shaman Meeting", "Conversation Control"), EditShamanConvo);
             Events.AddFsmEdit(sceneName, new("Shaman Trapped", "Conversation Control"), Destroy);
+            Events.AddFsmEdit(sceneName, new("Shaman Killed Blocker", "Conversation Control"), Destroy);
             Events.AddFsmEdit(sceneName, new("Bone Gate", "Bone Gate"), Destroy);
         }
 
@@ -22,6 +23,7 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnUnload();
             Events.RemoveFsmEdit(sceneName, new("Shaman Meeting", "Conversation Control"), EditShamanConvo);
             Events.RemoveFsmEdit(sceneName, new("Shaman Trapped", "Conversation Control"), Destroy);
+            Events.RemoveFsmEdit(sceneName, new("Shaman Killed Blocker", "Conversation Control"), Destroy);
             Events.RemoveFsmEdit(sceneName, new("Bone Gate", "Bone Gate"), Destroy);
         }
 

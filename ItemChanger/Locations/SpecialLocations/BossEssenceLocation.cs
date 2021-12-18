@@ -1,4 +1,5 @@
-﻿using ItemChanger.FsmStateActions;
+﻿using HutongGames.PlayMaker.Actions;
+using ItemChanger.FsmStateActions;
 using ItemChanger.Extensions;
 
 namespace ItemChanger.Locations.SpecialLocations
@@ -10,8 +11,6 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         public string fsmName;
         public string objName;
-
-        // TODO: change bool test, so that location can be checked multiple times if necessary
 
         protected override void OnLoad()
         {
@@ -25,12 +24,39 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void EditBossConvo(PlayMakerFSM fsm)
         {
-            FsmState get = fsm.GetState("Get");
-            List<FsmStateAction> fsmActions = get.Actions.ToList();
-            fsmActions.RemoveAt(fsmActions.Count - 1); // SendEventByName (essence counter)
-            fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
-            fsmActions.Add(new AsyncLambda(GiveAllAsync(fsm.transform)));
-            get.Actions = fsmActions.ToArray();
+            if (fsmName == "Award Orbs")
+            {
+                // Add give
+                FsmState get = fsm.GetState("Award");
+                List<FsmStateAction> fsmActions = get.Actions.ToList();
+                fsmActions.RemoveAt(fsmActions.Count - 1); // SendEventByName (essence counter)
+                fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
+                fsmActions.Add(new AsyncLambda(GiveAllAsync(fsm.transform)));
+                get.Actions = fsmActions.ToArray();
+
+                bool test()
+                {
+                    return !HeroController.instance.controlReqlinquished 
+                        && HeroController.instance.transitionState == GlobalEnums.HeroTransitionState.WAITING_TO_TRANSITION;
+                }
+
+                // Fsm change to allow for re-give
+                if (Placement.CheckVisitedAny(VisitState.ObtainedAnyItem) && !Placement.AllObtained())
+                {
+                    FsmState idle = fsm.GetState("Idle");
+                    idle.AddLastAction(new WaitForDelegate(test, "DREAM WAKE"));
+                }
+            }
+            else
+            {
+                // Add give
+                FsmState get = fsm.GetState("Get");
+                List<FsmStateAction> fsmActions = get.Actions.ToList();
+                fsmActions.RemoveAt(fsmActions.Count - 1); // SendEventByName (essence counter)
+                fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
+                fsmActions.Add(new AsyncLambda(GiveAllAsync(fsm.transform)));
+                get.Actions = fsmActions.ToArray();
+            }
         }
     }
 }
