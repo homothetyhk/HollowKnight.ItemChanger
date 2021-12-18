@@ -14,15 +14,21 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnLoad();
             Events.AddFsmEdit(sceneName, new("Cloak Corpse", "Control"), EditCloakCorpse);
             Events.AddFsmEdit(sceneName, new("Camera Locks Boss", "FSM"), DestroyCameraLock);
-            Events.AddSceneChangeEdit(sceneName, DestroyDreamerScene);
+            // These objects are in Fungus1_04_boss, but the Fsm hook still catches them in the SuperScene.
+            Events.AddFsmEdit(sceneName, new("Dreamer Scene 1", "Control"), DestroyDreamScene); // probably not necessary
+            Events.AddFsmEdit(sceneName, new("Cutscene Dreamer", "Control"), DestroyDreamScene); // probably not necessary
+            Events.AddFsmEdit(sceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
+            Events.AddFsmEdit(sceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
         }
-
         protected override void OnUnload()
         {
             base.OnUnload();
             Events.RemoveFsmEdit(sceneName, new("Cloak Corpse", "Control"), EditCloakCorpse);
             Events.RemoveFsmEdit(sceneName, new("Camera Locks Boss", "FSM"), DestroyCameraLock);
-            Events.RemoveSceneChangeEdit(sceneName, DestroyDreamerScene);
+            Events.RemoveFsmEdit(sceneName, new("Dreamer Scene 1", "Control"), DestroyDreamScene);
+            Events.RemoveFsmEdit(sceneName, new("Cutscene Dreamer", "Control"), DestroyDreamScene);
+            Events.RemoveFsmEdit(sceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
+            Events.RemoveFsmEdit(sceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
         }
 
         private void EditCloakCorpse(PlayMakerFSM fsm)
@@ -47,14 +53,13 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             if (!PlayerData.instance.hornet1Defeated) UnityEngine.Object.Destroy(fsm);
         }
-
-        // TODO: Is there a way to deactivate Dreamer Cutscene 1 without destroying it?
-        private void DestroyDreamerScene(Scene to)
+        private void DestroyDreamScene(PlayMakerFSM fsm)
         {
-            ObjectDestroyer.Destroy(sceneName, "Dreamer Scene 1");
-            ObjectDestroyer.Destroy(sceneName, "Hornet Saver");
-            ObjectDestroyer.Destroy(sceneName, "Cutscene Dreamer");
-            ObjectDestroyer.Destroy(sceneName, "Dream Scene Activate");
+            UObject.Destroy(fsm.gameObject);
+        }
+        private void PreventHornetSaver(PlayMakerFSM fsm)
+        {
+            fsm.GetState("Start Fight").RemoveFirstActionOfType<ActivateAllChildren>();
         }
     }
 }

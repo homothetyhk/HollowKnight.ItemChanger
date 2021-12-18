@@ -230,6 +230,7 @@ namespace ItemChanger
 
             FsmID weakID = new(fsm.FsmName);
             FsmID id = new(fsm);
+            FsmID strongID = new("/" + fsm.gameObject.transform.GetPathInHierarchy(), fsm.FsmName);
             string sceneName = fsm.gameObject.scene.name;
 
             // The early container hook lets the following hooks act on a container after it has already been modified.
@@ -240,7 +241,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                LogError($"Error during early container fsm hook on {id}:\n{e}");
+                LogError($"Error during early container fsm hook on {strongID}:\n{e}");
             }
 
             // Global fsm hooks are run if the fsm matches the id, regardless of scene.
@@ -248,10 +249,11 @@ namespace ItemChanger
             {
                 globalOnEnable.GetOrDefault(weakID)?.Invoke(fsm);
                 globalOnEnable.GetOrDefault(id)?.Invoke(fsm);
+                globalOnEnable.GetOrDefault(strongID)?.Invoke(fsm);
             }
             catch (Exception e)
             {
-                LogError($"Error during global fsm hook on {id}:\n{e}");
+                LogError($"Error during global fsm hook on {strongID}:\n{e}");
             }
             
             // Local fsm hooks are run if the fsm matches the scene and id.
@@ -261,11 +263,12 @@ namespace ItemChanger
                 {
                     dict.GetOrDefault(weakID)?.Invoke(fsm);
                     dict.GetOrDefault(id)?.Invoke(fsm);
+                    dict.GetOrDefault(strongID)?.Invoke(fsm);
                 }
             }
             catch (Exception e)
             {
-                LogError($"Error during local fsm hook on {id} in scene {sceneName}:\n{e}");
+                LogError($"Error during local fsm hook on {strongID} in scene {sceneName}:\n{e}");
             }
 
             // Run the local search a second time for boss scenes, etc, in case the more general scene name was used to hook.
@@ -277,11 +280,12 @@ namespace ItemChanger
                     {
                         dict.GetOrDefault(weakID)?.Invoke(fsm);
                         dict.GetOrDefault(id)?.Invoke(fsm);
+                        dict.GetOrDefault(strongID)?.Invoke(fsm);
                     }
                 }
                 catch (Exception e)
                 {
-                    LogError($"Error during local fsm hook on {id} in scene {normalizedSceneName}:\n{e}");
+                    LogError($"Error during local fsm hook on {strongID} in scene {normalizedSceneName}:\n{e}");
                 }
             }
 
@@ -292,7 +296,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                LogError($"Error during late container fsm hook on {id}:\n{e}");
+                LogError($"Error during late container fsm hook on {strongID}:\n{e}");
             }
         }
 
@@ -447,6 +451,7 @@ namespace ItemChanger
             string sceneName = self.sceneName;
             string gateName = null;
             Transition origTarget = new(info.SceneName, info.EntryGateName);
+            Transition target = new(info.SceneName, info.EntryGateName);
 
             if (info.GetType() == typeof(GameManager.SceneLoadInfo)) // gives an easy way for mods to avoid the ItemChanger hook by subclassing SceneLoadInfo
             {
@@ -492,29 +497,30 @@ namespace ItemChanger
                 if (sceneName != null && gateName != null)
                 {
                     Transition source = new(sceneName, gateName);
-                    if (Ref.Settings.TransitionOverrides.TryGetValue(source, out ITransition target))
+                    if (Ref.Settings.TransitionOverrides.TryGetValue(source, out ITransition modified))
                     {
-                        info.SceneName = target.SceneName;
-                        info.EntryGateName = target.GateName;
+                        info.SceneName = modified.SceneName;
+                        info.EntryGateName = modified.GateName;
                         try
                         {
-                            OnTransitionOverride?.Invoke(source, origTarget, target);
+                            OnTransitionOverride?.Invoke(source, origTarget, modified);
                         }
                         catch (Exception e)
                         {
-                            LogError($"Error invoking OnTransitionOverride with parameters {source}, {origTarget}, {target}:\n{e}");
+                            LogError($"Error invoking OnTransitionOverride with parameters {source}, {origTarget}, {modified}:\n{e}");
                         }
+                        target = new(modified.SceneName, modified.GateName);
                     }
                 }
             }
 
             try
             {
-                OnBeginSceneTransition?.Invoke(origTarget);
+                OnBeginSceneTransition?.Invoke(target);
             }
             catch (Exception e)
             {
-                LogError($"Error invoking OnBeginSceneTransition with parameter {origTarget}:\n{e}");
+                LogError($"Error invoking OnBeginSceneTransition with parameter {target}:\n{e}");
             }
 
             orig(self, info);

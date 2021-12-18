@@ -1,0 +1,102 @@
+﻿{
+  "Rancid_Egg-Queen's_Gardens": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Queen's_Gardens",
+    "sceneName": "Fungus3_34",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Blue_Lake": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": -0.1,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Blue_Lake",
+    "sceneName": "Crossroads_50",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Crystal_Peak_Dive_Entrance": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": -0.1,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Crystal_Peak_Dive_Entrance",
+    "sceneName": "Mines_01",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Crystal_Peak_Tall_Room": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": -0.1,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Crystal_Peak_Tall_Room",
+    "sceneName": "Mines_20",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Beast's_Den": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.1,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Beast's_Den",
+    "sceneName": "Deepnest_Spider_Town",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Dark_Deepnest": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Dark_Deepnest",
+    "sceneName": "Deepnest_39",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Near_Quick_Slash": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Near_Quick_Slash",
+    "sceneName": "Deepnest_East_14",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Waterways_East": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Waterways_East",
+    "sceneName": "Waterways_07",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Waterways_Main": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": -0.2,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Waterways_Main",
+    "sceneName": "Waterways_02",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Rancid_Egg-Waterways_West_Bluggsac": {
+    "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
+    "objectName": "Egg Sac",
+    "elevation": 0.001,
+    "forceShiny": false,
+    "name": "Rancid_Egg-Waterways_West_Bluggsac",
+    "sceneName": "Waterways_04",
+    "flingType": "Everywhere",
+    "tags": null
+  }
+}

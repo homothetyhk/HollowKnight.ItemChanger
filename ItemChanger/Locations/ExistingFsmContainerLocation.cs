@@ -95,13 +95,5 @@ namespace ItemChanger.Locations
                 };
             }
         }
-
-        public override AbstractPlacement Wrap()
-        {
-            return new Placements.ExistingContainerPlacement(name)
-            {
-                Location = this,
-            };
-        }
     }
 }

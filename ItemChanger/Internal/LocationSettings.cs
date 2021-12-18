@@ -8,6 +8,8 @@ namespace ItemChanger.Internal
         public static readonly LocationSheetSetting[] Settings = new LocationSheetSetting[]
         {
             new("Avoid NPC Item Dialogue", (int)Finder.FinderLocationSheets.AvoidNPCItemDialogue),
+            new("Always Replace Bluggsacs", (int)Finder.FinderLocationSheets.AvoidBluggsacs),
+            new("Retain Tablet Sprites", (int)Finder.FinderLocationSheets.RetainTabletsOnReplace),
         };
 
         public List<int> extraSheets = new();

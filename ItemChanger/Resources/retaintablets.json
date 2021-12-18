@@ -1,0 +1,502 @@
+{
+  "Journal_Entry-Void_Tendrils": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "AbyssTendril Inspect",
+    "fsmName": "Conversation Control",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.4,
+    "name": "Journal_Entry-Void_Tendrils",
+    "sceneName": "Abyss_09",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Journal_Entry-Charged_Lumafly": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Zap Bug Inspect",
+    "fsmName": "Conversation Control",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.2,
+    "name": "Journal_Entry-Charged_Lumafly",
+    "sceneName": "Fungus3_archive_02",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Journal_Entry-Goam": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Goam Inspect",
+    "fsmName": "Conversation Control",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.2,
+    "name": "Journal_Entry-Goam",
+    "sceneName": "Crossroads_52",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Journal_Entry-Garpede": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Centipede Inspect",
+    "fsmName": "Conversation Control",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.3,
+    "name": "Journal_Entry-Garpede",
+    "sceneName": "Deepnest_44",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-City_Entrance": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-City_Entrance",
+    "sceneName": "Ruins1_02",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Pleasure_House": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Pleasure_House",
+    "sceneName": "Ruins_Elevator",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Sanctum_Entrance": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Sanctum_Entrance",
+    "sceneName": "Ruins1_23",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Sanctum_Past_Soul_Master": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Sanctum_Past_Soul_Master",
+    "sceneName": "Ruins1_32",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Watcher's_Spire": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "/Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Watcher's_Spire",
+    "sceneName": "Ruins2_Watcher_Room",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Archives_Upper": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Archives_Upper",
+    "sceneName": "Fungus3_archive_02",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Archives_Left": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region (2)",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Archives_Left",
+    "sceneName": "Fungus3_archive_02",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Archives_Right": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region (1)",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Archives_Right",
+    "sceneName": "Fungus3_archive_02",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Pilgrim's_Way_1": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": -1.8,
+    "name": "Lore_Tablet-Pilgrim's_Way_1",
+    "sceneName": "Crossroads_11_alt",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.TabletParticleControlTag, ItemChanger",
+        "offsetX": -1.2,
+        "offsetY": 1.8
+      }
+    ]
+  },
+  "Lore_Tablet-Pilgrim's_Way_2": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Pilgrim's_Way_2",
+    "sceneName": "Fungus2_21",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Mantis_Outskirts": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Mantis_Outskirts",
+    "sceneName": "Fungus2_12",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Mantis_Village": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Mantis_Village",
+    "sceneName": "Fungus2_14",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Greenpath_Upper_Hidden": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Greenpath_Upper_Hidden",
+    "sceneName": "Fungus1_17",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Greenpath_Below_Toll": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Greenpath_Below_Toll",
+    "sceneName": "Fungus1_30",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Greenpath_Lifeblood": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Greenpath_Lifeblood",
+    "sceneName": "Fungus1_32",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Greenpath_Stag": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Greenpath_Stag",
+    "sceneName": "Fungus1_21",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Greenpath_QG": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Greenpath_QG",
+    "sceneName": "Fungus1_13",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Greenpath_Lower_Hidden": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Greenpath_Lower_Hidden",
+    "sceneName": "Fungus1_19",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Dung_Defender": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Dung_Defender",
+    "sceneName": "Waterways_07",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Spore_Shroom": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": true,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Spore_Shroom",
+    "sceneName": "Fungus2_20",
+    "flingType": "Everywhere",
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
+  },
+  "Lore_Tablet-Fungal_Wastes_Hidden": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": true,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Fungal_Wastes_Hidden",
+    "sceneName": "Fungus2_07",
+    "flingType": "Everywhere",
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
+  },
+  "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": true,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Fungal_Wastes_Below_Shrumal_Ogres",
+    "sceneName": "Fungus2_04",
+    "flingType": "Everywhere",
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
+  },
+  "Lore_Tablet-Fungal_Core": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": true,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Fungal_Core",
+    "sceneName": "Fungus2_30",
+    "flingType": "Everywhere",
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
+  },
+  "Lore_Tablet-Ancient_Basin": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Tut_tablet_Abyss",
+    "fsmName": "Inspection",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Ancient_Basin",
+    "sceneName": "Abyss_06_Core",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-King's_Pass_Focus": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Tut_tablet_top",
+    "fsmName": "Inspection",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-King's_Pass_Focus",
+    "sceneName": "Tutorial_01",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-King's_Pass_Fury": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Tut_tablet_top (2)",
+    "fsmName": "Inspection",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-King's_Pass_Fury",
+    "sceneName": "Tutorial_01",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-King's_Pass_Exit": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Tut_tablet_top (1)",
+    "fsmName": "Inspection",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-King's_Pass_Exit",
+    "sceneName": "Tutorial_01",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-World_Sense": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Tut_tablet_top",
+    "fsmName": "Inspection",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-World_Sense",
+    "sceneName": "Room_Final_Boss_Atrium",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Howling_Cliffs": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Tut_tablet_top",
+    "fsmName": "Inspection",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Howling_Cliffs",
+    "sceneName": "Cliffs_01",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Kingdom's_Edge": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Tut_tablet_top",
+    "fsmName": "Inspection",
+    "containerType": "Tablet",
+    "nonreplaceable": true,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Kingdom's_Edge",
+    "sceneName": "Deepnest_East_17",
+    "flingType": "Everywhere",
+    "HintActive": true,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
+        "Cost": {
+          "$type": "ItemChanger.PDBoolCost, ItemChanger",
+          "fieldName": "equippedCharm_17"
+        },
+        "Inherent": true
+      }
+    ]
+  },
+  "Lore_Tablet-Palace_Workshop": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Palace_Workshop",
+    "sceneName": "White_Palace_08",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Palace_Throne": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": "Inspect Region (1)",
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Palace_Throne",
+    "sceneName": "White_Palace_09",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Lore_Tablet-Path_of_Pain_Entrance": {
+    "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
+    "objectName": null,
+    "fsmName": "inspect_region",
+    "containerType": "Tablet",
+    "nonreplaceable": false,
+    "elevation": 0.0,
+    "name": "Lore_Tablet-Path_of_Pain_Entrance",
+    "sceneName": "White_Palace_18",
+    "flingType": "Everywhere",
+    "tags": null
+  }
+}
