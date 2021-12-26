@@ -1,6 +1,7 @@
 ﻿using ItemChanger.Extensions;
 using ItemChanger.Internal;
 using ItemChanger.Tags;
+using Newtonsoft.Json;
 
 namespace ItemChanger.Modules
 {
@@ -19,6 +20,7 @@ namespace ItemChanger.Modules
         public bool NormalizePlacementCounts { get; set; } = true;
 
         public HashSet<Transition> FoundTransitions = new();
+        [JsonConverter(typeof(Transition.TransitionDictConverter<float>))]
         public Dictionary<Transition, float> TransitionWeights = new();
 
         public void SetTransitionWeight(Transition t, float weight)

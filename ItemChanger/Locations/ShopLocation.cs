@@ -175,10 +175,6 @@ namespace ItemChanger.Locations
                     {
                         notchCost = PlayerData.instance.GetInt($"charmCost_{charm.charmNum}");
                     }
-                    else if (item is Items.EquippedCharmItem echarm)
-                    {
-                        notchCost = PlayerData.instance.GetInt($"charmCost_{echarm.charmNum}");
-                    }
                 }
                 else
                 {

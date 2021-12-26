@@ -24,7 +24,7 @@ namespace ItemChanger
 
         public ModuleCollection mods;
         public Dictionary<string, AbstractPlacement> Placements = new Dictionary<string, AbstractPlacement>();
-        [JsonConverter(typeof(Transition.TransitionDictConverter))]
+        [JsonConverter(typeof(Transition.TransitionDictConverter<ITransition>))]
         public Dictionary<Transition, ITransition> TransitionOverrides = new Dictionary<Transition, ITransition>();
         public List<IDeployer> Deployers = new();
 

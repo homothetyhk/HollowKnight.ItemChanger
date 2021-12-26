@@ -2670,14 +2670,15 @@
     "tags": null
   },
   "Boss_Essence-Grey_Prince_Zote": {
-    "$type": "ItemChanger.Locations.SpecialLocations.DreamBossLocation, ItemChanger",
+    "$type": "ItemChanger.Locations.SpecialLocations.GreyPrinceZoteLocation, ItemChanger",
 	"playerDataBool": "greyPrinceOrbsCollected",
     "fsmName": "Award Orbs",
     "objName": "Dream Enter",
     "name": "Boss_Essence-Grey_Prince_Zote",
     "sceneName": "Room_Bretta_Basement",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": null,
+    "HintActive": true
   },
   "Grub-Crossroads_Acid": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
