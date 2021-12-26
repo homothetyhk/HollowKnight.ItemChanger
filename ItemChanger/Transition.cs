@@ -54,21 +54,21 @@ namespace ItemChanger
 
         public static bool operator !=(Transition t1, Transition t2) => !(t1 == t2);
 
-        public class TransitionDictConverter : JsonConverter
+        public class TransitionDictConverter<TValue> : JsonConverter<Dictionary<Transition, TValue>>
         {
-            public override bool CanConvert(Type objectType)
+            public override Dictionary<Transition, TValue> ReadJson(
+                JsonReader reader, 
+                Type objectType, 
+                Dictionary<Transition, TValue> existingValue, 
+                bool hasExistingValue, 
+                JsonSerializer serializer)
             {
-                return objectType == typeof(Dictionary<Transition, ITransition>);
+                return serializer.Deserialize<KeyValuePair<Transition, TValue>[]>(reader).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             }
 
-            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, Dictionary<Transition, TValue> value, JsonSerializer serializer)
             {
-                return serializer.Deserialize<KeyValuePair<Transition, ITransition>[]>(reader).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-            }
-
-            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-            {
-                serializer.Serialize(writer, ((Dictionary<Transition, ITransition>)value).ToArray());
+                serializer.Serialize(writer, ((Dictionary<Transition, TValue>)value).ToArray());
             }
         }
 

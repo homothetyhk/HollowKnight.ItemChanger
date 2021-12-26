@@ -1,19 +1,23 @@
-﻿namespace ItemChanger.Items
+﻿namespace ItemChanger.Tags
 {
     /// <summary>
-    /// Item which give the charm with the corresponding charmNum and equips it, activating overcharmed if necessary.
+    /// Tag applied to a charm item so that the charm is equipped when given.
     /// </summary>
-    public class EquippedCharmItem : AbstractItem
+    public class EquipCharmOnGiveTag : Tag
     {
         public int charmNum;
 
-        public string gotBool => $"gotCharm_{charmNum}";
         public string equipBool => $"equippedCharm_{charmNum}";
 
-        public override void GiveImmediate(GiveInfo info)
+        public override void Load(object parent)
         {
-            PlayerData.instance.SetBool(nameof(PlayerData.hasCharm), true);
-            PlayerData.instance.SetBool(gotBool, true);
+            Items.CharmItem charm = (Items.CharmItem)parent;
+            charmNum = charm.charmNum;
+            charm.AfterGive += AfterGiveItem;
+        }
+
+        public void AfterGiveItem(ReadOnlyGiveEventArgs args)
+        {
             PlayerData.instance.SetBool(equipBool, true);
             PlayerData.instance.EquipCharm(charmNum);
 
@@ -24,11 +28,6 @@
             }
 
             PlayerData.instance.CountCharms();
-        }
-
-        public override bool Redundant()
-        {
-            return PlayerData.instance.GetBool(gotBool);
         }
     }
 }
