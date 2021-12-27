@@ -477,6 +477,9 @@ namespace ItemChanger
                         case SceneNames.Town when info.SceneName == SceneNames.Room_Bretta:
                             gateName = "door_bretta";
                             break;
+                        case SceneNames.Town when info.SceneName == SceneNames.Grimm_Main_Tent:
+                            gateName = "room_grimm";
+                            break;
                         case SceneNames.Crossroads_04 when info.SceneName == SceneNames.Room_Charm_Shop:
                             gateName = "door_charmshop";
                             break;

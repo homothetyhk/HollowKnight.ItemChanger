@@ -15,7 +15,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": null,
       "descTwo": null,
       "name": {
@@ -52,7 +52,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": null,
       "descTwo": null,
       "name": {
@@ -89,7 +89,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": null,
       "descTwo": null,
       "name": {
@@ -127,7 +127,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": null,
       "descTwo": null,
       "name": {
@@ -164,7 +164,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": null,
       "descTwo": null,
       "name": {
@@ -208,7 +208,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "DASH",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "DASH"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DASH_1",
@@ -266,7 +269,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "JUMP",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "JUMP"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_WALLJUMP_1",
@@ -324,7 +330,10 @@
         "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
-      "heroAction": "SUPER_DASH",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "SUPER_DASH"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SUPERDASH_1",
@@ -380,7 +389,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "JUMP",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "JUMP"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DOUBLEJUMP_1",
@@ -438,7 +450,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "DASH",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "DASH"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SHADOWDASH_1",
@@ -490,7 +505,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_ACIDARMOUR_1",
@@ -546,7 +561,10 @@
         "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
-      "heroAction": "DREAM_NAIL",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "DREAM_NAIL"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DREAMNAIL_1",
@@ -602,7 +620,10 @@
         "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
-      "heroAction": "DREAM_NAIL",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "DREAM_NAIL"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DREAMGATE_1",
@@ -658,7 +679,10 @@
         "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
-      "heroAction": "DREAM_NAIL",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "DREAM_NAIL"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DREAMNAILUPGRADE_1",
@@ -714,7 +738,10 @@
         "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
-      "heroAction": "QUICK_CAST",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "QUICK_CAST"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_FIREBALL_1",
@@ -770,7 +797,10 @@
         "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
-      "heroAction": "QUICK_CAST",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "QUICK_CAST"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_FIREBALL2_1",
@@ -826,7 +856,10 @@
         "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
-      "heroAction": "QUICK_CAST",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "QUICK_CAST"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_QUAKE_1",
@@ -882,7 +915,10 @@
         "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
-      "heroAction": "QUICK_CAST",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "QUICK_CAST"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_QUAKE2_1",
@@ -938,7 +974,10 @@
         "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
-      "heroAction": "QUICK_CAST",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "QUICK_CAST"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SCREAM_1",
@@ -994,7 +1033,10 @@
         "key": "BUTTON_DESC_TAP",
         "sheet": "Prompts"
       },
-      "heroAction": "QUICK_CAST",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "QUICK_CAST"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SCREAM2_1",
@@ -1050,7 +1092,10 @@
         "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
-      "heroAction": "ATTACK",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "ATTACK"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_CYCLONE_1",
@@ -1100,7 +1145,10 @@
         "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
-      "heroAction": "ATTACK",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "ATTACK"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_DSLASH_1",
@@ -1150,7 +1198,10 @@
         "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
-      "heroAction": "ATTACK",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "ATTACK"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_GSLASH_1",
@@ -1196,7 +1247,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_BLESSING_1",
@@ -1246,7 +1297,10 @@
         "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
-      "heroAction": "CAST",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "CAST"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ITEMCHANGER_DESC_FOCUS",
@@ -1288,7 +1342,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ITEMCHANGER_DESC_SWIM",
@@ -2331,7 +2385,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": null,
       "descTwo": null,
       "name": {
@@ -2374,7 +2428,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": null,
       "descTwo": null,
       "name": {
@@ -2417,7 +2471,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": null,
       "descTwo": null,
       "name": {
@@ -2460,7 +2514,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": null,
       "descTwo": null,
       "name": {
@@ -2561,6 +2615,7 @@
   },
   "Grimmchild1": {
     "$type": "ItemChanger.Items.Grimmchild1Item, ItemChanger",
+    "charmNum": 40,
     "name": "Grimmchild1",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
@@ -2584,6 +2639,7 @@
   },
   "Grimmchild2": {
     "$type": "ItemChanger.Items.Grimmchild2Item, ItemChanger",
+    "charmNum": 40,
     "name": "Grimmchild2",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.MsgUIDef, ItemChanger",
@@ -2797,7 +2853,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_KINGSBRAND_1",
@@ -2843,7 +2899,7 @@
         "sheet": "Prompts"
       },
       "press": null,
-      "heroAction": null,
+      "buttonSkin": null,
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_GODFINDER_1",
@@ -2893,7 +2949,10 @@
         "key": "BUTTON_DESC_HOLD",
         "sheet": "Prompts"
       },
-      "heroAction": "QUICK_MAP",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "QUICK_MAP"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_MAP_2",
@@ -5265,7 +5324,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "INVENTORY",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "INVENTORY"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_JOURNAL_1",
@@ -5452,7 +5514,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "DASH",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "DASH"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ITEMCHANGER_DESC_LEFT_CLOAK",
@@ -5508,7 +5573,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "DASH",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "DASH"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ITEMCHANGER_DESC_RIGHT_CLOAK",
@@ -5566,7 +5634,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "DASH",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "DASH"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "GET_SHADOWDASH_1",
@@ -5622,7 +5693,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "JUMP",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "JUMP"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ITEMCHANGER_DESC_LEFT_CLAW",
@@ -5672,7 +5746,10 @@
         "key": "BUTTON_DESC_PRESS",
         "sheet": "Prompts"
       },
-      "heroAction": "JUMP",
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "JUMP"
+      },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
         "key": "ITEMCHANGER_DESC_RIGHT_CLAW",
