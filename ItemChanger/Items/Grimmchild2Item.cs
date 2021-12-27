@@ -5,11 +5,11 @@ namespace ItemChanger.Items
     /// <summary>
     /// Item which gives Grimmchild, activates the Nightmare Lantern, and auto-completes the first two flame collection quests.
     /// </summary>
-    public class Grimmchild2Item : AbstractItem
+    public class Grimmchild2Item : CharmItem
     {
         public override void GiveImmediate(GiveInfo info)
         {
-            PlayerData.instance.SetBool(nameof(PlayerData.instance.gotCharm_40), true);
+            base.GiveImmediate(info);
             PlayerData.instance.SetBool(nameof(PlayerData.nightmareLanternAppeared), true);
             PlayerData.instance.SetBool(nameof(PlayerData.nightmareLanternLit), true);
             PlayerData.instance.SetBool(nameof(PlayerData.troupeInTown), true);
@@ -23,17 +23,17 @@ namespace ItemChanger.Items
             PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerSmall), 0);
             PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerMed), 0);
             PlayerData.instance.SetInt(nameof(PlayerData.grimmChildLevel), 2);
-            SceneDataUtil.Save("Mines_10", "Flamebearer Spawn");
-            SceneDataUtil.Save("Ruins1_28", "Flamebearer Spawn");
-            SceneDataUtil.Save("Fungus1_10", "Flamebearer Spawn");
-            SceneDataUtil.Save("Tutorial_01", "Flamebearer Spawn");
-            SceneDataUtil.Save("RestingGrounds_06", "Flamebearer Spawn");
-            SceneDataUtil.Save("Deepnest_East_03", "Flamebearer Spawn");
+            SceneDataUtil.Save(SceneNames.Mines_10, "Flamebearer Spawn");
+            SceneDataUtil.Save(SceneNames.Ruins1_28, "Flamebearer Spawn");
+            SceneDataUtil.Save(SceneNames.Fungus1_10, "Flamebearer Spawn");
+            SceneDataUtil.Save(SceneNames.Tutorial_01, "Flamebearer Spawn");
+            SceneDataUtil.Save(SceneNames.RestingGrounds_06, "Flamebearer Spawn");
+            SceneDataUtil.Save(SceneNames.Deepnest_East_03, "Flamebearer Spawn");
         }
 
         public override bool Redundant()
         {
-            return PlayerData.instance.GetBool(nameof(PlayerData.instance.gotCharm_40));
+            return PlayerData.instance.GetBool(gotBool);
         }
     }
 }

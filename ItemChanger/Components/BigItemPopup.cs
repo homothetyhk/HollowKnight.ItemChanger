@@ -16,7 +16,7 @@ namespace ItemChanger.Components
         private string _pressText;
         private string _descOneText;
         private string _descTwoText;
-        private HeroActionButton? _actionButton;
+        private ButtonSkin _buttonSkin;
         private Action _callback;
 
         private Sprite _imagePrompt;
@@ -44,7 +44,7 @@ namespace ItemChanger.Components
         /// <summary>
         /// Creates a BigItemPopup with the given parameters. All parameters can be null except the sprite and name.
         /// </summary>
-        public static GameObject Show(Sprite bigSprite, string take, string name, string press, HeroActionButton? actionButton, string descOne, string descTwo, Action callback)
+        public static GameObject Show(Sprite bigSprite, string take, string name, string press, ButtonSkin buttonSkin, string descOne, string descTwo, Action callback)
         {
             // Create base canvas
             GameObject canvas = CanvasUtil.CreateCanvas(RenderMode.ScreenSpaceOverlay, new Vector2(1920, 1080));
@@ -55,7 +55,7 @@ namespace ItemChanger.Components
             popup._takeText = take;
             popup._nameText = name;
             popup._pressText = press;
-            popup._actionButton = actionButton; 
+            popup._buttonSkin = buttonSkin; 
             popup._descOneText = descOne;
             popup._descTwoText = descTwo;
             popup._callback = callback;
@@ -137,8 +137,10 @@ namespace ItemChanger.Components
             // Fade in the remaining text
             if (!string.IsNullOrEmpty(_pressText))
             {
+                float x = _buttonSkin == null ? 0.5f : 0.48f;
+
                 GameObject press = CanvasUtil.CreateTextPanel(gameObject, _pressText, 34, TextAnchor.MiddleCenter,
-                    new CanvasUtil.RectData(new Vector2(100, 100), Vector2.zero, new(0.48f, 0.335f), new(0.48f, 0.335f)), CanvasUtil.GetFont("Perpetua"));
+                    new CanvasUtil.RectData(new Vector2(100, 100), Vector2.zero, new(x, 0.335f), new(x, 0.335f)), CanvasUtil.GetFont("Perpetua"));
                 CanvasGroup pressCG = press.AddComponent<CanvasGroup>();
                 pressCG.blocksRaycasts = false;
                 pressCG.interactable = false;
@@ -147,38 +149,36 @@ namespace ItemChanger.Components
             }
 
 
-            if (_actionButton.HasValue)
+            if (_buttonSkin != null)
             {
-                ButtonSkin bs = UIManager.instance.uiButtonSkins.GetButtonSkinFor(_actionButton.Value);
-
                 Font f = Resources.FindObjectsOfTypeAll<Font>().FirstOrDefault(f => f.name == "Arial");
 
                 // unfortunately, since we use Text and not TextMeshPro, we have this very fragile manual scale adjustment
-                int fontSize = bs.skinType switch
+                int fontSize = _buttonSkin.skinType switch
                 {
-                    ButtonSkinType.SQUARE => bs.symbol.Length <= 2 ? 48 : 36, // the accursed F10 bind
+                    ButtonSkinType.SQUARE => _buttonSkin.symbol.Length <= 2 ? 48 : 36, // the accursed F10 bind
                     ButtonSkinType.WIDE => 24, // the accursed Backspace bind
                     _ => 48
                 };
 
-                GameObject iconText = bs.skinType switch
+                GameObject iconText = _buttonSkin.skinType switch
                 {
                     ButtonSkinType.SQUARE => CanvasUtil.CreateTextPanel(
-                        gameObject, bs.symbol, fontSize, TextAnchor.MiddleCenter, new CanvasUtil.RectData(new Vector2(70, 70), Vector2.zero, new(0.52f, 0.336f), new(0.52f, 0.336f)), f),
+                        gameObject, _buttonSkin.symbol, fontSize, TextAnchor.MiddleCenter, new CanvasUtil.RectData(new Vector2(70, 70), Vector2.zero, new(0.52f, 0.336f), new(0.52f, 0.336f)), f),
                     ButtonSkinType.WIDE => CanvasUtil.CreateTextPanel(
-                        gameObject, bs.symbol, fontSize, TextAnchor.MiddleCenter, new CanvasUtil.RectData(new Vector2(168.5f, 60), Vector2.zero, new(0.54f, 0.3345f), new(0.54f, 0.3345f)), f),
+                        gameObject, _buttonSkin.symbol, fontSize, TextAnchor.MiddleCenter, new CanvasUtil.RectData(new Vector2(168.5f, 60), Vector2.zero, new(0.54f, 0.3345f), new(0.54f, 0.3345f)), f),
                     _ => CanvasUtil.CreateTextPanel(
-                        gameObject, bs.symbol, fontSize, TextAnchor.MiddleCenter, new CanvasUtil.RectData(new Vector2(168.5f, 60), Vector2.zero, new(0.52f, 0.335f), new(0.52f, 0.335f)), f),
+                        gameObject, _buttonSkin.symbol, fontSize, TextAnchor.MiddleCenter, new CanvasUtil.RectData(new Vector2(168.5f, 60), Vector2.zero, new(0.52f, 0.335f), new(0.52f, 0.335f)), f),
                 };
                 iconText.GetComponent<Text>().alignByGeometry = true;
 
 
-                GameObject iconSprite = bs.skinType switch
+                GameObject iconSprite = _buttonSkin.skinType switch
                 {
                     ButtonSkinType.WIDE => CanvasUtil.CreateImagePanel(
-                        gameObject, bs.sprite, new CanvasUtil.RectData(new Vector2(168.5f, 60), Vector2.zero, new(0.54f, 0.335f), new(0.54f, 0.335f))),
+                        gameObject, _buttonSkin.sprite, new CanvasUtil.RectData(new Vector2(168.5f, 60), Vector2.zero, new(0.54f, 0.335f), new(0.54f, 0.335f))),
                     _ => CanvasUtil.CreateImagePanel(
-                        gameObject, bs.sprite, new CanvasUtil.RectData(new Vector2(70, 80), Vector2.zero, new(0.52f, 0.335f), new(0.52f, 0.335f))),
+                        gameObject, _buttonSkin.sprite, new CanvasUtil.RectData(new Vector2(70, 80), Vector2.zero, new(0.52f, 0.335f), new(0.52f, 0.335f))),
                 };
 
                 

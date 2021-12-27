@@ -1,5 +1,4 @@
 ﻿using ItemChanger.Components;
-using GlobalEnums;
 
 namespace ItemChanger.UIDefs
 {
@@ -11,7 +10,7 @@ namespace ItemChanger.UIDefs
         public ISprite bigSprite;
         public IString take;
         public IString press;
-        public HeroActionButton? heroAction;
+        public IButtonSkin buttonSkin;
         public IString descOne;
         public IString descTwo;
 
@@ -24,7 +23,7 @@ namespace ItemChanger.UIDefs
                     take?.GetValue()?.Replace('\n', ' '),
                     GetPostviewName(),
                     press?.GetValue()?.Replace('\n', ' '),
-                    heroAction,
+                    buttonSkin?.Value,
                     descOne?.GetValue()?.Replace('\n', ' '),
                     descTwo?.GetValue()?.Replace('\n', ' '),
                     callback);
@@ -41,7 +40,7 @@ namespace ItemChanger.UIDefs
                 sprite = sprite?.Clone(),
                 bigSprite = bigSprite?.Clone(),
                 press = press?.Clone(),
-                heroAction = heroAction,
+                buttonSkin = buttonSkin?.Clone(),
                 take = take?.Clone(),
                 descOne = descOne?.Clone(),
                 descTwo = descTwo?.Clone()
