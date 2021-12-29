@@ -141,7 +141,7 @@ namespace ItemChanger
         public const string Rancid_Egg_Waterways_Main = "Rancid_Egg-Waterways_Main";
         public const string Rancid_Egg_Waterways_West_Bluggsac = "Rancid_Egg-Waterways_West_Bluggsac";
         public const string Rancid_Egg_Waterways_West_Pickup = "Rancid_Egg-Waterways_West_Pickup";
-        public const string Rancid_Egg_Tuk = "Rancid_Egg-Tuk";
+        public const string Rancid_Egg_Tuk_Defenders_Crest = "Rancid_Egg-Tuk_Defender's_Crest";
         public const string Wanderers_Journal_Cliffs = "Wanderer's_Journal-Cliffs";
         public const string Wanderers_Journal_Greenpath_Stag = "Wanderer's_Journal-Greenpath_Stag";
         public const string Wanderers_Journal_Greenpath_Lower = "Wanderer's_Journal-Greenpath_Lower";
@@ -236,7 +236,7 @@ namespace ItemChanger
         public const string Grub_Basin_Requires_Wings = "Grub-Basin_Requires_Wings";
         public const string Grub_Basin_Requires_Dive = "Grub-Basin_Requires_Dive";
         public const string Grub_Waterways_Main = "Grub-Waterways_Main";
-        public const string Grub_Waterways_East = "Grub-Waterways_East";
+        public const string Grub_Ismas_Grove = "Grub-Isma's_Grove";
         public const string Grub_Waterways_Requires_Tram = "Grub-Waterways_Requires_Tram";
         public const string Grub_City_of_Tears_Left = "Grub-City_of_Tears_Left";
         public const string Grub_Soul_Sanctum = "Grub-Soul_Sanctum";
@@ -457,7 +457,7 @@ namespace ItemChanger
         public const string Geo_Rock_Fungal_Above_City_Entrance = "Geo_Rock-Fungal_Above_City_Entrance";
         public const string Geo_Rock_Deepnest_By_Mantis_Lords_1 = "Geo_Rock-Deepnest_By_Mantis_Lords_1";
         public const string Geo_Rock_Deepnest_By_Mantis_Lords_2 = "Geo_Rock-Deepnest_By_Mantis_Lords_2";
-        public const string Geo_Rock_Depenest_Lower_Cornifer = "Geo_Rock-Depenest_Lower_Cornifer";
+        public const string Geo_Rock_Deepnest_Lower_Cornifer = "Geo_Rock-Deepnest_Lower_Cornifer";
         public const string Geo_Rock_Fungal_Core_Entrance = "Geo_Rock-Fungal_Core_Entrance";
         public const string Geo_Rock_Fungal_Core_Hidden = "Geo_Rock-Fungal_Core_Hidden";
         public const string Geo_Rock_Fungal_Core_Above_Elder = "Geo_Rock-Fungal_Core_Above_Elder";

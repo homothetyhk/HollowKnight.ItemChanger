@@ -37,18 +37,18 @@ namespace ItemChanger.Modules
 
         private bool TestVoidHeartEquipped()
         {
-            return PlayerData.instance.GetInt(nameof(PlayerData.royalCharmState)) >= 4 && PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_40));
+            return PlayerData.instance.GetInt(nameof(PlayerData.royalCharmState)) >= 4 && PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_36));
         }
 
         private void PreventFriendlyShade(PlayMakerFSM fsm)
         {
             if (fsm.gameObject != null && fsm.gameObject.name.StartsWith("Hollow Shade") && !fsm.gameObject.name.StartsWith("Hollow Shade Death"))
             {
-                FsmState pause = fsm.GetState("Pause");
-                if (pause == null) return;
-                pause.RemoveFirstActionOfType<IntCompare>();
-                pause.RemoveFirstActionOfType<GetPlayerDataInt>();
-                pause.AddFirstAction(new DelegateBoolTest(TestVoidHeartEquipped, null, FsmEvent.Finished));
+                FsmState friendly = fsm.GetState("Friendly?");
+                if (friendly == null) return;
+                friendly.RemoveFirstActionOfType<IntCompare>();
+                friendly.RemoveFirstActionOfType<GetPlayerDataInt>();
+                friendly.AddFirstAction(new DelegateBoolTest(TestVoidHeartEquipped, null, FsmEvent.Finished));
             }
         }
 
@@ -56,12 +56,12 @@ namespace ItemChanger.Modules
         {
             if (fsm.gameObject != null && fsm.gameObject.name.StartsWith("Shade Sibling"))
             {
-                FsmState pause = fsm.GetState("Pause");
-                if (pause == null) return;
+                FsmState friendly = fsm.GetState("Friendly?");
+                if (friendly == null) return;
 
-                pause.RemoveFirstActionOfType<GetPlayerDataInt>();
-                pause.RemoveFirstActionOfType<IntCompare>();
-                pause.InsertAction(new DelegateBoolTest(TestVoidHeartEquipped, null, FsmEvent.Finished), 2);
+                friendly.RemoveFirstActionOfType<GetPlayerDataInt>();
+                friendly.RemoveFirstActionOfType<IntCompare>();
+                friendly.InsertAction(new DelegateBoolTest(TestVoidHeartEquipped, null, FsmEvent.Finished), 2);
             }
         }
 

@@ -1916,9 +1916,9 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Rancid_Egg-Tuk": {
+  "Rancid_Egg-Tuk_Defender's_Crest": {
     "$type": "ItemChanger.Locations.SpecialLocations.TukDefendersCrestLocation, ItemChanger",
-    "name": "Rancid_Egg-Tuk",
+    "name": "Rancid_Egg-Tuk_Defender's_Crest",
     "sceneName": "Waterways_03",
     "flingType": "Everywhere",
     "tags": null
@@ -2920,12 +2920,12 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Grub-Waterways_East": {
+  "Grub-Isma's_Grove": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Grub Bottle",
     "elevation": 0.1,
     "forceShiny": false,
-    "name": "Grub-Waterways_East",
+    "name": "Grub-Isma's_Grove",
     "sceneName": "Waterways_13",
     "flingType": "Everywhere",
     "tags": null
@@ -5435,12 +5435,12 @@
     "flingType": "Everywhere",
     "tags": null
   },
-  "Geo_Rock-Depenest_Lower_Cornifer": {
+  "Geo_Rock-Deepnest_Lower_Cornifer": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
     "objectName": "Geo Rock Deepnest (1)",
     "elevation": -0.5,
     "forceShiny": false,
-    "name": "Geo_Rock-Depenest_Lower_Cornifer",
+    "name": "Geo_Rock-Deepnest_Lower_Cornifer",
     "sceneName": "Fungus2_25",
     "flingType": "Everywhere",
     "tags": null

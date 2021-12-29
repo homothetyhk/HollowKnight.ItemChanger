@@ -116,7 +116,11 @@ namespace ItemChanger.Placements
             greet.AddTransition("CONVO_FINISH", offer); // Always display the Jiji:SHADE_OFFER convo
 
             // replace IntCompare for rancid eggs with test based on item costs
-            haveEggs.Actions[0] = new DelegateBoolTest(CanPurchaseAny, "YES", "NO");
+            haveEggs.Actions = new FsmStateAction[]
+            {
+                new Lambda(() => AddVisitFlag(VisitState.Previewed)),
+                new DelegateBoolTest(CanPurchaseAny, "YES", "NO"),
+            };
 
             // remove shade info edits
             yes.RemoveActionsOfType<SetPlayerDataString>();

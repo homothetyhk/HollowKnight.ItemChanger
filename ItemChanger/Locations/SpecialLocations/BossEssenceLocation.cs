@@ -34,7 +34,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 fsmActions.Add(new AsyncLambda(GiveAllAsync(fsm.transform)));
                 get.Actions = fsmActions.ToArray();
 
-                bool test()
+                bool Test()
                 {
                     return !HeroController.instance.controlReqlinquished 
                         && HeroController.instance.transitionState == GlobalEnums.HeroTransitionState.WAITING_TO_TRANSITION;
@@ -44,7 +44,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 if (Placement.CheckVisitedAny(VisitState.ObtainedAnyItem) && !Placement.AllObtained())
                 {
                     FsmState idle = fsm.GetState("Idle");
-                    idle.AddLastAction(new WaitForDelegate(test, "DREAM WAKE"));
+                    idle.AddLastAction(new WaitForDelegate(Test, "DREAM WAKE"));
                 }
             }
             else
@@ -56,6 +56,15 @@ namespace ItemChanger.Locations.SpecialLocations
                 fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
                 fsmActions.Add(new AsyncLambda(GiveAllAsync(fsm.transform)));
                 get.Actions = fsmActions.ToArray();
+
+                FsmState vanishBurst = fsm.GetState("Vanish Burst");
+                if (vanishBurst != null 
+                    && vanishBurst.Actions.Length > 0
+                    && vanishBurst.Actions[^1] is SendEventByName sebn
+                    && sebn.sendEvent.Value == "DREAM NAIL HUD")
+                {
+                    vanishBurst.RemoveAction(vanishBurst.Actions.Length - 1);
+                }
             }
         }
     }

@@ -11,6 +11,7 @@ namespace ItemChanger.Locations.SpecialLocations
             Events.AddFsmEdit(sceneName, new("Alive Tuk", "Steel Soul"), OverrideAliveTuk);
             Events.AddFsmEdit(sceneName, new("Dead Tuk", "Steel Soul"), OverrideDeadTuk);
             Events.AddFsmEdit(sceneName, new("Tuk NPC", "Conversation Control"), OverrideTukConvo);
+            Events.AddLanguageEdit(new("Minor NPC", "TUK_EGGMAX"), AddDefendersCrestReminder);
         }
 
         protected override void OnUnload()
@@ -18,6 +19,7 @@ namespace ItemChanger.Locations.SpecialLocations
             Events.RemoveFsmEdit(sceneName, new("Alive Tuk", "Steel Soul"), OverrideAliveTuk);
             Events.RemoveFsmEdit(sceneName, new("Dead Tuk", "Steel Soul"), OverrideDeadTuk);
             Events.RemoveFsmEdit(sceneName, new("Tuk NPC", "Conversation Control"), OverrideTukConvo);
+            Events.RemoveLanguageEdit(new("Minor NPC", "TUK_EGGMAX"), AddDefendersCrestReminder);
         }
 
         private void OverrideAliveTuk(PlayMakerFSM fsm)
@@ -71,5 +73,12 @@ namespace ItemChanger.Locations.SpecialLocations
             return PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_10)) && !Placement.AllObtained();
         }
 
+        private void AddDefendersCrestReminder(ref string value)
+        {
+            if (!PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_10)) && !Placement.AllObtained())
+            {
+                value += "<page>It would be different if you were wearing Defender's Crest...";
+            }
+        }
     }
 }
