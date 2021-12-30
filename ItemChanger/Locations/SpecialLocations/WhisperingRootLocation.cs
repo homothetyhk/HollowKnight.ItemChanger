@@ -1,5 +1,7 @@
 ﻿using ItemChanger.Components;
 using ItemChanger.Util;
+using Mono.Cecil.Cil;
+using MonoMod.Cil;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
@@ -12,20 +14,21 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            On.DreamPlant.Awake += DreamPlant_Awake;
-            On.DreamPlant.Start += DreamPlant_Start;
-            On.DreamPlant.CheckOrbs += DreamPlant_CheckOrbs;
-            On.DreamPlant.OnTriggerEnter2D += DreamPlant_OnTriggerEnter2D;
+            if (SubscribedLocations.Count == 0)
+            {
+                HookRoots();
+            }
+            SubscribedLocations[sceneName] = this;
         }
 
         protected override void OnUnload()
         {
-            On.DreamPlant.Awake -= DreamPlant_Awake;
-            On.DreamPlant.Start -= DreamPlant_Start;
-            On.DreamPlant.CheckOrbs -= DreamPlant_CheckOrbs;
-            On.DreamPlant.OnTriggerEnter2D -= DreamPlant_OnTriggerEnter2D;
+            SubscribedLocations.Remove(sceneName);
+            if (SubscribedLocations.Count == 0)
+            {
+                UnhookRoots();
+            }
         }
-
 
         public override GiveInfo GetGiveInfo()
         {
@@ -34,40 +37,80 @@ namespace ItemChanger.Locations.SpecialLocations
             return info;
         }
 
-        private void DreamPlant_OnTriggerEnter2D(On.DreamPlant.orig_OnTriggerEnter2D orig, DreamPlant self, Collider2D collision)
+        private static readonly Dictionary<string, WhisperingRootLocation> SubscribedLocations = new();
+
+        // Implementation follows.
+        private static void HookRoots()
+        {
+            On.DreamPlant.Awake += OverrideDreamPlantAwake;
+            On.DreamPlant.Start += AfterDreamPlantStart;
+            On.DreamPlant.CheckOrbs += AfterDreamPlantCheckOrbs;
+            On.DreamPlant.OnTriggerEnter2D += AfterDreamPlantOnTriggerEnter2D;
+            IL.DreamPlantOrb.OnTriggerEnter2D += RemoveOrbEssence;
+        }
+        private static void UnhookRoots()
+        {
+            On.DreamPlant.Awake -= OverrideDreamPlantAwake;
+            On.DreamPlant.Start -= AfterDreamPlantStart;
+            On.DreamPlant.CheckOrbs -= AfterDreamPlantCheckOrbs;
+            On.DreamPlant.OnTriggerEnter2D -= AfterDreamPlantOnTriggerEnter2D;
+            IL.DreamPlantOrb.OnTriggerEnter2D -= RemoveOrbEssence;
+        }
+
+        private static void RemoveOrbEssence(ILContext il)
+        {
+            ILCursor cursor = new ILCursor(il);
+            if (cursor.TryGotoNext(
+                i => i.MatchCall<GameManager>("get_instance"),
+                i => i.MatchLdstr(nameof(PlayerData.dreamOrbs)),
+                i => i.MatchCallvirt<GameManager>(nameof(GameManager.IncrementPlayerDataInt))))
+            {
+                cursor.RemoveRange(3);
+                cursor.Emit(OpCodes.Ldarg_0);
+                cursor.EmitDelegate<Action<DreamPlantOrb>>(orb =>
+                {
+                    if (!SubscribedLocations.ContainsKey(orb.gameObject.scene.name))
+                    {
+                        GameManager.instance.IncrementPlayerDataInt(nameof(PlayerData.dreamOrbs));
+                    }
+                });
+            }
+        }
+
+        private static void AfterDreamPlantOnTriggerEnter2D(On.DreamPlant.orig_OnTriggerEnter2D orig, DreamPlant self, Collider2D collision)
         {
             orig(self, collision);
 
-            if (self.gameObject.scene.name == sceneName && collision.tag == "Dream Attack" && self.GetCheckOrbRoutine() == null)
+            if (SubscribedLocations.ContainsKey(self.gameObject.scene.name) && collision.tag == "Dream Attack" && self.GetCheckOrbRoutine() == null)
             {
                 self.SetCheckOrbRoutine(self.StartCoroutine(self.CheckOrbs()));
             }
         }
 
 
-        private System.Collections.IEnumerator DreamPlant_CheckOrbs(On.DreamPlant.orig_CheckOrbs orig, DreamPlant self)
+        private static System.Collections.IEnumerator AfterDreamPlantCheckOrbs(On.DreamPlant.orig_CheckOrbs orig, DreamPlant self)
         {
             yield return orig(self);
 
-            if (self.gameObject.scene.name == sceneName)
+            if (SubscribedLocations.TryGetValue(self.gameObject.scene.name, out WhisperingRootLocation loc))
             {
-                Placement.GiveAll(new GiveInfo 
+                loc.Placement.GiveAll(new GiveInfo 
                 {
                     Transform = HeroController.instance.transform,
-                    FlingType = flingType,
+                    FlingType = loc.flingType,
                     Container = "WhisperingRoot",
                     MessageType = MessageType.Corner,
                 });
             }
         }
 
-        private void DreamPlant_Start(On.DreamPlant.orig_Start orig, DreamPlant self)
+        private static void AfterDreamPlantStart(On.DreamPlant.orig_Start orig, DreamPlant self)
         {
             orig(self);
 
-            if (self.gameObject.scene.name != sceneName) return;
+            if (!SubscribedLocations.TryGetValue(self.gameObject.scene.name, out WhisperingRootLocation loc)) return;
 
-            if (Placement.AllObtained())
+            if (loc.Placement.AllObtained())
             {
                 self.SetCompleted(true);
                 self.SetActivated(true);
@@ -82,20 +125,15 @@ namespace ItemChanger.Locations.SpecialLocations
                 }
             }
 
-            foreach (DreamPlantOrb orb in UnityEngine.Object.FindObjectsOfType<DreamPlantOrb>())
+            if (loc.GetItemHintActive() && self.dreamDialogue)
             {
-                orb.gameObject.AddComponent<RandomizerDreamPlantOrb>(); // TODO: replace this with an IL hook deleting essence increment from DreamPlantOrb.OnTriggerEnter2D
-            }
-
-            if (this.GetItemHintActive() && self.dreamDialogue)
-            {
-                HintBox.Create(self.dreamDialogue.transform, Placement); // the dream plant transform is too high up
+                HintBox.Create(self.dreamDialogue.transform, loc.Placement); // the dream plant transform is too high up
             }
         }
 
-        private void DreamPlant_Awake(On.DreamPlant.orig_Awake orig, DreamPlant self)
+        private static void OverrideDreamPlantAwake(On.DreamPlant.orig_Awake orig, DreamPlant self)
         {
-            if (self.gameObject.scene.name != sceneName)
+            if (!SubscribedLocations.ContainsKey(self.gameObject.scene.name))
             {
                 orig(self);
                 return;
