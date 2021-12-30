@@ -47,7 +47,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void EditMirror(PlayMakerFSM fsm)
         {
-            if (HintActive) HintBox.Create(fsm.transform, Placement); // TODO: test ingame to see if this extends far enough
+            if (this.GetItemHintActive()) HintBox.Create(fsm.transform, Placement); // TODO: test ingame to see if this extends far enough
 
             FsmState check = fsm.GetState("Check");
             check.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);

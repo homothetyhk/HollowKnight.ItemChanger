@@ -87,7 +87,7 @@ namespace ItemChanger.Locations.SpecialLocations
             }
         }
 
-        private string GetTrialBoardHint()
+        private string GetTrialBoardHint(string itemText)
         {
             StringBuilder sb = new StringBuilder();
             switch (sceneName)
@@ -104,14 +104,14 @@ namespace ItemChanger.Locations.SpecialLocations
                     break;
             }
 
-            sb.AppendLine($"Fight for {Placement.GetUIName(75)} and geo.");
+            sb.AppendLine($"Fight for {itemText} and geo.");
             sb.Append("Place a mark and begin the Trial?");
             return sb.ToString();
         }
 
         private string GetTrialBoardNullHint()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             switch (sceneName)
             {
                 default:
@@ -133,10 +133,11 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void OnLanguageGet(ref string value)
         {
-            if (HintActive && !Placement.AllObtained())
+            if (this.GetItemHintActive() && !Placement.AllObtained())
             {
-                value = GetTrialBoardHint();
-                Placement.AddVisitFlag(VisitState.Previewed); // hopefully this shouldn't be possible to trigger except when the board is read, might be better in the board fsm
+                string text = Placement.GetUIName(75);
+                value = GetTrialBoardHint(text);
+                Placement.OnPreview(text);
             }
             else value = GetTrialBoardNullHint();
         }

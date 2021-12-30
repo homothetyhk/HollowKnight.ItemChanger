@@ -57,7 +57,6 @@ namespace ItemChanger.Modules
             };
         }
 
-        // TODO: custom skill item chains/uidefs?
         private bool SkillBoolSetOverride(string boolName, bool value)
         {
             switch (boolName)

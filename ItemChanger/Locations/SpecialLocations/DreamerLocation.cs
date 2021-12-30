@@ -105,7 +105,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void MakeHintBox(PlayMakerFSM fsm)
         {
-            if (HintActive) HintBox.Create(fsm.transform, Placement); // TODO: Check position in each scene, especially for Monomon
+            if (this.GetItemHintActive()) HintBox.Create(fsm.transform, Placement); // TODO: Check position in each scene, especially for Monomon
         }
     }
 }

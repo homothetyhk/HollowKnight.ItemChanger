@@ -118,7 +118,7 @@ namespace ItemChanger
             ResolveItem(giveArgs);
 
             SetObtained();
-            placement.AddVisitFlag(VisitState.ObtainedAnyItem);
+            placement.OnObtainedItem(this);
 
             AbstractItem item = giveArgs.Item;
             placement = giveArgs.Placement;
@@ -159,6 +159,22 @@ namespace ItemChanger
         /// Specifies the effect of giving a particular item.
         /// </summary>
         public abstract void GiveImmediate(GiveInfo info);
+
+        public string GetPreviewName(AbstractPlacement placement = null)
+        {
+            if (HasTag<Tags.DisableItemPreviewTag>() 
+                || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>())) return "???";
+            UIDef def = GetResolvedUIDef(placement);
+            return def?.GetPreviewName() ?? "???";
+        }
+
+        public Sprite GetPreviewSprite(AbstractPlacement placement = null)
+        {
+            if (HasTag<Tags.DisableItemPreviewTag>()
+                || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>())) return Modding.CanvasUtil.NullSprite();
+            UIDef def = GetResolvedUIDef(placement);
+            return def?.GetSprite();
+        }
 
         /// <summary>
         /// Returns the UIDef of the item yielded after all of the events for modifying items.

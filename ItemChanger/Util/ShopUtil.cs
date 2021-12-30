@@ -95,6 +95,17 @@ namespace ItemChanger.Util
                     gameObject.SetActive(true);
                 }
             }
+            foreach (var g in self.stockInv
+                .Take(self.itemCount)
+                .Select(go => go.GetComponent<ModShopItemStats>())
+                .Where(m => m != null)
+                .GroupBy(m => m.placement))
+            {
+                if (g.Key is Placements.ShopPlacement shop)
+                {
+                    shop.OnPreviewBatch(g.Select(m => (m.GetRecordText(), m.item)));
+                }
+            }
         }
 
         private static bool ShopMenuItemAppears(GameObject shopItem)

@@ -80,12 +80,6 @@ namespace ItemChanger.Locations
             FsmState init = fsm.GetState("Init");
             
             bool hasBeenEdited = init.GetActionsOfType<Lambda>().Any(); // for cases like sly, sly key, only one placement needs to edit the shop functionality
-            void RecordPreview()
-            {
-                if (string.IsNullOrEmpty(requiredPlayerDataBool) || PlayerData.instance.GetBool(requiredPlayerDataBool)) Placement.AddVisitFlag(VisitState.Previewed);
-            }
-            init.AddFirstAction(new Lambda(RecordPreview)); // we do still need to handle visit flags though
-
             if (hasBeenEdited)
             {
                 return;
@@ -111,7 +105,7 @@ namespace ItemChanger.Locations
                 string name;
                 if (mod && mod.item != null)
                 {
-                    name = mod.UIDef.GetPreviewName();
+                    name = mod.GetPreviewName();
                 }
                 else
                 {
@@ -127,7 +121,7 @@ namespace ItemChanger.Locations
                 {
                     var mod = shopItem.GetComponent<ModShopItemStats>();
                     if (!mod || mod.item == null) continue;
-                    shopItem.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = mod.UIDef.GetSprite();
+                    shopItem.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = mod.GetSprite();
                 }
             }
 
@@ -139,10 +133,10 @@ namespace ItemChanger.Locations
                 string desc;
                 if (mod && mod.item != null)
                 {
-                    desc = mod.UIDef.GetShopDesc();
-                    if (mod.cost != null && !mod.cost.Paid)
+                    desc = mod.GetShopDesc();
+                    if (mod.cost is not null && !mod.cost.Paid)
                     {
-                        string costText = mod.cost.GetShopCostText();
+                        string costText = mod.GetShopCostText();
                         if (!string.IsNullOrEmpty(costText))
                         {
                             desc += $"\n\n<#888888>{costText}";
@@ -165,7 +159,7 @@ namespace ItemChanger.Locations
                 var mod = shopItem.GetComponent<ModShopItemStats>();
                 var stats = shopItem.GetComponent<ShopItemStats>();
                 int notchCost = 0;
-                if (mod && mod.item is AbstractItem item)
+                if (mod && !mod.IsSecretItem() && mod.item is AbstractItem item)
                 {
                     if (item.GetTag<IShopNotchCostTag>() is IShopNotchCostTag notchCostTag)
                     {
@@ -209,7 +203,7 @@ namespace ItemChanger.Locations
                 string name;
                 if (mod && mod.item != null)
                 {
-                    name = mod.UIDef.GetPreviewName();
+                    name = mod.GetPreviewName();
                 }
                 else
                 {

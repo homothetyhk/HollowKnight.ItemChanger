@@ -28,6 +28,7 @@
         public AbstractPlacement Placement { get; }
         public VisitState Orig { get; }
         public VisitState NewFlags { get; }
+        public bool NoChange => (NewFlags & Orig) == NewFlags;
     }
 
     public class GiveEventArgs : EventArgs

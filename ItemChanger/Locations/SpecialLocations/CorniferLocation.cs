@@ -67,11 +67,9 @@ namespace ItemChanger.Locations.SpecialLocations
             if (Placement is Placements.ISingleCostPlacement iscp && iscp.Cost is Cost cost)
             {
                 sendText.ClearActions();
-                sendText.AddFirstAction(new Lambda(() => YNUtil.OpenYNDialogue(fsm.gameObject, Placement.Items, cost)));
+                sendText.AddFirstAction(new Lambda(() => YNUtil.OpenYNDialogue(fsm.gameObject, Placement, Placement.Items, cost)));
                 get.AddFirstAction(new Lambda(() => { if (!cost.Paid) cost.Pay(); }));
             }
-            
-            sendText.AddFirstAction(new Lambda(() => Placement.AddVisitFlag(VisitState.Previewed)));
 
             if (fsm.GetState("Deepnest Check") is FsmState deepnestCheck)
             {
@@ -93,6 +91,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (GameManager.instance.sceneName == sceneName)
             {
                 value = Placement.GetUIName();
+                Placement.OnPreview(value);
             }
         }
     }

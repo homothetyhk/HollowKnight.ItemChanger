@@ -49,7 +49,7 @@
         /// <summary>
         /// Applies to shops, placements with preview dialogues, and placements with hint boxes.
         /// </summary>
-        Previewed = 1 << 1, // TODO: add to shops, add to preview dialogues
+        Previewed = 1 << 1,
         /// <summary>
         /// Corresponds to opening a container: e.g. opening a chest, breaking a grub jar or geo rock, etc.
         /// </summary>

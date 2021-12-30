@@ -148,7 +148,6 @@ namespace ItemChanger
                     LogError($"Unable to find Container definition for {info.containerType}!");
                     return;
                 }
-                // TODO: add fsmName check here
 
                 var give = info.giveInfo;
                 var scene = info.changeSceneInfo;

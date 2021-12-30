@@ -87,7 +87,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 orb.gameObject.AddComponent<RandomizerDreamPlantOrb>(); // TODO: replace this with an IL hook deleting essence increment from DreamPlantOrb.OnTriggerEnter2D
             }
 
-            if (HintActive && self.dreamDialogue)
+            if (this.GetItemHintActive() && self.dreamDialogue)
             {
                 HintBox.Create(self.dreamDialogue.transform, Placement); // the dream plant transform is too high up
             }

@@ -6,30 +6,33 @@ namespace ItemChanger.Util
     {
         static GameObject DialogueManager => FsmVariables.GlobalVariables.FindFsmGameObject("DialogueManager").Value;
 
-        public static void OpenYNDialogue(GameObject requester, IEnumerable<AbstractItem> items, Cost cost)
+        public static void OpenYNDialogue(GameObject requester, AbstractPlacement placement, IEnumerable<AbstractItem> items, Cost cost)
         {
             string text = string.Join(", ", items.Where(i => !i.IsObtained()).Select(i => i.UIDef.GetPreviewName()).ToArray());
             if (text.Length > 120)
             {
-                text = text.Substring(0, 117) + "...";
+                text = text[..117] + "...";
             }
 
-            if (cost == null || cost.Paid)
+            if (cost is null || cost.Paid)
             {
                 OpenYNDialogue(requester, text, true);
+                placement.OnPreview(text);
             }
             else if (cost is GeoCost gc)
             {
-                OpenYNDialogue(requester, text, gc.amount);
+                OpenYNDialogue(requester, text, gc.amount); 
+                placement.OnPreview($"{text}  -  {gc.GetCostText()}");
             }
             else
             {
                 string costText = cost.GetCostText();
                 if (costText.Length > 40)
                 {
-                    costText = costText.Substring(0, 37) + "...";
+                    costText = costText[..37] + "...";
                 }
                 OpenYNDialogue(requester, $"{text}\n{costText}", cost.CanPay());
+                placement.OnPreview($"{text}  -  {costText}");
             }
         }
 
@@ -45,7 +48,7 @@ namespace ItemChanger.Util
 
             if (!canPay)
             {
-                dpc.StartCoroutine(YNUtil.KillGeoText());
+                dpc.StartCoroutine(KillGeoText());
             }
 
             dpc.FsmVariables.GetFsmInt("Toll Cost").Value = 0;

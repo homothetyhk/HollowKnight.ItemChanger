@@ -25,7 +25,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void ChangeShriekGet(PlayMakerFSM fsm)
         {
             Transform t = fsm.transform;
-            if (HintActive) HintBox.Create(t, Placement);
+            if (this.GetItemHintActive()) HintBox.Create(t, Placement);
 
             FsmState init = fsm.GetState("Init");
             init.RemoveActionsOfType<IntCompare>();

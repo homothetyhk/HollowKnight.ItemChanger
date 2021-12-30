@@ -42,19 +42,21 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void ChangeCoffinText(ref string value)
         {
-            if (HintActive)
+            if (this.GetItemHintActive())
             {
-                value = $"A cocoon containing {Placement.GetUIName(maxLength: 40)}.\nUse simple key?";
-                Placement.AddVisitFlag(VisitState.Previewed);
+                string text = Placement.GetUIName(40);
+                value = $"A cocoon containing {text}.\nUse simple key?";
+                Placement.OnPreview(text);
             }
         }
 
         private void ChangeNoKeyCoffinText(ref string value)
         {
-            if (HintActive)
+            if (this.GetItemHintActive())
             {
-                value = $"A cocoon chained with a simple lock. You can sense the {Placement.GetUIName()} inside.";
-                Placement.AddVisitFlag(VisitState.Previewed);
+                string text = Placement.GetUIName();
+                value = $"A cocoon chained with a simple lock. You can sense the {text} inside.";
+                Placement.OnPreview(text);
             }
         }
     }

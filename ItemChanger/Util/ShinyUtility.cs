@@ -358,8 +358,7 @@ namespace ItemChanger.Util
             yesState.AddFirstAction(new Lambda(cost.Pay));
             yesState.AddFirstAction(closeYNDialogue);
 
-            charm.AddFirstAction(new Lambda(() => YNUtil.OpenYNDialogue(shinyFsm.gameObject, items, cost)));
-            charm.AddFirstAction(new Lambda(() => placement.AddVisitFlag(VisitState.Previewed)));
+            charm.AddFirstAction(new Lambda(() => YNUtil.OpenYNDialogue(shinyFsm.gameObject, placement, items, cost)));
         }
     }
 }

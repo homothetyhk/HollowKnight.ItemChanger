@@ -53,11 +53,9 @@ namespace ItemChanger.Locations.SpecialLocations
             if (Placement is Placements.ISingleCostPlacement iscp && iscp.Cost is Cost cost)
             {
                 sendText.ClearActions();
-                sendText.AddFirstAction(new Lambda(() => YNUtil.OpenYNDialogue(fsm.gameObject, Placement.Items, cost)));
+                sendText.AddFirstAction(new Lambda(() => YNUtil.OpenYNDialogue(fsm.gameObject, Placement, Placement.Items, cost)));
                 getMsg.AddFirstAction(new Lambda(() => { if (!cost.Paid) cost.Pay(); }));
             }
-
-            sendText.AddFirstAction(new Lambda(() => Placement.AddVisitFlag(VisitState.Previewed)));
         }
 
         private void MakeShinyForRespawnedItems(Scene to)
@@ -77,7 +75,11 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void OnLanguageGet(ref string value)
         {
-            if (GameManager.instance.sceneName == sceneName) value = Placement.GetUIName();
+            if (GameManager.instance.sceneName == sceneName)
+            {
+                value = Placement.GetUIName();
+                Placement.OnPreview(value);
+            }
         }
     }
 }

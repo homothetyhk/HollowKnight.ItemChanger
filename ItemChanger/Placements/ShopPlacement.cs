@@ -51,6 +51,27 @@ namespace ItemChanger.Placements
             set => Location.defaultShopItems = value;
         }
 
+        [Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
+        public override void OnPreview(string previewText)
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
+        {
+            LogError("OnPreview is not supported on ShopPlacement.");
+        }
+
+        public void OnPreviewBatch(IEnumerable<(string, AbstractItem item)> ps)
+        {
+            Tags.MultiPreviewRecordTag recordTag = GetOrAddTag<Tags.MultiPreviewRecordTag>();
+            recordTag.previewTexts ??= new string[Items.Count];
+            foreach ((string previewText, AbstractItem item) in ps)
+            {
+                int i = Items.IndexOf(item);
+                if (i < 0) continue;
+                recordTag.previewTexts[i] = previewText;
+            }
+            AddVisitFlag(VisitState.Previewed);
+        }
+
         public void AddItemWithCost(AbstractItem item, Cost cost)
         {
             CostTag tag = item.GetTag<CostTag>() ?? item.AddTag<CostTag>();
@@ -104,8 +125,15 @@ namespace ItemChanger.Placements
             stats.removalPlayerDataBool = string.Empty;
             stats.dungDiscount = dungDiscount;
             stats.notchCostBool = string.Empty;
-            if (cost != null && !cost.Paid) stats.SetCost(cost.GetDisplayGeo());
-            else stats.SetCost(0);
+            if (!HasTag<Tags.DisableCostPreviewTag>() && !item.HasTag<Tags.DisableCostPreviewTag>()
+                && cost is not null && !cost.Paid)
+            {
+                stats.SetCost(cost.GetDisplayGeo());
+            }
+            else
+            {
+                stats.SetCost(0);
+            }
 
             // Need to set all these to make sure the item doesn't break in one of various ways
             stats.priceConvo = string.Empty;

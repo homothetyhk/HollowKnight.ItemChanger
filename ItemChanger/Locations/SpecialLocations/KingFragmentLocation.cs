@@ -21,16 +21,16 @@
 
         private void OnLanguageGet(ref string value)
         {
-            if (HintActive)
+            if (this.GetItemHintActive())
             {
-                string item = Placement.GetUIName();
-                if (!string.IsNullOrEmpty(item))
+                if (!Placement.AllObtained())
                 {
+                    string text = Placement.GetUIName();
                     value = "A corpse in white armour. You can clearly see the "
-                                + Placement.GetUIName() + " it's holding, " +
+                                + text + " it's holding, " +
                                 "but for some reason you get the feeling you're going to have to go" +
                                 " through an unnecessarily long gauntlet of spikes and sawblades just to pick it up.";
-                    Placement.AddVisitFlag(VisitState.Previewed);
+                    Placement.OnPreview(text);
                 }
                 else
                 {

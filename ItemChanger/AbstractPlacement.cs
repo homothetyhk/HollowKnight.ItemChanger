@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Text;
 
 namespace ItemChanger
 {
@@ -61,6 +62,17 @@ namespace ItemChanger
             }
         }
 
+        public virtual void OnObtainedItem(AbstractItem item)
+        {
+            AddVisitFlag(VisitState.ObtainedAnyItem);
+        }
+
+        public virtual void OnPreview(string previewText)
+        {
+            GetOrAddTag<Tags.PreviewRecordTag>().previewText = previewText;
+            AddVisitFlag(VisitState.Previewed);
+        }
+
         /// <summary>
         /// Combines and returns the preview names of the unobtained items at the placement. Used for most hints or previews.
         /// </summary>
@@ -74,7 +86,7 @@ namespace ItemChanger
         /// </summary>
         public string GetUIName(int maxLength)
         {
-            IEnumerable<string> itemNames = Items.Where(i => !i.IsObtained()).Select(i => i.GetResolvedUIDef()?.GetPreviewName() ?? "Unknown Item");
+            IEnumerable<string> itemNames = Items.Where(i => !i.IsObtained()).Select(i => i.GetPreviewName(this) ?? "Unknown Item");
             string itemText = string.Join(", ", itemNames.ToArray());
             if (itemText.Length > maxLength) itemText = itemText.Substring(0, maxLength > 3 ? maxLength - 3 : 0) + "...";
             return itemText;
@@ -97,7 +109,6 @@ namespace ItemChanger
         /// </summary>
         public void AddVisitFlag(VisitState flag)
         {
-            if ((Visited & flag) == flag) return;
             InvokeVisitStateChanged(flag);
             Visited |= flag;
         }
@@ -161,7 +172,7 @@ namespace ItemChanger
         public static event Action<VisitStateChangedEventArgs> OnVisitStateChangedGlobal;
 
         /// <summary>
-        /// Event invoked by this placement whenever new flags are added to its Visited. Skipped if added flags are a subset of Visited.
+        /// Event invoked by this placement whenever AddVisitFlag is called. Use the NoChange property of the args to detect whether a change will occur.
         /// </summary>
         [field: JsonIgnore]
         public event Action<VisitStateChangedEventArgs> OnVisitStateChanged;

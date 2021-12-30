@@ -36,16 +36,16 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void AddHintToDiary(ref string value)
         {
-            if (HintActive)
+            if (this.GetItemHintActive())
             {
                 if (Placement.AllObtained()) return;
 
                 string item = Placement.GetUIName(40);
                 if (string.IsNullOrEmpty(item)) return;
 
-                Placement.AddVisitFlag(VisitState.Previewed);
                 value += $"<page>The Maiden's Treasure<br>Pondering what to gift her saviour, the damsel thought of the precious "
                     + item + " under her room. Though difficult to part with, she had nothing better with which to thank them.";
+                Placement.OnPreview(item);
             }
         }
     }

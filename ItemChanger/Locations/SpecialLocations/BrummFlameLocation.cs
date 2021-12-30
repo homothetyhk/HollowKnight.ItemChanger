@@ -42,7 +42,12 @@ namespace ItemChanger.Locations.SpecialLocations
             };
         }
 
-        private void EditBrummText(ref string value) => value = value.Replace("flame", Placement.GetUIName(40));
+        private void EditBrummText(ref string value)
+        {
+            string text = Placement.GetUIName(40);
+            value = value.Replace("flame", text);
+            Placement.OnPreview(text);
+        }
 
         private static bool IsBrummActive()
         {

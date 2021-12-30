@@ -32,9 +32,6 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState init = fsm.GetState("Init");
             init.Actions = init.Actions.Where(a => !(a is FindChild fc) || fc.childName.Value != "Heart Piece").ToArray();
 
-            FsmState sendText = fsm.GetState("Send Text");
-            sendText.AddFirstAction(new Lambda(() => Placement.AddVisitFlag(VisitState.Previewed)));
-
             FsmState crumble = fsm.GetState("Crumble");
             crumble.RemoveActionsOfType<SetFsmGameObject>();
         }
@@ -48,10 +45,11 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void OnLanguageGet(ref string value)
         {
-            if (HintActive)
+            if (this.GetItemHintActive())
             {
-                value = $"Accept the Gift, even knowing you'll only get a lousy {Placement.GetUIName()}?";
-                Placement.AddVisitFlag(VisitState.Previewed);
+                string text = Placement.GetUIName();
+                value = $"Accept the Gift, even knowing you'll only get a lousy {text}?";
+                Placement.OnPreview(text);
             }
         }
     }

@@ -32,6 +32,13 @@ namespace ItemChanger.Placements
             tabletLocation.Unload();
         }
 
+        [Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
+        public override void OnPreview(string previewText)
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
+        {
+            LogError("OnPreview is not supported on CostChestPlacement.");
+        }
 
         public void AddItem(AbstractItem item, Cost cost)
         {
@@ -127,31 +134,38 @@ namespace ItemChanger.Placements
 
         public string BuildText()
         {
-            StringBuilder sb = new StringBuilder("Chest Contents<br>");
+            StringBuilder sb = new("Chest Contents<br>");
+            Tags.MultiPreviewRecordTag recordTag = GetOrAddTag<Tags.MultiPreviewRecordTag>();
+            recordTag.previewTexts = new string[Items.Count];
             for (int i = 0; i < Items.Count; i++)
             {
                 AbstractItem item = Items[i];
                 Cost cost = item.GetTag<CostTag>()?.Cost;
 
                 sb.Append("<br>");
-                sb.Append(item?.GetResolvedUIDef(this)?.GetPreviewName() ?? "Unknown Item");
-                sb.Append("  -  ");
+                string text = item.GetPreviewName(this) + "  -  ";
                 if (item.IsObtained())
                 {
-                    sb.Append("Obtained");
+                    text += "Obtained";
                 }
                 else if (cost is null)
                 {
-                    sb.Append("Free");
+                    text += "Free";
                 }
                 else if (cost.Paid)
                 {
-                    sb.Append("Purchased");
+                    text += "Purchased";
+                }
+                else if (HasTag<Tags.DisableCostPreviewTag>() || item.HasTag<Tags.DisableCostPreviewTag>())
+                {
+                    text += "???";
                 }
                 else
                 {
-                    sb.Append(cost.GetCostText());
+                    text += cost.GetCostText();
                 }
+                recordTag.previewTexts[i] = text;
+                sb.Append(text);
             }
             AddVisitFlag(VisitState.Previewed);
             return sb.ToString();

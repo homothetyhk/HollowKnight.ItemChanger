@@ -13,10 +13,14 @@ namespace ItemChanger.Items
             PlayerData.instance.SetBool(nameof(PlayerData.openedTownBuilding), true);
             if (GameManager.instance.sceneName == "Room_Town_Stag_Station")
             {
-                UnityEngine.GameObject.Find("Station Door").LocateFSM("Control").SendEvent("ACTIVATE");
+                GameObject.Find("Station Door").LocateFSM("Control").SendEvent("ACTIVATE");
             }
         }
 
-        // TODO: AlreadyObtained may conflict with transition fixes?
+        public override bool Redundant()
+        {
+            return PlayerData.instance.GetBool(nameof(PlayerData.openedTown)) 
+                && PlayerData.instance.GetBool(nameof(PlayerData.openedTownBuilding));
+        }
     }
 }

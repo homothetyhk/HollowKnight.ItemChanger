@@ -41,7 +41,7 @@ namespace ItemChanger.Locations
                 info = fsm.gameObject.AddComponent<ContainerInfo>();
                 FillInfo(info);
                 info.containerType = containerType;
-                if (HintActive) HintBox.Create(fsm.transform, Placement);
+                if (this.GetItemHintActive()) HintBox.Create(fsm.transform, Placement);
             }
             else if (replacePath == null)
             {
@@ -49,7 +49,7 @@ namespace ItemChanger.Locations
                 GameObject obj = c.GetNewContainer(Placement, Placement.Items, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost);
                 c.ApplyTargetContext(obj, fsm.gameObject, elevation);
                 UnityEngine.Object.Destroy(fsm.gameObject);
-                if (HintActive) HintBox.Create(obj.transform, Placement);
+                if (this.GetItemHintActive()) HintBox.Create(obj.transform, Placement);
             }
         }
 
@@ -62,7 +62,7 @@ namespace ItemChanger.Locations
                 GameObject target = to.FindGameObject(replacePath);
                 c.ApplyTargetContext(obj, target, elevation);
                 UnityEngine.Object.Destroy(target);
-                if (HintActive) HintBox.Create(obj.transform, Placement);
+                if (this.GetItemHintActive()) HintBox.Create(obj.transform, Placement);
             }
         }
 

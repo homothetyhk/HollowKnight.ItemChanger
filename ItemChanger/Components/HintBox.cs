@@ -12,7 +12,7 @@ namespace ItemChanger.Components
         /// <summary>
         /// Create a HintBox at the specified position with the specified delegates.
         /// </summary>
-        public static HintBox Create(Vector2 pos, Func<string> getDisplayText, Func<bool> displayTest = null, Action onDisplay = null)
+        public static HintBox Create(Vector2 pos, Func<string> getDisplayText, Func<bool> displayTest = null, Action<string> onDisplay = null)
         {
             var hint = HintBox.Create(pos, new Vector2(5f, 5f));
             hint.GetDisplayText = getDisplayText;
@@ -29,7 +29,7 @@ namespace ItemChanger.Components
             var hint = HintBox.Create(transform.position, new Vector2(5f, 5f));
             hint.GetDisplayText = placement.GetUIName;
             hint.DisplayTest = () => !placement.AllObtained();
-            hint.OnDisplay = () => placement.AddVisitFlag(VisitState.Previewed);
+            hint.OnDisplay = placement.OnPreview;
             return hint;
         }
 
@@ -51,7 +51,7 @@ namespace ItemChanger.Components
 
         public Func<bool> DisplayTest;
         public Func<string> GetDisplayText;
-        public Action OnDisplay;
+        public Action<string> OnDisplay;
         PlayMakerFSM display;
 
         public void Setup(GameObject prefab)
@@ -80,7 +80,7 @@ namespace ItemChanger.Components
                 {
                     SetText(s);
                     ShowConvo();
-                    OnDisplay?.Invoke();
+                    OnDisplay?.Invoke(s);
                 }
             }
         }

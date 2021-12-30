@@ -118,7 +118,6 @@ namespace ItemChanger.Placements
             // replace IntCompare for rancid eggs with test based on item costs
             haveEggs.Actions = new FsmStateAction[]
             {
-                new Lambda(() => AddVisitFlag(VisitState.Previewed)),
                 new DelegateBoolTest(CanPurchaseAny, "YES", "NO"),
             };
 
@@ -149,15 +148,42 @@ namespace ItemChanger.Placements
             if (!PurchasedAll)
             {
                 StringBuilder sb = new();
+                Tags.MultiPreviewRecordTag recordTag = GetOrAddTag<Tags.MultiPreviewRecordTag>();
+                recordTag.previewTexts = new string[Items.Count];
                 for (int i = 0; i < Items.Count; i++)
                 {
-                    if (!Items[i].IsObtained() && Items[i].GetTag<CostTag>()?.Cost is Cost c && !c.Paid)
+                    AbstractItem item = Items[i];
+                    string text = item.GetPreviewName(this) + "  -  ";
+                    Cost cost = item.GetTag<CostTag>()?.Cost;
+                    if (item.IsObtained())
                     {
-                        if (i + 1 < Items.Count) sb.AppendLine($"{c.GetCostText()}  -  {Items[i].GetResolvedUIDef(this).GetPreviewName()}");
-                        else sb.Append($"{c.GetCostText()}  -  {Items[i].GetResolvedUIDef(this).GetPreviewName()}");
+                        text += "Obtained";
                     }
+                    else if (cost is null)
+                    {
+                        text += "Free";
+                    }
+                    else if (cost.Paid)
+                    {
+                        text += "Purchased";
+                    }
+                    else if (HasTag<Tags.DisableCostPreviewTag>() || item.HasTag<Tags.DisableCostPreviewTag>())
+                    {
+                        text += "???";
+                    }
+                    else
+                    {
+                        text += cost.GetCostText();
+                    }
+                    recordTag.previewTexts[i] = text;
+                    sb.AppendLine(text);
+                }
+                if (sb.Length > 0)
+                {
+                    sb.Remove(sb.Length - Environment.NewLine.Length, Environment.NewLine.Length); // remove last line terminator
                 }
                 value = sb.ToString();
+                AddVisitFlag(VisitState.Previewed);
             }
         }
         private void JijiDecline(ref string value)
