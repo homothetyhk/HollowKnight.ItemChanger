@@ -6,5 +6,13 @@
     public class CostTag : Tag
     {
         public Cost Cost { get; set; }
+        public override void Load(object parent)
+        {
+            Cost?.Load();
+        }
+        public override void Unload(object parent)
+        {
+            Cost?.Unload();
+        }
     }
 }

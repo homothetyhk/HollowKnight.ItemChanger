@@ -1,21 +1,35 @@
-﻿namespace ItemChanger.Modules
+﻿using ItemChanger.Extensions;
+
+namespace ItemChanger.Modules
 {
     /// <summary>
     /// Subtractive rancid egg cost which adjusts for the number of eggs previously spent on this type of cost.
     /// </summary>
     public record CumulativeRancidEggCost(int Total) : Cost
     {
-        public int Balance => Total - ItemChangerMod.Modules.GetOrAdd<CumulativeEggCostModule>().CumulativeEggsSpent;
+        public override void Load()
+        {
+            module = ItemChangerMod.Modules.GetOrAdd<CumulativeEggCostModule>();
+            module.MaximumCost = Math.Max(Total, module.MaximumCost);
+        }
 
-        public override bool CanPay() => Balance <= PlayerData.instance.GetInt(nameof(PlayerData.rancidEggs));
+        private CumulativeEggCostModule module;
+
+        public int GetBalance()
+        {
+            if (module == null) Load();
+            return Total - module.CumulativeEggsSpent;
+        }
+
+        public override bool CanPay() => GetBalance() <= PlayerData.instance.GetInt(nameof(PlayerData.rancidEggs));
 
         public override void OnPay()
         {
-            int bal = Balance;
+            int bal = GetBalance();
             if (bal > 0)
             {
                 PlayerData.instance.IntAdd(nameof(PlayerData.rancidEggs), -bal);
-                ItemChangerMod.Modules.GetOrAdd<CumulativeEggCostModule>().CumulativeEggsSpent += bal;
+                module.CumulativeEggsSpent += bal;
             }
         }
 
@@ -28,7 +42,7 @@
 
         public override string GetCostText()
         {
-            int bal = Balance;
+            int bal = GetBalance();
             if (bal > 0) return $"Pay {bal} rancid " + (bal != 1 ? "eggs." : "egg.");
             else return "Free";
         }
@@ -41,9 +55,25 @@
     public class CumulativeEggCostModule : Module
     {
         public int CumulativeEggsSpent;
+        public int MaximumCost;
+        public bool DeactivateJinnUntilMaximumCostSpent = true;
 
-        public override void Initialize() { }
+        public override void Initialize() 
+        {
+            Events.AddFsmEdit(SceneNames.Room_Jinn, new("Jinn NPC", "Wake and Animate"), EditJinn);
+        }
 
-        public override void Unload() { }
+        public override void Unload() 
+        {
+            Events.RemoveFsmEdit(SceneNames.Room_Jinn, new("Jinn NPC", "Wake and Animate"), EditJinn);
+        }
+
+        private void EditJinn(PlayMakerFSM fsm)
+        {
+            if (!DeactivateJinnUntilMaximumCostSpent || MaximumCost <= CumulativeEggsSpent) return;
+
+            FsmState sleep = fsm.GetState("Sleep");
+            sleep.ClearTransitions();
+        }
     }
 }

@@ -10,5 +10,15 @@
         /// An inherent cost always applies. A non-inherent cost applies as a substitute when the placement does not have a (non-null) cost.
         /// </summary>
         public bool Inherent;
+
+        public override void Load(object parent)
+        {
+            Cost?.Load();
+        }
+
+        public override void Unload(object parent)
+        {
+            Cost?.Unload();
+        }
     }
 }

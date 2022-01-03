@@ -25,11 +25,13 @@ namespace ItemChanger.Placements
             Location.Placement = this;
             UpdateContainerType();
             Location.Load();
+            Cost?.Load();
         }
 
         protected override void OnUnload()
         {
             Location.Unload();
+            Cost?.Unload();
         }
 
         private void UpdateContainerType()

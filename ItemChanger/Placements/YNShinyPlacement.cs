@@ -20,11 +20,13 @@ namespace ItemChanger.Placements
         {
             Location.Placement = this;
             Location.Load();
+            Cost?.Load();
         }
 
         protected override void OnUnload()
         {
             Location.Unload();
+            Cost?.Unload();
         }
 
         public void AddItemWithCost(AbstractItem item, Cost cost)

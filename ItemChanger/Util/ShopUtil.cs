@@ -96,8 +96,7 @@ namespace ItemChanger.Util
                 }
             }
             foreach (var g in self.stockInv
-                .Take(self.itemCount)
-                .Select(go => go.GetComponent<ModShopItemStats>())
+                .Select(go => go?.GetComponent<ModShopItemStats>())
                 .Where(m => m != null)
                 .GroupBy(m => m.placement))
             {

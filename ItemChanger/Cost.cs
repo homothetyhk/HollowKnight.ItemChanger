@@ -41,6 +41,9 @@ namespace ItemChanger
         /// </summary>
         public abstract bool HasPayEffects();
 
+        public virtual void Load() { }
+        public virtual void Unload() { }
+
         public static Cost operator +(Cost a, Cost b)
         {
             if (a == null) return b;
@@ -158,6 +161,15 @@ namespace ItemChanger
             return Costs.Any(d => d.HasPayEffects());
         }
 
+        public override void Load()
+        {
+            foreach (Cost c in Costs) c.Load();
+        }
+
+        public override void Unload()
+        {
+            foreach (Cost c in Costs) c.Unload();
+        }
     }
 
 
