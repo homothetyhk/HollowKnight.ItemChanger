@@ -114,7 +114,7 @@ namespace ItemChanger
         public const string GG_Pipeway = "GG_Pipeway";
         public const string GG_Workshop = "GG_Workshop";
         public const string Room_GG_Shortcut = "Room_GG_Shortcut";
-        public const string GG_Atrium_Room = "GG_Atrium_Roof";
+        public const string GG_Atrium_Roof = "GG_Atrium_Roof";
         public const string GG_Blue_Room = "GG_Blue_Room";
         public const string GG_Land_of_Storms = "GG_Land_of_Storms";
         // WorldNavigation dump below

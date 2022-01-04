@@ -140,7 +140,17 @@
     "name": "World_Sense",
     "sceneName": "Room_Final_Boss_Atrium",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DisableFsmTag, ItemChanger",
+        "id": {
+          "ObjectName": "Tut_tablet_top",
+          "FsmName": "Inspection"
+        },
+        "sceneName": "Room_Final_Boss_Atrium",
+        "disableState": null
+      }
+    ]
   },
   "Mothwing_Cloak": {
     "$type": "ItemChanger.Locations.SpecialLocations.MothwingCloakLocation, ItemChanger",
@@ -369,7 +379,17 @@
     "name": "Focus",
     "sceneName": "Tutorial_01",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DisableFsmTag, ItemChanger",
+        "id": {
+          "ObjectName": "Tut_tablet_top",
+          "FsmName": "Inspection"
+        },
+        "sceneName": "Tutorial_01",
+        "disableState": null
+      }
+    ]
   },
   "Grubsong": {
     "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
