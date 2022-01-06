@@ -5905,22 +5905,22 @@
       },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GET_SUPERDASH_1",
+        "key": "ITEMCHANGER_GET_LEFT_SUPERDASH_1",
         "sheet": "Prompts"
       },
       "descTwo": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GET_SUPERDASH_2",
+        "key": "ITEMCHANGER_GET_LEFT_SUPERDASH_2",
         "sheet": "Prompts"
       },
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_SUPERDASH",
+        "key": "ITEMCHANGER_NAME_LEFT_SUPERDASH",
         "sheet": "UI"
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_DESC_SUPERDASH",
+        "key": "ITEMCHANGER_SHOPDESC_LEFT_SUPERDASH",
         "sheet": "UI"
       },
       "sprite": {
@@ -5958,22 +5958,22 @@
       },
       "descOne": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GET_SUPERDASH_1",
+        "key": "ITEMCHANGER_GET_RIGHT_SUPERDASH_1",
         "sheet": "Prompts"
       },
       "descTwo": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GET_SUPERDASH_2",
+        "key": "ITEMCHANGER_GET_RIGHT_SUPERDASH_2",
         "sheet": "Prompts"
       },
       "name": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_NAME_SUPERDASH",
+        "key": "ITEMCHANGER_NAME_RIGHT_SUPERDASH",
         "sheet": "UI"
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "INV_DESC_SUPERDASH",
+        "key": "ITEMCHANGER_SHOPDESC_RIGHT_SUPERDASH",
         "sheet": "UI"
       },
       "sprite": {

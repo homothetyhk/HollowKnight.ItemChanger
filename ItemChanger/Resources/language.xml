@@ -95,4 +95,13 @@
   <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_SHADOWDASH">Cloak formed from the substance of the Abyss. Allows the wearer to dash through enemies and their attacks without taking damage.</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_NAME_LEFT_SHADOWDASH">Left Shade Cloak</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_NAME_RIGHT_SHADOWDASH">Right Shade Cloak</entry>
+
+  <entry sheet="UI" key="ITEMCHANGER_NAME_LEFT_SUPERDASH">Left Crystal Heart</entry>
+  <entry sheet="Prompts" key="ITEMCHANGER_GET_LEFT_SUPERDASH_1">while on the ground or clinging to a wall to concentrate the force.</entry>
+  <entry sheet="Prompts" key="ITEMCHANGER_GET_LEFT_SUPERDASH_2">Release the button to blast left and fly through the air.</entry>
+  <entry sheet="UI" key="ITEMCHANGER_SHOPDESC_LEFT_SUPERDASH">Part of the energy core of an old mining golem, fashioned around a potent crystal. The crystal's energy can be channeled to launch the bearer to the left at dangerous speeds.</entry>
+  <entry sheet="UI" key="ITEMCHANGER_NAME_RIGHT_SUPERDASH">Right Crystal Heart</entry>
+  <entry sheet="Prompts" key="ITEMCHANGER_GET_RIGHT_SUPERDASH_1">while on the ground or clinging to a wall to concentrate the force.</entry>
+  <entry sheet="Prompts" key="ITEMCHANGER_GET_RIGHT_SUPERDASH_2">Release the button to blast right and fly through the air.</entry>
+  <entry sheet="UI" key="ITEMCHANGER_SHOPDESC_RIGHT_SUPERDASH">Part of the energy core of an old mining golem, fashioned around a potent crystal. The crystal's energy can be channeled to launch the bearer to the right at dangerous speeds.</entry>
 </Language>
