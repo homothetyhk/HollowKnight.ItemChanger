@@ -210,6 +210,8 @@ namespace ItemChanger
         public const string Rightslash = "Rightslash";
         public const string Upslash = "Upslash";
         public const string Downslash = "Downslash";
+        public const string Left_Crystal_Heart = "Left_Crystal_Heart";
+        public const string Right_Crystal_Heart = "Right_Crystal_Heart";
         public const string Geo_Rock_Default = "Geo_Rock-Default";
         public const string Geo_Rock_Deepnest = "Geo_Rock-Deepnest";
         public const string Geo_Rock_Abyss = "Geo_Rock-Abyss";

@@ -2581,7 +2581,7 @@
   },
   "Boss_Essence-Elder_Hu": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamWarriorLocation, ItemChanger",
-	"playerDataInt": "elderHuDefeated",
+    "playerDataInt": "elderHuDefeated",
     "fsmName": "Conversation Control",
     "objName": "Ghost Warrior NPC",
     "name": "Boss_Essence-Elder_Hu",
@@ -2601,7 +2601,7 @@
   },
   "Boss_Essence-Gorb": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamWarriorLocation, ItemChanger",
-	"playerDataInt": "aladarSlugDefeated",
+    "playerDataInt": "aladarSlugDefeated",
     "fsmName": "Conversation Control",
     "objName": "Ghost Warrior NPC",
     "name": "Boss_Essence-Gorb",
@@ -2611,7 +2611,7 @@
   },
   "Boss_Essence-Marmu": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamWarriorLocation, ItemChanger",
-	"playerDataInt": "mumCaterpillarDefeated",
+    "playerDataInt": "mumCaterpillarDefeated",
     "fsmName": "Conversation Control",
     "objName": "Ghost Warrior NPC",
     "name": "Boss_Essence-Marmu",
@@ -2621,7 +2621,7 @@
   },
   "Boss_Essence-No_Eyes": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamWarriorLocation, ItemChanger",
-	"playerDataInt": "noEyesDefeated",
+    "playerDataInt": "noEyesDefeated",
     "fsmName": "Conversation Control",
     "objName": "Ghost Warrior NPC",
     "name": "Boss_Essence-No_Eyes",
@@ -2631,7 +2631,7 @@
   },
   "Boss_Essence-Galien": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamWarriorLocation, ItemChanger",
-	"playerDataInt": "galienDefeated",
+    "playerDataInt": "galienDefeated",
     "fsmName": "Conversation Control",
     "objName": "Ghost Warrior NPC",
     "name": "Boss_Essence-Galien",
@@ -2651,7 +2651,7 @@
   },
   "Boss_Essence-Failed_Champion": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamBossLocation, ItemChanger",
-	"playerDataBool": "falseKnightOrbsCollected",
+    "playerDataBool": "falseKnightOrbsCollected",
     "fsmName": "Conversation Control",
     "objName": "Ghost False Knight NPC",
     "name": "Boss_Essence-Failed_Champion",
@@ -2661,7 +2661,7 @@
   },
   "Boss_Essence-Soul_Tyrant": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamBossLocation, ItemChanger",
-	"playerDataBool": "mageLordOrbsCollected",
+    "playerDataBool": "mageLordOrbsCollected",
     "fsmName": "Conversation Control",
     "objName": "Ghost Mage Lord NPC",
     "name": "Boss_Essence-Soul_Tyrant",
@@ -2671,7 +2671,7 @@
   },
   "Boss_Essence-Lost_Kin": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamBossLocation, ItemChanger",
-	"playerDataBool": "infectedKnightOrbsCollected",
+    "playerDataBool": "infectedKnightOrbsCollected",
     "fsmName": "Conversation Control",
     "objName": "Ghost Infected Knight NPC",
     "name": "Boss_Essence-Lost_Kin",
@@ -2681,7 +2681,7 @@
   },
   "Boss_Essence-White_Defender": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamBossLocation, ItemChanger",
-	"playerDataBool": "whiteDefenderOrbsCollected",
+    "playerDataBool": "whiteDefenderOrbsCollected",
     "fsmName": "Award Orbs",
     "objName": "Dung Defender_Sleep",
     "name": "Boss_Essence-White_Defender",
@@ -2691,7 +2691,7 @@
   },
   "Boss_Essence-Grey_Prince_Zote": {
     "$type": "ItemChanger.Locations.SpecialLocations.GreyPrinceZoteLocation, ItemChanger",
-	"playerDataBool": "greyPrinceOrbsCollected",
+    "playerDataBool": "greyPrinceOrbsCollected",
     "fsmName": "Award Orbs",
     "objName": "Dream Enter",
     "name": "Boss_Essence-Grey_Prince_Zote",
@@ -4025,6 +4025,18 @@
         "sceneName": "Fungus2_14"
       }
     ]
+  },
+  "Split_Crystal_Heart": {
+    "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+    "x": 194.8,
+    "y": 11.4,
+    "elevation": 0.0,
+    "managed": false,
+    "forceShiny": false,
+    "name": "Split_Crystal_Heart",
+    "sceneName": "Mines_31",
+    "flingType": "Everywhere",
+    "tags": null
   },
   "Egg_Shop": {
     "$type": "ItemChanger.Locations.SpecialLocations.EggShopLocation, ItemChanger",

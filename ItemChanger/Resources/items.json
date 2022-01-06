@@ -5599,7 +5599,7 @@
       },
       "sprite": {
         "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
-        "key": "ShopIcons.Dash"
+        "key": "ShopIcons.DashReflected"
       }
     },
     "tags": [
@@ -5719,7 +5719,7 @@
       },
       "sprite": {
         "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
-        "key": "ShopIcons.Walljump"
+        "key": "ShopIcons.WalljumpReflected"
       }
     },
     "tags": null,
@@ -5873,6 +5873,112 @@
       "sprite": {
         "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
         "key": "ShopIcons.Downslash"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Left_Crystal_Heart": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "hasSuperdashLeft",
+    "moduleName": "ItemChanger.Modules.SplitSuperdash, ItemChanger",
+    "name": "Left_Crystal_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.SuperdashReflected"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO2",
+        "sheet": "Prompts"
+      },
+      "press": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "BUTTON_DESC_HOLD",
+        "sheet": "Prompts"
+      },
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "SUPER_DASH"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SUPERDASH_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SUPERDASH_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SUPERDASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_SUPERDASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.Superdash"
+      }
+    },
+    "tags": null,
+    "obtainState": "Unobtained"
+  },
+  "Right_Crystal_Heart": {
+    "$type": "ItemChanger.Items.CustomSkillItem, ItemChanger",
+    "boolName": "hasSuperdashRight",
+    "moduleName": "ItemChanger.Modules.SplitSuperdash, ItemChanger",
+    "name": "Right_Crystal_Heart",
+    "UIDef": {
+      "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
+      "bigSprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "Prompts.Superdash"
+      },
+      "take": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_ITEM_INTRO2",
+        "sheet": "Prompts"
+      },
+      "press": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "BUTTON_DESC_HOLD",
+        "sheet": "Prompts"
+      },
+      "buttonSkin": {
+        "$type": "ItemChanger.UIDefs.HeroActionButtonSkin, ItemChanger",
+        "button": "SUPER_DASH"
+      },
+      "descOne": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SUPERDASH_1",
+        "sheet": "Prompts"
+      },
+      "descTwo": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "GET_SUPERDASH_2",
+        "sheet": "Prompts"
+      },
+      "name": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_NAME_SUPERDASH",
+        "sheet": "UI"
+      },
+      "shopDesc": {
+        "$type": "ItemChanger.LanguageString, ItemChanger",
+        "key": "INV_DESC_SUPERDASH",
+        "sheet": "UI"
+      },
+      "sprite": {
+        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+        "key": "ShopIcons.SuperdashReflected"
       }
     },
     "tags": null,

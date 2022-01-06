@@ -315,6 +315,7 @@ namespace ItemChanger
         public const string Split_Mothwing_Cloak = "Split_Mothwing_Cloak";
         public const string Left_Mantis_Claw = "Left_Mantis_Claw";
         public const string Right_Mantis_Claw = "Right_Mantis_Claw";
+        public const string Split_Crystal_Heart = "Split_Crystal_Heart";
         public const string Egg_Shop = "Egg_Shop";
         public const string Geo_Rock_Broken_Elevator_1 = "Geo_Rock-Broken_Elevator_1";
         public const string Geo_Rock_Broken_Elevator_2 = "Geo_Rock-Broken_Elevator_2";
