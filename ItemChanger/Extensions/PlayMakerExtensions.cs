@@ -114,6 +114,22 @@
             return fi;
         }
 
+        public static FsmGameObject AddFsmGameObject(this PlayMakerFSM fsm, string name, GameObject value)
+        {
+            FsmGameObject fgo = new FsmGameObject
+            {
+                Name = name,
+                Value = value
+            };
+
+            FsmGameObject[] gos = new FsmGameObject[fsm.FsmVariables.GameObjectVariables.Length + 1];
+            fsm.FsmVariables.GameObjectVariables.CopyTo(gos, 0);
+            gos[gos.Length - 1] = fgo;
+            fsm.FsmVariables.GameObjectVariables = gos;
+
+            return fgo;
+        }
+
         public static FsmTransition AddTransition(this FsmState state, FsmEvent fsmEvent, FsmState toState)
         {
             FsmTransition[] transitions = new FsmTransition[state.Transitions.Length + 1];

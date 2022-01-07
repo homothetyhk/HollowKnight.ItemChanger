@@ -5,9 +5,8 @@
     /// </summary>
     public class EquipCharmOnGiveTag : Tag
     {
-        public int charmNum;
-
-        public string equipBool => $"equippedCharm_{charmNum}";
+        private int charmNum;
+        private string equipBool => $"equippedCharm_{charmNum}";
 
         public override void Load(object parent)
         {
@@ -18,6 +17,8 @@
 
         public void AfterGiveItem(ReadOnlyGiveEventArgs args)
         {
+            if (PlayerData.instance.GetBool(equipBool)) return;
+
             PlayerData.instance.SetBool(equipBool, true);
             PlayerData.instance.EquipCharm(charmNum);
 

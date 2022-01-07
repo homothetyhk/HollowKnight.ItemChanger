@@ -804,6 +804,63 @@
       }
     ]
   },
+  "Unbreakable_Heart": {
+    "$type": "ItemChanger.Locations.SpecialLocations.DivineLocation, ItemChanger",
+    "requiredCharmID": 23,
+    "shopSlot": "Heart",
+    "objectName": "Poo Heart",
+    "fsmName": "Shiny Control",
+    "containerType": "Shiny",
+    "nonreplaceable": false,
+    "elevation": -0.7,
+    "name": "Unbreakable_Heart",
+    "sceneName": "Grimm_Divine",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.UnsupportedContainerTag, ItemChanger",
+        "containerType": "Chest"
+      }
+    ]
+  },
+  "Unbreakable_Greed": {
+    "$type": "ItemChanger.Locations.SpecialLocations.DivineLocation, ItemChanger",
+    "requiredCharmID": 24,
+    "shopSlot": "Greed",
+    "objectName": "Poo Greed",
+    "fsmName": "Shiny Control",
+    "containerType": "Shiny",
+    "nonreplaceable": false,
+    "elevation": -0.7,
+    "name": "Unbreakable_Greed",
+    "sceneName": "Grimm_Divine",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.UnsupportedContainerTag, ItemChanger",
+        "containerType": "Chest"
+      }
+    ]
+  },
+  "Unbreakable_Strength": {
+    "$type": "ItemChanger.Locations.SpecialLocations.DivineLocation, ItemChanger",
+    "requiredCharmID": 25,
+    "shopSlot": "Strength",
+    "objectName": "Poo Strength",
+    "fsmName": "Shiny Control",
+    "containerType": "Shiny",
+    "nonreplaceable": false,
+    "elevation": -0.7,
+    "name": "Unbreakable_Strength",
+    "sceneName": "Grimm_Divine",
+    "flingType": "Everywhere",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.UnsupportedContainerTag, ItemChanger",
+        "containerType": "Chest"
+      }
+    ]
+  },
   "City_Crest": {
     "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
     "objectName": "Shiny Item",
@@ -1938,6 +1995,7 @@
   },
   "Rancid_Egg-Tuk_Defender's_Crest": {
     "$type": "ItemChanger.Locations.SpecialLocations.TukDefendersCrestLocation, ItemChanger",
+    "requiredCharmID": 10,
     "name": "Rancid_Egg-Tuk_Defender's_Crest",
     "sceneName": "Waterways_03",
     "flingType": "Everywhere",

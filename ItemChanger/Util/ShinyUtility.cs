@@ -359,6 +359,7 @@ namespace ItemChanger.Util
             yesState.AddFirstAction(closeYNDialogue);
 
             charm.AddFirstAction(new Lambda(() => YNUtil.OpenYNDialogue(shinyFsm.gameObject, placement, items, cost)));
+            charm.AddFirstAction(new DelegateBoolTest(() => cost is null || cost.Paid, "YES", null)); // skip yn dialogue when there is no cost
         }
     }
 }

@@ -6,6 +6,8 @@ namespace ItemChanger.Locations.SpecialLocations
 {
     public class TukDefendersCrestLocation : AutoLocation
     {
+        public int requiredCharmID = 10;
+
         protected override void OnLoad()
         {
             Events.AddFsmEdit(sceneName, new("Alive Tuk", "Steel Soul"), OverrideAliveTuk);
@@ -70,14 +72,15 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private bool ShouldGiveItem()
         {
-            return PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_10)) && !Placement.AllObtained();
+            return PlayerData.instance.GetBool("equippedCharm_" + requiredCharmID) && !Placement.AllObtained();
         }
 
         private void AddDefendersCrestReminder(ref string value)
         {
-            if (!PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_10)) && !Placement.AllObtained())
+            if (!PlayerData.instance.GetBool("equippedCharm_" + requiredCharmID) && !Placement.AllObtained())
             {
-                value += "<page>It would be different if you were wearing Defender's Crest...";
+                string charmName = Util.CharmNameUtil.GetCharmName(requiredCharmID);
+                value += $"<page>It would be different if you were wearing {charmName}...";
             }
         }
     }

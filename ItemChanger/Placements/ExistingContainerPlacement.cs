@@ -51,12 +51,16 @@ namespace ItemChanger.Placements
         {
             if (location.nonreplaceable) return location.containerType;
 
-            bool mustSupportCost = placement.Cost != null;
+            bool mustSupportCost = placement.Cost != null && !location.HandlesCostBeforeContainer;
             bool mustSupportSceneChange = location.GetTags<Tags.ChangeSceneTag>().Any() || (placement as AbstractPlacement).GetTags<Tags.ChangeSceneTag>().Any();
+
+            HashSet<string> unsupported = new(((placement as AbstractPlacement)?.GetPlacementAndLocationTags() ?? Enumerable.Empty<Tag>())
+                .OfType<Tags.UnsupportedContainerTag>()
+                .Select(t => t.containerType));
 
             string containerType = items
                 .Select(i => i.GetPreferredContainer())
-                .FirstOrDefault(c => Container.GetContainer(c) is Container container && container.SupportsInstantiate && 
+                .FirstOrDefault(c => Container.GetContainer(c) is Container container && container.SupportsInstantiate && !unsupported.Contains(c) &&
                 (!mustSupportCost || container.SupportsCost) && 
                 (!mustSupportSceneChange || container.SupportsSceneChange));
 

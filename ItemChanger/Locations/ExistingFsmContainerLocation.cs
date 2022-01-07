@@ -63,8 +63,11 @@ namespace ItemChanger.Locations
                 c.ApplyTargetContext(obj, target, elevation);
                 UnityEngine.Object.Destroy(target);
                 if (this.GetItemHintActive()) HintBox.Create(obj.transform, Placement);
+                OnReplace(obj, c);
             }
         }
+
+        protected virtual void OnReplace(GameObject obj, Container c) { }
 
         private void FillInfo(ContainerInfo info)
         {
@@ -76,7 +79,7 @@ namespace ItemChanger.Locations
                 flingType = flingType,
             };
 
-            if (Placement is Placements.ISingleCostPlacement iscp && iscp.Cost != null)
+            if (!HandlesCostBeforeContainer && Placement is Placements.ISingleCostPlacement iscp && iscp.Cost != null)
             {
                 info.costInfo = new CostInfo
                 {

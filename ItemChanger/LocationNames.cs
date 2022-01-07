@@ -70,6 +70,9 @@ namespace ItemChanger
         public const string Dreamshield = "Dreamshield";
         public const string Weaversong = "Weaversong";
         public const string Grimmchild = "Grimmchild";
+        public const string Unbreakable_Heart = "Unbreakable_Heart";
+        public const string Unbreakable_Greed = "Unbreakable_Greed";
+        public const string Unbreakable_Strength = "Unbreakable_Strength";
         public const string City_Crest = "City_Crest";
         public const string Tram_Pass = "Tram_Pass";
         public const string Simple_Key_Basin = "Simple_Key-Basin";

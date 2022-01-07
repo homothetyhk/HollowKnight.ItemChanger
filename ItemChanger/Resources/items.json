@@ -1916,7 +1916,13 @@
         "key": "Charms.23"
       }
     },
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
+        "predecessor": null,
+        "successor": "Unbreakable_Heart"
+      }
+    ],
     "obtainState": "Unobtained"
   },
   "Fragile_Heart_(Repair)": {
@@ -1970,7 +1976,13 @@
         "key": "Charms.23_G"
       }
     },
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
+        "predecessor": "Fragile_Heart",
+        "successor": null
+      }
+    ],
     "obtainState": "Unobtained"
   },
   "Fragile_Greed": {
@@ -1994,7 +2006,13 @@
         "key": "Charms.24"
       }
     },
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
+        "predecessor": null,
+        "successor": "Unbreakable_Greed"
+      }
+    ],
     "obtainState": "Unobtained"
   },
   "Fragile_Greed_(Repair)": {
@@ -2048,7 +2066,13 @@
         "key": "Charms.24_G"
       }
     },
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
+        "predecessor": "Fragile_Greed",
+        "successor": null
+      }
+    ],
     "obtainState": "Unobtained"
   },
   "Fragile_Strength": {
@@ -2072,7 +2096,13 @@
         "key": "Charms.25"
       }
     },
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
+        "predecessor": null,
+        "successor": "Unbreakable_Strength"
+      }
+    ],
     "obtainState": "Unobtained"
   },
   "Fragile_Strength_(Repair)": {
@@ -2126,7 +2156,13 @@
         "key": "Charms.25_G"
       }
     },
-    "tags": null,
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
+        "predecessor": "Fragile_Strength",
+        "successor": null
+      }
+    ],
     "obtainState": "Unobtained"
   },
   "Nailmaster's_Glory": {
