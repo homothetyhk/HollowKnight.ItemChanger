@@ -47,8 +47,8 @@ namespace ItemChanger.Util
             rock.AddComponent<GeoRockInfo>().type = type;
             rock.name = GetGeoRockName(placement);
 
-            rock.AddComponent<DropIntoPlace>();
             rock.GetComponent<BoxCollider2D>().isTrigger = false; // some rocks only have trigger colliders
+            rock.AddComponent<DropIntoPlace>();
 
             var info = rock.AddComponent<ContainerInfo>();
             info.containerType = Container.GeoRock;
@@ -130,6 +130,7 @@ namespace ItemChanger.Util
             itemParent.SetActive(true);
 
             payout.AddLastAction(new Lambda(InstantiateShiniesAndGiveEarly));
+            broken.RemoveFirstActionOfType<SetCollider>();
             broken.AddLastAction(new Lambda(OnAlreadyBroken));
 
             void InstantiateShiniesAndGiveEarly()
@@ -177,6 +178,7 @@ namespace ItemChanger.Util
                     }
                 }
 
+                rock.GetOrAddComponent<NonBouncer>();
                 foreach (Transform t in itemParent.transform) t.gameObject.SetActive(true);
             }
         }
