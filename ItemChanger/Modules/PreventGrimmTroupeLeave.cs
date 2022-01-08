@@ -1,14 +1,12 @@
-﻿using HutongGames.PlayMaker.Actions;
-using Modding;
-using ItemChanger.Extensions;
-using ItemChanger.FsmStateActions;
+﻿using Modding;
 
 namespace ItemChanger.Modules
 {
     /// <summary>
     /// Module which prevents the Grimm and Divine tents from leaving Dirtmouth.
     /// </summary>
-    public class GrimmTroupeTentUnlock : Module
+    [DefaultModule]
+    public class PreventGrimmTroupeLeave : Module
     {
         public override void Initialize()
         {

@@ -67,6 +67,68 @@
     "flingType": "DirectDeposit",
     "tags": null
   },
+  "Grubfather": {
+    "$type": "ItemChanger.Locations.SpecialLocations.CostChestLocation, ItemChanger",
+    "chestLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 36.0,
+      "y": 4.0,
+      "elevation": 0.0,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Grubfather",
+      "sceneName": "Crossroads_38",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "tabletLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 54.0,
+      "y": 4.0,
+      "elevation": 0.0,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Grubfather",
+      "sceneName": "Crossroads_38",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "name": "Grubfather",
+    "sceneName": "Crossroads_38",
+    "flingType": "Everywhere",
+    "tags": null
+  },
+  "Seer": {
+    "$type": "ItemChanger.Locations.SpecialLocations.CostChestLocation, ItemChanger",
+    "chestLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 33.0,
+      "y": 10.0,
+      "elevation": 0.0,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Seer",
+      "sceneName": "RestingGrounds_07",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "tabletLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 42.0,
+      "y": 10.0,
+      "elevation": 0.0,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Seer",
+      "sceneName": "RestingGrounds_07",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "name": "Seer",
+    "sceneName": "RestingGrounds_07",
+    "flingType": "Everywhere",
+    "tags": null
+  },
   "Lurien": {
     "$type": "ItemChanger.Locations.SpecialLocations.DreamerLocation, ItemChanger",
     "previousScene": "Ruins2_Watcher_Room",

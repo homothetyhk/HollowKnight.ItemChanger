@@ -4,6 +4,9 @@ using ItemChanger.Extensions;
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which implements the split superdash custom skills.
+    /// </summary>
     public class SplitSuperdash : Module
     {
         public bool hasSuperdashLeft { get; set; }

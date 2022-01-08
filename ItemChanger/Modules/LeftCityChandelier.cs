@@ -2,6 +2,9 @@
 
 namespace ItemChanger.Modules
 {
+    /// <summary>
+    /// Module which makes a chandelier in left City of Tears pogoable, restoring a skip that was removed when Ruins1_05 was split into two rooms in the Lifeblood update.
+    /// </summary>
     [DefaultModule]
     public class LeftCityChandelier : Module
     {

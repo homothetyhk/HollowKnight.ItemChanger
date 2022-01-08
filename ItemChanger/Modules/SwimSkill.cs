@@ -5,7 +5,7 @@ using ItemChanger.Extensions;
 namespace ItemChanger.Modules
 {
     /// <summary>
-    /// Module which implements the split swim custom skill.
+    /// Module which implements the swim custom skill.
     /// </summary>
     public class SwimSkill : Module
     {

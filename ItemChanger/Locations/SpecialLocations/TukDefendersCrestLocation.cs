@@ -4,6 +4,9 @@ using ItemChanger.FsmStateActions;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// AutoLocation which modifies Tuk to give items through a flung shiny when the player has a certain charm equipped (by default, Defender's Crest).
+    /// </summary>
     public class TukDefendersCrestLocation : AutoLocation
     {
         public int requiredCharmID = 10;

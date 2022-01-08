@@ -3,14 +3,12 @@ using ItemChanger.Extensions;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Internal;
 using ItemChanger.Util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// Location which replaces the shinies inside Divine's room. Each of the 3 shinies requires its own location with this implementation.
+    /// </summary>
     public class DivineLocation : ExistingFsmContainerLocation
     {
         public enum DivineShopSlot

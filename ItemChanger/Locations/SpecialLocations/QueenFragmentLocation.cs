@@ -4,6 +4,9 @@ using ItemChanger.FsmStateActions;
 
 namespace ItemChanger.Locations.SpecialLocations
 {
+    /// <summary>
+    /// ObjectLocation which modifies an additional shiny holder fsm related to the Queen Fragment.
+    /// </summary>
     public class QueenFragmentLocation : ObjectLocation
     {
         protected override void OnLoad()

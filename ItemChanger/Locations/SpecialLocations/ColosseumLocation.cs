@@ -16,7 +16,6 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             base.OnLoad();
             Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
-            //Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
             Events.AddLanguageEdit(new("Prompts", GetTrialBoardConvo()), OnLanguageGet);
         }
 
@@ -24,19 +23,8 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             base.OnUnload();
             Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
-            //Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Battle Control"), SkipColoForTesting);
             Events.RemoveLanguageEdit(new("Prompts", GetTrialBoardConvo()), OnLanguageGet);
         }
-
-        /*
-        private void SkipColoForTesting(PlayMakerFSM fsm)
-        {
-            // For testing only! Skip to end after first wave.
-            FsmState wave1 = fsm.GetState("Wave 1");
-            wave1.ClearTransitions();
-            wave1.AddTransition("WAVE END", "End");
-        }
-        */
 
         private void ChangeColoEnd(PlayMakerFSM fsm)
         {
@@ -89,7 +77,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private string GetTrialBoardHint(string itemText)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             switch (sceneName)
             {
                 default:
