@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using ItemChanger.Internal;
+using Newtonsoft.Json;
 
 namespace ItemChanger.Modules
 {
@@ -10,6 +11,7 @@ namespace ItemChanger.Modules
     public class InventoryTracker : Module
     {
         public bool TrackGrimmkinFlames = true;
+        [field: JsonIgnore] public event Action<StringBuilder> OnGenerateFocusDesc;
 
         public override void Initialize()
         {
@@ -36,14 +38,18 @@ namespace ItemChanger.Modules
 
             if (fs != null)
             {
-                if (fs.canFocus) sb.AppendLine("You can focus.");
-                else sb.AppendLine("You cannot focus.");
+                if (fs.canFocus) sb.Append("You can focus.");
+                else sb.Append("You cannot focus.");
+
+                if (ss != null) sb.Append(' ');
+                else sb.AppendLine();
             }
 
             if (ss != null)
             {
-                if (ss.canSwim) sb.AppendLine("You can swim.");
-                else sb.AppendLine("You cannot swim.");
+                if (ss.canSwim) sb.Append("You can swim.");
+                else sb.Append("You cannot swim.");
+                sb.AppendLine();
             }
 
             if (!Ref.PD.GetBool(nameof(Ref.PD.hasDreamNail)))
@@ -94,6 +100,9 @@ namespace ItemChanger.Modules
                     sb.Append("Duplicate Dreamer(s)");
                 }
             }
+            sb.AppendLine();
+
+            OnGenerateFocusDesc?.Invoke(sb);
 
             value = sb.ToString();
         }

@@ -5640,7 +5640,7 @@
     },
     "tags": [
       {
-        "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
+        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
         "predecessor": null,
         "successor": "Split_Shade_Cloak"
       }
