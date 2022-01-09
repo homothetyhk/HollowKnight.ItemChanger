@@ -164,14 +164,11 @@ namespace ItemChanger
         }
 
         /// <summary>
-        /// Unhooks LanguageGet for the given key, provided that the given delegate matches the delegate at the key.
+        /// Unhooks LanguageGet for the given key.
         /// </summary>
         public static void RemoveLanguageEdit(LanguageKey key, LanguageEdit func)
         {
-            if (languageHooks.TryGetValue(key, out var func2) && func2 == func)
-            {
-                languageHooks.Remove(key);
-            } 
+            if (languageHooks.ContainsKey(key)) languageHooks[key] -= func;
         }
 
         /*

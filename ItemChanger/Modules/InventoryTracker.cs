@@ -114,11 +114,26 @@ namespace ItemChanger.Modules
             if (sn != null)
             {
                 StringBuilder sb = new();
-                sb.Append("<br><br>Can be swung down");
-                if (sn.canUpslash) sb.Append(", up");
-                if (sn.canSideslashLeft) sb.Append(", left");
-                if (sn.canSideslashRight) sb.Append(", right");
-                sb.Append('.');
+
+                string[] abilities = new[]
+                {
+                    (sn.canDownslash, "down"),
+                    (sn.canUpslash, "up"),
+                    (sn.canSideslashLeft, "left"),
+                    (sn.canSideslashRight, "right"),
+                }.Where(p => p.Item1).Select(p => p.Item2).ToArray();
+
+                if (abilities.Length > 0)
+                {
+                    sb.Append("<br><br>Can be swung ");
+                    sb.Append(string.Join(", ", abilities));
+                    sb.Append('.');
+                }
+                else
+                {
+                    sb.Append("<br><br>Cannot be swung.");
+                }
+
                 value += sb.ToString();
             }
         }

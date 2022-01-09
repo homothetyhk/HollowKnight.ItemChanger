@@ -1,4 +1,5 @@
-﻿using Modding;
+﻿using ItemChanger.Extensions;
+using Modding;
 
 namespace ItemChanger.Modules
 {
@@ -11,11 +12,18 @@ namespace ItemChanger.Modules
         public override void Initialize()
         {
             ModHooks.SetPlayerBoolHook += OverrideBoolSet;
+            Events.AddFsmEdit(SceneNames.Town, new("main_tent", "FSM"), PreventGrimmTentLeave);
         }
 
         public override void Unload()
         {
             ModHooks.SetPlayerBoolHook -= OverrideBoolSet;
+            Events.RemoveFsmEdit(SceneNames.Town, new("main_tent", "FSM"), PreventGrimmTentLeave);
+        }
+
+        private void PreventGrimmTentLeave(PlayMakerFSM fsm)
+        {
+            fsm.GetState("Check").ClearTransitions();
         }
 
         private bool OverrideBoolSet(string name, bool orig)

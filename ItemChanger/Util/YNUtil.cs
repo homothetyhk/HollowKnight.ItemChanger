@@ -8,7 +8,7 @@ namespace ItemChanger.Util
 
         public static void OpenYNDialogue(GameObject requester, AbstractPlacement placement, IEnumerable<AbstractItem> items, Cost cost)
         {
-            string text = string.Join(", ", items.Where(i => !i.IsObtained()).Select(i => i.UIDef.GetPreviewName()).ToArray());
+            string text = placement.GetUIName(120);
             if (text.Length > 120)
             {
                 text = text[..117] + "...";
