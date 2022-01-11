@@ -12,7 +12,6 @@ namespace ItemChanger.Modules
         {
             Events.AddFsmEdit(SceneNames.Fungus2_26, new("Leg Eater", "Conversation Control"), RemoveConversationOptions);
             Modding.ModHooks.GetPlayerBoolHook += GetPlayerBoolHook;
-
         }
 
         public override void Unload()

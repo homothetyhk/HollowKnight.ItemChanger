@@ -15,6 +15,7 @@ namespace ItemChanger.Modules
             Events.AddFsmEdit(new("Charms", "UI Charms"), AllowVoidHeartUnequip);
             Events.AddFsmEdit(new("Shade Control"), PreventFriendlyShade);
             Events.AddFsmEdit(new("Control"), PreventFriendlySibling);
+            Events.AddLanguageEdit(new("UI", "CHARM_DESC_36_C"), EditVoidHeartDescription);
         }
 
         public override void Unload()
@@ -22,6 +23,7 @@ namespace ItemChanger.Modules
             Events.RemoveFsmEdit(new("Charms", "UI Charms"), AllowVoidHeartUnequip);
             Events.RemoveFsmEdit(new("Shade Control"), PreventFriendlyShade);
             Events.RemoveFsmEdit(new("Control"), PreventFriendlySibling);
+            Events.RemoveLanguageEdit(new("UI", "CHARM_DESC_36_C"), EditVoidHeartDescription);
         }
 
         private void AllowVoidHeartUnequip(PlayMakerFSM fsm)
@@ -65,5 +67,9 @@ namespace ItemChanger.Modules
             }
         }
 
+        private void EditVoidHeartDescription(ref string value)
+        {
+            value = "An emptiness that was hidden within, now unconstrained. Unifies the void under the bearer's will.\nThis charm can be unequipped to make the Shade and Siblings hostile once more.";
+        }
     }
 }

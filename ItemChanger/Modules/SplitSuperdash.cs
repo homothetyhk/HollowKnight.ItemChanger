@@ -11,12 +11,14 @@ namespace ItemChanger.Modules
     {
         public bool hasSuperdashLeft { get; set; }
         public bool hasSuperdashRight { get; set; }
-        public bool hasSuperdashAny => hasSuperdashLeft ^ hasSuperdashRight || PlayerData.instance.GetBoolInternal(nameof(PlayerData.hasSuperDash));
         public MylaDeathCondition MylaDeathHandling = MylaDeathCondition.DieAfterFullSuperdash;
+        [Newtonsoft.Json.JsonIgnore] public bool hasSuperdashAny => hasSuperdashLeft ^ hasSuperdashRight || PlayerData.instance.GetBoolInternal(nameof(PlayerData.hasSuperDash));
+        [Newtonsoft.Json.JsonIgnore] public bool hasSuperdashBoth => (hasSuperdashLeft && hasSuperdashRight) || PlayerData.instance.GetBoolInternal(nameof(PlayerData.hasSuperDash));
 
         public override void Initialize()
         {
             Events.AddFsmEdit(new("Equipment", "Build Equipment List"), EditInventory);
+            Events.AddFsmEdit(SceneNames.Mines_31, new("mine_break_bridge", "Bridge Control"), PreventBridgeBreak);
             Events.AddLanguageEdit(new("UI", "INV_NAME_SUPERDASH"), EditSuperdashName);
             Events.AddLanguageEdit(new("UI", "INV_DESC_SUPERDASH"), EditSuperdashDesc);
             Modding.ModHooks.GetPlayerBoolHook += SkillBoolGetOverride;
@@ -28,6 +30,7 @@ namespace ItemChanger.Modules
         public override void Unload()
         {
             Events.RemoveFsmEdit(new("Equipment", "Build Equipment List"), EditInventory);
+            Events.RemoveFsmEdit(SceneNames.Mines_31, new("mine_break_bridge", "Bridge Control"), PreventBridgeBreak);
             Events.RemoveLanguageEdit(new("UI", "INV_NAME_SUPERDASH"), EditSuperdashName);
             Events.RemoveLanguageEdit(new("UI", "INV_DESC_SUPERDASH"), EditSuperdashDesc);
             Modding.ModHooks.GetPlayerBoolHook -= SkillBoolGetOverride;
@@ -102,6 +105,11 @@ namespace ItemChanger.Modules
             }
         }
 
+        private void PreventBridgeBreak(PlayMakerFSM fsm)
+        {
+            fsm.GetState("Idle").GetFirstActionOfType<PlayerDataBoolTest>().boolName = nameof(hasSuperdashBoth);
+        }       
+
         public enum MylaDeathCondition
         {
             Vanilla,
@@ -117,11 +125,11 @@ namespace ItemChanger.Modules
             {
                 self.boolName = MylaDeathHandling switch
                 {
-                    MylaDeathCondition.DieAfterFullSuperdash => nameof(PlayerData.hasSuperDash),
+                    MylaDeathCondition.DieAfterFullSuperdash => nameof(hasSuperdashBoth),
                     MylaDeathCondition.DieAfterRightSuperdash => nameof(hasSuperdashRight),
                     MylaDeathCondition.DieAfterLeftSuperdash => nameof(hasSuperdashLeft),
                     MylaDeathCondition.DieAfterEitherSuperdash => nameof(hasSuperdashAny),
-                    _ => nameof(PlayerData.hasSuperDash),
+                    _ => nameof(PlayerData.canSuperDash),
                 };
             }
             orig(self);
@@ -132,11 +140,11 @@ namespace ItemChanger.Modules
             {
                 self.boolName = MylaDeathHandling switch
                 {
-                    MylaDeathCondition.DieAfterFullSuperdash => nameof(PlayerData.hasSuperDash),
+                    MylaDeathCondition.DieAfterFullSuperdash => nameof(hasSuperdashBoth),
                     MylaDeathCondition.DieAfterRightSuperdash => nameof(hasSuperdashRight),
                     MylaDeathCondition.DieAfterLeftSuperdash => nameof(hasSuperdashLeft),
                     MylaDeathCondition.DieAfterEitherSuperdash => nameof(hasSuperdashAny),
-                    _ => nameof(PlayerData.hasSuperDash),
+                    _ => nameof(PlayerData.canSuperDash),
                 };
             }
             orig(self);

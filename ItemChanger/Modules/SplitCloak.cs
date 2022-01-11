@@ -12,8 +12,7 @@ namespace ItemChanger.Modules
     {
         public bool canDashLeft { get; set; }
         public bool canDashRight { get; set; }
-        [Newtonsoft.Json.JsonIgnore]
-        public bool hasDashAny => canDashLeft ^ canDashRight || PlayerData.instance.GetBoolInternal(nameof(PlayerData.hasDash));
+        [Newtonsoft.Json.JsonIgnore] public bool hasDashAny => canDashLeft ^ canDashRight || PlayerData.instance.GetBoolInternal(nameof(PlayerData.hasDash));
 
         public override void Initialize()
         {

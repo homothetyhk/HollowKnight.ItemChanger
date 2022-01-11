@@ -11,8 +11,9 @@ namespace ItemChanger.Modules
     {
         public bool hasWalljumpLeft { get; set; }
         public bool hasWalljumpRight { get; set; }
-        public bool hasWalljumpAny => hasWalljumpLeft ^ hasWalljumpRight || PlayerData.instance.GetBoolInternal(nameof(PlayerData.hasWalljump));
         public ClothFungalEncounterLeaveCondition ClothFungalEncounterHandling = ClothFungalEncounterLeaveCondition.DisappearAfterFullClaw;
+        [Newtonsoft.Json.JsonIgnore] public bool hasWalljumpAny => hasWalljumpLeft ^ hasWalljumpRight || PlayerData.instance.GetBoolInternal(nameof(PlayerData.hasWalljump));
+        [Newtonsoft.Json.JsonIgnore] public bool hasWalljumpBoth => hasWalljumpLeft && hasWalljumpRight || PlayerData.instance.GetBoolInternal(nameof(PlayerData.hasWalljump));
 
         public override void Initialize()
         {
@@ -50,6 +51,7 @@ namespace ItemChanger.Modules
                     || HeroController.instance.touchingWallR && hasWalljumpRight && !hasWalljumpLeft
                     || value,
                 nameof(hasWalljumpAny) => hasWalljumpAny,
+                nameof(hasWalljumpBoth) => hasWalljumpBoth,
                 _ => value,
             };
         }
@@ -67,10 +69,6 @@ namespace ItemChanger.Modules
 
                 case nameof(hasWalljumpRight):
                     hasWalljumpRight = value;
-                    if (value && hasWalljumpLeft)
-                    {
-                        PlayerData.instance.SetBool(nameof(PlayerData.hasWalljump), true);
-                    }
                     goto BoolChanged;
 
                 BoolChanged:
@@ -124,6 +122,7 @@ namespace ItemChanger.Modules
             switch (ClothFungalEncounterHandling)
             {
                 case ClothFungalEncounterLeaveCondition.Vanilla:
+                    pdbt.boolName = nameof(hasWalljumpBoth);
                     break;
                 case ClothFungalEncounterLeaveCondition.DisappearAfterEitherClaw:
                     pdbt.boolName = nameof(hasWalljumpAny);
