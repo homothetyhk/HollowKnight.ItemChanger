@@ -65,7 +65,8 @@ namespace ItemChanger.Modules
                 if (pmt.Items.Count == 0) continue;
 
                 float placementWeight = pmt.GetTag<CompletionWeightTag>()?.Weight ?? 1f;
-                
+                if (placementWeight == 0) continue;
+
                 float totalItemWeight = 0;
                 float obtainedItemWeight = 0;
                 foreach (AbstractItem item in pmt.Items)
@@ -77,6 +78,8 @@ namespace ItemChanger.Modules
                         obtainedItemWeight += itemWeight;
                     }
                 }
+                if (totalItemWeight == 0) continue;
+
                 if (NormalizePlacementCounts)
                 {
                     obtainedItemWeight /= totalItemWeight;

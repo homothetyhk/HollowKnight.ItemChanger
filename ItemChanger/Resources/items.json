@@ -5657,8 +5657,19 @@
     "UIDef": {
       "$type": "ItemChanger.UIDefs.BigUIDef, ItemChanger",
       "bigSprite": {
-        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
-        "key": "Prompts.Shadowdash"
+        "$type": "ItemChanger.DualSprite, ItemChanger",
+        "Test": {
+          "$type": "ItemChanger.PDBool, ItemChanger",
+          "boolName": "canDashRight"
+        },
+        "TrueSprite": {
+          "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+          "key": "Prompts.Shadowdash"
+        },
+        "FalseSprite": {
+          "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+          "key": "Prompts.ShadowdashReflected"
+        }
       },
       "take": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
@@ -5695,8 +5706,19 @@
         "sheet": "UI"
       },
       "sprite": {
-        "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
-        "key": "ShopIcons.Shadowdash"
+        "$type": "ItemChanger.DualSprite, ItemChanger",
+        "Test": {
+          "$type": "ItemChanger.PDBool, ItemChanger",
+          "boolName": "canDashLeft"
+        },
+        "TrueSprite": {
+          "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+          "key": "ShopIcons.Shadowdash"
+        },
+        "FalseSprite": {
+          "$type": "ItemChanger.ItemChangerSprite, ItemChanger",
+          "key": "ShopIcons.ShadowdashReflected"
+        }
       }
     },
     "tags": [
