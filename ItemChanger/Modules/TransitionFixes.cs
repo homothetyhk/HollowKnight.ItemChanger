@@ -1,4 +1,6 @@
-﻿using ItemChanger.Extensions;
+﻿using HutongGames.PlayMaker.Actions;
+using ItemChanger.Extensions;
+using ItemChanger.FsmStateActions;
 using SD = ItemChanger.Util.SceneDataUtil;
 
 namespace ItemChanger.Modules
@@ -482,15 +484,13 @@ namespace ItemChanger.Modules
 
         private void FixReverseBlueDoor(PlayMakerFSM fsm)
         {
-            if (GameManager.instance.entryGateName != "left1" || ExcludedTransitionFixes.Contains(new(SceneNames.Abyss_06_Core, "left1"))) return;
+            if ((GameManager.instance.entryGateName != "left1" && GameManager.instance.entryGateName != Transition.door_dreamReturn) 
+                || ExcludedTransitionFixes.Contains(new(SceneNames.Abyss_06_Core, GameManager.instance.entryGateName))) return;
 
             FsmState init = fsm.GetState("Init");
-            FsmState opened = fsm.GetState("Opened");
 
-            foreach (FsmTransition t in init.Transitions)
-            {
-                t.SetToState(opened);
-            }
+            init.RemoveActionsOfType<PlayerDataBoolTest>();
+            init.AddLastAction(new Lambda(() => fsm.SendEvent("OPENED")));
         }
 
         private void FixReverseBirthplace(PlayMakerFSM fsm)

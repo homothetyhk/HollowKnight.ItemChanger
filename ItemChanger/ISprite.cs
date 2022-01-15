@@ -41,4 +41,22 @@
         public ISprite Clone() => (ISprite)MemberwiseClone();
     }
 
+    [Serializable]
+    public class DualSprite : ISprite
+    {
+        public IBool Test;
+        public ISprite TrueSprite;
+        public ISprite FalseSprite;
+
+        public DualSprite(IBool Test, ISprite TrueSprite, ISprite FalseSprite)
+        {
+            this.Test = Test;
+            this.TrueSprite = TrueSprite;
+            this.FalseSprite = FalseSprite;
+        }
+
+        [Newtonsoft.Json.JsonIgnore]
+        public Sprite Value => Test.Value ? TrueSprite.Value : FalseSprite.Value;
+        public ISprite Clone() => (ISprite)MemberwiseClone();
+    }
 }

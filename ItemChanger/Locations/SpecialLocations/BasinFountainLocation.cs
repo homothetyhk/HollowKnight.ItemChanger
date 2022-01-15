@@ -36,7 +36,14 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditFountainText(ref string value)
         {
             string text = Placement.GetUIName(40);
-            value = value.Replace("?", $" for {(Placement.Items.Count > 0 ? "a " : "")}{text}?");
+            if (value.EndsWith("?"))
+            {
+                value = value.Replace("?", $" for {(Placement.Items.Count > 0 ? "a " : "")}{text}?");
+            }
+            else
+            {
+                value += $" For {(Placement.Items.Count > 0 ? "a " : "")}{text}?";
+            }
             Placement.OnPreview(text);
         }
     }
