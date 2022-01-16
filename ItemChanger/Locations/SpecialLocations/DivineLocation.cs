@@ -42,12 +42,12 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private bool ShouldGiveItem()
         {
-            return PlayerData.instance.GetBool("equippedCharm_" + requiredCharmID) && !Placement.AllObtained();
+            return PlayerData.instance.GetBool("equippedCharm_" + requiredCharmID) && !Placement.CheckVisitedAny(VisitState.Accepted) && !Placement.AllObtained();
         }
 
         private bool ItemIsPooed()
         {
-            return PlayerData.instance.GetBool("pooedFragile" + shopSlot.ToString()) && !Placement.AllObtained();
+            return Placement.CheckVisitedAny(VisitState.Accepted) && !Placement.AllObtained();
         }
 
         private Cost GetCost()
@@ -116,6 +116,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 {
                     Cost c = GetCost();
                     if (c is not null && !c.Paid) c.Pay();
+                    Placement.AddVisitFlag(VisitState.Accepted);
                     fsm.FsmVariables.FindFsmString("Pooed PD Bool").Value = "pooedFragile" + shopSlot.ToString();
                     fsm.FsmVariables.FindFsmGameObject("Charm To Spawn").Value = FindContainer(fsm, shopSlot);
                 }

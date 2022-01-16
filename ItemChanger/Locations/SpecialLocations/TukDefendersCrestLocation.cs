@@ -40,12 +40,16 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void OverrideTukConvo(PlayMakerFSM fsm)
         {
+            FsmState init = fsm.GetState("Init");
             FsmState convoChoice = fsm.GetState("Convo Choice");
             FsmState dung = fsm.GetState("Dung");
             FsmState eggMax = fsm.GetState("Egg Max");
             FsmState give = fsm.GetState("Give");
 
             FsmEvent dungEvent = FsmEvent.GetFsmEvent("DUNG");
+
+            init.AddTransition(FsmEvent.GetFsmEvent("EGG"), fsm.GetState("Give Pause"));
+            init.AddLastAction(new DelegateBoolTest(ShouldReappearOnFloor, FsmEvent.GetFsmEvent("EGG"), null));
 
             convoChoice.Transitions = new FsmTransition[]
             {
@@ -58,6 +62,8 @@ namespace ItemChanger.Locations.SpecialLocations
                 new SetBoolValue{ boolVariable = fsm.FsmVariables.FindFsmBool("Give Egg"), boolValue = false },
                 new DelegateBoolTest(ShouldGiveItem, FsmEvent.GetFsmEvent("DUNG"), null),
             };
+
+            dung.AddLastAction(new Lambda(() => Placement.AddVisitFlag(VisitState.Accepted)));
 
             give.Actions = new FsmStateAction[]
             {
@@ -75,7 +81,12 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private bool ShouldGiveItem()
         {
-            return PlayerData.instance.GetBool("equippedCharm_" + requiredCharmID) && !Placement.AllObtained();
+            return PlayerData.instance.GetBool("equippedCharm_" + requiredCharmID) && !Placement.CheckVisitedAny(VisitState.Accepted) && !Placement.AllObtained();
+        }
+
+        private bool ShouldReappearOnFloor()
+        {
+            return Placement.CheckVisitedAny(VisitState.Accepted) && !Placement.AllObtained();
         }
 
         private void AddDefendersCrestReminder(ref string value)
