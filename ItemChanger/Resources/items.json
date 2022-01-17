@@ -5850,7 +5850,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_DESC_LEFTSLASH",
+        "key": "ITEMCHANGER_SHOP_DESC_LEFTSLASH",
         "sheet": "UI"
       },
       "sprite": {
@@ -5875,7 +5875,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_DESC_RIGHTSLASH",
+        "key": "ITEMCHANGER_SHOP_DESC_RIGHTSLASH",
         "sheet": "UI"
       },
       "sprite": {
@@ -5900,7 +5900,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_DESC_UPSLASH",
+        "key": "ITEMCHANGER_SHOP_DESC_UPSLASH",
         "sheet": "UI"
       },
       "sprite": {
@@ -5925,7 +5925,7 @@
       },
       "shopDesc": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "ITEMCHANGER_DESC_DOWNSLASH",
+        "key": "ITEMCHANGER_SHOP_DESC_DOWNSLASH",
         "sheet": "UI"
       },
       "sprite": {
