@@ -97,7 +97,7 @@ namespace ItemChanger.Internal
         public static void PlayLoreSound()
         {
             Vector3 pos = HeroController.instance != null ? HeroController.instance.transform.position : Camera.main.transform.position + 2 * Vector3.up;
-            SoundManager.LoreSound.PlayClipAtPoint(pos);
+            SoundManager.Instance.PlayClipAtPoint("LoreSound", pos);
         }
 
         public static void StartConversation(string text)

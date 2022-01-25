@@ -4274,7 +4274,7 @@
     "forceShiny": false,
     "name": "Geo_Rock-Basin_Tunnel",
     "sceneName": "Abyss_18",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "Geo_Rock-Basin_Grub": {
@@ -5514,7 +5514,7 @@
     "forceShiny": false,
     "name": "Geo_Rock-Above_Mantis_Lords_2",
     "sceneName": "Fungus2_15",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "Geo_Rock-Fungal_After_Bouncy_Grub": {
@@ -5824,7 +5824,7 @@
     "forceShiny": false,
     "name": "Geo_Rock-Crystal_Peak_Lower_Conveyer_2",
     "sceneName": "Mines_02",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "Geo_Rock-Crystal_Peak_Before_Dark_Room": {

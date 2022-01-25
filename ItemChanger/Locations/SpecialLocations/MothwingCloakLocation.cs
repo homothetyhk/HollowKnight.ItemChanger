@@ -19,6 +19,7 @@ namespace ItemChanger.Locations.SpecialLocations
             Events.AddFsmEdit(sceneName, new("Cutscene Dreamer", "Control"), DestroyDreamScene); // probably not necessary
             Events.AddFsmEdit(sceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
             Events.AddFsmEdit(sceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
+            Events.AddFsmEdit(sceneName, new("Hornet Boss 1", "Control"), PreventHornetSaverOnRefight);
         }
         protected override void OnUnload()
         {
@@ -29,6 +30,7 @@ namespace ItemChanger.Locations.SpecialLocations
             Events.RemoveFsmEdit(sceneName, new("Cutscene Dreamer", "Control"), DestroyDreamScene);
             Events.RemoveFsmEdit(sceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
             Events.RemoveFsmEdit(sceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
+            Events.RemoveFsmEdit(sceneName, new("Hornet Boss 1", "Control"), PreventHornetSaverOnRefight);
         }
 
         private void EditCloakCorpse(PlayMakerFSM fsm)
@@ -60,6 +62,11 @@ namespace ItemChanger.Locations.SpecialLocations
         private void PreventHornetSaver(PlayMakerFSM fsm)
         {
             fsm.GetState("Start Fight").RemoveFirstActionOfType<ActivateAllChildren>();
+        }
+
+        private void PreventHornetSaverOnRefight(PlayMakerFSM fsm)
+        {
+            fsm.GetState("Refight Wake").RemoveFirstActionOfType<ActivateAllChildren>();
         }
     }
 }

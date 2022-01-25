@@ -140,6 +140,7 @@ namespace ItemChanger
                             break;
                         case PlacementConflictResolution.MergeKeepingOld:
                             existsP.Items.AddRange(p.Items);
+                            if (Settings.loaded) foreach (AbstractItem i in p.Items) i.Load();
                             break;
                         case PlacementConflictResolution.Replace:
                             SET.Placements[p.Name] = p;

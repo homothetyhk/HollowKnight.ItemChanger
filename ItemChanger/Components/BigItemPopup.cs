@@ -92,7 +92,7 @@ namespace ItemChanger.Components
             float scaler = _imagePrompt.texture.height / 400f;
             Vector2 size = new Vector2(_imagePrompt.texture.width / scaler, _imagePrompt.texture.height / scaler);
 
-            SoundManager.PlayClipAtPoint(SoundManager.BigItemJingle, HeroController.instance.transform.position);
+            SoundManager.Instance.PlayClipAtPoint("BigItemJingle", HeroController.instance.transform.position);
 
 
             // Begin fading in the top bits of the popup

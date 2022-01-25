@@ -127,7 +127,7 @@ namespace ItemChanger
             {
                 while (e.MoveNext())
                 {
-                    if (e.Current != null && e.Current.GetType() != T)
+                    if (e.Current != null && e.Current.GetType() == T)
                     {
                         r = e.Current as IEnumerator;
                         break;

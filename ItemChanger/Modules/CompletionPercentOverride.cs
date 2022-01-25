@@ -54,6 +54,7 @@ namespace ItemChanger.Modules
         {
             Events.OnTransitionOverride -= MarkChangedTransition;
             AbstractItem.AfterGiveGlobal -= InvalidateCacheOnObtainItem;
+            On.PlayerData.CountGameCompletion -= OverrideCompletionPercentage;
         }
 
         public (float, float) GetItemFraction()
@@ -144,10 +145,10 @@ namespace ItemChanger.Modules
             }
         }
 
-        [Newtonsoft.Json.JsonIgnore]
+        [JsonIgnore]
         private bool CacheValid = false;
 
-        [Newtonsoft.Json.JsonIgnore]
+        [JsonIgnore]
         private float CachedCompletionValue;
 
         private void InvalidateCacheOnObtainItem(ReadOnlyGiveEventArgs args)

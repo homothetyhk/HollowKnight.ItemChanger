@@ -14,7 +14,7 @@ namespace ItemChanger.Items
         public override void GiveImmediate(GiveInfo info)
         {
             if ((info.MessageType & MessageType.Lore) == MessageType.Lore) return;
-            SoundManager.PlayClipAtPoint(SoundManager.LoreSound,
+            SoundManager.Instance.PlayClipAtPoint("LoreSound",
                 info.Transform != null ? info.Transform.position
                 : HeroController.instance != null ? HeroController.instance.transform.position
                 : Camera.main.transform.position + 2 * Vector3.up);

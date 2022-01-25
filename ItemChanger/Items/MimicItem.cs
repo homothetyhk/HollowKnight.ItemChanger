@@ -21,7 +21,7 @@ namespace ItemChanger.Items
         {
             if (info.Container != Container.Mimic)
             {
-                SoundManager.PlayClipAtPoint(SoundManager.MimicScream,
+                SoundManager.Instance.PlayClipAtPoint("MimicScream",
                 info.Transform != null ? info.Transform.position
                 : HeroController.instance != null ? HeroController.instance.transform.position
                 : Camera.main.transform.position + 2 * Vector3.up);
