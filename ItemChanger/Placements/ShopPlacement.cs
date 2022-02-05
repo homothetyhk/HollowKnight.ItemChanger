@@ -125,15 +125,7 @@ namespace ItemChanger.Placements
             stats.removalPlayerDataBool = string.Empty;
             stats.dungDiscount = dungDiscount;
             stats.notchCostBool = string.Empty;
-            if (!HasTag<Tags.DisableCostPreviewTag>() && !item.HasTag<Tags.DisableCostPreviewTag>()
-                && cost is not null && !cost.Paid)
-            {
-                stats.SetCost(cost.GetDisplayGeo());
-            }
-            else
-            {
-                stats.SetCost(0);
-            }
+            
 
             // Need to set all these to make sure the item doesn't break in one of various ways
             stats.priceConvo = string.Empty;

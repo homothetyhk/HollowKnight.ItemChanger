@@ -3,21 +3,49 @@ using Newtonsoft.Json;
 
 namespace ItemChanger
 {
+    /// <summary>
+    /// Data type used generally for cost handling, including in shops and y/n dialogue prompts.
+    /// </summary>
     public abstract record Cost
     {
+        /// <summary>
+        /// Returns whether the cost can currently be paid.
+        /// </summary>
         public abstract bool CanPay();
+
+        /// <summary>
+        /// Pays the cost, performing any effects and setting the cost to Paid.
+        /// </summary>
         public void Pay()
         {
             OnPay();
             Paid = true;
         }
 
+        /// <summary>
+        /// Method for administering all effects of the cost during Pay.
+        /// </summary>
         public abstract void OnPay();
 
-        [JsonProperty]
-        public bool Paid { get; protected set; }
+        /// <summary>
+        /// Represents whether the cost has been paid yet. Paid costs will be subsequently ignored.
+        /// </summary>
+        public bool Paid { get; set; }
 
+        /// <summary>
+        /// A number between 0 and 1 which modifies numeric costs. Only considered by some costs.
+        /// <br/>For example, the Leg Eater dung discount sets this to 0.8, to indicate that geo costs should be at 80% price.
+        /// </summary>
+        public virtual float DiscountRate { get; set; } = 1.0f;
+
+        /// <summary>
+        /// Method which provides the cost text used in y/n prompts.
+        /// </summary>
         public abstract string GetCostText();
+
+        /// <summary>
+        /// Method which provides the description of the cost displayed below the item description in the shop window.
+        /// </summary>
         public virtual string GetShopCostText()
         {
             return GetCostText();
@@ -40,10 +68,18 @@ namespace ItemChanger
         /// Does paying this cost have effects (particularly that could prevent paying other costs of the same type)?
         /// </summary>
         public abstract bool HasPayEffects();
-
+        /// <summary>
+        /// Method which should be called by the Cost's owner during initial loading. Used by certain costs which require global or shared tracking.
+        /// </summary>
         public virtual void Load() { }
+        /// <summary>
+        /// Method which should be called by the Cost's owner during unloading. Used by certain costs which require global or shared tracking.
+        /// </summary>
         public virtual void Unload() { }
 
+        /// <summary>
+        /// Combines two costs into a MultiCost. If either argument is null, returns the other argument.  If one or both costs is a MultiCost, flattens the result.
+        /// </summary>
         public static Cost operator +(Cost a, Cost b)
         {
             if (a == null) return b;
@@ -90,6 +126,9 @@ namespace ItemChanger
         }
     }
 
+    /// <summary>
+    /// Cost which is the concatenation of other costs. Can only be paid if all of its costs can be paid, and pays all its costs sequentially.
+    /// </summary>
     public record MultiCost : Cost
     {
         public MultiCost()
@@ -172,7 +211,9 @@ namespace ItemChanger
         }
     }
 
-
+    /// <summary>
+    /// Cost which has no pay effects, but can only be paid when the specified PlayerData bool is true.
+    /// </summary>
     public record PDBoolCost(string fieldName, string uiText) : Cost
     {
         public override bool CanPay() => PlayerData.instance.GetBool(fieldName);
@@ -189,6 +230,9 @@ namespace ItemChanger
         }
     }
 
+    /// <summary>
+    /// Cost which has no pay effects, but can only be paid when the specified PlayerData int comparison succeeds.
+    /// </summary>
     public record PDIntCost(int amount, string fieldName, string uiText, ComparisonOperator op = ComparisonOperator.Ge) : Cost
     {
         public override bool CanPay() => PlayerData.instance.GetInt(fieldName).Compare(op, amount);
@@ -205,6 +249,9 @@ namespace ItemChanger
         }
     }
 
+    /// <summary>
+    /// Cost which subtracts the specified amount from the specified PlayerData int. Can only be paid when the result of the subtraction would be nonnegative.
+    /// </summary>
     public record ConsumablePDIntCost(int amount, string fieldName, string uiText) : Cost
     {
         public override bool CanPay() => PlayerData.instance.GetInt(fieldName) >= amount;
@@ -226,12 +273,16 @@ namespace ItemChanger
         }
     }
 
+    /// <summary>
+    /// Cost which subtracts the specified amount from the GeoCounter. Can only be paid when the result of the subtraction would be nonnegative.
+    /// </summary>
     public record GeoCost(int amount) : Cost
     {
-        public override bool CanPay() => PlayerData.instance.GetInt(nameof(PlayerData.geo)) >= amount;
+        public override bool CanPay() => PlayerData.instance.GetInt(nameof(PlayerData.geo)) >= (int)(amount * DiscountRate);
         public override void OnPay()
         {
-            HeroController.instance.TakeGeo(amount);
+            int amt = (int)(amount * DiscountRate);
+            if (amt > 0) HeroController.instance.TakeGeo(amt);
         }
 
         public override bool HasPayEffects() => true;
@@ -244,12 +295,12 @@ namespace ItemChanger
 
         public override int GetDisplayGeo()
         {
-            return amount;
+            return (int)(amount * DiscountRate);
         }
 
         public override string GetCostText()
         {
-            return $"Pay {amount} geo";
+            return $"Pay {(int)(amount * DiscountRate)} geo";
         }
 
         public override string GetShopCostText()

@@ -54,6 +54,7 @@ namespace ItemChanger.Modules
                     || HeroController.instance.cState.onGround && (HeroController.instance.cState.facingRight ? hasSuperdashRight : hasSuperdashLeft)
                     || HeroController.instance.cState.wallSliding && (HeroController.instance.cState.facingRight ? hasSuperdashLeft : hasSuperdashRight),
                 nameof(hasSuperdashAny) => hasSuperdashAny,
+                nameof(hasSuperdashBoth) => hasSuperdashBoth,
                 _ => value,
             };
         }

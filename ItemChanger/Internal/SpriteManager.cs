@@ -39,7 +39,11 @@ namespace ItemChanger.Internal
                 using Stream s = _assembly.GetManifestResourceStream(path);
                 return _cachedSprites[name] = Load(s);
             }
-            else throw new ArgumentException($"{name} did not correspond to an embedded image file.");
+            else
+            {
+                LogError($"{name} did not correspond to an embedded image file.");
+                return Modding.CanvasUtil.NullSprite();
+            }
         }
 
         /// <summary>

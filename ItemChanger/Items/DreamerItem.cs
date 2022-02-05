@@ -62,11 +62,5 @@
                 PlayerData.instance.IncrementInt(nameof(PlayerData.guardiansDefeated));
             }
         }
-
-        // Not clear what the best choice is here
-        public override bool Redundant()
-        {
-            return PlayerData.instance.GetInt(nameof(PlayerData.guardiansDefeated)) >= 3;
-        }
     }
 }

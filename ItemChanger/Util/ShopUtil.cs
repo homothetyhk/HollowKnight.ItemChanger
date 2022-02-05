@@ -6,8 +6,9 @@ namespace ItemChanger.Util
 {
     public static class ShopUtil
     {
-        private static FieldInfo spawnedStockField = typeof(ShopMenuStock).GetField("spawnedStock", BindingFlags.NonPublic | BindingFlags.Instance);
-        private static MethodInfo spawnStockMethod = typeof(ShopMenuStock).GetMethod("SpawnStock", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static readonly FieldInfo spawnedStockField = typeof(ShopMenuStock).GetField("spawnedStock", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static readonly MethodInfo spawnStockMethod = typeof(ShopMenuStock).GetMethod("SpawnStock", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static readonly FieldInfo itemCostField = typeof(ShopItemStats).GetField("itemCost", BindingFlags.NonPublic | BindingFlags.Instance);
 
         public static void HookShops()
         {
@@ -22,7 +23,20 @@ namespace ItemChanger.Util
             var mod = self.gameObject.GetComponent<ModShopItemStats>();
             if (mod)
             {
-                if (mod.cost == null || mod.cost.Paid|| mod.cost.CanPay())
+                Cost cost = mod.cost;
+                if (cost != null)
+                {
+                    if (self.dungDiscount && PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_10)))
+                    {
+                        cost.DiscountRate = 0.8f;
+                    }
+                    else
+                    {
+                        cost.DiscountRate = 1.0f;
+                    }
+                }
+
+                if (cost == null || cost.Paid || cost.CanPay())
                 {
                     self.transform.Find("Geo Sprite").gameObject.GetComponent<SpriteRenderer>().color = self.activeColour;
                     self.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().color = self.activeColour;
@@ -34,6 +48,19 @@ namespace ItemChanger.Util
                     self.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().color = self.inactiveColour;
                     self.transform.Find("Item cost").gameObject.GetComponent<TextMeshPro>().color = self.inactiveColour;
                 }
+
+                int geo;
+                if (!mod.placement.HasTag<Tags.DisableCostPreviewTag>() && !mod.item.HasTag<Tags.DisableCostPreviewTag>()
+                && cost is not null && !cost.Paid)
+                {
+                    geo = cost.GetDisplayGeo();
+                }
+                else
+                {
+                    geo = 0;
+                }
+                self.SetCost(geo);
+                ((GameObject)itemCostField.GetValue(self)).GetComponent<TextMeshPro>().text = geo.ToString();
             }
         }
 
