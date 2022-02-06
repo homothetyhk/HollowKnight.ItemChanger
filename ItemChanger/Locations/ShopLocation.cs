@@ -145,7 +145,20 @@ namespace ItemChanger.Locations
                 }
                 else
                 {
-                    desc = Language.Language.Get(shopItem.GetComponent<ShopItemStats>().GetDescConvo(), "UI").Replace("<br>", "\n");
+                    int charmsRequired = shopItem.GetComponent<ShopItemStats>().GetCharmsRequired();
+                    if (charmsRequired > 0)
+                    {
+                        charmsRequired -= PlayerData.instance.GetInt(nameof(PlayerData.charmsOwned));
+                    }
+                    if (charmsRequired > 0)
+                    {
+                        desc = string.Concat(Language.Language.Get(shopItem.GetComponent<ShopItemStats>().GetDescConvo() + "_NE", "UI").Replace("<br>", "\n"), " ", charmsRequired.ToString(), " ", 
+                            Language.Language.Get("CHARMS_REMAINING", "UI"));
+                    }
+                    else
+                    {
+                        desc = Language.Language.Get(shopItem.GetComponent<ShopItemStats>().GetDescConvo(), "UI").Replace("<br>", "\n");
+                    }
                 }
 
                 fsm.FsmVariables.FindFsmGameObject("Item desc").Value.GetComponent<TextMeshPro>()
@@ -190,8 +203,7 @@ namespace ItemChanger.Locations
                 }
                 else
                 {
-                    var stats = shopItem.GetComponent<ShopItemStats>();
-                    return stats.cost <= PlayerData.instance.GetInt(nameof(PlayerData.geo));
+                    return fsm.gameObject.GetComponent<ShopMenuStock>().CanBuy(index);
                 }
             }
 

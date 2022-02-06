@@ -143,6 +143,10 @@ namespace ItemChanger.Placements
         {
             DefaultShopItems? itemType = ShopUtil.GetVanillaShopItemType(Location.sceneName, stats);
             if (itemType == null) return true; // unrecognized items are kept by default
+            if (itemType == DefaultShopItems.SalubraBlessing && (defaultShopItems & DefaultShopItems.SalubraNotches) == 0)
+            {
+                stats.requiredPlayerDataBool = string.Empty; // vanilla blessing appears immediately when notches are not vanilla
+            }
             return (itemType & defaultShopItems) == itemType;
         }
 
