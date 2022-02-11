@@ -134,7 +134,9 @@ namespace ItemChanger.Placements
 
         public string BuildText()
         {
-            StringBuilder sb = new("Chest Contents<br>");
+            StringBuilder sb = new(Language.Language.Get("CHEST_CONTENTS", "IC"));
+            sb.Append("<br>");
+            StringBuilder pb = new();
             Tags.MultiPreviewRecordTag recordTag = GetOrAddTag<Tags.MultiPreviewRecordTag>();
             recordTag.previewTexts = new string[Items.Count];
             for (int i = 0; i < Items.Count; i++)
@@ -142,28 +144,32 @@ namespace ItemChanger.Placements
                 AbstractItem item = Items[i];
                 Cost cost = item.GetTag<CostTag>()?.Cost;
 
-                sb.Append("<br>");
-                string text = item.GetPreviewName(this) + "  -  ";
+                pb.Append("<br>");
+                pb.Append(item.GetPreviewName(this));
+                pb.Append("  -  ");
                 if (item.IsObtained())
                 {
-                    text += "Obtained";
+                    pb.Append(Language.Language.Get("OBTAINED", "IC"));
                 }
                 else if (cost is null)
                 {
-                    text += "Free";
+                    pb.Append(Language.Language.Get("FREE", "IC"));
                 }
                 else if (cost.Paid)
                 {
-                    text += "Purchased";
+                    pb.Append(Language.Language.Get("PURCHASED", "IC"));
                 }
                 else if (HasTag<Tags.DisableCostPreviewTag>() || item.HasTag<Tags.DisableCostPreviewTag>())
                 {
-                    text += "???";
+                    pb.Append(Language.Language.Get("???", "IC"));
                 }
                 else
                 {
-                    text += cost.GetCostText();
+                    pb.Append(cost.GetCostText());
                 }
+                string text = pb.ToString();
+                pb.Clear();
+
                 recordTag.previewTexts[i] = text;
                 sb.Append(text);
             }

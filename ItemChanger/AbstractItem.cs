@@ -163,9 +163,9 @@ namespace ItemChanger
         public string GetPreviewName(AbstractPlacement placement = null)
         {
             if (HasTag<Tags.DisableItemPreviewTag>() 
-                || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>())) return "???";
+                || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>())) return Language.Language.Get("???", "IC");
             UIDef def = GetResolvedUIDef(placement);
-            return def?.GetPreviewName() ?? "???";
+            return def?.GetPreviewName() ?? Language.Language.Get("???", "IC"); ;
         }
 
         public Sprite GetPreviewSprite(AbstractPlacement placement = null)

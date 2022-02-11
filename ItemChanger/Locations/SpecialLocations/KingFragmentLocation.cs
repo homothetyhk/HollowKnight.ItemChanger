@@ -26,15 +26,12 @@
                 if (!Placement.AllObtained())
                 {
                     string text = Placement.GetUIName();
-                    value = "A corpse in white armour. You can clearly see the "
-                                + text + " it's holding, " +
-                                "but for some reason you get the feeling you're going to have to go" +
-                                " through an unnecessarily long gauntlet of spikes and sawblades just to pick it up.";
+                    value = string.Format(Language.Language.Get("DUSK_KNIGHT_CORPSE_HINT", "Fmt"), text);
                     Placement.OnPreview(text);
                 }
                 else
                 {
-                    value = "A corpse in white armour. You already got the stuff it was holding.";
+                    value = Language.Language.Get("DUSK_KNIGHT_CORPSE_OBTAINED", "Lore Tablets");
                 }
             }
         }

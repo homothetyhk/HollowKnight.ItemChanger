@@ -45,7 +45,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (this.GetItemHintActive())
             {
                 string text = Placement.GetUIName(40);
-                value = $"A cocoon containing {text}.\nUse simple key?";
+                value = string.Format(Language.Language.Get("GODSEEKER_COFFIN_KEY_HINT", "Fmt"), text);
                 Placement.OnPreview(text);
             }
         }
@@ -55,7 +55,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (this.GetItemHintActive())
             {
                 string text = Placement.GetUIName();
-                value = $"A cocoon chained with a simple lock. You can sense the {text} inside.";
+                value = string.Format(Language.Language.Get("GODSEEKER_COFFIN_NOKEY_HINT", "Fmt"), text);
                 Placement.OnPreview(text);
             }
         }

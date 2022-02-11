@@ -41,6 +41,43 @@ namespace ItemChanger.Internal
 
                     SetString(sheet, key, node.InnerText.Replace("\\n", "\n"));
                 }
+
+                try
+                {
+                    string localPath = Path.Combine(Path.GetDirectoryName(a.Location), "language.xml");
+                    if (File.Exists(localPath))
+                    {
+                        using (FileStream fs = File.OpenRead(localPath))
+                        {
+                            xml = new();
+                            xml.Load(fs);
+                        }
+                        nodes = xml.SelectNodes("Language/entry");
+                        if (nodes == null)
+                        {
+                            LogWarn("Malformatted language xml, no nodes that match Language/entry");
+                            return;
+                        }
+
+                        foreach (XmlNode node in nodes)
+                        {
+                            string sheet = node.Attributes?["sheet"]?.Value;
+                            string key = node.Attributes?["key"]?.Value;
+
+                            if (sheet == null || key == null)
+                            {
+                                LogWarn("Malformatted language xml, missing sheet or key on node");
+                                continue;
+                            }
+
+                            SetString(sheet, key, node.InnerText.Replace("\\n", "\n"));
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error loading local language.xml:\n{e}");
+                }
             }
             loaded = true;
         }
@@ -99,24 +136,24 @@ namespace ItemChanger.Internal
 
             if (key.StartsWith("ITEMCHANGER_NAME_ESSENCE_"))
             {
-                return key["ITEMCHANGER_NAME_ESSENCE_".Length..] + " Essence";
+                return string.Format(Language.Language.Get("ESSENCE", "Fmt"), key["ITEMCHANGER_NAME_ESSENCE_".Length..]);
             }
 
             if (key.StartsWith("ITEMCHANGER_NAME_GEO_"))
             {
-                return key["ITEMCHANGER_NAME_GEO_".Length..] + " Geo";
+                return string.Format(Language.Language.Get("GEO", "Fmt"), key["ITEMCHANGER_NAME_GEO_".Length..]);
             }
 
             if (key == "ITEMCHANGER_POSTVIEW_GRUB")
             {
-                return $"A grub! ({PlayerData.instance.GetInt(nameof(PlayerData.grubsCollected))}/46)";
+                return string.Format(Language.Language.Get("GRUB", "Fmt"), PlayerData.instance.GetInt(nameof(PlayerData.grubsCollected)));
             }
 
             if (key == "ITEMCHANGER_POSTVIEW_GRIMMKIN_FLAME")
             {
-                int flames = PlayerData.instance.GetInt("cumulativeFlamesCollected");
+                int flames = PlayerData.instance.GetInt(nameof(Modules.GrimmkinFlameManager.cumulativeFlamesCollected));
                 if (flames <= 0) flames = PlayerData.instance.GetInt(nameof(PlayerData.flamesCollected));
-                return $"Grimmkin Flame ({flames}/10)";
+                return string.Format(Language.Language.Get("FLAME", "Fmt"), flames);
             }
 
 

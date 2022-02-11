@@ -140,7 +140,7 @@ namespace ItemChanger.Placements
         {
             if (!PurchasedAll)
             {
-                value = "Ah, hello. How have you been faring? Have you come to bring me something tasty? Let me see...";
+                value = Language.Language.Get("EGGSHOP_GREET", "Jiji");
             }
         }
         private void JijiShadeOffer(ref string value)
@@ -148,33 +148,38 @@ namespace ItemChanger.Placements
             if (!PurchasedAll)
             {
                 StringBuilder sb = new();
+                StringBuilder pb = new();
                 Tags.MultiPreviewRecordTag recordTag = GetOrAddTag<Tags.MultiPreviewRecordTag>();
                 recordTag.previewTexts = new string[Items.Count];
                 for (int i = 0; i < Items.Count; i++)
                 {
                     AbstractItem item = Items[i];
-                    string text = item.GetPreviewName(this) + "  -  ";
+                    pb.Append(item.GetPreviewName(this));
+                    pb.Append("  -  ");
                     Cost cost = item.GetTag<CostTag>()?.Cost;
                     if (item.IsObtained())
                     {
-                        text += "Obtained";
+                        pb.Append(Language.Language.Get("OBTAINED", "IC"));
                     }
                     else if (cost is null)
                     {
-                        text += "Free";
+                        pb.Append(Language.Language.Get("FREE", "IC"));
                     }
                     else if (cost.Paid)
                     {
-                        text += "Purchased";
+                        pb.Append(Language.Language.Get("PURCHASED", "IC"));
                     }
                     else if (HasTag<Tags.DisableCostPreviewTag>() || item.HasTag<Tags.DisableCostPreviewTag>())
                     {
-                        text += "???";
+                        pb.Append(Language.Language.Get("???", "IC"));
                     }
                     else
                     {
-                        text += cost.GetCostText();
+                        pb.Append(cost.GetCostText());
                     }
+                    string text = pb.ToString();
+                    pb.Clear();
+
                     recordTag.previewTexts[i] = text;
                     sb.AppendLine(text);
                 }
@@ -190,14 +195,14 @@ namespace ItemChanger.Placements
         {
             if (!PurchasedAll)
             {
-                value = "Oh? Well, if you have no desire to get my items, I can not help you.";
+                value = Language.Language.Get("EGGSHOP_DECLINE", "Jiji");
             }
         }
         private void JijiYNOffer(ref string value)
         {
             if (!PurchasedAll)
             {
-                value = "Give Jiji all that you can?";
+                value = Language.Language.Get("EGGSHOP_YN", "Jiji");
             }
         }
 

@@ -86,7 +86,7 @@ namespace ItemChanger
         /// </summary>
         public string GetUIName(int maxLength)
         {
-            IEnumerable<string> itemNames = Items.Where(i => !i.IsObtained()).Select(i => i.GetPreviewName(this) ?? "Unknown Item");
+            IEnumerable<string> itemNames = Items.Where(i => !i.IsObtained()).Select(i => i.GetPreviewName(this) ?? Language.Language.Get("UNKNOWN_ITEM", "IC"));
             string itemText = string.Join(", ", itemNames.ToArray());
             if (itemText.Length > maxLength) itemText = itemText.Substring(0, maxLength > 3 ? maxLength - 3 : 0) + "...";
             return itemText;

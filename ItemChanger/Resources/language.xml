@@ -72,11 +72,11 @@
   <entry sheet="UI" key="ITEMCHANGER_NAME_LEFT_CLAW">Left Mantis Claw</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_DESC_LEFT_CLAW">while sliding against a wall to jump.</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_DESC_LEFT_CLAW_2">Only works on the left though!</entry>
-  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_LEFT_CLAW">Pretty nice find, shame it only works on the left.</entry>
+  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_LEFT_CLAW">Part of a claw carved from bone. Allows the wearer to cling to walls on the left and leap off of them.</entry>
   <entry sheet="UI" key="ITEMCHANGER_NAME_RIGHT_CLAW">Right Mantis Claw</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_DESC_RIGHT_CLAW">while sliding against a wall to jump.</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_DESC_RIGHT_CLAW_2">Only works on the right though!</entry>
-  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_RIGHT_CLAW">Pretty nice find, shame it only works on the right.</entry>
+  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_RIGHT_CLAW">Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_NAME_WALLJUMP">Mantis Claw</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_WALLJUMP">Claw carved from bone. Allows the wearer to cling to walls and leap off of them.</entry>
 
@@ -84,17 +84,19 @@
   <entry sheet="UI" key="ITEMCHANGER_NAME_LEFT_CLOAK">Left Mothwing Cloak</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_DESC_LEFT_CLOAK">to dash to the left.</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_DESC_LEFT_CLOAK_2">Use the cloak to dash quickly along the ground or through the air.</entry>
-  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_LEFT_CLOAK">Pretty nice find, shame it only works to the left.</entry>
+  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_LEFT_CLOAK">Cloak threaded with mothwing strands. Allows the wearer to dash to the left along the ground or through the air.</entry>
   <entry sheet="UI" key="ITEMCHANGER_NAME_RIGHT_CLOAK">Right Mothwing Cloak</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_DESC_RIGHT_CLOAK">to dash to the right.</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_DESC_RIGHT_CLOAK_2">Use the cloak to dash quickly along the ground or through the air.</entry>
-  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_RIGHT_CLOAK">Pretty nice find, shame it only works to the right.</entry>
+  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_RIGHT_CLOAK">Cloak threaded with mothwing strands. Allows the wearer to dash to the right along the ground or through the air.</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_NAME_DASH">Mothwing Cloak</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_DASH">Cloak threaded with mothwing strands. Allows the wearer to dash forwards along the ground or through the air.</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_NAME_SHADOWDASH">Shade Cloak</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_SHADOWDASH">Cloak formed from the substance of the Abyss. Allows the wearer to dash through enemies and their attacks without taking damage.</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_NAME_LEFT_SHADOWDASH">Left Shade Cloak</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOP_NAME_RIGHT_SHADOWDASH">Right Shade Cloak</entry>
+  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_LEFT_SHADOWDASH">Cloak formed from the substance of the Abyss. Allows the wearer to dash to the left through enemies and their attacks without taking damage.</entry>
+  <entry sheet="UI" key="ITEMCHANGER_SHOP_DESC_RIGHT_SHADOWDASH">Cloak formed from the substance of the Abyss. Allows the wearer to dash to the right through enemies and their attacks without taking damage.</entry>
 
   <entry sheet="UI" key="ITEMCHANGER_NAME_LEFT_SUPERDASH">Left Crystal Heart</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_GET_LEFT_SUPERDASH_1">while on the ground or clinging to a wall to concentrate the force.</entry>
@@ -104,4 +106,37 @@
   <entry sheet="Prompts" key="ITEMCHANGER_GET_RIGHT_SUPERDASH_1">while on the ground or clinging to a wall to concentrate the force.</entry>
   <entry sheet="Prompts" key="ITEMCHANGER_GET_RIGHT_SUPERDASH_2">Release the button to blast right and fly through the air.</entry>
   <entry sheet="UI" key="ITEMCHANGER_SHOPDESC_RIGHT_SUPERDASH">Part of the energy core of an old mining golem, fashioned around a potent crystal. The crystal's energy can be channeled to launch the bearer to the right at dangerous speeds.</entry>
+
+  <entry sheet="IC" key="CHEST_CONTENTS">Chest Contents</entry>
+  <entry sheet="IC" key="FREE">Free</entry>
+  <entry sheet="IC" key="PURCHASED">Purchased</entry>
+  <entry sheet="IC" key="OBTAINED">Obtained</entry>
+  <entry sheet="IC" key="???">???</entry>
+  <entry sheet="IC" key="UNKNOWN_ITEM">Unknown Item</entry>
+  <entry sheet="IC" key="SECRET_COST_SHOPDESC">The cost of this item is a secret!</entry>
+
+  <entry sheet="Jiji" key="EGGSHOP_GREET">Ah, hello. How have you been faring? Have you come to bring me something tasty? Let me see...</entry>
+  <entry sheet="Jiji" key="EGGSHOP_DECLINE">Oh? Well, if you have no desire to get my items, I can not help you.</entry>
+  <entry sheet="Jiji" key="EGGSHOP_YN">Give Jiji all that you can?</entry>
+
+  <entry sheet="Fmt" key="TRIAL_HINT_BRONZE">Trial of the Warrior. Fight for {0} and geo.&lt;br&gt;Place a mark and begin the Trial?</entry>
+  <entry sheet="Fmt" key="TRIAL_HINT_SILVER">Trial of the Conqueror. Fight for {0} and geo.&lt;br&gt;Place a mark and begin the Trial?</entry>
+  <entry sheet="Fmt" key="TRIAL_HINT_GOLD">Trial of the Fool. Fight for {0} and geo.&lt;br&gt;Place a mark and begin the Trial?</entry>
+  <entry sheet="Prompts" key="TRIAL_NULLHINT_BRONZE">Trial of the Warrior. Fight for geo.&lt;br&gt;Place a mark and begin the Trial?</entry>
+  <entry sheet="Prompts" key="TRIAL_NULLHINT_SILVER">Trial of the Warrior. Fight for geo.&lt;br&gt;Place a mark and begin the Trial?</entry>
+  <entry sheet="Prompts" key="TRIAL_NULLHINT_GOLD">Trial of the Warrior. Fight for geo.&lt;br&gt;Place a mark and begin the Trial?</entry>
+  <entry sheet="Fmt" key="DIVINE_HAS_CHARM">Aaaaaaaaahhhhhhhh!&lt;page&gt;That {0}... beautiful! Most precious thing! Little lovely, will you let me see it? Have to show it to me!</entry>
+  <entry sheet="Fmt" key="GEO_RELIEVE_HINT">Drop all Geo into the fountain for {0}?</entry>
+  <entry sheet="Fmt" key="BRUMM_DEEPNEST_3_HINT">So we serve... Thus it has ever been. Yes?&lt;page&gt;Take the {0} then, it is why you came here.</entry>
+  <entry sheet="Fmt" key="GODSEEKER_COFFIN_NOKEY_HINT">A cocoon chained with a simple lock. You can sense the {0} inside.</entry>
+  <entry sheet="Fmt" key="GODSEEKER_COFFIN_KEY_HINT">A cocoon containing {0}.&lt;br&gt;Use simple key?</entry>
+  <entry sheet="Fmt" key="XUN_OFFER_HINT">Accept the Gift, even knowing you'll only get a lousy {0}?</entry>
+  <entry sheet="Fmt" key="BRETTA_DIARY_POSTSCRIPT">&lt;page&gt;The Maiden's Treasure&lt;br&gt;Pondering what to gift her saviour, the damsel thought of the precious {0} under her room. Though difficult to part with, she had nothing better with which to thank them.</entry>
+  <entry sheet="Fmt" key="DUSK_KNIGHT_CORPSE_HINT">A corpse in white armour. You can clearly see the {0} it's holding, but for some reason you get the feeling you're going to have to go through an unnecessarily long gauntlet of spikes and sawblades just to pick it up.</entry>
+  <entry sheet="Lore Tablets" key="DUSK_KNIGHT_CORPSE_OBTAINED">A corpse in white armour. You already got the stuff it was holding.</entry>
+  <entry sheet="Fmt" key="TUK_REMINDER">&lt;page&gt;It would be different if you were wearing {0}...</entry>
+  <entry sheet="Fmt" key="ESSENCE">{0} Essence</entry>
+  <entry sheet="Fmt" key="GEO">{0} Geo</entry>
+  <entry sheet="Fmt" key="GRUB">A grub! (#{0})</entry>
+  <entry sheet="Fmt" key="FLAME">Grimmkin Flame (#{0})</entry>
 </Language>

@@ -45,7 +45,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditBrummText(ref string value)
         {
             string text = Placement.GetUIName(40);
-            value = value.Replace("flame", text);
+            value = string.Format(Language.Language.Get("BRUMM_DEEPNEST_3_HINT", "Fmt"), text);
             Placement.OnPreview(text);
         }
 

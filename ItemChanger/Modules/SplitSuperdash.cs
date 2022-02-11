@@ -86,11 +86,11 @@ namespace ItemChanger.Modules
         {
             if (hasSuperdashLeft && !hasSuperdashRight)
             {
-                value = "Left Crystal Heart";
+                value = Language.Language.Get("ITEMCHANGER_NAME_LEFT_SUPERDASH", "UI");
             }
             else if (!hasSuperdashLeft && hasSuperdashRight)
             {
-                value = "Right Crystal Heart";
+                value = Language.Language.Get("ITEMCHANGER_NAME_RIGHT_SUPERDASH", "UI");
             }
         }
 
@@ -98,11 +98,11 @@ namespace ItemChanger.Modules
         {
             if (hasSuperdashLeft && !hasSuperdashRight)
             {
-                value = "Part of the energy core of an old mining golem, fashioned around a potent crystal. The crystal's energy can be channeled to launch the bearer to the left at dangerous speeds.";
+                value = Language.Language.Get("ITEMCHANGER_SHOPDESC_LEFT_SUPERDASH", "UI");
             }
             else if (!hasSuperdashLeft && hasSuperdashRight)
             {
-                value = "Part of the energy core of an old mining golem, fashioned around a potent crystal. The crystal's energy can be channeled to launch the bearer to the right at dangerous speeds.";
+                value = Language.Language.Get("ITEMCHANGER_SHOPDESC_RIGHT_SUPERDASH", "UI");
             }
         }
 

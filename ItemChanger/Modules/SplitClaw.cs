@@ -86,11 +86,11 @@ namespace ItemChanger.Modules
         {
             if (hasWalljumpLeft && !hasWalljumpRight)
             {
-                value = "Left Mantis Claw";
+                value = Language.Language.Get("ITEMCHANGER_NAME_LEFT_CLAW", "UI");
             }
             else if (!hasWalljumpLeft && hasWalljumpRight)
             {
-                value = "Right Mantis Claw";
+                value = Language.Language.Get("ITEMCHANGER_NAME_RIGHT_CLAW", "UI");
             }
         }
 
@@ -98,11 +98,11 @@ namespace ItemChanger.Modules
         {
             if (hasWalljumpLeft && !hasWalljumpRight)
             {
-                value = "Part of a claw carved from bone. Allows the wearer to cling to walls on the left and leap off of them.";
+                value = Language.Language.Get("ITEMCHANGER_SHOP_DESC_LEFT_CLAW", "UI");
             }
             else if (!hasWalljumpLeft && hasWalljumpRight)
             {
-                value = "Part of a claw carved from bone. Allows the wearer to cling to walls on the right and leap off of them.";
+                value = Language.Language.Get("ITEMCHANGER_SHOP_DESC_RIGHT_CLAW", "UI");
             }
         }
 

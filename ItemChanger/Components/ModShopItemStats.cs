@@ -17,16 +17,16 @@
         public string GetShopDesc()
         {
             if (item.HasTag<Tags.DisableItemPreviewTag>()
-                || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>())) return "???";
+                || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>())) return Language.Language.Get("???", "IC");
             UIDef def = item.GetResolvedUIDef(placement);
-            return def?.GetShopDesc() ?? "???";
+            return def?.GetShopDesc() ?? Language.Language.Get("???", "IC");
         }
 
         public string GetShopCostText()
         {
             if (item.HasTag<Tags.DisableCostPreviewTag>()
                 || (placement != null && placement.HasTag<Tags.DisableCostPreviewTag>()))
-                return "The cost of this item is a secret!";
+                return Language.Language.Get("SECRET_COST_SHOPDESC", "IC");
             return cost.GetShopCostText();
         }
 
@@ -36,7 +36,7 @@
             if (item.HasTag<Tags.DisableCostPreviewTag>()
                 || (placement != null && placement.HasTag<Tags.DisableCostPreviewTag>()))
             {
-                text += "  -  The cost of this item is a secret!";
+                text += "  -  " + Language.Language.Get("SECRET_COST_SHOPDESC", "IC");
             }
             else if (cost is not null && !cost.Paid)
             {

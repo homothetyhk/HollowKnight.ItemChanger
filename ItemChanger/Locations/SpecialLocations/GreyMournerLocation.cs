@@ -47,7 +47,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (this.GetItemHintActive())
             {
                 string text = Placement.GetUIName();
-                value = $"Accept the Gift, even knowing you'll only get a lousy {text}?";
+                value = string.Format(Language.Language.Get("XUN_OFFER_HINT", "Fmt"), text);
                 Placement.OnPreview(text);
             }
         }

@@ -36,14 +36,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditFountainText(ref string value)
         {
             string text = Placement.GetUIName(40);
-            if (value.EndsWith("?"))
-            {
-                value = value.Replace("?", $" for {(Placement.Items.Count > 0 ? "a " : "")}{text}?");
-            }
-            else
-            {
-                value += $" For {(Placement.Items.Count > 0 ? "a " : "")}{text}?";
-            }
+            value = string.Format(Language.Language.Get("GEO_RELIEVE_HINT", "Fmt"), text);
             Placement.OnPreview(text);
         }
     }

@@ -37,8 +37,7 @@
                 string item = Placement.GetUIName(40);
                 if (string.IsNullOrEmpty(item)) return;
 
-                value += $"<page>The Maiden's Treasure<br>Pondering what to gift her saviour, the damsel thought of the precious "
-                    + item + " under her room. Though difficult to part with, she had nothing better with which to thank them.";
+                value += string.Format(Language.Language.Get("BRETTA_DIARY_POSTSCRIPT", "Fmt"), item);
                 Placement.OnPreview(item);
             }
         }

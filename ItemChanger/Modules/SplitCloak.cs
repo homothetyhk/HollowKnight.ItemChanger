@@ -126,11 +126,11 @@ namespace ItemChanger.Modules
         {
             if (canDashLeft && !canDashRight)
             {
-                value = "Left Mothwing Cloak";
+                value = Language.Language.Get("ITEMCHANGER_NAME_LEFT_CLOAK", "UI");
             }
             else if (!canDashLeft && canDashRight)
             {
-                value = "Right Mothwing Cloak";
+                value = Language.Language.Get("ITEMCHANGER_NAME_RIGHT_CLOAK", "UI");
             }
         }
 
@@ -138,11 +138,11 @@ namespace ItemChanger.Modules
         {
             if (canDashLeft && !canDashRight)
             {
-                value = "Left Shade Cloak";
+                value = Language.Language.Get("ITEMCHANGER_SHOP_NAME_LEFT_SHADOWDASH", "UI");
             }
             else if (!canDashLeft && canDashRight)
             {
-                value = "Right Shade Cloak";
+                value = Language.Language.Get("ITEMCHANGER_SHOP_NAME_RIGHT_SHADOWDASH", "UI");
             }
         }
 
@@ -150,11 +150,11 @@ namespace ItemChanger.Modules
         {
             if (canDashLeft && !canDashRight)
             {
-                value = "Cloak threaded with mothwing strands. Allows the wearer to dash to the left along the ground or through the air.";
+                value = Language.Language.Get("ITEMCHANGER_SHOP_DESC_LEFT_CLOAK", "UI");
             }
             else if (!canDashLeft && canDashRight)
             {
-                value = "Cloak threaded with mothwing strands. Allows the wearer to dash to the right along the ground or through the air.";
+                value = Language.Language.Get("ITEMCHANGER_SHOP_DESC_RIGHT_CLOAK", "UI");
             }
         }
 
@@ -162,11 +162,11 @@ namespace ItemChanger.Modules
         {
             if (canDashLeft && !canDashRight)
             {
-                value = "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the left through enemies and their attacks without taking damage.";
+                value = Language.Language.Get("ITEMCHANGER_SHOP_DESC_LEFT_SHADOWDASH", "UI");
             }
             else if (!canDashLeft && canDashRight)
             {
-                value = "Cloak formed from the substance of the Abyss. Allows the wearer to dash to the right through enemies and their attacks without taking damage.";
+                value = Language.Language.Get("ITEMCHANGER_SHOP_DESC_RIGHT_SHADOWDASH", "UI");
             }
         }
     }
