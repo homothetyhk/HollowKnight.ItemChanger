@@ -27,7 +27,7 @@ namespace ItemChanger.Modules
             for (int i = 1; i <= 5; i++) Events.RemoveLanguageEdit(new("UI", "INV_DESC_NAIL" + i), EditNailDesc);
         }
 
-        private void EditFocusName(ref string value) => value = "Tracker";
+        private void EditFocusName(ref string value) => value = Language.Language.Get("TRACKER_NAME", "IC");
 
         private void EditFocusDesc(ref string value)
         {
@@ -38,8 +38,8 @@ namespace ItemChanger.Modules
 
             if (fs != null)
             {
-                if (fs.canFocus) sb.Append("You can focus.");
-                else sb.Append("You cannot focus.");
+                if (fs.canFocus) sb.Append(Language.Language.Get("TRACKER_CAN_FOCUS", "IC"));
+                else sb.Append(Language.Language.Get("TRACKER_CANNOT_FOCUS", "IC"));
 
                 if (ss != null) sb.Append(' ');
                 else sb.AppendLine();
@@ -47,61 +47,58 @@ namespace ItemChanger.Modules
 
             if (ss != null)
             {
-                if (ss.canSwim) sb.Append("You can swim.");
-                else sb.Append("You cannot swim.");
+                if (ss.canSwim) sb.Append(Language.Language.Get("TRACKER_CAN_SWIM", "IC"));
+                else sb.Append(Language.Language.Get("TRACKER_CANNOT_SWIM", "IC"));
                 sb.AppendLine();
             }
 
             if (!Ref.PD.GetBool(nameof(Ref.PD.hasDreamNail)))
             {
                 int essence = Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs));
-                if (essence > 0) sb.AppendLine($"You have {essence} essence.");
+                if (essence > 0)
+                {
+                    sb.AppendFormat(Language.Language.Get("TRACKER_ESSENCE", "IC"), essence).AppendLine();
+                }
             }
 
             if (TrackGrimmkinFlames && PlayerData.instance.GetInt(nameof(PlayerData.grimmChildLevel)) <= 3)
             {
                 if (mods.Get<GrimmkinFlameManager>() is GrimmkinFlameManager gfm)
                 {
-                    sb.AppendLine($"You have {gfm.flameBalance} unspent Grimmkin Flame(s). ({gfm.cumulativeFlamesCollected} total)");
+                    sb.AppendFormat(Language.Language.Get("TRACKER_FLAMES", "Fmt"), gfm.flameBalance, gfm.cumulativeFlamesCollected).AppendLine();
                 }
                 else
                 {
-                    sb.AppendLine($"You have {PlayerData.instance.GetInt(nameof(PlayerData.flamesCollected))} unspent Grimmkin Flame(s).");
+                    sb.AppendFormat(Language.Language.Get("TRACKER_FLAMES_NO_GFM", "Fmt"), PlayerData.instance.GetInt(nameof(PlayerData.flamesCollected))).AppendLine();
                 } 
             }
 
-            sb.AppendLine($"You've rescued {Ref.PD.GetInt(nameof(PlayerData.grubsCollected))} grub(s) so far!");
+            sb.AppendFormat(Language.Language.Get("TRACKER_GRUBS", "Fmt"), PlayerData.instance.GetInt(nameof(PlayerData.grubsCollected))).AppendLine();
+
             int dreamers = Ref.PD.GetInt(nameof(PlayerData.guardiansDefeated));
-            sb.Append($"You've found {dreamers} dreamer(s)");
-            if (dreamers > 0)
+            if (dreamers == 0) sb.AppendLine(Language.Language.Get("TRACKER_NO_DREAMERS", "IC"));
+            else if (dreamers > 0)
             {
-                sb.AppendLine(", including:");
+                sb.AppendFormat(Language.Language.Get("TRACKER_DREAMERS", "Fmt"), dreamers).AppendLine();
+
                 bool lurien = Ref.PD.GetBool(nameof(PlayerData.lurienDefeated));
                 bool monomon = Ref.PD.GetBool(nameof(PlayerData.monomonDefeated));
                 bool herrah = Ref.PD.GetBool(nameof(PlayerData.hegemolDefeated));
 
-                if (lurien)
-                {
-                    sb.Append("Lurien, ");
-                    dreamers--;
-                }
-                if (monomon)
-                {
-                    sb.Append("Monomon, ");
-                    dreamers--;
-                }
-                if (herrah)
-                {
-                    sb.Append("Herrah, ");
-                    dreamers--;
-                }
-                if (dreamers > 0)
-                {
-                    sb.Append("Duplicate Dreamer(s)");
-                }
-            }
-            sb.AppendLine();
+                if (lurien) dreamers--;
+                if (monomon) dreamers--;
+                if (herrah) dreamers--;
+                bool dupe = dreamers > 0;
 
+                sb.AppendLine(string.Join(", ", 
+                    new (bool, string)[]
+                    {
+                        (lurien, Language.Language.Get("ITEMCHANGER_NAME_LURIEN", "UI")),
+                        (monomon, Language.Language.Get("ITEMCHANGER_NAME_MONOMON", "UI")),
+                        (herrah, Language.Language.Get("ITEMCHANGER_NAME_HERRAH", "UI")),
+                        (dupe, Language.Language.Get("TRACKER_DUPLICATE_DREAMERS", "UI")),
+                    }.Where(p => p.Item1)));
+            }
             OnGenerateFocusDesc?.Invoke(sb);
 
             value = sb.ToString();
@@ -117,21 +114,20 @@ namespace ItemChanger.Modules
 
                 string[] abilities = new[]
                 {
-                    (sn.canDownslash, "down"),
-                    (sn.canUpslash, "up"),
-                    (sn.canSideslashLeft, "left"),
-                    (sn.canSideslashRight, "right"),
+                    (sn.canDownslash, Language.Language.Get("TRACKER_DOWN", "IC")),
+                    (sn.canUpslash, Language.Language.Get("TRACKER_UP", "IC")),
+                    (sn.canSideslashLeft, Language.Language.Get("TRACKER_LEFT", "IC")),
+                    (sn.canSideslashRight, Language.Language.Get("TRACKER_RIGHT", "IC")),
                 }.Where(p => p.Item1).Select(p => p.Item2).ToArray();
 
+                sb.Append("<br><br>");
                 if (abilities.Length > 0)
                 {
-                    sb.Append("<br><br>Can be swung ");
-                    sb.Append(string.Join(", ", abilities));
-                    sb.Append('.');
+                    sb.AppendFormat(Language.Language.Get("TRACKER_CAN_NAIL", "Fmt"), string.Join(", ", abilities));
                 }
                 else
                 {
-                    sb.Append("<br><br>Cannot be swung.");
+                    sb.Append(Language.Language.Get("TRACKER_CANNOT_NAIL", "IC"));
                 }
 
                 value += sb.ToString();

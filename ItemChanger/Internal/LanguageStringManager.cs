@@ -121,6 +121,20 @@ namespace ItemChanger.Internal
             }
         }
 
+        /// <summary>
+        /// Returns the string with the given sheet and key from the languge.xml. Does not do any other search, nor does it invoke Language.Language.Get, nor does it format the result.
+        /// </summary>
+        public static string GetICString(string key, string sheetTitle = "IC")
+        {
+            if (!LanguageStrings.TryGetValue(sheetTitle, out Dictionary<string, string> sheet) || !sheet.TryGetValue(key, out string value))
+            {
+                LogWarn($"Key {key} not found in sheet {sheetTitle}.");
+                return string.Empty;
+            }
+
+            return value;
+        }
+
         // keep this private -- the api hook does weird stuff with GetInternal
         private static string GetLanguageString(string key, string sheetTitle, string orig)
         {

@@ -115,6 +115,46 @@
   <entry sheet="IC" key="UNKNOWN_ITEM">Unknown Item</entry>
   <entry sheet="IC" key="SECRET_COST_SHOPDESC">The cost of this item is a secret!</entry>
 
+  <entry sheet="IC" key="TRACKER_NAME">Tracker</entry>
+  <entry sheet="IC" key="TRACKER_CAN_FOCUS">You can focus.</entry>
+  <entry sheet="IC" key="TRACKER_CANNOT_FOCUS">You cannot focus.</entry>
+  <entry sheet="IC" key="TRACKER_CAN_SWIM">You can swim.</entry>
+  <entry sheet="IC" key="TRACKER_CANNOT_SWIM">You cannot swim.</entry>
+  <entry sheet="Fmt" key="TRACKER_ESSENCE">You have {0} essence.</entry>
+  <entry sheet="Fmt" key="TRACKER_FLAMES">You have {0} unspent Grimmkin flames. ({1} total)</entry>
+  <entry sheet="Fmt" key="TRACKER_FLAMES_NO_GFM">You have {0} unspent Grimmkin flames.</entry>
+  <entry sheet="Fmt" key="TRACKER_GRUBS">You've rescued {0} grub(s) so far!</entry>
+  <entry sheet="IC" key="TRACKER_NO_DREAMERS">You've found 0 dreamers.</entry>
+  <entry sheet="Fmt" key="TRACKER_DREAMERS">You've found {0} dreamer(s), including:</entry>
+  <entry sheet="IC" key="TRACKER_DUPLICATE_DREAMERS">Duplicate Dreamer(s)</entry>
+  <entry sheet="IC" key="TRACKER_LEFT">left</entry>
+  <entry sheet="IC" key="TRACKER_RIGHT">right</entry>
+  <entry sheet="IC" key="TRACKER_UP">up</entry>
+  <entry sheet="IC" key="TRACKER_DOWN">down</entry>
+  <entry sheet="Fmt" key="TRACKER_CAN_NAIL">Can be swung {0}.</entry>
+  <entry sheet="IC" key="TRACKER_CANNOT_NAIL">Cannot be swung.</entry>
+  
+  
+  <entry sheet="IC" key="FALSE">False</entry>
+  <entry sheet="IC" key="TRUE">True</entry>
+
+  <entry sheet="IC" key="ITEMCHANGERMOD">ItemChangerMod</entry>
+  <entry sheet="IC" key="PRELOAD_SETTINGS_NAME">Preload Settings</entry>
+  <entry sheet="IC" key="PRELOAD_SETTINGS_DESC">Changes to preload settings will not take effect until reloading the game.</entry>
+  <entry sheet="IC" key="LOCATION_SETTINGS_NAME">Location Settings</entry>
+  <entry sheet="IC" key="LOCATION_SETTINGS_DESC">Changes to location settings will not affect old save files.</entry>
+  <entry sheet="IC" key="AVOID_NPC_ITEM_DIALOGUE_NAME">Avoid NPC Item Dialogue</entry>
+  <entry sheet="IC" key="AVOID_BLUGGSACS_NAME">Always Replace Bluggsacs</entry>
+  <entry sheet="IC" key="RETAIN_TABLETS_ON_REPLACE_NAME">Retain Tablet Sprites</entry>
+
+  <entry sheet="IC" key="PRELOAD_GEO_ROCKS_NAME">Preload Geo Rocks</entry>
+  <entry sheet="IC" key="PRELOAD_SOUL_TOTEMS_NAME">Preload Soul Totems</entry>
+  <entry sheet="IC" key="PRELOAD_GRUB_NAME">Preload Grub</entry>
+  <entry sheet="IC" key="PRELOAD_MIMIC_NAME">Preload Mimic</entry>
+  <entry sheet="IC" key="PRELOAD_LEVEL_FULL_NAME">Full</entry>
+  <entry sheet="IC" key="PRELOAD_LEVEL_REDUCED_NAME">Reduced</entry>
+  <entry sheet="IC" key="PRELOAD_LEVEL_NONE_NAME">None</entry>
+  
   <entry sheet="Jiji" key="EGGSHOP_GREET">Ah, hello. How have you been faring? Have you come to bring me something tasty? Let me see...</entry>
   <entry sheet="Jiji" key="EGGSHOP_DECLINE">Oh? Well, if you have no desire to get my items, I can not help you.</entry>
   <entry sheet="Jiji" key="EGGSHOP_YN">Give Jiji all that you can?</entry>

@@ -4,7 +4,7 @@ namespace ItemChanger.Internal
 {
     public class ItemSettings
     {
-        public readonly record struct ItemSheetSetting(string Name, int SheetIndex);
+        public readonly record struct ItemSheetSetting(string NameKey, int SheetIndex);
         public static readonly ItemSheetSetting[] Settings = new ItemSheetSetting[]
         {
         };
@@ -35,9 +35,9 @@ namespace ItemChanger.Internal
 
         public MenuEntry[] GetMenuEntries()
         {
-            string[] bools = new string[] { bool.FalseString, bool.TrueString };
+            string[] bools = new string[] { LanguageStringManager.GetICString("FALSE"), LanguageStringManager.GetICString("TRUE") };
             return Settings.Select(s => new MenuEntry(
-                name: s.Name,
+                name: LanguageStringManager.GetICString(s.NameKey),
                 values: bools,
                 description: string.Empty,
                 saver: j => ToggleSheet(j == 1, s.SheetIndex),

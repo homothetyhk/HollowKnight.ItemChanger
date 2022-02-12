@@ -46,7 +46,7 @@ namespace ItemChanger.Internal.Menu
                     "BackButton",
                     new MenuButtonConfig
                     {
-                        Label = "Back",
+                        Label = Language.Language.Get("OPT_MENU_BACK_BUTTON", "UI"),
                         CancelAction = _ => UIManager.instance.UIGoToDynamicMenu(returnScreen),
                         SubmitAction = _ => UIManager.instance.UIGoToDynamicMenu(returnScreen),
                         Style = MenuButtonStyle.VanillaStyle,
