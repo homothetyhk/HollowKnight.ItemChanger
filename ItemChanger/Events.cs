@@ -501,6 +501,7 @@ namespace ItemChanger
                     {
                         info.SceneName = modified.SceneName;
                         info.EntryGateName = modified.GateName;
+
                         try
                         {
                             OnTransitionOverride?.Invoke(source, origTarget, modified);
@@ -521,6 +522,21 @@ namespace ItemChanger
             catch (Exception e)
             {
                 LogError($"Error invoking OnBeginSceneTransition with parameter {target}:\n{e}");
+            }
+
+            // automatically handle the split Mantis Village transition (while still using a consistent transition value for events above)
+            if (info.SceneName == SceneNames.Fungus2_14 && info.EntryGateName == "bot3" && HeroController.SilentInstance?.cState?.facingRight == false)
+            {
+                info.EntryGateName = "bot1";
+            }
+
+            // prevent glitches from diving into a bot -> non-top transition
+            if (info.EntryGateName != null && !info.EntryGateName.StartsWith("top"))
+            {
+                if (HeroController.SilentInstance?.cState?.spellQuake == true)
+                {
+                    HeroController.SilentInstance.cState.spellQuake = false;
+                }
             }
 
             orig(self, info);

@@ -138,7 +138,7 @@ namespace ItemChanger.Util
                         {
                             GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
                             ShinyUtility.PutShinyInContainer(itemParent, shiny);
-                            ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                            ShinyUtility.FlingShinyRandomly(shiny.LocateMyFSM("Shiny Control"));
                         }
                     }
                 }
@@ -152,7 +152,7 @@ namespace ItemChanger.Util
                     {
                         GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
                         ShinyUtility.PutShinyInContainer(itemParent, shiny);
-                        ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                        ShinyUtility.FlingShinyRandomly(shiny.LocateMyFSM("Shiny Control"));
                     }
                 }
             }

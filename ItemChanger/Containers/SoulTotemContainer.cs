@@ -235,8 +235,8 @@ namespace ItemChanger.Containers
                         {
                             GameObject shiny = ShinyUtility.MakeNewShiny(info.placement, item, info.flingType);
                             ShinyUtility.PutShinyInContainer(itemParent, shiny);
-                            if (info.flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
-                            else ShinyUtility.FlingShinyDown(shiny.LocateFSM("Shiny Control"));
+                            if (info.flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateMyFSM("Shiny Control"));
+                            else ShinyUtility.FlingShinyDown(shiny.LocateMyFSM("Shiny Control"));
                         }
                     }
                 }

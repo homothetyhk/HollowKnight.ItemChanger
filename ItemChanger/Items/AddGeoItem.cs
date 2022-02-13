@@ -9,7 +9,14 @@
 
         public override void GiveImmediate(GiveInfo info)
         {
-            HeroController.instance.AddGeo(amount);
+            if (HeroController.SilentInstance != null && HeroController.SilentInstance.geoCounter != null)
+            {
+                HeroController.instance.AddGeo(amount);
+            }
+            else
+            {
+                PlayerData.instance.AddGeo(amount);
+            }
         }
     }
 }

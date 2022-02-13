@@ -35,7 +35,7 @@ namespace ItemChanger.Util
             mimicTop.transform.Find("Grub Mimic 1").localPosition = new(-0.1f, 1.3f, 0f);
             mimicTop.transform.Find("Grub Mimic 1").GetComponent<SetZ>().z = 0f;
 
-            PlayMakerFSM bottleControl = mimicBottle.LocateFSM("Bottle Control");
+            PlayMakerFSM bottleControl = mimicBottle.LocateMyFSM("Bottle Control");
             FsmState init = bottleControl.GetState("Init");
             init.Actions[0] = new DelegateBoolTest(() => placement.CheckVisitedAny(VisitState.Dropped), (BoolTest)init.Actions[0]);
             init.GetFirstActionOfType<SendEventByName>().eventTarget.gameObject.GameObject = mimicTop;

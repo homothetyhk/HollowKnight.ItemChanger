@@ -40,9 +40,9 @@
         {
             if (info.FlingType == FlingType.DirectDeposit || info.Transform == null)
             {
-                if (HeroController.instance != null)
+                if (HeroController.SilentInstance != null && HeroController.SilentInstance.geoCounter != null)
                 {
-                    HeroController.instance.AddGeo(amount);
+                    HeroController.SilentInstance.AddGeo(amount);
                 }
                 else
                 {

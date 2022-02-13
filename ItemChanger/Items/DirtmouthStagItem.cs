@@ -13,7 +13,7 @@ namespace ItemChanger.Items
             PlayerData.instance.SetBool(nameof(PlayerData.openedTownBuilding), true);
             if (GameManager.instance.sceneName == "Room_Town_Stag_Station")
             {
-                GameObject.Find("Station Door").LocateFSM("Control").SendEvent("ACTIVATE");
+                GameObject.Find("Station Door").LocateMyFSM("Control").SendEvent("ACTIVATE");
             }
         }
 

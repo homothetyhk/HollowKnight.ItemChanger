@@ -229,7 +229,7 @@ namespace ItemChanger.Locations
             void AddIntToConfirm()
             {
                 GameObject uiList = fsm.FsmVariables.FindFsmGameObject("UI List").Value;
-                PlayMakerFSM confirmControl = uiList.LocateFSM("Confirm Control");
+                PlayMakerFSM confirmControl = uiList.LocateMyFSM("Confirm Control");
                 FsmInt itemIndex = confirmControl.FsmVariables.FindFsmInt("Item Index");
                 if (itemIndex == null)
                 {

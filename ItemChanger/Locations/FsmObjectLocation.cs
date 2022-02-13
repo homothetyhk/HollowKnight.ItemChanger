@@ -15,7 +15,7 @@ namespace ItemChanger.Locations
         {
             GetContainer(out GameObject obj, out string containerType);
             PlaceContainer(obj, containerType);
-            FindGameObject(fsmParent).LocateFSM(fsmName).FsmVariables.FindFsmGameObject(fsmVariable).Value = obj;
+            FindGameObject(fsmParent).LocateMyFSM(fsmName).FsmVariables.FindFsmGameObject(fsmVariable).Value = obj;
         }
     }
 }

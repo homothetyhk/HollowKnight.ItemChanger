@@ -7,7 +7,7 @@ namespace ItemChanger.Internal
     public static class DialogueCenter
     {
         static GameObject DialogueManager => FsmVariables.GlobalVariables.FindFsmGameObject("DialogueManager").Value;
-        static PlayMakerFSM BoxOpenFsm => DialogueManager.LocateFSM("Box Open");
+        static PlayMakerFSM BoxOpenFsm => DialogueManager.LocateMyFSM("Box Open");
         static GameObject DialogueText => FsmVariables.GlobalVariables.FindFsmGameObject("DialogueText").Value;
         static GameObject Arrow => DialogueText.transform.parent.Find("Arrow").gameObject;
         static GameObject Stop => DialogueText.transform.parent.Find("Stop").gameObject;
@@ -62,7 +62,7 @@ namespace ItemChanger.Internal
             BoxOpenFsm.Fsm.Event("BOX UP");
             yield return new WaitForSeconds(0.15f); // orig: 0.3f
 
-            DialogueText.LocateFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = null;
+            DialogueText.LocateMyFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = null;
             DialogueText.GetComponent<TextMeshPro>().alignment = TextAlignmentOptions.Top;
 
             convoEnded = false;
@@ -82,7 +82,7 @@ namespace ItemChanger.Internal
             BoxOpenFsm.Fsm.Event("BOX UP");
             yield return new WaitForSeconds(0.15f); // orig: 0.3f
 
-            DialogueText.LocateFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = null;
+            DialogueText.LocateMyFSM("Dialogue Page Control").FsmVariables.GetFsmGameObject("Requester").Value = null;
 
             convoEnded = false;
             StartConversation(text);
@@ -96,7 +96,7 @@ namespace ItemChanger.Internal
 
         public static void PlayLoreSound()
         {
-            Vector3 pos = HeroController.instance != null ? HeroController.instance.transform.position : Camera.main.transform.position + 2 * Vector3.up;
+            Vector3 pos = HeroController.SilentInstance != null ? HeroController.instance.transform.position : Camera.main.transform.position + 2 * Vector3.up;
             SoundManager.Instance.PlayClipAtPoint("LoreSound", pos);
         }
 

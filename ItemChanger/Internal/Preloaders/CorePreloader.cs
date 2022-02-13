@@ -21,7 +21,7 @@ namespace ItemChanger.Internal.Preloaders
             _shinyItem.name = "Shiny Item Mod";
             UObject.DontDestroyOnLoad(_chest);
             UObject.DontDestroyOnLoad(_shinyItem);
-            PlayMakerFSM shinyFSM = _shinyItem.LocateFSM("Shiny Control");
+            PlayMakerFSM shinyFSM = _shinyItem.LocateMyFSM("Shiny Control");
             _relicGetMsg = UObject.Instantiate(shinyFSM.GetState("Trink Flash").GetActionsOfType<SpawnObjectFromGlobalPool>()[1].gameObject.Value);
             _relicGetMsg.SetActive(false);
             UObject.DontDestroyOnLoad(_relicGetMsg);

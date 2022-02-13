@@ -5,11 +5,6 @@
     /// </summary>
     public static class UnityExtensions
     {
-        public static PlayMakerFSM LocateFSM(this GameObject g, string name)
-        {
-            return FSMUtility.LocateFSM(g, name);
-        }
-
         public static GameObject FindChild(this GameObject g, string name)
         {
             Transform t = g.transform.Find(name);

@@ -37,7 +37,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 Container c = Container.GetContainer(Container.Shiny);
                 GameObject shiny = c.GetNewContainer(Placement, Placement.Items, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost);
                 c.ApplyTargetContext(shiny, fsm.gameObject, 0);
-                ShinyUtility.FlingShinyDown(shiny.LocateFSM("Shiny Control"));
+                ShinyUtility.FlingShinyDown(shiny.LocateMyFSM("Shiny Control"));
                 UnityEngine.Object.Destroy(fsm.gameObject);
                 return;
             }

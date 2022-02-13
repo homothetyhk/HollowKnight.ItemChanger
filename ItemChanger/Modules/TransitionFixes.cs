@@ -202,6 +202,12 @@ namespace ItemChanger.Modules
                         SD.Save("Deepnest_East_16", "Quake Floor");
                     }
                     break;
+                case SceneNames.Fungus2_14:
+                    if (t.GateName.StartsWith("bot"))
+                    {
+                        SD.Save(SceneNames.Fungus2_14, "Mantis Lever (1)");
+                    }
+                    break;
                 case SceneNames.Fungus2_20:
                     if (t.GateName == "left1")
                     {

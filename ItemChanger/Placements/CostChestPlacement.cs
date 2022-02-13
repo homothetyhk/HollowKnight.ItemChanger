@@ -65,7 +65,7 @@ namespace ItemChanger.Placements
 
         public void EditChestFsm(GameObject chest)
         {
-            PlayMakerFSM chestFsm = chest.LocateFSM("Chest Control");
+            PlayMakerFSM chestFsm = chest.LocateMyFSM("Chest Control");
 
             FsmState init = chestFsm.GetState("Init");
             FsmState spawnItems = chestFsm.GetState("Spawn Items");
@@ -121,7 +121,7 @@ namespace ItemChanger.Placements
                         {
                             GameObject shiny = ShinyUtility.MakeNewShiny(this, item, chestLocation.flingType);
                             ShinyUtility.PutShinyInContainer(itemParent, shiny);
-                            ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
+                            ShinyUtility.FlingShinyRandomly(shiny.LocateMyFSM("Shiny Control"));
                         }
                     }
 

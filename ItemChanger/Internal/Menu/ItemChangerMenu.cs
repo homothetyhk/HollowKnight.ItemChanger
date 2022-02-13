@@ -28,7 +28,6 @@ namespace ItemChanger.Internal.Menu
             ModMenuScreenBuilder builder = new(LanguageStringManager.GetICString("ITEMCHANGERMOD"), modListMenu);
             foreach (SubpageDef def in Subpages)
             {
-                Log(LanguageStringManager.GetICString(def.TitleKey));
                 builder.AddSubpage(LanguageStringManager.GetICString(def.TitleKey), LanguageStringManager.GetICString(def.DescriptionKey), def.Entries);
             }
 

@@ -37,7 +37,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnReplace(GameObject obj, Container c)
         {
-            ObjectLocation.FindGameObject("Divine NPC").LocateFSM("Conversation Control").AddFsmGameObject("Replace Object " + shopSlot.ToString(), obj);
+            ObjectLocation.FindGameObject("Divine NPC").LocateMyFSM("Conversation Control").AddFsmGameObject("Replace Object " + shopSlot.ToString(), obj);
         }
 
         private bool ShouldGiveItem()
@@ -130,7 +130,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private static void ActivateOnEnd(PlayMakerFSM fsm)
         {
             GameObject obj = fsm.FsmVariables.FindFsmGameObject("Charm To Spawn").Value;
-            if (obj.LocateFSM("Shiny Control") is PlayMakerFSM shinyFsm) ShinyUtility.FlingShinyLeft(shinyFsm);
+            if (obj.LocateMyFSM("Shiny Control") is PlayMakerFSM shinyFsm) ShinyUtility.FlingShinyLeft(shinyFsm);
             obj.SetActive(true);
         }
 

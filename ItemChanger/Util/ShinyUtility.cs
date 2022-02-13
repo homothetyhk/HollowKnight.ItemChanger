@@ -63,11 +63,11 @@ namespace ItemChanger.Util
 
             if (placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().FirstOrDefault() is Tags.ShinyFlingTag sft)
             {
-                SetShinyFling(shiny.LocateFSM("Shiny Control"), sft.fling);
+                SetShinyFling(shiny.LocateMyFSM("Shiny Control"), sft.fling);
             }
             else
             {
-                SetShinyFling(shiny.LocateFSM("Shiny Control"), ShinyFling.Down);
+                SetShinyFling(shiny.LocateMyFSM("Shiny Control"), ShinyFling.Down);
             }
 
             return shiny;

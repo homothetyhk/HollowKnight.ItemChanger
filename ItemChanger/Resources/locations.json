@@ -4193,8 +4193,13 @@
     "forceShiny": false,
     "name": "Geo_Rock-Broken_Elevator_1",
     "sceneName": "Abyss_01",
-    "flingType": "Everywhere",
-    "tags": null
+    "flingType": "StraightUp",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.UnsupportedContainerTag, ItemChanger",
+        "containerType": "Chest"
+      }
+    ]
   },
   "Geo_Rock-Broken_Elevator_2": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
@@ -5264,7 +5269,12 @@
     "name": "Geo_Rock-Greenpath_Obbles_Fool_Eater",
     "sceneName": "Fungus1_19",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.UnsupportedContainerTag, ItemChanger",
+        "containerType": "Chest"
+      }
+    ]
   },
   "Geo_Rock-Greenpath_Moss_Knights": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",

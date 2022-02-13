@@ -16,7 +16,7 @@ namespace ItemChanger.Items
             if ((info.MessageType & MessageType.Lore) == MessageType.Lore) return;
             SoundManager.Instance.PlayClipAtPoint("LoreSound",
                 info.Transform != null ? info.Transform.position
-                : HeroController.instance != null ? HeroController.instance.transform.position
+                : HeroController.SilentInstance != null ? HeroController.instance.transform.position
                 : Camera.main.transform.position + 2 * Vector3.up);
         }
 

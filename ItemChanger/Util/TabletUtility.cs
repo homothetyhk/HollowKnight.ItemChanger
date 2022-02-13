@@ -41,7 +41,7 @@ namespace ItemChanger.Util
             tablet.name = GetTabletName(placement);
             tablet.SetActive(true);
 
-            PlayMakerFSM inspectFsm = tablet.LocateFSM("Inspection");
+            PlayMakerFSM inspectFsm = tablet.LocateMyFSM("Inspection");
 
             FsmState promptUp = inspectFsm.GetState("Prompt Up");
             promptUp.Actions = new FsmStateAction[]

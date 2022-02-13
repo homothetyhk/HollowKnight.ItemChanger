@@ -155,8 +155,8 @@ namespace ItemChanger.Util
                         {
                             GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
                             ShinyUtility.PutShinyInContainer(itemParent, shiny);
-                            if (flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
-                            else ShinyUtility.FlingShinyDown(shiny.LocateFSM("Shiny Control"));
+                            if (flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateMyFSM("Shiny Control"));
+                            else ShinyUtility.FlingShinyDown(shiny.LocateMyFSM("Shiny Control"));
                         }
                     }
                 }
@@ -173,8 +173,8 @@ namespace ItemChanger.Util
                     {
                         GameObject shiny = ShinyUtility.MakeNewShiny(placement, item, flingType);
                         ShinyUtility.PutShinyInContainer(itemParent, shiny);
-                        if (flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateFSM("Shiny Control"));
-                        else ShinyUtility.FlingShinyDown(shiny.LocateFSM("Shiny Control"));
+                        if (flingType == FlingType.Everywhere) ShinyUtility.FlingShinyRandomly(shiny.LocateMyFSM("Shiny Control"));
+                        else ShinyUtility.FlingShinyDown(shiny.LocateMyFSM("Shiny Control"));
                     }
                 }
 
