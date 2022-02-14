@@ -43,8 +43,9 @@ namespace ItemChanger.Modules
         public override string GetCostText()
         {
             int bal = GetBalance();
-            if (bal > 0) return $"Pay {bal} rancid " + (bal != 1 ? "eggs." : "egg.");
-            else return "Free";
+            if (bal == 1) return Language.Language.Get("PAY_EGG", "IC");
+            else if (bal > 0) return string.Format(Language.Language.Get("PAY_EGGS", "Fmt"), bal);
+            else return Language.Language.Get("FREE", "IC");
         }
     }
 

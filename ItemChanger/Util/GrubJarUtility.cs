@@ -32,7 +32,9 @@ namespace ItemChanger.Util
 
             grubJar.AddComponent<DropIntoPlace>().OnLand += () =>
             {
-                grubJar.transform.Find("Bottle Physical").gameObject.layer = 8;
+                if (!grubJar) return;
+                Transform bottle = grubJar.transform.Find("Bottle Physical");
+                if (bottle) bottle.gameObject.layer = 8;
                 grubJar.layer = 19;
             };
 

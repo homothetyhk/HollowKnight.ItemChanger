@@ -212,9 +212,7 @@ namespace ItemChanger.Locations.SpecialLocations
                     .Select(fi => fi.Value).ToList();
                 if (charmIDs.Count != 0)
                 {
-                    text += $"<page>I want it... The smell of {CharmNameUtil.GetCharmName(charmIDs[0])}";
-                    for (int i = 1; i < charmIDs.Count; i++) text += $", and {CharmNameUtil.GetCharmName(charmIDs[i])}";
-                    text += "... I want it!";
+                    text += string.Format(Language.Language.Get("DIVINE_NO_CHARM", "Fmt"), string.Join(Language.Language.Get("COMMA_AND", "IC"), charmIDs.Select(i => CharmNameUtil.GetCharmName(i))));
                 }
                 DialogueCenter.StartConversation(text);
             });

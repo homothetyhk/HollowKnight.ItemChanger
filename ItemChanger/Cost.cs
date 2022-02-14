@@ -117,12 +117,13 @@ namespace ItemChanger
 
         public static Cost NewEssenceCost(int amount)
         {
-            return new PDIntCost(amount, nameof(PlayerData.dreamOrbs), $"Requires {amount} Essence");
+            return new PDIntCost(amount, nameof(PlayerData.dreamOrbs), string.Format(Language.Language.Get("REQUIRES_ESSENCE", "Fmt"), amount));
         }
 
         public static Cost NewGrubCost(int amount)
         {
-            return new PDIntCost(amount, nameof(PlayerData.grubsCollected), $"Requires {amount} Grub{(amount == 1 ? string.Empty : "s")}");
+            return new PDIntCost(amount, nameof(PlayerData.grubsCollected), amount == 1 ? Language.Language.Get("REQUIRES_GRUB", "IC")
+                : string.Format(Language.Language.Get("REQUIRES_GRUBS", "Fmt"), amount));
         }
     }
 
@@ -226,7 +227,7 @@ namespace ItemChanger
         }
         public override string GetCostText()
         {
-            return uiText;
+            return Language.Language.Get(uiText, "Exact");
         }
     }
 
@@ -245,7 +246,7 @@ namespace ItemChanger
         }
         public override string GetCostText()
         {
-            return uiText;
+            return Language.Language.Get(uiText, "Exact");
         }
     }
 
@@ -269,7 +270,7 @@ namespace ItemChanger
 
         public override string GetCostText()
         {
-            return uiText;
+            return Language.Language.Get(uiText, "Exact");
         }
     }
 
@@ -300,7 +301,7 @@ namespace ItemChanger
 
         public override string GetCostText()
         {
-            return $"Pay {(int)(amount * DiscountRate)} geo";
+            return string.Format(Language.Language.Get("PAY_GEO", "Fmt"), (int)(amount * DiscountRate));
         }
 
         public override string GetShopCostText()

@@ -138,6 +138,17 @@ namespace ItemChanger.Internal
         // keep this private -- the api hook does weird stuff with GetInternal
         private static string GetLanguageString(string key, string sheetTitle, string orig)
         {
+            if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
+            {
+                return string.Empty;
+            }
+
+            // we check the dictionary first to allow local overriding of the built-in behaviors below.
+            if (LanguageStrings.ContainsKey(sheetTitle) && LanguageStrings[sheetTitle].ContainsKey(key))
+            {
+                return LanguageStrings[sheetTitle][key];
+            }
+
             if (sheetTitle.StartsWith("Internal"))
             {
                 return Language.Language.GetInternal(key, sheetTitle[8..]);
@@ -168,17 +179,6 @@ namespace ItemChanger.Internal
                 int flames = PlayerData.instance.GetInt(nameof(Modules.GrimmkinFlameManager.cumulativeFlamesCollected));
                 if (flames <= 0) flames = PlayerData.instance.GetInt(nameof(PlayerData.flamesCollected));
                 return string.Format(Language.Language.Get("FLAME", "Fmt"), flames);
-            }
-
-
-            if (string.IsNullOrEmpty(key) || string.IsNullOrEmpty(sheetTitle))
-            {
-                return string.Empty;
-            }
-
-            if (LanguageStrings.ContainsKey(sheetTitle) && LanguageStrings[sheetTitle].ContainsKey(key))
-            {
-                return LanguageStrings[sheetTitle][key];
             }
 
             return orig;

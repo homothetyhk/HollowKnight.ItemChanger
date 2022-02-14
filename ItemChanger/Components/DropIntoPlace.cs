@@ -34,16 +34,17 @@ namespace ItemChanger.Components
         private IEnumerator DetectLanding(Rigidbody2D rb, AccelerationMonitor am)
         {
             yield return new WaitForSeconds(0.05f); // free fall
-            while (am.IsFalling())
+            while (am && am.IsFalling())
             {
                 yield return null;
             }
+
             OnLand?.Invoke();
             Landed = true;
             if (artificialRB)
             {
-                Destroy(am);
-                Destroy(rb);
+                if (am) Destroy(am);
+                if (rb) Destroy(rb);
             }
 
             rb.constraints = RigidbodyConstraints2D.FreezeAll;

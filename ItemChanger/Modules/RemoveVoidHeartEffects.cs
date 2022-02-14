@@ -69,7 +69,7 @@ namespace ItemChanger.Modules
 
         private void EditVoidHeartDescription(ref string value)
         {
-            value = "An emptiness that was hidden within, now unconstrained. Unifies the void under the bearer's will.\nThis charm can be unequipped to make the Shade and Siblings hostile once more.";
+            value = Language.Language.Get("CHARM_DESC_36_C_ALT", "UI");
         }
     }
 }

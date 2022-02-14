@@ -137,6 +137,7 @@
   
   <entry sheet="IC" key="FALSE">False</entry>
   <entry sheet="IC" key="TRUE">True</entry>
+  <entry sheet="IC" key="COMMA_AND">, and</entry>
 
   <entry sheet="IC" key="ITEMCHANGERMOD">ItemChangerMod</entry>
   <entry sheet="IC" key="PRELOAD_SETTINGS_NAME">Preload Settings</entry>
@@ -166,6 +167,7 @@
   <entry sheet="Prompts" key="TRIAL_NULLHINT_SILVER">Trial of the Warrior. Fight for geo.&lt;br&gt;Place a mark and begin the Trial?</entry>
   <entry sheet="Prompts" key="TRIAL_NULLHINT_GOLD">Trial of the Warrior. Fight for geo.&lt;br&gt;Place a mark and begin the Trial?</entry>
   <entry sheet="Fmt" key="DIVINE_HAS_CHARM">Aaaaaaaaahhhhhhhh!&lt;page&gt;That {0}... beautiful! Most precious thing! Little lovely, will you let me see it? Have to show it to me!</entry>
+  <entry sheet="Fmt" key="DIVINE_NO_CHARM">&lt;page&gt;I want it... The smell of {0}... I want it!</entry>
   <entry sheet="Fmt" key="GEO_RELIEVE_HINT">Drop all Geo into the fountain for {0}?</entry>
   <entry sheet="Fmt" key="BRUMM_DEEPNEST_3_HINT">So we serve... Thus it has ever been. Yes?&lt;page&gt;Take the {0} then, it is why you came here.</entry>
   <entry sheet="Fmt" key="GODSEEKER_COFFIN_NOKEY_HINT">A cocoon chained with a simple lock. You can sense the {0} inside.</entry>
@@ -179,4 +181,16 @@
   <entry sheet="Fmt" key="GEO">{0} Geo</entry>
   <entry sheet="Fmt" key="GRUB">A grub! (#{0})</entry>
   <entry sheet="Fmt" key="FLAME">Grimmkin Flame (#{0})</entry>
+  <entry sheet="Fmt" key="PAY_GEO">Pay {0} geo</entry>
+  <entry sheet="Fmt" key="REQUIRES_ESSENCE">Requires {0} Essence</entry>
+  <entry sheet="Fmt" key="REQUIRES_GRUBS">Requires {0} Grubs</entry>
+  <entry sheet="IC" key="REQUIRES_GRUB">Requires 1 Grub</entry>
+  <entry sheet="Fmt" key="REQUIRES_FLAMES">Requires {0} Grimmkin Flames</entry>
+  <entry sheet="Fmt" key="PAY_FLAMES">Pay {0} Grimmkin Flames</entry>
+  <entry sheet="Fmt" key="PAY_EGGS">Pay {0} Rancid Eggs</entry>
+  <entry sheet="IC" key="PAY_EGG">Pay 1 Rancid Egg</entry>
+  <entry sheet="UI" key="CHARM_DESC_36_C_ALT">An emptiness that was hidden within, now unconstrained. Unifies the void under the bearer's will.&lt;br&gt;This charm can be unequipped to make the Shade and Siblings hostile once more.</entry>
+
+  <entry sheet="IC" key="PAYWALL_TEXT">...&lt;br&gt;You have reached your monthly free article limit. To continue reading, subscribe now with this limited time offer!</entry>
+  <entry sheet="IC" key="PAYWALL_LIMIT">125</entry>
 </Language>
