@@ -114,6 +114,7 @@
   <entry sheet="IC" key="???">???</entry>
   <entry sheet="IC" key="UNKNOWN_ITEM">Unknown Item</entry>
   <entry sheet="IC" key="SECRET_COST_SHOPDESC">The cost of this item is a secret!</entry>
+  <entry sheet="IC" key="NOTHING">Nothing</entry>
 
   <entry sheet="IC" key="TRACKER_NAME">Tracker</entry>
   <entry sheet="IC" key="TRACKER_CAN_FOCUS">You can focus.</entry>

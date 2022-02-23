@@ -10,7 +10,7 @@
             name = "Nothing",
             UIDef = new UIDefs.MsgUIDef
             {
-                name = new BoxedString("Nothing"),
+                name = new LanguageString("IC", "NOTHING"),
                 shopDesc = new BoxedString(""),
                 sprite = new EmptySprite(),
             }
