@@ -1,4 +1,5 @@
 ﻿using ItemChanger.Extensions;
+using ItemChanger.FsmStateActions;
 
 namespace ItemChanger.Modules
 {
@@ -9,8 +10,9 @@ namespace ItemChanger.Modules
     public class SlyBasementEvent : Module
     {
         /// <summary>
-        /// If evaluates true, Sly's basement will no longer be available. If null, basement is always open with all nail arts.
-        /// <br/>Default test is true iff "Nailmaster's_Glory" placement exists and is cleared or "Nailmaster's_Glory" placement does not exist and the vanilla basement sequence is completed.
+        /// If evaluates true, Sly's basement will no longer be available.
+        /// <br/>If null, defaults to PD.gotSlyCharm (which is always false when the standard NMG location is used, and in vanilla is set in Dirtmouth when NMG is in inventory).
+        /// <br/>Default test is true iff "Nailmaster's_Glory" placement exists and is cleared, or no such placement exists and PD.gotSlyCharm is true.
         /// </summary>
         public IBool Closed = new PlacementAllObtainedBool(placementName: LocationNames.Nailmasters_Glory, missingPlacementTest: new PDBool(nameof(PlayerData.gotSlyCharm)));
 
@@ -40,8 +42,17 @@ namespace ItemChanger.Modules
             scene.FindGameObject("_Scenery/Shop Counter").transform.Translate(new Vector2(closedOffset, 0f));
         }
 
+        public bool ShouldOpenBasement()
+        {
+            return PlayerData.instance.GetBool(nameof(PlayerData.hasAllNailArts)) && !(Closed?.Value ?? PlayerData.instance.GetBool(nameof(PlayerData.gotSlyCharm)));
+        }
+
         private void EditBasementOpen(PlayMakerFSM fsm)
         {
+            fsm.GetState("Check").Actions = new FsmStateAction[]
+            {
+                new DelegateBoolTest(ShouldOpenBasement, null, "CLOSED"),
+            };
             fsm.transform.Translate(new Vector2(openOffset, 0));
         }
 
@@ -58,13 +69,12 @@ namespace ItemChanger.Modules
 
         private bool GetPlayerBoolHook(string name, bool orig) => name switch
         {
-            nameof(PlayerData.gotSlyCharm) => Closed?.Value ?? false,
-            nameof(PlayerData.hasAllNailArts) => PlayerData.instance.GetBool(nameof(PlayerData.hasCyclone))
+            nameof(PlayerData.hasAllNailArts) => orig || (PlayerData.instance.GetBool(nameof(PlayerData.hasCyclone))
                                                  && PlayerData.instance.GetBool(nameof(PlayerData.hasDashSlash))
-                                                 && PlayerData.instance.GetBool(nameof(PlayerData.hasUpwardSlash)),
-            nameof(PlayerData.hasNailArt) => PlayerData.instance.GetBool(nameof(PlayerData.hasCyclone))
+                                                 && PlayerData.instance.GetBool(nameof(PlayerData.hasUpwardSlash))),
+            nameof(PlayerData.hasNailArt) => orig || (PlayerData.instance.GetBool(nameof(PlayerData.hasCyclone))
                                              || PlayerData.instance.GetBool(nameof(PlayerData.hasDashSlash))
-                                             || PlayerData.instance.GetBool(nameof(PlayerData.hasUpwardSlash)),
+                                             || PlayerData.instance.GetBool(nameof(PlayerData.hasUpwardSlash))),
             _ => orig,
         };
     }

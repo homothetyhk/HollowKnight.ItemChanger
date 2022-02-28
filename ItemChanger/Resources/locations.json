@@ -645,7 +645,16 @@
     "name": "Nailmaster's_Glory",
     "sceneName": "Room_Sly_Storeroom",
     "flingType": "DirectDeposit",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.DestroyFsmTag, ItemChanger",
+        "sceneName": "Town",
+        "id": {
+          "ObjectName": "Set Sly Basement Closed",
+          "FsmName": "Set"
+        }
+      }
+    ]
   },
   "Joni's_Blessing": {
     "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
