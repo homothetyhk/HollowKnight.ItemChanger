@@ -144,7 +144,6 @@ namespace ItemChanger.Placements
                 AbstractItem item = Items[i];
                 Cost cost = item.GetTag<CostTag>()?.Cost;
 
-                pb.Append("<br>");
                 pb.Append(item.GetPreviewName(this));
                 pb.Append("  -  ");
                 if (item.IsObtained())
@@ -171,6 +170,7 @@ namespace ItemChanger.Placements
                 pb.Clear();
 
                 recordTag.previewTexts[i] = text;
+                sb.Append("<br>");
                 sb.Append(text);
             }
             AddVisitFlag(VisitState.Previewed);
