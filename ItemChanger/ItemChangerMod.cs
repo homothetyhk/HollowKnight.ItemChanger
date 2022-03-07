@@ -70,16 +70,18 @@ namespace ItemChanger
         }
 
         /// <summary>
-        /// Required before all operations which modify settings data.
+        /// Create default ItemChanger settings for the save. Required before all operations which modify settings data.
         /// </summary>
         /// <param name="overwrite">If settings data already exists, should it be overwritten?</param>
+        /// <exception cref="InvalidOperationException">Settings have already been loaded.</exception>
         public static void CreateSettingsProfile(bool overwrite = true) => CreateSettingsProfile(overwrite, true);
 
         /// <summary>
-        /// Required before all operations which modify settings data.
+        /// Create default ItemChanger settings for the save, with an option for whether default modules should be automatically added. Required before all operations which modify settings data.
         /// </summary>
         /// <param name="overwrite">If settings data already exists, should it be overwritten?</param>
         /// <param name="createDefaultModules">If a new profile is created, should it include all default modules?</param>
+        /// <exception cref="InvalidOperationException">Settings have already been loaded.</exception>
         public static void CreateSettingsProfile(bool overwrite, bool createDefaultModules)
         {
             if (overwrite && Settings.loaded) throw new InvalidOperationException("Cannot overwrite loaded settings.");
@@ -89,6 +91,19 @@ namespace ItemChanger
                 SET = new(createDefaultModules);
                 if (!instance._hooked) instance.HookItemChanger();
             }
+        }
+
+        /// <summary>
+        /// Create a settings profile from an existing Settings object (e.g. settings loaded from an external serialized source).
+        /// </summary>
+        /// <param name="settings">The Settings object to save to local settings.</param>
+        /// <exception cref="InvalidOperationException">Settings have already been loaded.</exception>
+        public static void CreateSettingsProfile(Settings settings)
+        {
+            if (Settings.loaded) throw new InvalidOperationException("Cannot overwrite loaded settings.");
+
+            SET = settings;
+            if (!instance._hooked) instance.HookItemChanger();
         }
 
         public static ModuleCollection Modules => SET.mods;

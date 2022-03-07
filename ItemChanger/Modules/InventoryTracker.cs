@@ -57,7 +57,7 @@ namespace ItemChanger.Modules
                 int essence = Ref.PD.GetInt(nameof(Ref.PD.dreamOrbs));
                 if (essence > 0)
                 {
-                    sb.AppendFormat(Language.Language.Get("TRACKER_ESSENCE", "IC"), essence).AppendLine();
+                    sb.AppendFormat(Language.Language.Get("TRACKER_ESSENCE", "Fmt"), essence).AppendLine();
                 }
             }
 
@@ -90,14 +90,14 @@ namespace ItemChanger.Modules
                 if (herrah) dreamers--;
                 bool dupe = dreamers > 0;
 
-                sb.AppendLine(string.Join(", ", 
+                sb.AppendLine(string.Join(Language.Language.Get("COMMA_SPACE", "IC"), 
                     new (bool, string)[]
                     {
-                        (lurien, Language.Language.Get("ITEMCHANGER_NAME_LURIEN", "UI")),
-                        (monomon, Language.Language.Get("ITEMCHANGER_NAME_MONOMON", "UI")),
-                        (herrah, Language.Language.Get("ITEMCHANGER_NAME_HERRAH", "UI")),
-                        (dupe, Language.Language.Get("TRACKER_DUPLICATE_DREAMERS", "UI")),
-                    }.Where(p => p.Item1)));
+                        (lurien, Language.Language.Get("TRACKER_LURIEN", "IC")),
+                        (monomon, Language.Language.Get("TRACKER_MONOMON", "IC")),
+                        (herrah, Language.Language.Get("TRACKER_HERRAH", "IC")),
+                        (dupe, Language.Language.Get("TRACKER_DUPLICATE_DREAMERS", "IC")),
+                    }.Where(p => p.Item1).Select(p => p.Item2)));
             }
             OnGenerateFocusDesc?.Invoke(sb);
 
@@ -123,7 +123,7 @@ namespace ItemChanger.Modules
                 sb.Append("<br><br>");
                 if (abilities.Length > 0)
                 {
-                    sb.AppendFormat(Language.Language.Get("TRACKER_CAN_NAIL", "Fmt"), string.Join(", ", abilities));
+                    sb.AppendFormat(Language.Language.Get("TRACKER_CAN_NAIL", "Fmt"), string.Join(Language.Language.Get("COMMA_SPACE", "IC"), abilities));
                 }
                 else
                 {

@@ -127,6 +127,9 @@
   <entry sheet="Fmt" key="TRACKER_GRUBS">You've rescued {0} grub(s) so far!</entry>
   <entry sheet="IC" key="TRACKER_NO_DREAMERS">You've found 0 dreamers.</entry>
   <entry sheet="Fmt" key="TRACKER_DREAMERS">You've found {0} dreamer(s), including:</entry>
+  <entry sheet="IC" key="TRACKER_LURIEN">Lurien</entry>
+  <entry sheet="IC" key="TRACKER_MONOMON">Monomon</entry>
+  <entry sheet="IC" key="TRACKER_HERRAH">Herrah</entry>
   <entry sheet="IC" key="TRACKER_DUPLICATE_DREAMERS">Duplicate Dreamer(s)</entry>
   <entry sheet="IC" key="TRACKER_LEFT">left</entry>
   <entry sheet="IC" key="TRACKER_RIGHT">right</entry>
@@ -139,6 +142,7 @@
   <entry sheet="IC" key="FALSE">False</entry>
   <entry sheet="IC" key="TRUE">True</entry>
   <entry sheet="IC" key="COMMA_AND">, and</entry>
+  <entry sheet="IC" key="COMMA_SPACE">, </entry>
 
   <entry sheet="IC" key="ITEMCHANGERMOD">ItemChangerMod</entry>
   <entry sheet="IC" key="PRELOAD_SETTINGS_NAME">Preload Settings</entry>

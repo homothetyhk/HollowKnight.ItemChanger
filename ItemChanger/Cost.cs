@@ -177,12 +177,12 @@ namespace ItemChanger
 
         public override string GetCostText()
         {
-            return string.Join(", ", Costs.Select(c => c.GetCostText()).ToArray());
+            return string.Join(Language.Language.Get("COMMA_SPACE", "IC"), Costs.Select(c => c.GetCostText()).ToArray());
         }
 
         public override string GetShopCostText()
         {
-            return string.Join(", ", Costs.Where(c => !(c is GeoCost))
+            return string.Join(Language.Language.Get("COMMA_SPACE", "IC"), Costs.Where(c => !(c is GeoCost))
                 .Select(c => c.GetCostText()).ToArray());
         }
 
