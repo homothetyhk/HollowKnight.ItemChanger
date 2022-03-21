@@ -17,21 +17,27 @@ namespace ItemChanger
 
     public class Settings
     {
+        [JsonConstructor]
+        private Settings() { }
+
         public Settings(bool createDefaultModules = true) 
         {
             mods = createDefaultModules ? ModuleCollection.Create() : new();
         }
 
         public ModuleCollection mods;
-        public Dictionary<string, AbstractPlacement> Placements = new Dictionary<string, AbstractPlacement>();
+        
+        public Dictionary<string, AbstractPlacement> Placements = new();
+        
         [JsonConverter(typeof(Transition.TransitionDictConverter<ITransition>))]
-        public Dictionary<Transition, ITransition> TransitionOverrides = new Dictionary<Transition, ITransition>();
+        public Dictionary<Transition, ITransition> TransitionOverrides = new();
+        
         public List<IDeployer> Deployers = new();
 
         public StartDef Start = null;
 
         public IEnumerable<AbstractItem> GetItems() => Placements.SelectMany(kvp => kvp.Value.Items);
-        public IEnumerable<AbstractPlacement> GetPlacements() => (Placements ?? (Placements = new Dictionary<string, AbstractPlacement>())).Select(kvp => kvp.Value);
+        public IEnumerable<AbstractPlacement> GetPlacements() => (Placements ??= new Dictionary<string, AbstractPlacement>()).Select(kvp => kvp.Value);
 
         internal void SavePlacements(IEnumerable<AbstractPlacement> placements)
         {
