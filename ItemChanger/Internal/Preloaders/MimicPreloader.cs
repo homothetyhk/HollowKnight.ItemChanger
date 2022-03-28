@@ -18,6 +18,9 @@
             {
                 _mimicBottle = objectsByScene[SceneNames.Deepnest_36]["Grub Mimic Bottle"];
                 _mimicTop = objectsByScene[SceneNames.Deepnest_36]["Grub Mimic Top"];
+
+                UObject.Destroy(_mimicBottle.GetComponent<PersistentBoolItem>());
+                UObject.Destroy(_mimicTop.transform.Find("Grub Mimic 1").GetComponent<PersistentBoolItem>());
             }
         }
 

@@ -9,6 +9,12 @@
     {
         public string[] predecessors;
         public string[] successors;
+        /// <summary>
+        /// If true, the first nonredundant item starting from the first element in the list will be chosen.
+        /// <br/>Otherwise, the search will begin at the parent item, and will assume that predecessors of a redundant item are redundant.
+        /// <br/>Only relevant when predecessors is nonempty.
+        /// </summary>
+        public bool strictEvaluation;
 
         public override void Load(object parent)
         {
@@ -28,26 +34,10 @@
             return Finder.GetItem(name);
         }
 
+
         public void ModifyItem(GiveEventArgs args)
         {
-            if (args.Item.Redundant())
-            {
-                if (successors != null)
-                {
-                    foreach (string s in successors)
-                    {
-                        AbstractItem item = GetItem(s);
-                        if (!item.Redundant())
-                        {
-                            args.Item = item;
-                            return;
-                        }
-                    }
-                }
-                args.Item = null;
-                return;
-            }
-            else
+            if (strictEvaluation)
             {
                 if (predecessors != null)
                 {
@@ -61,7 +51,63 @@
                         }
                     }
                 }
+                if (!args.Item.Redundant())
+                {
+                    return;
+                }
+                if (successors != null)
+                {
+                    foreach (string s in successors)
+                    {
+                        AbstractItem item = GetItem(s);
+                        if (!item.Redundant())
+                        {
+                            args.Item = item;
+                            return;
+                        }
+                    }
+                }
+                // all redundant
+                args.Item = null;
                 return;
+            }
+            else
+            {
+                if (args.Item.Redundant())
+                {
+                    if (successors != null)
+                    {
+                        foreach (string s in successors)
+                        {
+                            AbstractItem item = GetItem(s);
+                            if (!item.Redundant())
+                            {
+                                args.Item = item;
+                                return;
+                            }
+                        }
+                    }
+                    // all redundant
+                    args.Item = null;
+                    return;
+                }
+                else
+                {
+                    if (predecessors != null)
+                    {
+                        foreach (string s in predecessors.Reverse())
+                        {
+                            AbstractItem item = GetItem(s);
+                            if (!item.Redundant())
+                            {
+                                args.Item = item;
+                            }
+                            else return;
+                        }
+                    }
+                    // none redundant
+                    return;
+                }
             }
         }
     }

@@ -5581,9 +5581,11 @@
     },
     "tags": [
       {
-        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": null,
-        "successor": "Split_Shade_Cloak"
+        "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
+        "predecessors": null,
+        "successors": [
+          "Split_Shade_Cloak"
+        ]
       }
     ],
     "obtainState": "Unobtained"
@@ -5640,9 +5642,11 @@
     },
     "tags": [
       {
-        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": null,
-        "successor": "Split_Shade_Cloak"
+        "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
+        "predecessors": null,
+        "successors": [
+          "Split_Shade_Cloak"
+        ]
       }
     ],
     "obtainState": "Unobtained"
@@ -5723,9 +5727,12 @@
     },
     "tags": [
       {
-        "$type": "ItemChanger.Tags.ItemChainTag, ItemChanger",
-        "predecessor": "Left_Mothwing_Cloak",
-        "successor": null
+        "$type": "ItemChanger.Tags.ItemTreeTag, ItemChanger",
+        "predecessors": [
+          "Left_Mothwing_Cloak"
+        ],
+        "successors": null,
+        "strictEvaluation": true
       }
     ],
     "obtainState": "Unobtained"
