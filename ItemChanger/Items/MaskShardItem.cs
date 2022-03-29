@@ -19,9 +19,20 @@
 
             while (PlayerData.instance.GetInt(nameof(PlayerData.heartPieces)) >= 4)
             {
-                PlayMakerFSM.BroadcastEvent("HERO HEALED FULL");
-                HeroController.instance.AddToMaxHealth(1);
-                PlayMakerFSM.BroadcastEvent("MAX HP UP");
+                if (HeroController.SilentInstance)
+                {
+                    int missingHealth = PlayerData.instance.GetInt(nameof(PlayerData.maxHealth)) - PlayerData.instance.GetInt(nameof(PlayerData.health));
+                    if (missingHealth > 0)
+                    {
+                        HeroController.SilentInstance.AddHealth(missingHealth);
+                    }
+                    HeroController.instance.AddToMaxHealth(1);
+                    PlayMakerFSM.BroadcastEvent("MAX HP UP");
+                }
+                else
+                {
+                    PlayerData.instance.AddToMaxHealth(1);
+                }
 
                 if (PlayerData.instance.GetInt(nameof(PlayerData.maxHealthBase)) == PlayerData.instance.GetInt(nameof(PlayerData.maxHealthCap)))
                 {
