@@ -4,7 +4,7 @@ using Modding;
 
 namespace ItemChanger.Internal
 {
-    internal static class LanguageStringManager
+    public static class LanguageStringManager
     {
         private static readonly Dictionary<string, Dictionary<string, string>> LanguageStrings = new();
         private static bool loaded;
