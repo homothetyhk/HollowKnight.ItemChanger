@@ -47,10 +47,27 @@ namespace ItemChanger.Modules
         {
             public void Apply()
             {
-                if (Value is bool b) PlayerData.instance.SetBool(FieldName, b);
-                else if (Value is int i) PlayerData.instance.SetInt(FieldName, i);
-                else if (Value is string s) PlayerData.instance.SetString(FieldName, s);
-                else if (Value is float f) PlayerData.instance.SetFloat(FieldName, f);
+                switch (Value)
+                {
+                    case bool b:
+                        PlayerData.instance.SetBool(FieldName, b);
+                        break;
+                    case int i:
+                        PlayerData.instance.SetInt(FieldName, i);
+                        break;
+                    case long l:
+                        PlayerData.instance.SetInt(FieldName, (int)l); // boxed ints round-trip deserialize to boxed longs
+                        break;
+                    case string s:
+                        PlayerData.instance.SetString(FieldName, s);
+                        break;
+                    case float f:
+                        PlayerData.instance.SetFloat(FieldName, f);
+                        break;
+                    case double d:
+                        PlayerData.instance.SetFloat(FieldName, (float)d);
+                        break;
+                }
             }
         }
 
