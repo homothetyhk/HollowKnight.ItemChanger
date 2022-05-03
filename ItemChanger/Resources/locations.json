@@ -6427,8 +6427,9 @@
   "Boss_Geo-Enraged_Guardian": {
     "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
     "Test": {
-      "$type": "ItemChanger.PDBool, ItemChanger",
-      "boolName": "defeatedMegaBeamMiner2"
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Zombie Beam Miner Rematch",
+      "sceneName": "Mines_32"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyFsmLocation, ItemChanger",

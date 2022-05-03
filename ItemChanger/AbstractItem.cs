@@ -3,7 +3,7 @@
 namespace ItemChanger
 {
     /// <summary>
-    /// The parameters included when an item is given.
+    /// The parameters included when an item is given. May be null.
     /// </summary>
     public class GiveInfo
     {
@@ -268,7 +268,15 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                LogError($"Error invoking BeforeGive for item {name} at placement {args.Placement.Name}:\n{e}");
+                string placement = args?.Placement?.Name;
+                if (placement != null)
+                {
+                    LogError($"Error invoking BeforeGive for item {name} at placement {placement}:\n{e}");
+                }
+                else
+                {
+                    LogError($"Error invoking BeforeGive for item {name} with placement unavailable:\n{e}");
+                }
             }
         }
 
@@ -292,7 +300,15 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                LogError($"Error invoking ModifyItem for item {name} at placement {args.Placement.Name}:\n{e}");
+                string placement = args?.Placement?.Name;
+                if (placement != null)
+                {
+                    LogError($"Error invoking ModifyItem for item {name} at placement {placement}:\n{e}");
+                }
+                else
+                {
+                    LogError($"Error invoking ModifyItem for item {name} with placement unavailable:\n{e}");
+                }
             }
         }
 
@@ -316,7 +332,15 @@ namespace ItemChanger
             }
             catch (Exception e) 
             {
-                LogError($"Error invoking ModifyRedundantItem for item {name} at placement {args.Placement.Name}:\n{e}"); 
+                string placement = args?.Placement?.Name;
+                if (placement != null)
+                {
+                    LogError($"Error invoking ModifyRedundantItem for item {name} at placement {placement}:\n{e}");
+                }
+                else
+                {
+                    LogError($"Error invoking ModifyRedundantItem for item {name} with placement unavailable:\n{e}");
+                }
             }
         }
 
@@ -340,7 +364,15 @@ namespace ItemChanger
             }
             catch (Exception e) 
             {
-                LogError($"Error invoking OnGive for item {name} at placement {args.Placement.Name}:\n{e}"); 
+                string placement = args?.Placement?.Name;
+                if (placement != null)
+                {
+                    LogError($"Error invoking OnGive for item {name} at placement {placement}:\n{e}");
+                }
+                else
+                {
+                    LogError($"Error invoking OnGive for item {name} with placement unavailable:\n{e}");
+                }
             }
         }
 
@@ -364,7 +396,15 @@ namespace ItemChanger
             }
             catch (Exception e) 
             {
-                LogError($"Error invoking BeforeGive for item {name} at placement {args.Placement.Name}:\n{e}"); 
+                string placement = args?.Placement?.Name;
+                if (placement != null)
+                {
+                    LogError($"Error invoking AfterGive for item {name} at placement {placement}:\n{e}");
+                }
+                else
+                {
+                    LogError($"Error invoking AfterGive for item {name} with placement unavailable:\n{e}");
+                }
             }
         }
     }
