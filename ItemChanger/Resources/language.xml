@@ -141,7 +141,7 @@
   
   <entry sheet="IC" key="FALSE">False</entry>
   <entry sheet="IC" key="TRUE">True</entry>
-  <entry sheet="IC" key="COMMA_AND">, and</entry>
+  <entry sheet="IC" key="COMMA_AND">, and </entry>
   <entry sheet="IC" key="COMMA_SPACE">, </entry>
 
   <entry sheet="IC" key="ITEMCHANGERMOD">ItemChangerMod</entry>
