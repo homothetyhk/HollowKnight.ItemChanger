@@ -57,8 +57,8 @@ namespace ItemChanger.Locations.SpecialLocations
                 get.Actions[2], // Npc title down
                 // get.Actions[3] // SetPlayerDataBool
                 // get.Actions[4-7] // nonDeepnest only, map achievement/messages
+                new Lambda(() => Placement.AddVisitFlag(VisitState.Accepted)),
                 new AsyncLambda(GiveAllAsync(fsm.transform), "TALK FINISH"),
-                new Lambda(() => Placement.AddVisitFlag(VisitState.Accepted))
             };
             get.ClearTransitions();
 

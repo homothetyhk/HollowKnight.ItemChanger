@@ -8,24 +8,24 @@
     {
         public override void Initialize()
         {
-            On.GameManager.BeginSceneTransition += BeginSceneTransition;
+            Events.OnTransitionOverride += OnTransitionOverride;
         }
 
         public override void Unload()
         {
-            On.GameManager.BeginSceneTransition -= BeginSceneTransition;
+            Events.OnTransitionOverride -= OnTransitionOverride;
         }
 
-        private void BeginSceneTransition(On.GameManager.orig_BeginSceneTransition orig, GameManager self, GameManager.SceneLoadInfo info)
+        private void OnTransitionOverride(Transition source, Transition origTarget, ITransition newTarget)
         {
-            if (info.EntryGateName != null && !info.EntryGateName.StartsWith("top"))
+            string gate = newTarget?.GateName;
+            if (gate != null && !gate.StartsWith("top"))
             {
                 if (HeroController.SilentInstance?.cState?.spellQuake == true)
                 {
                     HeroController.SilentInstance.cState.spellQuake = false;
                 }
             }
-            orig(self, info);
         }
     }
 }

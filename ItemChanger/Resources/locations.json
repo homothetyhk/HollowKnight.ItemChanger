@@ -5337,8 +5337,8 @@
   },
   "Geo_Rock-Baldur_Shell_Top_Left": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Geo Rock 2",
-    "elevation": 2.7,
+    "objectName": "Geo Rock 1 (2)",
+    "elevation": 2.1,
     "forceShiny": false,
     "name": "Geo_Rock-Baldur_Shell_Top_Left",
     "sceneName": "Fungus1_28",
@@ -5347,8 +5347,8 @@
   },
   "Geo_Rock-Baldur_Shell_Alcove": {
     "$type": "ItemChanger.Locations.ObjectLocation, ItemChanger",
-    "objectName": "Geo Rock 1 (2)",
-    "elevation": 2.1,
+    "objectName": "Geo Rock 2",
+    "elevation": 2.7,
     "forceShiny": false,
     "name": "Geo_Rock-Baldur_Shell_Alcove",
     "sceneName": "Fungus1_28",

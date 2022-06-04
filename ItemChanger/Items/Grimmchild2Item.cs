@@ -17,7 +17,10 @@ namespace ItemChanger.Items
             PlayerData.instance.SetBool(nameof(PlayerData.metGrimm), true);
             PlayerData.instance.SetInt(nameof(PlayerData.flamesRequired), 3);
             // Skip first two collection quests
-            PlayerData.instance.IntAdd(nameof(PlayerData.flamesCollected), 6);
+            PlayerData.instance.IntAdd(nameof(PlayerData.flamesCollected), 3);
+            PlayerData.instance.IntAdd(nameof(PlayerData.flamesCollected), -3); // simulate paying for first upgrade, for GrimmkinFlameManager if present
+            PlayerData.instance.IntAdd(nameof(PlayerData.flamesCollected), 3);
+
             PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerSmall), true);
             PlayerData.instance.SetBool(nameof(PlayerData.killedFlameBearerMed), true);
             PlayerData.instance.SetInt(nameof(PlayerData.killsFlameBearerSmall), 0);
