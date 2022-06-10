@@ -211,12 +211,18 @@ namespace ItemChanger.Containers
 
             void InstantiateShiniesAndGiveEarly()
             {
+                void TotemCallback(AbstractItem item)
+                {
+                    if (item is SoulTotemItem totemItem) value.Value += totemItem.hitCount;
+                }
+
                 GiveInfo gi = new()
                 {
                     Container = Container.Totem,
                     FlingType = info.flingType,
                     Transform = fsm.transform,
                     MessageType = MessageType.Corner,
+                    Callback = TotemCallback,
                 };
                 GameObject itemParent = new("Item parent");
                 itemParent.transform.position = fsm.transform.position;
@@ -225,11 +231,9 @@ namespace ItemChanger.Containers
                 {
                     if (!item.IsObtained())
                     {
-                        if (item is SoulTotemItem totemItem) value.Value += totemItem.hitCount;
-
                         if (item.GiveEarly(Container.Totem))
                         {
-                            item.Give(info.placement, gi);
+                            item.Give(info.placement, gi.Clone());
                         }
                         else if (!spawnedItems.Value)
                         {

@@ -30,9 +30,15 @@ namespace ItemChanger.Items
 
         public override void GiveImmediate(GiveInfo info)
         {
+            if (HeroController.SilentInstance == null)
+            {
+                PlayerData.instance.AddMPCharge(soul);
+                return;
+            }
+
             if (info.FlingType == FlingType.DirectDeposit)
             {
-                HeroController.instance.AddMPCharge(soul);
+                HeroController.SilentInstance.AddMPCharge(soul);
             }
             else if (info.Transform != null)
             {
@@ -40,7 +46,7 @@ namespace ItemChanger.Items
             }
             else
             {
-                FlingSoulAction.SpawnSoul(HeroController.instance.transform, soul, 11);
+                FlingSoulAction.SpawnSoul(HeroController.SilentInstance.transform, soul, 11);
             }
         }
     }
