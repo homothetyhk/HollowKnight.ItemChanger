@@ -8,7 +8,9 @@ namespace ItemChanger.Util
 {
     public static class TabletUtility
     {
-        public static GameObject MakeNewTablet(AbstractPlacement placement)
+        public static GameObject InstantiateTablet(AbstractPlacement placement) => InstantiateTablet(GetTabletName(placement));
+
+        public static GameObject InstantiateTablet(string tabletName)
         {
             GameObject tablet = ObjectCache.LoreTablet;
 
@@ -20,7 +22,14 @@ namespace ItemChanger.Util
             lit.AddComponent<SpriteRenderer>().sprite = lit_tablet.GetComponent<SpriteRenderer>().sprite;
             lit.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
 
-            tablet.name = GetTabletName(placement);
+            tablet.name = tabletName;
+
+            return tablet;
+        }
+
+        public static GameObject MakeNewTablet(AbstractPlacement placement)
+        {
+            GameObject tablet = InstantiateTablet(placement);
             tablet.SetActive(true);
 
             return tablet;
@@ -28,17 +37,18 @@ namespace ItemChanger.Util
 
         public static GameObject MakeNewTablet(AbstractPlacement placement, Func<string> textGenerator)
         {
-            GameObject tablet = ObjectCache.LoreTablet;
-
-            GameObject lit_tablet = tablet.transform.Find("lit_tablet").gameObject; // doesn't appear after instantiation, for some reason
-            GameObject lit = new GameObject();
-            lit.transform.SetParent(tablet.transform);
-            lit.transform.localPosition = new Vector3(-0.1f, 0.1f, -3f);
-            lit.transform.localScale = Vector3.one;
-            lit.AddComponent<SpriteRenderer>().sprite = lit_tablet.GetComponent<SpriteRenderer>().sprite;
-            lit.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
-
-            tablet.name = GetTabletName(placement);
+            return MakeNewTablet(GetTabletName(placement), textGenerator);
+        }    
+        
+        /// <summary>
+        /// Creates a lore tablet GameObject with the specified name and lore text.
+        /// </summary>
+        /// <param name="tabletName">The name of the tablet.</param>
+        /// <param name="textGenerator">This method is invoked when the player reads the lore tablet to set the displayed text.</param>
+        /// <returns>The tablet GameObject.</returns>
+        public static GameObject MakeNewTablet(string tabletName, Func<string> textGenerator)
+        {
+            GameObject tablet = InstantiateTablet(tabletName);
             tablet.SetActive(true);
 
             PlayMakerFSM inspectFsm = tablet.LocateMyFSM("Inspection");
@@ -65,23 +75,12 @@ namespace ItemChanger.Util
             promptUp.AddTransition("CONVO_FINISH", turnBack);
             foreach (var t in setBool.Transitions) t.SetToState(turnBack);
 
-
             return tablet;
         }
 
         internal static GameObject MakeNewTablet(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
         {
-            GameObject tablet = ObjectCache.LoreTablet;
-
-            GameObject lit_tablet = tablet.transform.Find("lit_tablet").gameObject; // doesn't appear after instantiation, for some reason
-            GameObject lit = new GameObject();
-            lit.transform.SetParent(tablet.transform);
-            lit.transform.localPosition = new Vector3(-0.1f, 0.1f, -1.8f);
-            lit.transform.localScale = Vector3.one;
-            lit.AddComponent<SpriteRenderer>().sprite = lit_tablet.GetComponent<SpriteRenderer>().sprite;
-            lit.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.8f);
-
-            tablet.name = GetTabletName(placement);
+            GameObject tablet = InstantiateTablet(placement);
             var info = tablet.AddComponent<ContainerInfo>();
             info.containerType = Container.Tablet;
             info.giveInfo = new ContainerGiveInfo
