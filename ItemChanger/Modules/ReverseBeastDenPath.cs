@@ -20,7 +20,7 @@ namespace ItemChanger.Modules
 
         private void SaveBeastsDenCollapserOpen(Scene scene)
         {
-            SceneDataUtil.Save("Deepnest_Spider_Town", "Collapser Small (12)");
+            SceneDataUtil.Save(SceneNames.Deepnest_Spider_Town, "Collapser Small (12)");
         }
     }
 }
