@@ -4,6 +4,7 @@
     /// Tag which adds setting a PlayerData bool as a side effect to an item.
     /// <br/>Be warned that this effect is tied to the tag's parent, regardless of how it is modified during Give.
     /// </summary>
+    [Obsolete("Use SetIBoolOnGiveTag instead.")]
     public class SetPDBoolOnGiveTag : Tag
     {
         public string fieldName;

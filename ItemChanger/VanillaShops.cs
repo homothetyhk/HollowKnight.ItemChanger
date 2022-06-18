@@ -1,34 +1,38 @@
-﻿namespace ItemChanger
+﻿/*
+using ItemChanger.Locations;
+using ItemChanger.Placements;
+using ItemChanger.Tags;
+
+namespace ItemChanger
 {
     static class VanillaShops
     {
-        /*
         public static AbstractPlacement[] GetVanillaShops()
         {
             AbstractItem mask1 = Finder.GetItem(ItemNames.Mask_Shard);
             mask1.AddTag<CostTag>().Cost = Cost.NewGeoCost(150);
-            mask1.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyShellFrag1);
+            mask1.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.slyShellFrag1));
 
             AbstractItem mask2 = Finder.GetItem(ItemNames.Mask_Shard);
             mask2.AddTag<CostTag>().Cost = Cost.NewGeoCost(500);
-            mask2.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyShellFrag2);
+            mask2.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.slyShellFrag2));
             mask2.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.slyShellFrag1);
 
             AbstractItem mask3 = Finder.GetItem(ItemNames.Mask_Shard);
             mask3.AddTag<CostTag>().Cost = Cost.NewGeoCost(800);
-            mask3.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyShellFrag3);
+            mask3.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.slyShellFrag3));
             mask3.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.slyShellFrag2);
             mask3.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.gaveSlykey);
 
             AbstractItem mask4 = Finder.GetItem(ItemNames.Mask_Shard);
             mask4.AddTag<CostTag>().Cost = Cost.NewGeoCost(1500);
-            mask4.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyShellFrag4);
+            mask4.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.slyShellFrag4));
             mask4.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.slyShellFrag3);
             mask4.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.gaveSlykey);
 
             AbstractItem vessel1 = Finder.GetItem(ItemNames.Vessel_Fragment);
             vessel1.AddTag<CostTag>().Cost = Cost.NewGeoCost(550);
-            vessel1.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyVesselFrag1);
+            vessel1.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.slyVesselFrag1));
 
             AbstractItem vessel2 = Finder.GetItem(ItemNames.Vessel_Fragment);
             vessel2.AddTag<CostTag>().Cost = Cost.NewGeoCost(900);
@@ -58,34 +62,34 @@
 
             AbstractItem rancid_egg = Finder.GetItem(ItemNames.Rancid_Egg);
             rancid_egg.AddTag<CostTag>().Cost = Cost.NewGeoCost(60);
-            rancid_egg.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slyRancidEgg);
+            rancid_egg.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.slyRancidEgg));
 
             AbstractItem simple_key = Finder.GetItem(ItemNames.Simple_Key);
             simple_key.AddTag<CostTag>().Cost = Cost.NewGeoCost(950);
-            simple_key.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.slySimpleKey);
+            simple_key.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.slySimpleKey));
 
 
-            AbstractPlacement sly = new ShopPlacement
+            AbstractPlacement sly = new ShopPlacement(LocationNames.Sly)
             {
                 Location = Finder.GetLocation(LocationNames.Sly) as ShopLocation,
-                Items = new List<AbstractItem>
-                {
-                    mask1,
-                    mask2,
-                    mask3,
-                    mask4,
-                    vessel1,
-                    vessel2,
-                    elegant_key,
-                    lantern,
-                    gathering_swarm,
-                    stalwart_shell,
-                    heavy_blow,
-                    sprintmaster,
-                    rancid_egg,
-                    simple_key,
-                },
-            };
+            }
+            .Add(new List<AbstractItem>
+            {
+                mask1,
+                mask2,
+                mask3,
+                mask4,
+                vessel1,
+                vessel2,
+                elegant_key,
+                lantern,
+                gathering_swarm,
+                stalwart_shell,
+                heavy_blow,
+                sprintmaster,
+                rancid_egg,
+                simple_key,
+            });
 
 
             AbstractItem wayward_compass = Finder.GetItem(ItemNames.Wayward_Compass);
@@ -201,40 +205,40 @@
             gleaming_marker.AddTag<CostTag>().Cost = Cost.NewGeoCost(210);
             gleaming_marker.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.hasDash);
 
-            AbstractPlacement iselda = new ShopPlacement
+            AbstractPlacement iselda = new ShopPlacement(LocationNames.Iselda)
             {
                 Location = Finder.GetLocation(LocationNames.Iselda) as ShopLocation,
-                Items = new List<AbstractItem>
-                {
-                    wayward_compass,
-                    quill,
-                    crossroads_map,
-                    greenpath_map,
-                    canyon_map,
-                    wastes_map,
-                    city_map,
-                    waterways_map,
-                    mines_map,
-                    rg_map,
-                    cliffs_map,
-                    deepnest_map,
-                    edge_map,
-                    gardens_map,
-                    basin_map,
-                    bench_pin,
-                    cocoon_pin,
-                    root_pin,
-                    warrior_pin,
-                    vendor_pin,
-                    stag_pin,
-                    tram_pin,
-                    spa_pin,
-                    scarab_marker,
-                    shell_marker,
-                    token_marker,
-                    gleaming_marker
-                },
-            };
+            }
+            .Add(new List<AbstractItem>
+            {
+                wayward_compass,
+                quill,
+                crossroads_map,
+                greenpath_map,
+                canyon_map,
+                wastes_map,
+                city_map,
+                waterways_map,
+                mines_map,
+                rg_map,
+                cliffs_map,
+                deepnest_map,
+                edge_map,
+                gardens_map,
+                basin_map,
+                bench_pin,
+                cocoon_pin,
+                root_pin,
+                warrior_pin,
+                vendor_pin,
+                stag_pin,
+                tram_pin,
+                spa_pin,
+                scarab_marker,
+                shell_marker,
+                token_marker,
+                gleaming_marker
+            });
 
             AbstractItem fragile_heart = Finder.GetItem(ItemNames.Fragile_Heart);
             fragile_heart.AddTag<CostTag>().Cost = Cost.NewGeoCost(350);
@@ -263,19 +267,19 @@
             repair_strength.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.brokenCharm_25);
             //repair_strength.AddTag<PersistentItemTag>().Persistence = Persistence.Persistent;
 
-            AbstractPlacement leg_eater = new ShopPlacement
+            AbstractPlacement leg_eater = new ShopPlacement(LocationNames.Leg_Eater)
             {
                 Location = Finder.GetLocation(LocationNames.Leg_Eater) as ShopLocation,
-                Items = new List<AbstractItem>
-                {
-                    fragile_heart,
-                    repair_heart,
-                    fragile_greed,
-                    repair_greed,
-                    fragile_strength,
-                    repair_strength
-                },
-            };
+            }
+            .Add(new List<AbstractItem>
+            {
+                fragile_heart,
+                repair_heart,
+                fragile_greed,
+                repair_greed,
+                fragile_strength,
+                repair_strength
+            });
 
             AbstractItem lifeblood_heart = Finder.GetItem(ItemNames.Lifeblood_Heart);
             lifeblood_heart.AddTag<CostTag>().Cost = Cost.NewGeoCost(250);
@@ -294,45 +298,45 @@
 
             AbstractItem notch1 = Finder.GetItem(ItemNames.Charm_Notch);
             notch1.AddTag<CostTag>().Cost = Cost.NewGeoCost(120)
-                + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 5, uiText = "Requires 5 charms" };
-            notch1.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.salubraNotch1);
+                + new PDIntCost(5, nameof(PlayerData.charmsOwned), "Requires 5 charms");
+            notch1.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.salubraNotch1));
 
             AbstractItem notch2 = Finder.GetItem(ItemNames.Charm_Notch);
             notch2.AddTag<CostTag>().Cost = Cost.NewGeoCost(500)
-                + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 10, uiText = "Requires 10 charms" };
-            notch2.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.salubraNotch2);
+                + new PDIntCost(10, nameof(PlayerData.charmsOwned), "Requires 10 charms");
+            notch2.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.salubraNotch2));
 
             AbstractItem notch3 = Finder.GetItem(ItemNames.Charm_Notch);
             notch3.AddTag<CostTag>().Cost = Cost.NewGeoCost(900)
-                + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 18, uiText = "Requires 18 charms" };
-            notch3.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.salubraNotch3);
+                + new PDIntCost (18, nameof(PlayerData.charmsOwned), "Requires 18 charms");
+            notch3.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.salubraNotch3));
 
             AbstractItem notch4 = Finder.GetItem(ItemNames.Charm_Notch);
             notch4.AddTag<CostTag>().Cost = Cost.NewGeoCost(120)
-                + new PDIntCost { fieldName = nameof(PlayerData.charmsOwned), amount = 25, uiText = "Requires 25 charms" };
-            notch4.AddTag<SetPDBoolOnGiveTag>().fieldName = nameof(PlayerData.salubraNotch4);
+                + new PDIntCost (25, nameof(PlayerData.charmsOwned), "Requires 25 charms");
+            notch4.AddTag<SetIBoolOnGiveTag>().Bool = new PDBool(nameof(PlayerData.salubraNotch4));
 
             AbstractItem blessing = Finder.GetItem(ItemNames.Salubras_Blessing);
             blessing.AddTag<CostTag>().Cost = Cost.NewGeoCost(800);
             blessing.AddTag<PDBoolShopReqTag>().fieldName = nameof(PlayerData.salubraNotch4);
 
-            AbstractPlacement salubra = new ShopPlacement
+            AbstractPlacement salubra = new ShopPlacement(LocationNames.Salubra)
             {
                 Location = Finder.GetLocation(LocationNames.Salubra) as ShopLocation,
-                Items = new List<AbstractItem>
-                {
-                    lifeblood_heart,
-                    longnail,
-                    steady_body,
-                    shaman_stone,
-                    quick_focus,
-                    notch1,
-                    notch2,
-                    notch3,
-                    notch4,
-                    blessing
-                },
-            };
+            }
+            .Add(new List<AbstractItem>
+            {
+                lifeblood_heart,
+                longnail,
+                steady_body,
+                shaman_stone,
+                quick_focus,
+                notch1,
+                notch2,
+                notch3,
+                notch4,
+                blessing
+            });
 
             return new[]
             {
@@ -344,6 +348,6 @@
         {
             Finder.Serialize("vanilla.json", GetVanillaShops());
         }
-        */
     }
 }
+*/
