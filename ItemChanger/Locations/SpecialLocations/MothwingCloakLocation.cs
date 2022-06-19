@@ -20,7 +20,9 @@ namespace ItemChanger.Locations.SpecialLocations
             Events.AddFsmEdit(sceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
             Events.AddFsmEdit(sceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
             Events.AddFsmEdit(sceneName, new("Hornet Boss 1", "Control"), PreventHornetSaverOnRefight);
+            Events.AddFsmEdit(sceneName, new("Hollow_Shade Marker (1)", "FSM"), ChangeShadeMarkerTest);
         }
+
         protected override void OnUnload()
         {
             base.OnUnload();
@@ -31,6 +33,7 @@ namespace ItemChanger.Locations.SpecialLocations
             Events.RemoveFsmEdit(sceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
             Events.RemoveFsmEdit(sceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
             Events.RemoveFsmEdit(sceneName, new("Hornet Boss 1", "Control"), PreventHornetSaverOnRefight);
+            Events.RemoveFsmEdit(sceneName, new("Hollow_Shade Marker (1)", "FSM"), ChangeShadeMarkerTest);
         }
 
         private void EditCloakCorpse(PlayMakerFSM fsm)
@@ -67,6 +70,11 @@ namespace ItemChanger.Locations.SpecialLocations
         private void PreventHornetSaverOnRefight(PlayMakerFSM fsm)
         {
             fsm.GetState("Refight Wake").RemoveFirstActionOfType<ActivateAllChildren>();
+        }
+
+        private void ChangeShadeMarkerTest(PlayMakerFSM fsm)
+        {
+            fsm.FsmVariables.FindFsmString("playerData bool").Value = nameof(PlayerData.hornet1Defeated);
         }
     }
 }
