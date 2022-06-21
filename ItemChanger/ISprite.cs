@@ -1,4 +1,7 @@
-﻿namespace ItemChanger
+﻿using ItemChanger.Internal;
+using Newtonsoft.Json;
+
+namespace ItemChanger
 {
     public interface ISprite
     {
@@ -18,26 +21,35 @@
         public ISprite Clone() => (ISprite)MemberwiseClone();
     }
 
-    [Serializable]
-    public class ItemChangerSprite : ISprite
+    /// <summary>
+    /// An ISprite which retrieves its sprite from a SpriteManager.
+    /// </summary>
+    public abstract class EmbeddedSprite : ISprite
     {
         public string key;
+        [JsonIgnore] public abstract SpriteManager SpriteManager { get; }
+        [JsonIgnore] public Sprite Value => SpriteManager.GetSprite(key);
+        public ISprite Clone() => (ISprite)MemberwiseClone();
+    }
 
+    /// <summary>
+    /// An EmbeddedSprite which retrieves its sprite from SpriteManager.Instance.
+    /// </summary>
+    [Serializable]
+    public class ItemChangerSprite : EmbeddedSprite
+    {
         public ItemChangerSprite(string key)
         {
             this.key = key;
         }
 
-        [Newtonsoft.Json.JsonIgnore]
-        public Sprite Value => Internal.SpriteManager.Instance.GetSprite(key);
-        public ISprite Clone() => (ISprite)MemberwiseClone();
+        public override SpriteManager SpriteManager => SpriteManager.Instance;
     }
 
     [Serializable]
     public class EmptySprite : ISprite
     {
-        [Newtonsoft.Json.JsonIgnore]
-        public Sprite Value => Modding.CanvasUtil.NullSprite();
+        [JsonIgnore] public Sprite Value => Modding.CanvasUtil.NullSprite();
         public ISprite Clone() => (ISprite)MemberwiseClone();
     }
 
@@ -55,8 +67,7 @@
             this.FalseSprite = FalseSprite;
         }
 
-        [Newtonsoft.Json.JsonIgnore]
-        public Sprite Value => Test.Value ? TrueSprite.Value : FalseSprite.Value;
+        [JsonIgnore] public Sprite Value => Test.Value ? TrueSprite.Value : FalseSprite.Value;
         public ISprite Clone() => (ISprite)MemberwiseClone();
     }
 }

@@ -12,7 +12,7 @@ namespace ItemChanger.Internal
         private readonly Dictionary<string, Sprite> _cachedSprites = new();
 
         /// <summary>
-        /// The SpriteManager with access to embedded ItemChanger pngs.
+        /// The SpriteManager with access to embedded ItemChanger pngs, constructed with the ItemChanger assembly and prefix "ItemChanger.Resources."
         /// </summary>
         public static SpriteManager Instance { get; } = new(typeof(SpriteManager).Assembly, "ItemChanger.Resources.");
 
@@ -30,6 +30,8 @@ namespace ItemChanger.Internal
 
         /// <summary>
         /// Fetches the Sprite with the specified name. If it has not yet been loaded, loads it from embedded resources and caches the result.
+        /// <br/>The name is the path of the image as an embedded resource, with the SpriteManager prefix and file extension removed.
+        /// <br/>For example, the image at "ItemChanger.Resources.ShopIcons.Geo.png" has key "ShopIcons.Geo" in SpriteManager.Instance.
         /// </summary>
         public Sprite GetSprite(string name)
         {
