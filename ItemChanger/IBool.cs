@@ -1,18 +1,28 @@
-﻿using Newtonsoft.Json;
+﻿using ItemChanger.Extensions;
+using Newtonsoft.Json;
 
 namespace ItemChanger
 {
+    /// <summary>
+    /// Interface which can supply a bool value. Used frequently for serializable bool tests.
+    /// </summary>
     public interface IBool
     {
         bool Value { get; }
         IBool Clone();
     }
 
+    /// <summary>
+    /// IBool which supports write operations.
+    /// </summary>
     public interface IWritableBool : IBool
     {
         new bool Value { get; set; }
     }
 
+    /// <summary>
+    /// IBool which represents a constant value.
+    /// </summary>
     public class BoxedBool : IWritableBool
     {
         public bool Value { get; set; }
@@ -22,6 +32,9 @@ namespace ItemChanger
         public IBool Clone() => (IBool)MemberwiseClone();
     }
 
+    /// <summary>
+    /// IBool which represents a PlayerData bool.
+    /// </summary>
     public class PDBool : IWritableBool
     {
         public string boolName;
@@ -38,6 +51,9 @@ namespace ItemChanger
         public IBool Clone() => (IBool)MemberwiseClone();
     }
 
+    /// <summary>
+    /// IBool which represents the value of a PersistentBoolData in SceneData.
+    /// </summary>
     public class SDBool : IWritableBool
     {
         public string id;
@@ -79,6 +95,66 @@ namespace ItemChanger
         public IBool Clone() => (IBool)MemberwiseClone();
     }
 
+    /// <summary>
+    /// IBool which represents comparison on a PlayerData int.
+    /// <br/>Supports IWritableBool in one direction only (direction depends on comparison operator).
+    /// </summary>
+    public class PDIntBool : IWritableBool
+    {
+        public string intName;
+        public int amount;
+        public ComparisonOperator op;
+        
+
+        public PDIntBool(string intName, int amount, ComparisonOperator op = ComparisonOperator.Ge)
+        {
+            this.intName = intName;
+            this.amount = amount;
+            this.op = op;
+        }
+
+        public bool Value
+        {
+            get
+            {
+                return PlayerData.instance.GetInt(intName).Compare(op, amount);
+            }
+            set
+            {
+                if (value)
+                {
+                    switch (op)
+                    {
+                        case ComparisonOperator.Ge:
+                        case ComparisonOperator.Eq:
+                        case ComparisonOperator.Le:
+                            PlayerData.instance.SetInt(intName, amount);
+                            break;
+                        default: throw new NotSupportedException($"Cannot set PDIntBool true with operator {op}.");
+                    }
+                }
+                else
+                {
+                    switch (op)
+                    {
+                        case ComparisonOperator.Gt:
+                        case ComparisonOperator.Neq:
+                        case ComparisonOperator.Lt:
+                            PlayerData.instance.SetInt(intName, amount);
+                            break;
+                        default: throw new NotSupportedException($"Cannot set PDIntBool false with operator {op}.");
+                    }
+                }
+            }
+        }
+
+        public IBool Clone() => (IBool)MemberwiseClone();
+    }
+
+    /// <summary>
+    /// IBool which searches for a placement by name and checks whether all items on the placement are obtained.
+    /// <br/>If the placement does not exist, defaults to the value of missingPlacementTest, or true if missingPlacementTest is null.
+    /// </summary>
     public class PlacementAllObtainedBool : IBool
     {
         public PlacementAllObtainedBool(string placementName, IBool missingPlacementTest)
