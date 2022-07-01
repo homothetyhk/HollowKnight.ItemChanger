@@ -106,7 +106,11 @@ namespace ItemChanger
         /// <summary>
         /// Produces a new object of this container type.
         /// </summary>
-        public abstract GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null);
+        /// <exception cref="NotImplementedException">The container does not support instantiation.</exception>
+        public virtual GameObject GetNewContainer(ContainerInfo info)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Puts the container in the same position and hierarchy of the target, up to the elevation correction in y.
@@ -139,7 +143,7 @@ namespace ItemChanger
         /// </summary>
         public static void OnEnable(PlayMakerFSM fsm)
         {
-            var info = fsm.gameObject.GetComponent<ContainerInfo>();
+            ContainerInfo info = ContainerInfo.FindContainerInfo(fsm.gameObject);
             if (info != null)
             {
                 var container = GetContainer(info.containerType);

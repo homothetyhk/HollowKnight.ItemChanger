@@ -78,19 +78,16 @@ namespace ItemChanger.Util
             return tablet;
         }
 
+        public static GameObject MakeNewTablet(ContainerInfo info)
+        {
+            GameObject tablet = InstantiateTablet(info.giveInfo.placement);
+            tablet.AddComponent<ContainerInfoComponent>().info = info;
+            return tablet;
+        }
+
         internal static GameObject MakeNewTablet(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
         {
-            GameObject tablet = InstantiateTablet(placement);
-            var info = tablet.AddComponent<ContainerInfo>();
-            info.containerType = Container.Tablet;
-            info.giveInfo = new ContainerGiveInfo
-            {
-                placement = placement,
-                items = items,
-                flingType = flingType,
-            };
-
-            return tablet;
+            return MakeNewTablet(new ContainerInfo(Container.Tablet, placement, items, flingType));
         }
 
 

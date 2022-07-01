@@ -40,24 +40,17 @@ namespace ItemChanger.Util
             return -0.8f;
         }
 
-        public static GameObject MakeNewGeoRock(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        public static GameObject MakeNewGeoRock(ContainerInfo info)
         {
-            GeoRockSubtype type = items.OfType<GeoRockItem>().FirstOrDefault()?.geoRockSubtype ?? GeoRockSubtype.Default;
+            GeoRockSubtype type = info.giveInfo.items.OfType<GeoRockItem>().FirstOrDefault()?.geoRockSubtype ?? GeoRockSubtype.Default;
             GameObject rock = ObjectCache.GeoRock(ref type);
             rock.AddComponent<GeoRockInfo>().type = type;
-            rock.name = GetGeoRockName(placement);
+            rock.name = GetGeoRockName(info.giveInfo.placement);
 
             rock.GetComponent<BoxCollider2D>().isTrigger = false; // some rocks only have trigger colliders
             rock.AddComponent<DropIntoPlace>();
 
-            var info = rock.AddComponent<ContainerInfo>();
-            info.containerType = Container.GeoRock;
-            info.giveInfo = new ContainerGiveInfo
-            {
-                placement = placement,
-                items = items,
-                flingType = flingType,
-            };
+            rock.AddComponent<ContainerInfoComponent>().info = info;
 
             if (type == GeoRockSubtype.Outskirts420)
             {
@@ -65,6 +58,11 @@ namespace ItemChanger.Util
             }
 
             return rock;
+        }
+
+        public static GameObject MakeNewGeoRock(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        {
+            return MakeNewGeoRock(new ContainerInfo(Container.GeoRock, placement, items, flingType));
         }
 
         public static void SetRockContext(GameObject rock, float x, float y, float elevation)

@@ -17,51 +17,19 @@ namespace ItemChanger.Util
         {
             GameObject shiny = ObjectCache.ShinyItem;
             shiny.name = GetShinyName(placement, item);
-            var info = shiny.AddComponent<ContainerInfo>();
-            info.containerType = Container.Shiny;
-            info.giveInfo = new ContainerGiveInfo
-            {
-                placement = placement,
-                items = item.Yield(),
-                flingType = flingType,
-            };
+            shiny.AddComponent<ContainerInfoComponent>().info = new ContainerInfo(Container.Shiny, placement, item.Yield(), flingType);
             // don't set ShinyFling for single shinies -- usually the container decides how to fling
 
             return shiny;
         }
 
-        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
+        public static GameObject MakeNewMultiItemShiny(ContainerInfo info)
         {
             GameObject shiny = ObjectCache.ShinyItem;
-            shiny.name = GetShinyPrefix(placement);
-            var info = shiny.AddComponent<ContainerInfo>();
-            info.containerType = Container.Shiny;
-            info.giveInfo = new ContainerGiveInfo
-            {
-                placement = placement,
-                items = items,
-                flingType = flingType,
-            };
+            shiny.name = GetShinyPrefix(info.giveInfo.placement);
+            shiny.AddComponent<ContainerInfoComponent>().info = info;
 
-            if (cost != null && !cost.Paid)
-            {
-                info.costInfo = new CostInfo
-                {
-                    cost = cost,
-                    previewItems = items,
-                    placement = placement,
-                };
-            }
-
-            if (changeSceneTo.HasValue)
-            {
-                info.changeSceneInfo = new ChangeSceneInfo
-                {
-                    transition = changeSceneTo.Value,
-                };
-            }
-
-            if (placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().FirstOrDefault() is Tags.ShinyFlingTag sft)
+            if (info.giveInfo.placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().FirstOrDefault() is Tags.ShinyFlingTag sft)
             {
                 SetShinyFling(shiny.LocateMyFSM("Shiny Control"), sft.fling);
             }
@@ -71,6 +39,11 @@ namespace ItemChanger.Util
             }
 
             return shiny;
+        }
+
+        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
+        {
+            return MakeNewMultiItemShiny(new ContainerInfo(Container.Shiny, placement, items, flingType, cost, changeSceneTo.HasValue ? new(changeSceneTo.Value) : null));
         }
 
         public static bool TryGetItemFromShinyName(string shinyObjectName, AbstractPlacement placement, out AbstractItem item)
@@ -224,24 +197,37 @@ namespace ItemChanger.Util
             shinyFsm.FsmVariables.FindFsmBool("Fling On Start").Value = false; // skip activating the shiny's trail and its gravity
         }
 
-        public static void AddChangeSceneToShiny(PlayMakerFSM shinyFsm, Transition t)
+        public static void AddChangeSceneToShiny(PlayMakerFSM shinyFsm, ChangeSceneInfo info)
         {
-            if (t.GateName == ChangeSceneInfo.door_dreamReturn)
+            if (info.dreamReturn)
             {
                 shinyFsm.FsmVariables.FindFsmBool("Exit Dream").Value = true;
-                shinyFsm.GetState("Fade Pause").AddFirstAction(new Lambda(() =>
+                shinyFsm.FsmVariables.FindFsmString("Return Door").Value = info.transition.GateName;
+                FsmState fadePause = shinyFsm.GetState("Fade Pause");
+                string sceneName = info.transition.SceneName;
+                fadePause.AddFirstAction(new Lambda(() =>
                 {
-                    PlayerData.instance.SetString(nameof(PlayerData.dreamReturnScene), t.SceneName);
-                    HeroController.instance.proxyFSM.FsmVariables.GetFsmBool("No Charms").Value = false;
-                        // fixes minion spawning issue after Dream Nail, Dreamers, etc
-                        // could extremely rarely be undesired, if the target scene is in Godhome
+                    PlayerData.instance.SetString(nameof(PlayerData.dreamReturnScene), sceneName);
                 }));
+                if (info.deactivateNoCharms)
+                {
+                    fadePause.AddFirstAction(new Lambda(DeactivateNoCharms));
+                }
             }
             else
             {
                 FsmState finish = shinyFsm.GetState("Finish");
-                finish.AddLastAction(new ChangeSceneAction(t.SceneName, t.GateName));
+                if (info.deactivateNoCharms)
+                {
+                    finish.AddLastAction(new Lambda(DeactivateNoCharms));
+                }
+                finish.AddLastAction(new ChangeSceneAction(info.transition.SceneName, info.transition.GateName));
             }
+
+
+            static void DeactivateNoCharms() => HeroController.instance.proxyFSM.FsmVariables.GetFsmBool("No Charms").Value = false;
+            // fixes minion spawning issue after Dream Nail, Dreamers, etc
+            // could extremely rarely be undesired, if the target scene is in Godhome
         }
 
         public static void ModifyMultiShiny(PlayMakerFSM shinyFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)

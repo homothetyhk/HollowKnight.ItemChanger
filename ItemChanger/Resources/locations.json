@@ -290,7 +290,9 @@
         "changeTo": {
           "SceneName": "RestingGrounds_07",
           "GateName": "door_dreamReturn"
-        }
+        },
+        "dreamReturn": true,
+        "deactivateNoCharms": true
       }
     ]
   },
@@ -505,7 +507,9 @@
         "changeTo": {
           "SceneName": "Abyss_06_Core",
           "GateName": "door_dreamReturn"
-        }
+        },
+        "dreamReturn": true,
+        "deactivateNoCharms": true
       }
     ]
   },
@@ -811,7 +815,9 @@
         "changeTo": {
           "SceneName": "Abyss_05",
           "GateName": "door_dreamReturn"
-        }
+        },
+        "dreamReturn": true,
+        "deactivateNoCharms": true
       }
     ],
     "HintActive": true

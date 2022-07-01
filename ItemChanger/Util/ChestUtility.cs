@@ -37,20 +37,16 @@ namespace ItemChanger.Util
             return chest;
         }
 
+        public static GameObject MakeNewChest(ContainerInfo info)
+        {
+            GameObject chest = MakeNewChest(info.giveInfo.placement);
+            chest.GetOrAddComponent<ContainerInfoComponent>().info = info;
+            return chest;
+        }
+
         public static GameObject MakeNewChest(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
         {
-            GameObject chest = MakeNewChest(placement);
-
-            var info = chest.GetOrAddComponent<ContainerInfo>();
-            info.containerType = Container.Chest;
-            info.giveInfo = new ContainerGiveInfo
-            {
-                placement = placement,
-                items = items,
-                flingType = flingType,
-            };
-
-            return chest;
+            return MakeNewChest(new ContainerInfo(Container.Chest, placement, items, flingType));
         }
 
         public static string GetChestName(AbstractPlacement placement)

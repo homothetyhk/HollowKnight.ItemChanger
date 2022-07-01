@@ -71,7 +71,7 @@ namespace ItemChanger.Placements
                 c = Container.GetContainer(Container.Shiny);
             }
 
-            GameObject obj = c.GetNewContainer(this, Items[i].Yield(), Location.flingType);
+            GameObject obj = c.GetNewContainer(new ContainerInfo(c.Name, this, Items[i].Yield(), Location.flingType));
             Location.PlaceContainer(obj, container);
             obj.transform.Translate(new((i % 5) - 2f, 0));
             obj.SetActive(true);

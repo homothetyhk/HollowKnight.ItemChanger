@@ -9,8 +9,9 @@ namespace ItemChanger.Util
 {
     public static class MimicUtil
     {
-        public static GameObject CreateNewMimic(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        public static GameObject CreateNewMimic(ContainerInfo info)
         {
+            AbstractPlacement placement = info.giveInfo.placement;
             GameObject mimicParent = new($"Grub Mimic Parent-{placement.Name}");
             var box = mimicParent.AddComponent<BoxCollider2D>();
             box.size = new(2f, 2.1f);
@@ -43,16 +44,13 @@ namespace ItemChanger.Util
             shatter.AddFirstAction(new Lambda(() => placement.AddVisitFlag(VisitState.Dropped)));
             shatter.GetActionsOfType<SendEventByName>()[1].eventTarget.gameObject.GameObject = mimicTop;
 
-            ContainerInfo info = mimicTop.AddComponent<ContainerInfo>();
-            info.containerType = Container.Mimic;
-            info.giveInfo = new()
-            {
-                flingType = flingType,
-                items = items,
-                placement = placement,
-            };
-
+            mimicTop.AddComponent<ContainerInfoComponent>().info = info;
             return mimicParent;
+        }
+
+        public static GameObject CreateNewMimic(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        {
+            return CreateNewMimic(new ContainerInfo(Container.Mimic, placement, items, flingType));
         }
 
         public static void ModifyMimic(PlayMakerFSM mimicTopFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)

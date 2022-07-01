@@ -47,8 +47,8 @@ namespace ItemChanger.Placements
                 if (container == null) throw new InvalidOperationException($"Unable to resolve container type {containerType} for placement {Name}!");
             }
 
-            Transition? changeScene = location.GetTags<Tags.ChangeSceneTag>().Concat(GetTags<Tags.ChangeSceneTag>()).FirstOrDefault()?.changeTo;
-            obj = container.GetNewContainer(this, Items, location.flingType, Cost, changeScene);
+            obj = container.GetNewContainer(new ContainerInfo(container.Name, this, location.flingType, Cost,
+                location.GetTags<Tags.ChangeSceneTag>().FirstOrDefault()?.ToChangeSceneInfo()));
         }
 
         public static string ChooseContainerType(ISingleCostPlacement placement, ContainerLocation location, IEnumerable<AbstractItem> items)

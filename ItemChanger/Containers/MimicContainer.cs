@@ -12,9 +12,9 @@ namespace ItemChanger.Containers
         public override bool SupportsDrop => true;
         public override bool SupportsInstantiate => Internal.ObjectCache.MimicPreloader.PreloadLevel != Internal.PreloadLevel.None;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
+        public override GameObject GetNewContainer(ContainerInfo info)
         {
-            return MimicUtil.CreateNewMimic(placement, items, flingType);
+            return MimicUtil.CreateNewMimic(info);
         }
 
         public override void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)

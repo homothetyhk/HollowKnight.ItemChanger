@@ -1,5 +1,5 @@
-﻿using ItemChanger.Util;
-using ItemChanger.Components;
+﻿using ItemChanger.Components;
+using ItemChanger.Util;
 
 namespace ItemChanger.Containers
 {
@@ -11,9 +11,9 @@ namespace ItemChanger.Containers
         public override string Name => Container.Tablet;
         public override bool SupportsInstantiate => true;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
+        public override GameObject GetNewContainer(ContainerInfo info)
         {
-            return TabletUtility.MakeNewTablet(placement, items, flingType);
+            return TabletUtility.MakeNewTablet(info);
         }
 
         public override void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)

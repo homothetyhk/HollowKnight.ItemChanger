@@ -35,18 +35,16 @@ namespace ItemChanger.Locations
 
         public void OnEnable(PlayMakerFSM fsm)
         {
-            if (fsm.gameObject.GetComponent<ContainerInfo>() is ContainerInfo info && info != null) return;
+            if (ContainerInfo.FindContainerInfo(fsm.gameObject) != null) return;
             if (!WillBeReplaced())
             {
-                info = fsm.gameObject.AddComponent<ContainerInfo>();
-                FillInfo(info);
-                info.containerType = containerType;
+                fsm.gameObject.AddComponent<ContainerInfoComponent>().info = GetContainerInfo(containerType);
                 if (this.GetItemHintActive()) HintBox.Create(fsm.transform, Placement);
             }
             else if (replacePath == null)
             {
                 Container c = Container.GetContainer(Placement.MainContainerType);
-                GameObject obj = c.GetNewContainer(Placement, Placement.Items, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost);
+                GameObject obj = c.GetNewContainer(GetContainerInfo(c.Name));
                 c.ApplyTargetContext(obj, fsm.gameObject, elevation);
                 UnityEngine.Object.Destroy(fsm.gameObject);
                 if (this.GetItemHintActive()) HintBox.Create(obj.transform, Placement);
@@ -58,7 +56,7 @@ namespace ItemChanger.Locations
             if (WillBeReplaced())
             {
                 Container c = Container.GetContainer(Placement.MainContainerType);
-                GameObject obj = c.GetNewContainer(Placement, Placement.Items, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost);
+                GameObject obj = c.GetNewContainer(GetContainerInfo(c.Name));
                 GameObject target = to.FindGameObject(replacePath);
                 c.ApplyTargetContext(obj, target, elevation);
                 UnityEngine.Object.Destroy(target);
@@ -69,15 +67,9 @@ namespace ItemChanger.Locations
 
         protected virtual void OnReplace(GameObject obj, Container c) { }
 
-        private void FillInfo(ContainerInfo info)
+        private ContainerInfo GetContainerInfo(string containerType)
         {
-            info.containerType = containerType;
-            info.giveInfo = new ContainerGiveInfo
-            {
-                placement = Placement,
-                items = Placement.Items,
-                flingType = flingType,
-            };
+            ContainerInfo info = new(containerType, Placement, flingType);
 
             if (!HandlesCostBeforeContainer && Placement is Placements.ISingleCostPlacement iscp && iscp.Cost != null)
             {
@@ -92,11 +84,10 @@ namespace ItemChanger.Locations
             Tags.ChangeSceneTag cst = GetTags<Tags.ChangeSceneTag>().Concat(Placement.GetTags<Tags.ChangeSceneTag>()).FirstOrDefault();
             if (cst != null)
             {
-                info.changeSceneInfo = new()
-                {
-                    transition = cst.changeTo
-                };
+                info.changeSceneInfo = new(cst);
             }
+
+            return info;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (!IsCorniferPresent() && !Placement.AllObtained())
             {
                 Container c = Container.GetContainer(Container.Shiny);
-                GameObject shiny = c.GetNewContainer(Placement, Placement.Items, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost);
+                GameObject shiny = c.GetNewContainer(new ContainerInfo(c.Name, Placement, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost));
                 c.ApplyTargetContext(shiny, fsm.gameObject, 0);
                 ShinyUtility.FlingShinyDown(shiny.LocateMyFSM("Shiny Control"));
                 UnityEngine.Object.Destroy(fsm.gameObject);

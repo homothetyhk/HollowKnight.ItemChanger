@@ -1,5 +1,5 @@
-﻿using ItemChanger.Util;
-using ItemChanger.Components;
+﻿using ItemChanger.Components;
+using ItemChanger.Util;
 
 namespace ItemChanger.Containers
 {
@@ -12,9 +12,9 @@ namespace ItemChanger.Containers
         public override bool SupportsInstantiate => Internal.ObjectCache.GrubPreloader.PreloadLevel != Internal.PreloadLevel.None;
         public override bool SupportsDrop => true;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
+        public override GameObject GetNewContainer(ContainerInfo info)
         {
-            return GrubJarUtility.MakeNewGrubJar(placement, items, flingType);
+            return GrubJarUtility.MakeNewGrubJar(info);
         }
 
         public override void AddGiveEffectToFsm(PlayMakerFSM fsm, ContainerGiveInfo info)

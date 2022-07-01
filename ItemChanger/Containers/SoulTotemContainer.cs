@@ -21,13 +21,13 @@ namespace ItemChanger.Containers
         public override bool SupportsInstantiate => ObjectCache.SoulTotemPreloader.PreloadLevel != PreloadLevel.None;
         public override bool SupportsDrop => true;
 
-        public override GameObject GetNewContainer(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
+        public override GameObject GetNewContainer(ContainerInfo info)
         {
-            SoulTotemSubtype type = items.OfType<SoulTotemItem>().FirstOrDefault()?.soulTotemSubtype ?? SoulTotemSubtype.B;
+            SoulTotemSubtype type = info.giveInfo.items.OfType<SoulTotemItem>().FirstOrDefault()?.soulTotemSubtype ?? SoulTotemSubtype.B;
             GameObject totem = ObjectCache.SoulTotem(ref type);
             totem.AddComponent<SoulTotemInfo>().type = type;
-            totem.name = GetNewSoulTotemName(placement);
-            
+            totem.name = GetNewSoulTotemName(info.giveInfo.placement);
+
             if (ShrinkageFactor.TryGetValue(type, out var k))
             {
                 var t = totem.transform;
@@ -37,15 +37,7 @@ namespace ItemChanger.Containers
             totem.AddComponent<DropIntoPlace>();
             totem.GetComponent<BoxCollider2D>().isTrigger = false; // some rocks only have trigger colliders
 
-
-            ContainerInfo info = totem.AddComponent<ContainerInfo>();
-            info.containerType = Container.Totem;
-            info.giveInfo = new()
-            {
-                items = items,
-                flingType = flingType,
-                placement = placement,
-            };
+            totem.AddComponent<ContainerInfoComponent>().info = info;
 
             return totem;
         }

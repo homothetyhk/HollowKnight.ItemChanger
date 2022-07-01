@@ -69,7 +69,8 @@
                 container = Container.GetContainer(containerType);
             }
 
-            obj = container.GetNewContainer(this, Items, location.flingType, Cost);
+            obj = container.GetNewContainer(new ContainerInfo(container.Name, this, location.flingType, Cost, 
+                location.GetTags<Tags.ChangeSceneTag>().FirstOrDefault()?.ToChangeSceneInfo()));
         }
 
         private void SetContainerType()

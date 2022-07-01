@@ -10,25 +10,16 @@ namespace ItemChanger.Util
     {
         public const float GRUB_JAR_ELEVATION = 0.1f;
 
-        public static GameObject MakeNewGrubJar(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        public static GameObject MakeNewGrubJar(ContainerInfo info)
         {
             GameObject grubJar = ObjectCache.GrubJar;
-            grubJar.name = GetGrubJarName(placement);
+            grubJar.name = GetGrubJarName(info.giveInfo.placement);
 
             // proper collsion layer to not collide with corpses while falling
             grubJar.transform.Find("Bottle Physical").gameObject.layer = 0;
             grubJar.layer = 0;
 
-
-            var info = grubJar.AddComponent<ContainerInfo>();
-            info.containerType = Container.GrubJar;
-            info.giveInfo = new ContainerGiveInfo
-            {
-                placement = placement,
-                items = items,
-                flingType = flingType,
-            };
-
+            grubJar.AddComponent<ContainerInfoComponent>().info = info;
 
             grubJar.AddComponent<DropIntoPlace>().OnLand += () =>
             {
@@ -39,6 +30,11 @@ namespace ItemChanger.Util
             };
 
             return grubJar;
+        }
+
+        public static GameObject MakeNewGrubJar(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType)
+        {
+            return MakeNewGrubJar(new ContainerInfo(Container.GrubJar, placement, items, flingType));
         }
 
         public static string GetGrubJarName(AbstractPlacement placement)
