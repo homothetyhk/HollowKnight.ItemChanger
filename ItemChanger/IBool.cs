@@ -113,6 +113,7 @@ namespace ItemChanger
             this.op = op;
         }
 
+        [JsonIgnore]
         public bool Value
         {
             get

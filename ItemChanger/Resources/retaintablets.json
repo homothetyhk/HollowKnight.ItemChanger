@@ -391,7 +391,12 @@
     "name": "Lore_Tablet-King's_Pass_Focus",
     "sceneName": "Tutorial_01",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.IncompatibilityWarningTag, ItemChanger",
+        "IncompatiblePlacementName": "Focus"
+      }
+    ]
   },
   "Lore_Tablet-King's_Pass_Fury": {
     "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",
@@ -427,7 +432,12 @@
     "name": "Lore_Tablet-World_Sense",
     "sceneName": "Room_Final_Boss_Atrium",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.IncompatibilityWarningTag, ItemChanger",
+        "IncompatiblePlacementName": "World_Sense"
+      }
+    ]
   },
   "Lore_Tablet-Howling_Cliffs": {
     "$type": "ItemChanger.Locations.ExistingFsmContainerLocation, ItemChanger",

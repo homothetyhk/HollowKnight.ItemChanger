@@ -211,6 +211,10 @@
         },
         "sceneName": "Room_Final_Boss_Atrium",
         "disableState": null
+      },
+      {
+        "$type": "ItemChanger.Tags.IncompatibilityWarningTag, ItemChanger",
+        "IncompatiblePlacementName": "Lore_Tablet-World_Sense"
       }
     ]
   },
@@ -452,6 +456,10 @@
         },
         "sceneName": "Tutorial_01",
         "disableState": null
+      },
+      {
+        "$type": "ItemChanger.Tags.IncompatibilityWarningTag, ItemChanger",
+        "IncompatiblePlacementName": "Lore_Tablet-King's_Pass_Focus"
       }
     ]
   },
@@ -7665,6 +7673,10 @@
         "$type": "ItemChanger.Tags.DestroyOnECLReplaceTag, ItemChanger",
         "objectPath": "Tut_tablet_top",
         "sceneName": "Tutorial_01"
+      },
+      {
+        "$type": "ItemChanger.Tags.IncompatibilityWarningTag, ItemChanger",
+        "IncompatiblePlacementName": "Focus"
       }
     ],
     "HintActive": false
@@ -7725,6 +7737,10 @@
         "$type": "ItemChanger.Tags.DestroyOnECLReplaceTag, ItemChanger",
         "objectPath": "Tut_tablet_top",
         "sceneName": "Room_Final_Boss_Atrium"
+      },
+      {
+        "$type": "ItemChanger.Tags.IncompatibilityWarningTag, ItemChanger",
+        "IncompatiblePlacementName": "World_Sense"
       }
     ],
     "HintActive": false

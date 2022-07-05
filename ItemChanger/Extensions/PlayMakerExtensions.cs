@@ -15,6 +15,20 @@
             fsm.Fsm.States = states;
         }
 
+        public static FsmState AddState(this PlayMakerFSM fsm, string name)
+        {
+            FsmState state = new(fsm.Fsm)
+            {
+                Name = name,
+                Transitions = Array.Empty<FsmTransition>(),
+                Actions = Array.Empty<FsmStateAction>(),
+            };
+
+            AddState(fsm, state);
+
+            return state;
+        }
+
         public static FsmState GetState(this PlayMakerFSM fsm, string name)
         {
             return fsm.FsmStates.FirstOrDefault(s => s.Name == name);
