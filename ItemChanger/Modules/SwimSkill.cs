@@ -60,6 +60,7 @@ namespace ItemChanger.Modules
             DamageHero dh = splash.gameObject.AddComponent<DamageHero>();
             dh.damageDealt = 1;
             dh.hazardType = (int)HazardType.ACID;
+            splash.gameObject.AddComponent<NonBouncer>();
 
             void DoActivateSwim()
             {
