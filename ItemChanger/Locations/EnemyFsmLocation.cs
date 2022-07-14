@@ -11,6 +11,7 @@ namespace ItemChanger.Locations
         public string enemyFsm;
         public string enemyObj;
         public bool removeGeo;
+        private Action _cleanupAction;
 
         protected override void OnLoad()
         {
@@ -20,6 +21,7 @@ namespace ItemChanger.Locations
         protected override void OnUnload()
         {
             Events.RemoveFsmEdit(sceneName, new(enemyObj, enemyFsm), OnEnable);
+            DoCleanup();
         }
 
         public override bool Supports(string containerType)
@@ -31,15 +33,42 @@ namespace ItemChanger.Locations
 
         public void OnEnable(PlayMakerFSM fsm)
         {
+            DoCleanup();
+
             GameObject enemy = fsm.gameObject;
             HealthManager hm = enemy.GetComponent<HealthManager>();
-            hm.OnDeath += OnDeath;
+            if (!hm.hasSpecialDeath)
+            {
+                hm.OnDeath += OnDeath;
+            }
+            else
+            {
+                On.HealthManager.Die += OnSpecialDeath;
+                _cleanupAction = () =>
+                {
+                    On.HealthManager.Die -= OnSpecialDeath;
+                };
+            }
 
             if (removeGeo)
             {
                 hm.SetGeoSmall(0);
                 hm.SetGeoMedium(0);
                 hm.SetGeoLarge(0);
+            }
+
+            void OnSpecialDeath(On.HealthManager.orig_Die orig, HealthManager self, float? attackDirection, AttackTypes attackType, bool ignoreEvasion)
+            {
+                if (self != hm || hm.isDead)
+                {
+                    orig(self, attackDirection, attackType, ignoreEvasion);
+                    return;
+                }
+                else
+                {
+                    orig(self, attackDirection, attackType, ignoreEvasion);
+                    OnDeath();
+                }
             }
 
             void OnDeath()
@@ -53,12 +82,13 @@ namespace ItemChanger.Locations
                 {
                     ShinyUtility.SetShinyFling(obj.LocateMyFSM("Shiny Control"), ShinyFling.RandomLR);
                 }
+                DoCleanup();
             }
         }
 
         private void GiveEarly(Transform t)
         {
-            Util.ItemUtility.GiveSequentially(
+            ItemUtility.GiveSequentially(
                 Placement.Items.Where(i => i.GiveEarly("Enemy")), 
                 Placement,
                 new GiveInfo 
@@ -68,6 +98,15 @@ namespace ItemChanger.Locations
                     MessageType = MessageType.Corner,
                     Transform = t,
                 });
+        }
+
+        private void DoCleanup()
+        {
+            if (_cleanupAction != null)
+            {
+                try { _cleanupAction.Invoke(); } catch { }
+                _cleanupAction = null;
+            }
         }
     }
 }
