@@ -24,8 +24,7 @@
         {
             string boolName = "killed" + playerDataName;
             string intName = "kills" + playerDataName;
-            string boolName2 = "newData" + playerDataName;
-            return PlayerData.instance.GetBool(boolName) && PlayerData.instance.GetBool(boolName2) && PlayerData.instance.GetInt(intName) <= 0;
+            return PlayerData.instance.GetBool(boolName) && PlayerData.instance.GetInt(intName) <= 0;
         }
     }
 }
