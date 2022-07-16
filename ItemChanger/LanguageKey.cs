@@ -1,4 +1,6 @@
-﻿namespace ItemChanger
+﻿using Newtonsoft.Json;
+
+namespace ItemChanger
 {
     public readonly struct LanguageKey
     {
@@ -34,6 +36,24 @@
         public override string ToString()
         {
             return Sheet == null ? Key : $"{Sheet}-{Key}";
+        }
+
+        public class LanguageKeyDictConverter<TValue> : JsonConverter<Dictionary<LanguageKey, TValue>>
+        {
+            public override Dictionary<LanguageKey, TValue> ReadJson(
+                JsonReader reader,
+                Type objectType,
+                Dictionary<LanguageKey, TValue> existingValue,
+                bool hasExistingValue,
+                JsonSerializer serializer)
+            {
+                return serializer.Deserialize<KeyValuePair<LanguageKey, TValue>[]>(reader).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            }
+
+            public override void WriteJson(JsonWriter writer, Dictionary<LanguageKey, TValue> value, JsonSerializer serializer)
+            {
+                serializer.Serialize(writer, value.ToArray());
+            }
         }
     }
 }
