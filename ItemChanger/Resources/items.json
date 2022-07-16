@@ -2723,7 +2723,7 @@
     "obtainState": "Unobtained"
   },
   "Lumafly_Lantern": {
-    "$type": "ItemChanger.Items.BoolItem, ItemChanger",
+    "$type": "ItemChanger.Items.LumaflyLanternItem, ItemChanger",
     "fieldName": "hasLantern",
     "setValue": true,
     "name": "Lumafly_Lantern",
