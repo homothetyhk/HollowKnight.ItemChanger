@@ -10,22 +10,76 @@ namespace ItemChanger.Internal
         private readonly Assembly _assembly;
         private readonly Dictionary<string, string> _resourcePaths;
         private readonly Dictionary<string, Sprite> _cachedSprites = new();
+        private readonly Info _info;
+
+        public class Info
+        {
+            public Dictionary<string, float> overridePPUs;
+            public Dictionary<string, FilterMode> overrideFilterModes;
+            public FilterMode defaultFilterMode = FilterMode.Bilinear;
+            public float defaultPixelsPerUnit = 100f;
+
+            public virtual float GetPixelsPerUnit(string name) 
+            {
+                if (overridePPUs != null && overridePPUs.TryGetValue(name, out float ppu)) return ppu;
+                return defaultPixelsPerUnit;
+            }
+
+            public virtual FilterMode GetFilterMode(string name)
+            {
+                if (overrideFilterModes != null && overrideFilterModes.TryGetValue(name, out FilterMode mode)) return mode;
+                return defaultFilterMode;
+            }
+        }
 
         /// <summary>
         /// The SpriteManager with access to embedded ItemChanger pngs, constructed with the ItemChanger assembly and prefix "ItemChanger.Resources."
         /// </summary>
-        public static SpriteManager Instance { get; } = new(typeof(SpriteManager).Assembly, "ItemChanger.Resources.");
+        public static SpriteManager Instance { get; } = new(
+            typeof(SpriteManager).Assembly,
+            "ItemChanger.Resources.",
+            new Info()
+            {
+                defaultFilterMode = FilterMode.Bilinear,
+                defaultPixelsPerUnit = 100f,
+                overridePPUs = new()
+                {
+                    { "ShopIcons.BenchPin", 64f },
+                    { "ShopIcons.CocoonPin", 64f },
+                    { "ShopIcons.DreamWarriorPin", 64f },
+                    { "ShopIcons.HotSpringPin", 64f },
+                    { "ShopIcons.StagPin", 64f },
+                    { "ShopIcons.TramPin", 64f },
+                    { "ShopIcons.VendorPin", 64f },
+                    { "ShopIcons.WhisperingRootPin", 64f },
+
+                    { "ShopIcons.Marker_B", 64f },
+                    { "ShopIcons.Marker_R", 64f },
+                    { "ShopIcons.Marker_W", 64f },
+                    { "ShopIcons.Marker_Y", 64f },
+
+                    { "ShopIcons.Geo", 64f },
+                },
+            });
+
+        /// <summary>
+        /// Creates a SpriteManager to lazily load and cache Sprites from the embedded png files in the specified assembly.
+        /// <br/>Only filepaths with the matching prefix are considered, and the prefix is removed to determine sprite names (e.g. "ItemChangerMod.Resources." is the prefix for Instance).
+        /// <br/>Images will be loaded with default Bilinear filter mode and 100 pixels per unit.
+        /// </summary>
+        public SpriteManager(Assembly a, string resourcePrefix) : this(a, resourcePrefix, new()) { }
 
         /// <summary>
         /// Creates a SpriteManager to lazily load and cache Sprites from the embedded png files in the specified assembly.
         /// <br/>Only filepaths with the matching prefix are considered, and the prefix is removed to determine sprite names (e.g. "ItemChangerMod.Resources." is the prefix for Instance).
         /// </summary>
-        public SpriteManager(Assembly a, string resourcePrefix)
+        public SpriteManager(Assembly a, string resourcePrefix, Info info)
         {
             _assembly = a;
             _resourcePaths = a.GetManifestResourceNames()
                 .Where(n => n.EndsWith(".png") && n.StartsWith(resourcePrefix))
                 .ToDictionary(n => n.Substring(resourcePrefix.Length, n.Length - resourcePrefix.Length - ".png".Length));
+            _info = info;
         }
 
         /// <summary>
@@ -39,7 +93,7 @@ namespace ItemChanger.Internal
             else if (_resourcePaths.TryGetValue(name, out string path))
             {
                 using Stream s = _assembly.GetManifestResourceStream(path);
-                return _cachedSprites[name] = Load(s);
+                return _cachedSprites[name] = Load(ToArray(s), _info.GetFilterMode(name), _info.GetPixelsPerUnit(name));
             }
             else
             {
@@ -61,10 +115,15 @@ namespace ItemChanger.Internal
         /// </summary>
         public static Sprite Load(byte[] data, FilterMode filterMode)
         {
+            return Load(data, filterMode, 100f);
+        }
+
+        public static Sprite Load(byte[] data, FilterMode filterMode, float pixelsPerUnit)
+        {
             Texture2D tex = new(1, 1, TextureFormat.RGBA32, false);
             tex.LoadImage(data, markNonReadable: true);
             tex.filterMode = filterMode;
-            return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
+            return Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f), pixelsPerUnit);
         }
 
         private static byte[] ToArray(Stream s)

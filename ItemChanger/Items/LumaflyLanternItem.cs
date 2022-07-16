@@ -9,6 +9,8 @@
         {
             base.GiveImmediate(info);
 
+            if (!Internal.Ref.GM || !Internal.Ref.HC || !Internal.Ref.GM.sm) return;
+
             SceneManager sm = Internal.Ref.GM.sm;
 
             if (sm.darknessLevel == 2)
