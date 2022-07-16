@@ -285,9 +285,15 @@ namespace ItemChanger.Util
         {
             FsmState idle = shinyFsm.GetState("Idle");
             FsmState charm = shinyFsm.GetState("Charm?");
-            FsmState yesState = shinyFsm.GetState(charm.Transitions[0].ToState);
+            FsmState resumeState = shinyFsm.GetState(charm.Transitions[0].ToState);
 
+            FsmState noState = shinyFsm.AddState("YN No");
+            FsmState yesState = shinyFsm.AddState("YN Yes");
+            FsmState giveControl = shinyFsm.AddState("YN Give Control");
+            FsmState damageState = shinyFsm.AddState("YN Damaged");
 
+            Lambda closeYNDialogue = new(YNUtil.CloseYNDialogue);
+            Lambda endInspect = new(() => PlayMakerFSM.BroadcastEvent("END INSPECT"));
             Tk2dPlayAnimationWithEvents heroUp = new()
             {
                 gameObject = new FsmOwnerDefault
@@ -299,53 +305,32 @@ namespace ItemChanger.Util
                 animationTriggerEvent = null,
                 animationCompleteEvent = FsmEvent.Finished
             };
-            Lambda closeYNDialogue = new(YNUtil.CloseYNDialogue);
-            Lambda endInspect = new(() => PlayMakerFSM.BroadcastEvent("END INSPECT"));
 
+            noState.AddTransition(FsmEvent.Finished, giveControl);
+            noState.AddTransition(FsmEvent.GetFsmEvent("HERO DAMAGED"), giveControl);
+            noState.AddLastAction(closeYNDialogue);
+            noState.AddLastAction(heroUp);
 
-            FsmState giveControl = new(shinyFsm.Fsm)
-            {
-                Name = "Give Control",
-                Transitions = new FsmTransition[] { new() { FsmEvent = FsmEvent.Finished, ToFsmState = idle, ToState = idle.Name } },
-                Actions = new FsmStateAction[] { endInspect },
-            };
+            yesState.AddLastAction(closeYNDialogue);
+            yesState.AddLastAction(new Lambda(cost.Pay));
+            yesState.AddTransition(FsmEvent.Finished, resumeState);
 
-            FsmState noState = new(shinyFsm.Fsm)
-            {
-                Name = "YN No",
-                Transitions = new FsmTransition[] 
-                { 
-                    new() { FsmEvent = FsmEvent.Finished, ToFsmState = giveControl, ToState = giveControl.Name },
-                    new() { FsmEvent = FsmEvent.GetFsmEvent("HERO DAMAGED"), ToFsmState = giveControl, ToState = giveControl.Name }
-                },
-                Actions = new FsmStateAction[] { closeYNDialogue, heroUp },
-            };
+            giveControl.AddLastAction(endInspect);
+            giveControl.AddTransition(FsmEvent.Finished, idle);
 
             // For some reason playing the animation doesn't work if we come here from being damaged, locking us in the
             // YN No state. I think just having a separate state to come from if we were damaged is the simplest fix.
-            FsmState damageState = new(shinyFsm.Fsm)
-            {
-                Name = "YN Damaged",
-                Transitions = new FsmTransition[] { new() { FsmEvent = FsmEvent.Finished, ToFsmState = giveControl, ToState = giveControl.Name } },
-                Actions = new FsmStateAction[] { closeYNDialogue },
-            };
-
-
-            shinyFsm.AddState(noState);
-            shinyFsm.AddState(giveControl);
-            shinyFsm.AddState(damageState);
+            damageState.AddLastAction(closeYNDialogue);
+            damageState.AddTransition(FsmEvent.Finished, giveControl);
 
             charm.ClearTransitions();
-
             charm.AddTransition("HERO DAMAGED", damageState);
             charm.AddTransition("NO", noState);
             charm.AddTransition("YES", yesState);
-
-            yesState.AddFirstAction(new Lambda(cost.Pay));
-            yesState.AddFirstAction(closeYNDialogue);
+            charm.AddTransition("FREE", resumeState);
 
             charm.AddFirstAction(new Lambda(() => YNUtil.OpenYNDialogue(shinyFsm.gameObject, placement, items, cost)));
-            charm.AddFirstAction(new DelegateBoolTest(() => cost is null || cost.Paid, "YES", null)); // skip yn dialogue when there is no cost
+            charm.AddFirstAction(new DelegateBoolTest(() => cost is null || cost.Paid, "FREE", null)); // skip yn dialogue when there is no cost
         }
     }
 }
