@@ -5,9 +5,10 @@ namespace ItemChanger.Modules
     /// <summary>
     /// Module for packaging language edits with an ItemChanger save.
     /// </summary>
+    [DefaultModule]
     public class LanguageEditModule : Module
     {
-        public Dictionary<LanguageKey, LanguageEdit> languageEdits = new();
+        [JsonConverter(typeof(LanguageEditDictConverter))] public Dictionary<LanguageKey, LanguageEdit> languageEdits = new();
 
         public override void Initialize()
         {
@@ -53,7 +54,7 @@ namespace ItemChanger.Modules
             /// </summary>
             public bool IgnoreExistingOverrides { get; init; }
 
-            public LanguageKey LanguageKey { get => new(Sheet, Key); }
+            [JsonIgnore] public LanguageKey LanguageKey { get => new(Sheet, Key); }
 
             public void Hook()
             {
