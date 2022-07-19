@@ -6374,7 +6374,7 @@
     "Test": {
       "$type": "ItemChanger.SDBool, ItemChanger",
       "id": "Battle Scene v2",
-      "sceneName": "Ruins1_31b"
+      "sceneName": "Ruins1_31"
     },
     "falseLocation": {
       "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",
