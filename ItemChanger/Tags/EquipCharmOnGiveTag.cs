@@ -10,9 +10,17 @@
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             Items.CharmItem charm = (Items.CharmItem)parent;
             charmNum = charm.charmNum;
             charm.AfterGive += AfterGiveItem;
+        }
+
+        public override void Unload(object parent)
+        {
+            base.Unload(parent);
+            Items.CharmItem charm = (Items.CharmItem)parent;
+            charm.AfterGive -= AfterGiveItem;
         }
 
         public void AfterGiveItem(ReadOnlyGiveEventArgs args)

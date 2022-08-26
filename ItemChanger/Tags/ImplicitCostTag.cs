@@ -13,11 +13,13 @@
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             Cost?.Load();
         }
 
         public override void Unload(object parent)
         {
+            base.Unload(parent);
             Cost?.Unload();
         }
     }

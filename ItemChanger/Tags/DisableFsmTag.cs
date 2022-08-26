@@ -14,12 +14,14 @@ namespace ItemChanger.Tags
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             if (sceneName == null) Events.AddFsmEdit(id, Disable);
             else Events.AddFsmEdit(sceneName, id, Disable);
         }
 
         public override void Unload(object parent)
         {
+            base.Unload(parent);
             if (sceneName == null) Events.RemoveFsmEdit(id, Disable);
             else Events.RemoveFsmEdit(sceneName, id, Disable);
         }

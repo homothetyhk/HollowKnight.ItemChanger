@@ -10,6 +10,7 @@
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             PlayerData.instance.SetBool(boolName, value);
         }
     }

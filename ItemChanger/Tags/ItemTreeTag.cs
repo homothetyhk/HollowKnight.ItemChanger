@@ -18,12 +18,14 @@
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             AbstractItem item = (AbstractItem)parent;
             item.ModifyItem += ModifyItem;
         }
 
         public override void Unload(object parent)
         {
+            base.Unload(parent);
             AbstractItem item = (AbstractItem)parent;
             item.ModifyItem -= ModifyItem;
         }

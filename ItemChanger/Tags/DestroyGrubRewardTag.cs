@@ -11,11 +11,13 @@ namespace ItemChanger.Tags
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             Events.AddSceneChangeEdit(SceneNames.Crossroads_38, DestroyGrubRewards);
         }
 
         public override void Unload(object parent)
         {
+            base.Unload(parent);
             Events.RemoveSceneChangeEdit(SceneNames.Crossroads_38, DestroyGrubRewards);
         }
 

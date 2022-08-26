@@ -10,12 +10,14 @@ namespace ItemChanger.Tags
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             ModHooks.GetPlayerBoolHook += GetPlayerBoolHook;
             if (overrideSet) ModHooks.SetPlayerBoolHook += SetPlayerBoolHook;
         }
 
         public override void Unload(object parent)
         {
+            base.Unload(parent);
             ModHooks.GetPlayerBoolHook -= GetPlayerBoolHook;
             if (overrideSet) ModHooks.SetPlayerBoolHook -= SetPlayerBoolHook;
         }

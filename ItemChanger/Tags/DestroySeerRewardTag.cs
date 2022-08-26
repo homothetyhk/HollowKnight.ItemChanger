@@ -9,6 +9,7 @@
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             for (int i = 0; i < 5; i++)
             {
                 if ((destroyRewards & (SeerRewards)(1 << i)) != 0) PlayerData.instance.SetBool($"dreamReward{i + 1}", true);
@@ -22,7 +23,7 @@
 
         public override void Unload(object parent)
         {
-            
+            base.Unload(parent);
         }
 
     }

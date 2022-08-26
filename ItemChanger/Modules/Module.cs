@@ -8,6 +8,48 @@
         public string Name => GetType().Name;
         public abstract void Initialize();
         public abstract void Unload();
+
+        /// <summary>
+        /// Initializes the module and sets the Loaded property. If the module is already loaded, does nothing.
+        /// <br/>Preferred to "Initialize", which does not set the Loaded property.
+        /// </summary>
+        public void LoadOnce()
+        {
+            if (!Loaded)
+            {
+                try
+                {
+                    Initialize();
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error initializing module {Name}:\n{e}");
+                }
+                Loaded = true;
+            }
+        }
+
+        /// <summary>
+        /// Unloads the module and sets the Loaded property. If the module is not loaded, does nothing.
+        /// <br/>Preferred to "Unload", which does not set the Loaded property.
+        /// </summary>
+        public void UnloadOnce()
+        {
+            if (Loaded)
+            {
+                try
+                {
+                    Unload();
+                }
+                catch (Exception e)
+                {
+                    LogError($"Error unloading module {Name}:\n{e}");
+                }
+                Loaded = false;
+            }
+        }
+
+        public bool Loaded { get; private set; }
     }
 
     /// <summary>

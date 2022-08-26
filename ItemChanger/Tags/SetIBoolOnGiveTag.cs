@@ -11,6 +11,7 @@
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             if (parent is AbstractItem item)
             {
                 item.OnGive += OnGive;
@@ -27,6 +28,7 @@
 
         public override void Unload(object parent)
         {
+            base.Unload(parent);
             if (parent is AbstractItem item)
             {
                 item.OnGive -= OnGive;

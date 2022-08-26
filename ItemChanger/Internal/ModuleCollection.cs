@@ -10,31 +10,17 @@ namespace ItemChanger.Internal
 
         public void Initialize()
         {
-            foreach (Module m in Modules)
+            for (int i = 0; i < Modules.Count; i++)
             {
-                try
-                {
-                    m.Initialize();
-                }
-                catch (Exception e)
-                {
-                    LogError($"Error initializing module {m.Name}:\n{e}");
-                }
+                Modules[i].LoadOnce();
             }
         }
 
         public void Unload()
         {
-            foreach (Module m in Modules)
+            for (int i = 0; i < Modules.Count; i++)
             {
-                try
-                {
-                    m.Unload();
-                }
-                catch (Exception e)
-                {
-                    LogError($"Error unloading module {m.Name}:\n{e}");
-                }
+                Modules[i].UnloadOnce();
             }
         }
 
@@ -42,7 +28,7 @@ namespace ItemChanger.Internal
         {
             if (m == null) throw new ArgumentNullException(nameof(m));
             Modules.Add(m);
-            if (Settings.loaded) m.Initialize();
+            if (Settings.loaded) m.LoadOnce();
             return m;
         }
 
@@ -90,7 +76,7 @@ namespace ItemChanger.Internal
 
         public void Remove(Module m)
         {
-            if (Modules.Remove(m) && Settings.loaded) m.Unload();
+            if (Modules.Remove(m) && Settings.loaded) m.UnloadOnce();
         }
 
         public void Remove<T>()
@@ -100,6 +86,10 @@ namespace ItemChanger.Internal
 
         public void Remove(Type T)
         {
+            if (Settings.loaded)
+            {
+                foreach (Module m in Modules.Where(m => m.GetType() == T)) m.UnloadOnce();
+            }
             Modules.RemoveAll(m => m.GetType() == T);
         }
 

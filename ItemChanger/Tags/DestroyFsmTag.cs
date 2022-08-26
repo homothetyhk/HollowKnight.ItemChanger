@@ -10,12 +10,14 @@
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             if (sceneName == null) Events.AddFsmEdit(id, Destroy);
             else Events.AddFsmEdit(sceneName, id, Destroy);
         }
 
         public override void Unload(object parent)
         {
+            base.Unload(parent);
             if (sceneName == null) Events.RemoveFsmEdit(id, Destroy);
             else Events.RemoveFsmEdit(sceneName, id, Destroy);
         }

@@ -12,12 +12,14 @@ namespace ItemChanger.Tags
 
         public override void Load(object parent)
         {
+            base.Load(parent);
             location = (ExistingContainerLocation)parent;
             Events.AddSceneChangeEdit(sceneName, OnSceneChange);
         }
 
         public override void Unload(object parent)
         {
+            base.Unload(parent);
             Events.RemoveSceneChangeEdit(sceneName, OnSceneChange);
         }
 

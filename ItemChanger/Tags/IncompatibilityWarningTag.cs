@@ -8,6 +8,7 @@
         public string IncompatiblePlacementName;
         public override void Load(object parent)
         {
+            base.Load(parent);
             string parentPlacementName = parent switch
             {
                 AbstractPlacement parentPlacement => parentPlacement.Name,
