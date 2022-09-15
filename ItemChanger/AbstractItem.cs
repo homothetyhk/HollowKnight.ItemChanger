@@ -153,6 +153,14 @@ namespace ItemChanger
                 }
             }
             else info.Callback?.Invoke(item);
+            
+            if (placement.HasTag<CostTag>())
+            {
+                if (placement.GetTag<CostTag>().Cost.IsRecurringCost)
+                {
+                    obtainState = ObtainState.Unobtained;
+                }
+            }
         }
 
         /// <summary>
