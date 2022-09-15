@@ -16,7 +16,7 @@ namespace ItemChanger
         /// <summary>
         /// Pays the cost, performing any effects and setting the cost to Paid.
         /// </summary>
-        public void Pay()
+        public virtual void Pay()
         {
             OnPay();
             Paid = true;
