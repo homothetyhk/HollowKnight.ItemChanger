@@ -16,10 +16,13 @@ namespace ItemChanger
         /// <summary>
         /// Pays the cost, performing any effects and setting the cost to Paid.
         /// </summary>
-        public void Pay()
+        public virtual void Pay()
         {
             OnPay();
-            Paid = true;
+            if (IsRecurringCost)
+            {
+                Paid = true;
+            }
         }
 
         /// <summary>
@@ -28,9 +31,14 @@ namespace ItemChanger
         public abstract void OnPay();
 
         /// <summary>
-        /// Represents whether the cost has been paid yet. Paid costs will be subsequently ignored.
+        /// Represents whether the cost has been paid yet. Paid costs will be subsequently ignored depending on IsRecurringCost.
         /// </summary>
         public bool Paid { get; set; }
+        
+        /// <summary>
+        /// Decides whether or not paid costs will be subsequently ignored.
+        /// </summary>
+        public bool IsRecurringCost { get; set; }
 
         /// <summary>
         /// A number between 0 and 1 which modifies numeric costs. Only considered by some costs.
