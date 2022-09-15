@@ -116,11 +116,8 @@ namespace ItemChanger
 
             GiveEventArgs giveArgs = new GiveEventArgs(this, this, placement, info, originalState);
             ResolveItem(giveArgs);
-
-            if (!placement.GetTag<CostTag>().Cost.IsRecurringCost)
-            {
-                SetObtained();
-            }
+            
+            SetObtained();
             placement.OnObtainedItem(this);
 
             AbstractItem item = giveArgs.Item;
@@ -156,6 +153,14 @@ namespace ItemChanger
                 }
             }
             else info.Callback?.Invoke(item);
+
+            if (placement.HasTag<CostTag>())
+            {
+                if (placement.GetTag<CostTag>().Cost.IsRecurringCost)
+                {
+                    obtainState = ObtainState.Unobtained;
+                }
+            }
         }
 
         /// <summary>
