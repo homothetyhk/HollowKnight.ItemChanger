@@ -49,6 +49,7 @@
             }
         }
 
+        [Newtonsoft.Json.JsonIgnore]
         public bool Loaded { get; private set; }
     }
 

@@ -61,6 +61,7 @@ namespace ItemChanger
                 ShopUtil.UnhookShops();
                 StartDef.Unhook();
                 Events.Unhook();
+                MessageController.Clear();
             }
             catch (Exception e)
             {

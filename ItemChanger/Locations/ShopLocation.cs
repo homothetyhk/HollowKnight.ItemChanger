@@ -444,9 +444,6 @@ namespace ItemChanger.Locations
             return new ShopPlacement(name)
             {
                 Location = this,
-                defaultShopItems = DefaultShopItems.None,
-                dungDiscount = sceneName == SceneNames.Fungus2_26,
-                requiredPlayerDataBool = name == "Sly_(Key)" ? nameof(PlayerData.gaveSlykey) : string.Empty,
             };
         }
     }

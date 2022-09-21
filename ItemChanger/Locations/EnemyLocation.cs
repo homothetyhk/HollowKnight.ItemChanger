@@ -71,17 +71,36 @@ namespace ItemChanger.Locations
 
             void OnDeath()
             {
-                GiveEarly(enemy.transform);
-                Placement.AddVisitFlag(VisitState.Dropped);
-                GetContainer(out GameObject obj, out string containerType);
-                Container c = Container.GetContainer(containerType);
-                c.ApplyTargetContext(obj, enemy.transform.position.x, enemy.transform.position.y, 0);
-                if (containerType == Container.Shiny && !Placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().Any())
+                if (flingType == FlingType.DirectDeposit)
                 {
-                    ShinyUtility.SetShinyFling(obj.LocateMyFSM("Shiny Control"), ShinyFling.RandomLR);
+                    GiveDirectly(enemy.transform);
+                    Placement.AddVisitFlag(VisitState.Dropped);
+                }
+                else
+                {
+                    GiveEarly(enemy.transform);
+                    Placement.AddVisitFlag(VisitState.Dropped);
+                    GetContainer(out GameObject obj, out string containerType);
+                    Container c = Container.GetContainer(containerType);
+                    c.ApplyTargetContext(obj, enemy.transform.position.x, enemy.transform.position.y, 0);
+                    if (containerType == Container.Shiny && !Placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().Any())
+                    {
+                        ShinyUtility.SetShinyFling(obj.LocateMyFSM("Shiny Control"), ShinyFling.RandomLR);
+                    }
                 }
                 DoCleanup();
             }
+        }
+
+        private void GiveDirectly(Transform t)
+        {
+            ItemUtility.GiveSequentially(Placement.Items, Placement, new GiveInfo
+            {
+                Container = "Enemy",
+                FlingType = flingType,
+                MessageType = MessageType.Corner,
+                Transform = t,
+            });
         }
 
         private void GiveEarly(Transform t)

@@ -46,5 +46,10 @@ namespace ItemChanger.Internal
             instance = obj.AddComponent<MessageController>();
             DontDestroyOnLoad(obj);
         }
+
+        internal static void Clear()
+        {
+            instance.messages.Clear();
+        }
     }
 }
