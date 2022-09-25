@@ -19,7 +19,8 @@ namespace ItemChanger
         public void Pay()
         {
             OnPay();
-            Paid = true;
+            if (!Recurring) Paid = true;
+            AfterPay();
         }
 
         /// <summary>
@@ -28,9 +29,20 @@ namespace ItemChanger
         public abstract void OnPay();
 
         /// <summary>
+        /// Method for any effects which should take place after the cost has been paid (e.g. conditionally setting Paid, etc).
+        /// </summary>
+        public virtual void AfterPay() { }
+
+        /// <summary>
         /// Represents whether the cost has been paid yet. Paid costs will be subsequently ignored.
         /// </summary>
         public bool Paid { get; set; }
+
+        /// <summary>
+        /// If true, the cost will not set the value of Paid during Pay. Use for costs which are expected to be paid multiple times.
+        /// <br/>Note that Paid can still be set independently to indicate when the cost should no longer be required.
+        /// </summary>
+        public virtual bool Recurring { get; set; }
 
         /// <summary>
         /// A number between 0 and 1 which modifies numeric costs. Only considered by some costs.
