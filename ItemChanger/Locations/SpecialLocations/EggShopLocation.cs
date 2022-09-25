@@ -12,6 +12,7 @@
             return new Placements.EggShopPlacement(name)
             {
                 Location = location,
+                tags = tags,
             };
         }
 

@@ -27,6 +27,7 @@
                 Test = Test,
                 falseLocation = falseLocation,
                 trueLocation = trueLocation,   
+                tags = tags,
             };
         }
     }

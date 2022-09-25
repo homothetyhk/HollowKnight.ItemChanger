@@ -16,6 +16,7 @@ namespace ItemChanger.Locations.SpecialLocations
             {
                 chestLocation = chestLocation,
                 tabletLocation = tabletLocation,
+                tags = tags,
             };
         }
 
