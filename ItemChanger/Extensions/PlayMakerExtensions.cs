@@ -40,6 +40,7 @@
             actions[0] = action;
             state.Actions.CopyTo(actions, 1);
             state.Actions = actions;
+            action.Init(state);
         }
 
         public static void AddLastAction(this FsmState state, FsmStateAction action)
@@ -48,6 +49,7 @@
             actions[state.Actions.Length] = action;
             state.Actions.CopyTo(actions, 0);
             state.Actions = actions;
+            action.Init(state);
         }
 
         public static void InsertAction(this FsmState state, FsmStateAction action, int index)
@@ -60,6 +62,7 @@
             }
             actions[index] = action;
             state.Actions = actions;
+            action.Init(state);
         }
 
         public static void RemoveAction(this FsmState state, int index)
