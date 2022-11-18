@@ -74,31 +74,29 @@ namespace ItemChanger.Containers
                 {
                     Name = "Depleted",
                     Transitions = Array.Empty<FsmTransition>(),
-                    Actions = new FsmStateAction[]
-                    {
-                        new SetCollider{ gameObject = self, active = false, },
-                        new DestroyObject{ gameObject = emitter, delay = 0, detachChildren = false, },
-                        new DestroyObject{ gameObject = glower, delay = 0, detachChildren = false, },
-                        new ActivateGameObject{ gameObject = emitterOwnerDefault, activate = false, recursive = false, resetOnExit = false, everyFrame = false },
-                        new SetBoolValue{ boolVariable = activated, boolValue = true, everyFrame = false },
-                        new SetParticleEmission{ gameObject = emitterOwnerDefault, emission = false },
-                        new GetDistance{ gameObject = self, target = hero,  },
-                        far.GetFirstActionOfType<GetMaterialColor>(),
-                        far.GetFirstActionOfType<EaseColor>(),
-                        far.GetFirstActionOfType<SetMaterialColor>(),
-                    },
                 };
+                depleted.SetActions(
+                    new SetCollider { gameObject = self, active = false, },
+                    new DestroyObject { gameObject = emitter, delay = 0, detachChildren = false, },
+                    new DestroyObject { gameObject = glower, delay = 0, detachChildren = false, },
+                    new ActivateGameObject { gameObject = emitterOwnerDefault, activate = false, recursive = false, resetOnExit = false, everyFrame = false },
+                    new SetBoolValue { boolVariable = activated, boolValue = true, everyFrame = false },
+                    new SetParticleEmission { gameObject = emitterOwnerDefault, emission = false },
+                    new GetDistance { gameObject = self, target = hero, },
+                    far.GetFirstActionOfType<GetMaterialColor>(),
+                    far.GetFirstActionOfType<EaseColor>(),
+                    far.GetFirstActionOfType<SetMaterialColor>()
+                );
                 fsm.AddState(depleted);
 
                 FsmState meshRendererOff = new(fsm.Fsm)
                 {
                     Name = "Mesh Renderer Off",
                     Transitions = new[] { new FsmTransition { FsmEvent = FsmEvent.Finished, ToFsmState = depleted, ToState = depleted.Name } },
-                    Actions = new FsmStateAction[]
-                    {
-                        new SetSpriteRenderer{ gameObject = self, active = false },
-                    },
                 };
+                meshRendererOff.SetActions(
+                    new SetSpriteRenderer { gameObject = self, active = false }
+                );
                 fsm.AddState(meshRendererOff);
 
                 init.AddTransition(FsmEvent.GetFsmEvent("DEPLETED"), meshRendererOff);
@@ -126,11 +124,10 @@ namespace ItemChanger.Containers
             {
                 Name = "Give Items",
                 Transitions = new[] { new FsmTransition { FsmEvent = FsmEvent.Finished, ToFsmState = hit, ToState = hit.Name, } },
-                Actions = new FsmStateAction[]
-                {
-                    new Lambda(InstantiateShiniesAndGiveEarly),
-                },
             };
+            giveItems.SetActions(
+                new Lambda(InstantiateShiniesAndGiveEarly)
+            );
             fsm.AddState(giveItems);
             checkIfNail.Transitions.First(t => t.EventName == "DAMAGED").SetToState(giveItems);
 
@@ -169,12 +166,11 @@ namespace ItemChanger.Containers
                 var ic = hit.GetFirstActionOfType<IntCompare>();
                 var w = hit.GetFirstActionOfType<Wait>();
 
-                hit.Actions = new FsmStateAction[]
-                {
+                hit.SetActions(
                     aposs, smc, sofgp0, sofgp1, sebn,
                     new DelegateBoolTest(() => value.Value <= 0, FsmEvent.GetFsmEvent("DEPLETED"), null),
                     fofgp, sp, io, ic, w
-                };
+                );
             }
 
             bool DepletedTest()

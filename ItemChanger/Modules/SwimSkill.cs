@@ -66,7 +66,7 @@ namespace ItemChanger.Modules
             checkSwim.AddTransition("SWIM", bigSplash);
             checkSwim.AddTransition("DAMAGE", damageHero);
 
-            damageHero.Actions = fsm.GetState("Splash In Norm").Actions.Where(a => a is not SetPosition).ToArray(); // play splash audio and fling splash particles
+            damageHero.SetActions(fsm.GetState("Splash In Norm").Actions.Where(a => a is not SetPosition).ToArray()); // play splash audio and fling splash particles
             damageHero.AddLastAction(new Lambda(() => HeroController.instance.TakeDamage(fsm.gameObject, CollisionSide.bottom, 1, 2)));
             damageHero.AddTransition(FsmEvent.Finished, idle);
         }

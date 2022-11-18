@@ -26,7 +26,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (!fsm.gameObject.name.StartsWith("Corpse Big Fly Burster")) return;
 
             FsmState geo = fsm.GetState("Geo");
-            if (removeGeo) geo.Actions = new FsmStateAction[0];
+            if (removeGeo) geo.ClearActions();
             geo.AddLastAction(new Lambda(() => PlaceContainer(fsm.gameObject)));
         }
 

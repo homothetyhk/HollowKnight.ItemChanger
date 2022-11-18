@@ -25,12 +25,11 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState give = fsm.GetState("Give");
             FsmState end = fsm.GetState("End");
 
-            convo.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)convo.Actions[0]);
+            convo.ReplaceAction(new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)convo.Actions[0]), 0);
 
-            give.Actions = new FsmStateAction[]
-            {
-                    new AsyncLambda(GiveAll),
-            };
+            give.SetActions(
+                new AsyncLambda(GiveAll)
+            );
 
             end.AddFirstAction(new ChangeSceneAction("Town", "door_sly"));
         }

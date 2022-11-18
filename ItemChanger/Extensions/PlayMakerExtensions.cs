@@ -21,9 +21,8 @@
             {
                 Name = name,
                 Transitions = Array.Empty<FsmTransition>(),
-                Actions = Array.Empty<FsmStateAction>(),
             };
-
+            state.ClearActions();
             AddState(fsm, state);
 
             return state;
@@ -40,6 +39,7 @@
             actions[0] = action;
             state.Actions.CopyTo(actions, 1);
             state.Actions = actions;
+            action.Init(state);
         }
 
         public static void AddLastAction(this FsmState state, FsmStateAction action)
@@ -48,6 +48,7 @@
             actions[state.Actions.Length] = action;
             state.Actions.CopyTo(actions, 0);
             state.Actions = actions;
+            action.Init(state);
         }
 
         public static void InsertAction(this FsmState state, FsmStateAction action, int index)
@@ -60,6 +61,7 @@
             }
             actions[index] = action;
             state.Actions = actions;
+            action.Init(state);
         }
 
         public static void RemoveAction(this FsmState state, int index)
@@ -73,7 +75,22 @@
             state.Actions = actions;
         }
 
-        public static void ClearActions(this FsmState state) => state.Actions = Array.Empty<FsmStateAction>();
+        public static void ReplaceAction(this FsmState state, FsmStateAction action, int index)
+        {
+            state.Actions[index] = action;
+            action.Init(state);
+        }
+
+        public static void ClearActions(this FsmState state) => state.SetActions(Array.Empty<FsmStateAction>());
+
+        public static void SetActions(this FsmState state, params FsmStateAction[] actions)
+        {
+            state.Actions = actions;
+            for (int i = 0; i < actions.Length; i++)
+            {
+                actions[i].Init(state);
+            }
+        }
 
         public static void RemoveActionsOfType<T>(this FsmState state) where T : FsmStateAction
         {

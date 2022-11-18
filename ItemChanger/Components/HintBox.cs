@@ -59,7 +59,7 @@ namespace ItemChanger.Components
             display = GameObject.Instantiate(prefab).LocateMyFSM("Display");
             display.GetState("Init").RemoveActionsOfType<SetGameObject>();
             display.GetState("Check Convo").RemoveActionsOfType<StringCompare>();
-            display.GetState("Set Convo").Actions = new FsmStateAction[0];
+            display.GetState("Set Convo").ClearActions();
         }
 
         public void Update()

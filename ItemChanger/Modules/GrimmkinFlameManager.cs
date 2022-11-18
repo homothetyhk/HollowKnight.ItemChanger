@@ -76,7 +76,7 @@ namespace ItemChanger.Modules
             int i = Array.FindIndex(levelUpTo2.Actions, a => a is SetPlayerDataInt spdi && spdi.intName.Value == "flamesCollected");
             if (i >= 0)
             {
-                levelUpTo2.Actions[i] = new Lambda(PayGrimmUpgrade);
+                levelUpTo2.ReplaceAction(new Lambda(PayGrimmUpgrade), i);
             }
         }
 
@@ -87,7 +87,7 @@ namespace ItemChanger.Modules
             int i = Array.FindIndex(levelUpTo3.Actions, a => a is SetPlayerDataInt spdi && spdi.intName.Value == "flamesCollected");
             if (i >= 0)
             {
-                levelUpTo3.Actions[i] = new Lambda(PayGrimmUpgrade);
+                levelUpTo3.ReplaceAction(new Lambda(PayGrimmUpgrade), i);
             }
         }
 

@@ -57,18 +57,16 @@ namespace ItemChanger.Locations.SpecialLocations
                 new(){ FsmEvent = FsmEvent.Finished, ToFsmState = eggMax, ToState = eggMax.Name },
             };
 
-            convoChoice.Actions = new FsmStateAction[]
-            {
+            convoChoice.SetActions(
                 new SetBoolValue{ boolVariable = fsm.FsmVariables.FindFsmBool("Give Egg"), boolValue = false },
-                new DelegateBoolTest(ShouldGiveItem, FsmEvent.GetFsmEvent("DUNG"), null),
-            };
+                new DelegateBoolTest(ShouldGiveItem, FsmEvent.GetFsmEvent("DUNG"), null)
+            );
 
             dung.AddLastAction(new Lambda(() => Placement.AddVisitFlag(VisitState.Accepted)));
 
-            give.Actions = new FsmStateAction[]
-            {
-                new Lambda(() => FlingShiny(fsm.FsmVariables.FindFsmGameObject("Egg Spawn").Value.transform.position)),
-            };
+            give.SetActions(
+                new Lambda(() => FlingShiny(fsm.FsmVariables.FindFsmGameObject("Egg Spawn").Value.transform.position))
+            );
         }
 
         private void FlingShiny(Vector3 init)

@@ -255,15 +255,14 @@ namespace ItemChanger.Locations
             Lambda addIntToConfirm = new Lambda(AddIntToConfirm);
 
             init.AddLastAction(resetSprites);
-            getDetailsInit.Actions = new[] { setName, setSprite };
-            getDetails.Actions = new[] { setName };
-            charmsRequiredInit.Actions = new[] { setDesc };
-            charmsRequired.Actions = new[] { setDesc };
+            getDetailsInit.SetActions(setName, setSprite);
+            getDetails.SetActions(setName);
+            charmsRequiredInit.SetActions(setDesc);
+            charmsRequired.SetActions(setDesc);
             notchDisplayInit.AddFirstAction(getNotchCost);
             notchDisplay.AddFirstAction(getNotchCost);
-            checkCanBuy.Actions = new[] { canBuy };
-            activateConfirm.Actions = new[]
-            {
+            checkCanBuy.SetActions(canBuy);
+            activateConfirm.SetActions(
                 // Find Children
                 activateConfirm.Actions[0],
                 activateConfirm.Actions[1],
@@ -284,8 +283,8 @@ namespace ItemChanger.Locations
                 activateConfirm.Actions[12],
                 activateConfirm.Actions[13],
                 activateConfirm.Actions[14],
-                activateConfirm.Actions[15],
-            };
+                activateConfirm.Actions[15]
+            );
             activateUI.AddLastAction(addIntToConfirm);
         }
 
@@ -348,7 +347,7 @@ namespace ItemChanger.Locations
             Lambda give = new Lambda(Give);
             Lambda pay = new Lambda(Pay);
 
-            deductSet.Actions = new[] { give, pay };
+            deductSet.SetActions(give, pay);
         }
 
         private void HastenItemListControl(PlayMakerFSM fsm)
@@ -387,7 +386,7 @@ namespace ItemChanger.Locations
             FsmState particles = fsm.GetState("Particles");
             particles.GetFirstActionOfType<Wait>().time = 0.2f;
             FsmState bob = fsm.GetState("Bob");
-            bob.Actions = new[] { bob.Actions[0], bob.Actions[1] };
+            bob.SetActions(bob.Actions[0], bob.Actions[1]);
             FsmState specialType = fsm.GetState("Special Type?");
             bob.Transitions[0].SetToState(specialType);
 

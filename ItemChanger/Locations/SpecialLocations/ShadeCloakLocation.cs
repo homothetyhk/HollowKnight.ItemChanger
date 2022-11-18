@@ -22,20 +22,20 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditDashPlat(PlayMakerFSM fsm)
         {
             FsmState init = fsm.GetState("Init");
-            init.Actions[0] = new DelegateBoolTest(Placement.AllObtained, init.Actions[0] as PlayerDataBoolTest);
+            init.ReplaceAction(new DelegateBoolTest(Placement.AllObtained, init.Actions[0] as PlayerDataBoolTest), 0);
 
             FsmState takeControl = fsm.GetState("Take Control");
             takeControl.RemoveActionsOfType<ActivateGameObject>();
 
             FsmState setRespawn = fsm.GetState("Set Respawn");
-            setRespawn.Actions = new FsmStateAction[0];
+            setRespawn.ClearActions();
 
             FsmState pd = fsm.GetState("PlayerData");
-            pd.Actions = new FsmStateAction[0];
+            pd.ClearActions();
 
             FsmState uiMsg = fsm.GetState("UI Msg");
             FsmStateAction give = new AsyncLambda(GiveAllAsync(fsm.transform), "GET ITEM MSG END");
-            uiMsg.Actions = new[] { give };
+            uiMsg.SetActions(give);
 
             FsmState end = fsm.GetState("End");
             end.RemoveActionsOfType<SendEventToRegister>();

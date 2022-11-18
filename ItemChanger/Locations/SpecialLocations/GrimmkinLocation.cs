@@ -35,11 +35,11 @@ namespace ItemChanger.Locations.SpecialLocations
             if (!fsm.gameObject.name.StartsWith("Flamebearer")) return;
 
             FsmState init = fsm.GetState("Init");
-            init.Actions[2] = new SetIntValue
+            init.ReplaceAction(new SetIntValue
             {
                 intVariable = ((GetPlayerDataInt)init.Actions[2]).storeValue,
                 intValue = grimmkinLevel
-            };
+            }, 2);
         }
 
         private void EditFlamebearerSpawn(PlayMakerFSM fsm)
@@ -56,16 +56,14 @@ namespace ItemChanger.Locations.SpecialLocations
                 return Placement.AllObtained() || !GrimmchildRequirement();
             }
 
-            state.Actions = new FsmStateAction[]
-            {
+            state.SetActions(
                 new DelegateBoolTest(Check, (BoolTest)state.Actions[0])
-            };
+            );
 
-            get.Actions = new FsmStateAction[]
-            {
+            get.SetActions(
                 get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
-                new AsyncLambda((callback) => GiveAll(callback)),
-            };
+                new AsyncLambda(GiveAll)
+            );
         }
 
         public bool GrimmchildRequirement()

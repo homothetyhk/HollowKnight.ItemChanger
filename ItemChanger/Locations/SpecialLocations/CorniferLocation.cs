@@ -47,19 +47,18 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState get = fsm.GetState("Geo Pause and GetMap");
             FsmState sendText = fsm.GetState("Send Text");
 
-            checkActive.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)checkActive.Actions[0]);
-            convoChoice.Actions[1] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)convoChoice.Actions[1]);
+            checkActive.ReplaceAction(new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)checkActive.Actions[0]), 0);
+            convoChoice.ReplaceAction(new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)convoChoice.Actions[1]), 1);
 
-            get.Actions = new FsmStateAction[]
-            {
+            get.SetActions(
                 get.Actions[0], // Wait
                 get.Actions[1], // Box Down
                 get.Actions[2], // Npc title down
                 // get.Actions[3] // SetPlayerDataBool
                 // get.Actions[4-7] // nonDeepnest only, map achievement/messages
                 new Lambda(() => Placement.AddVisitFlag(VisitState.Accepted)),
-                new AsyncLambda(GiveAllAsync(fsm.transform), "TALK FINISH"),
-            };
+                new AsyncLambda(GiveAllAsync(fsm.transform), "TALK FINISH")
+            );
             get.ClearTransitions();
 
             // If the placement declares a different cost, we overwrite the map cost
@@ -73,14 +72,14 @@ namespace ItemChanger.Locations.SpecialLocations
 
             if (fsm.GetState("Deepnest Check") is FsmState deepnestCheck)
             {
-                deepnestCheck.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)deepnestCheck.Actions[0]);
+                deepnestCheck.ReplaceAction(new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)deepnestCheck.Actions[0]), 0);
             }
         }
 
         private void HandleCorniferCard(PlayMakerFSM fsm)
         {
             FsmState check = fsm.GetState("Check");
-            check.Actions[0] = new DelegateBoolTest(IsCorniferCardPresent, (PlayerDataBoolTest)check.Actions[0]);
+            check.ReplaceAction(new DelegateBoolTest(IsCorniferCardPresent, (PlayerDataBoolTest)check.Actions[0]), 0);
         }
 
         public bool IsCorniferPresent() => !Placement.CheckVisitedAll(VisitState.Accepted) && !Placement.AllObtained(); // we set the special flag after purchasing from Cornifer

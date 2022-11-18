@@ -34,15 +34,15 @@ namespace ItemChanger.Locations.SpecialLocations
 
             FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
 
-            charmGet.Actions = new FsmStateAction[0];
-            removeOvercharm.Actions = new FsmStateAction[0];
-            getMsg.Actions = new[] { getMsg.Actions[0], give };
+            charmGet.ClearActions();
+            removeOvercharm.ClearActions();
+            getMsg.SetActions(getMsg.Actions[0], give);
         }
 
         private void EditDreamEnter(PlayMakerFSM fsm)
         {
             FsmState init = fsm.GetState("Init");
-            init.Actions = new[] { init.Actions[0], new DelegateBoolTest(Placement.AllObtained, "INACTIVE", null) };
+            init.SetActions(init.Actions[0], new DelegateBoolTest(Placement.AllObtained, "INACTIVE", null));
         }
 
         private void EditMirror(PlayMakerFSM fsm)
@@ -50,7 +50,7 @@ namespace ItemChanger.Locations.SpecialLocations
             if (this.GetItemHintActive()) HintBox.Create(fsm.transform, Placement);
 
             FsmState check = fsm.GetState("Check");
-            check.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
+            check.SetActions(new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]));
         }
     }
 }

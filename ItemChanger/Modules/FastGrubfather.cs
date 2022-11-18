@@ -34,12 +34,11 @@ namespace ItemChanger.Modules
             FsmInt geoTotal = fsm.AddFsmInt("Geo Total", 0);
             allGiven.AddLastAction(new FlingGeoAction(fsm.gameObject, geoTotal, true, true));
 
-            activateReward.Actions = new[]
-            {
+            activateReward.SetActions(
                 activateReward.Actions[0], // increment PD int
                 activateReward.Actions[1], // get PD int
-                new ActivateNextGrubReward(),
-            };
+                new ActivateNextGrubReward()
+            );
         }
 
         private class ActivateNextGrubReward : FsmStateAction

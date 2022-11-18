@@ -17,8 +17,7 @@ namespace ItemChanger.Locations.SpecialLocations
             PlayMakerFSM checkJournalPlacement = hunterEyes.LocateMyFSM("Check Journal Placement");
             checkJournalPlacement.FsmVariables.FindFsmGameObject("Shiny Item").Value = obj;
             FsmState checkJournal = checkJournalPlacement.GetState("Check Journal");
-            checkJournal.Actions[0] =
-                new DelegateBoolTest(() => PlayerData.instance.GetBool(nameof(PlayerData.metHunter)) && !Placement.AllObtained(), "PLACE", null);
+            checkJournal.ReplaceAction(new DelegateBoolTest(() => PlayerData.instance.GetBool(nameof(PlayerData.metHunter)) && !Placement.AllObtained(), "PLACE", null), 0);
 
             hunterEyes.LocateMyFSM("Conversation Control").FsmVariables.FindFsmGameObject("Shiny Item").Value = obj;
         }

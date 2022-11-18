@@ -24,13 +24,12 @@ namespace ItemChanger.Modules
 
             FsmStateAction CheckCanEquip = new DelegateBoolTest(CanEquip, null, "CANCEL");
 
-            slotOpen.Actions = new[]
-            {
+            slotOpen.SetActions(
                 slotOpen.Actions[0],
                 slotOpen.Actions[1],
                 slotOpen.Actions[2],
                 CheckCanEquip
-            };
+            );
 
             bool CanEquip()
             {

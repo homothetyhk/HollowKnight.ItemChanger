@@ -29,7 +29,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditXunConvo(PlayMakerFSM fsm)
         {
             FsmState init = fsm.GetState("Init");
-            init.Actions = init.Actions.Where(a => !(a is FindChild fc) || fc.childName.Value != "Heart Piece").ToArray();
+            init.SetActions(init.Actions.Where(a => !(a is FindChild fc) || fc.childName.Value != "Heart Piece").ToArray());
 
             FsmState crumble = fsm.GetState("Crumble");
             crumble.RemoveActionsOfType<SetFsmGameObject>();

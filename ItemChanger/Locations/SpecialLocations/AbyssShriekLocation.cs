@@ -33,19 +33,18 @@ namespace ItemChanger.Locations.SpecialLocations
 
             FsmState uiMsg = fsm.GetState("Ui Msg");
             FsmStateAction give = new AsyncLambda(GiveAllAsync(t), "GET ITEM MSG END");
-            uiMsg.Actions = new[] { give };
+            uiMsg.SetActions(give);
 
             if (HeroController.instance && HeroController.instance.spellControl) FixShriekAnimation(HeroController.instance.spellControl);
         }
 
         private void FixShriekAnimation(PlayMakerFSM fsm)
         {
-            fsm.GetState("Scream Get?").Actions = new FsmStateAction[]
-            {
+            fsm.GetState("Scream Get?").SetActions(
                 new BoolTest{ boolVariable = fsm.FsmVariables.FindFsmBool("Scream 2 Zone"), isFalse = FsmEvent.Finished, isTrue = null },
                 new Lambda(DoScreamGetBranchUpdate),
                 new SendEvent{ eventTarget = FsmEventTarget.Self, sendEvent = FsmEvent.GetFsmEvent("SCREAM GET"), delay = 0f }
-            };
+            );
 
 
             void DoScreamGetBranchUpdate()

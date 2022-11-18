@@ -49,10 +49,9 @@ namespace ItemChanger.Modules
 
         private void EditBasementOpen(PlayMakerFSM fsm)
         {
-            fsm.GetState("Check").Actions = new FsmStateAction[]
-            {
-                new DelegateBoolTest(ShouldOpenBasement, null, "CLOSED"),
-            };
+            fsm.GetState("Check").SetActions(
+                new DelegateBoolTest(ShouldOpenBasement, null, "CLOSED")
+            );
             fsm.transform.Translate(new Vector2(openOffset, 0));
         }
 

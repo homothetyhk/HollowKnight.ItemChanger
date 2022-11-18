@@ -31,14 +31,13 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState openGates = fsm.GetState("Open Gates");
             openGates.AddFirstAction(new Lambda(SetCompletionBool));
             FsmState giveShiny = fsm.GetState("Give Shiny?");
-            giveShiny.Actions = new[]
-            {
+            giveShiny.SetActions(
                 giveShiny.Actions[0], // CROWD IDLE
                 // giveShiny.Actions[1], // bool test on FsmBool Shiny Item
                 new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)giveShiny.Actions[2]),
                 // giveShiny.Actions[3], // find child
-                giveShiny.Actions[4], // activate Shiny Obj
-            };
+                giveShiny.Actions[4] // activate Shiny Obj
+            );
             giveShiny.AddTransition("FINISHED", "Geo Given Pause");
         }
 

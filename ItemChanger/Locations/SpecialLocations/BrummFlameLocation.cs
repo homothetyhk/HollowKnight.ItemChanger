@@ -27,19 +27,17 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState convo1 = fsm.GetState("Convo 1");
             FsmState get = fsm.GetState("Get");
 
-            checkActive.Actions = new FsmStateAction[]
-            {
+            checkActive.SetActions(
                 new DelegateBoolTest(() => IsBrummActive() && !Placement.AllObtained(), (PlayerDataBoolTest)checkActive.Actions[0])
-            };
+            );
 
             convo1.RemoveActionsOfType<IntCompare>();
 
-            get.Actions = new FsmStateAction[]
-            {
+            get.SetActions(
                 get.Actions[6], // set Activated--not used by IC, but preserves grimmkin status if IC is disabled
                 get.Actions[14], // set gotBrummsFlame
-                new AsyncLambda(GiveAllAsync(fsm.transform)),
-            };
+                new AsyncLambda(GiveAllAsync(fsm.transform))
+            );
         }
 
         private void EditBrummText(ref string value)

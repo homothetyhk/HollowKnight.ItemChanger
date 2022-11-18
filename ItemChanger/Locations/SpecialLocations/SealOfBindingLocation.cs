@@ -35,11 +35,10 @@ namespace ItemChanger.Locations.SpecialLocations
             fsm.AddState(give);
             disappearScne.Transitions[0].SetToState(give);
             give.AddTransition(FsmEvent.Finished, fadeOut);
-            give.Actions = new FsmStateAction[]
-            {
+            give.SetActions(
                 new DelegateBoolTest(Placement.AllObtained, FsmEvent.Finished, null),
-                new AsyncLambda(GiveAllAsync(fsm.transform)),
-            };
+                new AsyncLambda(GiveAllAsync(fsm.transform))
+            );
         }
     }
 }

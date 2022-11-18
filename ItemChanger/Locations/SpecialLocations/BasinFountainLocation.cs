@@ -24,13 +24,12 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditFountain(PlayMakerFSM fsm)
         {
             FsmState idle = fsm.GetState("Idle");
-            idle.Actions = new FsmStateAction[]
-            {
+            idle.SetActions(
                     idle.Actions[0],
                     idle.Actions[1],
                     // idle.Actions[2], // FindChild -- Vessel Fragment
-                    idle.Actions[3],
-            };
+                    idle.Actions[3]
+            );
         }
 
         private void EditFountainText(ref string value)

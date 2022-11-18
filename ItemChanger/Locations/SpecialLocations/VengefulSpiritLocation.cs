@@ -40,16 +40,16 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState checkSummoned = fsm.GetState("Check Summoned");
             FsmState spellAppear = fsm.GetState("Spell Appear");
 
-            checkActive.Actions = new FsmStateAction[0];
+            checkActive.ClearActions();
             checkSummoned.RemoveActionsOfType<FindChild>();
             checkSummoned.GetActionsOfType<ActivateGameObject>().First(a => a.gameObject.GameObject.Name == "Vengeful Spirit").recursive = false;
             spellAppear.GetActionsOfType<ActivateGameObject>().First(a => a.gameObject.GameObject.Name == "Vengeful Spirit").recursive = false;
-            spellAppear.Actions[8] = new Lambda(() => { }); // this replaces a wait after the spawn animation and seems to prevent a freeze
+            spellAppear.ReplaceAction(new Lambda(() => { }), 8); // this replaces a wait after the spawn animation and seems to prevent a freeze
         }
 
         private void Destroy(PlayMakerFSM fsm)
         {
-            UnityEngine.Object.Destroy(fsm.gameObject);
+            UObject.Destroy(fsm.gameObject);
         }
     }
 }

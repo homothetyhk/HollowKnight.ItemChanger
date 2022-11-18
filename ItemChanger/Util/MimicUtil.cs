@@ -38,7 +38,7 @@ namespace ItemChanger.Util
 
             PlayMakerFSM bottleControl = mimicBottle.LocateMyFSM("Bottle Control");
             FsmState init = bottleControl.GetState("Init");
-            init.Actions[0] = new DelegateBoolTest(() => placement.CheckVisitedAny(VisitState.Dropped), (BoolTest)init.Actions[0]);
+            init.ReplaceAction(new DelegateBoolTest(() => placement.CheckVisitedAny(VisitState.Dropped), (BoolTest)init.Actions[0]), 0);
             init.GetFirstActionOfType<SendEventByName>().eventTarget.gameObject.GameObject = mimicTop;
             FsmState shatter = bottleControl.GetState("Shatter");
             shatter.AddFirstAction(new Lambda(() => placement.AddVisitFlag(VisitState.Dropped)));
@@ -59,8 +59,7 @@ namespace ItemChanger.Util
             HealthManager hm = mimic.GetComponent<HealthManager>();
 
             FsmState init = mimicTopFsm.GetState("Init");
-            init.Actions = new FsmStateAction[]
-            {
+            init.SetActions(
                 init.Actions[0],
                 init.Actions[1],
                 init.Actions[2],
@@ -69,7 +68,7 @@ namespace ItemChanger.Util
                 new DelegateBoolTest(() => placement.CheckVisitedAny(VisitState.Opened), (BoolTest)init.Actions[8])
                 // the removed actions are all various tests to check if the mimic is dead
                 // we tie it to the placement to make it easier to control
-            };
+            );
             FsmState activate = mimicTopFsm.GetState("Activate");
             activate.AddFirstAction(new Lambda(GiveAll));
             hm.OnDeath += GiveAll;

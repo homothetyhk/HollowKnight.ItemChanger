@@ -36,10 +36,9 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmStateAction give = new AsyncLambda(GiveAll, "GET ITEM MSG END");
 
             getPD.RemoveActionsOfType<SetPlayerDataInt>();
-            UIMsg.Actions = new FsmStateAction[]
-            {
+            UIMsg.SetActions(
                 give
-            };
+            );
         }
     }
 }

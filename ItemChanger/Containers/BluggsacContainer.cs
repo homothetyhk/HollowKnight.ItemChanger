@@ -17,8 +17,7 @@ namespace ItemChanger.Containers
             init.ClearActions();
 
             FsmState burst = fsm.GetState("Burst");
-            burst.Actions = new[]
-            {
+            burst.SetActions(
                 burst.Actions[0], // SendEventByName EnemyKillShake
                 burst.Actions[1], // tk2dplayanimationwithevents burst
                 // burst.Actions[2], // activategameobject egg
@@ -28,8 +27,8 @@ namespace ItemChanger.Containers
                 burst.Actions[5], // audiostop
                 burst.Actions[6], // playparticleemitter
                 burst.Actions[7], // stopparticleemitter
-                burst.Actions[8], // setparent pt blow
-            };
+                burst.Actions[8] // setparent pt blow
+            );
 
             void InstantiateShiniesAndGiveEarly()
             {

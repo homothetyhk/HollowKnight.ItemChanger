@@ -51,8 +51,8 @@ namespace ItemChanger.Modules
                 }
             }
 
-            cancelable.Actions[6] = new LambdaEveryFrame(attackIfAble);
-            cancelableDash.Actions[6] = new LambdaEveryFrame(attackIfAble);
+            cancelable.ReplaceAction(new LambdaEveryFrame(attackIfAble), 6);
+            cancelableDash.ReplaceAction(new LambdaEveryFrame(attackIfAble), 6);
         }
         private bool SkillBoolGetOverride(string boolName, bool value)
         {

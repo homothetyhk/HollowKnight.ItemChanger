@@ -66,10 +66,10 @@ namespace ItemChanger.Locations.SpecialLocations
             fsm.AddFsmInt($"Required Charm {shopSlot}", requiredCharmID); // fsmvar used in building Greet text
 
             FsmState pooed = fsm.GetState($"Pooed {shopSlot}?");
-            pooed.Actions[0] = new DelegateBoolTest(ItemIsPooed, FsmEvent.GetFsmEvent("SPAWN"), FsmEvent.Finished);
+            pooed.ReplaceAction(new DelegateBoolTest(ItemIsPooed, FsmEvent.GetFsmEvent("SPAWN"), FsmEvent.Finished), 0);
 
             FsmState spawnReady = fsm.GetState("Spawn Ready");
-            spawnReady.Actions[1 + (int)shopSlot] = new Lambda(() => ActivateIfModdedPooed(fsm));
+            spawnReady.ReplaceAction(new Lambda(() => ActivateIfModdedPooed(fsm)), 1 + (int)shopSlot);
 
             FsmState choice = fsm.GetState("Choice");
             string gaveBool = "gaveFragile" + shopSlot.ToString();
@@ -77,7 +77,7 @@ namespace ItemChanger.Locations.SpecialLocations
             choice.RemoveAction(i);
             string equipEvent = "EQUIPPED " + (shopSlot == DivineShopSlot.Greed ? "GEO" : shopSlot.ToString().ToUpper());
             i = Array.FindIndex(choice.Actions, a => a is PlayerDataBoolTrueAndFalse pdbtaf && pdbtaf.isTrue?.Name == equipEvent);
-            choice.Actions[i] = new DelegateBoolTest(ShouldGiveItem, FsmEvent.GetFsmEvent(equipEvent), null);
+            choice.ReplaceAction(new DelegateBoolTest(ShouldGiveItem, FsmEvent.GetFsmEvent(equipEvent), null), i);
 
             FsmState request = fsm.GetState("Mod Request");
             request.AddFirstAction(new Lambda(() =>
@@ -92,10 +92,9 @@ namespace ItemChanger.Locations.SpecialLocations
             {
                 Name = "Mod Request " + shopSlot.ToString(),
             };
-            afterChoice.Actions = new FsmStateAction[]
-            {
-                new Lambda(() => fsm.FsmVariables.FindFsmInt("Current Charm").Value = 1 + (int)shopSlot),
-            };
+            afterChoice.SetActions(
+                new Lambda(() => fsm.FsmVariables.FindFsmInt("Current Charm").Value = 1 + (int)shopSlot)
+            );
             choice.Transitions.First(t => t.EventName == equipEvent).SetToState(afterChoice);
             afterChoice.AddTransition(FsmEvent.Finished, request);
 
@@ -168,8 +167,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void CreateModdedPath(PlayMakerFSM fsm)
         {
             FsmState spawnReady = fsm.GetState("Spawn Ready");
-            spawnReady.Actions = new FsmStateAction[]
-            {
+            spawnReady.SetActions(
                 spawnReady.Actions[0], // SetCollider false
                 new Lambda(() => ActivateShinyIfVanillaPooed(fsm, DivineShopSlot.Heart)), // actions to be replaced by the individual placements
                 new Lambda(() => ActivateShinyIfVanillaPooed(fsm, DivineShopSlot.Greed)),
@@ -179,12 +177,12 @@ namespace ItemChanger.Locations.SpecialLocations
                     time = 4f,
                     realTime = false,
                     finishEvent = spawnReady.Transitions[0].FsmEvent,
-                },
-            };
+                }
+            );
             foreach (string s in new[] { "Spawn Heart", "Spawn Greed", "Spawn Strength" }) fsm.GetState(s).ClearActions();
 
             FsmState choice = fsm.GetState("Choice");
-            choice.Actions = choice.Actions.Where(a =>
+            choice.SetActions(choice.Actions.Where(a =>
             {
                 if (a is PlayerDataBoolTest pdbt)
                 {
@@ -199,10 +197,10 @@ namespace ItemChanger.Locations.SpecialLocations
                 if (a is PlayerDataBoolAllTrue pdbat) return false;
                 if (a is PlayerDataBoolTrueAndFalse pdbtaf && pdbtaf.isTrue.Name == "HAS CHARM") return false;
                 return true;
-            }).ToArray();
+            }).ToArray());
 
             FsmState greet = fsm.GetState("Greet");
-            greet.Actions[0] = new Lambda(() =>
+            greet.ReplaceAction(new Lambda(() =>
             {
                 string text = Language.Language.Get("DIVINE_CONVO_1", "CP2");
                 List<int> charmIDs = new[] { DivineShopSlot.Heart, DivineShopSlot.Greed, DivineShopSlot.Strength }
@@ -215,7 +213,7 @@ namespace ItemChanger.Locations.SpecialLocations
                     text += string.Format(Language.Language.Get("DIVINE_NO_CHARM", "Fmt"), string.Join(Language.Language.Get("COMMA_AND", "IC"), charmIDs.Select(i => CharmNameUtil.GetCharmName(i))));
                 }
                 DialogueCenter.StartConversation(text);
-            });
+            }), 0);
 
             FsmState pooCharm = fsm.GetState("Poo Charm");
             pooCharm.RemoveActionsOfType<SetBoolValue>();
@@ -227,78 +225,65 @@ namespace ItemChanger.Locations.SpecialLocations
                 realTime = false,
             });
 
-            FsmState request = GetNewState("Mod Request");
-            FsmState boxDown = GetNewState("Mod Dial Box Down");
-            FsmState boxUp = GetNewState("Mod Box Up YN");
-            FsmState sendText = GetNewState("Mod Send Text");
-            FsmState yes = GetNewState("Mod Yes");
-            FsmState grab = GetNewState("Mod Grab");
-            FsmState boxUp2 = GetNewState("Mod Box Up 2");
-            FsmState grabbed = GetNewState("Mod Grabbed");
-            FsmState boxDown2 = GetNewState("Mod Box Down 2");
-            FsmState eat = GetNewState("Mod Eat");
-            FsmState eatEnd = GetNewState("Mod Eat End");
-            FsmState eatReturn = GetNewState("Mod Eat Return");
-            FsmState swallow = GetNewState("Mod Swallow");
+            FsmState request = fsm.AddState("Mod Request");
+            FsmState boxDown = fsm.AddState("Mod Dial Box Down");
+            FsmState boxUp = fsm.AddState("Mod Box Up YN");
+            FsmState sendText = fsm.AddState("Mod Send Text");
+            FsmState yes = fsm.AddState("Mod Yes");
+            FsmState grab = fsm.AddState("Mod Grab");
+            FsmState boxUp2 = fsm.AddState("Mod Box Up 2");
+            FsmState grabbed = fsm.AddState("Mod Grabbed");
+            FsmState boxDown2 = fsm.AddState("Mod Box Down 2");
+            FsmState eat = fsm.AddState("Mod Eat");
+            FsmState eatEnd = fsm.AddState("Mod Eat End");
+            FsmState eatReturn = fsm.AddState("Mod Eat Return");
+            FsmState swallow = fsm.AddState("Mod Swallow");
 
-            request.Actions = new FsmStateAction[]
-            {
-                fsm.GetState("Request Charm").GetFirstActionOfType<AudioPlayerOneShotSingle>(),
-            };
+            request.SetActions(
+                fsm.GetState("Request Charm").GetFirstActionOfType<AudioPlayerOneShotSingle>()
+            );
             request.AddTransition(FsmEvent.GetFsmEvent("CONVO_FINISH"), boxDown);
 
-            boxDown.Actions = fsm.GetState("Dial Box Down").Actions.ToArray();
+            boxDown.SetActions(fsm.GetState("Dial Box Down").Actions.ToArray());
             boxDown.AddTransition(FsmEvent.Finished, boxUp);
 
-            boxUp.Actions = fsm.GetState("Box Up YN").Actions.ToArray();
+            boxUp.SetActions(fsm.GetState("Box Up YN").Actions.ToArray());
             boxUp.AddTransition(FsmEvent.Finished, sendText);
 
-            sendText.Actions = Array.Empty<FsmStateAction>();
+            sendText.ClearActions();
             sendText.AddTransition(FsmEvent.GetFsmEvent("NO"), fsm.GetState("Decline Pause"));
             sendText.AddTransition(FsmEvent.GetFsmEvent("YES"), yes);
 
-            yes.Actions = fsm.GetState("Yes").Actions.ToArray();
+            yes.SetActions(fsm.GetState("Yes").Actions.ToArray());
             yes.AddTransition(FsmEvent.Finished, grab);
 
-            grab.Actions = fsm.GetState("Take Choice").Actions.Where(a => a is AudioPlayerOneShotSingle || a is Tk2dPlayAnimation)
-                .Concat(fsm.GetState("Grab Pause").Actions.Where(a => a is Wait)).ToArray();
+            grab.SetActions(fsm.GetState("Take Choice").Actions.Where(a => a is AudioPlayerOneShotSingle || a is Tk2dPlayAnimation)
+                .Concat(fsm.GetState("Grab Pause").Actions.Where(a => a is Wait)).ToArray());
             grab.AddTransition(FsmEvent.Finished, boxUp2);
 
-            boxUp2.Actions = fsm.GetState("Box Up 3").Actions.ToArray();
+            boxUp2.SetActions(fsm.GetState("Box Up 3").Actions.ToArray());
             boxUp2.AddTransition(FsmEvent.Finished, grabbed);
 
-            grabbed.Actions = new FsmStateAction[]
-            {
+            grabbed.SetActions(
                 new Lambda(() => DialogueCenter.StartConversation(Language.Language.Get("DIVINE_GIVE", "CP2"))),
-                fsm.GetState("Grabbed").GetFirstActionOfType<AudioPlayerOneShotSingle>(),
-            };
+                fsm.GetState("Grabbed").GetFirstActionOfType<AudioPlayerOneShotSingle>()
+            );
             grabbed.AddTransition(FsmEvent.GetFsmEvent("CONVO_FINISH"), boxDown2);
 
-            boxDown2.Actions = fsm.GetState("Dial Box Down 3").Actions.ToArray();
+            boxDown2.SetActions(fsm.GetState("Dial Box Down 3").Actions.ToArray());
             boxDown2.AddTransition(FsmEvent.Finished, eat);
 
-            eat.Actions = fsm.GetState("Eat").Actions.ToArray();
+            eat.SetActions(fsm.GetState("Eat").Actions.ToArray());
             eat.AddTransition(FsmEvent.GetFsmEvent("WAIT"), eatEnd);
 
-            eatEnd.Actions = fsm.GetState("Eat End").Actions.ToArray();
+            eatEnd.SetActions(fsm.GetState("Eat End").Actions.ToArray());
             eatEnd.AddTransition(FsmEvent.GetFsmEvent("WAIT"), eatReturn);
 
-            eatReturn.Actions = fsm.GetState("Eat Return").Actions.ToArray();
+            eatReturn.SetActions(fsm.GetState("Eat Return").Actions.ToArray());
             eatReturn.AddTransition(FsmEvent.Finished, swallow);
 
-            swallow.Actions = fsm.GetState("Swallow").Actions.ToArray();
+            swallow.SetActions(fsm.GetState("Swallow").Actions.ToArray());
             swallow.AddTransition(FsmEvent.Finished, fsm.GetState("Poo 1"));
-
-            FsmState GetNewState(string name)
-            {
-                FsmState state = new(fsm.Fsm)
-                {
-                    Name = name,
-                    Actions = Array.Empty<FsmStateAction>(),
-                };
-                fsm.AddState(state);
-                return state;
-            }
         }
 
         private void EditDivineFsm(PlayMakerFSM fsm)

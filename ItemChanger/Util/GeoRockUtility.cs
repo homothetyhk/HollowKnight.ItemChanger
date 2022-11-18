@@ -113,7 +113,7 @@ namespace ItemChanger.Util
             idle.RemoveActionsOfType<SetPosition>(); // otherwise the rock warps back after falling
 
             hit.ClearTransitions();
-            hit.Actions = new[] { new DelegateBoolTest(() => CheckIfLanded(rockFsm.gameObject), "HIT", "FINISHED") };
+            hit.SetActions(new DelegateBoolTest(() => CheckIfLanded(rockFsm.gameObject), "HIT", "FINISHED"));
             hit.AddTransition("HIT", "Pause Frame");
             hit.AddTransition("FINISHED", "Idle");
 

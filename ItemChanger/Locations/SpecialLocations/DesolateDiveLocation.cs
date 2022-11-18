@@ -34,7 +34,9 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditDestroyIfQuake(PlayMakerFSM fsm)
         {
             FsmState check = fsm.GetState("Check");
-            check.Actions = new[] { new DelegateBoolTest(() => PlayerData.instance.GetBool(nameof(PlayerData.mageLordDefeated)), "DESTROY", null) };
+            check.SetActions(
+                new DelegateBoolTest(() => PlayerData.instance.GetBool(nameof(PlayerData.mageLordDefeated)), "DESTROY", null)
+            );
         }
 
         private void EditBGControl(PlayMakerFSM fsm)

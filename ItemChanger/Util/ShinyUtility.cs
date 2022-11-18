@@ -115,23 +115,22 @@ namespace ItemChanger.Util
                 flingRNG = new(shinyFsm.Fsm)
                 {
                     Name = "Fling RNG",
-                    Actions = new FsmStateAction[]
+                };
+                flingRNG.SetActions(
+                    new SendRandomEvent
                     {
-                        new SendRandomEvent
-                        {
-                            events = new FsmEvent[]
+                        events = new FsmEvent[]
                             {
                                 FsmEvent.GetFsmEvent("FLING R"),
                                 FsmEvent.GetFsmEvent("FLING L"),
                             },
-                            weights = new FsmFloat[]
+                        weights = new FsmFloat[]
                             {
                                 1f, 1f
                             },
-                            delay = 0f,
-                        }
-                    },
-                };
+                        delay = 0f,
+                    }
+                );
                 flingRNG.AddTransition("FLING L", "Fling L");
                 flingRNG.AddTransition("FLING R", "Fling R");
                 shinyFsm.AddState(flingRNG);
@@ -150,19 +149,18 @@ namespace ItemChanger.Util
             {
                 flingD = new(shinyFsm.Fsm)
                 {
-                    Actions = new FsmStateAction[]
-                    {
-                        new FlingObject
-                        {
-                            speedMin = 0.1f,
-                            speedMax = 0.1f,
-                            angleMin = 270f,
-                            angleMax = 270f,
-                            flungObject = new FsmOwnerDefault(){ OwnerOption = OwnerDefaultOption.UseOwner },
-                        },
-                    },
                     Name = "Fling D",
                 };
+                flingD.SetActions(
+                    new FlingObject
+                    {
+                        speedMin = 0.1f,
+                        speedMax = 0.1f,
+                        angleMin = 270f,
+                        angleMax = 270f,
+                        flungObject = new FsmOwnerDefault() { OwnerOption = OwnerDefaultOption.UseOwner },
+                    }
+                );
                 flingD.AddTransition("FINISHED", "In Air");
                 shinyFsm.AddState(flingD);
             }
@@ -262,8 +260,7 @@ namespace ItemChanger.Util
             charm.AddTransition("FINISHED", "Trink Flash");
 
             trinkFlash.ClearTransitions();
-            trinkFlash.Actions = new FsmStateAction[]
-            {
+            trinkFlash.SetActions(
                 trinkFlash.Actions[0], // Audio
                 trinkFlash.Actions[1], // Audio
                 trinkFlash.Actions[2], // visual effect
@@ -272,8 +269,8 @@ namespace ItemChanger.Util
                 // [5] -- spawn message
                 // [6] -- store message text
                 // [7] -- store message icon
-                giveAction, // give item
-            };
+                giveAction // give item
+            );
             trinkFlash.AddTransition("GAVE ITEM", "Hero Up");
             trinkFlash.AddTransition("HERO DAMAGED", "Finish");
         }

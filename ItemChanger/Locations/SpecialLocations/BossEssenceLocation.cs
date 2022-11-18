@@ -32,7 +32,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 fsmActions.RemoveAt(fsmActions.Count - 1); // SendEventByName (essence counter)
                 fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
                 fsmActions.Add(new AsyncLambda(GiveAllAsync(fsm.transform)));
-                get.Actions = fsmActions.ToArray();
+                get.SetActions(fsmActions.ToArray());
 
                 bool Test()
                 {
@@ -55,7 +55,7 @@ namespace ItemChanger.Locations.SpecialLocations
                 fsmActions.RemoveAt(fsmActions.Count - 1); // SendEventByName (essence counter)
                 fsmActions.RemoveAt(fsmActions.Count - 1); // PlayerDataIntAdd (add essence)
                 fsmActions.Add(new AsyncLambda(GiveAllAsync(fsm.transform)));
-                get.Actions = fsmActions.ToArray();
+                get.SetActions(fsmActions.ToArray());
 
                 FsmState vanishBurst = fsm.GetState("Vanish Burst");
                 if (vanishBurst != null 

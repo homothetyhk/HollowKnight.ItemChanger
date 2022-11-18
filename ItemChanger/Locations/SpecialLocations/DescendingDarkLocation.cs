@@ -34,8 +34,10 @@ namespace ItemChanger.Locations.SpecialLocations
             init.RemoveActionsOfType<IntCompare>();
             init.AddLastAction(check);
 
-            get.Actions = new FsmStateAction[0];
-            callUI.Actions = new[] { give };
+            get.ClearActions();
+            callUI.SetActions(
+                give
+            );
         }
     }
 }

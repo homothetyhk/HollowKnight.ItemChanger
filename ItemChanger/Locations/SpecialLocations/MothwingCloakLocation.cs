@@ -39,7 +39,9 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditCloakCorpse(PlayMakerFSM fsm)
         {
             FsmState init = fsm.GetState("Init");
-            init.Actions = new FsmStateAction[] { init.Actions[0], init.Actions[1] }; // remove find child shiny item
+            init.SetActions(
+                init.Actions[0], init.Actions[1] // remove find child shiny item
+            );
 
             fsm.GetState("Activate Item").AddLastAction(new SendEvent
             {

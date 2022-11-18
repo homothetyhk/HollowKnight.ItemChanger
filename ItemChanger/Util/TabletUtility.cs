@@ -54,8 +54,7 @@ namespace ItemChanger.Util
             PlayMakerFSM inspectFsm = tablet.LocateMyFSM("Inspection");
 
             FsmState promptUp = inspectFsm.GetState("Prompt Up");
-            promptUp.Actions = new FsmStateAction[]
-            {
+            promptUp.SetActions(
                     promptUp.Actions[0], // AudioStop
                     promptUp.Actions[1], // TurnToBG
                     promptUp.Actions[2], // lore tablet audio clip
@@ -67,8 +66,8 @@ namespace ItemChanger.Util
                     new AsyncLambda(callback => DialogueCenter.SendLoreMessage(
                         textGenerator?.Invoke() ?? string.Empty,
                         callback,
-                        TextType.MajorLore), "CONVO_FINISH"),
-            };
+                        TextType.MajorLore), "CONVO_FINISH")
+            );
             FsmState setBool = inspectFsm.GetState("Set Bool");
             FsmState turnBack = inspectFsm.GetState("Turn Back");
             promptUp.ClearTransitions();
@@ -115,8 +114,7 @@ namespace ItemChanger.Util
                 regainControl.AddLastAction(new Lambda(DisableInspect));
 
                 FsmState promptUp = inspectFsm.GetState("Prompt Up");
-                promptUp.Actions = new FsmStateAction[]
-                {
+                promptUp.SetActions(
                     promptUp.Actions[0], // AudioStop
                     promptUp.Actions[1], // TurnToBG
                     promptUp.Actions[2], // lore tablet audio clip
@@ -131,8 +129,8 @@ namespace ItemChanger.Util
                         Container = Container.Tablet,
                         MessageType = MessageType.Any,
                         Transform = inspectFsm.transform,
-                    }, callback), "CONVO_FINISH"),
-                };
+                    }, callback), "CONVO_FINISH")
+                );
                 FsmState setBool = inspectFsm.GetState("Set Bool");
                 FsmState turnBack = inspectFsm.GetState("Turn Back");
                 promptUp.ClearTransitions();
@@ -154,9 +152,11 @@ namespace ItemChanger.Util
                     setBool = new FsmState(inspectFsm.Fsm)
                     {
                         Name = "Set Bool",
-                        Actions = new FsmStateAction[] { new SetBoolValue { boolVariable = heroDamaged, boolValue = true } },
                         Transitions = new FsmTransition[] { new FsmTransition { FsmEvent = FsmEvent.Finished, ToFsmState = inspectFsm.GetState("Down"), ToState = "Down", } },
                     };
+                    setBool.SetActions(
+                        new SetBoolValue { boolVariable = heroDamaged, boolValue = true }
+                    );
                     inspectFsm.AddState(setBool);
                     inspectFsm.Fsm.GlobalTransitions = inspectFsm.Fsm.GlobalTransitions.Prepend(new FsmTransition
                     {
@@ -178,32 +178,30 @@ namespace ItemChanger.Util
                 inspectFsm.FsmVariables.FindFsmString("Prompt Name").Value = "Accept";
 
                 foreach (var t in heroLookUp.Transitions) t.SetToState(cancel);
-                cancel.Actions = new FsmStateAction[]
-                {
+                cancel.SetActions(
                     new AsyncLambda(callback => ItemUtility.GiveSequentially(items, placement, new GiveInfo
-                        {
-                            FlingType = flingType,
-                            Container = Container.Tablet,
-                            MessageType = MessageType.Any,
-                            Transform = inspectFsm.transform,
-                        }, callback)),
-                };
+                    {
+                        FlingType = flingType,
+                        Container = Container.Tablet,
+                        MessageType = MessageType.Any,
+                        Transform = inspectFsm.transform,
+                    }, callback))
+                );
                 convoEnd.RemoveActionsOfType<SetTextMeshProAlignment>();
                 canTalkBool.AddFirstAction(new DelegateBoolTest(() => items.All(i => i.IsObtained()), "FALSE", null));
             }
             else if (inspectFsm.FsmName == "Conversation Control" && inspectFsm.GetState("Journal") is FsmState journal)
             {
-                journal.Actions = new FsmStateAction[]
-                {
+                journal.SetActions(
                     new DelegateBoolTest(placement.AllObtained, journal.GetFirstActionOfType<PlayerDataBoolTest>()),
                     new AsyncLambda(callback => ItemUtility.GiveSequentially(items, placement, new GiveInfo
-                        {
-                            FlingType = flingType,
-                            Container = Container.Tablet,
-                            MessageType = MessageType.Any,
-                            Transform = inspectFsm.transform,
-                        }, callback)),
-                };
+                    {
+                        FlingType = flingType,
+                        Container = Container.Tablet,
+                        MessageType = MessageType.Any,
+                        Transform = inspectFsm.transform,
+                    }, callback))
+                );
             }
         }
 

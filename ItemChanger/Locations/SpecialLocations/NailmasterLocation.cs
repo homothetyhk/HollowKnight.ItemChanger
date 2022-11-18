@@ -39,16 +39,15 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmStateAction test = new DelegateBoolTest(MakeOffer, "REOFFER", null);
             FsmStateAction give = new AsyncLambda(GiveAllAsync(fsm.transform), "GET ITEM MSG END");
 
-            convo.Actions[objectName == "NM Sheo NPC" ? 2 : 1] = test;
+            convo.ReplaceAction(test, objectName == "NM Sheo NPC" ? 2 : 1);
 
-            getMsg.Actions = new FsmStateAction[]
-            {
+            getMsg.SetActions(
                 getMsg.Actions[0],
                 getMsg.Actions[1],
                 getMsg.Actions[2],
                 new Lambda(() => Placement.AddVisitFlag(VisitState.Accepted)),
-                give,
-            };
+                give
+            );
 
             if (Placement is Placements.ISingleCostPlacement iscp && iscp.Cost is Cost cost)
             {

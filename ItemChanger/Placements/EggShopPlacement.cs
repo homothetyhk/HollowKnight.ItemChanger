@@ -106,20 +106,18 @@ namespace ItemChanger.Placements
             FsmState yes = jijiFsm.GetState("Yes");
             FsmState spawn = jijiFsm.GetState("Spawn");
 
-            convoChoice.Actions = new FsmStateAction[]
-            {
-                    convoChoice.Actions[1], // AudioPlayerOneShot, all other actions trigger alternate conversations
-            };
+            convoChoice.SetActions(
+                convoChoice.Actions[1] // AudioPlayerOneShot, all other actions trigger alternate conversations
+            );
             convoChoice.AddTransition(FsmEvent.Finished, greet); // Always display the Jiji:GREET convo
 
             greet.ClearTransitions();
             greet.AddTransition("CONVO_FINISH", offer); // Always display the Jiji:SHADE_OFFER convo
 
             // replace IntCompare for rancid eggs with test based on item costs
-            haveEggs.Actions = new FsmStateAction[]
-            {
-                new DelegateBoolTest(CanPurchaseAny, "YES", "NO"),
-            };
+            haveEggs.SetActions(
+                new DelegateBoolTest(CanPurchaseAny, "YES", "NO")
+            );
 
             // remove shade info edits
             yes.RemoveActionsOfType<SetPlayerDataString>();

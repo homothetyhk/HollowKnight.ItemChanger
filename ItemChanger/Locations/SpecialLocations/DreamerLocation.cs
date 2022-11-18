@@ -101,7 +101,7 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState check = fsm.GetState("Check");
             if (check != null) // Monomon has a second, different "FSM"
             {
-                check.Actions[0] = new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]);
+                check.ReplaceAction(new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)check.Actions[0]), 0);
             }
         }
 
