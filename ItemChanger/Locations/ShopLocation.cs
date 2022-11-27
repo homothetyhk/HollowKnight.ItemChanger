@@ -286,7 +286,12 @@ namespace ItemChanger.Locations
             Lambda addIntToConfirm = new Lambda(AddIntToConfirm);
 
             init.AddLastAction(resetSprites);
-            getDetailsInit.SetActions(setName, setSprite);
+            getDetailsInit.SetActions(
+                setName, 
+                setSprite,
+                // 7-8 Activate detail pane
+                getDetailsInit.Actions[7],
+                getDetailsInit.Actions[8]);
             getDetails.SetActions(setName);
             charmsRequiredInit.SetActions(setDesc);
             charmsRequired.SetActions(setDesc);
