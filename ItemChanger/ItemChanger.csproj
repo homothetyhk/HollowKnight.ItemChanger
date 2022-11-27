@@ -13,6 +13,7 @@
     <ImplicitUsings>true</ImplicitUsings>
     <NoWarn>1701;1702;CS1591;IDE0018</NoWarn>
     <HollowKnightRefs>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight\hollow_knight_Data\Managed</HollowKnightRefs>
+    <ModTargetName>$(TargetName)</ModTargetName>
   </PropertyGroup>
 
   <Import Project="LocalOverrides.targets" Condition="Exists('LocalOverrides.targets')" />
@@ -99,7 +100,7 @@
     </Reference>
   </ItemGroup>
   <Target Name="CopyMod" AfterTargets="PostBuildEvent">
-    <Copy SourceFiles="$(TargetPath);$(TargetDir)$(TargetName).pdb;$(TargetDir)$(TargetName).xml;$(SolutionDir)README.md" DestinationFolder="$(HollowKnightRefs)\Mods\$(TargetName)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(TargetPath);$(TargetDir)$(TargetName).pdb;$(TargetDir)$(TargetName).xml;$(SolutionDir)README.md" DestinationFolder="$(HollowKnightRefs)\Mods\$(ModTargetName)" SkipUnchangedFiles="true" />
   </Target>
   <Target Name="ClearReferenceCopyLocalPaths" AfterTargets="ResolveAssemblyReferences">
     <ItemGroup>

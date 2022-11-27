@@ -1,6 +1,6 @@
-﻿using System.Reflection;
+﻿using ItemChanger.Components;
+using System.Reflection;
 using TMPro;
-using ItemChanger.Components;
 
 namespace ItemChanger.Util
 {
@@ -216,6 +216,11 @@ namespace ItemChanger.Util
                     2 => DefaultShopItems.LegEaterCharms,
                     12 or 13 or 14 => DefaultShopItems.LegEaterRepair,
                     _ => null,
+                },
+                SceneNames.Ruins1_05b => stats.specialType switch
+                {
+                    4 or 5 or 6 or 7 => DefaultShopItems.LemmRelics,
+                    _ => null
                 },
                 _ => null,
             };

@@ -261,6 +261,7 @@
         SlyKeyElegantKey = 32768,
         LegEaterRepair = 65536,
         SalubraBlessing = 131072,
+        LemmRelics = 262144,
     }
 
     /// <summary>
