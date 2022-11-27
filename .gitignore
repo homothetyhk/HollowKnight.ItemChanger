@@ -341,3 +341,4 @@ healthchecksdb
 
 # docs branch, allows local docs testing
 /docs
+/ItemChanger/LocalOverrides.targets
