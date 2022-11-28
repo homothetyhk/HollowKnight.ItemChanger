@@ -66,18 +66,15 @@ namespace ItemChanger.Locations
                 return;
             }
 
-            // spoof having relics if any modded items are in stock (vanilla relics would be handled by normal counting)
-            bool HasRelic()
+            // spoof having relics if any items are available
+            bool ItemsInStock()
             {
                 ShopMenuStock shop = fsm.FsmVariables.FindFsmGameObject("Shop Object").Value.GetComponent<ShopMenuStock>();
-                bool result = shop.StockLeft();
-                Log($"Has relic: {result}");
-                return result;
+                return shop.StockLeft();
             }
             IntCompare relicComparison = checkRelics.GetFirstActionOfType<IntCompare>();
-            checkRelics.ReplaceAction(new DelegateBoolTest(HasRelic, "HAS RELIC", "NO RELIC"),
+            checkRelics.ReplaceAction(new DelegateBoolTest(ItemsInStock, "HAS RELIC", "NO RELIC"),
                 checkRelics.Actions.IndexOf(relicComparison));
-            checkRelics.AddFirstAction(new Lambda(() => Log("Starting check relic (overworld)")));
         }
 
         /// <summary>
@@ -85,7 +82,6 @@ namespace ItemChanger.Locations
         /// </summary>
         private void EditShopControl(PlayMakerFSM fsm)
         {
-            Log("Editing shop control");
             ShopMenuStock shop = fsm.gameObject.GetComponent<ShopMenuStock>();
             GameObject itemPrefab = UnityEngine.Object.Instantiate(shop.stock[0]);
             GameObject amountIndicator = itemPrefab.transform.Find("Amount")?.gameObject;
@@ -118,7 +114,6 @@ namespace ItemChanger.Locations
             IntCompare relicComparison = checkRelics.GetFirstActionOfType<IntCompare>();
             checkRelics.ReplaceAction(new Lambda(() => fsm.SendEvent("HAS RELIC")),
                 checkRelics.Actions.IndexOf(relicComparison));
-            checkRelics.AddFirstAction(new Lambda(() => Log("Starting check relic")));
         }
 
         /// <summary>
@@ -357,20 +352,11 @@ namespace ItemChanger.Locations
             bool ShouldSell()
             {
                 int index = fsm.FsmVariables.FindFsmInt("Item Index").Value;
-                Log($"Selected index {index}");
                 GameObject shopItem = fsm.transform.parent.parent.Find("Item List").GetComponent<ShopMenuStock>().stockInv[index];
                 var mod = shopItem.GetComponent<ModShopItemStats>();
 
-                if (mod)
-                {
-                    Log("Modded item, not sellable");
-                    return false;
-                }
-                else
-                {
-                    Log("Vanilla item, may be sellable");
-                    return fsm.FsmVariables.FindFsmBool("Selling Shop").Value;
-                }
+                // only vanilla items in a selling shop are eligible for sale
+                return !mod && fsm.FsmVariables.FindFsmBool("Selling Shop").Value;
             }
 
             FsmState trinketCheck = fsm.GetState("Trinket?");

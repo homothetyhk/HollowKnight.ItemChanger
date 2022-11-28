@@ -29,16 +29,6 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnUnload();
             Events.RemoveFsmEdit(sceneName, new("Avalanche", "Activate"), Destroy);
             Events.RemoveFsmEdit(sceneName, new("Avalanche End", "Control"), Destroy);
-            try
-            {
-                Type.GetType("QoL.SettingsOverride, QoL")
-                    ?.GetMethod("RemoveSettingOverride", BindingFlags.Public | BindingFlags.Static)
-                    ?.Invoke(null, new object[] { "SkipCutscenes", "AfterKingsBrandGet" });
-            }
-            catch (Exception e)
-            {
-                LogError(e);
-            }
         }
 
         private void Destroy(PlayMakerFSM fsm) => UnityEngine.Object.Destroy(fsm.gameObject);

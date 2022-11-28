@@ -18,6 +18,7 @@ namespace ItemChanger
         public const string Iselda = "Iselda";
         public const string Salubra = "Salubra";
         public const string Leg_Eater = "Leg_Eater";
+        public const string Lemm = "Lemm";
         public const string Grubfather = "Grubfather";
         public const string Seer = "Seer";
         public const string Lurien = "Lurien";
