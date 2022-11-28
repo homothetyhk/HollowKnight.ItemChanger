@@ -70,21 +70,14 @@ namespace ItemChanger.Locations
             bool HasRelic()
             {
                 ShopMenuStock shop = fsm.FsmVariables.FindFsmGameObject("Shop Object").Value.GetComponent<ShopMenuStock>();
-                Log("Checking has relic");
-                int total = fsm.FsmVariables.FindFsmInt("Relics Total").Value;
-                Log($"Relic count: {total}");
-                bool result = shop.stock.Any(x =>
-                {
-                    ModShopItemStats stats = x.GetComponent<ModShopItemStats>();
-                    return stats && !stats.item.IsObtained();
-                }) || total > 0;
+                bool result = shop.StockLeft();
                 Log($"Has relic: {result}");
                 return result;
             }
             IntCompare relicComparison = checkRelics.GetFirstActionOfType<IntCompare>();
             checkRelics.ReplaceAction(new DelegateBoolTest(HasRelic, "HAS RELIC", "NO RELIC"),
                 checkRelics.Actions.IndexOf(relicComparison));
-            checkRelics.AddFirstAction(new Lambda(() => Log("Starting check relic")));
+            checkRelics.AddFirstAction(new Lambda(() => Log("Starting check relic (overworld)")));
         }
 
         /// <summary>
@@ -95,6 +88,11 @@ namespace ItemChanger.Locations
             Log("Editing shop control");
             ShopMenuStock shop = fsm.gameObject.GetComponent<ShopMenuStock>();
             GameObject itemPrefab = UnityEngine.Object.Instantiate(shop.stock[0]);
+            GameObject amountIndicator = itemPrefab.transform.Find("Amount")?.gameObject;
+            if (amountIndicator)
+            {
+                UnityEngine.Object.Destroy(amountIndicator);
+            }
             itemPrefab.SetActive(false);
 
             shop.stock = (Placement as IShopPlacement).GetNewStock(shop.stock, itemPrefab);
@@ -114,24 +112,13 @@ namespace ItemChanger.Locations
             chooseNoStockConvo.AddTransition("FINISHED", "Relic Dealer");
 
             FsmState checkRelics = fsm.GetState("Check Relics");
-            // spoof having relics if any modded items are in stock (vanilla relics would be handled by normal counting)
-            bool HasRelic()
-            {
-                Log("Checking has relic");
-                int total = fsm.FsmVariables.FindFsmInt("Relics Total").Value;
-                Log($"Relic count: {total}");
-                bool result = shop.stock.Any(x => x.GetComponent<ModShopItemStats>()) || total > 0;
-                Log($"Has relic: {result}");
-                return result;
-            }
+            // Instead of doing an actual comparison for relic count, unconditionally route to
+            // relic counting states for Lemm, allowing shop to be auto-closed if emptied.
+            // Lemm also checks for stock in the overworld before allowing the shop to open.
             IntCompare relicComparison = checkRelics.GetFirstActionOfType<IntCompare>();
-            checkRelics.ReplaceAction(new DelegateBoolTest(HasRelic, "HAS RELIC", "NO RELIC"),
+            checkRelics.ReplaceAction(new Lambda(() => fsm.SendEvent("HAS RELIC")),
                 checkRelics.Actions.IndexOf(relicComparison));
             checkRelics.AddFirstAction(new Lambda(() => Log("Starting check relic")));
-
-            fsm.GetState("Relic Dealer").AddFirstAction(new Lambda(() => Log("Doing convo")));
-            fsm.GetState("Box Up").AddFirstAction(new Lambda(() => Log("Out of stock")));
-            fsm.GetState("Box Up 2").AddFirstAction(new Lambda(() => Log("No relics")));
         }
 
         /// <summary>
