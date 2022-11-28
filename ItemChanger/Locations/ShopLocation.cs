@@ -31,6 +31,7 @@ namespace ItemChanger.Locations
 
         protected override void OnLoad()
         {
+            Events.AddFsmEdit(sceneName, new("Shop Region", "Shop Region"), EditShopRegion);
             Events.AddFsmEdit(sceneName, new("Shop Menu", "shop_control"), EditShopControl);
             Events.AddFsmEdit(sceneName, new("Item List", "Item List Control"), EditItemListControl);
             Events.AddFsmEdit(sceneName, new("UI List", "Confirm Control"), EditConfirmControl);
@@ -44,6 +45,7 @@ namespace ItemChanger.Locations
 
         protected override void OnUnload()
         {
+            Events.RemoveFsmEdit(sceneName, new("Shop Region", "Shop Region"), EditShopRegion);
             Events.RemoveFsmEdit(sceneName, new("Shop Menu", "shop_control"), EditShopControl);
             Events.RemoveFsmEdit(sceneName, new("Item List", "Item List Control"), EditItemListControl);
             Events.RemoveFsmEdit(sceneName, new("UI List", "Confirm Control"), EditConfirmControl);
@@ -53,6 +55,36 @@ namespace ItemChanger.Locations
             Events.RemoveFsmEdit(sceneName, new("UI List", "Confirm Control"), HastenConfirmControl);
             Events.RemoveFsmEdit(sceneName, new("UI List", "ui_list"), HastenUIList);
             Events.RemoveFsmEdit(sceneName, new("UI List", "ui_list_button_listen"), HastenUIListButtonListen);
+        }
+
+        private void EditShopRegion(PlayMakerFSM fsm)
+        {
+            FsmState checkRelics = fsm.GetState("Check Relics");
+            bool hasBeenEdited = checkRelics.GetActionsOfType<DelegateBoolTest>().Any();
+            if (hasBeenEdited)
+            {
+                return;
+            }
+
+            // spoof having relics if any modded items are in stock (vanilla relics would be handled by normal counting)
+            bool HasRelic()
+            {
+                ShopMenuStock shop = fsm.FsmVariables.FindFsmGameObject("Shop Object").Value.GetComponent<ShopMenuStock>();
+                Log("Checking has relic");
+                int total = fsm.FsmVariables.FindFsmInt("Relics Total").Value;
+                Log($"Relic count: {total}");
+                bool result = shop.stock.Any(x =>
+                {
+                    ModShopItemStats stats = x.GetComponent<ModShopItemStats>();
+                    return stats && !stats.item.IsObtained();
+                }) || total > 0;
+                Log($"Has relic: {result}");
+                return result;
+            }
+            IntCompare relicComparison = checkRelics.GetFirstActionOfType<IntCompare>();
+            checkRelics.ReplaceAction(new DelegateBoolTest(HasRelic, "HAS RELIC", "NO RELIC"),
+                checkRelics.Actions.IndexOf(relicComparison));
+            checkRelics.AddFirstAction(new Lambda(() => Log("Starting check relic")));
         }
 
         /// <summary>
