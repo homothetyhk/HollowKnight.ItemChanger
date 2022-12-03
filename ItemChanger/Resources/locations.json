@@ -67,6 +67,25 @@
     "flingType": "DirectDeposit",
     "tags": null
   },
+  "Lemm": {
+    "$type": "ItemChanger.Locations.ShopLocation, ItemChanger",
+    "objectName": "Relic Dealer",
+    "fsmName": "Conversation Control",
+    "defaultShopItems": "None",
+    "requiredPlayerDataBool": "",
+    "dungDiscount": false,
+    "name": "Lemm",
+    "sceneName": "Ruins1_05b",
+    "flingType": "DirectDeposit",
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.QolOverrideTag, ItemChanger",
+        "ModuleName": "NPCSellAll",
+        "SettingName": "LemmSellAll",
+        "Enable": false
+      }
+    ]
+  },
   "Grubfather": {
     "$type": "ItemChanger.Locations.SpecialLocations.CostChestLocation, ItemChanger",
     "chestLocation": {
@@ -1067,7 +1086,14 @@
     "name": "King's_Brand",
     "sceneName": "Room_Wyrm",
     "flingType": "Everywhere",
-    "tags": null
+    "tags": [
+      {
+        "$type": "ItemChanger.Tags.QolOverrideTag, ItemChanger",
+        "ModuleName": "SkipCutscenes",
+        "SettingName": "AfterKingsBrandGet",
+        "Enable": false
+      }
+    ]
   },
   "Godtuner": {
     "$type": "ItemChanger.Locations.SpecialLocations.GodtunerLocation, ItemChanger",

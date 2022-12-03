@@ -1,4 +1,4 @@
-﻿using ItemChanger.Placements;
+﻿﻿using ItemChanger.Placements;
 using HutongGames.PlayMaker.Actions;
 using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
@@ -31,6 +31,7 @@ namespace ItemChanger.Locations
 
         protected override void OnLoad()
         {
+            Events.AddFsmEdit(sceneName, new("Shop Region", "Shop Region"), EditShopRegion);
             Events.AddFsmEdit(sceneName, new("Shop Menu", "shop_control"), EditShopControl);
             Events.AddFsmEdit(sceneName, new("Item List", "Item List Control"), EditItemListControl);
             Events.AddFsmEdit(sceneName, new("UI List", "Confirm Control"), EditConfirmControl);
@@ -44,6 +45,7 @@ namespace ItemChanger.Locations
 
         protected override void OnUnload()
         {
+            Events.RemoveFsmEdit(sceneName, new("Shop Region", "Shop Region"), EditShopRegion);
             Events.RemoveFsmEdit(sceneName, new("Shop Menu", "shop_control"), EditShopControl);
             Events.RemoveFsmEdit(sceneName, new("Item List", "Item List Control"), EditItemListControl);
             Events.RemoveFsmEdit(sceneName, new("UI List", "Confirm Control"), EditConfirmControl);
@@ -55,6 +57,26 @@ namespace ItemChanger.Locations
             Events.RemoveFsmEdit(sceneName, new("UI List", "ui_list_button_listen"), HastenUIListButtonListen);
         }
 
+        private void EditShopRegion(PlayMakerFSM fsm)
+        {
+            FsmState checkRelics = fsm.GetState("Check Relics");
+            bool hasBeenEdited = checkRelics.GetActionsOfType<DelegateBoolTest>().Any();
+            if (hasBeenEdited)
+            {
+                return;
+            }
+
+            // spoof having relics if any items are available
+            bool ItemsInStock()
+            {
+                ShopMenuStock shop = fsm.FsmVariables.FindFsmGameObject("Shop Object").Value.GetComponent<ShopMenuStock>();
+                return shop.StockLeft();
+            }
+            IntCompare relicComparison = checkRelics.GetFirstActionOfType<IntCompare>();
+            checkRelics.ReplaceAction(new DelegateBoolTest(ItemsInStock, "HAS RELIC", "NO RELIC"),
+                checkRelics.Actions.IndexOf(relicComparison));
+        }
+
         /// <summary>
         /// Change how the shop stock is constructed.
         /// </summary>
@@ -62,6 +84,11 @@ namespace ItemChanger.Locations
         {
             ShopMenuStock shop = fsm.gameObject.GetComponent<ShopMenuStock>();
             GameObject itemPrefab = UnityEngine.Object.Instantiate(shop.stock[0]);
+            GameObject amountIndicator = itemPrefab.transform.Find("Amount")?.gameObject;
+            if (amountIndicator)
+            {
+                UnityEngine.Object.Destroy(amountIndicator);
+            }
             itemPrefab.SetActive(false);
 
             shop.stock = (Placement as IShopPlacement).GetNewStock(shop.stock, itemPrefab);
@@ -69,6 +96,24 @@ namespace ItemChanger.Locations
             {
                 shop.stockAlt = (Placement as IShopPlacement).GetNewAltStock(shop.stock, shop.stockAlt, itemPrefab);
             }
+
+            // apparently in vanilla lemm cannot go out of stock!
+            // make sure to route his "no stock" convo to his "no relic" convo
+            FsmState chooseNoStockConvo = fsm.GetState("Choose Convo");
+            bool hasBeenEdited = chooseNoStockConvo.GetTransition(4) != null;
+            if (hasBeenEdited)
+            {
+                return;
+            }
+            chooseNoStockConvo.AddTransition("FINISHED", "Relic Dealer");
+
+            FsmState checkRelics = fsm.GetState("Check Relics");
+            // Instead of doing an actual comparison for relic count, unconditionally route to
+            // relic counting states for Lemm, allowing shop to be auto-closed if emptied.
+            // Lemm also checks for stock in the overworld before allowing the shop to open.
+            IntCompare relicComparison = checkRelics.GetFirstActionOfType<IntCompare>();
+            checkRelics.ReplaceAction(new Lambda(() => fsm.SendEvent("HAS RELIC")),
+                checkRelics.Actions.IndexOf(relicComparison));
         }
 
         /// <summary>
@@ -255,7 +300,12 @@ namespace ItemChanger.Locations
             Lambda addIntToConfirm = new Lambda(AddIntToConfirm);
 
             init.AddLastAction(resetSprites);
-            getDetailsInit.SetActions(setName, setSprite);
+            getDetailsInit.SetActions(
+                setName, 
+                setSprite,
+                // 7-8 Activate detail pane
+                getDetailsInit.Actions[7],
+                getDetailsInit.Actions[8]);
             getDetails.SetActions(setName);
             charmsRequiredInit.SetActions(setDesc);
             charmsRequired.SetActions(setDesc);
@@ -298,6 +348,21 @@ namespace ItemChanger.Locations
             {
                 return; // Fsm has already been edited
             }
+
+            bool ShouldSell()
+            {
+                int index = fsm.FsmVariables.FindFsmInt("Item Index").Value;
+                GameObject shopItem = fsm.transform.parent.parent.Find("Item List").GetComponent<ShopMenuStock>().stockInv[index];
+                var mod = shopItem.GetComponent<ModShopItemStats>();
+
+                // only vanilla items in a selling shop are eligible for sale
+                return !mod && fsm.FsmVariables.FindFsmBool("Selling Shop").Value;
+            }
+
+            FsmState trinketCheck = fsm.GetState("Trinket?");
+            BoolTest sellTest = trinketCheck.GetFirstActionOfType<BoolTest>();
+            trinketCheck.ReplaceAction(new DelegateBoolTest(ShouldSell, sellTest), 
+                trinketCheck.Actions.IndexOf(sellTest));
 
             void Give()
             {
