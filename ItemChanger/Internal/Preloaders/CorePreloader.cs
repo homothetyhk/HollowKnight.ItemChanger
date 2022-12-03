@@ -11,6 +11,7 @@ namespace ItemChanger.Internal.Preloaders
             yield return (SceneNames.Tutorial_01, "_Scenery/plat_float_17");
             yield return (SceneNames.Tutorial_01, "_Props/Tut_tablet_top (1)");
             yield return (SceneNames.Deepnest_36, "d_break_0047_deep_lamp2/lamp_bug_escape (7)");
+            yield return (SceneNames.Ruins1_05b, "Shop Menu");
         }
 
         public override void SavePreloads(Dictionary<string, Dictionary<string, GameObject>> objectsByScene)
@@ -36,6 +37,10 @@ namespace ItemChanger.Internal.Preloaders
             _loreTablet = objectsByScene[SceneNames.Tutorial_01]["_Props/Tut_tablet_top (1)"];
             _loreTablet.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
             UObject.DontDestroyOnLoad(_loreTablet);
+
+            _shopMenu = objectsByScene[SceneNames.Ruins1_05b]["Shop Menu"];
+            PatchShop(_shopMenu);
+            UObject.DontDestroyOnLoad(_shopMenu);
         }
 
         public GameObject Chest => UObject.Instantiate(_chest);
@@ -44,6 +49,7 @@ namespace ItemChanger.Internal.Preloaders
         public GameObject RelicGetMsg => UObject.Instantiate(_relicGetMsg);
         public GameObject LoreTablet => UObject.Instantiate(_loreTablet);
         public GameObject LumaflyEscape => UObject.Instantiate(_lumaflyEscape);
+        public GameObject ShopMenu => UObject.Instantiate(_shopMenu);
 
         private GameObject _chest;
         private GameObject _shinyItem;
@@ -51,6 +57,7 @@ namespace ItemChanger.Internal.Preloaders
         private GameObject _smallPlatform;
         private GameObject _loreTablet;
         private GameObject _lumaflyEscape;
+        private GameObject _shopMenu;
 
 
         private static void FixLumaflyEscape(GameObject lumaflyEscape)
@@ -91,6 +98,12 @@ namespace ItemChanger.Internal.Preloaders
             Vector3 loc = t.localScale;
             loc.x = 1f;
             t.localScale = loc;
+        }
+
+        private static void PatchShop(GameObject shopMenu)
+        {
+            shopMenu.transform.Find("Item Details").gameObject.SetActive(true);
+            shopMenu.SetActive(false);
         }
     }
 }
