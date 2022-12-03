@@ -4,6 +4,7 @@ using ItemChanger.Components;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Extensions;
 using TMPro;
+using ItemChanger.Internal;
 
 namespace ItemChanger.Locations
 {
@@ -83,11 +84,12 @@ namespace ItemChanger.Locations
         private void EditShopControl(PlayMakerFSM fsm)
         {
             ShopMenuStock shop = fsm.gameObject.GetComponent<ShopMenuStock>();
+            GameObject itemPrefab = ObjectCache.ShopItem;
 
-            shop.stock = (Placement as IShopPlacement).GetNewStock(shop.stock);
+            shop.stock = (Placement as IShopPlacement).GetNewStock(shop.stock, itemPrefab);
             if (shop.stockAlt != null)
             {
-                shop.stockAlt = (Placement as IShopPlacement).GetNewAltStock(shop.stock, shop.stockAlt);
+                shop.stockAlt = (Placement as IShopPlacement).GetNewAltStock(shop.stock, shop.stockAlt, itemPrefab);
             }
 
             // apparently in vanilla lemm cannot go out of stock!
