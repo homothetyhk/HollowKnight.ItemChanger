@@ -39,8 +39,14 @@ namespace ItemChanger.Internal.Preloaders
             UObject.DontDestroyOnLoad(_loreTablet);
 
             _shopMenu = objectsByScene[SceneNames.Ruins1_05b]["Shop Menu"];
+            ShopMenuStock shop = _shopMenu.GetComponent<ShopMenuStock>();
+            _shopItem = UObject.Instantiate(shop.stock[0]);
+            GameObject amountIndicator = _shopItem.transform.Find("Amount").gameObject;
+            UnityEngine.Object.Destroy(amountIndicator);
+            _shopItem.SetActive(false);
             PatchShop(_shopMenu);
             UObject.DontDestroyOnLoad(_shopMenu);
+            UObject.DontDestroyOnLoad(_shopItem);
         }
 
         public GameObject Chest => UObject.Instantiate(_chest);
@@ -50,6 +56,7 @@ namespace ItemChanger.Internal.Preloaders
         public GameObject LoreTablet => UObject.Instantiate(_loreTablet);
         public GameObject LumaflyEscape => UObject.Instantiate(_lumaflyEscape);
         public GameObject ShopMenu => UObject.Instantiate(_shopMenu);
+        public GameObject ShopItem => UObject.Instantiate(_shopItem);
 
         private GameObject _chest;
         private GameObject _shinyItem;
@@ -58,6 +65,7 @@ namespace ItemChanger.Internal.Preloaders
         private GameObject _loreTablet;
         private GameObject _lumaflyEscape;
         private GameObject _shopMenu;
+        private GameObject _shopItem;
 
 
         private static void FixLumaflyEscape(GameObject lumaflyEscape)

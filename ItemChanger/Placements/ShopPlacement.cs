@@ -1,6 +1,8 @@
 ﻿using ItemChanger.Locations;
 using ItemChanger.Util;
 using ItemChanger.Components;
+using ItemChanger.Internal.Preloaders;
+using ItemChanger.Internal;
 
 namespace ItemChanger.Placements
 {
@@ -9,8 +11,8 @@ namespace ItemChanger.Placements
     /// </summary>
     public interface IShopPlacement
     {
-        GameObject[] GetNewStock(GameObject[] oldStock, GameObject prefab);
-        GameObject[] GetNewAltStock(GameObject[] newStock, GameObject[] altStock, GameObject prefab);
+        GameObject[] GetNewStock(GameObject[] oldStock);
+        GameObject[] GetNewAltStock(GameObject[] newStock, GameObject[] altStock);
     }
 
     /// <summary>
@@ -84,13 +86,12 @@ namespace ItemChanger.Placements
             AddItemWithCost(item, Cost.NewGeoCost(geoCost));
         }
 
-        public GameObject[] GetNewStock(GameObject[] oldStock, GameObject shopPrefab)
+        public GameObject[] GetNewStock(GameObject[] oldStock)
         {
             List<GameObject> stock = new(oldStock.Length + Items.Count());
             void AddShopItem(AbstractItem item)
             {
-                GameObject shopItem = UnityEngine.Object.Instantiate(shopPrefab);
-                shopItem.SetActive(false);
+                GameObject shopItem = ObjectCache.ShopItem;
                 ApplyItemDef(shopItem.GetComponent<ShopItemStats>(), item, item.GetTag<CostTag>()?.Cost);
                 stock.Add(shopItem);
             }
@@ -103,7 +104,7 @@ namespace ItemChanger.Placements
             return stock.ToArray();
         }
 
-        public GameObject[] GetNewAltStock(GameObject[] newStock, GameObject[] altStock, GameObject shopPrefab)
+        public GameObject[] GetNewAltStock(GameObject[] newStock, GameObject[] altStock)
         {
             return newStock.Union(altStock.Where(g => KeepOldItem(g.GetComponent<ShopItemStats>()))).ToArray();
         }
