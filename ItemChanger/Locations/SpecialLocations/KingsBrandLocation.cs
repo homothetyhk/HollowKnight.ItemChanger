@@ -12,16 +12,6 @@ namespace ItemChanger.Locations.SpecialLocations
             base.OnLoad();
             Events.AddFsmEdit(sceneName, new("Avalanche", "Activate"), Destroy);
             Events.AddFsmEdit(sceneName, new("Avalanche End", "Control"), Destroy);
-            try
-            {
-                Type.GetType("QoL.SettingsOverride, QoL")
-                    ?.GetMethod("OverrideSettingToggle", BindingFlags.Public | BindingFlags.Static)
-                    ?.Invoke(null, new object[] { "SkipCutscenes", "AfterKingsBrandGet", false });
-            }
-            catch (Exception e)
-            {
-                LogError(e);
-            }
         }
 
         protected override void OnUnload()
