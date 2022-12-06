@@ -111,6 +111,8 @@ namespace ItemChanger.Internal.Preloaders
         private static void PatchShop(GameObject shopMenu)
         {
             shopMenu.transform.Find("Item Details").gameObject.SetActive(true);
+            shopMenu.transform.Find("Confirm").Find("Confirm msg")
+                .GetComponent<SetTextMeshProGameText>().convName = "SHOP_PURCHASE_CONFIRM";
             shopMenu.SetActive(false);
         }
     }

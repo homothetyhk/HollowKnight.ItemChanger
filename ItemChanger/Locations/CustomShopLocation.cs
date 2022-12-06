@@ -148,7 +148,7 @@ namespace ItemChanger.Locations
             }));
             boxUp.RemoveTransitionsOn("FINISHED");
             boxUp.AddTransition("FINISHED", noStock);
-            noStock.AddTransition("FINISHED", "Box Down");
+            noStock.AddTransition("CONVO_FINISH", "Box Down");
 
             stockCheck.RemoveTransitionsOn("FINISHED");
             stockCheck.AddTransition("FINISHED", "Open Window");
@@ -170,7 +170,7 @@ namespace ItemChanger.Locations
         {
             FsmState init = fsm.GetState("Init");
 
-            bool hasBeenEdited = init.GetActionsOfType<Lambda>().Any(); // for cases like sly, sly key, only one placement needs to edit the shop functionality
+            bool hasBeenEdited = init.GetActionsOfType<Lambda>().Any();
             if (hasBeenEdited)
             {
                 return;
