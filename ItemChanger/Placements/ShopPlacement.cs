@@ -117,6 +117,7 @@ namespace ItemChanger.Placements
             var mod = stats.gameObject.AddComponent<ModShopItemStats>();
             mod.item = item;
             mod.cost = cost;
+            mod.costDisplayer = Location.costDisplayer;
             mod.placement = this;
 
             // Apply all the stored values
@@ -139,6 +140,11 @@ namespace ItemChanger.Placements
 
             // Apply the sprite for the UI
             stats.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = item.GetResolvedUIDef(this).GetSprite();
+            Sprite costSprite = Location.costDisplayer?.CustomCostSprite?.Value;
+            if (costSprite != null)
+            {
+                stats.transform.Find("Geo Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = costSprite;
+            }
         }
 
         public bool KeepOldItem(ShopItemStats stats)

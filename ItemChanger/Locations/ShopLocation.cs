@@ -24,6 +24,8 @@ namespace ItemChanger.Locations
         /// </summary>
         public DefaultShopItems defaultShopItems;
 
+        public CostDisplayer costDisplayer = new GeoCostDisplayer();
+
         /// <summary>
         /// If this field is set, the PlayerData requirement to appear in stock is applied to all items at this location in addition to any item-specific requirements.
         /// </summary>

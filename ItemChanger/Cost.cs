@@ -57,20 +57,10 @@ namespace ItemChanger
         public abstract string GetCostText();
 
         /// <summary>
-        /// Method which provides the description of the cost displayed below the item description in the shop window.
+        /// Points to the root-level cost for pattern-matching. Primarily intended for implementation by costs which wrap a
+        /// single other cost to apply additional functionality
         /// </summary>
-        public virtual string GetShopCostText()
-        {
-            return GetCostText();
-        }
-
-        /// <summary>
-        /// Controls the number displayed in shops, etc.
-        /// </summary>
-        public virtual int GetDisplayGeo()
-        {
-            return 0;
-        }
+        public virtual Cost GetBaseCost() => this;
 
         /// <summary>
         /// Is the other cost a subset of this cost?
@@ -128,8 +118,6 @@ namespace ItemChanger
 
         public int Count => Costs.Length;
 
-        public bool IsReadOnly => false;
-
         public Cost this[int index] { get => Costs[index]; }
 
         private static IEnumerable<Cost> Flatten(Cost c)
@@ -138,12 +126,12 @@ namespace ItemChanger
             {
                 return mc.Costs;
             }
-            return new[] { c };
+            return c.Yield();
         }
 
         public MultiCost()
         {
-            Costs = new Cost[0];
+            Costs = Array.Empty<Cost>();
         }
 
         [JsonConstructor]
@@ -170,20 +158,22 @@ namespace ItemChanger
             }
         }
 
-        public override int GetDisplayGeo()
+        public override float DiscountRate
         {
-            return Costs.Sum(c => c.GetDisplayGeo());
+            get => base.DiscountRate;
+            set
+            {
+                base.DiscountRate = value;
+                foreach (Cost c in Costs)
+                {
+                    c.DiscountRate = value;
+                }
+            }
         }
 
         public override string GetCostText()
         {
             return string.Join(Language.Language.Get("COMMA_SPACE", "IC"), Costs.Select(c => c.GetCostText()).ToArray());
-        }
-
-        public override string GetShopCostText()
-        {
-            return string.Join(Language.Language.Get("COMMA_SPACE", "IC"), Costs.Where(c => !(c is GeoCost))
-                .Select(c => c.GetCostText()).ToArray());
         }
 
         public override bool Includes(Cost c)
@@ -304,19 +294,9 @@ namespace ItemChanger
             return base.Includes(c);
         }
 
-        public override int GetDisplayGeo()
-        {
-            return (int)(amount * DiscountRate);
-        }
-
         public override string GetCostText()
         {
             return string.Format(Language.Language.Get("PAY_GEO", "Fmt"), (int)(amount * DiscountRate));
-        }
-
-        public override string GetShopCostText()
-        {
-            return null;
         }
     }
 }

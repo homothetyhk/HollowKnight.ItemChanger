@@ -24,8 +24,6 @@ namespace ItemChanger.Locations
     {
         public IString outOfStockConvo;
         public ISprite figureheadSprite;
-        public Type primaryCostType;
-        public ISprite costSprite;
 
         protected override void OnLoad()
         {

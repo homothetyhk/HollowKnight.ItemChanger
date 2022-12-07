@@ -7,6 +7,8 @@
     {
         public AbstractItem item;
         public AbstractPlacement placement;
+        public CostDisplayer costDisplayer;
+
         public bool IsSecretItem()
         {
             return item.HasTag<Tags.DisableItemPreviewTag>()
@@ -27,7 +29,7 @@
             if (item.HasTag<Tags.DisableCostPreviewTag>()
                 || (placement != null && placement.HasTag<Tags.DisableCostPreviewTag>()))
                 return Language.Language.Get("SECRET_COST_SHOPDESC", "IC");
-            return cost.GetShopCostText();
+            return costDisplayer?.GetAdditionalCostText(cost);
         }
 
         public string GetRecordText()
