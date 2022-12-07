@@ -111,8 +111,12 @@ namespace ItemChanger.Internal.Preloaders
         private static void PatchShop(GameObject shopMenu)
         {
             shopMenu.transform.Find("Item Details").gameObject.SetActive(true);
+            // make this not be a selling shop for later convenience
             shopMenu.transform.Find("Confirm").Find("Confirm msg")
                 .GetComponent<SetTextMeshProGameText>().convName = "SHOP_PURCHASE_CONFIRM";
+            PlayMakerFSM fsm = shopMenu.LocateMyFSM("shop_control");
+            fsm.FsmVariables.FindFsmBool("Relic Dealer").Value = false;
+            fsm.FsmVariables.FindFsmBool("Selling Shop").Value = false;
             shopMenu.SetActive(false);
         }
     }

@@ -81,7 +81,7 @@ namespace ItemChanger.Locations
         /// <summary>
         /// Change how the shop stock is constructed.
         /// </summary>
-        private void EditShopControl(PlayMakerFSM fsm)
+        protected void EditShopControl(PlayMakerFSM fsm)
         {
             ShopMenuStock shop = fsm.gameObject.GetComponent<ShopMenuStock>();
             GameObject itemPrefab = ObjectCache.ShopItem;
@@ -115,7 +115,7 @@ namespace ItemChanger.Locations
         /// Change how the shop stock is presented.
         /// </summary>
         /// <param name="fsm"></param>
-        private void EditItemListControl(PlayMakerFSM fsm)
+        protected void EditItemListControl(PlayMakerFSM fsm)
         {
             FsmState init = fsm.GetState("Init");
             
@@ -336,7 +336,7 @@ namespace ItemChanger.Locations
         /// <summary>
         /// Change the effects of purchasing a shop item.
         /// </summary>
-        private void EditConfirmControl(PlayMakerFSM fsm)
+        protected void EditConfirmControl(PlayMakerFSM fsm)
         {
             FsmState deductSet = fsm.GetState("Deduct Geo and set PD");
             if (deductSet.GetActionsOfType<Lambda>().Any())
@@ -410,7 +410,7 @@ namespace ItemChanger.Locations
             deductSet.SetActions(give, pay);
         }
 
-        private void HastenItemListControl(PlayMakerFSM fsm)
+        protected void HastenItemListControl(PlayMakerFSM fsm)
         {
             FsmState menuDown = fsm.GetState("Menu Down");
             FsmState blankName = fsm.GetState("Blank Name and Desc");
@@ -441,7 +441,7 @@ namespace ItemChanger.Locations
             activateConfirm.GetFirstActionOfType<Wait>().time = 0.01f;
         }
 
-        private void HastenConfirmControl(PlayMakerFSM fsm)
+        protected void HastenConfirmControl(PlayMakerFSM fsm)
         {
             FsmState particles = fsm.GetState("Particles");
             particles.GetFirstActionOfType<Wait>().time = 0.2f;
@@ -455,7 +455,7 @@ namespace ItemChanger.Locations
             //thankFade.GetFirstActionOfType<Wait>().time = 0.01f;
         }
 
-        private void HastenUIList(PlayMakerFSM fsm)
+        protected void HastenUIList(PlayMakerFSM fsm)
         {
             FsmState selectionMade = fsm.GetState("Selection Made");
             FsmState selectionMadeCancel = fsm.GetState("Selection Made Cancel");
@@ -463,7 +463,7 @@ namespace ItemChanger.Locations
             selectionMadeCancel.GetFirstActionOfType<Wait>().time = 0.01f;
         }
 
-        private void HastenUIListGetInput(PlayMakerFSM fsm)
+        protected void HastenUIListGetInput(PlayMakerFSM fsm)
         {
             FsmState confirm = fsm.GetState("Confirm");
             FsmState cancel = fsm.GetState("Cancel");
@@ -489,7 +489,7 @@ namespace ItemChanger.Locations
             repeatDown.GetFirstActionOfType<Wait>().time = 0.1f;
         }
 
-        private void HastenUIListButtonListen(PlayMakerFSM fsm)
+        protected void HastenUIListButtonListen(PlayMakerFSM fsm)
         {
             FsmState selectPressed = fsm.GetState("Select Pressed");
             FsmState cancelPressed = fsm.GetState("Cancel Pressed");
