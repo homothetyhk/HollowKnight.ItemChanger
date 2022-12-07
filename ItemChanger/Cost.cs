@@ -1,5 +1,6 @@
 ﻿using ItemChanger.Extensions;
 using Newtonsoft.Json;
+using System.Collections;
 
 namespace ItemChanger
 {
@@ -97,28 +98,6 @@ namespace ItemChanger
             if (a == null) return b;
             if (b == null) return a;
 
-            MultiCost aa = a as MultiCost;
-            MultiCost bb = b as MultiCost;
-            
-            if (aa != null && bb != null)
-            {
-                return new MultiCost(aa.Costs.Concat(bb.Costs));
-            }
-
-            if (aa != null)
-            {
-                var l = aa.Costs.ToList();
-                l.Add(b);
-                return new MultiCost(l);
-            }
-
-            if (bb != null)
-            {
-                var l = bb.Costs.ToList();
-                l.Add(a);
-                return new MultiCost(l);
-            }
-
             return new MultiCost(a, b);
         }
 
@@ -142,32 +121,41 @@ namespace ItemChanger
     /// <summary>
     /// Cost which is the concatenation of other costs. Can only be paid if all of its costs can be paid, and pays all its costs sequentially.
     /// </summary>
-    public record MultiCost : Cost
+    public record MultiCost : Cost, IReadOnlyList<Cost>
     {
+        [JsonProperty]
+        private readonly Cost[] Costs;
+
+        public int Count => Costs.Length;
+
+        public bool IsReadOnly => false;
+
+        public Cost this[int index] { get => Costs[index]; }
+
+        private static IEnumerable<Cost> Flatten(Cost c)
+        {
+            if (c is MultiCost mc)
+            {
+                return mc.Costs;
+            }
+            return new[] { c };
+        }
+
         public MultiCost()
         {
-            Costs = new();
+            Costs = new Cost[0];
         }
 
         [JsonConstructor]
-        public MultiCost(List<Cost> Costs)
-        {
-            this.Costs = Costs;
-        }
-
         public MultiCost(IEnumerable<Cost> Costs)
         {
-            this.Costs = new(Costs);
+            this.Costs = Costs
+                .Where(c => c != null)
+                .SelectMany(Flatten)
+                .ToArray();
         }
 
-        public MultiCost(params Cost[] Costs)
-        {
-            this.Costs = new(Costs);
-        }
-
-        public List<Cost> Costs { get; }
-
-
+        public MultiCost(params Cost[] Costs) : this((IEnumerable<Cost>)Costs) { }
 
         public override bool CanPay()
         {
@@ -222,6 +210,16 @@ namespace ItemChanger
         {
             foreach (Cost c in Costs) c.Unload();
         }
+
+        public int IndexOf(Cost item) => Costs.IndexOf(item);
+
+        public bool Contains(Cost item) => Costs.Contains(item);
+
+        public void CopyTo(Cost[] array, int arrayIndex) => Costs.CopyTo(array, arrayIndex);
+
+        public IEnumerator<Cost> GetEnumerator() => Costs.OfType<Cost>().GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => Costs.GetEnumerator();
     }
 
     /// <summary>
