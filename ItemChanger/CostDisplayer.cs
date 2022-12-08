@@ -1,4 +1,5 @@
 ﻿using HutongGames.Utility;
+using ItemChanger.Modules;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -20,7 +21,10 @@ namespace ItemChanger
             Cost baseCost = cost.GetBaseCost();
             if (baseCost is MultiCost mc)
             {
-                IEnumerable<Cost> validCosts = mc.Where(SupportsCost);
+                // for multicosts, we need to get again to any cost which might be nested there.
+                // this is because any wrapper cost may not produce the appropriate information
+                // needed to generate a display amount.
+                IEnumerable<Cost> validCosts = mc.Select(cc => cc.GetBaseCost()).Where(SupportsCost);
                 if (Cumulative)
                 {
                     return validCosts.Max(GetSingleCostDisplayAmount);
@@ -42,15 +46,17 @@ namespace ItemChanger
 
         public string GetAdditionalCostText(Cost cost)
         {
+            // we always check if the base cost is supported to account for wrappers, but get the text off the
+            // top-level cost even if it is a wrapper. This allows wrapper costs to implement changes to GetCostText.
             Cost baseCost = cost.GetBaseCost();
             if (baseCost is MultiCost mc)
             {
-                return string.Join(Language.Language.Get("COMMA_SPACE", "IC"), mc.Where(c => !SupportsCost(c))
+                return string.Join(Language.Language.Get("COMMA_SPACE", "IC"), mc.Where(c => !SupportsCost(c.GetBaseCost()))
                     .Select(c => c.GetCostText()).ToArray());
             }
             else if (!SupportsCost(baseCost))
             {
-                return baseCost.GetCostText();
+                return cost.GetCostText();
             }
             else
             {
@@ -106,5 +112,14 @@ namespace ItemChanger
                 return (cost as ConsumablePDIntCost).amount;
             }
         }
+    }
+
+    public class EggCostDisplayer : CostDisplayer
+    {
+        public override bool Cumulative => true;
+
+        protected override bool SupportsCost(Cost cost) => cost is CumulativeRancidEggCost;
+
+        protected override int GetSingleCostDisplayAmount(Cost cost) => (cost as CumulativeRancidEggCost).Total;
     }
 }
