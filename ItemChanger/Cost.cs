@@ -109,32 +109,6 @@ namespace ItemChanger
     }
 
     /// <summary>
-    /// Abstract cost which pre-implements the boilerplate functionality needed to safely wrap and add functionality to another cost
-    /// </summary>
-    public abstract record WrapperCost : Cost
-    {
-        public readonly Cost WrappedCost;
-
-        [JsonConstructor]
-        public WrapperCost(Cost wrappedCost)
-        {
-            WrappedCost = wrappedCost;
-        }
-
-        public override Cost GetBaseCost() => WrappedCost.GetBaseCost();
-
-        public override void Load()
-        {
-            WrappedCost.Load();
-        }
-
-        public override void Unload()
-        {
-            WrappedCost.Unload();
-        }
-    }
-
-    /// <summary>
     /// Cost which is the concatenation of other costs. Can only be paid if all of its costs can be paid, and pays all its costs sequentially.
     /// </summary>
     public record MultiCost : Cost, IReadOnlyList<Cost>
