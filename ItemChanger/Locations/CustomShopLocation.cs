@@ -1,18 +1,20 @@
-﻿using HutongGames.PlayMaker.Actions;
-using ItemChanger.Components;
+﻿using ItemChanger.Components;
 using ItemChanger.Extensions;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Internal;
 using ItemChanger.Placements;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TMPro;
 
 namespace ItemChanger.Locations
 {
+    public enum FacingDirection
+    {
+        Auto,
+        Left,
+        Right,
+    }
+
     /// <summary>
     /// A location which implements a custom shop on a given NPC.
     /// </summary>
@@ -22,8 +24,14 @@ namespace ItemChanger.Locations
     /// </remarks>
     public class CustomShopLocation : ShopLocation
     {
+        // this is the normal position of the shop
+        private static readonly float XPositionShopOnRight = 8.53f;
+        // I really did pull out a tape measure for this number
+        private static readonly float XPositionShopOnLeft = -1.53f;
+
         public IString outOfStockConvo;
         public ISprite figureheadSprite;
+        public FacingDirection facingDirection = FacingDirection.Auto;
 
         protected override void OnLoad()
         {
@@ -71,6 +79,17 @@ namespace ItemChanger.Locations
                 return; // already edited
             }
 
+            if (facingDirection == FacingDirection.Left)
+            {
+                fsm.FsmVariables.GetFsmBool("Hero Always Left").Value = true;
+                fsm.FsmVariables.GetFsmBool("Hero Always Right").Value = false;
+            }
+            else if (facingDirection == FacingDirection.Right)
+            {
+                fsm.FsmVariables.GetFsmBool("Hero Always Left").Value = false;
+                fsm.FsmVariables.GetFsmBool("Hero Always Right").Value = true;
+            }
+
             GameObject shopObject = ObjectCache.ShopMenu;
             shopObject.name = $"Shop Menu {objectName}";
             ShopMenuStock stock = shopObject.GetComponent<ShopMenuStock>();
@@ -85,9 +104,29 @@ namespace ItemChanger.Locations
             convoStart.RemoveTransitionsOn("CONVO END");
             convoStart.AddTransition("CONVO END", shopUp);
 
-            shopUp.AddFirstAction(new Lambda(() => {
-                fsm.Fsm.BroadcastEventToGameObject(shopObject, $"SHOP UP {objectName}", false);
-            }));
+            shopUp.SetActions(
+                new Lambda(() =>
+                {
+                    GameObject hero = fsm.FsmVariables.GetFsmGameObject("Hero Obj").Value;
+                    Log(hero.transform.position);
+                    GameObject self = fsm.gameObject;
+                    Log(self.transform.position);
+                    Vector3 shopPosition = shopObject.transform.position;
+                    if (hero.transform.position.x < self.transform.position.x)
+                    {
+                        // Player is on the left, shop is on the right
+                        shopObject.transform.position = new Vector3(XPositionShopOnRight, shopPosition.y, shopPosition.z);
+                    }
+                    if (hero.transform.position.x > self.transform.position.x)
+                    {
+                        // Player is on the right, shop is on the left
+                        shopObject.transform.position = new Vector3(XPositionShopOnLeft, shopPosition.y, shopPosition.z);
+                    }
+                    // otherwise the player is in the exact position of the npc somehow, and hasn't been moved,
+                    // so just defer to wherever the shop last was
+                }),
+                new Lambda(() => fsm.Fsm.BroadcastEventToGameObject(shopObject, $"SHOP UP {objectName}", false))
+            );
 
             shopUp.AddTransition("HERO DAMAGED", resetShop);
             shopUp.AddTransition("SHOP CLOSED", "Convo End");
