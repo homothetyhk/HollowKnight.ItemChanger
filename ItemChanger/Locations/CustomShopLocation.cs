@@ -25,9 +25,9 @@ namespace ItemChanger.Locations
     public class CustomShopLocation : ShopLocation
     {
         // this is the normal position of the shop
-        private static readonly float XPositionShopOnRight = 8.53f;
+        private const float XPositionShopOnRight = 8.53f;
         // I really did pull out a tape measure for this number
-        private static readonly float XPositionShopOnLeft = -1.53f;
+        private const float XPositionShopOnLeft = -1.53f;
 
         public IString outOfStockConvo;
         public ISprite figureheadSprite;
@@ -172,16 +172,19 @@ namespace ItemChanger.Locations
             idle.RemoveTransitionsOn("SHOP UP");
             idle.AddTransition($"SHOP UP {objectName}", stockCheck);
 
+            stockCheck.RemoveTransitionsOn("FINISHED");
+            stockCheck.AddTransition("FINISHED", "Open Window");
+
+            boxUp.AddFirstAction(new DelegateBoolTest(() => outOfStockConvo == null, "SKIP CONVO", null));
+            boxUp.RemoveTransitionsOn("FINISHED");
+            boxUp.AddTransition("FINISHED", noStock);
+            boxUp.AddTransition("SKIP CONVO", "End");
+
             noStock.AddFirstAction(new Lambda(() =>
             {
                 DialogueCenter.StartConversation(outOfStockConvo.Value);
             }));
-            boxUp.RemoveTransitionsOn("FINISHED");
-            boxUp.AddTransition("FINISHED", noStock);
             noStock.AddTransition("CONVO_FINISH", "Box Down");
-
-            stockCheck.RemoveTransitionsOn("FINISHED");
-            stockCheck.AddTransition("FINISHED", "Open Window");
         }
     }
 }
