@@ -1,4 +1,6 @@
-﻿namespace ItemChanger
+﻿using Newtonsoft.Json;
+
+namespace ItemChanger
 {
     public abstract class Tag
     {
@@ -63,5 +65,11 @@
         }
 
         public bool Loaded { get; private set; }
+
+        /// <summary>
+        /// Additional information for serialization and other tag handling purposes.
+        /// </summary>
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public virtual TagHandlingFlags TagHandlingProperties { get; set; }
     }
 }

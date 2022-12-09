@@ -1,10 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using ItemChanger.Tags;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ItemChanger
 {
     public class TaggableObject
     {
-        [JsonProperty] public List<Tag> tags;
+        [JsonProperty] [JsonConverter(typeof(TagListConverter))] public List<Tag> tags;
         private bool _tagsLoaded;
 
         protected void LoadTags()
@@ -29,7 +31,7 @@ namespace ItemChanger
 
         public T AddTag<T>() where T : Tag, new()
         {
-            if (tags == null) tags = new List<Tag>();
+            tags ??= new();
             T t = new();
             if (_tagsLoaded) t.LoadOnce(this);
             tags.Add(t);
@@ -38,22 +40,21 @@ namespace ItemChanger
 
         public void AddTag(Tag t)
         {
-            if (tags == null) tags = new();
+            tags ??= new();
             if (_tagsLoaded) t.LoadOnce(this);
             tags.Add(t);
         }
 
         public void AddTags(IEnumerable<Tag> ts)
         {
-            if (tags == null) tags = new List<Tag>();
+            tags ??= new();
             if (_tagsLoaded) foreach (Tag t in ts) t.LoadOnce(this);
             tags.AddRange(ts);
         }
 
         public T GetTag<T>()
         {
-            if (tags == null) return default;
-            return tags.OfType<T>().FirstOrDefault();
+            return tags == null ? default : tags.OfType<T>().FirstOrDefault();
         }
 
         public bool GetTag<T>(out T t) where T : class
@@ -69,7 +70,7 @@ namespace ItemChanger
 
         public T GetOrAddTag<T>() where T : Tag, new()
         {
-            if (tags == null) tags = new List<Tag>();
+            tags ??= new List<Tag>();
             return tags.OfType<T>().FirstOrDefault() ?? AddTag<T>();
         }
 
@@ -85,6 +86,52 @@ namespace ItemChanger
                 foreach (Tag t in tags.Where(t => t is T)) t.UnloadOnce(this);
             }
             tags = tags?.Where(t => t is not T)?.ToList();
+        }
+        
+        public class TagListConverter : JsonConverter<List<Tag>>
+        {
+            public override bool CanRead => true;
+            public override bool CanWrite => false;
+
+            public override List<Tag> ReadJson(JsonReader reader, Type objectType, List<Tag> existingValue, bool hasExistingValue, JsonSerializer serializer)
+            {
+                JToken jt = JToken.Load(reader);
+                if (jt.Type == JTokenType.Null) return null;
+                else if (jt.Type == JTokenType.Array)
+                {
+                    JArray ja = (JArray)jt;
+                    List<Tag> list = new(ja.Count);
+                    foreach (JToken jTag in ja)
+                    {
+                        Tag t;
+                        try
+                        {
+                            t = jTag.ToObject<Tag>(serializer);
+                        }
+                        catch (Exception e)
+                        {
+                            TagHandlingFlags flags = ((JObject)jTag).GetValue(nameof(Tag.TagHandlingProperties))?.ToObject<TagHandlingFlags>(serializer) ?? TagHandlingFlags.None;
+                            if (flags.HasFlag(TagHandlingFlags.AllowDeserializationFailure))
+                            {
+                                t = new InvalidTag
+                                {
+                                    JSON = jTag,
+                                    DeserializationError = e,
+                                };
+                            }
+                            else throw;
+                        }
+                        list.Add(t);
+                    }
+                    return list;
+                }
+                throw new JsonSerializationException("Unable to handle tag list pattern: " + jt.ToString());
+            }
+
+            public override void WriteJson(JsonWriter writer, List<Tag> value, JsonSerializer serializer)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
