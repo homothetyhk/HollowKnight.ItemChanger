@@ -40,6 +40,7 @@ namespace ItemChanger.Locations
 
             Events.AddFsmEdit(sceneName, new(objectName, fsmName), EditInteractionFsm);
             Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}", "shop_control"), CustomizeShopControl);
+            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), CustomizeConfirmControl);
 
             // all events below perform the normal ShopLocation edits on our custom shop object
             Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}", "shop_control"), EditShopControl);
@@ -56,6 +57,7 @@ namespace ItemChanger.Locations
         {
             Events.RemoveFsmEdit(sceneName, new(objectName, fsmName), EditInteractionFsm);
             Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}", "shop_control"), CustomizeShopControl);
+            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), CustomizeConfirmControl);
 
             Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}", "shop_control"), EditShopControl);
             Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Item List", "Item List Control"), EditItemListControl);
@@ -125,7 +127,7 @@ namespace ItemChanger.Locations
                     // otherwise the player is in the exact position of the npc somehow, and hasn't been moved,
                     // so just defer to wherever the shop last was
                 }),
-                new Lambda(() => fsm.Fsm.BroadcastEventToGameObject(shopObject, $"SHOP UP {objectName}", false))
+                new Lambda(() => fsm.Fsm.BroadcastEventToGameObject(shopObject, "SHOP UP", false))
             );
 
             shopUp.AddTransition("HERO DAMAGED", resetShop);
@@ -169,9 +171,6 @@ namespace ItemChanger.Locations
                 }
             }));
 
-            idle.RemoveTransitionsOn("SHOP UP");
-            idle.AddTransition($"SHOP UP {objectName}", stockCheck);
-
             stockCheck.RemoveTransitionsOn("FINISHED");
             stockCheck.AddTransition("FINISHED", "Open Window");
 
@@ -185,6 +184,21 @@ namespace ItemChanger.Locations
                 DialogueCenter.StartConversation(outOfStockConvo.Value);
             }));
             noStock.AddTransition("CONVO_FINISH", "Box Down");
+        }
+
+        private void CustomizeConfirmControl(PlayMakerFSM fsm)
+        {
+            FsmState reset = fsm.GetState("Reset");
+            if (reset.GetActionsOfType<Lambda>().Any())
+            {
+                return;
+            }
+
+            reset.ReplaceAction(new Lambda(() =>
+            {
+                GameObject shopWindow = fsm.FsmVariables.FindFsmGameObject("Shop Window").Value;
+                fsm.Fsm.BroadcastEventToGameObject(shopWindow, "RESET SHOP WINDOW", false);
+            }), 1);
         }
     }
 }
