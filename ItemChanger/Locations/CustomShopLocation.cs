@@ -133,9 +133,10 @@ namespace ItemChanger.Locations
             shopUp.AddTransition("HERO DAMAGED", resetShop);
             shopUp.AddTransition("SHOP CLOSED", "Convo End");
 
-            resetShop.AddFirstAction(new Lambda(() => {
-                fsm.Fsm.BroadcastEventToGameObject(shopObject, "CLOSE SHOP WINDOW", false);
-            }));
+            resetShop.SetActions(
+                new Lambda(() => fsm.Fsm.BroadcastEventToGameObject(shopObject, "CLOSE SHOP WINDOW", false))
+            );
+            resetShop.AddTransition("FINISHED", "Convo End");
         }
 
         /// <summary>
@@ -154,7 +155,6 @@ namespace ItemChanger.Locations
 
             noStock = fsm.AddState("No Stock Convo");
             FsmState setFigurehead = fsm.GetState("Set Figurehead");
-            FsmState idle = fsm.GetState("Idle");
             FsmState stockCheck = fsm.GetState("Stock?");
             FsmState boxUp = fsm.GetState("Box Up");
             FsmState checkRelics = fsm.GetState("Check Relics");
