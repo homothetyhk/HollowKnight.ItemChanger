@@ -57,9 +57,13 @@ namespace ItemChanger
         public abstract string GetCostText();
 
         /// <summary>
-        /// Points to the root-level cost for pattern-matching. Primarily intended for implementation by costs which wrap a
-        /// single other cost to apply additional functionality
+        /// Points to the root-level cost for pattern-matching contexts such as CostDisplayer. Primarily intended 
+        /// for implementation by costs which wrap a single other cost to apply additional functionality.
         /// </summary>
+        /// <remarks>
+        /// Implementers of wrapper costs should keep in mind that costs being wrapped may themselves be wrapper costs.
+        /// A typical correct implementation would likely be `WrappedCost.GetBaseCost()`.
+        /// </remarks>
         public virtual Cost GetBaseCost() => this;
 
         /// <summary>

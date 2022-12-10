@@ -24,6 +24,13 @@ namespace ItemChanger.Locations
         /// </summary>
         public DefaultShopItems defaultShopItems;
 
+        /// <summary>
+        /// Determines how costs in this shop should be displayed. By default, all geo costs are summed,
+        /// and all additional costs are displayed in grey text (as charm requirements in vanilla salubra
+        /// are displayed).
+        /// </summary>
+        /// <seealso cref="GeoCostDisplayer"/>
+        /// <seealso cref="CostDisplayer"/>
         public CostDisplayer costDisplayer = new GeoCostDisplayer();
 
         /// <summary>

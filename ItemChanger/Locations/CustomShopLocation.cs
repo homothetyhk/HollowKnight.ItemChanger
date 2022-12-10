@@ -1,8 +1,6 @@
-﻿using ItemChanger.Components;
-using ItemChanger.Extensions;
+﻿using ItemChanger.Extensions;
 using ItemChanger.FsmStateActions;
 using ItemChanger.Internal;
-using ItemChanger.Placements;
 using System;
 using System.Collections.Generic;
 
@@ -110,9 +108,7 @@ namespace ItemChanger.Locations
                 new Lambda(() =>
                 {
                     GameObject hero = fsm.FsmVariables.GetFsmGameObject("Hero Obj").Value;
-                    Log(hero.transform.position);
                     GameObject self = fsm.gameObject;
-                    Log(self.transform.position);
                     Vector3 shopPosition = shopObject.transform.position;
                     if (hero.transform.position.x < self.transform.position.x)
                     {

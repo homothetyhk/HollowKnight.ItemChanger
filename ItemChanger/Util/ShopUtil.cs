@@ -58,7 +58,6 @@ namespace ItemChanger.Util
                 }
                 else
                 {
-                    Log(displayer == null);
                     geo = 0;
                 }
                 self.SetCost(geo);
