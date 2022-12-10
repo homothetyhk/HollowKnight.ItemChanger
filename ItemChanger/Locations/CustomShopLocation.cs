@@ -6,10 +6,23 @@ using System.Collections.Generic;
 
 namespace ItemChanger.Locations
 {
+    /// <summary>
+    /// The directions that a shopkeeper in a custom shop will face
+    /// </summary>
     public enum FacingDirection
     {
+        /// <summary>
+        /// Allows the shopkeeper to face in the default direction (either towards the player if
+        /// the NPC can turn, or the direction which is forced by the NPC by default)
+        /// </summary>
         Auto,
+        /// <summary>
+        /// Forces the shopkeeper to face left
+        /// </summary>
         Left,
+        /// <summary>
+        /// Forces the shopkeeper to face right
+        /// </summary>
         Right,
     }
 
@@ -27,8 +40,17 @@ namespace ItemChanger.Locations
         // I really did pull out a tape measure for this number
         private const float XPositionShopOnLeft = -1.53f;
 
+        /// <summary>
+        /// The optional conversation to have when the shop is out of stock
+        /// </summary>
         public IString outOfStockConvo;
+        /// <summary>
+        /// The optional sprite to use as the figurehead at the top of the shop
+        /// </summary>
         public ISprite figureheadSprite;
+        /// <summary>
+        /// The direction for the shopkeeper to face. Defaults to Auto.
+        /// </summary>
         public FacingDirection facingDirection = FacingDirection.Auto;
 
         protected override void OnLoad()
