@@ -163,7 +163,20 @@ namespace ItemChanger.Locations
                 GameObject figurehead = fsm.FsmVariables.FindFsmGameObject("Current Figurehead").Value;
                 if (figureheadSprite != null)
                 {
-                    figurehead.GetComponent<SpriteRenderer>().sprite = figureheadSprite.Value;
+                    UObject.DestroyImmediate(figurehead.GetComponent<InvAnimateUpAndDown>());
+                    UObject.DestroyImmediate(figurehead.GetComponent<tk2dSprite>());
+                    UObject.DestroyImmediate(figurehead.GetComponent<tk2dSpriteAnimator>());
+                    UObject.DestroyImmediate(figurehead.GetComponent<MeshRenderer>());
+                    UObject.DestroyImmediate(figurehead.GetComponent<MeshFilter>());
+
+                    SpriteRenderer renderer = figurehead.AddComponent<SpriteRenderer>();
+                    renderer.sprite = figureheadSprite.Value;
+                    renderer.enabled = false;
+                    FadeGroup group = renderer.transform.parent.parent.GetComponent<FadeGroup>();
+                    SpriteRenderer[] spriteRenderers = new SpriteRenderer[group.spriteRenderers.Length + 1];
+                    spriteRenderers[0] = renderer;
+                    group.spriteRenderers.CopyTo(spriteRenderers, 1);
+                    group.spriteRenderers = spriteRenderers;
                 }
                 else
                 {
