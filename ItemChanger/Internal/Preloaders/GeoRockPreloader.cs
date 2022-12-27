@@ -11,7 +11,7 @@
             if (PreloadLevel == PreloadLevel.Full)
             {
                 yield return (SceneNames.Abyss_19, "Geo Rock Abyss");
-                yield return (SceneNames.Ruins2_05, "Geo Rock City 1");
+                yield return (SceneNames.Ruins1_05b, "Geo Rock City 1 (1)");
                 yield return (SceneNames.Deepnest_02, "Geo Rock Deepnest");
                 yield return (SceneNames.Fungus2_11, "Geo Rock Fung 01");
                 yield return (SceneNames.Fungus2_11, "Geo Rock Fung 02");
@@ -34,7 +34,7 @@
                 {
                     [GeoRockSubtype.Default] = objectsByScene[SceneNames.Tutorial_01]["_Props/Geo Rock 1"],
                     [GeoRockSubtype.Abyss] = objectsByScene[SceneNames.Abyss_19]["Geo Rock Abyss"],
-                    [GeoRockSubtype.City] = objectsByScene[SceneNames.Ruins2_05]["Geo Rock City 1"],
+                    [GeoRockSubtype.City] = objectsByScene[SceneNames.Ruins1_05b]["Geo Rock City 1 (1)"],
                     [GeoRockSubtype.Deepnest] = objectsByScene[SceneNames.Deepnest_02]["Geo Rock Deepnest"],
                     [GeoRockSubtype.Fung01] = objectsByScene[SceneNames.Fungus2_11]["Geo Rock Fung 01"],
                     [GeoRockSubtype.Fung02] = objectsByScene[SceneNames.Fungus2_11]["Geo Rock Fung 02"],

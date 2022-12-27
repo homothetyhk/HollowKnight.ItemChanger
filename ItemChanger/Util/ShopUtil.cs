@@ -24,6 +24,7 @@ namespace ItemChanger.Util
             if (mod)
             {
                 Cost cost = mod.cost;
+                CostDisplayer displayer = mod.costDisplayer;
                 if (cost != null)
                 {
                     if (self.dungDiscount && PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_10)))
@@ -51,9 +52,9 @@ namespace ItemChanger.Util
 
                 int geo;
                 if (!mod.placement.HasTag<Tags.DisableCostPreviewTag>() && !mod.item.HasTag<Tags.DisableCostPreviewTag>()
-                && cost is not null && !cost.Paid)
+                    && cost is not null && !cost.Paid && displayer != null)
                 {
-                    geo = cost.GetDisplayGeo();
+                    geo = displayer.GetDisplayAmount(cost);
                 }
                 else
                 {
@@ -112,6 +113,7 @@ namespace ItemChanger.Util
                         var origMod = self.stock[i].GetComponent<ModShopItemStats>();
                         mod.item = origMod.item;
                         mod.cost = origMod.cost;
+                        mod.costDisplayer = origMod.costDisplayer;
                         mod.placement = origMod.placement;
                     }
                     gameObject.transform.SetParent(self.transform, false);

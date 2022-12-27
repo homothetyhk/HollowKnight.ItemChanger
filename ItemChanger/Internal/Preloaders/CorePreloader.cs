@@ -11,6 +11,7 @@ namespace ItemChanger.Internal.Preloaders
             yield return (SceneNames.Tutorial_01, "_Scenery/plat_float_17");
             yield return (SceneNames.Tutorial_01, "_Props/Tut_tablet_top (1)");
             yield return (SceneNames.Deepnest_36, "d_break_0047_deep_lamp2/lamp_bug_escape (7)");
+            yield return (SceneNames.Ruins1_05b, "Shop Menu");
         }
 
         public override void SavePreloads(Dictionary<string, Dictionary<string, GameObject>> objectsByScene)
@@ -36,6 +37,16 @@ namespace ItemChanger.Internal.Preloaders
             _loreTablet = objectsByScene[SceneNames.Tutorial_01]["_Props/Tut_tablet_top (1)"];
             _loreTablet.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
             UObject.DontDestroyOnLoad(_loreTablet);
+
+            _shopMenu = objectsByScene[SceneNames.Ruins1_05b]["Shop Menu"];
+            ShopMenuStock shop = _shopMenu.GetComponent<ShopMenuStock>();
+            _shopItem = UObject.Instantiate(shop.stock[0]);
+            GameObject amountIndicator = _shopItem.transform.Find("Amount").gameObject;
+            UnityEngine.Object.Destroy(amountIndicator);
+            _shopItem.SetActive(false);
+            PatchShop(_shopMenu);
+            UObject.DontDestroyOnLoad(_shopMenu);
+            UObject.DontDestroyOnLoad(_shopItem);
         }
 
         public GameObject Chest => UObject.Instantiate(_chest);
@@ -44,6 +55,8 @@ namespace ItemChanger.Internal.Preloaders
         public GameObject RelicGetMsg => UObject.Instantiate(_relicGetMsg);
         public GameObject LoreTablet => UObject.Instantiate(_loreTablet);
         public GameObject LumaflyEscape => UObject.Instantiate(_lumaflyEscape);
+        public GameObject ShopMenu => UObject.Instantiate(_shopMenu);
+        public GameObject ShopItem => UObject.Instantiate(_shopItem);
 
         private GameObject _chest;
         private GameObject _shinyItem;
@@ -51,6 +64,8 @@ namespace ItemChanger.Internal.Preloaders
         private GameObject _smallPlatform;
         private GameObject _loreTablet;
         private GameObject _lumaflyEscape;
+        private GameObject _shopMenu;
+        private GameObject _shopItem;
 
 
         private static void FixLumaflyEscape(GameObject lumaflyEscape)
@@ -91,6 +106,18 @@ namespace ItemChanger.Internal.Preloaders
             Vector3 loc = t.localScale;
             loc.x = 1f;
             t.localScale = loc;
+        }
+
+        private static void PatchShop(GameObject shopMenu)
+        {
+            shopMenu.transform.Find("Item Details").gameObject.SetActive(true);
+            // make this not be a selling shop for later convenience
+            shopMenu.transform.Find("Confirm").Find("Confirm msg")
+                .GetComponent<SetTextMeshProGameText>().convName = "SHOP_PURCHASE_CONFIRM";
+            PlayMakerFSM fsm = shopMenu.LocateMyFSM("shop_control");
+            fsm.FsmVariables.FindFsmBool("Relic Dealer").Value = false;
+            fsm.FsmVariables.FindFsmBool("Selling Shop").Value = false;
+            shopMenu.SetActive(false);
         }
     }
 }
