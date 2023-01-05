@@ -40,6 +40,9 @@ namespace ItemChanger
                 ShopUtil.HookShops();
                 StartDef.Hook();
                 Events.Hook();
+                NamedBoolFunction.Clear();
+                NamedStringFunction.Clear();
+                NamedSpriteFunction.Clear();
             }
             catch (Exception e)
             {
@@ -62,6 +65,9 @@ namespace ItemChanger
                 StartDef.Unhook();
                 Events.Unhook();
                 MessageController.Clear();
+                NamedBoolFunction.Clear();
+                NamedStringFunction.Clear();
+                NamedSpriteFunction.Clear();
             }
             catch (Exception e)
             {

@@ -1656,7 +1656,7 @@
     "elevation": -1.1,
     "name": "Rancid_Egg-Sheo",
     "sceneName": "Fungus1_15",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "Rancid_Egg-Fungal_Core": {
@@ -2250,7 +2250,7 @@
     "elevation": -1.1,
     "name": "Wanderer's_Journal-Ancient_Basin",
     "sceneName": "Abyss_02",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "Wanderer's_Journal-Kingdom's_Edge_Entrance": {
@@ -2610,7 +2610,7 @@
     "elevation": -1.1,
     "name": "Arcane_Egg-Lifeblood_Core",
     "sceneName": "Abyss_08",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "Arcane_Egg-Shade_Cloak": {
@@ -2885,7 +2885,7 @@
     "forceShiny": false,
     "name": "Grub-Crossroads_Acid",
     "sceneName": "Crossroads_35",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "Grub-Crossroads_Center": {
@@ -5267,7 +5267,7 @@
     "forceShiny": false,
     "name": "Geo_Rock-Greenpath_Hunter's_Journal",
     "sceneName": "Fungus1_07",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "Geo_Rock-Greenpath_Acid_Bridge": {
@@ -6933,7 +6933,7 @@
     "forceShiny": false,
     "name": "Soul_Totem-Crystallized_Mound",
     "sceneName": "Mines_35",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "Soul_Totem-Resting_Grounds": {

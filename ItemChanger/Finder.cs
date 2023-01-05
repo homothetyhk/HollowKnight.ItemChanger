@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-
+using System.Reflection;
 
 namespace ItemChanger
 {
@@ -209,6 +209,17 @@ namespace ItemChanger
 
             using StreamWriter sw = new(Path.Combine(Path.GetDirectoryName(typeof(Finder).Assembly.Location), filename));
             js.Serialize(sw, o);
+        }
+
+        public static T DeserializeResource<T>(Assembly a, string resourcePath)
+        {
+            JsonSerializer js = new()
+            {
+                TypeNameHandling = TypeNameHandling.Auto,
+            };
+            js.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+            using StreamReader sr = new(a.GetManifestResourceStream(resourcePath));
+            return js.Deserialize<T>(new JsonTextReader(sr));
         }
 
         public enum FinderItemSheets
