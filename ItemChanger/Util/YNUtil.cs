@@ -19,7 +19,7 @@ namespace ItemChanger.Util
                 OpenYNDialogue(requester, text, true);
                 placement.OnPreview(text);
             }
-            else if (cost is GeoCost gc)
+            else if (cost.GetBaseCost() is GeoCost gc)
             {
                 OpenYNDialogue(requester, text, gc.amount); 
                 placement.OnPreview($"{text}  -  {gc.GetCostText()}");

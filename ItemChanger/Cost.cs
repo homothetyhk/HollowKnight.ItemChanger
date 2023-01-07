@@ -115,7 +115,7 @@ namespace ItemChanger
     /// <summary>
     /// Cost which is the concatenation of other costs. Can only be paid if all of its costs can be paid, and pays all its costs sequentially.
     /// </summary>
-    public record MultiCost : Cost, IReadOnlyList<Cost>
+    public sealed record MultiCost : Cost, IReadOnlyList<Cost>
     {
         [JsonProperty]
         private readonly Cost[] Costs;
@@ -219,7 +219,7 @@ namespace ItemChanger
     /// <summary>
     /// Cost which has no pay effects, but can only be paid when the specified PlayerData bool is true.
     /// </summary>
-    public record PDBoolCost(string fieldName, string uiText) : Cost
+    public sealed record PDBoolCost(string fieldName, string uiText) : Cost
     {
         public override bool CanPay() => PlayerData.instance.GetBool(fieldName);
         public override void OnPay() { }
@@ -238,7 +238,7 @@ namespace ItemChanger
     /// <summary>
     /// Cost which has no pay effects, but can only be paid when the specified PlayerData int comparison succeeds.
     /// </summary>
-    public record PDIntCost(int amount, string fieldName, string uiText, ComparisonOperator op = ComparisonOperator.Ge) : Cost
+    public sealed record PDIntCost(int amount, string fieldName, string uiText, ComparisonOperator op = ComparisonOperator.Ge) : Cost
     {
         public override bool CanPay() => PlayerData.instance.GetInt(fieldName).Compare(op, amount);
         public override void OnPay() { }
@@ -257,7 +257,7 @@ namespace ItemChanger
     /// <summary>
     /// Cost which subtracts the specified amount from the specified PlayerData int. Can only be paid when the result of the subtraction would be nonnegative.
     /// </summary>
-    public record ConsumablePDIntCost(int amount, string fieldName, string uiText) : Cost
+    public sealed record ConsumablePDIntCost(int amount, string fieldName, string uiText) : Cost
     {
         public override bool CanPay() => PlayerData.instance.GetInt(fieldName) >= amount;
         public override void OnPay()
@@ -281,7 +281,7 @@ namespace ItemChanger
     /// <summary>
     /// Cost which subtracts the specified amount from the GeoCounter. Can only be paid when the result of the subtraction would be nonnegative.
     /// </summary>
-    public record GeoCost(int amount) : Cost
+    public sealed record GeoCost(int amount) : Cost
     {
         public override bool CanPay() => PlayerData.instance.GetInt(nameof(PlayerData.geo)) >= (int)(amount * DiscountRate);
         public override void OnPay()
