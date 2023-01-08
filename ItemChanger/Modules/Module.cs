@@ -1,4 +1,6 @@
-﻿namespace ItemChanger.Modules
+﻿using Newtonsoft.Json;
+
+namespace ItemChanger.Modules
 {
     /// <summary>
     /// Base type for classes which perform self-contained changes that should be applied when a save is created or continued and disabled when the save is unloaded.
@@ -49,7 +51,13 @@
             }
         }
 
-        [Newtonsoft.Json.JsonIgnore]
+        /// <summary>
+        /// Additional information for serialization and other tag handling purposes.
+        /// </summary>
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public virtual ModuleHandlingFlags ModuleHandlingProperties { get; set; }
+
+        [JsonIgnore]
         public bool Loaded { get; private set; }
     }
 

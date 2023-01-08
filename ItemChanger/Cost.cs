@@ -115,6 +115,7 @@ namespace ItemChanger
     /// <summary>
     /// Cost which is the concatenation of other costs. Can only be paid if all of its costs can be paid, and pays all its costs sequentially.
     /// </summary>
+    [JsonObject]
     public sealed record MultiCost : Cost, IReadOnlyList<Cost>
     {
         [JsonProperty]

@@ -1,11 +1,14 @@
 ﻿using System.Reflection;
 using ItemChanger.Modules;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using Module = ItemChanger.Modules.Module;
 
 namespace ItemChanger.Internal
 {
     public class ModuleCollection
     {
+        [JsonConverter(typeof(ModuleListDeserializer))]
         public List<Module> Modules = new();
 
         public void Initialize()
@@ -111,6 +114,72 @@ namespace ItemChanger.Internal
             }
 
             return mc;
+        }
+
+        public class ModuleListSerializer : JsonConverter<List<Module>>
+        {
+            public override bool CanRead => false;
+            public override bool CanWrite => true;
+            public bool RemoveNewProfileModules;
+            public override List<Module> ReadJson(JsonReader reader, Type objectType, List<Module> existingValue, bool hasExistingValue, JsonSerializer serializer)
+            {
+                throw new NotImplementedException();
+            }
+            public override void WriteJson(JsonWriter writer, List<Module> value, JsonSerializer serializer)
+            {
+                if (RemoveNewProfileModules)
+                {
+                    value = new(value.Where(t => !t.ModuleHandlingProperties.HasFlag(ModuleHandlingFlags.RemoveOnNewProfile)));
+                }
+
+                serializer.Serialize(writer, value.ToArray());
+            }
+        }
+
+        public class ModuleListDeserializer : JsonConverter<List<Module>>
+        {
+            public override bool CanRead => true;
+            public override bool CanWrite => false;
+
+            public override List<Module> ReadJson(JsonReader reader, Type objectType, List<Module> existingValue, bool hasExistingValue, JsonSerializer serializer)
+            {
+                JToken jt = JToken.Load(reader);
+                if (jt.Type == JTokenType.Null) return null;
+                else if (jt.Type == JTokenType.Array)
+                {
+                    JArray ja = (JArray)jt;
+                    List<Module> list = new(ja.Count);
+                    foreach (JToken jModule in ja)
+                    {
+                        Module t;
+                        try
+                        {
+                            t = jModule.ToObject<Module>(serializer);
+                        }
+                        catch (Exception e)
+                        {
+                            ModuleHandlingFlags flags = ((JObject)jModule).GetValue(nameof(Module.ModuleHandlingProperties))?.ToObject<ModuleHandlingFlags>(serializer) ?? ModuleHandlingFlags.None;
+                            if (flags.HasFlag(ModuleHandlingFlags.AllowDeserializationFailure))
+                            {
+                                t = new InvalidModule
+                                {
+                                    JSON = jModule,
+                                    DeserializationError = e,
+                                };
+                            }
+                            else throw;
+                        }
+                        list.Add(t);
+                    }
+                    return list;
+                }
+                throw new JsonSerializationException("Unable to handle tag list pattern: " + jt.ToString());
+            }
+
+            public override void WriteJson(JsonWriter writer, List<Module> value, JsonSerializer serializer)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

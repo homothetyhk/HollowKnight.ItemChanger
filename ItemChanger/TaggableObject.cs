@@ -6,7 +6,7 @@ namespace ItemChanger
 {
     public class TaggableObject
     {
-        [JsonProperty] [JsonConverter(typeof(TagListConverter))] public List<Tag> tags;
+        [JsonProperty] [JsonConverter(typeof(TagListDeserializer))] public List<Tag> tags;
         private bool _tagsLoaded;
 
         protected void LoadTags()
@@ -88,7 +88,27 @@ namespace ItemChanger
             tags = tags?.Where(t => t is not T)?.ToList();
         }
         
-        public class TagListConverter : JsonConverter<List<Tag>>
+        public class TagListSerializer : JsonConverter<List<Tag>>
+        {
+            public override bool CanRead => false;
+            public override bool CanWrite => true;
+            public bool RemoveNewProfileTags;
+            public override List<Tag> ReadJson(JsonReader reader, Type objectType, List<Tag> existingValue, bool hasExistingValue, JsonSerializer serializer)
+            {
+                throw new NotImplementedException();
+            }
+            public override void WriteJson(JsonWriter writer, List<Tag> value, JsonSerializer serializer)
+            {
+                if (RemoveNewProfileTags)
+                {
+                    value = new(value.Where(t => !t.TagHandlingProperties.HasFlag(TagHandlingFlags.RemoveOnNewProfile)));
+                }
+
+                serializer.Serialize(writer, value.ToArray());
+            }
+        }
+
+        public class TagListDeserializer : JsonConverter<List<Tag>>
         {
             public override bool CanRead => true;
             public override bool CanWrite => false;
