@@ -22,7 +22,7 @@ namespace ItemChanger.Modules
         public override void Unload() { }
 
         /// <summary>
-        /// Converter which erases the InvalidTag during serialization and writes the JSON which it wraps.
+        /// Converter which erases the InvalidModule during serialization and writes the JSON which it wraps.
         /// </summary>
         public class InvalidModuleConverter : JsonConverter<InvalidModule>
         {
