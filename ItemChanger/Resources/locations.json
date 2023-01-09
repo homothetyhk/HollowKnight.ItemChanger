@@ -6350,11 +6350,35 @@
     "tags": null
   },
   "Boss_Geo-Gorgeous_Husk": {
-    "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",
-    "objectName": "Gorgeous Husk",
-    "removeGeo": true,
-    "managed": false,
-    "forceShiny": false,
+    "$type": "ItemChanger.Locations.DualLocation, ItemChanger",
+    "Test": {
+      "$type": "ItemChanger.SDBool, ItemChanger",
+      "id": "Gorgeous Husk",
+      "sceneName": "Ruins_House_02"
+    },
+    "falseLocation": {
+      "$type": "ItemChanger.Locations.EnemyLocation, ItemChanger",
+      "objectName": "Gorgeous Husk",
+      "removeGeo": true,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Boss_Geo-Gorgeous_Husk",
+      "sceneName": "Ruins_House_02",
+      "flingType": "Everywhere",
+      "tags": null
+    },
+    "trueLocation": {
+      "$type": "ItemChanger.Locations.CoordinateLocation, ItemChanger",
+      "x": 54.0,
+      "y": 6.4,
+      "elevation": 0.0,
+      "managed": false,
+      "forceShiny": false,
+      "name": "Boss_Geo-Gorgeous_Husk",
+      "sceneName": "Ruins_House_02",
+      "flingType": "Everywhere",
+      "tags": null
+    },
     "name": "Boss_Geo-Gorgeous_Husk",
     "sceneName": "Ruins_House_02",
     "flingType": "Everywhere",

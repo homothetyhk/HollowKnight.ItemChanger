@@ -24,6 +24,12 @@
                         3 => key + "_B",
                         _ => key + "_C"
                     };
+                case 40:
+                    return PlayerData.instance.GetInt(nameof(PlayerData.grimmChildLevel)) switch
+                    {
+                        5 => key + "_N",
+                        _ => key,
+                    };
                 default:
                     return key;
             }
