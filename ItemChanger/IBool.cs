@@ -180,7 +180,54 @@ namespace ItemChanger
             }
         }
 
-        public IBool Clone() => (IBool)MemberwiseClone();
+        public IBool Clone()
+        {
+            PlacementAllObtainedBool obj = (PlacementAllObtainedBool)MemberwiseClone();
+            obj.missingPlacementTest = obj.missingPlacementTest?.Clone();
+            return obj;
+        }
+    }
+
+    /// <summary>
+    /// IBool which searches for a placement by name and checks whether its VisitState includes specified flags.
+    /// <br/>If the placement does not exist, defaults to the value of missingPlacementTest, or true if missingPlacementTest is null.
+    /// </summary>
+    public class PlacementVisitStateBool : IBool
+    {
+        public PlacementVisitStateBool(string placementName, VisitState requiredFlags, IBool missingPlacementTest)
+        {
+            this.placementName = placementName;
+            this.requiredFlags = requiredFlags;
+            this.missingPlacementTest = missingPlacementTest;
+        }
+
+        public string placementName;
+        public VisitState requiredFlags;
+        /// <summary>
+        /// If true, requires any flag in requiredFlags to be contained in the VisitState. If false, requires all flags in requiredFlags to be contained in VisitState. Defaults to false.
+        /// </summary>
+        public bool requireAny;
+        public IBool missingPlacementTest;
+
+        [JsonIgnore]
+        public bool Value
+        {
+            get
+            {
+                if (placementName != null && Internal.Ref.Settings is Settings s && s.Placements != null && s.Placements.TryGetValue(placementName, out var p) && p != null)
+                {
+                    return requireAny ? p.CheckVisitedAny(requiredFlags) : p.CheckVisitedAll(requiredFlags);
+                }
+                return missingPlacementTest?.Value ?? true;
+            }
+        }
+
+        public IBool Clone()
+        {
+            PlacementVisitStateBool obj = (PlacementVisitStateBool)MemberwiseClone();
+            obj.missingPlacementTest = obj.missingPlacementTest?.Clone();
+            return obj;
+        }
     }
 
     public class Disjunction : IBool
