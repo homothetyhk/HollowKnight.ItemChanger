@@ -6,7 +6,7 @@ namespace ItemChanger
 {
     public class TaggableObject
     {
-        [JsonProperty] [JsonConverter(typeof(TagListDeserializer))] public List<Tag> tags;
+        [JsonProperty] [JsonConverter(typeof(TagListDeserializer))] public List<Tag>? tags;
         private bool _tagsLoaded;
 
         protected void LoadTags()

@@ -10,7 +10,7 @@ namespace ItemChanger
         /// <summary>
         /// The best description of the most specific container for this item.
         /// </summary>
-        public string Container { get; set; }
+        public string? Container { get; set; }
         /// <summary>
         /// How geo and similar objects are allowed to be flung.
         /// </summary>
@@ -18,7 +18,7 @@ namespace ItemChanger
         /// <summary>
         /// The transform to use for flinging and similar actions. May be null.
         /// </summary>
-        public Transform Transform {get; set;}
+        public Transform? Transform {get; set;}
         /// <summary>
         /// A flag enumeration of the allowed message types for the UIDef after the item is given.
         /// </summary>
@@ -26,7 +26,7 @@ namespace ItemChanger
         /// <summary>
         /// A callback set by the location or placement to be executed by the UIDef when its message is complete.
         /// </summary>
-        public Action<AbstractItem> Callback { get; set; }
+        public Action<AbstractItem>? Callback { get; set; }
 
         /// <summary>
         /// Returns a shallow clone of the GiveInfo.
@@ -53,7 +53,7 @@ namespace ItemChanger
         /// <summary>
         /// The UIDef associated to an item. GetResolvedUIDef() is preferred in most cases, since it accounts for the hooks which may modify the item.
         /// </summary>
-        public UIDef UIDef;
+        public UIDef? UIDef;
 
         /// <summary>
         /// Method allowing derived item classes to initialize and place hooks.
@@ -108,23 +108,22 @@ namespace ItemChanger
         /// <summary>
         /// The method called to give an item.
         /// </summary>
-        public void Give(AbstractPlacement placement, GiveInfo info)
+        public void Give(AbstractPlacement? placement, GiveInfo info)
         {
             ObtainState originalState = obtainState;
-            ReadOnlyGiveEventArgs readOnlyArgs = new ReadOnlyGiveEventArgs(this, this, placement, info, originalState);
+            ReadOnlyGiveEventArgs readOnlyArgs = new(this, this, placement, info, originalState);
             BeforeGiveInvoke(readOnlyArgs);
 
-            GiveEventArgs giveArgs = new GiveEventArgs(this, this, placement, info, originalState);
+            GiveEventArgs giveArgs = new(this, this, placement, info, originalState);
             ResolveItem(giveArgs);
 
             SetObtained();
-            placement.OnObtainedItem(this);
+            placement?.OnObtainedItem(this);
 
             AbstractItem item = giveArgs.Item;
-            placement = giveArgs.Placement;
-            info = giveArgs.Info;
+            info = giveArgs.Info!;
 
-            readOnlyArgs = new ReadOnlyGiveEventArgs(giveArgs.Orig, giveArgs.Item, giveArgs.Placement, giveArgs.Info, originalState);
+            readOnlyArgs = new(giveArgs.Orig, item, placement, info, originalState);
             OnGiveInvoke(readOnlyArgs);
 
             try
@@ -133,7 +132,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                LogError($"Error on GiveImmediate for item {item?.name}:\n{e}");
+                LogError($"Error on GiveImmediate for item {item.name}:\n{e}");
                 Internal.MessageController.Error();
             }
 
@@ -147,7 +146,7 @@ namespace ItemChanger
                 }
                 catch (Exception e)
                 {
-                    LogError($"Error on SendMessage for item {item?.name}:\n{e}");
+                    LogError($"Error on SendMessage for item {item.name}:\n{e}");
                     Internal.MessageController.Error();
                     info.Callback?.Invoke(item);
                 }
@@ -160,28 +159,28 @@ namespace ItemChanger
         /// </summary>
         public abstract void GiveImmediate(GiveInfo info);
 
-        public string GetPreviewName(AbstractPlacement placement = null)
+        public string GetPreviewName(AbstractPlacement? placement = null)
         {
             if (HasTag<Tags.DisableItemPreviewTag>() 
                 || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>())) return Language.Language.Get("???", "IC");
-            UIDef def = GetResolvedUIDef(placement);
+            UIDef? def = GetResolvedUIDef(placement);
             return def?.GetPreviewName() ?? Language.Language.Get("???", "IC"); ;
         }
 
-        public Sprite GetPreviewSprite(AbstractPlacement placement = null)
+        public Sprite? GetPreviewSprite(AbstractPlacement? placement = null)
         {
             if (HasTag<Tags.DisableItemPreviewTag>()
                 || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>())) return Modding.CanvasUtil.NullSprite();
-            UIDef def = GetResolvedUIDef(placement);
+            UIDef? def = GetResolvedUIDef(placement);
             return def?.GetSprite();
         }
 
         /// <summary>
         /// Returns the UIDef of the item yielded after all of the events for modifying items.
         /// </summary>
-        public UIDef GetResolvedUIDef(AbstractPlacement placement = null)
+        public UIDef? GetResolvedUIDef(AbstractPlacement? placement = null)
         {
-            GiveEventArgs args = new GiveEventArgs(this, this, placement, null, obtainState);
+            GiveEventArgs args = new(this, this, placement, null, obtainState);
             ResolveItem(args);
             return args.Item.UIDef;
         }
@@ -198,10 +197,7 @@ namespace ItemChanger
                 ModifyRedundantItemInvoke(args);
             }
 
-            if (args.Item == null)
-            {
-                args.Item = Items.VoidItem.Nothing;
-            }
+            args.Item ??= Items.VoidItem.Nothing;
         }
 
         /// <summary>
@@ -252,12 +248,12 @@ namespace ItemChanger
         /// Event invoked by this item at the start of Give(), giving access to the initial give parameters.
         /// </summary>
         [field: JsonIgnore]
-        public event Action<ReadOnlyGiveEventArgs> BeforeGive;
+        public event Action<ReadOnlyGiveEventArgs>? BeforeGive;
 
         /// <summary>
         /// Event invoked by each item at the start of Give(), giving access to the initial give parameters.
         /// </summary>
-        public static event Action<ReadOnlyGiveEventArgs> BeforeGiveGlobal;
+        public static event Action<ReadOnlyGiveEventArgs>? BeforeGiveGlobal;
         
         private void BeforeGiveInvoke(ReadOnlyGiveEventArgs args)
         {
@@ -268,7 +264,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                string placement = args?.Placement?.Name;
+                string? placement = args?.Placement?.Name;
                 if (placement != null)
                 {
                     LogError($"Error invoking BeforeGive for item {name} at placement {placement}:\n{e}");
@@ -284,12 +280,12 @@ namespace ItemChanger
         /// Event invoked by this item during Give() to allow modification of any of the give parameters, including the item given.
         /// </summary>
         [field: JsonIgnore]
-        public event Action<GiveEventArgs> ModifyItem;
+        public event Action<GiveEventArgs>? ModifyItem;
 
         /// <summary>
         /// Event invoked by each item during Give() to allow modification of any of the give parameters, including the item given.
         /// </summary>
-        public static event Action<GiveEventArgs> ModifyItemGlobal;
+        public static event Action<GiveEventArgs>? ModifyItemGlobal;
 
         private void ModifyItemInvoke(GiveEventArgs args)
         {
@@ -300,7 +296,7 @@ namespace ItemChanger
             }
             catch (Exception e)
             {
-                string placement = args?.Placement?.Name;
+                string? placement = args?.Placement?.Name;
                 if (placement != null)
                 {
                     LogError($"Error invoking ModifyItem for item {name} at placement {placement}:\n{e}");
@@ -316,12 +312,12 @@ namespace ItemChanger
         /// Event invoked by this item after the ModifyItem events, if the resulting item is null or redundant.
         /// </summary>
         [field: JsonIgnore]
-        public event Action<GiveEventArgs> ModifyRedundantItem;
+        public event Action<GiveEventArgs>? ModifyRedundantItem;
 
         /// <summary>
         /// Event invoked by each item after the ModifyItem events, if the resulting item is null or redundant.
         /// </summary>
-        public static event Action<GiveEventArgs> ModifyRedundantItemGlobal;
+        public static event Action<GiveEventArgs>? ModifyRedundantItemGlobal;
         
         private void ModifyRedundantItemInvoke(GiveEventArgs args)
         {
@@ -332,7 +328,7 @@ namespace ItemChanger
             }
             catch (Exception e) 
             {
-                string placement = args?.Placement?.Name;
+                string? placement = args?.Placement?.Name;
                 if (placement != null)
                 {
                     LogError($"Error invoking ModifyRedundantItem for item {name} at placement {placement}:\n{e}");
@@ -348,12 +344,12 @@ namespace ItemChanger
         /// Event invoked by this item just before GiveImmediate(), giving access to the final give parameters.
         /// </summary>
         [field: JsonIgnore]
-        public event Action<ReadOnlyGiveEventArgs> OnGive;
+        public event Action<ReadOnlyGiveEventArgs>? OnGive;
 
         /// <summary>
         /// Event invoked by each item just before GiveImmediate(), giving access to the final give parameters.
         /// </summary>
-        public static event Action<ReadOnlyGiveEventArgs> OnGiveGlobal;
+        public static event Action<ReadOnlyGiveEventArgs>? OnGiveGlobal;
         
         private void OnGiveInvoke(ReadOnlyGiveEventArgs args)
         {
@@ -364,7 +360,7 @@ namespace ItemChanger
             }
             catch (Exception e) 
             {
-                string placement = args?.Placement?.Name;
+                string? placement = args?.Placement?.Name;
                 if (placement != null)
                 {
                     LogError($"Error invoking OnGive for item {name} at placement {placement}:\n{e}");
@@ -380,12 +376,12 @@ namespace ItemChanger
         /// Event invoked by this item just after GiveImmediate(), giving access to the final give parameters.
         /// </summary>
         [field: JsonIgnore]
-        public event Action<ReadOnlyGiveEventArgs> AfterGive;
+        public event Action<ReadOnlyGiveEventArgs>? AfterGive;
 
         /// <summary>
         /// Event invoked by each item just after GiveImmediate(), giving access to the final give parameters.
         /// </summary>
-        public static event Action<ReadOnlyGiveEventArgs> AfterGiveGlobal;
+        public static event Action<ReadOnlyGiveEventArgs>? AfterGiveGlobal;
         
         private void AfterGiveInvoke(ReadOnlyGiveEventArgs args)
         {
@@ -396,7 +392,7 @@ namespace ItemChanger
             }
             catch (Exception e) 
             {
-                string placement = args?.Placement?.Name;
+                string? placement = args?.Placement?.Name;
                 if (placement != null)
                 {
                     LogError($"Error invoking AfterGive for item {name} at placement {placement}:\n{e}");

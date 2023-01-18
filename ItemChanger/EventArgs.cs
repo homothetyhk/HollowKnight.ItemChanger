@@ -33,7 +33,7 @@
 
     public class GiveEventArgs : EventArgs
     {
-        public GiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement placement, GiveInfo info, ObtainState state)
+        public GiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement? placement, GiveInfo? info, ObtainState state)
         {
             this.Orig = orig;
             this.Item = item;
@@ -44,8 +44,8 @@
 
         public AbstractItem Orig { get; }
         public AbstractItem Item { get; set; }
-        public AbstractPlacement Placement { get; }
-        public GiveInfo Info { get; set; }
+        public AbstractPlacement? Placement { get; }
+        public GiveInfo? Info { get; set; }
         public ObtainState OriginalState { get; }
     }
 
@@ -53,7 +53,7 @@
     {
         private readonly GiveInfo info;
 
-        public ReadOnlyGiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement placement, GiveInfo info, ObtainState state)
+        public ReadOnlyGiveEventArgs(AbstractItem orig, AbstractItem item, AbstractPlacement? placement, GiveInfo info, ObtainState state)
         {
             this.Orig = orig;
             this.Item = item;
@@ -64,12 +64,12 @@
 
         public AbstractItem Orig { get; }
         public AbstractItem Item { get; }
-        public AbstractPlacement Placement { get; }
+        public AbstractPlacement? Placement { get; }
         public string Container => info.Container;
         public FlingType Fling => info.FlingType;
-        public Transform Transform => info.Transform;
+        public Transform? Transform => info.Transform;
         public MessageType MessageType => info.MessageType;
-        public Action<AbstractItem> Callback => info.Callback;
+        public Action<AbstractItem>? Callback => info.Callback;
         public ObtainState OriginalState { get; }
     }
 
