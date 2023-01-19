@@ -5,13 +5,13 @@
         /// <summary>
         /// Gives each unobtained item from the collection (asynchronously), and executes the callback after the final item.
         /// </summary>
-        public static void GiveSequentially(IEnumerable<AbstractItem> items, AbstractPlacement placement, GiveInfo info, Action callback = null)
+        public static void GiveSequentially(IEnumerable<AbstractItem> items, AbstractPlacement? placement, GiveInfo info, Action? callback = null)
         {
             IEnumerator<AbstractItem> enumerator = items.GetEnumerator();
             GiveRecursive(enumerator, placement, info, callback);
         }
 
-        private static void GiveRecursive(IEnumerator<AbstractItem> enumerator, AbstractPlacement placement, GiveInfo info, Action callback)
+        private static void GiveRecursive(IEnumerator<AbstractItem> enumerator, AbstractPlacement? placement, GiveInfo info, Action? callback)
         {
             if (enumerator.MoveNext())
             {

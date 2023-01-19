@@ -22,7 +22,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void EditDashPlat(PlayMakerFSM fsm)
         {
             FsmState init = fsm.GetState("Init");
-            init.ReplaceAction(new DelegateBoolTest(Placement.AllObtained, init.Actions[0] as PlayerDataBoolTest), 0);
+            init.ReplaceAction(new DelegateBoolTest(Placement.AllObtained, (PlayerDataBoolTest)init.Actions[0]), 0);
 
             FsmState takeControl = fsm.GetState("Take Control");
             takeControl.RemoveActionsOfType<ActivateGameObject>();

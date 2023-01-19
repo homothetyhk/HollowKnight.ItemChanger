@@ -5,7 +5,7 @@
     /// </summary>
     public static class UnityExtensions
     {
-        public static GameObject FindChild(this GameObject g, string name)
+        public static GameObject? FindChild(this GameObject g, string name)
         {
             Transform t = g.transform.Find(name);
             return t != null ? t.gameObject : null;
@@ -31,12 +31,12 @@
         /// <param name="s"></param>
         /// <param name="path">The full path to the GameObject, with forward slash ('/') separators.</param>
         /// <returns></returns>
-        public static GameObject FindGameObject(this Scene s, string path)
+        public static GameObject? FindGameObject(this Scene s, string path)
         {
             s.GetRootGameObjects(rootObjects); // clears list
 
             int index = path.IndexOf('/');
-            GameObject result = null;
+            GameObject? result = null;
             if (index >= 0)
             {
                 string rootName = path.Substring(0, index);
@@ -55,10 +55,10 @@
         /// <summary>
         /// Breadth first search through the entire hierarchy. Returns the first GameObject with the given name, or null.
         /// </summary>
-        public static GameObject FindGameObjectByName(this Scene s, string name)
+        public static GameObject? FindGameObjectByName(this Scene s, string name)
         {
             s.GetRootGameObjects(rootObjects);
-            GameObject result = null;
+            GameObject? result = null;
 
             foreach (GameObject g in rootObjects)
             {
@@ -111,7 +111,7 @@
         /// <summary>
         /// Breadth first search. Returns GameObject with given name, or null if not found. Parent object not included in search.
         /// </summary>
-        public static GameObject FindChildInHierarchy(this GameObject g, string name)
+        public static GameObject? FindChildInHierarchy(this GameObject g, string name)
         {
             Queue<Transform> q = new();
             q.Enqueue(g.transform);

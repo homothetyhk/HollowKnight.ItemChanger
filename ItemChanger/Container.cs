@@ -28,7 +28,7 @@ namespace ItemChanger
         /// <summary>
         /// Gets the container definition for the given string. Returns null if no such container has been defined.
         /// </summary>
-        public static Container GetContainer(string containerType)
+        public static Container? GetContainer(string containerType)
         {
             if (string.IsNullOrEmpty(containerType)) return null;
             if (_containers.TryGetValue(containerType, out Container value)) return value;
@@ -53,20 +53,18 @@ namespace ItemChanger
         }
 
 
-        private static Dictionary<string, Container> _containers;
+        private readonly static Dictionary<string, Container> _containers = new();
         internal static void ResetContainers()
         {
-            _containers = new Dictionary<string, Container>
-            {
-                { Shiny, new ShinyContainer() },
-                { GrubJar, new GrubJarContainer() },
-                { GeoRock, new GeoRockContainer() },
-                { Chest, new ChestContainer() },
-                { Tablet, new TabletContainer() },
-                { Mimic, new MimicContainer() },
-                { Bluggsac, new BluggsacContainer() },
-                { Totem, new SoulTotemContainer() },
-            };
+            _containers.Clear();
+            _containers.Add(Shiny, new ShinyContainer());
+            _containers.Add(GrubJar, new GrubJarContainer());
+            _containers.Add(GeoRock, new GeoRockContainer());
+            _containers.Add(Chest, new ChestContainer());
+            _containers.Add(Tablet, new TabletContainer());
+            _containers.Add(Mimic, new MimicContainer());
+            _containers.Add(Bluggsac, new BluggsacContainer());
+            _containers.Add(Totem, new SoulTotemContainer());
         }
 
         public static bool SupportsAll(string containerName, bool mustSupportInstantiate, bool mustSupportCost, bool mustSupportSceneChange)
@@ -143,7 +141,7 @@ namespace ItemChanger
         /// </summary>
         public static void OnEnable(PlayMakerFSM fsm)
         {
-            ContainerInfo info = ContainerInfo.FindContainerInfo(fsm.gameObject);
+            ContainerInfo? info = ContainerInfo.FindContainerInfo(fsm.gameObject);
             if (info != null)
             {
                 var container = GetContainer(info.containerType);

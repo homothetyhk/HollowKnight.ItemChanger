@@ -33,7 +33,7 @@ namespace ItemChanger.Locations.SpecialLocations
         private void PlaceContainer(GameObject gruz)
         {
             base.GetContainer(out GameObject obj, out string containerType);
-            Container.GetContainer(containerType).ApplyTargetContext(obj, gruz, 0);
+            Container.GetContainer(containerType)!.ApplyTargetContext(obj, gruz, 0);
             if (containerType == Container.Shiny && !Placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().Any())
             {
                 ShinyUtility.SetShinyFling(obj.LocateMyFSM("Shiny Control"), ShinyFling.RandomLR);

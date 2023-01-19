@@ -6,14 +6,14 @@
     public class AsyncLambda : FsmStateAction
     {
         private readonly Action<Action> _method;
-        private readonly string _eventName = null;
+        private readonly string? _eventName = null;
 
         public AsyncLambda(Action<Action> method)
         {
             _method = method;
         }
 
-        public AsyncLambda(Action<Action> method, string eventName) : this(method)
+        public AsyncLambda(Action<Action> method, string? eventName) : this(method)
         {
             _eventName = eventName;
         }

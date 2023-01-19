@@ -53,7 +53,7 @@ namespace ItemChanger.FsmStateActions
         private static void LoadScene(string sceneName, string gateName, float delay)
         {
             Ref.GM.StopAllCoroutines();
-            ReflectionHelper.SetField<GameManager, SceneLoad>(Ref.GM, "sceneLoad", null);
+            ReflectionHelper.SetField<GameManager, SceneLoad>(Ref.GM, "sceneLoad", null!);
 
             Ref.GM.BeginSceneTransition(new GameManager.SceneLoadInfo
             {

@@ -12,9 +12,9 @@ namespace ItemChanger.Components
         /// <summary>
         /// Create a HintBox at the specified position with the specified delegates.
         /// </summary>
-        public static HintBox Create(Vector2 pos, Func<string> getDisplayText, Func<bool> displayTest = null, Action<string> onDisplay = null)
+        public static HintBox Create(Vector2 pos, Func<string?>? getDisplayText, Func<bool>? displayTest = null, Action<string>? onDisplay = null)
         {
-            var hint = HintBox.Create(pos, new Vector2(5f, 5f));
+            var hint = Create(pos, new Vector2(5f, 5f));
             hint.GetDisplayText = getDisplayText;
             hint.DisplayTest = displayTest;
             hint.OnDisplay = onDisplay;
@@ -26,7 +26,7 @@ namespace ItemChanger.Components
         /// </summary>
         public static HintBox Create(Transform transform, AbstractPlacement placement)
         {
-            var hint = HintBox.Create(transform.position, new Vector2(5f, 5f));
+            var hint = Create(transform.position, new Vector2(5f, 5f));
             hint.GetDisplayText = placement.GetUIName;
             hint.DisplayTest = () => !placement.AllObtained();
             hint.OnDisplay = placement.OnPreview;
@@ -49,14 +49,14 @@ namespace ItemChanger.Components
             return hint;
         }
 
-        public Func<bool> DisplayTest;
-        public Func<string> GetDisplayText;
-        public Action<string> OnDisplay;
+        public Func<bool>? DisplayTest;
+        public Func<string?>? GetDisplayText;
+        public Action<string>? OnDisplay;
         PlayMakerFSM display;
 
         public void Setup(GameObject prefab)
         {
-            display = GameObject.Instantiate(prefab).LocateMyFSM("Display");
+            display = Instantiate(prefab).LocateMyFSM("Display");
             display.GetState("Init").RemoveActionsOfType<SetGameObject>();
             display.GetState("Check Convo").RemoveActionsOfType<StringCompare>();
             display.GetState("Set Convo").ClearActions();
@@ -75,12 +75,12 @@ namespace ItemChanger.Components
         {
             if (col.CompareTag("Player") && display != null && (DisplayTest?.Invoke() ?? true))
             {
-                string s = GetDisplayText?.Invoke();
+                string? s = GetDisplayText?.Invoke();
                 if (!string.IsNullOrEmpty(s))
                 {
-                    SetText(s);
+                    SetText(s!);
                     ShowConvo();
-                    OnDisplay?.Invoke(s);
+                    OnDisplay?.Invoke(s!);
                 }
             }
         }

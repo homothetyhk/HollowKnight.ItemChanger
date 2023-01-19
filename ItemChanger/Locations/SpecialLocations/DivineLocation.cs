@@ -50,7 +50,7 @@ namespace ItemChanger.Locations.SpecialLocations
             return Placement.CheckVisitedAny(VisitState.Accepted) && !Placement.AllObtained();
         }
 
-        private Cost GetCost()
+        private Cost? GetCost()
         {
             if (Placement is Placements.ISingleCostPlacement iscp && iscp.Cost is Cost c) return c;
             return Placement.GetTag<CostTag>()?.Cost;
@@ -112,7 +112,7 @@ namespace ItemChanger.Locations.SpecialLocations
             {
                 if (IsOnThisSlot(fsm))
                 {
-                    Cost c = GetCost();
+                    Cost? c = GetCost();
                     if (c is not null && !c.Paid) c.Pay();
                     Placement.AddVisitFlag(VisitState.Accepted);
                     fsm.FsmVariables.FindFsmString("Pooed PD Bool").Value = "pooedFragile" + shopSlot.ToString();
@@ -141,7 +141,7 @@ namespace ItemChanger.Locations.SpecialLocations
             }
             else
             {
-                return fsm.FsmVariables.FindFsmGameObject("Charm Holder").Value.FindChild("Poo " + slot.ToString());
+                return fsm.FsmVariables.FindFsmGameObject("Charm Holder").Value.FindChild("Poo " + slot.ToString())!;
             }
         }
 

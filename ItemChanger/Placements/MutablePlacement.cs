@@ -51,7 +51,7 @@ namespace ItemChanger.Placements
                 location.GetTags<Tags.ChangeSceneTag>().FirstOrDefault()?.ToChangeSceneInfo()));
         }
 
-        public static string ChooseContainerType(ISingleCostPlacement placement, ContainerLocation location, IEnumerable<AbstractItem> items)
+        public static string ChooseContainerType(ISingleCostPlacement placement, ContainerLocation? location, IEnumerable<AbstractItem> items)
         {
             if (location?.forceShiny ?? true)
             {
@@ -59,7 +59,7 @@ namespace ItemChanger.Placements
             }
 
             bool mustSupportCost = placement.Cost != null;
-            bool mustSupportSceneChange = location.GetTags<Tags.ChangeSceneTag>().Any() || (placement as AbstractPlacement).GetTags<Tags.ChangeSceneTag>().Any();
+            bool mustSupportSceneChange = location.GetTags<Tags.ChangeSceneTag>().Any() || ((AbstractPlacement)placement).GetTags<Tags.ChangeSceneTag>().Any();
 
             HashSet<string> unsupported = new(((placement as AbstractPlacement)?.GetPlacementAndLocationTags() ?? Enumerable.Empty<Tag>())
                 .OfType<Tags.UnsupportedContainerTag>()

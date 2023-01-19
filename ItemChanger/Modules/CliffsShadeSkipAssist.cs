@@ -20,7 +20,7 @@ namespace ItemChanger.Modules
 
         private void SpawnCrawlidAndUnhideShaft(Scene scene)
         {
-            GameObject cliffsCrawlid = UObject.Instantiate(scene.FindGameObject("Crawler"));
+            GameObject cliffsCrawlid = UObject.Instantiate(scene.FindGameObject("Crawler"))!;
             cliffsCrawlid.SetActive(true);
             cliffsCrawlid.transform.position = new Vector2(74f, 31f);
 

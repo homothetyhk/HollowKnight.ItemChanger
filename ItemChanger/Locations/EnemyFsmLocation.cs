@@ -11,7 +11,7 @@ namespace ItemChanger.Locations
         public string enemyFsm;
         public string enemyObj;
         public bool removeGeo;
-        private Action _cleanupAction;
+        private Action? _cleanupAction;
 
         protected override void OnLoad()
         {
@@ -83,7 +83,7 @@ namespace ItemChanger.Locations
                     GiveEarly(enemy.transform);
                     Placement.AddVisitFlag(VisitState.Dropped);
                     GetContainer(out GameObject obj, out string containerType);
-                    Container c = Container.GetContainer(containerType);
+                    Container c = Container.GetContainer(containerType)!;
                     c.ApplyTargetContext(obj, enemy.transform.position.x, enemy.transform.position.y, 0);
                     if (containerType == Container.Shiny && !Placement.GetPlacementAndLocationTags().OfType<Tags.ShinyFlingTag>().Any())
                     {

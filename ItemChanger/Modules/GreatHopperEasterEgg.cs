@@ -17,8 +17,8 @@ namespace ItemChanger.Modules
 
         private void EditScene(Scene newScene)
         {
-            GameObject hopper1 = newScene.FindGameObject("Giant Hopper Summon/Giant Hopper");
-            GameObject hopper2 = newScene.FindGameObject("Giant Hopper Summon/Giant Hopper (1)");
+            GameObject hopper1 = newScene.FindGameObject("Giant Hopper Summon/Giant Hopper")!;
+            GameObject hopper2 = newScene.FindGameObject("Giant Hopper Summon/Giant Hopper (1)")!;
 
             for (int i = 0; i < 10; i++)
             {

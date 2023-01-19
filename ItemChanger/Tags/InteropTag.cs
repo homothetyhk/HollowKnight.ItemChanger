@@ -12,7 +12,7 @@
         /// <summary>
         /// Returns true if the property name corresponds to a non-null value of the specified type, and outputs the casted value.
         /// </summary>
-        bool TryGetProperty<T>(string propertyName, out T value);
+        bool TryGetProperty<T>(string propertyName, out T? value);
     }
 
     /// <summary>
@@ -21,11 +21,11 @@
     public class InteropTag : Tag, IInteropTag
     {
         public string Message { get; set; }
-        public Dictionary<string, object> Properties = new();
+        public Dictionary<string, object?> Properties = new();
 
-        public bool TryGetProperty<T>(string propertyName, out T value)
+        public bool TryGetProperty<T>(string propertyName, out T? value)
         {
-            if (propertyName == null || Properties == null || !Properties.TryGetValue(propertyName, out object val) || val is not T t)
+            if (propertyName == null || Properties == null || !Properties.TryGetValue(propertyName, out object? val) || val is not T t)
             {
                 value = default;
                 return false;

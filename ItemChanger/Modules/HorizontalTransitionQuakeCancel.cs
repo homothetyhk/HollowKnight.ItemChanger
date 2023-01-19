@@ -18,7 +18,7 @@
 
         private void OnTransitionOverride(Transition source, Transition origTarget, ITransition newTarget)
         {
-            string gate = newTarget?.GateName;
+            string? gate = newTarget?.GateName;
             if (gate != null && !gate.StartsWith("top"))
             {
                 if (HeroController.SilentInstance?.cState?.spellQuake == true)

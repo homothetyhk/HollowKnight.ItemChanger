@@ -9,12 +9,12 @@ namespace ItemChanger
         /// Invoked by Finder.GetItem. The initial arguments are the requested name, and null. If the event finishes with a non-null item, that item is returned to the requester.
         /// <br/>Otherwise, the ItemChanger internal implementation of that item is cloned and returned, if it exists. Otherwise, null is returned.
         /// </summary>
-        public static event Action<GetItemEventArgs> GetItemOverride;
+        public static event Action<GetItemEventArgs>? GetItemOverride;
         /// <summary>
         /// Invoked by Finder.GetLocation. The initial arguments are the requested name, and null. If the event finishes with a non-null location, that location is returned to the requester.
         /// <br/>Otherwise, the ItemChanger internal implementation of that location is cloned and returned, if it exists. Otherwise, null is returned.
         /// </summary>
-        public static event Action<GetLocationEventArgs> GetLocationOverride;
+        public static event Action<GetLocationEventArgs>? GetLocationOverride;
         
 
         private static Dictionary<string, AbstractItem>[] Items;
@@ -29,7 +29,7 @@ namespace ItemChanger
         /// <summary>
         /// The most general method for looking up an item. Invokes an event to allow subscribers to modify the search result. Return value defaults to that of GetItemInternal.
         /// </summary>
-        public static AbstractItem GetItem(string name)
+        public static AbstractItem? GetItem(string name)
         {
             GetItemEventArgs args = new(name);
             GetItemOverride?.Invoke(args);
@@ -40,7 +40,7 @@ namespace ItemChanger
         /// <summary>
         /// Finds the itme by name in the sheet with the requested index, and returns a clone of the item. Returns null if the item was not found.
         /// </summary>
-        public static AbstractItem GetItemFromSheet(string name, int sheet)
+        public static AbstractItem? GetItemFromSheet(string name, int sheet)
         {
             return Items[sheet].TryGetValue(name, out AbstractItem item) ? item.Clone() : null;
         }
@@ -48,7 +48,7 @@ namespace ItemChanger
         /// <summary>
         /// Searches for the item by name among the requested sheets, and returns a clone of the item from the first sheet with a match. Returns null if the item was not found.
         /// </summary>
-        public static AbstractItem GetItemFromSheet(string name, IEnumerable<int> sheets)
+        public static AbstractItem? GetItemFromSheet(string name, IEnumerable<int> sheets)
         {
             if (sheets == null) return null;
             foreach (int i in sheets)
@@ -61,7 +61,7 @@ namespace ItemChanger
         /// <summary>
         /// Searches for the item by name, first in the CustomItems list, then in the list of extra sheets held by GlobalSettings, and finally in the default item sheet. Returns null if not found.
         /// </summary>
-        public static AbstractItem GetItemInternal(string name)
+        public static AbstractItem? GetItemInternal(string name)
         {
             return CustomItems.TryGetValue(name, out AbstractItem item)
                 ? item.Clone()
@@ -89,7 +89,7 @@ namespace ItemChanger
         /// <summary>
         /// The most general method for looking up a location. Invokes an event to allow subscribers to modify the search result. Return value defaults to that of GetLocationInternal.
         /// </summary>
-        public static AbstractLocation GetLocation(string name)
+        public static AbstractLocation? GetLocation(string name)
         {
             GetLocationEventArgs args = new(name);
             GetLocationOverride?.Invoke(args);
@@ -100,7 +100,7 @@ namespace ItemChanger
         /// <summary>
         /// Finds the location by name in the sheet with the requested index, and returns a clone of the location. Returns null if the location was not found.
         /// </summary>
-        public static AbstractLocation GetLocationFromSheet(string name, int sheet)
+        public static AbstractLocation? GetLocationFromSheet(string name, int sheet)
         {
             return Locations[sheet].TryGetValue(name, out AbstractLocation loc) ? loc.Clone() : null;
         }
@@ -108,7 +108,7 @@ namespace ItemChanger
         /// <summary>
         /// Searches for the location by name among the requested sheets, and returns a clone of the location from the first sheet with a match. Returns null if the location was not found.
         /// </summary>
-        public static AbstractLocation GetLocationFromSheet(string name, IEnumerable<int> sheets)
+        public static AbstractLocation? GetLocationFromSheet(string name, IEnumerable<int> sheets)
         {
             if (sheets == null) return null;
             foreach (int i in sheets)
@@ -121,7 +121,7 @@ namespace ItemChanger
         /// <summary>
         /// Searches for the location by name, first in the CustomLocations list, then in the list of extra sheets held by GlobalSettings, and finally in the default location sheet. Returns null if not found.
         /// </summary>
-        public static AbstractLocation GetLocationInternal(string name)
+        public static AbstractLocation? GetLocationInternal(string name)
         {
             return CustomLocations.TryGetValue(name, out AbstractLocation loc)
                 ? loc.Clone()
@@ -175,7 +175,7 @@ namespace ItemChanger
             };
 
             js.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
-            System.Reflection.Assembly a = typeof(Finder).Assembly;
+            Assembly a = typeof(Finder).Assembly;
 
             Items = new Dictionary<string, AbstractItem>[itemResourcePaths.Length];
             for (int i = 0; i < itemResourcePaths.Length; i++)
@@ -183,7 +183,7 @@ namespace ItemChanger
                 using Stream s = a.GetManifestResourceStream($"ItemChanger.Resources.{itemResourcePaths[i].file}");
                 using StreamReader sr = new(s);
                 using JsonTextReader jtr = new(sr);
-                Items[i] = js.Deserialize<Dictionary<string, AbstractItem>>(jtr);
+                Items[i] = js.Deserialize<Dictionary<string, AbstractItem>>(jtr)!;
             }
 
             Locations = new Dictionary<string, AbstractLocation>[locationResourcePaths.Length];
@@ -192,7 +192,7 @@ namespace ItemChanger
                 using Stream s = a.GetManifestResourceStream($"ItemChanger.Resources.{locationResourcePaths[i].file}");
                 using StreamReader sr = new(s);
                 using JsonTextReader jtr = new(sr);
-                Locations[i] = js.Deserialize<Dictionary<string, AbstractLocation>>(jtr);
+                Locations[i] = js.Deserialize<Dictionary<string, AbstractLocation>>(jtr)!;
             }
         }
 
@@ -211,7 +211,7 @@ namespace ItemChanger
             js.Serialize(sw, o);
         }
 
-        public static T DeserializeResource<T>(Assembly a, string resourcePath)
+        public static T? DeserializeResource<T>(Assembly a, string resourcePath)
         {
             JsonSerializer js = new()
             {

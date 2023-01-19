@@ -18,7 +18,7 @@
             }
             else
             {
-                AbstractPlacement placement = parent as AbstractPlacement ?? (parent as AbstractLocation)?.Placement;
+                AbstractPlacement? placement = parent as AbstractPlacement ?? (parent as AbstractLocation)?.Placement;
                 if (placement is not null)
                 {
                     placement.OnVisitStateChanged += OnVisitStateChanged;
@@ -35,7 +35,7 @@
             }
             else
             {
-                AbstractPlacement placement = parent as AbstractPlacement ?? (parent as AbstractLocation)?.Placement;
+                AbstractPlacement? placement = parent as AbstractPlacement ?? (parent as AbstractLocation)?.Placement;
                 if (placement is not null)
                 {
                     placement.OnVisitStateChanged -= OnVisitStateChanged;

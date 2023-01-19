@@ -14,7 +14,7 @@
         /// <summary>
         /// Optional property. If non-null and evaluates false, the GameObject is not deployed.
         /// </summary>
-        public IBool Test { get; init; } = null;
+        public IBool? Test { get; init; } = null;
 
         public virtual void OnSceneChange(Scene to)
         {

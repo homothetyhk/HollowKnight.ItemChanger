@@ -52,14 +52,14 @@ namespace ItemChanger
             tags.AddRange(ts);
         }
 
-        public T GetTag<T>()
+        public T? GetTag<T>()
         {
             return tags == null ? default : tags.OfType<T>().FirstOrDefault();
         }
 
         public bool GetTag<T>(out T t) where T : class
         {
-            t = GetTag<T>();
+            t = GetTag<T>()!;
             return t != null;
         }
 
@@ -93,12 +93,18 @@ namespace ItemChanger
             public override bool CanRead => false;
             public override bool CanWrite => true;
             public bool RemoveNewProfileTags;
-            public override List<Tag> ReadJson(JsonReader reader, Type objectType, List<Tag> existingValue, bool hasExistingValue, JsonSerializer serializer)
+            public override List<Tag>? ReadJson(JsonReader reader, Type objectType, List<Tag>? existingValue, bool hasExistingValue, JsonSerializer serializer)
             {
                 throw new NotImplementedException();
             }
-            public override void WriteJson(JsonWriter writer, List<Tag> value, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, List<Tag>? value, JsonSerializer serializer)
             {
+                if (value is null)
+                {
+                    writer.WriteNull();
+                    return;
+                }
+
                 if (RemoveNewProfileTags)
                 {
                     value = new(value.Where(t => !t.TagHandlingProperties.HasFlag(TagHandlingFlags.RemoveOnNewProfile)));
@@ -113,7 +119,7 @@ namespace ItemChanger
             public override bool CanRead => true;
             public override bool CanWrite => false;
 
-            public override List<Tag> ReadJson(JsonReader reader, Type objectType, List<Tag> existingValue, bool hasExistingValue, JsonSerializer serializer)
+            public override List<Tag>? ReadJson(JsonReader reader, Type objectType, List<Tag>? existingValue, bool hasExistingValue, JsonSerializer serializer)
             {
                 JToken jt = JToken.Load(reader);
                 if (jt.Type == JTokenType.Null) return null;
@@ -126,7 +132,7 @@ namespace ItemChanger
                         Tag t;
                         try
                         {
-                            t = jTag.ToObject<Tag>(serializer);
+                            t = jTag.ToObject<Tag>(serializer)!;
                         }
                         catch (Exception e)
                         {
@@ -148,7 +154,7 @@ namespace ItemChanger
                 throw new JsonSerializationException("Unable to handle tag list pattern: " + jt.ToString());
             }
 
-            public override void WriteJson(JsonWriter writer, List<Tag> value, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, List<Tag>? value, JsonSerializer serializer)
             {
                 throw new NotImplementedException();
             }

@@ -13,7 +13,7 @@ namespace ItemChanger
         /// A sprite to use to display the cost visually, if contextually applicable. If no sprite
         /// is provided, existing sprites won't be replaced. Default is null.
         /// </summary>
-        public virtual ISprite CustomCostSprite { get; set; } = null;
+        public virtual ISprite? CustomCostSprite { get; set; } = null;
 
         /// <summary>
         /// Whether nested costs should be considered cumulative. A cost is cumulative if costs paid
@@ -59,7 +59,7 @@ namespace ItemChanger
         /// Gets a text representation of costs which are not included in the display amount.
         /// </summary>
         /// <param name="cost">The cost to evaluate cost text for</param>
-        public string GetAdditionalCostText(Cost cost)
+        public string? GetAdditionalCostText(Cost cost)
         {
             // we always check if the base cost is supported to account for wrappers, but get the text off the
             // top-level cost even if it is a wrapper. This allows wrapper costs to implement changes to GetCostText.
@@ -106,7 +106,7 @@ namespace ItemChanger
     /// </summary>
     public class GeoCostDisplayer : CostDisplayer
     {
-        public override ISprite CustomCostSprite => null;
+        public override ISprite? CustomCostSprite => null;
 
         public override bool Cumulative => false;
 
@@ -114,7 +114,7 @@ namespace ItemChanger
 
         protected override int GetSingleCostDisplayAmount(Cost cost)
         {
-            GeoCost gc = cost as GeoCost;
+            GeoCost gc = (GeoCost)cost;
             return (int)(gc.amount * gc.DiscountRate);
         }
     }
@@ -145,11 +145,11 @@ namespace ItemChanger
         {
             if (Cumulative)
             {
-                return (cost as PDIntCost).amount;
+                return ((PDIntCost)cost).amount;
             }
             else
             {
-                return (cost as ConsumablePDIntCost).amount;
+                return ((ConsumablePDIntCost)cost).amount;
             }
         }
     }
@@ -160,12 +160,12 @@ namespace ItemChanger
     /// </summary>
     public class EggCostDisplayer : CostDisplayer
     {
-        public override ISprite CustomCostSprite { get; set; } = new ItemChangerSprite("ShopIcons.RancidEgg");
+        public override ISprite? CustomCostSprite { get; set; } = new ItemChangerSprite("ShopIcons.RancidEgg");
 
         public override bool Cumulative => true;
 
         protected override bool SupportsCost(Cost cost) => cost is CumulativeRancidEggCost;
 
-        protected override int GetSingleCostDisplayAmount(Cost cost) => (cost as CumulativeRancidEggCost).Total;
+        protected override int GetSingleCostDisplayAmount(Cost cost) => ((CumulativeRancidEggCost)cost).Total;
     }
 }

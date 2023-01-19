@@ -33,12 +33,14 @@
 
         protected virtual AbstractItem GetItem(string name)
         {
-            return Finder.GetItem(name);
+            return Finder.GetItem(name) ?? throw new NullReferenceException("Could not find item " + name);
         }
 
 
         public void ModifyItem(GiveEventArgs args)
         {
+            if (args.Item is null) return;
+
             if (strictEvaluation)
             {
                 if (predecessors != null)

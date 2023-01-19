@@ -3,9 +3,9 @@
     public class WaitForDelegate : FsmStateAction
     {
         Func<bool> test;
-        FsmEvent sendEvent;
+        FsmEvent? sendEvent;
 
-        public WaitForDelegate(Func<bool> test, string eventName)
+        public WaitForDelegate(Func<bool> test, string? eventName)
         {
             this.test = test;
             this.sendEvent = eventName == null ? null

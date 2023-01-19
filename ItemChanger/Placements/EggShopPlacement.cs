@@ -64,11 +64,11 @@ namespace ItemChanger.Placements
                 if (string.IsNullOrEmpty(container) || container == Container.Unknown) container = Container.Shiny;
                 containers[i] = container;
             }
-            Container c = Container.GetContainer(container);
+            Container? c = Container.GetContainer(container);
             if (c == null || !c.SupportsInstantiate)
             {
                 containers[i] = Container.Shiny;
-                c = Container.GetContainer(Container.Shiny);
+                c = Container.GetContainer(Container.Shiny)!;
             }
 
             GameObject obj = c.GetNewContainer(new ContainerInfo(c.Name, this, Items[i].Yield(), Location.flingType));
@@ -154,7 +154,7 @@ namespace ItemChanger.Placements
                     AbstractItem item = Items[i];
                     pb.Append(item.GetPreviewName(this));
                     pb.Append("  -  ");
-                    Cost cost = item.GetTag<CostTag>()?.Cost;
+                    Cost? cost = item.GetTag<CostTag>()?.Cost;
                     if (item.IsObtained())
                     {
                         pb.Append(Language.Language.Get("OBTAINED", "IC"));

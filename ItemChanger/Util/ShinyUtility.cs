@@ -41,14 +41,14 @@ namespace ItemChanger.Util
             return shiny;
         }
 
-        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost = null, Transition? changeSceneTo = null)
+        public static GameObject MakeNewMultiItemShiny(AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost? cost = null, Transition? changeSceneTo = null)
         {
             return MakeNewMultiItemShiny(new ContainerInfo(Container.Shiny, placement, items, flingType, cost, changeSceneTo.HasValue ? new(changeSceneTo.Value) : null));
         }
 
         public static bool TryGetItemFromShinyName(string shinyObjectName, AbstractPlacement placement, out AbstractItem item)
         {
-            item = null;
+            item = null!;
             if (!shinyObjectName.StartsWith(GetShinyPrefix(placement))
                 || !int.TryParse(shinyObjectName.Split('-').Last(), out int index)
                 || index < 0

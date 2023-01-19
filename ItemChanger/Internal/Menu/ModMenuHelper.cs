@@ -35,7 +35,7 @@ namespace ItemChanger.Internal.Menu
             ));
             builder.SetDefaultNavGraph(new ChainedNavGraph());
 
-            MenuButton _back = null;
+            MenuButton? _back = null;
             builder.AddControls(
                 new SingleContentLayout(new AnchoredPosition(
                     new Vector2(0.5f, 0.5f),
@@ -55,7 +55,7 @@ namespace ItemChanger.Internal.Menu
                     out _back
                 ));
 
-            backButton = _back;
+            backButton = _back!;
             return builder;
         }
 

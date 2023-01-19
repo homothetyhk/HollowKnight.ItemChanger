@@ -23,8 +23,8 @@ namespace ItemChanger.Util
             var mod = self.gameObject.GetComponent<ModShopItemStats>();
             if (mod)
             {
-                Cost cost = mod.cost;
-                CostDisplayer displayer = mod.costDisplayer;
+                Cost? cost = mod.cost;
+                CostDisplayer? displayer = mod.costDisplayer;
                 if (cost != null)
                 {
                     if (self.dungDiscount && PlayerData.instance.GetBool(nameof(PlayerData.equippedCharm_10)))
@@ -51,7 +51,7 @@ namespace ItemChanger.Util
                 }
 
                 int geo;
-                if (!mod.placement.HasTag<Tags.DisableCostPreviewTag>() && !mod.item.HasTag<Tags.DisableCostPreviewTag>()
+                if (mod.placement is AbstractPlacement p && !p.HasTag<Tags.DisableCostPreviewTag>() && !mod.item.HasTag<Tags.DisableCostPreviewTag>()
                     && cost is not null && !cost.Paid && displayer != null)
                 {
                     geo = displayer.GetDisplayAmount(cost);
@@ -125,7 +125,7 @@ namespace ItemChanger.Util
                 }
             }
             foreach (var g in self.stockInv
-                .Select(go => go?.GetComponent<ModShopItemStats>())
+                .Select(go => go?.GetComponent<ModShopItemStats>()!)
                 .Where(m => m != null)
                 .GroupBy(m => m.placement))
             {

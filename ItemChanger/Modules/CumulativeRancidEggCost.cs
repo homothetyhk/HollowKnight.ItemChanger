@@ -18,7 +18,7 @@ namespace ItemChanger.Modules
         public int GetBalance()
         {
             if (module == null) Load();
-            return Total - module.CumulativeEggsSpent;
+            return Total - module!.CumulativeEggsSpent;
         }
 
         public override bool CanPay() => GetBalance() <= PlayerData.instance.GetInt(nameof(PlayerData.rancidEggs));

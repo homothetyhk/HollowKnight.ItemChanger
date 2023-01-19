@@ -26,13 +26,19 @@ namespace ItemChanger.Tags
             public override bool CanRead => false;
             public override bool CanWrite => true;
 
-            public override InvalidTag ReadJson(JsonReader reader, Type objectType, InvalidTag existingValue, bool hasExistingValue, JsonSerializer serializer)
+            public override InvalidTag? ReadJson(JsonReader reader, Type objectType, InvalidTag? existingValue, bool hasExistingValue, JsonSerializer serializer)
             {
                 throw new NotImplementedException();
             }
 
-            public override void WriteJson(JsonWriter writer, InvalidTag value, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, InvalidTag? value, JsonSerializer serializer)
             {
+                if (value is null)
+                {
+                    writer.WriteNull();
+                    return;
+                }
+
                 value.JSON.WriteTo(writer);
             }
         }

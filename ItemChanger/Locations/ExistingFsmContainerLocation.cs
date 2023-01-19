@@ -43,10 +43,10 @@ namespace ItemChanger.Locations
             }
             else if (replacePath == null)
             {
-                Container c = Container.GetContainer(Placement.MainContainerType);
+                Container c = Container.GetContainer(Placement.MainContainerType)!;
                 GameObject obj = c.GetNewContainer(GetContainerInfo(c.Name));
                 c.ApplyTargetContext(obj, fsm.gameObject, elevation);
-                UnityEngine.Object.Destroy(fsm.gameObject);
+                UObject.Destroy(fsm.gameObject);
                 if (this.GetItemHintActive()) HintBox.Create(obj.transform, Placement);
             }
         }
@@ -55,11 +55,11 @@ namespace ItemChanger.Locations
         {
             if (WillBeReplaced())
             {
-                Container c = Container.GetContainer(Placement.MainContainerType);
+                Container c = Container.GetContainer(Placement.MainContainerType)!;
                 GameObject obj = c.GetNewContainer(GetContainerInfo(c.Name));
-                GameObject target = to.FindGameObject(replacePath);
+                GameObject target = to.FindGameObject(replacePath)!;
                 c.ApplyTargetContext(obj, target, elevation);
-                UnityEngine.Object.Destroy(target);
+                UObject.Destroy(target);
                 if (this.GetItemHintActive()) HintBox.Create(obj.transform, Placement);
                 OnReplace(obj, c);
             }

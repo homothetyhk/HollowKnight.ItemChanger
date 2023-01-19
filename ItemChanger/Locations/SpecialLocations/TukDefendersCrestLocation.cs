@@ -71,7 +71,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void FlingShiny(Vector3 init)
         {
-            Container c = Container.GetContainer(Container.Shiny);
+            Container c = Container.GetContainer(Container.Shiny)!;
             GameObject shiny = c.GetNewContainer(new ContainerInfo(c.Name, Placement, flingType));
             Util.ShinyUtility.FlingShinyLeft(shiny.LocateMyFSM("Shiny Control"));
             c.ApplyTargetContext(shiny, init.x, init.y, 0);

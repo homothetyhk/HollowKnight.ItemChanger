@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Runtime.Remoting.Messaging;
 
 namespace ItemChanger.Modules
 {
@@ -29,13 +30,19 @@ namespace ItemChanger.Modules
             public override bool CanRead => false;
             public override bool CanWrite => true;
 
-            public override InvalidModule ReadJson(JsonReader reader, Type objectType, InvalidModule existingValue, bool hasExistingValue, JsonSerializer serializer)
+            public override InvalidModule? ReadJson(JsonReader reader, Type objectType, InvalidModule? existingValue, bool hasExistingValue, JsonSerializer serializer)
             {
                 throw new NotImplementedException();
             }
 
-            public override void WriteJson(JsonWriter writer, InvalidModule value, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, InvalidModule? value, JsonSerializer serializer)
             {
+                if (value is null)
+                {
+                    writer.WriteNull();
+                    return;
+                }
+
                 value.JSON.WriteTo(writer);
             }
         }

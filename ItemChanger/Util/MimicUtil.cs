@@ -55,7 +55,7 @@ namespace ItemChanger.Util
 
         public static void ModifyMimic(PlayMakerFSM mimicTopFsm, FlingType flingType, AbstractPlacement placement, IEnumerable<AbstractItem> items)
         {
-            GameObject mimic = mimicTopFsm.gameObject.FindChild("Grub Mimic 1");
+            GameObject mimic = mimicTopFsm.gameObject.FindChild("Grub Mimic 1")!;
             HealthManager hm = mimic.GetComponent<HealthManager>();
 
             FsmState init = mimicTopFsm.GetState("Init");

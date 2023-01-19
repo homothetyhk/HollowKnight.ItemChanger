@@ -5,7 +5,7 @@ namespace ItemChanger.Internal
     public class MessageController : MonoBehaviour
     {
         private static MessageController instance;
-        private static Coroutine activeDisplay;
+        private static Coroutine? activeDisplay;
         private readonly Queue<(Sprite sprite, string text)> messages = new Queue<(Sprite icon, string text)>();
 
         public void Update()

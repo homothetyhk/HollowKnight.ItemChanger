@@ -46,7 +46,7 @@ namespace ItemChanger.Modules
 
         public record LanguageEdit
         {
-            public string Sheet { get; init; }
+            public string? Sheet { get; init; }
             public string Key { get; init; }
             public string Value { get; init; }
             /// <summary>
@@ -54,7 +54,7 @@ namespace ItemChanger.Modules
             /// </summary>
             public bool IgnoreExistingOverrides { get; init; }
 
-            [JsonIgnore] public LanguageKey LanguageKey { get => new(Sheet, Key); }
+            [JsonIgnore] public LanguageKey LanguageKey { get => Sheet is null ? new(Key) : new(Sheet, Key); }
 
             public void Hook()
             {
@@ -70,7 +70,7 @@ namespace ItemChanger.Modules
             {
                 if (!IgnoreExistingOverrides)
                 {
-                    if (string.IsNullOrEmpty(Internal.LanguageStringManager.GetICString(Key, Sheet))) return;
+                    if (!string.IsNullOrEmpty(Internal.LanguageStringManager.GetICString(Key, Sheet!))) return;
                 }
 
                 value = Value;
@@ -79,12 +79,12 @@ namespace ItemChanger.Modules
 
         public class LanguageEditDictConverter : JsonConverter<Dictionary<LanguageKey, LanguageEdit>>
         {
-            public override Dictionary<LanguageKey, LanguageEdit> ReadJson(JsonReader reader, Type objectType, Dictionary<LanguageKey, LanguageEdit> existingValue, bool hasExistingValue, JsonSerializer serializer)
+            public override Dictionary<LanguageKey, LanguageEdit>? ReadJson(JsonReader reader, Type objectType, Dictionary<LanguageKey, LanguageEdit>? existingValue, bool hasExistingValue, JsonSerializer serializer)
             {
                 return serializer.Deserialize<List<LanguageEdit>>(reader).ToDictionary(e => e.LanguageKey);
             }
 
-            public override void WriteJson(JsonWriter writer, Dictionary<LanguageKey, LanguageEdit> value, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, Dictionary<LanguageKey, LanguageEdit>? value, JsonSerializer serializer)
             {
                 serializer.Serialize(writer, value?.Values?.ToList());
             }

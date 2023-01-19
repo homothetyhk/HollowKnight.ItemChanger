@@ -9,7 +9,7 @@
         public override void Load(object parent)
         {
             base.Load(parent);
-            string parentPlacementName = parent switch
+            string? parentPlacementName = parent switch
             {
                 AbstractPlacement parentPlacement => parentPlacement.Name,
                 AbstractLocation parentLocation => parentLocation.Placement.Name,

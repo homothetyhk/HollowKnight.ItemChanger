@@ -10,8 +10,8 @@ namespace ItemChanger
         public string containerType;
 
         public ContainerGiveInfo giveInfo;
-        public ChangeSceneInfo changeSceneInfo;
-        public CostInfo costInfo;
+        public ChangeSceneInfo? changeSceneInfo;
+        public CostInfo? costInfo;
 
         /// <summary>
         /// Creates ContainerInfo with standard ContainerGiveInfo.
@@ -39,7 +39,7 @@ namespace ItemChanger
         /// <summary>
         /// Creates ContainerInfo with standard ContainerGiveInfo. If the cost parameter is not null, initializes costInfo with the cost.
         /// </summary>
-        public ContainerInfo(string containerType, AbstractPlacement placement, FlingType flingType, Cost cost) 
+        public ContainerInfo(string containerType, AbstractPlacement placement, FlingType flingType, Cost? cost) 
             : this(containerType, placement, placement.Items, flingType, cost)
         {
         }
@@ -47,7 +47,7 @@ namespace ItemChanger
         /// <summary>
         /// Creates ContainerInfo with standard ContainerGiveInfo. If the cost parameter is not null, initializes costInfo with the cost.
         /// </summary>
-        public ContainerInfo(string containerType, AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost) 
+        public ContainerInfo(string containerType, AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost? cost) 
             : this(containerType, placement, items, flingType)
         {
             if (cost is not null)
@@ -64,7 +64,7 @@ namespace ItemChanger
         /// <summary>
         /// Creates ContainerInfo with standard ContainerGiveInfo and the provided ChangeSceneInfo. If the cost parameter is not null, initializes costInfo with the cost.
         /// </summary>
-        public ContainerInfo(string containerType, AbstractPlacement placement, FlingType flingType, Cost cost, ChangeSceneInfo changeSceneInfo) 
+        public ContainerInfo(string containerType, AbstractPlacement placement, FlingType flingType, Cost? cost, ChangeSceneInfo? changeSceneInfo) 
             : this(containerType, placement, placement.Items, flingType, cost, changeSceneInfo)
         {
         }
@@ -72,13 +72,13 @@ namespace ItemChanger
         /// <summary>
         /// Creates ContainerInfo with standard ContainerGiveInfo and the provided ChangeSceneInfo. If the cost parameter is not null, initializes costInfo with the cost.
         /// </summary>
-        public ContainerInfo(string containerType, AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost cost, ChangeSceneInfo changeSceneInfo)
+        public ContainerInfo(string containerType, AbstractPlacement placement, IEnumerable<AbstractItem> items, FlingType flingType, Cost? cost, ChangeSceneInfo? changeSceneInfo)
             : this(containerType, placement, items, flingType, cost)
         {
             this.changeSceneInfo = changeSceneInfo;
         }
 
-        public ContainerInfo(string containerType, ContainerGiveInfo giveInfo, CostInfo costInfo, ChangeSceneInfo changeSceneInfo)
+        public ContainerInfo(string containerType, ContainerGiveInfo giveInfo, CostInfo? costInfo, ChangeSceneInfo? changeSceneInfo)
         {
             this.containerType = containerType;
             this.giveInfo = giveInfo;
@@ -97,7 +97,7 @@ namespace ItemChanger
         /// <summary>
         /// Searches for ContainerInfo on a ContainerInfoComponent. Returns null if neither is found.
         /// </summary>
-        public static ContainerInfo FindContainerInfo(GameObject obj)
+        public static ContainerInfo? FindContainerInfo(GameObject obj)
         {
             var cdc = obj.GetComponent<ContainerInfoComponent>();
             if (cdc != null) return cdc.info;

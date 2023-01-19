@@ -87,10 +87,10 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void HandleHerrahDeactivation(Scene to)
         {
-            GameObject herrah = to.FindGameObject("Dreamer Hegemol");
+            GameObject? herrah = to.FindGameObject("Dreamer Hegemol");
             if (herrah != null)
             {
-                GameObject.Destroy(herrah.GetComponent<DeactivateIfPlayerdataTrue>());
+                UObject.Destroy(herrah.GetComponent<DeactivateIfPlayerdataTrue>());
                 if (Placement.AllObtained()) herrah.SetActive(false);
                 else herrah.SetActive(true);
             }

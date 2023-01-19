@@ -108,9 +108,7 @@ namespace ItemChanger.Internal
             foreach (Type T in typeof(Module).Assembly.GetTypes()
                 .Where(t => t.IsSubclassOf(typeof(Module)) && !t.IsAbstract && Attribute.IsDefined(t, typeof(DefaultModuleAttribute))))
             {
-                ConstructorInfo ci = T.GetConstructor(Type.EmptyTypes);
-                Module m = ci?.Invoke(Array.Empty<object>()) as Module;
-                if (m != null) mc.Modules.Add(m);
+                mc.Modules.Add((Module)Activator.CreateInstance(T));
             }
 
             return mc;
@@ -121,12 +119,18 @@ namespace ItemChanger.Internal
             public override bool CanRead => false;
             public override bool CanWrite => true;
             public bool RemoveNewProfileModules;
-            public override List<Module> ReadJson(JsonReader reader, Type objectType, List<Module> existingValue, bool hasExistingValue, JsonSerializer serializer)
+            public override List<Module> ReadJson(JsonReader reader, Type objectType, List<Module>? existingValue, bool hasExistingValue, JsonSerializer serializer)
             {
                 throw new NotImplementedException();
             }
-            public override void WriteJson(JsonWriter writer, List<Module> value, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, List<Module>? value, JsonSerializer serializer)
             {
+                if (value is null)
+                {
+                    writer.WriteNull();
+                    return;
+                }
+
                 if (RemoveNewProfileModules)
                 {
                     value = new(value.Where(t => !t.ModuleHandlingProperties.HasFlag(ModuleHandlingFlags.RemoveOnNewProfile)));
@@ -141,7 +145,7 @@ namespace ItemChanger.Internal
             public override bool CanRead => true;
             public override bool CanWrite => false;
 
-            public override List<Module> ReadJson(JsonReader reader, Type objectType, List<Module> existingValue, bool hasExistingValue, JsonSerializer serializer)
+            public override List<Module>? ReadJson(JsonReader reader, Type objectType, List<Module>? existingValue, bool hasExistingValue, JsonSerializer serializer)
             {
                 JToken jt = JToken.Load(reader);
                 if (jt.Type == JTokenType.Null) return null;
@@ -154,7 +158,7 @@ namespace ItemChanger.Internal
                         Module t;
                         try
                         {
-                            t = jModule.ToObject<Module>(serializer);
+                            t = jModule.ToObject<Module>(serializer)!;
                         }
                         catch (Exception e)
                         {
@@ -176,7 +180,7 @@ namespace ItemChanger.Internal
                 throw new JsonSerializationException("Unable to handle tag list pattern: " + jt.ToString());
             }
 
-            public override void WriteJson(JsonWriter writer, List<Module> value, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, List<Module>? value, JsonSerializer serializer)
             {
                 throw new NotImplementedException();
             }

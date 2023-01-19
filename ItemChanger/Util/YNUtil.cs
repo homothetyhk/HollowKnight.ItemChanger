@@ -6,7 +6,7 @@ namespace ItemChanger.Util
     {
         static GameObject DialogueManager => FsmVariables.GlobalVariables.FindFsmGameObject("DialogueManager").Value;
 
-        public static void OpenYNDialogue(GameObject requester, AbstractPlacement placement, IEnumerable<AbstractItem> items, Cost cost)
+        public static void OpenYNDialogue(GameObject requester, AbstractPlacement placement, IEnumerable<AbstractItem> items, Cost? cost)
         {
             string text = placement.GetUIName(120);
             if (text.Length > 120)

@@ -32,7 +32,7 @@ namespace ItemChanger.Locations
 
         public override void PlaceContainer(GameObject obj, string containerType)
         {
-            Container.GetContainer(containerType).ApplyTargetContext(obj, x, y, elevation);
+            Container.GetContainer(containerType)!.ApplyTargetContext(obj, x, y, elevation);
             if (!obj.activeSelf) obj.SetActive(true);
         }
     }

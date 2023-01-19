@@ -20,7 +20,7 @@ namespace ItemChanger.Modules
         private void MakeExtraSaws(Scene scene)
         {
             const float SAW = 1.362954f;
-            GameObject saw = scene.FindGameObject("saw_collection/wp_saw (4)");
+            GameObject saw = scene.FindGameObject("saw_collection/wp_saw (4)")!;
 
             GameObject topSaw = UObject.Instantiate(saw);
             topSaw.transform.SetPositionX(165f);

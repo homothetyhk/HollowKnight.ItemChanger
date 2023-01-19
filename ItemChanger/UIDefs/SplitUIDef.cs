@@ -16,7 +16,7 @@
             {
                 name = name.Clone(),
                 preview = preview.Clone(),
-                shopDesc = shopDesc.Clone(),
+                shopDesc = shopDesc?.Clone(),
                 sprite = sprite.Clone()
             };
         }

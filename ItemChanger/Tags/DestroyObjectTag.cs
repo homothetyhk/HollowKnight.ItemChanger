@@ -27,10 +27,8 @@
                 GameObject obj = Locations.ObjectLocation.FindGameObject(objectName);
                 if (obj)
                 {
-                    GameObject.Destroy(obj);
-                    //Log($"Destroyed object {objectName} in {sceneName}");
+                    UObject.Destroy(obj);
                 }
-                //else Log($"Could not find object {objectName} in {sceneName}");
             }
         }
     }

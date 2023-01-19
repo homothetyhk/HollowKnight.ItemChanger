@@ -6,7 +6,7 @@
     public class MsgUIDef : UIDef
     {
         public IString name;
-        public IString shopDesc;
+        public IString? shopDesc;
         public ISprite sprite;
 
         public override string GetPostviewName()
@@ -19,9 +19,9 @@
             return name.GetValue();
         }
 
-        public override string GetShopDesc()
+        public override string? GetShopDesc()
         {
-            return shopDesc.GetValue();
+            return shopDesc?.GetValue();
         }
 
         public override Sprite GetSprite()
@@ -29,7 +29,7 @@
             return sprite.GetValue();
         }
 
-        public override void SendMessage(MessageType type, Action callback)
+        public override void SendMessage(MessageType type, Action? callback)
         {
             if ((type & MessageType.Corner) == MessageType.Corner)
             {
@@ -45,7 +45,7 @@
             return new MsgUIDef
             {
                 name = name.Clone(),
-                shopDesc = shopDesc.Clone(),
+                shopDesc = shopDesc?.Clone(),
                 sprite = sprite.Clone()
             };
         }

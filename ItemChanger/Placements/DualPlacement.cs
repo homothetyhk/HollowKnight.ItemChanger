@@ -59,14 +59,14 @@
             }
 
             containerType = this.containerType;
-            var container = Container.GetContainer(containerType);
-            if (containerType == null || !container.SupportsInstantiate)
+            Container? container = Container.GetContainer(containerType);
+            if (container is null || !container.SupportsInstantiate)
             {
                 // this means that the container that was chosen on load isn't valid
                 // most likely due from switching from a noninstantiatable ECL to a CL
                 // so, we make a shiny but we don't modify the saved container type
                 containerType = Container.Shiny;
-                container = Container.GetContainer(containerType);
+                container = Container.GetContainer(containerType)!;
             }
 
             obj = container.GetNewContainer(new ContainerInfo(container.Name, this, location.flingType, Cost, 
@@ -99,7 +99,7 @@
                 }
             }
 
-            Locations.ContainerLocation cl = (falseLocation as Locations.ContainerLocation) ?? (trueLocation as Locations.ContainerLocation);
+            Locations.ContainerLocation? cl = (falseLocation as Locations.ContainerLocation) ?? (trueLocation as Locations.ContainerLocation);
             if (cl == null) return;
             containerType = MutablePlacement.ChooseContainerType(this, cl, Items); // container type already failed the initial test
         }

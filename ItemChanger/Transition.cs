@@ -56,19 +56,19 @@ namespace ItemChanger
 
         public class TransitionDictConverter<TValue> : JsonConverter<Dictionary<Transition, TValue>>
         {
-            public override Dictionary<Transition, TValue> ReadJson(
+            public override Dictionary<Transition, TValue>? ReadJson(
                 JsonReader reader, 
                 Type objectType, 
-                Dictionary<Transition, TValue> existingValue, 
+                Dictionary<Transition, TValue>? existingValue, 
                 bool hasExistingValue, 
                 JsonSerializer serializer)
             {
-                return serializer.Deserialize<KeyValuePair<Transition, TValue>[]>(reader).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+                return serializer.Deserialize<KeyValuePair<Transition, TValue>[]>(reader)?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             }
 
-            public override void WriteJson(JsonWriter writer, Dictionary<Transition, TValue> value, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, Dictionary<Transition, TValue>? value, JsonSerializer serializer)
             {
-                serializer.Serialize(writer, ((Dictionary<Transition, TValue>)value).ToArray());
+                serializer.Serialize(writer, value?.ToArray());
             }
         }
 

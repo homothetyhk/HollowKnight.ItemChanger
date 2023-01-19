@@ -120,7 +120,7 @@ namespace ItemChanger
             SetObtained();
             placement?.OnObtainedItem(this);
 
-            AbstractItem item = giveArgs.Item;
+            AbstractItem item = giveArgs.Item!;
             info = giveArgs.Info!;
 
             readOnlyArgs = new(giveArgs.Orig, item, placement, info, originalState);
@@ -182,7 +182,7 @@ namespace ItemChanger
         {
             GiveEventArgs args = new(this, this, placement, null, obtainState);
             ResolveItem(args);
-            return args.Item.UIDef;
+            return args.Item!.UIDef;
         }
 
         /// <summary>

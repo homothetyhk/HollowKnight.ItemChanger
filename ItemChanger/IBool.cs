@@ -165,7 +165,7 @@ namespace ItemChanger
         }
 
         public string placementName;
-        public IBool missingPlacementTest;
+        public IBool? missingPlacementTest;
 
         [JsonIgnore]
         public bool Value
@@ -207,7 +207,7 @@ namespace ItemChanger
         /// If true, requires any flag in requiredFlags to be contained in the VisitState. If false, requires all flags in requiredFlags to be contained in VisitState. Defaults to false.
         /// </summary>
         public bool requireAny;
-        public IBool missingPlacementTest;
+        public IBool? missingPlacementTest;
 
         [JsonIgnore]
         public bool Value

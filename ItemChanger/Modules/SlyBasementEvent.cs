@@ -39,7 +39,7 @@ namespace ItemChanger.Modules
 
         private void EditScene(Scene scene)
         {
-            scene.FindGameObject("_Scenery/Shop Counter").transform.Translate(new Vector2(closedOffset, 0f));
+            scene.FindGameObject("_Scenery/Shop Counter")!.transform.Translate(new Vector2(closedOffset, 0f));
         }
 
         public bool ShouldOpenBasement()

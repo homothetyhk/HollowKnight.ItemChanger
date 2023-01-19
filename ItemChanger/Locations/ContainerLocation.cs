@@ -11,7 +11,7 @@ namespace ItemChanger.Locations
 
         public void GetContainer(out GameObject obj, out string containerType)
         {
-            (Placement as IContainerPlacement).GetContainer(this, out obj, out containerType);
+            ((IContainerPlacement)Placement).GetContainer(this, out obj, out containerType);
         }
 
         public virtual bool Supports(string containerType)

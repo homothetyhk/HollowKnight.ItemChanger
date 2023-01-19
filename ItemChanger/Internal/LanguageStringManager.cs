@@ -30,8 +30,8 @@ namespace ItemChanger.Internal
 
                 foreach (XmlNode node in nodes)
                 {
-                    string sheet = node.Attributes?["sheet"]?.Value;
-                    string key = node.Attributes?["key"]?.Value;
+                    string? sheet = node.Attributes?["sheet"]?.Value;
+                    string? key = node.Attributes?["key"]?.Value;
 
                     if (sheet == null || key == null)
                     {
@@ -61,8 +61,8 @@ namespace ItemChanger.Internal
 
                         foreach (XmlNode node in nodes)
                         {
-                            string sheet = node.Attributes?["sheet"]?.Value;
-                            string key = node.Attributes?["key"]?.Value;
+                            string? sheet = node.Attributes?["sheet"]?.Value;
+                            string? key = node.Attributes?["key"]?.Value;
 
                             if (sheet == null || key == null)
                             {
@@ -123,6 +123,7 @@ namespace ItemChanger.Internal
 
         /// <summary>
         /// Returns the string with the given sheet and key from the languge.xml. Does not do any other search, nor does it invoke Language.Language.Get, nor does it format the result.
+        /// Returns empty if the string was not found.
         /// </summary>
         public static string GetICString(string key, string sheetTitle = "IC")
         {

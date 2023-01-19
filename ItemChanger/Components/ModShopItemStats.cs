@@ -6,30 +6,30 @@
     public class ModShopItemStats : MonoBehaviour
     {
         public AbstractItem item;
-        public AbstractPlacement placement;
-        public CostDisplayer costDisplayer;
+        public AbstractPlacement? placement;
+        public CostDisplayer? costDisplayer;
 
         public bool IsSecretItem()
         {
             return item.HasTag<Tags.DisableItemPreviewTag>()
                 || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>());
         }
-        public Sprite GetSprite() => item.GetPreviewSprite(placement);
+        public Sprite? GetSprite() => item.GetPreviewSprite(placement);
         public string GetPreviewName() => item.GetPreviewName(placement);
         public string GetShopDesc()
         {
             if (item.HasTag<Tags.DisableItemPreviewTag>()
                 || (placement != null && placement.HasTag<Tags.DisableItemPreviewTag>())) return Language.Language.Get("???", "IC");
-            UIDef def = item.GetResolvedUIDef(placement);
+            UIDef? def = item.GetResolvedUIDef(placement);
             return def?.GetShopDesc() ?? Language.Language.Get("???", "IC");
         }
 
-        public string GetShopCostText()
+        public string? GetShopCostText()
         {
             if (item.HasTag<Tags.DisableCostPreviewTag>()
                 || (placement != null && placement.HasTag<Tags.DisableCostPreviewTag>()))
                 return Language.Language.Get("SECRET_COST_SHOPDESC", "IC");
-            return costDisplayer?.GetAdditionalCostText(cost);
+            return cost is not null ? costDisplayer?.GetAdditionalCostText(cost) : null;
         }
 
         public string GetRecordText()
@@ -47,10 +47,10 @@
             return text;
         }
 
-        public Cost cost
+        public Cost? cost
         {
             get => item.GetTag<CostTag>()?.Cost;
-            set => item.GetOrAddTag<CostTag>().Cost = cost;
+            set => item.GetOrAddTag<CostTag>().Cost = cost!;
         }
     }
 }

@@ -543,7 +543,7 @@ namespace ItemChanger.Modules
                 case SceneNames.Deepnest_41:
                     if (t.GateName.StartsWith("left1"))
                     {
-                        foreach (Transform u in newScene.FindGameObject("Collapser Small (2)").transform.Find("floor1"))
+                        foreach (Transform u in newScene.FindGameObject("Collapser Small (2)")!.transform.Find("floor1"))
                         {
                             if (u.name.StartsWith("msk")) UObject.Destroy(u.gameObject);
                         }
@@ -552,7 +552,7 @@ namespace ItemChanger.Modules
                 case SceneNames.Deepnest_East_02:
                     if (t.GateName.StartsWith("bot2"))
                     {
-                        foreach (Transform u in newScene.FindGameObject("Quake Floor/Active").transform)
+                        foreach (Transform u in newScene.FindGameObject("Quake Floor/Active")!.transform)
                         {
                             if (u.name.StartsWith("msk")) UObject.Destroy(u.gameObject);
                         }
@@ -561,7 +561,7 @@ namespace ItemChanger.Modules
                 case SceneNames.Fungus2_15:
                     if (t.GateName.StartsWith("left"))
                     {
-                        UObject.Destroy(newScene.FindGameObject("deepnest_mantis_gate").FindChild("Collider"));
+                        UObject.Destroy(newScene.FindGameObject("deepnest_mantis_gate")!.FindChild("Collider"));
                         UObject.Destroy(newScene.FindGameObject("deepnest_mantis_gate"));
                     }
                     break;
@@ -581,7 +581,7 @@ namespace ItemChanger.Modules
                 case SceneNames.Waterways_04:
                     if (t.GateName.StartsWith("b"))
                     {
-                        foreach (Transform u in newScene.FindGameObject("Quake Floor/Active").transform)
+                        foreach (Transform u in newScene.FindGameObject("Quake Floor/Active")!.transform)
                         {
                             if (u.name.StartsWith("Mask")) u.gameObject.SetActive(false);
                         }

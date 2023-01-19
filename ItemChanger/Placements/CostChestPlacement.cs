@@ -101,7 +101,7 @@ namespace ItemChanger.Placements
             {
                 foreach (AbstractItem item in Items)
                 {
-                    Cost cost = item.GetTag<CostTag>()?.Cost;
+                    Cost? cost = item.GetTag<CostTag>()?.Cost;
 
                     if (!item.IsObtained())
                     {
@@ -142,7 +142,7 @@ namespace ItemChanger.Placements
             for (int i = 0; i < Items.Count; i++)
             {
                 AbstractItem item = Items[i];
-                Cost cost = item.GetTag<CostTag>()?.Cost;
+                Cost? cost = item.GetTag<CostTag>()?.Cost;
 
                 pb.Append(item.GetPreviewName(this));
                 pb.Append("  -  ");

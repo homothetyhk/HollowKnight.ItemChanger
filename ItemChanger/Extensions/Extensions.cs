@@ -14,9 +14,9 @@ namespace ItemChanger.Extensions
             else return t;
         }
 
-        public static TValue GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, TValue add = default)
+        public static TValue? GetOrAdd<TKey, TValue>(this Dictionary<TKey, TValue?> dict, TKey key, TValue? add = default)
         {
-            if (!dict.TryGetValue(key, out TValue value))
+            if (!dict.TryGetValue(key, out TValue? value))
             {
                 value = add;
                 dict.Add(key, value);
@@ -25,8 +25,8 @@ namespace ItemChanger.Extensions
             return value;
         }
 
-        public static TValue GetOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> dict, TKey key, TValue @default = default)
-            => dict.TryGetValue(key, out TValue value) ? value : @default;
+        public static TValue? GetOrDefault<TKey, TValue>(this Dictionary<TKey, TValue?> dict, TKey key, TValue? @default = default)
+            => dict.TryGetValue(key, out TValue? value) ? value : @default;
 
 
         public static string CapLength(this string s, int length) => s.Length > length ? s.Substring(0, length) : s;

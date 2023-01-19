@@ -11,8 +11,8 @@ namespace ItemChanger.StartDefs
 
         public override void CreateRespawnMarker(Scene startScene)
         {
-            GameObject go = startScene.FindGameObject(objPath);
-            CreateRespawnMarker(new Vector3(go.transform.position.x + Start.X, go.transform.position.y + Start.Y, 7.4f));
+            GameObject go = startScene.FindGameObject(objPath)!;
+            CreateRespawnMarker(new Vector3(go.transform.position.x + X, go.transform.position.y + Y, 7.4f));
         }
     }
 }

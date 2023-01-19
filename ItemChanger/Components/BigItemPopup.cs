@@ -13,17 +13,17 @@ namespace ItemChanger.Components
     {
         private static readonly Sprite BlackPixel = CanvasUtil.NullSprite(new byte[] {0x00, 0x00, 0x00, 0xAA});
         private static readonly Sprite[] Frames;
-        private string _pressText;
-        private string _descOneText;
-        private string _descTwoText;
-        private ButtonSkin _buttonSkin;
-        private Action _callback;
+        private string? _pressText;
+        private string? _descOneText;
+        private string? _descTwoText;
+        private ButtonSkin? _buttonSkin;
+        private Action? _callback;
 
         private Sprite _imagePrompt;
         private string _nameText;
 
         private bool _showInstantly;
-        private string _takeText;
+        private string? _takeText;
 
         static BigItemPopup()
         {
@@ -44,7 +44,7 @@ namespace ItemChanger.Components
         /// <summary>
         /// Creates a BigItemPopup with the given parameters. All parameters can be null except the sprite and name.
         /// </summary>
-        public static GameObject Show(Sprite bigSprite, string take, string name, string press, ButtonSkin buttonSkin, string descOne, string descTwo, Action callback)
+        public static GameObject Show(Sprite bigSprite, string? take, string name, string? press, ButtonSkin? buttonSkin, string? descOne, string? descTwo, Action? callback)
         {
             // Create base canvas
             GameObject canvas = CanvasUtil.CreateCanvas(RenderMode.ScreenSpaceOverlay, new Vector2(1920, 1080));

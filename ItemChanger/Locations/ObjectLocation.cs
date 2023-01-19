@@ -35,8 +35,8 @@ namespace ItemChanger.Locations
                 return;
             }
 
-            Container.GetContainer(containerType).ApplyTargetContext(obj, target, elevation);
-            GameObject.Destroy(target);
+            Container.GetContainer(containerType)!.ApplyTargetContext(obj, target, elevation);
+            UObject.Destroy(target);
         }
 
 
@@ -45,7 +45,7 @@ namespace ItemChanger.Locations
             Scene currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
 
             objectName = objectName.Replace('\\', '/');
-            GameObject obj;
+            GameObject? obj;
 
             if (!objectName.Contains('/'))
             {
@@ -58,7 +58,7 @@ namespace ItemChanger.Locations
 
             if (obj == null) LogWarn($"Failed to find {objectName} in scene {currentScene.name}!");
 
-            return obj;
+            return obj!;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ItemChanger.UIDefs
         public IString lore;
         public TextType textType;
 
-        public override void SendMessage(MessageType type, Action callback)
+        public override void SendMessage(MessageType type, Action? callback)
         {
             if ((type & MessageType.Lore) == MessageType.Lore)
             {
@@ -24,7 +24,7 @@ namespace ItemChanger.UIDefs
             return new LoreUIDef
             {
                 name = name.Clone(),
-                shopDesc = shopDesc.Clone(),
+                shopDesc = shopDesc?.Clone(),
                 sprite = sprite.Clone(),
                 lore = lore.Clone(),
                 textType = textType,

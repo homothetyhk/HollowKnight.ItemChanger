@@ -37,13 +37,13 @@ namespace ItemChanger
         /// <summary>
         /// Helper method for giving all of the items of the placement in sequence, so that the UIDef message of one leads into giving the next.
         /// </summary>
-        public void GiveAll(GiveInfo info, Action callback = null)
+        public void GiveAll(GiveInfo info, Action? callback = null)
         {
             IEnumerator<AbstractItem> enumerator = Items.GetEnumerator();
             
             GiveRecursive();
 
-            void GiveRecursive(AbstractItem _ = null)
+            void GiveRecursive(AbstractItem? _ = null)
             {
                 while (enumerator.MoveNext())
                 {

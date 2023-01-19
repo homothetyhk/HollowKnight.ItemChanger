@@ -95,10 +95,10 @@ namespace ItemChanger.Locations
             ShopMenuStock shop = fsm.gameObject.GetComponent<ShopMenuStock>();
             GameObject itemPrefab = ObjectCache.ShopItem;
 
-            shop.stock = (Placement as IShopPlacement).GetNewStock(shop.stock, itemPrefab);
+            shop.stock = ((IShopPlacement)Placement).GetNewStock(shop.stock, itemPrefab);
             if (shop.stockAlt != null)
             {
-                shop.stockAlt = (Placement as IShopPlacement).GetNewAltStock(shop.stock, shop.stockAlt, itemPrefab);
+                shop.stockAlt = ((IShopPlacement)Placement).GetNewAltStock(shop.stock, shop.stockAlt, itemPrefab);
             }
 
             // apparently in vanilla lemm cannot go out of stock!
@@ -185,7 +185,7 @@ namespace ItemChanger.Locations
                     desc = mod.GetShopDesc();
                     if (mod.cost is not null && !mod.cost.Paid)
                     {
-                        string costText = mod.GetShopCostText();
+                        string? costText = mod.GetShopCostText();
                         if (!string.IsNullOrEmpty(costText))
                         {
                             desc += $"\n\n<#888888>{costText}";
@@ -247,7 +247,7 @@ namespace ItemChanger.Locations
                 var mod = shopItem.GetComponent<ModShopItemStats>();
                 if (mod)
                 {
-                    Cost cost = mod.cost;
+                    Cost? cost = mod.cost;
                     return cost == null || cost.Paid || cost.CanPay();
                 }
                 else
@@ -378,7 +378,7 @@ namespace ItemChanger.Locations
                 {
                     mod.item.Give(mod.placement, new GiveInfo
                     {
-                        Container = mod.placement.MainContainerType,
+                        Container = mod.placement?.MainContainerType,
                         FlingType = this.flingType,
                         MessageType = MessageType.Corner,
                         Transform = GameObject.Find(objectName)?.transform,
@@ -400,7 +400,7 @@ namespace ItemChanger.Locations
 
                 if (mod)
                 {
-                    Cost cost = mod.cost;
+                    Cost? cost = mod.cost;
                     if (cost is null || cost.Paid) return;
                     cost.Pay();
                 }

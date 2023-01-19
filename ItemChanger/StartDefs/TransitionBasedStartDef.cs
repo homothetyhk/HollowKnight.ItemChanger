@@ -47,7 +47,7 @@
         public override void CreateRespawnMarker(Scene startScene)
         {
             GameObject[] objects = startScene.GetRootGameObjects();
-            GameObject go = null;
+            GameObject? go = null;
             foreach (GameObject g in objects)
             {
                 if (g.name == objPath && g.GetComponent<TransitionPoint>() != null)
@@ -67,7 +67,7 @@
             }
             if (go == null) throw new ArgumentException($"Could not find transition point {objPath}.");
 
-            CreateRespawnMarker(new Vector3(go.transform.position.x + Start.X, go.transform.position.y + Start.Y, 7.4f));
+            CreateRespawnMarker(new Vector3(go.transform.position.x + X, go.transform.position.y + Y, 7.4f));
         }
     }
 }

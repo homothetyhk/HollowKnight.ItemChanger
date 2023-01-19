@@ -8,13 +8,13 @@ namespace ItemChanger.UIDefs
     public class BigUIDef : MsgUIDef
     {
         public ISprite bigSprite;
-        public IString take;
-        public IString press;
-        public IButtonSkin buttonSkin;
-        public IString descOne;
-        public IString descTwo;
+        public IString? take;
+        public IString? press;
+        public IButtonSkin? buttonSkin;
+        public IString? descOne;
+        public IString? descTwo;
 
-        public override void SendMessage(MessageType type, Action callback)
+        public override void SendMessage(MessageType type, Action? callback)
         {
             if ((type & MessageType.Big) == MessageType.Big)
             {
@@ -35,10 +35,10 @@ namespace ItemChanger.UIDefs
         {
             return new BigUIDef
             {
-                name = name?.Clone(),
+                name = name.Clone(),
                 shopDesc = shopDesc?.Clone(),
-                sprite = sprite?.Clone(),
-                bigSprite = bigSprite?.Clone(),
+                sprite = sprite.Clone(),
+                bigSprite = bigSprite.Clone(),
                 press = press?.Clone(),
                 buttonSkin = buttonSkin?.Clone(),
                 take = take?.Clone(),

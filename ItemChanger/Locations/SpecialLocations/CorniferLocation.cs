@@ -34,7 +34,7 @@ namespace ItemChanger.Locations.SpecialLocations
             // If all of the items are obtained, the checkActive action will destroy Cornifer without spawning a shiny
             if (!IsCorniferPresent() && !Placement.AllObtained())
             {
-                Container c = Container.GetContainer(Container.Shiny);
+                Container c = Container.GetContainer(Container.Shiny)!;
                 GameObject shiny = c.GetNewContainer(new ContainerInfo(c.Name, Placement, flingType, (Placement as Placements.ISingleCostPlacement)?.Cost));
                 c.ApplyTargetContext(shiny, fsm.gameObject, 0);
                 ShinyUtility.FlingShinyDown(shiny.LocateMyFSM("Shiny Control"));

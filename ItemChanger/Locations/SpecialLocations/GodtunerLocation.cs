@@ -30,11 +30,11 @@ namespace ItemChanger.Locations.SpecialLocations
             PlaceContainer(obj, containerType);
 
             // the godtuner shiny reference is stored in actions, not in a variable.
-            GameObject godseekerFall = to.FindGameObject("Godseeker Waterways/Godseeker Fall");
+            GameObject godseekerFall = to.FindGameObject("Godseeker Waterways/Godseeker Fall")!;
             PlayMakerFSM fallAnim = godseekerFall.LocateMyFSM("Fall Anim");
             fallAnim.GetState("Land Effects").GetActionsOfType<ActivateGameObject>()[2]
                 .gameObject.GameObject = obj;
-            GameObject coffin = to.FindGameObject("Godseeker Waterways/Coffin");
+            GameObject coffin = to.FindGameObject("Godseeker Waterways/Coffin")!;
             PlayMakerFSM convo = coffin.LocateMyFSM("Conversation Control");
             convo.GetState("Idle").GetFirstActionOfType<ActivateGameObject>()
                 .gameObject.GameObject = obj;

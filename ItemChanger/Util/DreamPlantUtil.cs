@@ -51,7 +51,7 @@ namespace ItemChanger.Util
             spriteFlashField.SetValue(plant, value);
         }
 
-        public static Coroutine GetCheckOrbRoutine(this DreamPlant plant)
+        public static Coroutine? GetCheckOrbRoutine(this DreamPlant plant)
         {
             return checkOrbRoutineField.GetValue(plant) as Coroutine;
         }

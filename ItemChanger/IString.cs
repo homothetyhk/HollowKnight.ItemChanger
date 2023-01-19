@@ -21,7 +21,7 @@ namespace ItemChanger
         }
 
         [JsonIgnore]
-        public string Value => Language.Language.Get(key, sheet)?.Replace("<br>", "\n");
+        public string Value => Language.Language.Get(key, sheet).Replace("<br>", "\n");
         public IString Clone() => (IString)MemberwiseClone();
     }
 
@@ -55,7 +55,7 @@ namespace ItemChanger
                     limit = 125;
                 }
 
-                return Language.Language.Get(key, sheet)?.Replace("<br>", "\n").CapLength(limit) + Language.Language.Get("PAYWALL_TEXT", "IC").Replace("<br>", "\n");
+                return Language.Language.Get(key, sheet).Replace("<br>", "\n").CapLength(limit) + Language.Language.Get("PAYWALL_TEXT", "IC").Replace("<br>", "\n");
             }
         }
 

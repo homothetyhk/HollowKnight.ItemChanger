@@ -19,7 +19,7 @@
         public override GameObject Deploy()
         {
             GameObject obj = Instantiate();
-            Container.GetContainer(Container.Tablet).ApplyTargetContext(obj, X, Y, 0);
+            Container.GetContainer(Container.Tablet)!.ApplyTargetContext(obj, X, Y, 0);
             return obj;
         }
     }

@@ -22,7 +22,7 @@ namespace ItemChanger
             this.Key = Key;
         }
 
-        public readonly string Sheet;
+        public readonly string? Sheet;
         public readonly string Key;
 
         public override int GetHashCode()
@@ -40,19 +40,19 @@ namespace ItemChanger
 
         public class LanguageKeyDictConverter<TValue> : JsonConverter<Dictionary<LanguageKey, TValue>>
         {
-            public override Dictionary<LanguageKey, TValue> ReadJson(
+            public override Dictionary<LanguageKey, TValue>? ReadJson(
                 JsonReader reader,
                 Type objectType,
-                Dictionary<LanguageKey, TValue> existingValue,
+                Dictionary<LanguageKey, TValue>? existingValue,
                 bool hasExistingValue,
                 JsonSerializer serializer)
             {
-                return serializer.Deserialize<KeyValuePair<LanguageKey, TValue>[]>(reader).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+                return serializer.Deserialize<KeyValuePair<LanguageKey, TValue>[]>(reader)?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             }
 
-            public override void WriteJson(JsonWriter writer, Dictionary<LanguageKey, TValue> value, JsonSerializer serializer)
+            public override void WriteJson(JsonWriter writer, Dictionary<LanguageKey, TValue>? value, JsonSerializer serializer)
             {
-                serializer.Serialize(writer, value.ToArray());
+                serializer.Serialize(writer, value?.ToArray());
             }
         }
     }

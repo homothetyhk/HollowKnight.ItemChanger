@@ -12,7 +12,7 @@ namespace ItemChanger.Locations.SpecialLocations
         {
             GetContainer(out GameObject obj, out string containerType);
             PlaceContainer(obj, containerType);
-            GameObject hunterEyes = to.FindGameObject("Hunter Eyes");
+            GameObject hunterEyes = to.FindGameObject("Hunter Eyes")!;
 
             PlayMakerFSM checkJournalPlacement = hunterEyes.LocateMyFSM("Check Journal Placement");
             checkJournalPlacement.FsmVariables.FindFsmGameObject("Shiny Item").Value = obj;

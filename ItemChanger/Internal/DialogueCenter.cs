@@ -13,9 +13,9 @@ namespace ItemChanger.Internal
         static GameObject Stop => DialogueText.transform.parent.Find("Stop").gameObject;
 
         static DialogueBox DialogueBox => DialogueText.GetComponent<DialogueBox>();
-        static DialogueBox DialogueBoxYN => DialogueManager.FindChild("Text YN").GetComponent<DialogueBox>();
+        static DialogueBox DialogueBoxYN => DialogueManager.FindChild("Text YN")!.GetComponent<DialogueBox>();
 
-        public static void SendLoreMessage(string text, Action callback, TextType type)
+        public static void SendLoreMessage(string text, Action? callback, TextType type)
         {
             switch (type)
             {
@@ -31,7 +31,7 @@ namespace ItemChanger.Internal
             }
         }
 
-        public static IEnumerator MajorLoreCoroutine(string text, Action callback)
+        public static IEnumerator MajorLoreCoroutine(string text, Action? callback)
         {
             PlayMakerFSM.BroadcastEvent("LORE PROMPT UP");
             PlayLoreSound();
@@ -57,7 +57,7 @@ namespace ItemChanger.Internal
             Arrow.transform.localPosition = new Vector3(0, 1.695f, -2.0f);
         }
 
-        public static IEnumerator LoreCoroutine(string text, Action callback)
+        public static IEnumerator LoreCoroutine(string text, Action? callback)
         {
             BoxOpenFsm.Fsm.Event("BOX UP");
             yield return new WaitForSeconds(0.15f); // orig: 0.3f
@@ -77,7 +77,7 @@ namespace ItemChanger.Internal
             DialogueText.GetComponent<TextMeshPro>().alignment = TextAlignmentOptions.TopLeft;
         }
 
-        public static IEnumerator LeftLoreCoroutine(string text, Action callback)
+        public static IEnumerator LeftLoreCoroutine(string text, Action? callback)
         {
             BoxOpenFsm.Fsm.Event("BOX UP");
             yield return new WaitForSeconds(0.15f); // orig: 0.3f

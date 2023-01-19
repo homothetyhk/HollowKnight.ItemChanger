@@ -36,7 +36,7 @@ namespace ItemChanger
         /// </summary>
         public FsmID(PlayMakerFSM fsm, bool strongID) : this(strongID ? "/" + fsm.gameObject.transform.GetPathInHierarchy() : fsm.gameObject.name, fsm.FsmName) { }
 
-        public readonly string ObjectName;
+        public readonly string? ObjectName;
         public readonly string FsmName;
 
         public override int GetHashCode()

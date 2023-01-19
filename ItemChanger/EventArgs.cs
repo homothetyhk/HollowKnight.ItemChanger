@@ -3,7 +3,7 @@
     public class GetItemEventArgs : EventArgs
     {
         public string ItemName { get; }
-        public AbstractItem Current { get; set; }
+        public AbstractItem? Current { get; set; }
 
         public GetItemEventArgs(string itemName) => this.ItemName = itemName;
     }
@@ -11,7 +11,7 @@
     public class GetLocationEventArgs : EventArgs
     {
         public string LocationName { get; }
-        public AbstractLocation Current { get; set; }
+        public AbstractLocation? Current { get; set; }
 
         public GetLocationEventArgs(string locationName) => this.LocationName = locationName;
     }
@@ -43,7 +43,7 @@
         }
 
         public AbstractItem Orig { get; }
-        public AbstractItem Item { get; set; }
+        public AbstractItem? Item { get; set; }
         public AbstractPlacement? Placement { get; }
         public GiveInfo? Info { get; set; }
         public ObtainState OriginalState { get; }
@@ -65,7 +65,7 @@
         public AbstractItem Orig { get; }
         public AbstractItem Item { get; }
         public AbstractPlacement? Placement { get; }
-        public string Container => info.Container;
+        public string? Container => info.Container;
         public FlingType Fling => info.FlingType;
         public Transform? Transform => info.Transform;
         public MessageType MessageType => info.MessageType;

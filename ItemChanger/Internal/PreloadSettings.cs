@@ -33,13 +33,13 @@ namespace ItemChanger.Internal
         }
         [JsonConstructor] public PreloadSettings(Dictionary<string, PreloadLevel> PreloadLevels) => this.PreloadLevels = PreloadLevels;
 
-        private PreloadLevel Get([CallerMemberName] string caller = null)
+        private PreloadLevel Get([CallerMemberName] string? caller = null)
         {
-            if (_preloadOverrides[caller] is PreloadLevel pl) return pl;
-            else return PreloadLevels[caller];
+            if (_preloadOverrides[caller!] is PreloadLevel pl) return pl;
+            else return PreloadLevels[caller!];
         }
 
-        private void Set(PreloadLevel value, [CallerMemberName] string caller = null) => PreloadLevels[caller] = value;
+        private void Set(PreloadLevel value, [CallerMemberName] string? caller = null) => PreloadLevels[caller!] = value;
 
 
         private static readonly Dictionary<string, PreloadLevel?> _preloadOverrides = new()

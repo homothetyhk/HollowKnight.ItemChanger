@@ -34,7 +34,7 @@ namespace ItemChanger
         
         public List<IDeployer> Deployers = new();
 
-        public StartDef Start = null;
+        public StartDef? Start = null;
 
         public IEnumerable<AbstractItem> GetItems() => Placements.SelectMany(kvp => kvp.Value.Items);
         public IEnumerable<AbstractPlacement> GetPlacements() => (Placements ??= new Dictionary<string, AbstractPlacement>()).Select(kvp => kvp.Value);

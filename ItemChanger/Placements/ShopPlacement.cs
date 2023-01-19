@@ -24,7 +24,7 @@ namespace ItemChanger.Placements
 
         public ShopLocation Location;
         AbstractLocation IPrimaryLocationPlacement.Location => Location;
-        public override string MainContainerType => "Shop";
+        public override string MainContainerType => Container.Shop;
 
         protected override void OnLoad()
         {
@@ -110,9 +110,9 @@ namespace ItemChanger.Placements
             return newStock.Union(altStock.Where(g => KeepOldItem(g.GetComponent<ShopItemStats>()))).ToArray();
         }
 
-        public void ApplyItemDef(ShopItemStats stats, AbstractItem item, Cost cost)
+        public void ApplyItemDef(ShopItemStats stats, AbstractItem item, Cost? cost)
         {
-            foreach (var m in stats.gameObject.GetComponents<ModShopItemStats>()) GameObject.Destroy(m); // Probably not necessary
+            foreach (var m in stats.gameObject.GetComponents<ModShopItemStats>()) UObject.Destroy(m); // Probably not necessary
 
             var mod = stats.gameObject.AddComponent<ModShopItemStats>();
             mod.item = item;
@@ -139,8 +139,8 @@ namespace ItemChanger.Placements
             stats.relicPDInt = string.Empty;
 
             // Apply the sprite for the UI
-            stats.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = item.GetResolvedUIDef(this).GetSprite();
-            Sprite costSprite = Location.costDisplayer?.CustomCostSprite?.Value;
+            stats.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = item.GetResolvedUIDef(this)!.GetSprite();
+            Sprite? costSprite = Location.costDisplayer?.CustomCostSprite?.Value;
             if (costSprite != null)
             {
                 stats.transform.Find("Geo Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = costSprite;

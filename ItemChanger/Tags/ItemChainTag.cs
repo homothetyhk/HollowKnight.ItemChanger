@@ -27,14 +27,16 @@
 
         protected virtual AbstractItem GetItem(string name)
         {
-            return Finder.GetItem(name);
+            return Finder.GetItem(name) ?? throw new NullReferenceException("Could not find item " + name);
         }
 
         public void ModifyItem(GiveEventArgs args)
         {
+            if (args.Item is null) return;
+
             if (args.Item.Redundant())
             {
-                while (args.Item?.GetTag<ItemChainTag>()?.successor is string succ && !string.IsNullOrEmpty(succ))
+                while (args.Item is not null && args.Item.GetTag<ItemChainTag>()?.successor is string succ && !string.IsNullOrEmpty(succ))
                 {
                     args.Item = GetItem(succ);
                     if (!args.Item.Redundant())

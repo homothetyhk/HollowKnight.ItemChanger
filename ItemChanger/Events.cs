@@ -177,10 +177,10 @@ namespace ItemChanger
          *************************************************************************************
         */
 
-        private static readonly Dictionary<FsmID, Action<PlayMakerFSM>> globalOnEnable = new();
-        private static readonly Dictionary<string, Dictionary<FsmID, Action<PlayMakerFSM>>> localOnEnable = new();
-        private static readonly Dictionary<string, Action<Scene>> activeSceneChangeEdits = new();
-        private static readonly Dictionary<LanguageKey, LanguageEdit> languageHooks = new();
+        private static readonly Dictionary<FsmID, Action<PlayMakerFSM>?> globalOnEnable = new();
+        private static readonly Dictionary<string, Dictionary<FsmID, Action<PlayMakerFSM>?>> localOnEnable = new();
+        private static readonly Dictionary<string, Action<Scene>?> activeSceneChangeEdits = new();
+        private static readonly Dictionary<LanguageKey, LanguageEdit?> languageHooks = new();
 
         internal static void Hook()
         {
@@ -337,7 +337,7 @@ namespace ItemChanger
 
             try
             {
-                LanguageEdit func;
+                LanguageEdit? func;
                 if (languageHooks.TryGetValue(lk, out func))
                 {
                     func?.Invoke(ref value);
@@ -446,7 +446,7 @@ namespace ItemChanger
         private static void TransitionHook(On.GameManager.orig_BeginSceneTransition orig, GameManager self, GameManager.SceneLoadInfo info)
         {
             string sceneName = self.sceneName;
-            string gateName = null;
+            string? gateName = null;
             Transition origTarget = new(info.SceneName, info.EntryGateName);
             Transition target = new(info.SceneName, info.EntryGateName);
 

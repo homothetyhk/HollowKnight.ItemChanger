@@ -50,10 +50,10 @@ namespace ItemChanger.Modules
 
                 if (rewardsParent)
                 {
-                    GameObject grubReward = rewardsParent.FindChild($"Reward {rewardNum}");
+                    GameObject? grubReward = rewardsParent.FindChild($"Reward {rewardNum}");
                     if (grubReward)
                     {
-                        if (grubReward.gameObject.LocateMyFSM("grub_reward_geo") is PlayMakerFSM geoFsm && geoFsm != null && geoFsm.FsmVariables.FindFsmInt("Geo") is FsmInt geoInt)
+                        if (grubReward!.gameObject.LocateMyFSM("grub_reward_geo") is PlayMakerFSM geoFsm && geoFsm != null && geoFsm.FsmVariables.FindFsmInt("Geo") is FsmInt geoInt)
                         {
                             Fsm.GetFsmInt("Geo Total").Value += geoInt.Value;
                         }
