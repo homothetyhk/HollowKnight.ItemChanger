@@ -14,8 +14,8 @@ namespace ItemChanger.Internal
 
         public class Info
         {
-            public Dictionary<string, float> overridePPUs;
-            public Dictionary<string, FilterMode> overrideFilterModes;
+            public Dictionary<string, float>? overridePPUs;
+            public Dictionary<string, FilterMode>? overrideFilterModes;
             public FilterMode defaultFilterMode = FilterMode.Bilinear;
             public float defaultPixelsPerUnit = 100f;
 

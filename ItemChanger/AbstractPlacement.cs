@@ -169,13 +169,13 @@ namespace ItemChanger
         /// <summary>
         /// Event invoked by each placement whenever new flags are added to its Visited. Skipped if added flags are a subset of Visited.
         /// </summary>
-        public static event Action<VisitStateChangedEventArgs> OnVisitStateChangedGlobal;
+        public static event Action<VisitStateChangedEventArgs>? OnVisitStateChangedGlobal;
 
         /// <summary>
         /// Event invoked by this placement whenever AddVisitFlag is called. Use the NoChange property of the args to detect whether a change will occur.
         /// </summary>
         [field: JsonIgnore]
-        public event Action<VisitStateChangedEventArgs> OnVisitStateChanged;
+        public event Action<VisitStateChangedEventArgs>? OnVisitStateChanged;
         private void InvokeVisitStateChanged(VisitState newFlags)
         {
             VisitStateChangedEventArgs args = new(this, newFlags);

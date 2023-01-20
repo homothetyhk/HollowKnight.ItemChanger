@@ -19,7 +19,7 @@ namespace ItemChanger
         /// <br/>An object name with a leading '/' will be interpreted as a path, and will only match objects with that exact path in hierarchy.
         /// </summary>
         [Newtonsoft.Json.JsonConstructor]
-        public FsmID(string ObjectName, string FsmName)
+        public FsmID(string? ObjectName, string FsmName)
         {
             this.ObjectName = ObjectName;
             this.FsmName = FsmName;

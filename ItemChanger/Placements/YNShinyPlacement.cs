@@ -14,7 +14,7 @@ namespace ItemChanger.Placements
         AbstractLocation IPrimaryLocationPlacement.Location => Location;
         public override string MainContainerType => Container.Shiny;
 
-        public Cost Cost { get; set; }
+        public Cost? Cost { get; set; }
 
         protected override void OnLoad()
         {

@@ -16,7 +16,7 @@ namespace ItemChanger.Placements
         public override string MainContainerType => containerType;
         public string containerType = Container.Unknown;
 
-        public Cost Cost { get; set; }
+        public Cost? Cost { get; set; }
 
         protected override void OnLoad()
         {

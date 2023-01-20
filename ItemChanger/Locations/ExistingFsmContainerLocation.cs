@@ -8,12 +8,12 @@ namespace ItemChanger.Locations
     /// </summary>
     public class ExistingFsmContainerLocation : ExistingContainerLocation, ILocalHintLocation
     {
-        public string objectName;
+        public string? objectName;
         public string fsmName;
         /// <summary>
         /// The path to find the object on active scene change, if it is to be replaced. If this is null, replacement happens when the fsm is enabled instead.
         /// </summary>
-        public string replacePath;
+        public string? replacePath;
         public float elevation;
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace ItemChanger.Locations
             {
                 Container c = Container.GetContainer(Placement.MainContainerType)!;
                 GameObject obj = c.GetNewContainer(GetContainerInfo(c.Name));
-                GameObject target = to.FindGameObject(replacePath)!;
+                GameObject target = to.FindGameObject(replacePath!)!;
                 c.ApplyTargetContext(obj, target, elevation);
                 UObject.Destroy(target);
                 if (this.GetItemHintActive()) HintBox.Create(obj.transform, Placement);

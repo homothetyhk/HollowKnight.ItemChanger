@@ -43,11 +43,11 @@ namespace ItemChanger.Locations
         /// <summary>
         /// The optional conversation to have when the shop is out of stock
         /// </summary>
-        public IString outOfStockConvo;
+        public IString? outOfStockConvo;
         /// <summary>
         /// The optional sprite to use as the figurehead at the top of the shop
         /// </summary>
-        public ISprite figureheadSprite;
+        public ISprite? figureheadSprite;
         /// <summary>
         /// The direction for the shopkeeper to face. Defaults to Auto.
         /// </summary>
@@ -212,7 +212,7 @@ namespace ItemChanger.Locations
 
             noStock.AddFirstAction(new Lambda(() =>
             {
-                DialogueCenter.StartConversation(outOfStockConvo.Value);
+                DialogueCenter.StartConversation(outOfStockConvo!.Value);
             }));
             noStock.AddTransition("CONVO_FINISH", "Box Down");
         }

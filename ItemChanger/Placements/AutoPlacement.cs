@@ -13,7 +13,7 @@ namespace ItemChanger.Placements
 
         AbstractLocation IPrimaryLocationPlacement.Location => Location;
 
-        public Cost Cost { get; set; }
+        public Cost? Cost { get; set; }
         public virtual bool SupportsCost => Location.SupportsCost;
 
         protected override void OnLoad()

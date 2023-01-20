@@ -16,7 +16,7 @@ namespace ItemChanger.Locations
         /// <summary>
         /// The npc's objectName, for spawning items.
         /// </summary>
-        public string objectName;
+        public string? objectName;
         public string fsmName;
 
         /// <summary>

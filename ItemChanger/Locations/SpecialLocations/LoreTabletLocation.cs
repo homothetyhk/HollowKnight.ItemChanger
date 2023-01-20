@@ -7,7 +7,7 @@ namespace ItemChanger.Locations.SpecialLocations
     /// </summary>
     public class LoreTabletLocation : ObjectLocation
     {
-        public string inspectName;
+        public string? inspectName;
         public string inspectFsm;
 
         protected override void OnLoad()

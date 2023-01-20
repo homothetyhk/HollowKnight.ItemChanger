@@ -10,7 +10,7 @@ namespace ItemChanger.Locations.SpecialLocations
     public class BossEssenceLocation : AutoLocation
     {
         public string fsmName;
-        public string objName;
+        public string? objName;
 
         protected override void OnLoad()
         {

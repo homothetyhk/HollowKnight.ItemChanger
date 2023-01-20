@@ -9,8 +9,8 @@ namespace ItemChanger.Tags
     public class DisableFsmTag : Tag
     {
         public FsmID id;
-        public string sceneName;
-        public string disableState;
+        public string? sceneName;
+        public string? disableState;
 
         public override void Load(object parent)
         {

@@ -6,7 +6,7 @@
     public class DestroyFsmTag : Tag
     {
         public FsmID id;
-        public string sceneName;
+        public string? sceneName;
 
         public override void Load(object parent)
         {

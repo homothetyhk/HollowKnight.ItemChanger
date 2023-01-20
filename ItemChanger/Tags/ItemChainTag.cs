@@ -7,8 +7,8 @@
     /// </summary>
     public class ItemChainTag : Tag, IItemModifierTag
     {
-        public string predecessor;
-        public string successor;
+        public string? predecessor;
+        public string? successor;
 
         public override void Load(object parent)
         {

@@ -58,7 +58,7 @@ namespace ItemChanger.Internal
         /// <summary>
         /// Returns the first module of type T, or default.
         /// </summary>
-        public T Get<T>()
+        public T? Get<T>()
         {
             return Modules.OfType<T>().FirstOrDefault();
         }

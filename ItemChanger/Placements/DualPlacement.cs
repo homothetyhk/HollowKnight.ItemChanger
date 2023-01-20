@@ -19,7 +19,7 @@
         [Newtonsoft.Json.JsonIgnore]
         public AbstractLocation Location => cachedValue ? trueLocation : falseLocation;
         
-        public Cost Cost { get; set; }
+        public Cost? Cost { get; set; }
 
         protected override void OnLoad()
         {

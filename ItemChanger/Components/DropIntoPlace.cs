@@ -8,7 +8,7 @@ namespace ItemChanger.Components
     public class DropIntoPlace : MonoBehaviour
     {
         Rigidbody2D rb;
-        public event Action OnLand;
+        public event Action? OnLand;
         public bool Landed { get; private set; } = false;
         private bool artificialRB = false;
 

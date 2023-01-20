@@ -9,7 +9,7 @@ namespace ItemChanger.Locations
     {
         // enemy info - look for fsm in OnEnable, rather than object on scene entry
         public string enemyFsm;
-        public string enemyObj;
+        public string? enemyObj;
         public bool removeGeo;
         private Action? _cleanupAction;
 

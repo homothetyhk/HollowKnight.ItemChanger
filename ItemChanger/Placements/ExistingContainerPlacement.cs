@@ -18,7 +18,7 @@ namespace ItemChanger.Placements
         [JsonIgnore]
         public override string MainContainerType => currentContainerType;
 
-        public Cost Cost { get; set; }
+        public Cost? Cost { get; set; }
 
         protected override void OnLoad()
         {

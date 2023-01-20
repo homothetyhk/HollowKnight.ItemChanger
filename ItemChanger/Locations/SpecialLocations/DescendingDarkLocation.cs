@@ -9,7 +9,7 @@ namespace ItemChanger.Locations.SpecialLocations
     /// </summary>
     public class DescendingDarkLocation : AutoLocation
     {
-        public string objectName;
+        public string? objectName;
         public string fsmName;
 
         protected override void OnLoad()

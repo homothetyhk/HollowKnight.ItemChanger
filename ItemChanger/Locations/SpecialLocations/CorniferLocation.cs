@@ -10,7 +10,7 @@ namespace ItemChanger.Locations.SpecialLocations
     /// </summary>
     public class CorniferLocation : AutoLocation
     {
-        public string objectName;
+        public string? objectName;
         public override bool SupportsCost => true;
 
         protected override void OnLoad()

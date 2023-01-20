@@ -11,7 +11,7 @@ namespace ItemChanger.Modules
     public class InventoryTracker : Module
     {
         public bool TrackGrimmkinFlames = true;
-        [field: JsonIgnore] public event Action<StringBuilder> OnGenerateFocusDesc;
+        [field: JsonIgnore] public event Action<StringBuilder>? OnGenerateFocusDesc;
 
         public override void Initialize()
         {
@@ -33,22 +33,30 @@ namespace ItemChanger.Modules
         {
             StringBuilder sb = new();
             ModuleCollection mods = ItemChangerMod.Modules;
-            FocusSkill fs = mods.Get<FocusSkill>();
-            SwimSkill ss = mods.Get<SwimSkill>();
+            FocusSkill? fs = mods.Get<FocusSkill>();
+            SwimSkill? ss = mods.Get<SwimSkill>();
+            ElevatorPass? ep = mods.Get<ElevatorPass>();
 
-            if (fs != null)
+            if (fs is not null)
             {
                 if (fs.canFocus) sb.Append(Language.Language.Get("TRACKER_CAN_FOCUS", "IC"));
                 else sb.Append(Language.Language.Get("TRACKER_CANNOT_FOCUS", "IC"));
 
-                if (ss != null) sb.Append(' ');
+                if (ss is not null) sb.Append(' ');
                 else sb.AppendLine();
             }
 
-            if (ss != null)
+            if (ss is not null)
             {
                 if (ss.canSwim) sb.Append(Language.Language.Get("TRACKER_CAN_SWIM", "IC"));
                 else sb.Append(Language.Language.Get("TRACKER_CANNOT_SWIM", "IC"));
+                sb.AppendLine();
+            }
+
+            if (ep is not null)
+            {
+                if (ep.hasElevatorPass) sb.Append(Language.Language.Get("TRACKER_HAS_ELEVATOR_PASS", "IC"));
+                else sb.Append(Language.Language.Get("TRACKER_NO_ELEVATOR_PASS", "IC"));
                 sb.AppendLine();
             }
 
@@ -106,9 +114,9 @@ namespace ItemChanger.Modules
 
         private void EditNailDesc(ref string value)
         {
-            SplitNail sn = ItemChangerMod.Modules.Get<SplitNail>();
+            SplitNail? sn = ItemChangerMod.Modules.Get<SplitNail>();
 
-            if (sn != null)
+            if (sn is not null)
             {
                 StringBuilder sb = new();
 

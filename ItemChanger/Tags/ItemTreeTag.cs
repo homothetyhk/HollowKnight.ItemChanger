@@ -7,8 +7,8 @@
     /// </summary>
     public class ItemTreeTag : Tag, IItemModifierTag
     {
-        public string[] predecessors;
-        public string[] successors;
+        public string[]? predecessors;
+        public string[]? successors;
         /// <summary>
         /// If true, the first nonredundant item starting from the first element in the list will be chosen.
         /// <br/>Otherwise, the search will begin at the parent item, and will assume that predecessors of a redundant item are redundant.

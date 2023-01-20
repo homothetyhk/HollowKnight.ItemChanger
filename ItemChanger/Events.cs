@@ -12,64 +12,64 @@ namespace ItemChanger
         /// <summary>
         /// Universal hook for editing ItemChanger text.
         /// </summary>
-        public static event Action<StringGetArgs> OnStringGet;
+        public static event Action<StringGetArgs>? OnStringGet;
 
         /// <summary>
         /// Universal hook for editing ItemChanger sprites.
         /// </summary>
-        public static event Action<SpriteGetArgs> OnSpriteGet;
+        public static event Action<SpriteGetArgs>? OnSpriteGet;
 
         /// <summary>
         /// Called whenever a transition is overriden through ItemChanger, giving access to the original transition data and the result of the override.
         /// </summary>
-        public static event TransitionOverrideListener OnTransitionOverride;
+        public static event TransitionOverrideListener? OnTransitionOverride;
 
         /// <summary>
         /// Called immediately prior to the BeginSceneTransition routine. If transition overrides take place through ItemChanger, these are applied before the event is invoked.
         /// </summary>
-        public static event Action<Transition> OnBeginSceneTransition;
+        public static event Action<Transition>? OnBeginSceneTransition;
 
         /// <summary>
         /// Called before GameManager.StartNewGame.
         /// </summary>
-        public static event Action BeforeStartNewGame;
+        public static event Action? BeforeStartNewGame;
 
         /// <summary>
         /// Called after GameManager.StartNewGame.
         /// </summary>
-        public static event Action AfterStartNewGame;
+        public static event Action? AfterStartNewGame;
 
         /// <summary>
         /// Called after ItemChanger hooks, which occurs either when ItemChanger settings are created or when ItemChanger settings are loaded from a save file.
         /// </summary>
-        public static event Action OnItemChangerHook;
+        public static event Action? OnItemChangerHook;
 
         /// <summary>
         /// Called after ItemChanger unhooks, which occurs when ItemChanger settings are nulled on returning to menu.
         /// </summary>
-        public static event Action OnItemChangerUnhook;
+        public static event Action? OnItemChangerUnhook;
 
         /// <summary>
         /// Called on starting or continuing a save.
         /// <br/>If continuing or starting with a custom start, it is called before GM.ContinueGame.
         /// <br/>If starting with the base start, it is called before GM.StartNewGame.
         /// </summary>
-        public static event Action OnEnterGame;
+        public static event Action? OnEnterGame;
 
         /// <summary>
         /// Called after persistent items reset, on every active scene change.
         /// </summary>
-        public static event Action OnPersistentUpdate;
+        public static event Action? OnPersistentUpdate;
 
         /// <summary>
         /// Called on every active scene change with the new scene as parameter.
         /// </summary>
-        public static event Action<Scene> OnSceneChange;
+        public static event Action<Scene>? OnSceneChange;
 
         /// <summary>
         /// Called after semipersistent data resets, i.e. on bench, death, special cutscenes, etc.
         /// </summary>
-        public static event Action OnSemiPersistentUpdate;
+        public static event Action? OnSemiPersistentUpdate;
 
 
 

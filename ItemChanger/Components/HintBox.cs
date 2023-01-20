@@ -52,7 +52,7 @@ namespace ItemChanger.Components
         public Func<bool>? DisplayTest;
         public Func<string?>? GetDisplayText;
         public Action<string>? OnDisplay;
-        PlayMakerFSM display;
+        PlayMakerFSM? display;
 
         public void Setup(GameObject prefab)
         {
@@ -87,12 +87,12 @@ namespace ItemChanger.Components
 
         private void SetText(string text)
         {
-            display.FsmVariables.FindFsmGameObject("Text").Value.GetComponent<TextMeshPro>().text = text;
+            display!.FsmVariables.FindFsmGameObject("Text").Value.GetComponent<TextMeshPro>().text = text;
         }
 
         private void ShowConvo()
         {
-            display.SendEvent("DISPLAY ENEMY DREAM");
+            display!.SendEvent("DISPLAY ENEMY DREAM");
         }
     }
 }

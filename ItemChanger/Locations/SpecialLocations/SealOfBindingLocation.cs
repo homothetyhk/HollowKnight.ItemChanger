@@ -9,7 +9,7 @@ namespace ItemChanger.Locations.SpecialLocations
     /// </summary>
     public class SealOfBindingLocation : AutoLocation
     {
-        public string objectName;
+        public string? objectName;
 
         protected override void OnLoad()
         {

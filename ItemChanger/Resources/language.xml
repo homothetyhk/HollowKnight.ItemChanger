@@ -121,6 +121,8 @@
   <entry sheet="IC" key="TRACKER_CANNOT_FOCUS">You cannot focus.</entry>
   <entry sheet="IC" key="TRACKER_CAN_SWIM">You can swim.</entry>
   <entry sheet="IC" key="TRACKER_CANNOT_SWIM">You cannot swim.</entry>
+  <entry sheet="IC" key="TRACKER_HAS_ELEVATOR_PASS">You can ride large elevators.</entry>
+  <entry sheet="IC" key="TRACKER_NO_ELEVATOR_PASS">You cannot ride large elevators.</entry>
   <entry sheet="Fmt" key="TRACKER_ESSENCE">You have {0} essence.</entry>
   <entry sheet="Fmt" key="TRACKER_FLAMES">You have {0} unspent Grimmkin flames. ({1} total)</entry>
   <entry sheet="Fmt" key="TRACKER_FLAMES_NO_GFM">You have {0} unspent Grimmkin flames.</entry>

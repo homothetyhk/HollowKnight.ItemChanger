@@ -5,6 +5,6 @@
     /// </summary>
     public interface ISingleCostPlacement
     {
-        Cost Cost { get; set; }
+        Cost? Cost { get; set; }
     }
 }
