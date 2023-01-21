@@ -22,7 +22,7 @@ namespace ItemChanger
         /// Fetches the sceneName field and produces an error if it is null.
         /// </summary>
         /// <exception cref="NullReferenceException"></exception>
-        [JsonIgnore] public string UnsafeSceneName => UnsafeSceneName ?? throw new NullReferenceException($"Scene name of location {name} is not defined.");
+        [JsonIgnore] public string UnsafeSceneName => sceneName ?? throw new NullReferenceException($"Scene name of location {name} is not defined.");
 
         /// <summary>
         /// The flingType of the location, specifying how geo and similar objects are to be flung.
