@@ -24,7 +24,7 @@ namespace ItemChanger.Placements
 
         protected override void OnLoad()
         {
-            Events.AddSceneChangeEdit(Location.sceneName, OnActiveSceneChanged);
+            Events.AddSceneChangeEdit(Location.UnsafeSceneName, OnActiveSceneChanged);
             Events.AddFsmEdit(SceneNames.Room_Ouiji, new("Jiji NPC", "Conversation Control"), JijiConvoEdit);
             Events.AddLanguageEdit(new("Jiji", "GREET"), JijiGreet);
             Events.AddLanguageEdit(new("Jiji", "SHADE_OFFER"), JijiShadeOffer);
@@ -34,7 +34,7 @@ namespace ItemChanger.Placements
 
         protected override void OnUnload()
         {
-            Events.RemoveSceneChangeEdit(Location.sceneName, OnActiveSceneChanged);
+            Events.RemoveSceneChangeEdit(Location.UnsafeSceneName, OnActiveSceneChanged);
             Events.RemoveFsmEdit(SceneNames.Room_Ouiji, new("Jiji NPC", "Conversation Control"), JijiConvoEdit);
             Events.RemoveLanguageEdit(new("Jiji", "GREET"), JijiGreet);
             Events.RemoveLanguageEdit(new("Jiji", "SHADE_OFFER"), JijiShadeOffer);

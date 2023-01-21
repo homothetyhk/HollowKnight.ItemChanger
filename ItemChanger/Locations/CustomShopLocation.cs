@@ -58,35 +58,35 @@ namespace ItemChanger.Locations
             // can't call base.OnLoad for most of these edits since the object name for the shop is
             // unique per NPC
 
-            Events.AddFsmEdit(sceneName, new(objectName, fsmName), EditInteractionFsm);
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}", "shop_control"), CustomizeShopControl);
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), CustomizeConfirmControl);
+            Events.AddFsmEdit(UnsafeSceneName, new(objectName, fsmName), EditInteractionFsm);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}", "shop_control"), CustomizeShopControl);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), CustomizeConfirmControl);
 
             // all events below perform the normal ShopLocation edits on our custom shop object
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}", "shop_control"), EditShopControl);
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}/Item List", "Item List Control"), EditItemListControl);
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), EditConfirmControl);
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}/Item List", "Item List Control"), HastenItemListControl);
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}/Item List", "ui_list_getinput"), HastenUIListGetInput);
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), HastenConfirmControl);
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "ui_list"), HastenUIList);
-            Events.AddFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "ui_list_button_listen"), HastenUIListButtonListen);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}", "shop_control"), EditShopControl);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Item List", "Item List Control"), EditItemListControl);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), EditConfirmControl);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Item List", "Item List Control"), HastenItemListControl);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Item List", "ui_list_getinput"), HastenUIListGetInput);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), HastenConfirmControl);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "ui_list"), HastenUIList);
+            Events.AddFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "ui_list_button_listen"), HastenUIListButtonListen);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new(objectName, fsmName), EditInteractionFsm);
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}", "shop_control"), CustomizeShopControl);
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), CustomizeConfirmControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(objectName, fsmName), EditInteractionFsm);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}", "shop_control"), CustomizeShopControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), CustomizeConfirmControl);
 
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}", "shop_control"), EditShopControl);
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Item List", "Item List Control"), EditItemListControl);
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), EditConfirmControl);
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Item List", "Item List Control"), HastenItemListControl);
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Item List", "ui_list_getinput"), HastenUIListGetInput);
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), HastenConfirmControl);
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "ui_list"), HastenUIList);
-            Events.RemoveFsmEdit(sceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "ui_list_button_listen"), HastenUIListButtonListen);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}", "shop_control"), EditShopControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Item List", "Item List Control"), EditItemListControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), EditConfirmControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Item List", "Item List Control"), HastenItemListControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Item List", "ui_list_getinput"), HastenUIListGetInput);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "Confirm Control"), HastenConfirmControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "ui_list"), HastenUIList);
+            Events.RemoveFsmEdit(UnsafeSceneName, new($"/Shop Menu {objectName}/Confirm/UI List", "ui_list_button_listen"), HastenUIListButtonListen);
         }
 
         /// <summary>

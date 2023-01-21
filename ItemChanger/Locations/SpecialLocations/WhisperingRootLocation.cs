@@ -18,12 +18,12 @@ namespace ItemChanger.Locations.SpecialLocations
             {
                 HookRoots();
             }
-            SubscribedLocations[sceneName] = this;
+            SubscribedLocations[UnsafeSceneName] = this;
         }
 
         protected override void OnUnload()
         {
-            SubscribedLocations.Remove(sceneName);
+            SubscribedLocations.Remove(UnsafeSceneName);
             if (SubscribedLocations.Count == 0)
             {
                 UnhookRoots();

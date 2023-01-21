@@ -23,14 +23,14 @@ namespace ItemChanger.Locations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new(objectName, fsmName), OnEnable);
-            if (!nonreplaceable && replacePath != null) Events.AddSceneChangeEdit(sceneName, ReplaceOnSceneChange);
+            Events.AddFsmEdit(UnsafeSceneName, new(objectName, fsmName), OnEnable);
+            if (!nonreplaceable && replacePath != null) Events.AddSceneChangeEdit(UnsafeSceneName, ReplaceOnSceneChange);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new(objectName, fsmName), OnEnable);
-            Events.RemoveSceneChangeEdit(sceneName, ReplaceOnSceneChange);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(objectName, fsmName), OnEnable);
+            Events.RemoveSceneChangeEdit(UnsafeSceneName, ReplaceOnSceneChange);
         }
 
         public void OnEnable(PlayMakerFSM fsm)

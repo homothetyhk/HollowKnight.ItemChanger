@@ -13,14 +13,14 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("Control"), EditFlamebearerControl);
-            Events.AddFsmEdit(sceneName, new("Flamebearer Spawn", "Spawn Control"), EditFlamebearerSpawn);
+            Events.AddFsmEdit(UnsafeSceneName, new("Control"), EditFlamebearerControl);
+            Events.AddFsmEdit(UnsafeSceneName, new("Flamebearer Spawn", "Spawn Control"), EditFlamebearerSpawn);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("Control"), EditFlamebearerControl);
-            Events.RemoveFsmEdit(sceneName, new("Flamebearer Spawn", "Spawn Control"), EditFlamebearerSpawn);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Control"), EditFlamebearerControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Flamebearer Spawn", "Spawn Control"), EditFlamebearerSpawn);
         }
 
         public override GiveInfo GetGiveInfo()

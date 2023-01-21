@@ -11,13 +11,13 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Witch Control", "Control"), RemoveSetCollider);
+            Events.AddFsmEdit(UnsafeSceneName, new("Witch Control", "Control"), RemoveSetCollider);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Witch Control", "Control"), RemoveSetCollider);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Witch Control", "Control"), RemoveSetCollider);
         }
 
         private void RemoveSetCollider(PlayMakerFSM fsm)

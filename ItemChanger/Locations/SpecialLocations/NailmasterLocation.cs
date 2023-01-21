@@ -15,17 +15,17 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new(objectName, fsmName), EditNailmasterConvo);
+            Events.AddFsmEdit(UnsafeSceneName, new(objectName, fsmName), EditNailmasterConvo);
             Events.AddLanguageEdit(new("Prompts", "NAILMASTER_FREE"), OnLanguageGet);
-            Events.AddSceneChangeEdit(sceneName, MakeShinyForRespawnedItems);
-            if (sceneName == SceneNames.Room_nailmaster_02) ItemChangerMod.Modules.GetOrAdd<Modules.AltNailsmithSheoTest>().Subscribe(this);
+            Events.AddSceneChangeEdit(UnsafeSceneName, MakeShinyForRespawnedItems);
+            if (UnsafeSceneName == SceneNames.Room_nailmaster_02) ItemChangerMod.Modules.GetOrAdd<Modules.AltNailsmithSheoTest>().Subscribe(this);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new(objectName, fsmName), EditNailmasterConvo);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(objectName, fsmName), EditNailmasterConvo);
             Events.RemoveLanguageEdit(new("Prompts", "NAILMASTER_FREE"), OnLanguageGet);
-            Events.RemoveSceneChangeEdit(sceneName, MakeShinyForRespawnedItems);
+            Events.RemoveSceneChangeEdit(UnsafeSceneName, MakeShinyForRespawnedItems);
         }
 
         private void EditNailmasterConvo(PlayMakerFSM fsm)
@@ -74,7 +74,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void OnLanguageGet(ref string value)
         {
-            if (GameManager.instance.sceneName == sceneName)
+            if (GameManager.instance.sceneName == UnsafeSceneName)
             {
                 value = Placement.GetUIName();
                 Placement.OnPreview(value);

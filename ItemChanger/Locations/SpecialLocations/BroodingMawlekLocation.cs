@@ -11,13 +11,13 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Battle Scene", "Battle Control"), RemoveHeartPieceActions);
+            Events.AddFsmEdit(UnsafeSceneName, new("Battle Scene", "Battle Control"), RemoveHeartPieceActions);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Battle Scene", "Battle Control"), RemoveHeartPieceActions);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Battle Scene", "Battle Control"), RemoveHeartPieceActions);
         }
 
         private void RemoveHeartPieceActions(PlayMakerFSM fsm)

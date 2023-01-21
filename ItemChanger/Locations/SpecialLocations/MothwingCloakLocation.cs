@@ -12,28 +12,28 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Cloak Corpse", "Control"), EditCloakCorpse);
-            Events.AddFsmEdit(sceneName, new("Camera Locks Boss", "FSM"), DestroyCameraLock);
+            Events.AddFsmEdit(UnsafeSceneName, new("Cloak Corpse", "Control"), EditCloakCorpse);
+            Events.AddFsmEdit(UnsafeSceneName, new("Camera Locks Boss", "FSM"), DestroyCameraLock);
             // These objects are in Fungus1_04_boss, but the Fsm hook still catches them in the SuperScene.
-            Events.AddFsmEdit(sceneName, new("Dreamer Scene 1", "Control"), DestroyDreamScene); // probably not necessary
-            Events.AddFsmEdit(sceneName, new("Cutscene Dreamer", "Control"), DestroyDreamScene); // probably not necessary
-            Events.AddFsmEdit(sceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
-            Events.AddFsmEdit(sceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
-            Events.AddFsmEdit(sceneName, new("Hornet Boss 1", "Control"), PreventHornetSaverOnRefight);
-            Events.AddFsmEdit(sceneName, new("Hollow_Shade Marker (1)", "FSM"), ChangeShadeMarkerTest);
+            Events.AddFsmEdit(UnsafeSceneName, new("Dreamer Scene 1", "Control"), DestroyDreamScene); // probably not necessary
+            Events.AddFsmEdit(UnsafeSceneName, new("Cutscene Dreamer", "Control"), DestroyDreamScene); // probably not necessary
+            Events.AddFsmEdit(UnsafeSceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
+            Events.AddFsmEdit(UnsafeSceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
+            Events.AddFsmEdit(UnsafeSceneName, new("Hornet Boss 1", "Control"), PreventHornetSaverOnRefight);
+            Events.AddFsmEdit(UnsafeSceneName, new("Hollow_Shade Marker (1)", "FSM"), ChangeShadeMarkerTest);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Cloak Corpse", "Control"), EditCloakCorpse);
-            Events.RemoveFsmEdit(sceneName, new("Camera Locks Boss", "FSM"), DestroyCameraLock);
-            Events.RemoveFsmEdit(sceneName, new("Dreamer Scene 1", "Control"), DestroyDreamScene);
-            Events.RemoveFsmEdit(sceneName, new("Cutscene Dreamer", "Control"), DestroyDreamScene);
-            Events.RemoveFsmEdit(sceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
-            Events.RemoveFsmEdit(sceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
-            Events.RemoveFsmEdit(sceneName, new("Hornet Boss 1", "Control"), PreventHornetSaverOnRefight);
-            Events.RemoveFsmEdit(sceneName, new("Hollow_Shade Marker (1)", "FSM"), ChangeShadeMarkerTest);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Cloak Corpse", "Control"), EditCloakCorpse);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Camera Locks Boss", "FSM"), DestroyCameraLock);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Dreamer Scene 1", "Control"), DestroyDreamScene);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Cutscene Dreamer", "Control"), DestroyDreamScene);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Dream Scene Activate", "Control"), DestroyDreamScene);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Hornet Infected Knight Encounter", "Encounter"), PreventHornetSaver);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Hornet Boss 1", "Control"), PreventHornetSaverOnRefight);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Hollow_Shade Marker (1)", "FSM"), ChangeShadeMarkerTest);
         }
 
         private void EditCloakCorpse(PlayMakerFSM fsm)

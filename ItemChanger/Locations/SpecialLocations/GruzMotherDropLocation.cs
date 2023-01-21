@@ -13,12 +13,12 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("burster"), EditCorpseBurst);
+            Events.AddFsmEdit(UnsafeSceneName, new("burster"), EditCorpseBurst);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("burster"), EditCorpseBurst);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("burster"), EditCorpseBurst);
         }
 
         private void EditCorpseBurst(PlayMakerFSM fsm)

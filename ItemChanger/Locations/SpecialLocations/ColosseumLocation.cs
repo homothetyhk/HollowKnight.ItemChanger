@@ -15,14 +15,14 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
+            Events.AddFsmEdit(UnsafeSceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
             Events.AddLanguageEdit(new("Prompts", GetTrialBoardConvo()), OnLanguageGet);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Colosseum Manager", "Geo Pool"), ChangeColoEnd);
             Events.RemoveLanguageEdit(new("Prompts", GetTrialBoardConvo()), OnLanguageGet);
         }
 
@@ -46,28 +46,28 @@ namespace ItemChanger.Locations.SpecialLocations
             PlayerData.instance.SetBool(GetCompletionBoolName(), true);
         }
 
-        private string GetCompletionBoolName() => sceneName switch
+        private string GetCompletionBoolName() => UnsafeSceneName switch
         {
             SceneNames.Room_Colosseum_Bronze => nameof(PlayerData.colosseumBronzeCompleted),
             SceneNames.Room_Colosseum_Silver => nameof(PlayerData.colosseumSilverCompleted),
             _ => nameof(PlayerData.colosseumGoldCompleted),
         };
 
-        private string GetTrialBoardConvo() => sceneName switch
+        private string GetTrialBoardConvo() => UnsafeSceneName switch
         {
             SceneNames.Room_Colosseum_Bronze => "TRIAL_BOARD_BRONZE",
             SceneNames.Room_Colosseum_Silver => "TRIAL_BOARD_SILVER",
             _ => "TRIAL_BOARD_GOLD",
         };
 
-        private string GetTrialHintConvo() => sceneName switch
+        private string GetTrialHintConvo() => UnsafeSceneName switch
         {
             SceneNames.Room_Colosseum_Bronze => "TRIAL_HINT_BRONZE",
             SceneNames.Room_Colosseum_Silver => "TRIAL_HINT_SILVER",
             _ => "TRIAL_HINT_GOLD",
         };
 
-        private string GetTrialNullHintConvo() => sceneName switch
+        private string GetTrialNullHintConvo() => UnsafeSceneName switch
         {
             SceneNames.Room_Colosseum_Bronze => "TRIAL_NULLHINT_BRONZE",
             SceneNames.Room_Colosseum_Silver => "TRIAL_NULLHINT_SILVER",

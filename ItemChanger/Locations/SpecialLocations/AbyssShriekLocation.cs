@@ -14,12 +14,12 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("Scream 2 Get", "Scream Get"), ChangeShriekGet);
+            Events.AddFsmEdit(UnsafeSceneName, new("Scream 2 Get", "Scream Get"), ChangeShriekGet);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("Scream 2 Get", "Scream Get"), ChangeShriekGet);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Scream 2 Get", "Scream Get"), ChangeShriekGet);
         }
 
         private void ChangeShriekGet(PlayMakerFSM fsm)

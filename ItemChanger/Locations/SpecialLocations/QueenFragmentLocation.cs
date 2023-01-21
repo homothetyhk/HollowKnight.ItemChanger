@@ -12,13 +12,13 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Queen Item", "Control"), EditQueenItem);
+            Events.AddFsmEdit(UnsafeSceneName, new("Queen Item", "Control"), EditQueenItem);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Queen Item", "Control"), EditQueenItem);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Queen Item", "Control"), EditQueenItem);
         }
 
         private void EditQueenItem(PlayMakerFSM fsm)

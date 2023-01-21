@@ -13,17 +13,17 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("Alive_Tuk", "Steel Soul"), OverrideAliveTuk);
-            Events.AddFsmEdit(sceneName, new("Dead_Tuk", "Steel Soul"), OverrideDeadTuk);
-            Events.AddFsmEdit(sceneName, new("Tuk NPC", "Conversation Control"), OverrideTukConvo);
+            Events.AddFsmEdit(UnsafeSceneName, new("Alive_Tuk", "Steel Soul"), OverrideAliveTuk);
+            Events.AddFsmEdit(UnsafeSceneName, new("Dead_Tuk", "Steel Soul"), OverrideDeadTuk);
+            Events.AddFsmEdit(UnsafeSceneName, new("Tuk NPC", "Conversation Control"), OverrideTukConvo);
             Events.AddLanguageEdit(new("Minor NPC", "TUK_EGGMAX"), AddDefendersCrestReminder);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("Alive_Tuk", "Steel Soul"), OverrideAliveTuk);
-            Events.RemoveFsmEdit(sceneName, new("Dead_Tuk", "Steel Soul"), OverrideDeadTuk);
-            Events.RemoveFsmEdit(sceneName, new("Tuk NPC", "Conversation Control"), OverrideTukConvo);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Alive_Tuk", "Steel Soul"), OverrideAliveTuk);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Dead_Tuk", "Steel Soul"), OverrideDeadTuk);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Tuk NPC", "Conversation Control"), OverrideTukConvo);
             Events.RemoveLanguageEdit(new("Minor NPC", "TUK_EGGMAX"), AddDefendersCrestReminder);
         }
 

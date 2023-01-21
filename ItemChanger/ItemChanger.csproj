@@ -22,6 +22,10 @@
     <Using Remove="System.Net.Http" />
     <Using Remove="System.Threading" />
     <Using Remove="System.Threading.Tasks" />
+    <PackageReference Include="PolySharp" Version="1.8.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <Using Include="ItemChanger.LogHelper" Static="true" />
     <Using Include="UnityEngine" />
     <Using Include="UnityEngine.Object" Alias="UObject" />

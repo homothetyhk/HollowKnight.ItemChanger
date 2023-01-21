@@ -10,15 +10,15 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Avalanche", "Activate"), Destroy);
-            Events.AddFsmEdit(sceneName, new("Avalanche End", "Control"), Destroy);
+            Events.AddFsmEdit(UnsafeSceneName, new("Avalanche", "Activate"), Destroy);
+            Events.AddFsmEdit(UnsafeSceneName, new("Avalanche End", "Control"), Destroy);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Avalanche", "Activate"), Destroy);
-            Events.RemoveFsmEdit(sceneName, new("Avalanche End", "Control"), Destroy);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Avalanche", "Activate"), Destroy);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Avalanche End", "Control"), Destroy);
         }
 
         private void Destroy(PlayMakerFSM fsm) => UnityEngine.Object.Destroy(fsm.gameObject);

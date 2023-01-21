@@ -12,19 +12,19 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Shaman Meeting", "Conversation Control"), EditShamanConvo);
-            Events.AddFsmEdit(sceneName, new("Shaman Trapped", "Conversation Control"), Destroy);
-            Events.AddFsmEdit(sceneName, new("Shaman Killed Blocker", "Conversation Control"), Destroy);
-            Events.AddFsmEdit(sceneName, new("Bone Gate", "Bone Gate"), Destroy);
+            Events.AddFsmEdit(UnsafeSceneName, new("Shaman Meeting", "Conversation Control"), EditShamanConvo);
+            Events.AddFsmEdit(UnsafeSceneName, new("Shaman Trapped", "Conversation Control"), Destroy);
+            Events.AddFsmEdit(UnsafeSceneName, new("Shaman Killed Blocker", "Conversation Control"), Destroy);
+            Events.AddFsmEdit(UnsafeSceneName, new("Bone Gate", "Bone Gate"), Destroy);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Shaman Meeting", "Conversation Control"), EditShamanConvo);
-            Events.RemoveFsmEdit(sceneName, new("Shaman Trapped", "Conversation Control"), Destroy);
-            Events.RemoveFsmEdit(sceneName, new("Shaman Killed Blocker", "Conversation Control"), Destroy);
-            Events.RemoveFsmEdit(sceneName, new("Bone Gate", "Bone Gate"), Destroy);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Shaman Meeting", "Conversation Control"), EditShamanConvo);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Shaman Trapped", "Conversation Control"), Destroy);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Shaman Killed Blocker", "Conversation Control"), Destroy);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Bone Gate", "Bone Gate"), Destroy);
         }
 
 

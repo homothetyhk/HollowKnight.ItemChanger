@@ -149,7 +149,7 @@ namespace ItemChanger.Placements
 
         public bool KeepOldItem(ShopItemStats stats)
         {
-            DefaultShopItems? itemType = ShopUtil.GetVanillaShopItemType(Location.sceneName, stats);
+            DefaultShopItems? itemType = ShopUtil.GetVanillaShopItemType(Location.UnsafeSceneName, stats);
             if (itemType == null) return true; // unrecognized items are kept by default
             if (itemType == DefaultShopItems.SalubraBlessing && (defaultShopItems & DefaultShopItems.SalubraNotches) == 0)
             {

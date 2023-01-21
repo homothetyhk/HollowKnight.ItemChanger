@@ -14,12 +14,12 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new(objectName, fsmName), EditCrystalShaman);
+            Events.AddFsmEdit(UnsafeSceneName, new(objectName, fsmName), EditCrystalShaman);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new(objectName, fsmName), EditCrystalShaman);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(objectName, fsmName), EditCrystalShaman);
         }
 
         private void EditCrystalShaman(PlayMakerFSM fsm)

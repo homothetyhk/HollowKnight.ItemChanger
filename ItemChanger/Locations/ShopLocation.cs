@@ -41,30 +41,30 @@ namespace ItemChanger.Locations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("Shop Region", "Shop Region"), EditShopRegion);
-            Events.AddFsmEdit(sceneName, new("Shop Menu", "shop_control"), EditShopControl);
-            Events.AddFsmEdit(sceneName, new("Item List", "Item List Control"), EditItemListControl);
-            Events.AddFsmEdit(sceneName, new("UI List", "Confirm Control"), EditConfirmControl);
+            Events.AddFsmEdit(UnsafeSceneName, new("Shop Region", "Shop Region"), EditShopRegion);
+            Events.AddFsmEdit(UnsafeSceneName, new("Shop Menu", "shop_control"), EditShopControl);
+            Events.AddFsmEdit(UnsafeSceneName, new("Item List", "Item List Control"), EditItemListControl);
+            Events.AddFsmEdit(UnsafeSceneName, new("UI List", "Confirm Control"), EditConfirmControl);
             // brrr
-            Events.AddFsmEdit(sceneName, new("Item List", "Item List Control"), HastenItemListControl);
-            Events.AddFsmEdit(sceneName, new("Item List", "ui_list_getinput"), HastenUIListGetInput);
-            Events.AddFsmEdit(sceneName, new("UI List", "Confirm Control"), HastenConfirmControl);
-            Events.AddFsmEdit(sceneName, new("UI List", "ui_list"), HastenUIList);
-            Events.AddFsmEdit(sceneName, new("UI List", "ui_list_button_listen"), HastenUIListButtonListen);
+            Events.AddFsmEdit(UnsafeSceneName, new("Item List", "Item List Control"), HastenItemListControl);
+            Events.AddFsmEdit(UnsafeSceneName, new("Item List", "ui_list_getinput"), HastenUIListGetInput);
+            Events.AddFsmEdit(UnsafeSceneName, new("UI List", "Confirm Control"), HastenConfirmControl);
+            Events.AddFsmEdit(UnsafeSceneName, new("UI List", "ui_list"), HastenUIList);
+            Events.AddFsmEdit(UnsafeSceneName, new("UI List", "ui_list_button_listen"), HastenUIListButtonListen);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("Shop Region", "Shop Region"), EditShopRegion);
-            Events.RemoveFsmEdit(sceneName, new("Shop Menu", "shop_control"), EditShopControl);
-            Events.RemoveFsmEdit(sceneName, new("Item List", "Item List Control"), EditItemListControl);
-            Events.RemoveFsmEdit(sceneName, new("UI List", "Confirm Control"), EditConfirmControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Shop Region", "Shop Region"), EditShopRegion);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Shop Menu", "shop_control"), EditShopControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Item List", "Item List Control"), EditItemListControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("UI List", "Confirm Control"), EditConfirmControl);
             
-            Events.RemoveFsmEdit(sceneName, new("Item List", "Item List Control"), HastenItemListControl);
-            Events.RemoveFsmEdit(sceneName, new("Item List", "ui_list_getinput"), HastenUIListGetInput);
-            Events.RemoveFsmEdit(sceneName, new("UI List", "Confirm Control"), HastenConfirmControl);
-            Events.RemoveFsmEdit(sceneName, new("UI List", "ui_list"), HastenUIList);
-            Events.RemoveFsmEdit(sceneName, new("UI List", "ui_list_button_listen"), HastenUIListButtonListen);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Item List", "Item List Control"), HastenItemListControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Item List", "ui_list_getinput"), HastenUIListGetInput);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("UI List", "Confirm Control"), HastenConfirmControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("UI List", "ui_list"), HastenUIList);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("UI List", "ui_list_button_listen"), HastenUIListButtonListen);
         }
 
         private void EditShopRegion(PlayMakerFSM fsm)

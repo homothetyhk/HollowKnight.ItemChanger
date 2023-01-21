@@ -7,15 +7,15 @@ namespace ItemChanger.FsmStateActions
     /// </summary>
     public class DelegateBoolTest : FsmStateAction
     {
-        Func<bool> test;
-        FsmEvent? isTrue;
-        FsmEvent? isFalse;
+        private readonly Func<bool> test;
+        private readonly FsmEvent? isTrue;
+        private readonly FsmEvent? isFalse;
 
-        public DelegateBoolTest(Func<bool> newTest, BoolTest oldTest)
-            : this(newTest, oldTest.isTrue, oldTest.isFalse) { }
+        public DelegateBoolTest(Func<bool> newTest, BoolTest? oldTest)
+            : this(newTest, oldTest?.isTrue, oldTest?.isFalse) { }
 
-        public DelegateBoolTest(Func<bool> newTest, PlayerDataBoolTest oldTest)
-            : this(newTest, oldTest.isTrue, oldTest.isFalse) { }
+        public DelegateBoolTest(Func<bool> newTest, PlayerDataBoolTest? oldTest)
+            : this(newTest, oldTest?.isTrue, oldTest?.isFalse) { }
 
         public DelegateBoolTest(Func<bool> test, string? trueEvent, string? falseEvent)
         {

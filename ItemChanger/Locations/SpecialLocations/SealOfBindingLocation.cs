@@ -13,12 +13,12 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new(objectName, "Conversation Control"), EditConvo);
+            Events.AddFsmEdit(UnsafeSceneName, new(objectName, "Conversation Control"), EditConvo);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new(objectName, "Conversation Control"), EditConvo);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(objectName, "Conversation Control"), EditConvo);
         }
 
         private void EditConvo(PlayMakerFSM fsm)

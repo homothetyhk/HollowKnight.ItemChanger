@@ -14,12 +14,12 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new(objName, fsmName), EditBossConvo);
+            Events.AddFsmEdit(UnsafeSceneName, new(objName, fsmName), EditBossConvo);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new(objName, fsmName), EditBossConvo);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(objName, fsmName), EditBossConvo);
         }
 
         private void EditBossConvo(PlayMakerFSM fsm)

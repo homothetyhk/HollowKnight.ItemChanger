@@ -13,13 +13,13 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new(inspectName, inspectFsm), DisableInspectRegion);
+            Events.AddFsmEdit(UnsafeSceneName, new(inspectName, inspectFsm), DisableInspectRegion);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new(inspectName, inspectFsm), DisableInspectRegion);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(inspectName, inspectFsm), DisableInspectRegion);
         }
 
         private void DisableInspectRegion(PlayMakerFSM fsm)

@@ -10,14 +10,14 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new(fsmParent, fsmName), EditFountain);
+            Events.AddFsmEdit(UnsafeSceneName, new(fsmParent, fsmName), EditFountain);
             Events.AddLanguageEdit(new("Prompts", "GEO_RELIEVE"), EditFountainText);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new(fsmParent, fsmName), EditFountain);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(fsmParent, fsmName), EditFountain);
             Events.RemoveLanguageEdit(new("Prompts", "GEO_RELIEVE"), EditFountainText);
         }
 

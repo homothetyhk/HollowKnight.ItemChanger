@@ -12,12 +12,12 @@ namespace ItemChanger.Locations
 
         protected override void OnLoad()
         {
-            Events.AddSceneChangeEdit(sceneName, OnActiveSceneChanged);
+            Events.AddSceneChangeEdit(UnsafeSceneName, OnActiveSceneChanged);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveSceneChangeEdit(sceneName, OnActiveSceneChanged);
+            Events.RemoveSceneChangeEdit(UnsafeSceneName, OnActiveSceneChanged);
         }
 
         public virtual void OnActiveSceneChanged(Scene to)

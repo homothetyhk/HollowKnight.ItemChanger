@@ -11,13 +11,13 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Shiny Control"), EditShiny);
+            Events.AddFsmEdit(UnsafeSceneName, new("Shiny Control"), EditShiny);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Shiny Control"), EditShiny);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Shiny Control"), EditShiny);
         }
 
         private void EditShiny(PlayMakerFSM fsm)

@@ -11,14 +11,14 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("Ruins Shaman", "Ruins Shaman"), EditRuinsShaman);
-            Events.AddFsmEdit(sceneName, new("Knight Get Fireball Lv2", "Get Fireball"), EditGetFireball);
+            Events.AddFsmEdit(UnsafeSceneName, new("Ruins Shaman", "Ruins Shaman"), EditRuinsShaman);
+            Events.AddFsmEdit(UnsafeSceneName, new("Knight Get Fireball Lv2", "Get Fireball"), EditGetFireball);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("Ruins Shaman", "Ruins Shaman"), EditRuinsShaman);
-            Events.RemoveFsmEdit(sceneName, new("Knight Get Fireball Lv2", "Get Fireball"), EditGetFireball);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Ruins Shaman", "Ruins Shaman"), EditRuinsShaman);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Knight Get Fireball Lv2", "Get Fireball"), EditGetFireball);
         }
 
         private void EditRuinsShaman(PlayMakerFSM fsm)

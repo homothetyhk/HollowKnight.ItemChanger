@@ -12,17 +12,17 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Quake Pickup", "Pickup"), EditQuakePickup);
-            Events.AddFsmEdit(sceneName, new("BG Control"), EditBGControl);
-            Events.AddFsmEdit(sceneName, new("Destroy if Quake"), EditDestroyIfQuake);
+            Events.AddFsmEdit(UnsafeSceneName, new("Quake Pickup", "Pickup"), EditQuakePickup);
+            Events.AddFsmEdit(UnsafeSceneName, new("BG Control"), EditBGControl);
+            Events.AddFsmEdit(UnsafeSceneName, new("Destroy if Quake"), EditDestroyIfQuake);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Quake Pickup", "Pickup"), EditQuakePickup);
-            Events.RemoveFsmEdit(sceneName, new("BG Control"), EditBGControl);
-            Events.RemoveFsmEdit(sceneName, new("Destroy if Quake"), EditDestroyIfQuake);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Quake Pickup", "Pickup"), EditQuakePickup);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("BG Control"), EditBGControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Destroy if Quake"), EditDestroyIfQuake);
         }
 
         private void EditQuakePickup(PlayMakerFSM fsm)

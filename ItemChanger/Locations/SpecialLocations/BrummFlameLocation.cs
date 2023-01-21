@@ -11,13 +11,13 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("Brumm Torch NPC", "Conversation Control"), EditBrummConvo);
+            Events.AddFsmEdit(UnsafeSceneName, new("Brumm Torch NPC", "Conversation Control"), EditBrummConvo);
             Events.AddLanguageEdit(new("CP2", "BRUMM_DEEPNEST_3"), EditBrummText);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("Brumm Torch NPC", "Conversation Control"), EditBrummConvo);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Brumm Torch NPC", "Conversation Control"), EditBrummConvo);
             Events.RemoveLanguageEdit(new("CP2", "BRUMM_DEEPNEST_3"), EditBrummText);
         }
 

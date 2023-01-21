@@ -14,9 +14,15 @@ namespace ItemChanger
         public string name;
 
         /// <summary>
-        /// The scene name of the location. Locations can however make changes which affect more than one scene, and rarely may choose not to use this field.
+        /// The scene name of the location. Locations can however make changes which affect more than one scene, and rarely may choose not to use this field, in which case it can be safely set null.
         /// </summary>
-        public string sceneName;
+        public string? sceneName;
+
+        /// <summary>
+        /// Fetches the sceneName field and produces an error if it is null.
+        /// </summary>
+        /// <exception cref="NullReferenceException"></exception>
+        [JsonIgnore] public string UnsafeSceneName => UnsafeSceneName ?? throw new NullReferenceException($"Scene name of location {name} is not defined.");
 
         /// <summary>
         /// The flingType of the location, specifying how geo and similar objects are to be flung.

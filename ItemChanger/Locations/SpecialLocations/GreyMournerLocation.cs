@@ -13,16 +13,16 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Xun NPC", "Conversation Control"), EditXunConvo);
-            Events.AddFsmEdit(sceneName, new("Heart Piece Folder", "Activate"), EditHeartPieceActivate);
+            Events.AddFsmEdit(UnsafeSceneName, new("Xun NPC", "Conversation Control"), EditXunConvo);
+            Events.AddFsmEdit(UnsafeSceneName, new("Heart Piece Folder", "Activate"), EditHeartPieceActivate);
             Events.AddLanguageEdit(new("Prompts", "XUN_OFFER"), OnLanguageGet);
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Xun NPC", "Conversation Control"), EditXunConvo);
-            Events.RemoveFsmEdit(sceneName, new("Heart Piece Folder", "Activate"), EditHeartPieceActivate);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Xun NPC", "Conversation Control"), EditXunConvo);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Heart Piece Folder", "Activate"), EditHeartPieceActivate);
             Events.RemoveLanguageEdit(new("Prompts", "XUN_OFFER"), OnLanguageGet);
         }
 

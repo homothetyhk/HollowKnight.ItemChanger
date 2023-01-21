@@ -14,14 +14,14 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("End Cutscene", "Control"), EditEndCutscene);
+            Events.AddFsmEdit(UnsafeSceneName, new("End Cutscene", "Control"), EditEndCutscene);
             Events.AddFsmEdit(SceneNames.Abyss_15, new("Mirror", "FSM"), EditMirror);
             Events.AddFsmEdit(SceneNames.Abyss_15, new("Dream Enter Abyss", "Control"), EditDreamEnter);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("End Cutscene", "Control"), EditEndCutscene);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("End Cutscene", "Control"), EditEndCutscene);
             Events.RemoveFsmEdit(SceneNames.Abyss_15, new("Mirror", "FSM"), EditMirror);
             Events.RemoveFsmEdit(SceneNames.Abyss_15, new("Dream Enter Abyss", "Control"), EditDreamEnter);
         }

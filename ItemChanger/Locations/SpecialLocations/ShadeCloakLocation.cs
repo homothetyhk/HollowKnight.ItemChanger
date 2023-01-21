@@ -11,12 +11,12 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("Dish Plat", "Get Shadow Dash"), EditDashPlat);
+            Events.AddFsmEdit(UnsafeSceneName, new("Dish Plat", "Get Shadow Dash"), EditDashPlat);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("Dish Plat", "Get Shadow Dash"), EditDashPlat);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Dish Plat", "Get Shadow Dash"), EditDashPlat);
         }
 
         private void EditDashPlat(PlayMakerFSM fsm)

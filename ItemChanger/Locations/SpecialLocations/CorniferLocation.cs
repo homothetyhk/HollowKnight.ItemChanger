@@ -15,16 +15,16 @@ namespace ItemChanger.Locations.SpecialLocations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new(objectName, "Conversation Control"), HandleCorniferConvo);
-            Events.AddFsmEdit(sceneName, new("Cornifer Card", "FSM"), HandleCorniferCard);
+            Events.AddFsmEdit(UnsafeSceneName, new(objectName, "Conversation Control"), HandleCorniferConvo);
+            Events.AddFsmEdit(UnsafeSceneName, new("Cornifer Card", "FSM"), HandleCorniferCard);
             Events.AddLanguageEdit(new("Cornifer", "CORNIFER_PROMPT"), OnLanguageGet);
             ItemChangerMod.Modules.GetOrAdd<Modules.AltCorniferAtHomeTest>().Add(this);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new(objectName, "Conversation Control"), HandleCorniferConvo);
-            Events.RemoveFsmEdit(sceneName, new("Cornifer Card", "FSM"), HandleCorniferCard);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(objectName, "Conversation Control"), HandleCorniferConvo);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Cornifer Card", "FSM"), HandleCorniferCard);
             Events.RemoveLanguageEdit(new("Cornifer", "CORNIFER_PROMPT"), OnLanguageGet);
         }
 
@@ -87,7 +87,7 @@ namespace ItemChanger.Locations.SpecialLocations
 
         private void OnLanguageGet(ref string value)
         {
-            if (GameManager.instance.sceneName == sceneName)
+            if (GameManager.instance.sceneName == UnsafeSceneName)
             {
                 value = Placement.GetUIName();
                 Placement.OnPreview(value);

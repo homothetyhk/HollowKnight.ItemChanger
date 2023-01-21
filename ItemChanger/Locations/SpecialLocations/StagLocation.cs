@@ -12,30 +12,30 @@ namespace ItemChanger.Locations.SpecialLocations
         protected override void OnLoad()
         {
             base.OnLoad();
-            Events.AddFsmEdit(sceneName, new("Stag", "Stag Control"), EditStagControl);
-            Events.AddFsmEdit(sceneName, new("UI List Stag", "ui_list"), EditUIList);
-            if (sceneName == SceneNames.RestingGrounds_09)
+            Events.AddFsmEdit(UnsafeSceneName, new("Stag", "Stag Control"), EditStagControl);
+            Events.AddFsmEdit(UnsafeSceneName, new("UI List Stag", "ui_list"), EditUIList);
+            if (UnsafeSceneName == SceneNames.RestingGrounds_09)
             {
-                Events.AddFsmEdit(sceneName, new("Station Bell Lever", "Stag Bell"), EditStationBell);
+                Events.AddFsmEdit(UnsafeSceneName, new("Station Bell Lever", "Stag Bell"), EditStationBell);
             }
             else
             {
-                Events.AddFsmEdit(sceneName, new("Station Bell", "Stag Bell"), EditStationBell);
+                Events.AddFsmEdit(UnsafeSceneName, new("Station Bell", "Stag Bell"), EditStationBell);
             }
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-            Events.RemoveFsmEdit(sceneName, new("Stag", "Stag Control"), EditStagControl);
-            Events.RemoveFsmEdit(sceneName, new("UI List Stag", "ui_list"), EditUIList);
-            if (sceneName == SceneNames.RestingGrounds_09)
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Stag", "Stag Control"), EditStagControl);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("UI List Stag", "ui_list"), EditUIList);
+            if (UnsafeSceneName == SceneNames.RestingGrounds_09)
             {
-                Events.RemoveFsmEdit(sceneName, new("Station Bell Lever", "Stag Bell"), EditStationBell);
+                Events.RemoveFsmEdit(UnsafeSceneName, new("Station Bell Lever", "Stag Bell"), EditStationBell);
             }
             else
             {
-                Events.RemoveFsmEdit(sceneName, new("Station Bell", "Stag Bell"), EditStationBell);
+                Events.RemoveFsmEdit(UnsafeSceneName, new("Station Bell", "Stag Bell"), EditStationBell);
             }
         }
 
@@ -47,7 +47,7 @@ namespace ItemChanger.Locations.SpecialLocations
             FsmState checkResult = fsm.GetState("Check Result");
             FsmState hudreturn = fsm.GetState("HUD Return");
 
-            if (sceneName == "Abyss_22") hsprompt.RemoveActionsOfType<IntCompare>();
+            if (UnsafeSceneName == "Abyss_22") hsprompt.RemoveActionsOfType<IntCompare>();
 
             openGrate.RemoveActionsOfType<SetPlayerDataBool>();
             openGrate.RemoveActionsOfType<SetBoolValue>();

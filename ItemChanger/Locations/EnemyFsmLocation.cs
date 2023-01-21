@@ -15,12 +15,12 @@ namespace ItemChanger.Locations
 
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new(enemyObj, enemyFsm), OnEnable);
+            Events.AddFsmEdit(UnsafeSceneName, new(enemyObj, enemyFsm), OnEnable);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new(enemyObj, enemyFsm), OnEnable);
+            Events.RemoveFsmEdit(UnsafeSceneName, new(enemyObj, enemyFsm), OnEnable);
             DoCleanup();
         }
 

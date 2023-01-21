@@ -11,12 +11,12 @@ namespace ItemChanger.Locations.SpecialLocations
     {
         protected override void OnLoad()
         {
-            Events.AddFsmEdit(sceneName, new("Sly Basement NPC", "Conversation Control"), EditSlyConvo);
+            Events.AddFsmEdit(UnsafeSceneName, new("Sly Basement NPC", "Conversation Control"), EditSlyConvo);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveFsmEdit(sceneName, new("Sly Basement NPC", "Conversation Control"), EditSlyConvo);
+            Events.RemoveFsmEdit(UnsafeSceneName, new("Sly Basement NPC", "Conversation Control"), EditSlyConvo);
         }
 
         private void EditSlyConvo(PlayMakerFSM fsm)

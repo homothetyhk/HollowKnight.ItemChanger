@@ -13,17 +13,17 @@ namespace ItemChanger.Locations
 
         protected override void OnLoad()
         {
-            Events.AddSceneChangeEdit(sceneName, OnActiveSceneChanged);
+            Events.AddSceneChangeEdit(UnsafeSceneName, OnActiveSceneChanged);
         }
 
         protected override void OnUnload()
         {
-            Events.RemoveSceneChangeEdit(sceneName, OnActiveSceneChanged);
+            Events.RemoveSceneChangeEdit(UnsafeSceneName, OnActiveSceneChanged);
         }
 
         public void OnActiveSceneChanged(Scene to)
         {
-            if (!managed && to.name == sceneName)
+            if (!managed && to.name == UnsafeSceneName)
             {
                 base.GetContainer(out GameObject obj, out string containerType);
                 PlaceContainer(obj, containerType);
