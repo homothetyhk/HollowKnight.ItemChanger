@@ -25,6 +25,38 @@ namespace ItemChanger
         public IString Clone() => (IString)MemberwiseClone();
     }
 
+    /// <summary>
+    /// An IString which substitutes arguments into a format string provided by Language.
+    /// </summary>
+    public class FormattedLanguageString : IString
+    {
+        public string sheet = "Fmt";
+        public string key;
+        public object[] args;
+
+        public FormattedLanguageString() { }
+
+        /// <summary>
+        /// Creates a FormattedLanguageString for the specified key and args, targeting the "Fmt" sheet.
+        /// </summary>
+        public FormattedLanguageString(string key, params object[] args)
+        {
+            this.key = key;
+            this.args = args;
+        }
+
+        [JsonIgnore] public string Value => string.Format(Language.Language.Get(key, sheet), args);
+        public IString Clone()
+        {
+            return new FormattedLanguageString()
+            {
+                key = key,
+                sheet = sheet,
+                args = (object[])args.Clone()
+            };
+        }
+    }
+
     public class BoxedString : IString
     {
         public string Value { get; set; }

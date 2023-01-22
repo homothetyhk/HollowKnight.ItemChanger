@@ -1,4 +1,6 @@
-﻿namespace ItemChanger.Items
+﻿using ItemChanger.Internal;
+
+namespace ItemChanger.Items
 {
     /// <summary>
     /// Item which gives the specified amount of essence.
@@ -13,7 +15,7 @@
                 name = $"{amount}_Essence",
                 UIDef = new UIDefs.MsgUIDef
                 {
-                    name = new BoxedString(string.Format(Language.Language.Get("ESSENCE", "Fmt"), amount)),
+                    name = new FormattedLanguageString("ESSENCE", amount),
                     shopDesc = new LanguageString("UI", "ITEMCHANGER_DESC_ESSENCE"),
                     sprite = new ItemChangerSprite("ShopIcons.Essence"),
                 },
