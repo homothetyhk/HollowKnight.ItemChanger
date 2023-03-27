@@ -188,7 +188,7 @@ namespace ItemChanger.Locations
                     UObject.DestroyImmediate(figurehead.GetComponent<MeshFilter>());
 
                     SpriteRenderer renderer = figurehead.AddComponent<SpriteRenderer>();
-                    renderer.sprite = figureheadSprite.Value;
+                    renderer.sprite = figureheadSprite.GetValue();
                     renderer.enabled = false;
                     FadeGroup group = renderer.transform.parent.parent.GetComponent<FadeGroup>();
                     SpriteRenderer[] spriteRenderers = new SpriteRenderer[group.spriteRenderers.Length + 1];
@@ -212,7 +212,7 @@ namespace ItemChanger.Locations
 
             noStock.AddFirstAction(new Lambda(() =>
             {
-                DialogueCenter.StartConversation(outOfStockConvo!.Value);
+                DialogueCenter.StartConversation(outOfStockConvo!.GetValue());
             }));
             noStock.AddTransition("CONVO_FINISH", "Box Down");
         }
