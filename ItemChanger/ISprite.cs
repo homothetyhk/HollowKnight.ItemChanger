@@ -67,7 +67,7 @@ namespace ItemChanger
             this.FalseSprite = FalseSprite;
         }
 
-        [JsonIgnore] public Sprite Value => Test.Value ? TrueSprite.Value : FalseSprite.Value;
+        [JsonIgnore] public Sprite Value => Test.Value ? TrueSprite.GetValue() : FalseSprite.GetValue();
         public ISprite Clone() => (ISprite)MemberwiseClone();
     }
 }

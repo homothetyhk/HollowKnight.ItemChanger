@@ -140,7 +140,7 @@ namespace ItemChanger.Placements
 
             // Apply the sprite for the UI
             stats.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = item.GetResolvedUIDef(this)!.GetSprite();
-            Sprite? costSprite = Location.costDisplayer?.CustomCostSprite?.Value;
+            Sprite? costSprite = Location.costDisplayer?.CustomCostSprite?.GetValue();
             if (costSprite != null)
             {
                 stats.transform.Find("Geo Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = costSprite;
