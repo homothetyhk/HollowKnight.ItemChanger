@@ -139,6 +139,8 @@
   <entry sheet="IC" key="TRACKER_DOWN">down</entry>
   <entry sheet="Fmt" key="TRACKER_CAN_NAIL">Can be swung {0}.</entry>
   <entry sheet="IC" key="TRACKER_CANNOT_NAIL">Cannot be swung.</entry>
+  <entry sheet="IC" key="FIREBALL1_TOGGLE">Press Attack to upgrade to Shade Soul.</entry>
+  <entry sheet="IC" key="FIREBALL2_TOGGLE">Press Attack to downgrade to Vengeful Spirit.</entry>
   
   
   <entry sheet="IC" key="FALSE">False</entry>

@@ -845,6 +845,10 @@
         },
         "dreamReturn": true,
         "deactivateNoCharms": true
+      },
+      {
+        "$type": "ItemChanger.Tags.ShinyFlingTag, ItemChanger",
+        "fling": "Right"
       }
     ],
     "HintActive": true
