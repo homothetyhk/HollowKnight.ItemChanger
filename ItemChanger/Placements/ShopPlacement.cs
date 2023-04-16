@@ -1,4 +1,4 @@
-﻿using ItemChanger.Locations;
+﻿﻿using ItemChanger.Locations;
 using ItemChanger.Util;
 using ItemChanger.Components;
 using ItemChanger.Internal.Preloaders;
@@ -113,11 +113,13 @@ namespace ItemChanger.Placements
         public void ApplyItemDef(ShopItemStats stats, AbstractItem item, Cost? cost)
         {
             foreach (var m in stats.gameObject.GetComponents<ModShopItemStats>()) UObject.Destroy(m); // Probably not necessary
+            
+            CostDisplayer costDisplayer = Location.costDisplayerSelectionStrategy.GetCostDisplayer(item);
 
             var mod = stats.gameObject.AddComponent<ModShopItemStats>();
             mod.item = item;
             mod.cost = cost;
-            mod.costDisplayer = Location.costDisplayer;
+            mod.costDisplayer = costDisplayer;
             mod.placement = this;
 
             // Apply all the stored values
@@ -140,7 +142,9 @@ namespace ItemChanger.Placements
 
             // Apply the sprite for the UI
             stats.transform.Find("Item Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = item.GetResolvedUIDef(this)!.GetSprite();
-            Sprite? costSprite = Location.costDisplayer?.CustomCostSprite?.GetValue();
+
+            Sprite? costSprite = costDisplayer.CustomCostSprite?.GetValue();
+
             if (costSprite != null)
             {
                 stats.transform.Find("Geo Sprite").gameObject.GetComponent<SpriteRenderer>().sprite = costSprite;

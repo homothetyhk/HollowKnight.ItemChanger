@@ -25,13 +25,14 @@ namespace ItemChanger.Locations
         public DefaultShopItems defaultShopItems;
 
         /// <summary>
-        /// Determines how costs in this shop should be displayed. By default, all geo costs are summed,
-        /// and all additional costs are displayed in grey text (as charm requirements in vanilla salubra
-        /// are displayed).
+        /// The strategy used to determine how costs in this shop should be displayed. By default, all geo costs
+        /// are summed and all additional costs are displayed in grey text (as charm requirements in vanilla Salubra
+        /// are displayed). This strategy is applied uniformly to all items.
         /// </summary>
-        /// <seealso cref="GeoCostDisplayer"/>
-        /// <seealso cref="CostDisplayer"/>
-        public CostDisplayer costDisplayer = new GeoCostDisplayer();
+        public ICostDisplayerSelectionStrategy costDisplayerSelectionStrategy = new SingleCostDisplayerSelectionStrategy() 
+        { 
+            CostDisplayer = new GeoCostDisplayer() 
+        };
 
         /// <summary>
         /// If this field is set, the PlayerData requirement to appear in stock is applied to all items at this location in addition to any item-specific requirements.
