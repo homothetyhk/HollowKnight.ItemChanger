@@ -15,6 +15,7 @@ namespace ItemChanger.Modules
             Events.AddFsmEdit(new("Charms", "UI Charms"), AllowVoidHeartUnequip);
             Events.AddFsmEdit(new("Shade Control"), PreventFriendlyShade);
             Events.AddFsmEdit(new("Control"), PreventFriendlySibling);
+            Events.AddFsmEdit(new("Black Charm"), PreventFriendlyAbyssTendrils);
             Events.AddLanguageEdit(new("UI", "CHARM_DESC_36_C"), EditVoidHeartDescription);
         }
 
@@ -23,6 +24,7 @@ namespace ItemChanger.Modules
             Events.RemoveFsmEdit(new("Charms", "UI Charms"), AllowVoidHeartUnequip);
             Events.RemoveFsmEdit(new("Shade Control"), PreventFriendlyShade);
             Events.RemoveFsmEdit(new("Control"), PreventFriendlySibling);
+            Events.RemoveFsmEdit(new("Black Charm"), PreventFriendlyAbyssTendrils);
             Events.RemoveLanguageEdit(new("UI", "CHARM_DESC_36_C"), EditVoidHeartDescription);
         }
 
@@ -60,10 +62,21 @@ namespace ItemChanger.Modules
             {
                 FsmState friendly = fsm.GetState("Friendly?");
                 if (friendly == null) return;
-
                 friendly.RemoveFirstActionOfType<GetPlayerDataInt>();
                 friendly.RemoveFirstActionOfType<IntCompare>();
                 friendly.InsertAction(new DelegateBoolTest(TestVoidHeartEquipped, null, FsmEvent.Finished), 2);
+            }
+        }
+
+        private void PreventFriendlyAbyssTendrils(PlayMakerFSM fsm)
+        {
+            if (fsm.gameObject != null && fsm.gameObject.name.StartsWith("Abyss Tendrils"))
+            {
+                FsmState check = fsm.GetState("Check");
+                if (check == null) return;
+                check.RemoveFirstActionOfType<GetPlayerDataInt>();
+                check.RemoveFirstActionOfType<IntCompare>();
+                check.AddFirstAction(new DelegateBoolTest(TestVoidHeartEquipped, "INACTIVE", null));
             }
         }
 
