@@ -4,8 +4,8 @@
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>ItemChanger</RootNamespace>
     <AssemblyTitle>ItemChanger</AssemblyTitle>
-    <AssemblyVersion>2.1.1</AssemblyVersion>
-    <FileVersion>2.1.1</FileVersion>
+    <AssemblyVersion>2.1.2</AssemblyVersion>
+    <FileVersion>2.1.2</FileVersion>
     <Deterministic>true</Deterministic>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LangVersion>latest</LangVersion>
