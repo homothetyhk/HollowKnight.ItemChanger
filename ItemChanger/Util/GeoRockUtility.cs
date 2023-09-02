@@ -42,7 +42,25 @@ namespace ItemChanger.Util
 
         public static GameObject MakeNewGeoRock(ContainerInfo info)
         {
-            GeoRockSubtype type = info.giveInfo.items.OfType<GeoRockItem>().FirstOrDefault()?.geoRockSubtype ?? GeoRockSubtype.Default;
+            GeoRockSubtype type = GeoRockSubtype.Default;
+            if (info.giveInfo.placement.GetPlacementAndLocationTags()
+                .OfType<Tags.GeoRockSubtypeTag>()
+                .FirstOrDefault() is Tags.GeoRockSubtypeTag grst)
+            {
+                type = grst.Type;
+            }
+            else
+            {
+                foreach (AbstractItem i in info.giveInfo.items)
+                {
+                    if (i is GeoRockItem gr)
+                    {
+                        type = gr.geoRockSubtype;
+                        break;
+                    }
+                }
+            }
+            
             GameObject rock = ObjectCache.GeoRock(ref type);
             rock.AddComponent<GeoRockInfo>().type = type;
             rock.name = GetGeoRockName(info.giveInfo.placement);

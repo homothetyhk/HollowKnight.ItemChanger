@@ -23,7 +23,25 @@ namespace ItemChanger.Containers
 
         public override GameObject GetNewContainer(ContainerInfo info)
         {
-            SoulTotemSubtype type = info.giveInfo.items.OfType<SoulTotemItem>().FirstOrDefault()?.soulTotemSubtype ?? SoulTotemSubtype.B;
+            SoulTotemSubtype type = SoulTotemSubtype.B;
+            if (info.giveInfo.placement.GetPlacementAndLocationTags()
+                .OfType<Tags.SoulTotemSubtypeTag>()
+                .FirstOrDefault() is Tags.SoulTotemSubtypeTag stst)
+            {
+                type = stst.Type;
+            }
+            else
+            {
+                foreach (AbstractItem i in info.giveInfo.items)
+                {
+                    if (i is SoulTotemItem st)
+                    {
+                        type = st.soulTotemSubtype;
+                        break;
+                    }
+                }
+            }
+
             GameObject totem = ObjectCache.SoulTotem(ref type);
             totem.AddComponent<SoulTotemInfo>().type = type;
             totem.name = GetNewSoulTotemName(info.giveInfo.placement);
