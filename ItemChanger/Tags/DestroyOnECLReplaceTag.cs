@@ -3,6 +3,7 @@ using ItemChanger.Locations;
 
 namespace ItemChanger.Tags
 {
+    [TagConstrainedTo<ExistingContainerLocation>]
     public class DestroyOnECLReplaceTag : Tag
     {
         [Newtonsoft.Json.JsonIgnore]

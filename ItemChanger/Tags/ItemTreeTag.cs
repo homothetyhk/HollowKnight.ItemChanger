@@ -5,6 +5,7 @@
     /// <br/>Hooks AbstractItem.ModifyItem, and returns the first item in the sequence which is not redundant.
     /// <br/> Note that unlike ItemChainTag, this does not recursively check tags of the predecessors and successors.
     /// </summary>
+    [ItemTag]
     public class ItemTreeTag : Tag, IItemModifierTag
     {
         public string[]? predecessors;

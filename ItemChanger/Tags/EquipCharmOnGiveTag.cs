@@ -3,6 +3,7 @@
     /// <summary>
     /// Tag applied to a charm item so that the charm is equipped when given.
     /// </summary>
+    [TagConstrainedTo<Items.CharmItem>]
     public class EquipCharmOnGiveTag : Tag
     {
         private int charmNum;

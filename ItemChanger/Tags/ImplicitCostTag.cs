@@ -3,6 +3,8 @@
     /// <summary>
     /// A tag which does not modify behavior, but provides information about the implicit costs of a placement or location.
     /// </summary>
+    [LocationTag]
+    [PlacementTag]
     public class ImplicitCostTag : Tag
     {
         public Cost Cost;

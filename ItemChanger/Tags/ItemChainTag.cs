@@ -5,6 +5,7 @@
     /// <br />Recursion is by looking up the predecessor and successor items in Finder, and basing a search at their ItemChainTags.
     /// <br />Selected item is first nonredundant item in the sequence, or null (handled by AbstractItem) if all items are redundant.
     /// </summary>
+    [ItemTag]
     public class ItemChainTag : Tag, IItemModifierTag
     {
         public string? predecessor;

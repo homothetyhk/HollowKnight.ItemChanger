@@ -1,5 +1,7 @@
 ﻿namespace ItemChanger.Tags
 {
+    [LocationTag]
+    [PlacementTag]
     public class TabletParticleControlTag : Tag
     {
         public bool forceDisableParticles;
