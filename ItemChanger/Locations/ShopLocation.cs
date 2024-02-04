@@ -407,9 +407,10 @@ namespace ItemChanger.Locations
                 }
                 else
                 {
-                    if (stats.cost > 0)
+                    int cost = stats.GetCost();
+                    if (cost > 0)
                     {
-                        HeroController.instance.TakeGeo(stats.cost);
+                        HeroController.instance.TakeGeo(cost);
                     }
                 }
             }

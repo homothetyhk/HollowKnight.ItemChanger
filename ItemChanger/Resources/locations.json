@@ -61,7 +61,7 @@
     "fsmName": "Conversation Control",
     "defaultShopItems": "None",
     "requiredPlayerDataBool": "",
-    "dungDiscount": false,
+    "dungDiscount": true,
     "name": "Leg_Eater",
     "sceneName": "Fungus2_26",
     "flingType": "DirectDeposit",
