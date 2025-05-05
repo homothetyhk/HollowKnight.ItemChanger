@@ -2566,7 +2566,7 @@
     "elevation": -1.2,
     "name": "King's_Idol-Great_Hopper",
     "sceneName": "Deepnest_East_08",
-    "flingType": "Everywhere",
+    "flingType": "StraightUp",
     "tags": null
   },
   "King's_Idol-Pale_Lurker": {

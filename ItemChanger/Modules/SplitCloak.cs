@@ -94,6 +94,8 @@ namespace ItemChanger.Modules
                 case Direction.rightward:
                     return orig(self) && (!canDashLeft || canDashRight);
                 case Direction.downward:
+                    if (self.wallSlidingL || self.cState.facingRight) return orig(self) && (!canDashLeft || canDashRight);
+                    if (self.wallSlidingR || !self.cState.facingRight) return orig(self) && (!canDashRight || canDashLeft);
                     return orig(self);
             }
         }
