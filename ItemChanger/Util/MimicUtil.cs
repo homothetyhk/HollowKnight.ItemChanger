@@ -44,6 +44,11 @@ namespace ItemChanger.Util
             shatter.AddFirstAction(new Lambda(() => placement.AddVisitFlag(VisitState.Dropped)));
             shatter.GetActionsOfType<SendEventByName>()[1].eventTarget.gameObject.GameObject = mimicTop;
 
+            if (GetHP(info.giveInfo) is int hp)
+            {
+                mimicTop.transform.Find("Grub Mimic 1").GetComponent<HealthManager>().hp = hp;
+            }
+
             mimicTop.AddComponent<ContainerInfoComponent>().info = info;
             return mimicParent;
         }
@@ -101,5 +106,16 @@ namespace ItemChanger.Util
                 placement.AddVisitFlag(VisitState.Opened);
             }
         }
+
+        private static int? GetHP(ContainerGiveInfo info)
+        {
+            if (info.items.OfType<Items.MimicItem>().FirstOrDefault() is Items.MimicItem mi)
+            {
+                return mi.hp;
+            }
+
+            return null;
+        }
+
     }
 }

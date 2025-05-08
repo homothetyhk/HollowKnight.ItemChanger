@@ -7,6 +7,11 @@ namespace ItemChanger.Items
     /// </summary>
     public class MimicItem : AbstractItem
     {
+        /// <summary>
+        /// Specifies the hp of a mimic container associated with the item.
+        /// </summary>
+        public int? hp;
+
         public override string GetPreferredContainer()
         {
             return Container.Mimic;
