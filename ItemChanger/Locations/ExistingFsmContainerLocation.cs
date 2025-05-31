@@ -89,5 +89,40 @@ namespace ItemChanger.Locations
 
             return info;
         }
+
+        public override ContainerLocation AsContainerLocation()
+        {
+            if (nonreplaceable) throw new InvalidOperationException($"Location {name} is nonreplaceable.");
+            if (replacePath is not null)
+            {
+                return new ObjectLocation
+                {
+                    name = this.name,
+                    objectName = replacePath,
+                    sceneName = this.sceneName,
+                    forceShiny = false,
+                    flingType = this.flingType,
+                    elevation = this.elevation,
+                    Placement = this.Placement,
+                    tags = this.tags,
+                };
+            }
+            else
+            {
+                return new ReplaceFsmLocation()
+                {
+                    name = this.name,
+                    objectName = this.objectName,
+                    fsmName = this.fsmName,
+                    sceneName = this.sceneName,
+                    forceShiny = false,
+                    flingType = this.flingType,
+                    elevation = this.elevation,
+                    Placement = this.Placement,
+                    tags = this.tags,
+                };
+            }
+        }
+
     }
 }

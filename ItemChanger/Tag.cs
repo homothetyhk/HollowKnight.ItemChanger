@@ -64,7 +64,7 @@ namespace ItemChanger
             }
         }
 
-        public bool Loaded { get; private set; }
+        [JsonIgnore] public bool Loaded { get; private set; }
 
         /// <summary>
         /// Additional information for serialization and other tag handling purposes.

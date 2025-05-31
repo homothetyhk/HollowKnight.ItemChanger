@@ -27,5 +27,12 @@ namespace ItemChanger.Locations
                 Location = this,
             };
         }
+
+        /// <summary>
+        /// Converts the location to a <see cref="ContainerLocation"/>. The new location will always replace its container, instead of conditionally modifying it in place.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException">The location is nonreplaceable.</exception>
+        public abstract ContainerLocation AsContainerLocation();
     }
 }
