@@ -162,7 +162,8 @@
         "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
         "Cost": {
           "$type": "ItemChanger.PDBoolCost, ItemChanger",
-          "fieldName": "hasDreamNail"
+          "fieldName": "hasDreamNail",
+          "uiText": "Requires Dream Nail"
         },
         "Inherent": true
       }
@@ -183,7 +184,8 @@
         "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
         "Cost": {
           "$type": "ItemChanger.PDBoolCost, ItemChanger",
-          "fieldName": "hasDreamNail"
+          "fieldName": "hasDreamNail",
+          "uiText": "Requires Dream Nail"
         },
         "Inherent": true
       }
@@ -204,7 +206,8 @@
         "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
         "Cost": {
           "$type": "ItemChanger.PDBoolCost, ItemChanger",
-          "fieldName": "hasDreamNail"
+          "fieldName": "hasDreamNail",
+          "uiText": "Requires Dream Nail"
         },
         "Inherent": true
       }
@@ -863,7 +866,8 @@
         "$type": "ItemChanger.Tags.ImplicitCostTag, ItemChanger",
         "Cost": {
           "$type": "ItemChanger.PDBoolCost, ItemChanger",
-          "fieldName": "hasDreamNail"
+          "fieldName": "hasDreamNail",
+          "uiText": "Requires Dream Nail"
         },
         "Inherent": true
       }
@@ -1113,7 +1117,8 @@
         "Cost": {
           "$type": "ItemChanger.ConsumablePDIntCost, ItemChanger",
           "amount": 1,
-          "fieldName": "simpleKeys"
+          "fieldName": "simpleKeys",
+          "uiText": "Use a Simple Key"
         },
         "Inherent": true
       }
@@ -7588,7 +7593,7 @@
         "Cost": {
           "$type": "ItemChanger.PDBoolCost, ItemChanger",
           "fieldName": "equippedCharm_17",
-          "uiText": null,
+          "uiText": "Requires Spore Shroom",
           "Paid": false
         },
         "Inherent": true
@@ -7618,7 +7623,7 @@
         "Cost": {
           "$type": "ItemChanger.PDBoolCost, ItemChanger",
           "fieldName": "equippedCharm_17",
-          "uiText": null,
+          "uiText": "Requires Spore Shroom",
           "Paid": false
         },
         "Inherent": true
@@ -7648,7 +7653,7 @@
         "Cost": {
           "$type": "ItemChanger.PDBoolCost, ItemChanger",
           "fieldName": "equippedCharm_17",
-          "uiText": null,
+          "uiText": "Requires Spore Shroom",
           "Paid": false
         },
         "Inherent": true
@@ -7678,7 +7683,7 @@
         "Cost": {
           "$type": "ItemChanger.PDBoolCost, ItemChanger",
           "fieldName": "equippedCharm_17",
-          "uiText": null,
+          "uiText": "Requires Spore Shroom",
           "Paid": false
         },
         "Inherent": true
@@ -7836,7 +7841,7 @@
         "Cost": {
           "$type": "ItemChanger.PDBoolCost, ItemChanger",
           "fieldName": "equippedCharm_17",
-          "uiText": null,
+          "uiText": "Requires Spore Shroom",
           "Paid": false
         },
         "Inherent": true
