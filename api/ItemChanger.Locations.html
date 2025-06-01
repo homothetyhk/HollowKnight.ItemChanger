@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace ItemChanger.Locations
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace ItemChanger.Locations
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ItemChanger.Locations">
+  
+  <h1 id="ItemChanger_Locations" data-uid="ItemChanger.Locations" class="text-break">Namespace ItemChanger.Locations
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="ItemChanger.Locations.AutoLocation.html">AutoLocation</a></h4>
+      <section><p>Location type which cannot accept a container, and thus must implement itself. Examples include items given in dialogue, etc.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.ContainerLocation.html">ContainerLocation</a></h4>
+      <section><p>Location type which supports placing multiple kinds of objects.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.CoordinateLocation.html">CoordinateLocation</a></h4>
+      <section><p>Location which places a container at a specified coordinate position.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.CustomShopLocation.html">CustomShopLocation</a></h4>
+      <section><p>A location which implements a custom shop on a given NPC.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.DualLocation.html">DualLocation</a></h4>
+      <section><p>Helper location meant to be unpacked into a DualPlacement</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.EmptyLocation.html">EmptyLocation</a></h4>
+      <section><p>A location with no effects. Use, for example, with DualPlacement, or in other situations where a dummy location may be needed.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.EnemyFsmLocation.html">EnemyFsmLocation</a></h4>
+      <section><p>/A variant of EnemyLocation which accounts for the fact that some enemies may not be loaded at activeSceneChanged, and are easier to locate by fsm.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.EnemyLocation.html">EnemyLocation</a></h4>
+      <section><p>A location for modifying an enemy to drop an item container on death.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.ExistingContainerLocation.html">ExistingContainerLocation</a></h4>
+      <section><p>An abstract location which can be optionally replaced with a container, but has a natural way of giving items if not replaced.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.ExistingFsmContainerLocation.html">ExistingFsmContainerLocation</a></h4>
+      <section><p>A location for modifying an object with an fsm in-place with the specified Container.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.FsmObjectLocation.html">FsmObjectLocation</a></h4>
+      <section><p>ObjectLocation which replaces an FsmGameObject.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.LocalHintLocationExtensions.html">LocalHintLocationExtensions</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.Locations.ObjectLocation.html">ObjectLocation</a></h4>
+      <section><p>Base type for finding and replacing a game object with an item container.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.PlaceableLocation.html">PlaceableLocation</a></h4>
+      <section><p>Base type for ContainerLocations which support receiving receiving a container at a placement-controlled time and manner.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.ReplaceFsmLocation.html">ReplaceFsmLocation</a></h4>
+      <section><p>A container location like <a class="xref" href="ItemChanger.Locations.ObjectLocation.html">ObjectLocation</a> which looks up the object it replaces by fsm.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.ShopLocation.html">ShopLocation</a></h4>
+      <section><p>Location for modifying any of the vanilla shops.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Locations.StartLocation.html">StartLocation</a></h4>
+      <section><p>Location for giving items at the start of the scene, late enough that they appear on the UI and soul is not removed if during respawn.</p>
+</section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="ItemChanger.Locations.ILocalHintLocation.html">ILocalHintLocation</a></h4>
+      <section><p>Interface for locations which support a nearby toggleable item preview.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="ItemChanger.Locations.FacingDirection.html">FacingDirection</a></h4>
+      <section><p>The directions that a shopkeeper in a custom shop will face</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

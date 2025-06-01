@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace ItemChanger.Placements
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace ItemChanger.Placements
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ItemChanger.Placements">
+  
+  <h1 id="ItemChanger_Placements" data-uid="ItemChanger.Placements" class="text-break">Namespace ItemChanger.Placements
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="ItemChanger.Placements.AutoPlacement.html">AutoPlacement</a></h4>
+      <section><p>Placement for self-implementing locations, usually acting through cutscene or conversation fsms.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.CostChestPlacement.html">CostChestPlacement</a></h4>
+      <section><p>Placement which allows shop-like behavior, with a tablet showing item names and costs near a chest.
+<br>When the chest is opened, any costs that can be paid are paid and the corresponding items are spawned.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.DualPlacement.html">DualPlacement</a></h4>
+      <section><p>Placement which handles switching between two possible locations according to a test.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.EggShopPlacement.html">EggShopPlacement</a></h4>
+      <section><p>Placement which implements a shop at Jiji.
+<br>Talking to Jiji gives the option to pay costs, and choosing to do so leads to Jiji spawning the corresponding items wrapped in individual containers.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.ExistingContainerPlacement.html">ExistingContainerPlacement</a></h4>
+      <section><p>Placement which supports modifying existing containers in place or replacing them with a container preferred by the item list.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.MutablePlacement.html">MutablePlacement</a></h4>
+      <section><p>The default placement for most use cases.
+Chooses an item container for its location based on its item list.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.ShopPlacement.html">ShopPlacement</a></h4>
+      <section><p>Placement which handles ShopLocation. Its main role is to handle adding its items to the shop stock as objects with the ModShopItemStats component.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.YNShinyPlacement.html">YNShinyPlacement</a></h4>
+      <section><p>Variant of MutablePlacement which only uses the shiny container type.</p>
+</section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="ItemChanger.Placements.IContainerPlacement.html">IContainerPlacement</a></h4>
+      <section><p>Interace for placements which can be used by ContainerLocation. In other words, on demand the placement returns an object which is capable of giving its items.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.IMultiCostPlacement.html">IMultiCostPlacement</a></h4>
+      <section><p>Empty interface which indicates that the placement expects costs to be tagged to items.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.IPrimaryLocationPlacement.html">IPrimaryLocationPlacement</a></h4>
+      <section><p>Interface for accessing the primary location of a placement, if it has one.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.IShopPlacement.html">IShopPlacement</a></h4>
+      <section><p>Interface which exposes the stock methods of ShopPlacement for use by ShopLocation.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Placements.ISingleCostPlacement.html">ISingleCostPlacement</a></h4>
+      <section><p>Interface which indicates that placement expects all items to share a common cost.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

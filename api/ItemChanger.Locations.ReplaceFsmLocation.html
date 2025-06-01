@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ReplaceFsmLocation
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ReplaceFsmLocation
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ItemChanger.Locations.ReplaceFsmLocation">
+  
+  
+  <h1 id="ItemChanger_Locations_ReplaceFsmLocation" data-uid="ItemChanger.Locations.ReplaceFsmLocation" class="text-break">Class ReplaceFsmLocation
+  </h1>
+  <div class="markdown level0 summary"><p>A container location like <a class="xref" href="ItemChanger.Locations.ObjectLocation.html">ObjectLocation</a> which looks up the object it replaces by fsm.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ItemChanger.TaggableObject.html">TaggableObject</a></div>
+    <div class="level2"><a class="xref" href="ItemChanger.AbstractLocation.html">AbstractLocation</a></div>
+    <div class="level3"><a class="xref" href="ItemChanger.Locations.ContainerLocation.html">ContainerLocation</a></div>
+    <div class="level4"><span class="xref">ReplaceFsmLocation</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ItemChanger.Locations.ContainerLocation.html#ItemChanger_Locations_ContainerLocation_forceShiny">ContainerLocation.forceShiny</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.Locations.ContainerLocation.html#ItemChanger_Locations_ContainerLocation_GetContainer_GameObject__System_String__">ContainerLocation.GetContainer(GameObject, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.Locations.ContainerLocation.html#ItemChanger_Locations_ContainerLocation_Supports_System_String_">ContainerLocation.Supports(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.Locations.ContainerLocation.html#ItemChanger_Locations_ContainerLocation_Wrap">ContainerLocation.Wrap()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_name">AbstractLocation.name</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_sceneName">AbstractLocation.sceneName</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_UnsafeSceneName">AbstractLocation.UnsafeSceneName</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_flingType">AbstractLocation.flingType</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_Placement">AbstractLocation.Placement</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_Load">AbstractLocation.Load()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_Unload">AbstractLocation.Unload()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_Clone">AbstractLocation.Clone()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_tags">TaggableObject.tags</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_LoadTags">TaggableObject.LoadTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_UnloadTags">TaggableObject.UnloadTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_AddTag__1">TaggableObject.AddTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_AddTag_ItemChanger_Tag_">TaggableObject.AddTag(Tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_AddTags_IEnumerable_ItemChanger_Tag__">TaggableObject.AddTags(IEnumerable&lt;Tag&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetTag__1">TaggableObject.GetTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetTag__1___0__">TaggableObject.GetTag&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetTags__1">TaggableObject.GetTags&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetOrAddTag__1">TaggableObject.GetOrAddTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_HasTag__1">TaggableObject.HasTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_RemoveTags__1">TaggableObject.RemoveTags&lt;T&gt;()</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ItemChanger.Locations.html">ItemChanger.Locations</a></h6>
+  <h6><strong>Assembly</strong>: ItemChanger.dll</h6>
+  <h5 id="ItemChanger_Locations_ReplaceFsmLocation_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ReplaceFsmLocation : ContainerLocation</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Locations_ReplaceFsmLocation_elevation.md&amp;value=---%0Auid%3A%20ItemChanger.Locations.ReplaceFsmLocation.elevation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Locations/ReplaceFsmLocation.cs/#L10">View Source</a>
+  </span>
+  <h4 id="ItemChanger_Locations_ReplaceFsmLocation_elevation" data-uid="ItemChanger.Locations.ReplaceFsmLocation.elevation">elevation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float elevation</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Locations_ReplaceFsmLocation_fsmName.md&amp;value=---%0Auid%3A%20ItemChanger.Locations.ReplaceFsmLocation.fsmName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Locations/ReplaceFsmLocation.cs/#L9">View Source</a>
+  </span>
+  <h4 id="ItemChanger_Locations_ReplaceFsmLocation_fsmName" data-uid="ItemChanger.Locations.ReplaceFsmLocation.fsmName">fsmName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string fsmName</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Locations_ReplaceFsmLocation_objectName.md&amp;value=---%0Auid%3A%20ItemChanger.Locations.ReplaceFsmLocation.objectName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Locations/ReplaceFsmLocation.cs/#L8">View Source</a>
+  </span>
+  <h4 id="ItemChanger_Locations_ReplaceFsmLocation_objectName" data-uid="ItemChanger.Locations.ReplaceFsmLocation.objectName">objectName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string objectName</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Locations_ReplaceFsmLocation_OnEnable_PlayMakerFSM_.md&amp;value=---%0Auid%3A%20ItemChanger.Locations.ReplaceFsmLocation.OnEnable(PlayMakerFSM)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Locations/ReplaceFsmLocation.cs/#L22">View Source</a>
+  </span>
+  <a id="ItemChanger_Locations_ReplaceFsmLocation_OnEnable_" data-uid="ItemChanger.Locations.ReplaceFsmLocation.OnEnable*"></a>
+  <h4 id="ItemChanger_Locations_ReplaceFsmLocation_OnEnable_PlayMakerFSM_" data-uid="ItemChanger.Locations.ReplaceFsmLocation.OnEnable(PlayMakerFSM)">OnEnable(PlayMakerFSM)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEnable(PlayMakerFSM fsm)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">PlayMakerFSM</span></td>
+        <td><span class="parametername">fsm</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Locations_ReplaceFsmLocation_OnLoad.md&amp;value=---%0Auid%3A%20ItemChanger.Locations.ReplaceFsmLocation.OnLoad%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Locations/ReplaceFsmLocation.cs/#L12">View Source</a>
+  </span>
+  <a id="ItemChanger_Locations_ReplaceFsmLocation_OnLoad_" data-uid="ItemChanger.Locations.ReplaceFsmLocation.OnLoad*"></a>
+  <h4 id="ItemChanger_Locations_ReplaceFsmLocation_OnLoad" data-uid="ItemChanger.Locations.ReplaceFsmLocation.OnLoad">OnLoad()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnLoad()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_OnLoad">AbstractLocation.OnLoad()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Locations_ReplaceFsmLocation_OnUnload.md&amp;value=---%0Auid%3A%20ItemChanger.Locations.ReplaceFsmLocation.OnUnload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Locations/ReplaceFsmLocation.cs/#L17">View Source</a>
+  </span>
+  <a id="ItemChanger_Locations_ReplaceFsmLocation_OnUnload_" data-uid="ItemChanger.Locations.ReplaceFsmLocation.OnUnload*"></a>
+  <h4 id="ItemChanger_Locations_ReplaceFsmLocation_OnUnload" data-uid="ItemChanger.Locations.ReplaceFsmLocation.OnUnload">OnUnload()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnUnload()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ItemChanger.AbstractLocation.html#ItemChanger_AbstractLocation_OnUnload">AbstractLocation.OnUnload()</a></div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="ItemChanger.Extensions.Extensions.html#ItemChanger_Extensions_Extensions_Yield__1___0_">Extensions.Yield&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Locations_ReplaceFsmLocation.md&amp;value=---%0Auid%3A%20ItemChanger.Locations.ReplaceFsmLocation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Locations/ReplaceFsmLocation.cs/#L6" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

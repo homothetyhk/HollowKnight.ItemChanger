@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ModMenuScreenBuilder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ModMenuScreenBuilder
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder">
+  
+  
+  <h1 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder" class="text-break">Class ModMenuScreenBuilder
+  </h1>
+  <div class="markdown level0 summary"><p>Provides a simple way to create menu screens, that supports adding subpages and IMenuMod.MenuEntries
+with the default size and position data.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ModMenuScreenBuilder</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ItemChanger.Internal.Menu.html">ItemChanger.Internal.Menu</a></h6>
+  <h6><strong>Assembly</strong>: ItemChanger.dll</h6>
+  <h5 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ModMenuScreenBuilder</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder__ctor_System_String_MenuScreen_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder.%23ctor(System.String%2CMenuScreen)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L29">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_Menu_ModMenuScreenBuilder__ctor_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.#ctor*"></a>
+  <h4 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder__ctor_System_String_MenuScreen_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.#ctor(System.String,MenuScreen)">ModMenuScreenBuilder(String, MenuScreen)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModMenuScreenBuilder(string title, MenuScreen returnScreen)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">MenuScreen</span></td>
+        <td><span class="parametername">returnScreen</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder_backButton.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder.backButton%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L17">View Source</a>
+  </span>
+  <h4 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_backButton" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.backButton">backButton</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly MenuButton backButton</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">MenuButton</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder_buildActions.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder.buildActions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L20">View Source</a>
+  </span>
+  <h4 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_buildActions" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.buildActions">buildActions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Action&lt;ContentArea&gt;&gt; buildActions</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">Action</span>&lt;<span class="xref">ContentArea</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder_menuBuilder.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder.menuBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L16">View Source</a>
+  </span>
+  <h4 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_menuBuilder" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.menuBuilder">menuBuilder</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly MenuBuilder menuBuilder</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">MenuBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddButton_System_String_System_String_Action_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddButton(System.String%2CSystem.String%2CAction)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L132">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddButton_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddButton*"></a>
+  <h4 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddButton_System_String_System_String_Action_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddButton(System.String,System.String,Action)">AddButton(String, String, Action)</h4>
+  <div class="markdown level1 summary"><p>Adds a clickable button which executes a custom action on click.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddButton(string title, string description, Action onClick)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">onClick</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddHorizontalOption_IMenuMod_MenuEntry_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddHorizontalOption(IMenuMod.MenuEntry)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L106">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddHorizontalOption_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddHorizontalOption*"></a>
+  <h4 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddHorizontalOption_IMenuMod_MenuEntry_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddHorizontalOption(IMenuMod.MenuEntry)">AddHorizontalOption(IMenuMod.MenuEntry)</h4>
+  <div class="markdown level1 summary"><p>Adds a horizontal option.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddHorizontalOption(IMenuMod.MenuEntry entry)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IMenuMod.MenuEntry</span></td>
+        <td><span class="parametername">entry</span></td>
+        <td><p>The struct containing the data for the menu entry.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddSubpage_System_String_System_String_IReadOnlyList_IMenuMod_MenuEntry__.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddSubpage(System.String%2CSystem.String%2CIReadOnlyList%7BIMenuMod.MenuEntry%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L75">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddSubpage_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddSubpage*"></a>
+  <h4 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddSubpage_System_String_System_String_IReadOnlyList_IMenuMod_MenuEntry__" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddSubpage(System.String,System.String,IReadOnlyList{IMenuMod.MenuEntry})">AddSubpage(String, String, IReadOnlyList&lt;IMenuMod.MenuEntry&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a button which proceeds to a subpage consisting of a list of MenuOptionHorizontals.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddSubpage(string title, string description, IReadOnlyList&lt;IMenuMod.MenuEntry&gt; entries)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">IReadOnlyList</span>&lt;<span class="xref">IMenuMod.MenuEntry</span>&gt;</td>
+        <td><span class="parametername">entries</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddSubpage_System_String_System_String_MenuScreen_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddSubpage(System.String%2CSystem.String%2CMenuScreen)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L84">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddSubpage_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddSubpage*"></a>
+  <h4 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_AddSubpage_System_String_System_String_MenuScreen_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.AddSubpage(System.String,System.String,MenuScreen)">AddSubpage(String, String, MenuScreen)</h4>
+  <div class="markdown level1 summary"><p>Adds a button which proceeds to a subpage.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddSubpage(string title, string description, MenuScreen screen)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">title</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">description</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">MenuScreen</span></td>
+        <td><span class="parametername">screen</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder_CreateMenuScreen.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder.CreateMenuScreen%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L35">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_CreateMenuScreen_" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.CreateMenuScreen*"></a>
+  <h4 id="ItemChanger_Internal_Menu_ModMenuScreenBuilder_CreateMenuScreen" data-uid="ItemChanger.Internal.Menu.ModMenuScreenBuilder.CreateMenuScreen">CreateMenuScreen()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MenuScreen CreateMenuScreen()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">MenuScreen</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="ItemChanger.Extensions.Extensions.html#ItemChanger_Extensions_Extensions_Yield__1___0_">Extensions.Yield&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_Menu_ModMenuScreenBuilder.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.Menu.ModMenuScreenBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/Menu/ModMenuScreenBuilder.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

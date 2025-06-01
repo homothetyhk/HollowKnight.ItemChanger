@@ -1,0 +1,1011 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AbstractPlacement
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AbstractPlacement
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ItemChanger.AbstractPlacement">
+  
+  
+  <h1 id="ItemChanger_AbstractPlacement" data-uid="ItemChanger.AbstractPlacement" class="text-break">Class AbstractPlacement
+  </h1>
+  <div class="markdown level0 summary"><p>The base class for all placements. Placements carry a list of items and specify how to implement those items, often using locations.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ItemChanger.TaggableObject.html">TaggableObject</a></div>
+    <div class="level2"><span class="xref">AbstractPlacement</span></div>
+      <div class="level3"><a class="xref" href="ItemChanger.Placements.AutoPlacement.html">AutoPlacement</a></div>
+      <div class="level3"><a class="xref" href="ItemChanger.Placements.CostChestPlacement.html">CostChestPlacement</a></div>
+      <div class="level3"><a class="xref" href="ItemChanger.Placements.DualPlacement.html">DualPlacement</a></div>
+      <div class="level3"><a class="xref" href="ItemChanger.Placements.EggShopPlacement.html">EggShopPlacement</a></div>
+      <div class="level3"><a class="xref" href="ItemChanger.Placements.ExistingContainerPlacement.html">ExistingContainerPlacement</a></div>
+      <div class="level3"><a class="xref" href="ItemChanger.Placements.MutablePlacement.html">MutablePlacement</a></div>
+      <div class="level3"><a class="xref" href="ItemChanger.Placements.ShopPlacement.html">ShopPlacement</a></div>
+      <div class="level3"><a class="xref" href="ItemChanger.Placements.YNShinyPlacement.html">YNShinyPlacement</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_tags">TaggableObject.tags</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_LoadTags">TaggableObject.LoadTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_UnloadTags">TaggableObject.UnloadTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_AddTag__1">TaggableObject.AddTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_AddTag_ItemChanger_Tag_">TaggableObject.AddTag(Tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_AddTags_IEnumerable_ItemChanger_Tag__">TaggableObject.AddTags(IEnumerable&lt;Tag&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetTag__1">TaggableObject.GetTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetTag__1___0__">TaggableObject.GetTag&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetTags__1">TaggableObject.GetTags&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetOrAddTag__1">TaggableObject.GetOrAddTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_HasTag__1">TaggableObject.HasTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_RemoveTags__1">TaggableObject.RemoveTags&lt;T&gt;()</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ItemChanger.html">ItemChanger</a></h6>
+  <h6><strong>Assembly</strong>: ItemChanger.dll</h6>
+  <h5 id="ItemChanger_AbstractPlacement_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class AbstractPlacement : TaggableObject</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement__ctor_System_String_.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L14">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement__ctor_" data-uid="ItemChanger.AbstractPlacement.#ctor*"></a>
+  <h4 id="ItemChanger_AbstractPlacement__ctor_System_String_" data-uid="ItemChanger.AbstractPlacement.#ctor(System.String)">AbstractPlacement(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a placement with the given name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbstractPlacement(string Name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">Name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_Items.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.Items%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L27">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_Items_" data-uid="ItemChanger.AbstractPlacement.Items*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_Items" data-uid="ItemChanger.AbstractPlacement.Items">Items</h4>
+  <div class="markdown level1 summary"><p>The items attached to the placement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;AbstractItem&gt; Items { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="ItemChanger.AbstractItem.html">AbstractItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_MainContainerType.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.MainContainerType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L198">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_MainContainerType_" data-uid="ItemChanger.AbstractPlacement.MainContainerType*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_MainContainerType" data-uid="ItemChanger.AbstractPlacement.MainContainerType">MainContainerType</h4>
+  <div class="markdown level1 summary"><p>The container type that best describes the placement as a whole.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string MainContainerType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_Name.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.Name%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L22">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_Name_" data-uid="ItemChanger.AbstractPlacement.Name*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_Name" data-uid="ItemChanger.AbstractPlacement.Name">Name</h4>
+  <div class="markdown level1 summary"><p>The name of the placement. Placement names are enforced to be unique.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_Visited.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.Visited%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L32">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_Visited_" data-uid="ItemChanger.AbstractPlacement.Visited*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_Visited" data-uid="ItemChanger.AbstractPlacement.Visited">Visited</h4>
+  <div class="markdown level1 summary"><p>An enumeration of visit flags accrued by the placement. Which flags may be set depends on the placement type and other factors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VisitState Visited { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.VisitState.html">VisitState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_Add_IEnumerable_ItemChanger_AbstractItem__.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.Add(IEnumerable%7BItemChanger.AbstractItem%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L219">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_Add_" data-uid="ItemChanger.AbstractPlacement.Add*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_Add_IEnumerable_ItemChanger_AbstractItem__" data-uid="ItemChanger.AbstractPlacement.Add(IEnumerable{ItemChanger.AbstractItem})">Add(IEnumerable&lt;AbstractItem&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds a range of items to the item list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbstractPlacement Add(IEnumerable&lt;AbstractItem&gt; items)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="ItemChanger.AbstractItem.html">AbstractItem</a>&gt;</td>
+        <td><span class="parametername">items</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.AbstractPlacement.html">AbstractPlacement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_Add_ItemChanger_AbstractItem_.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.Add(ItemChanger.AbstractItem)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L210">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_Add_" data-uid="ItemChanger.AbstractPlacement.Add*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_Add_ItemChanger_AbstractItem_" data-uid="ItemChanger.AbstractPlacement.Add(ItemChanger.AbstractItem)">Add(AbstractItem)</h4>
+  <div class="markdown level1 summary"><p>Adds an item to the item list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual AbstractPlacement Add(AbstractItem item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.AbstractItem.html">AbstractItem</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.AbstractPlacement.html">AbstractPlacement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_Add_ItemChanger_AbstractItem___.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.Add(ItemChanger.AbstractItem%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L228">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_Add_" data-uid="ItemChanger.AbstractPlacement.Add*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_Add_ItemChanger_AbstractItem___" data-uid="ItemChanger.AbstractPlacement.Add(ItemChanger.AbstractItem[])">Add(AbstractItem[])</h4>
+  <div class="markdown level1 summary"><p>Adds a range of items to the item list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbstractPlacement Add(params AbstractItem[] items)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.AbstractItem.html">AbstractItem</a>[]</td>
+        <td><span class="parametername">items</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.AbstractPlacement.html">AbstractPlacement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_AddVisitFlag_ItemChanger_VisitState_.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.AddVisitFlag(ItemChanger.VisitState)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L110">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_AddVisitFlag_" data-uid="ItemChanger.AbstractPlacement.AddVisitFlag*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_AddVisitFlag_ItemChanger_VisitState_" data-uid="ItemChanger.AbstractPlacement.AddVisitFlag(ItemChanger.VisitState)">AddVisitFlag(VisitState)</h4>
+  <div class="markdown level1 summary"><p>Sets the visit state of the placement to the union of its current flags and the parameter flags.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddVisitFlag(VisitState flag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.VisitState.html">VisitState</a></td>
+        <td><span class="parametername">flag</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_AllObtained.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.AllObtained%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L102">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_AllObtained_" data-uid="ItemChanger.AbstractPlacement.AllObtained*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_AllObtained" data-uid="ItemChanger.AbstractPlacement.AllObtained">AllObtained()</h4>
+  <div class="markdown level1 summary"><p>Returns true when the placement currently has no items to give.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllObtained()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_CheckVisitedAll_ItemChanger_VisitState_.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.CheckVisitedAll(ItemChanger.VisitState)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L127">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_CheckVisitedAll_" data-uid="ItemChanger.AbstractPlacement.CheckVisitedAll*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_CheckVisitedAll_ItemChanger_VisitState_" data-uid="ItemChanger.AbstractPlacement.CheckVisitedAll(ItemChanger.VisitState)">CheckVisitedAll(VisitState)</h4>
+  <div class="markdown level1 summary"><p>Returns true if the flags are a subset of the placement's visit state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CheckVisitedAll(VisitState flags)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.VisitState.html">VisitState</a></td>
+        <td><span class="parametername">flags</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_CheckVisitedAny_ItemChanger_VisitState_.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.CheckVisitedAny(ItemChanger.VisitState)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L119">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_CheckVisitedAny_" data-uid="ItemChanger.AbstractPlacement.CheckVisitedAny*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_CheckVisitedAny_ItemChanger_VisitState_" data-uid="ItemChanger.AbstractPlacement.CheckVisitedAny(ItemChanger.VisitState)">CheckVisitedAny(VisitState)</h4>
+  <div class="markdown level1 summary"><p>Returns true if the flags have nonempty intersection with the placement's visit state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CheckVisitedAny(VisitState flags)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.VisitState.html">VisitState</a></td>
+        <td><span class="parametername">flags</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_GetPlacementAndLocationTags.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.GetPlacementAndLocationTags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L201">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_GetPlacementAndLocationTags_" data-uid="ItemChanger.AbstractPlacement.GetPlacementAndLocationTags*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_GetPlacementAndLocationTags" data-uid="ItemChanger.AbstractPlacement.GetPlacementAndLocationTags">GetPlacementAndLocationTags()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IEnumerable&lt;Tag&gt; GetPlacementAndLocationTags()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="ItemChanger.Tag.html">Tag</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_GetUIName.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.GetUIName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L79">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_GetUIName_" data-uid="ItemChanger.AbstractPlacement.GetUIName*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_GetUIName" data-uid="ItemChanger.AbstractPlacement.GetUIName">GetUIName()</h4>
+  <div class="markdown level1 summary"><p>Combines and returns the preview names of the unobtained items at the placement. Used for most hints or previews.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetUIName()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_GetUIName_System_Int32_.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.GetUIName(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L87">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_GetUIName_" data-uid="ItemChanger.AbstractPlacement.GetUIName*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_GetUIName_System_Int32_" data-uid="ItemChanger.AbstractPlacement.GetUIName(System.Int32)">GetUIName(Int32)</h4>
+  <div class="markdown level1 summary"><p>Combines and returns the preview names of the unobtained items at the placement, trimmed to the specified length.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetUIName(int maxLength)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxLength</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_GiveAll_ItemChanger_GiveInfo_System_Nullable_Action__.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.GiveAll(ItemChanger.GiveInfo%2CSystem.Nullable%7BAction%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L40">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_GiveAll_" data-uid="ItemChanger.AbstractPlacement.GiveAll*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_GiveAll_ItemChanger_GiveInfo_System_Nullable_Action__" data-uid="ItemChanger.AbstractPlacement.GiveAll(ItemChanger.GiveInfo,System.Nullable{Action})">GiveAll(GiveInfo, Nullable&lt;Action&gt;)</h4>
+  <div class="markdown level1 summary"><p>Helper method for giving all of the items of the placement in sequence, so that the UIDef message of one leads into giving the next.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GiveAll(GiveInfo info, Action? callback = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.GiveInfo.html">GiveInfo</a></td>
+        <td><span class="parametername">info</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Action</span>&gt;</td>
+        <td><span class="parametername">callback</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_Load.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.Load%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L140">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_Load_" data-uid="ItemChanger.AbstractPlacement.Load*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_Load" data-uid="ItemChanger.AbstractPlacement.Load">Load()</h4>
+  <div class="markdown level1 summary"><p>Called on each saved placement when the save is created or resumed.
+<br>Execution order is (modules load -&gt; placement tags load -&gt; items load -&gt; placements load)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Load()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_OnLoad.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.OnLoad%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L162">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_OnLoad_" data-uid="ItemChanger.AbstractPlacement.OnLoad*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_OnLoad" data-uid="ItemChanger.AbstractPlacement.OnLoad">OnLoad()</h4>
+  <div class="markdown level1 summary"><p>Called by Load(). Dispose hooks in OnUnload.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void OnLoad()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_OnObtainedItem_ItemChanger_AbstractItem_.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.OnObtainedItem(ItemChanger.AbstractItem)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L65">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_OnObtainedItem_" data-uid="ItemChanger.AbstractPlacement.OnObtainedItem*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_OnObtainedItem_ItemChanger_AbstractItem_" data-uid="ItemChanger.AbstractPlacement.OnObtainedItem(ItemChanger.AbstractItem)">OnObtainedItem(AbstractItem)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnObtainedItem(AbstractItem item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.AbstractItem.html">AbstractItem</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_OnPreview_System_String_.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.OnPreview(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L70">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_OnPreview_" data-uid="ItemChanger.AbstractPlacement.OnPreview*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_OnPreview_System_String_" data-uid="ItemChanger.AbstractPlacement.OnPreview(System.String)">OnPreview(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnPreview(string previewText)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">previewText</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_OnUnload.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.OnUnload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L167">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_OnUnload_" data-uid="ItemChanger.AbstractPlacement.OnUnload*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_OnUnload" data-uid="ItemChanger.AbstractPlacement.OnUnload">OnUnload()</h4>
+  <div class="markdown level1 summary"><p>Called by Unload().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void OnUnload()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_Unload.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.Unload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L151">View Source</a>
+  </span>
+  <a id="ItemChanger_AbstractPlacement_Unload_" data-uid="ItemChanger.AbstractPlacement.Unload*"></a>
+  <h4 id="ItemChanger_AbstractPlacement_Unload" data-uid="ItemChanger.AbstractPlacement.Unload">Unload()</h4>
+  <div class="markdown level1 summary"><p>Called on each saved placement upon returning to main menu.
+<br>Execution order is (modules unload -&gt; placement tags unload -&gt; items unload -&gt; placements unload)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Unload()</code></pre>
+  </div>
+  <h3 id="events">Events
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_OnVisitStateChanged.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.OnVisitStateChanged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L178">View Source</a>
+  </span>
+  <h4 id="ItemChanger_AbstractPlacement_OnVisitStateChanged" data-uid="ItemChanger.AbstractPlacement.OnVisitStateChanged">OnVisitStateChanged</h4>
+  <div class="markdown level1 summary"><p>Event invoked by this placement whenever AddVisitFlag is called. Use the NoChange property of the args to detect whether a change will occur.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;VisitStateChangedEventArgs&gt;? OnVisitStateChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Action</span>&lt;<a class="xref" href="ItemChanger.VisitStateChangedEventArgs.html">VisitStateChangedEventArgs</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement_OnVisitStateChangedGlobal.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement.OnVisitStateChangedGlobal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L172">View Source</a>
+  </span>
+  <h4 id="ItemChanger_AbstractPlacement_OnVisitStateChangedGlobal" data-uid="ItemChanger.AbstractPlacement.OnVisitStateChangedGlobal">OnVisitStateChangedGlobal</h4>
+  <div class="markdown level1 summary"><p>Event invoked by each placement whenever new flags are added to its Visited. Skipped if added flags are a subset of Visited.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static event Action&lt;VisitStateChangedEventArgs&gt;? OnVisitStateChangedGlobal</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Action</span>&lt;<a class="xref" href="ItemChanger.VisitStateChangedEventArgs.html">VisitStateChangedEventArgs</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="ItemChanger.Extensions.Extensions.html#ItemChanger_Extensions_Extensions_Yield__1___0_">Extensions.Yield&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_AbstractPlacement.md&amp;value=---%0Auid%3A%20ItemChanger.AbstractPlacement%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/AbstractPlacement.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

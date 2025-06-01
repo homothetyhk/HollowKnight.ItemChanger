@@ -1,0 +1,5252 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/a/HollowKnight.ItemChanger/HollowKnight.ItemChanger/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "M/BMro7OhmCurOmlxi5fYVJZMCczC5+l5Nd0XvlV6fQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.AbstractItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.AbstractItem.html",
+          "hash": "ifQ+HSBVFnhi8HU0MdqNoWwTzj7ho9ke7JPprk6vGfk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.AbstractLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.AbstractLocation.html",
+          "hash": "gDNBVa0d7sROccAL2TzfbCzpYTShIpEXAnJQJUlmB3o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.AbstractPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.AbstractPlacement.html",
+          "hash": "1AbpdLWfyEVgNRMdy6BYyv7TXups3Lr7gnARO+mmhz4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.BoxedBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.BoxedBool.html",
+          "hash": "kSrMUSoE1Jk0lfWQEJEMJrHK/uODZDCenJWnu9h1dJo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.BoxedSprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.BoxedSprite.html",
+          "hash": "sUl+QSmXY22NQTyYHzNFTh0tZiX7ZrOYmYxTVo7BruY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.BoxedString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.BoxedString.html",
+          "hash": "5TOe8jp5CwrpRHZHxn2N16zJLWgI//WiW1+bTUsECLE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ChangeSceneInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ChangeSceneInfo.html",
+          "hash": "qEXj5mvpcTT92T4zUhe9GHSnEzUdN3D6ZsrT9opY6EU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ComparisonOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ComparisonOperator.html",
+          "hash": "5w0epN6KfCEXkFKUzh2AQhGiGfMF3EmleYLAXnR6iXY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Components.AccelerationMonitor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Components.AccelerationMonitor.html",
+          "hash": "dB0WHe3OFl3AQDEw1pFSq6XEYlHODt+bTNxTDufCPQo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Components.BigItemPopup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Components.BigItemPopup.html",
+          "hash": "G3MVQY9RwD7IspCTqxFNqY15yaZiG72Lfy45Sz/SaTk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Components.ContainerInfoComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Components.ContainerInfoComponent.html",
+          "hash": "VLN38GAcpMvLNEziY7BkHwPvgaI1HuPJ4pfksK7JVCw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Components.DropIntoPlace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Components.DropIntoPlace.html",
+          "hash": "ZvTvJXty5gVHCn5R2TN/GwQUKGBljk3Lw/xB8LY4hCI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Components.HintBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Components.HintBox.html",
+          "hash": "9NgorD5IdS8+ggo2/zQ7PoemYdfTaqLie+tQfi5MUwA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Components.ItemParticles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Components.ItemParticles.html",
+          "hash": "uKn7Or5ADTvLb+Oqf3BDRUZq+X5q7/JyBVoKxuEmQSI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Components.ModShopItemStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Components.ModShopItemStats.html",
+          "hash": "ZucF5LCotz4YLaBJmrTU4KV6aw4Lqueme8ECZd/+anQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Components.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Components.html",
+          "hash": "jcfwhrs5INx0ZMD41RVidJwsn+1B9MCGKlXeDw2dabE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Conjunction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Conjunction.html",
+          "hash": "crcWTQkj5TMXERO7I15BO/Gj/U3rXHvrJK/VHBzTksw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ConsumablePDIntCost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ConsumablePDIntCost.html",
+          "hash": "rsTIHd4ax1W8a/P7Y6Q4+XEY5enbz7C+fEnhSJTNhak="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Container.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Container.html",
+          "hash": "2qfivV5b9Sypwm5TUsO0rwc8YQhD+O8A4w3N8yX4txM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ContainerGiveInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ContainerGiveInfo.html",
+          "hash": "8PaZ/xA1UjFh39JIXZbz28/fc/hfxOKcAFocu3RGUl4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ContainerInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ContainerInfo.html",
+          "hash": "DZsgfa2p/ORqkMZJXAjZ7m4waDyRAFvjINB4SLdAIog="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.BluggsacContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.BluggsacContainer.html",
+          "hash": "OH1Fy0OPaaaeF+pg5pF+a4pp32wYB1S5TFdJeeB9qdE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.ChestContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.ChestContainer.html",
+          "hash": "sRzopUom6EfqtywlbOQUQN86VQtoAdm+uMAKp4/mmnc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.GeoRockContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.GeoRockContainer.html",
+          "hash": "zW4KOrIMoAblBiLSwk5c1twKm6f7aCeHNgHUqM6NPDI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.GrubJarContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.GrubJarContainer.html",
+          "hash": "7baINsjFNpV4kzeg/kedbQcFlqjI94nKp919LYNMKWQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.MimicContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.MimicContainer.html",
+          "hash": "eivUW2BHWOOfubKS1PsKBnNJbg++FIIrmZkfLl/1YWg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.ShinyContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.ShinyContainer.html",
+          "hash": "C2mfdTqzDtchfP8QllvaU4QQY7Ax7yXFRCAZ+HSWzGU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.SoulTotemContainer.SoulTotemInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.SoulTotemContainer.SoulTotemInfo.html",
+          "hash": "9N8ctcZcaAlwh8x7VG94nzRGx/F1NCg/Kuv4N3uQHb4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.SoulTotemContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.SoulTotemContainer.html",
+          "hash": "O3e79MM6mGE/ZK+hBbpAE98w8m7FcDAXqDCmRrjEKcI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.TabletContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.TabletContainer.html",
+          "hash": "yZbRh/g58zs3q7zJpiho1O54RI8pjkZmPncJo4O9Hzs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Containers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Containers.html",
+          "hash": "wlHQ0fOb2/5h/sm4M9i0iPeInVeKjcwVKRrNXewqiKc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Cost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Cost.html",
+          "hash": "hHgHwn/DL5wVuYGWMbKEJOfQwcwhZ/BsV30PvtFstho="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.CostDisplayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.CostDisplayer.html",
+          "hash": "XIbNtvmKBGTOnMLJjHLzgCYge0fh5lh2GhVwVDf+rSg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.CostInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.CostInfo.html",
+          "hash": "RYxFsCUnteGVLVw+h1a1gpnAXOfHoMMtPo+8cubOxdc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.CostTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.CostTag.html",
+          "hash": "9NTbzerhQ+aHVMylqUtL9+zk05oWLEKNiCdSYX6MChA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.DefaultShopItems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.DefaultShopItems.html",
+          "hash": "FOiIkElH2wl/Rnfki6ukOPeHQ5WCwROnTXrCNiOqhGQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Deployer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Deployer.html",
+          "hash": "LBF7VduJc+c0ruOzekTV7rSCCcSbndTr4mIZ44nIlAM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Deployers.EnemyBlockerDeployer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Deployers.EnemyBlockerDeployer.html",
+          "hash": "YC6QyH5ipMphL/Og7+vc/sZ0BxQD0L3r7ZjxEKahxWU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Deployers.HintBoxDeployer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Deployers.HintBoxDeployer.html",
+          "hash": "M/bO2YJvdK3mw25svRgtKjrfkTLakawqY00LpdHjREY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Deployers.ObjectDestroyer.NameMatchType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Deployers.ObjectDestroyer.NameMatchType.html",
+          "hash": "yLONLjGnZ3umPbuhfJQkPBIi+H1USBEjClOsho/aRnk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Deployers.ObjectDestroyer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Deployers.ObjectDestroyer.html",
+          "hash": "I2AssE+mIx/tmeX71HPmesMzRlSBZEt97Of2jysYYtY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Deployers.SoulTotemDeployer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Deployers.SoulTotemDeployer.html",
+          "hash": "PAtM0YDLtnKtBH+PEK7I+DNxomkNdKQGgFhj4NE7iKo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Deployers.TabletDeployer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Deployers.TabletDeployer.html",
+          "hash": "LDD9rFDUmGtXSY2luiRPMCU8rU3W2umRJKaYd3s85Ec="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Deployers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Deployers.html",
+          "hash": "zGR8hQHASNAu/sfd0Exto/HsJASPBDaD+rPeveYKKqI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Disjunction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Disjunction.html",
+          "hash": "MR4ZRQ4HRWMMnJourl+6vVTepX7QOlVBZGbL89+JviE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.DropType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.DropType.html",
+          "hash": "TL2FZQHdptUf1VYjeeY9RsDMKgcV2Dw/zHYh0fR/o6M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.DualSprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.DualSprite.html",
+          "hash": "pzl2EDkM9ht4TzzxnJ+8udy/4pmkp8Ta1oK8SAF3Z7c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.EggCostDisplayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.EggCostDisplayer.html",
+          "hash": "WniB9FgScH2UzkHUMBfm3qa8GThPG9dOnjTjXY0UGqw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.EmbeddedSprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.EmbeddedSprite.html",
+          "hash": "FAtYxa1MmRlP1NUAfDVwjsWqsDVQqHioP8CP7nI6ABw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.EmptySprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.EmptySprite.html",
+          "hash": "ZrgeXXsoS7qgf7xlsHXt+x3ysR9EnI7uYbNB4qCqx6s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Events.LanguageEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Events.LanguageEdit.html",
+          "hash": "EycY4rZaqntnizvZxTR5JzLxxFJhUvb4AusxNf9eYOg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Events.TransitionOverrideListener.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Events.TransitionOverrideListener.html",
+          "hash": "NXABMZIDBTu/Y6olcLAPnNKyO8drE6iysuBhOAhlf3Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Events.html",
+          "hash": "BipLaYRyProYm2WW8mmEXBkTN0sA9BP73tSfBd6e6cg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Extensions.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Extensions.Extensions.html",
+          "hash": "jkmcXvC9Zr5ZQAWjf3lRMv/Hy/rwy1s3a6ZKgQdogUA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Extensions.PlayMakerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Extensions.PlayMakerExtensions.html",
+          "hash": "XG49leQvnjvKDsUkU4u9+q9pUWfFpz0tkkf8cwhE350="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Extensions.UnityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Extensions.UnityExtensions.html",
+          "hash": "dQB/V7vHttrcVL00FePnLRrGoQqgmbZe5T6JMwDzzwM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Extensions.html",
+          "hash": "JAwGquOLmL9dkiecpR2zqORmRTJTU0uYcHjYTU3RNUc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Finder.FinderItemSheets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Finder.FinderItemSheets.html",
+          "hash": "o5GsTTy8IjyZ82jXGFXQ+hxr6SIimsk444nhenYsi3E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Finder.FinderLocationSheets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Finder.FinderLocationSheets.html",
+          "hash": "CHunbiJfNQwUqVy5cIw/PqtLGtUmdSJIfcvoTdqxMJ4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Finder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Finder.html",
+          "hash": "j5VQh8TVWd6bxLrKOIe9gdFn7Mj2oJXizaXs4Y3zLpk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FlingType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FlingType.html",
+          "hash": "rskVTJ0RrYtpuFOeFCI3iQUvmBZJS1Gfqwtw8+ryejA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FormattedLanguageString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FormattedLanguageString.html",
+          "hash": "oyBbvhL+7Sn4Mkf1Rz8xvk9yuKx7aHxXnaViVsGHcGA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmID.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmID.html",
+          "hash": "sJlT4KMuwXyT/YznkTZnLoK9jucXtorrtHBkG5ZwocY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.AsyncLambda.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.AsyncLambda.html",
+          "hash": "pllw40Piw04rMVw9ihj/JEVp+ozSpB5HPn3H9iO/r5g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.ChangeSceneAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.ChangeSceneAction.html",
+          "hash": "1lz9XBwY8sQwYKU6yfydtBhlTh9aslS3xyj/VoDJNL8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.DelegateBoolTest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.DelegateBoolTest.html",
+          "hash": "I0mLCUv7zFthhUqOwu8fW+FnTVMpqCu6LBLWQa+8ya4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.FlingGeoAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.FlingGeoAction.html",
+          "hash": "Q6nPglSsLoR858TTi8ysN+EvujE1HjGN5DdIHlurDds="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.FlingSoulAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.FlingSoulAction.html",
+          "hash": "EJW2LDJTPDcrYcBGlpKMdAOOdGxGxvFoIiHr7jdVGyg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.Lambda.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.Lambda.html",
+          "hash": "iS+EyiOCgFbPNHU6QzBHfOQbIJQOuOuWj9j24q2SsPE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.LambdaEveryFrame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.LambdaEveryFrame.html",
+          "hash": "V1qoZob5ULidD1vg3mex/dTAHpbWqn2oZ6WLJAAgFfI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.SetHardSaveAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.SetHardSaveAction.html",
+          "hash": "XgDmhb0KHZuP0n0N9+/FpYcB+JJqafOkkdN4ACjKQP8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.WaitForDelegate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.WaitForDelegate.html",
+          "hash": "lUCtxoVA87ZuMY2vxFKfQJzYv/9oUw9k2bzohxlhZRw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.FsmStateActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.FsmStateActions.html",
+          "hash": "OVsRy1INwZq+gKxcMfhhsDN59SNYNKFUsao5nrqyNC4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.GeoCost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.GeoCost.html",
+          "hash": "a0rRlBasWwyJH8OYBr4PkL9QxI9Ta/aZf2L5+Or8mLM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.GeoCostDisplayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.GeoCostDisplayer.html",
+          "hash": "1HVzpDPwEYIqwjt56aG6mgCOs9zvajmEtS7rthf03lY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.GeoRockSubtype.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.GeoRockSubtype.html",
+          "hash": "4CVOvaW09uFs2A6go/r4rTY5S6CCjqx4SlyXmdAE1Hs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.GetItemEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.GetItemEventArgs.html",
+          "hash": "F//AFqA8E3xnk33zS/bHDLvtG8xSD4vAGvas3XV68BY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.GetLocationEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.GetLocationEventArgs.html",
+          "hash": "YePweSU/94L2bUfdvsQ+q1Z/n7gHELMGhTredLdQvC8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.GiveEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.GiveEventArgs.html",
+          "hash": "MeOm6WrWCloPTXwUpNcp8hzi1Rh2n1GQyKcEbf8e7sc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.GiveInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.GiveInfo.html",
+          "hash": "o+/dJL3v+XCmjScvUOk3HdeF46nHbkun0NYnl+u+ong="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.GrubfatherRewards.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.GrubfatherRewards.html",
+          "hash": "SHOd8RHh9y957rqcI32H+RO7C+1sFYzAHvST/pkKADw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.IBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.IBool.html",
+          "hash": "zmWzJbHXzkv0BGoJyqlTrpi9YpHqbsoGotltyOZXOj8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ICostDisplayerSelectionStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ICostDisplayerSelectionStrategy.html",
+          "hash": "5TKjm+LpgRtpopS7cBcIrLg/8IyIaczuLPfoHYaLNiY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.IDeployer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.IDeployer.html",
+          "hash": "rFV7OHLKIixDuNzs7EVoW+y4KAmMAQu/8fv8aVLgpIE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.IShopNotchCostTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.IShopNotchCostTag.html",
+          "hash": "MXdisvVqyJzcY5mEjcajD10RRbkmLtToa1B9zVwWgb4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ISprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ISprite.html",
+          "hash": "G/1exWPbGLnQn+zegMjG264ChKx9Bi5cyo5sQzqKZ3Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.IString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.IString.html",
+          "hash": "KupB/debp1oJUla0np7Sty1hAgZDnFaOyXdV9XvrGMM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ITransition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ITransition.html",
+          "hash": "KBKCDRya0Jsstvh3sJtiEXul7Dy+X7mcx9VwaUb2QaM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.IWritableBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.IWritableBool.html",
+          "hash": "nrcVYlI0gs0rYks/p5KJ0cq7NHFqzjXNpeMmbIhkfbE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.DialogueCenter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.DialogueCenter.html",
+          "hash": "NHxWFjEFo6cg15XcV3v/E12QqyFqxu/x/I8XI0K+OTs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.GlobalSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.GlobalSettings.html",
+          "hash": "nCriozmznV/Vhlge83zavuiEndQSahIhPau0CyJ63KA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.ItemSettings..yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.ItemSettings..html",
+          "hash": "kx3BzNGauFoOzVEFghoMocFiaf+jsQEYKCOJ6q82FAE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.ItemSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.ItemSettings.html",
+          "hash": "3bHRc0tbVHYcUp+16Rq0H90zl48CuBMH2Cklucpw/l8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.LanguageStringManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.LanguageStringManager.html",
+          "hash": "4hDDugYziA69j34nnR23e269QHem2ZAeE48/yY9mZ74="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.LocationSettings..yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.LocationSettings..html",
+          "hash": "l+C1+i3JkDaNEg5rlLzhOH892fbEnxP+HD0qkPsqwv4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.LocationSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.LocationSettings.html",
+          "hash": "m+rmOyjTKzG/IZDDO7BIQk4SblGUEPphn1H+PKlHErQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Menu.ItemChangerMenu..yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Menu.ItemChangerMenu..html",
+          "hash": "gtqtEnShHvpygAWKhru+5hCU0D+o9KQFYgkWeimyVjk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Menu.ItemChangerMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Menu.ItemChangerMenu.html",
+          "hash": "c6ka/htWIHJ48WqzCIN/WTL7KgEeRRUGDHxwtHY5gEw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Menu.ModMenuHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Menu.ModMenuHelper.html",
+          "hash": "KDzK/P6Ll6mMC1g0JPkmLxtvjcnbL+CzPVHfffOwUNg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Menu.ModMenuScreenBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Menu.ModMenuScreenBuilder.html",
+          "hash": "lyX457od4s5vzLuCwFjWuArt60xqCT103XXTLqMM2Xs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Menu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Menu.html",
+          "hash": "cg5suEbCqkPjOph3a23+d4OpOkQiyn8KaAnV12vxebM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.MessageController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.MessageController.html",
+          "hash": "468z9ISf84WluJcsT0VQhaF6V5LI8pe2WSs09rtFtr8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.ModuleCollection.ModuleListDeserializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.ModuleCollection.ModuleListDeserializer.html",
+          "hash": "MDbQUxTIYdbUKRWEvOdB4vIYzxlcU8Sq3ADF203Ah5g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.ModuleCollection.ModuleListSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.ModuleCollection.ModuleListSerializer.html",
+          "hash": "yq917YxrJhSCBRMz1g9H71whygniR1KZtCqNAg7X1b0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.ModuleCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.ModuleCollection.html",
+          "hash": "5eJlDNj+f2QQyBA9xFWDcZTnHSAdgtnQzHuLfKMYy34="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.ObjectCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.ObjectCache.html",
+          "hash": "UIdXWUIF1kE53ce3fpPinP0zMpQYrI6hcOxL1bLg+gY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.PreloadLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.PreloadLevel.html",
+          "hash": "2oS/AS7OcboRsPIuUwLfILnK3Xo5yQnfTSi4Mm2a0O0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.PreloadSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.PreloadSettings.html",
+          "hash": "53vt8YEZJIGQABLoZZKtuL1XqyeyUS/kJflm8RB3PoM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Preloaders.CorePreloader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Preloaders.CorePreloader.html",
+          "hash": "hC4cEwlaZ4cPgm62iDKXlagdA2aSyFlyIC0Sgzfb098="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Preloaders.GeoRockPreloader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Preloaders.GeoRockPreloader.html",
+          "hash": "Ic/kYZ+He8AusqhPZ1E+UebspnZG4HzxfdPOq/Ej/EM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Preloaders.GrubPreloader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Preloaders.GrubPreloader.html",
+          "hash": "35zdy/gtCqd3xZvtV6XCdLcid9HZBi3LhFeW3250OQA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Preloaders.MimicPreloader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Preloaders.MimicPreloader.html",
+          "hash": "f9Oq2gBR7kktXlK0f6tqnHNBQBo+DTD5Of7UN3UGd+0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Preloaders.Preloader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Preloaders.Preloader.html",
+          "hash": "x/n0db3cTV4AuC6WY6VR3oRMopiIu3Hl5EvFL9x8LR4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Preloaders.SoulTotemPreloader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Preloaders.SoulTotemPreloader.html",
+          "hash": "PLT9s61rmQmbP/l6h86afLo/jrCKEr//UxhsIsl2lG4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Preloaders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Preloaders.html",
+          "hash": "r/duXdod18x5OPs/qgRX3LutKyfilO10g5uFuDdB+kE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.Ref.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.Ref.html",
+          "hash": "zeY/7rD/EhcjkznMbst/2hSZH2Rj8QzXsr/53o4Wt70="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.SoundManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.SoundManager.html",
+          "hash": "Vk43SnmuLGP1tZqEBvTbDZD5bWgiCrooc4vWEAbuL+Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.SpriteManager.Info.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.SpriteManager.Info.html",
+          "hash": "RZXXNlKXHOu6poqdfusl/piThYJlSmvuaW4+arMlsjw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.SpriteManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.SpriteManager.html",
+          "hash": "NNcEdodRf4LS6nurVAc+H6r6sobSfo7JVQ9CQwfZ8kk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Internal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Internal.html",
+          "hash": "HZoGTLtJ9DnTx0+bHI7BMmGdzOzUuLKz4Wn+NE19RFY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ItemChangerMod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ItemChangerMod.html",
+          "hash": "EnkWGX/niwnewJFysKJqYB4T/yAj9EIHvYwcUmZe2q8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ItemChangerSprite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ItemChangerSprite.html",
+          "hash": "oVYaqKUq+7h5QjTW9jjRLLaaVqq6Zpnwgl1moEDTbgU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ItemNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ItemNames.html",
+          "hash": "bvJXl3TMw053a3QALBlGw2y3wtGRO/hStYcpcchLdf4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.AddGeoItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.AddGeoItem.html",
+          "hash": "prWx4Ar2LRU3LDjWRy5BpcWwcMFfv7LRUxVgt+3Py+Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.BoolItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.BoolItem.html",
+          "hash": "Nx31IInXUf8fRQEoex0esiintxw5Ya6vLg+KS7QtVWw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.CharmItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.CharmItem.html",
+          "hash": "UtGNYQclJK0GFEfQMFyIiHRkWSkmGSGrJi4Q+KzI8WI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.CustomSkillItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.CustomSkillItem.html",
+          "hash": "cHnHeSZsrcdC1IkU7gGYb3unoUhUgO4FKgBpaCOEiTo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.DirtmouthStagItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.DirtmouthStagItem.html",
+          "hash": "7lo5QYANSqIb75HURlrhxkgZPhjf0rHJ53/jFf7tujQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.DreamerItem.DreamerType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.DreamerItem.DreamerType.html",
+          "hash": "dRyr47kR0T54+y8n2xCRWrpsa7PzWwFEZjvXP6S9TOM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.DreamerItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.DreamerItem.html",
+          "hash": "jAeEO8ztyA9ZCF2RzyDFXzJgKIRqXg3cyYOmO0TGfhA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.EssenceItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.EssenceItem.html",
+          "hash": "0EzEQs8glGcS1lGLCK61jY1U6iZ6ZR8Dqxo1hKj+tWA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.GeoRockItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.GeoRockItem.html",
+          "hash": "/5zz51SKNtoEORImesLcWoo+W0bSS0eL/oS73hT/6/I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.Grimmchild1Item.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.Grimmchild1Item.html",
+          "hash": "0jGfgXBHNuLupQKqKL1ycxfKRYRteYuInuRXhKFuxk4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.Grimmchild2Item.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.Grimmchild2Item.html",
+          "hash": "13sruVlNLBjC0MZaEmHkgqIAbymvLZYJHi8n/NTqpnQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.GrubItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.GrubItem.html",
+          "hash": "RE8zCzLJWeaVIAVEOD3C/TfNoF2p9A38ovSyCQNmlGk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.IntItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.IntItem.html",
+          "hash": "nzPxzL8cixGSxPeIB3SLvqEdO1f3BJ+Ol2ch9HBWOnE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.IsmaItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.IsmaItem.html",
+          "hash": "IEt+rkogxJeFuS4qZDu3tyujVxFbF9qNNsWPlgTIcS0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.JournalEntryItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.JournalEntryItem.html",
+          "hash": "e8uGbcTqh69LogxmUrVRzuQo9vXITQYKNpudWLxa7uI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.LifebloodItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.LifebloodItem.html",
+          "hash": "0i52Co7tkCeLcptmnYGsJBRLMyOsixJ9cO2H7LqThPs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.LoreItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.LoreItem.html",
+          "hash": "cA4pV8VTykkp1vcXXsgyl2FtaUg+27kaTMwjkW3KXug="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.LumaflyLanternItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.LumaflyLanternItem.html",
+          "hash": "OICc+/HCGqt7vRnLUFHAPT/Og8bSEuqqBs6XR78K9Hs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.MapItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.MapItem.html",
+          "hash": "hSNKzRB2D8wWrtfps/PVW+pQWPTQkjhyRRkCMQZSGbE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.MapMarkerItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.MapMarkerItem.html",
+          "hash": "EcFiuxhtWUJEGUvf5j4iNm+1J99e2r8NDI5cst1BsHc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.MapPinItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.MapPinItem.html",
+          "hash": "/ZHh5EeI3W92eX5C4J7qjd277SObUIZYhW9fJ9PJyQU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.MaskShardItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.MaskShardItem.html",
+          "hash": "yyusFtvkygr38bUey8zTSITD0cydJNwP65W8tPUkk9w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.MimicItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.MimicItem.html",
+          "hash": "WrT8jK5UhQF7uxqnkBUDo8L9dNPL+SXvNYdZVgfkZis="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.MultiBoolItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.MultiBoolItem.html",
+          "hash": "Jo5xlBv5JW+zOFi13prcLnMKWK7K3tiPHKTFFwTdkVQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.NailArtItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.NailArtItem.html",
+          "hash": "4QV2LIsHaV/GgyHtotgriPZAZlo83/oyvfLKz+XYFYM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.NailUpgradeItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.NailUpgradeItem.html",
+          "hash": "ufm9kfNhctz/Mc8YsCWQV6aTFPqhEmC1gPJKErgJOxk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.NotchItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.NotchItem.html",
+          "hash": "JplNr1j52tTO3DlWpJTYcbR9zWNXitDIM0Hw42iQw20="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.RelicItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.RelicItem.html",
+          "hash": "P+XIXaTlf2d6kutZxEJxl0gK1wsje9QKJCFoLZJ7uME="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.ShadeCloakItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.ShadeCloakItem.html",
+          "hash": "NCPCUTobPpv3UL8CHRorXtkl0xvQl/ZZQsOcIu8zs+0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.SoulItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.SoulItem.html",
+          "hash": "mOkAG/AiPjSogjBgL/6bx7K7SBOabiRvfV8NuDUnq/c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.SoulTotemItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.SoulTotemItem.html",
+          "hash": "3dig8CPg4NsPA0A7TT+W2YrsuurmRmChxbuwwswi1To="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.SpawnGeoItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.SpawnGeoItem.html",
+          "hash": "haXEwzOwi47Pk0hjRcBkvXHIzd8SVg+F3gQwq9wyrGo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.SpawnLumafliesItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.SpawnLumafliesItem.html",
+          "hash": "KE4w38RgzaaF1FCAx3PaRx+GhsHwrzX/VUzPvxq0LGc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.SpellItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.SpellItem.html",
+          "hash": "UktVWW2UlX0fpCg4SuUNYG9mP3GQrwiIkMNBviegynI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.StagItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.StagItem.html",
+          "hash": "tq1zKq+lIuVnALjlxbI3EDhfQhEzmnahPI+N1nmgeo0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.UnbreakableCharmItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.UnbreakableCharmItem.html",
+          "hash": "DF+DtokO2jzcOFx8jpwngk4DkzofW9kYthcw96S1JVM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.VesselFragmentItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.VesselFragmentItem.html",
+          "hash": "oCtOOR1G0OjIUgUJBfUaM5teyfl3PsFNJS0r9/N5i2o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.VoidItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.VoidItem.html",
+          "hash": "YfI/eaEUnEd0pjoLg2ueLJ1saZSaTPZ3xndVMFTrVAw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.WhiteFragmentItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.WhiteFragmentItem.html",
+          "hash": "hqBhUK72sz2dMNiM9QTSg5RglLUXNhy06giV+fgzu7Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Items.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Items.html",
+          "hash": "PSk8TH0tjFOqgP8yK6UBsh7mTDrk5K5ODlafQA3jAVc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.LanguageGetArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.LanguageGetArgs.html",
+          "hash": "c/UGiIkGLccesOwp6el5To2kz9JqWRXgUWiKDvoDY1c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.LanguageKey.LanguageKeyDictConverter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.LanguageKey.LanguageKeyDictConverter-1.html",
+          "hash": "e+kd3enFS5toLQMyXYVANxVaiuoOJQOiElSmFl9AANY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.LanguageKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.LanguageKey.html",
+          "hash": "QZsEOfipFMSLZHD9ewfhgNwKXWvtWyIyBQSUvvXQ+K4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.LanguageString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.LanguageString.html",
+          "hash": "EFy5RfOjZBaSTvV3ndFveViuN5dF+0/HFZ2QL5H0B5Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.LocationNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.LocationNames.html",
+          "hash": "RktWIFMOfvGUfafZINKOk6hEJC0pKiYjwXiQiJH6ktY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.AutoLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.AutoLocation.html",
+          "hash": "Ig9r8rn3zazFxYL+ZITmzaYbXsSr2cv2HIZatJKAdEU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.ContainerLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.ContainerLocation.html",
+          "hash": "bfkLco9n0AQC4ps09t/IfCy0NjCA9b3AmXsb+CZwSS8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.CoordinateLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.CoordinateLocation.html",
+          "hash": "1Ydh6ZeVwiUZa8Mg3QqB9C/BkdB6NMsxIRdIAUw2iiM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.CustomShopLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.CustomShopLocation.html",
+          "hash": "Ni1VIUobTx2ng9Hr7COvKud5nIeospsMU8xlF5hh0H4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.DualLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.DualLocation.html",
+          "hash": "VEW0U9QHB7gqnDCaaDfJxY4WS/T9F2bvd9gr7sgMQM8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.EmptyLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.EmptyLocation.html",
+          "hash": "q92c4oUZvaWiYZMZ09mbSKqjgWsI/7WRf37ATHMsLeE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.EnemyFsmLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.EnemyFsmLocation.html",
+          "hash": "hje6Jcp2diiCq07Inu+nXnl1wzT5xGmYTQZUvcZdOsY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.EnemyLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.EnemyLocation.html",
+          "hash": "pyskH9P/EoF1wvKwv6gybSmgg7ewHCm7QAS2gkJLcws="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.ExistingContainerLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.ExistingContainerLocation.html",
+          "hash": "aA/IfnYuIGzDTKf9NG2CEiRXTF4ErQurqNxQ1LUeZow="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.ExistingFsmContainerLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.ExistingFsmContainerLocation.html",
+          "hash": "QLjVmBsSbHZGvOxpe/8VSmzLyLoehJ2+wgILyw/Mp+A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.FacingDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.FacingDirection.html",
+          "hash": "/Ybj3MdMq0Nt8nO3JqLx8Hk7DWGTErJl7UjIbqC0trQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.FsmObjectLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.FsmObjectLocation.html",
+          "hash": "OicMh37V9QeR8YgkYT9+2jrJyIeCKc0NIykEYC8OACA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.ILocalHintLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.ILocalHintLocation.html",
+          "hash": "ZLS0sClnnJMUKVnUGxUsgK20VxJ4kAkvHtcbrOHfhjc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.LocalHintLocationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.LocalHintLocationExtensions.html",
+          "hash": "4dAx1dNEFwzIsXQ2qd1Ew1wjVSeFEyVFMXUg4QoGyHo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.ObjectLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.ObjectLocation.html",
+          "hash": "cTOQlaaf5l/3OVb1p4Debdef449iFn2wCiORrP4yFI8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.PlaceableLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.PlaceableLocation.html",
+          "hash": "XLCUqEStB7TyFOXwkb5j8QgOL2XwxWpb2tSgSPYYhG8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.ReplaceFsmLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.ReplaceFsmLocation.html",
+          "hash": "eHfo9ZdQnLJsjw5+ytZxNI5RxNeDF4vN3xWzyZA80EA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.ShopLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.ShopLocation.html",
+          "hash": "Y5p6uLpuUQjZmbsIqSIqRwnytpjOzPEW687tGBUhCDI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.AbyssShriekLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.AbyssShriekLocation.html",
+          "hash": "Pe0wjI1xKcdNubtBRpaeJuUAVFLsoFz2F9m39eTpPv0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.BasinFountainLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.BasinFountainLocation.html",
+          "hash": "X22HebOrTLlxjzIeIdoSYrQgY9QWW3VVyVUaiEiI3as="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.BossEssenceLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.BossEssenceLocation.html",
+          "hash": "31lvRgXXqNcJEdheT81q3nqNNQ9Xnc8bKVpQ6L5NQ5U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.BroodingMawlekLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.BroodingMawlekLocation.html",
+          "hash": "uMG/jLqMXabNX1F98O3OZ8wYTg95d1Ih3lzlNlLCoWA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.BrummFlameLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.BrummFlameLocation.html",
+          "hash": "YYGnNbenffTsegO+IUfWE3gsIMqbLDNQCM4s+arryPA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.ColosseumLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.ColosseumLocation.html",
+          "hash": "5SeL8xqrp4ldIsikBWU2PwulUXRWy3G474bmJ26NxX4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.CorniferLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.CorniferLocation.html",
+          "hash": "gWwzWE7AwnlK9ICPet6e24/Gxxh5hlCcmK7JtVOUks0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.CostChestLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.CostChestLocation.html",
+          "hash": "tgcvD0Fq8QCsSe4SO+fpPiAoSGfnzeZs1AcqRF5SYIM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.DescendingDarkLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.DescendingDarkLocation.html",
+          "hash": "LkrHjbRTAEkqYPUX6axz7Cv/tauOAzk/LOEA8tr+0bg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.DesolateDiveLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.DesolateDiveLocation.html",
+          "hash": "MxUO1UMdDlzGk2ZyVa3uRi1D8mUmw6lzO39ndxqF/No="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.DivineLocation.DivineShopSlot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.DivineLocation.DivineShopSlot.html",
+          "hash": "XMdZ+W0zRLlguZUMqjnyOLzOSlvhCgPxl0y+3Fh2fow="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.DivineLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.DivineLocation.html",
+          "hash": "1TxtpuZq0cuqLUD4LrCSR0tT+qpOBlUEhkm2Wr+knuo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.DreamBossLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.DreamBossLocation.html",
+          "hash": "zvU0Idnbs2Hd9e0ume8jdPDAk8FDEO6l5FZeChDD0tY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.DreamNailLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.DreamNailLocation.html",
+          "hash": "rxQEbL/HlGy5XXe7T+LdYx08FBqtKd+3K42VFN7Re0Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.DreamWarriorLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.DreamWarriorLocation.html",
+          "hash": "5dLWFnW9A3MyDywc8/g83gAUDooH5cxc8tkuFIz8ypM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.DreamerLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.DreamerLocation.html",
+          "hash": "wybRZsatM9g2XS/1Wo5nrueXuPcz3kIqb+6k1h+TLg8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.EggShopLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.EggShopLocation.html",
+          "hash": "7vjxRCYVlZ6J19lfo0pY596e0X0ZaS5HbSfGCjf/9cs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.GodtunerLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.GodtunerLocation.html",
+          "hash": "9q0iZv3VDYsyHV54DgFIiEodBu7G8r/YSD10g5PWi4o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.GreyMournerLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.GreyMournerLocation.html",
+          "hash": "aj79djPD8Pna3uxrzbYgH1o9tJ0WGIL7vXhaNoux8xU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.GreyPrinceZoteLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.GreyPrinceZoteLocation.html",
+          "hash": "5ZzRTizMmnVMK3tcENbEH71EpWBfcB8Z3VW1F17vB4s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.GrimmkinLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.GrimmkinLocation.html",
+          "hash": "syVCjrZpFJRZiQgXVlyrtMG2+6dYLgUdcC8JBkqPfrA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.GruzMotherDropLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.GruzMotherDropLocation.html",
+          "hash": "CgMGmvPNueNHCrsmf0vdVWaBP71QUHMbipBnrtggFWc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.HuntersJournalLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.HuntersJournalLocation.html",
+          "hash": "0WzfQeNVE6QBBbNHG+8uLlCSzIhKbWiYfMzv+HVnVGo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.KingFragmentLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.KingFragmentLocation.html",
+          "hash": "TQ1HH+heNvMT3yC1cnalUknI8aZqL4sfFdZ5ypJDlNs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.KingsBrandLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.KingsBrandLocation.html",
+          "hash": "jff95DK/Ld6QyIy7Wbn/8/cYEIrYTq1oNxfHdooH468="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.LoreTabletLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.LoreTabletLocation.html",
+          "hash": "g7EilCicbi78DQLZfoKCBKVRfo6bZaE1x7ARhOl6J44="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.MothwingCloakLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.MothwingCloakLocation.html",
+          "hash": "BP4Y3sro7TGV9m8jCpKJ6b4sLEAQCrKuXRTld3XQ3ps="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.NailmasterLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.NailmasterLocation.html",
+          "hash": "HP4cQcKmQ//mBaKRrbEXX6A/P/2rYHjWAoa3sHxSKKU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.NailmastersGloryLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.NailmastersGloryLocation.html",
+          "hash": "8T70kqQUJcG+AdhI+x1fEJ681S/WNzE3Gyi29twSwUg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.NailmastersGloryObjectLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.NailmastersGloryObjectLocation.html",
+          "hash": "BfYinBB6/3IR9wUk7w7HqRynwsg6GEvqBCDID/60HnY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.PaleLurkerDropLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.PaleLurkerDropLocation.html",
+          "hash": "lnBcQKJ34bXARZbY3f4UOHwileQHSz9jSMWt2YzUIp8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.QueenFragmentLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.QueenFragmentLocation.html",
+          "hash": "kZuD5lRpQ5xOkBobxqTaF/xB63ksGllFvj/MM/oSWMk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.SealOfBindingLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.SealOfBindingLocation.html",
+          "hash": "GdYQAW6XmTP8YP00Pa18rv3n63WRCCR++YgehtMeBoA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.ShadeCloakLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.ShadeCloakLocation.html",
+          "hash": "IcCGiz7f35ot8BXXXw3dWAu7qt1rSzrJhcQCajZPBFQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.ShadeSoulLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.ShadeSoulLocation.html",
+          "hash": "P2Unz1NRrIJeF5fla1UMmrt6kvwMGxcWgTyM7Y9cT7M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.StagLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.StagLocation.html",
+          "hash": "v0nEFObjrlx2RvIxlFyE2larcENHqbW4FW3TnMX9DJI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.TukDefendersCrestLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.TukDefendersCrestLocation.html",
+          "hash": "m6Xc4DWdBEP8NLDYAp1/wEAgz+m2CiGi+8feDnZJDgw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.VengefulSpiritLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.VengefulSpiritLocation.html",
+          "hash": "tTEMZ4oEoRT2/Xtp75b9Sumu2JRzlPTFuFlRpTr8eOY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.VoidHeartLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.VoidHeartLocation.html",
+          "hash": "2qqElwuBupWJBv9kpiQUmaxnwZKOSbdHJrUn+KcAe2c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.WhisperingRootLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.WhisperingRootLocation.html",
+          "hash": "3lWnV69kwwvc98jupQox/yP/AQWHpSUtgtW8ov9AetM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.SpecialLocations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.SpecialLocations.html",
+          "hash": "otS9TXxx3RAxoTh3JLZEGKZOKU8miNgGU/Sk/wWqyEs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.StartLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.StartLocation.html",
+          "hash": "hYLvwPwqlPU01qU31AYuW7Givk4I9eyUOe4QLe6/iyY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Locations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Locations.html",
+          "hash": "c2RBiLEar/y1vnrj70tkBdH/IIltjA1QbLn+vCYHSc0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.MessageType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.MessageType.html",
+          "hash": "qR/ukWCSfd/UMWB5SqDA11hC53kT0LJq6Mn/0XM1qDM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ModuleHandlingFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ModuleHandlingFlags.html",
+          "hash": "DuENPBi6/w00RuQJlm7XXLMLLnx4CA66snMfGsOrMiw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.AltCorniferAtHomeTest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.AltCorniferAtHomeTest.html",
+          "hash": "n6Rtjc7+BMX9wT+k6CiDQEihCQpu3s0efKVpS0mX/Tw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.AltNailsmithSheoTest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.AltNailsmithSheoTest.html",
+          "hash": "itTa7jwnI9ERc1WR4wsM22F9R/PcIw3RBXTSuRaQVRs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.AutoSalubraNotches.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.AutoSalubraNotches.html",
+          "hash": "wnt/wsUnmy911S5iSd5EK+PtUENHSb9K7XgSWOr/XiI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.AutoUnlockIselda.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.AutoUnlockIselda.html",
+          "hash": "HMWIg6RKTfZB7kQzlcZR/j5eaXUeQr05a0Vr5WqAxBo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.BaldurHealthCap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.BaldurHealthCap.html",
+          "hash": "Docca0Ws10BvsueGJAo8cRKTC8CcTL8PD+lGpdbDeWs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.BlueDoorUnlock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.BlueDoorUnlock.html",
+          "hash": "DYnDShtS2sohAEmBYiKKFIx01hULE4DoPMZ1SOO3nEQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.CliffsShadeSkipAssist.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.CliffsShadeSkipAssist.html",
+          "hash": "mFOmGIpjFyz75+nsrrauJNo5SSabZKw3gvUQ3td/zQs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.CompletionPercentOverride.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.CompletionPercentOverride.html",
+          "hash": "9ib0n0zJGtcbw/4tt1dgZyPaS6oZ/3JQfoEnGUJ/meE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.CumulativeEggCostModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.CumulativeEggCostModule.html",
+          "hash": "HY9ESImNW2M3pyiw9BbKbbqPt8MUQS5zNg7sIaHZLHQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.CumulativeRancidEggCost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.CumulativeRancidEggCost.html",
+          "hash": "3ZT+ZurOc0oUyycPseJ13lg14HJkNBNKY24105AsYXk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.DarknessLevelEditModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.DarknessLevelEditModule.html",
+          "hash": "gPzUDeTsJESGOUPzAXISZYA9O/SdkwZu/rwt/vfycPU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.DefaultModuleAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.DefaultModuleAttribute.html",
+          "hash": "BuKtYyWhBUqk4NH3h8KRph3TFLO6u3H1tD/SmOqXL60="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.DisablePalaceMidWarp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.DisablePalaceMidWarp.html",
+          "hash": "cq46UNc/0R+d9k911PRL6Y79/x//VS54C3XCegLEgkM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.DreamNailCutsceneEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.DreamNailCutsceneEvent.html",
+          "hash": "Sw4dfEb8SRyEfK7ty1QKbNxbsh4Ldh2W9Ph3KqrvVy4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.ElevatorPass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.ElevatorPass.html",
+          "hash": "ykRPl1+zuH3dN6SXXyrB7rpEYzaWJt61sqD2GIfTJAQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.FastGrubfather.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.FastGrubfather.html",
+          "hash": "b89yNKvQcj7sI7bawp+Ld02XkO+ck1NYhyX6SeUo45k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.FixFury.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.FixFury.html",
+          "hash": "Mvotf7mEYJFrumAj9TVd4XWyD8PEKemcS9Erw4apEPE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.FixWatcherKnightConditionalLoad.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.FixWatcherKnightConditionalLoad.html",
+          "hash": "KkTt9xE1/UZXc6KJbWaPToN9c7RbVw9tdiFmGC5B+wQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.FlameCost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.FlameCost.html",
+          "hash": "wwfzDFLui5ZD80WFRZfVe+2E4ZXYWiVYVuRqG0o/zkU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.FocusSkill.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.FocusSkill.html",
+          "hash": "nuFzCuvgfoYXonOB/7nnqknklIvlpAKdEQ1yW9Bkv74="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.GatedGrimmTent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.GatedGrimmTent.html",
+          "hash": "edq1ooR6Us0FeplSTGFw7kv7XpbV8+7FTiA5TL37YIs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.GreatHopperEasterEgg.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.GreatHopperEasterEgg.html",
+          "hash": "L5lYayTX+6T/8gRvfHXwxjfIDJPr/afxoLahI1qYTyE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.GrimmkinFlameManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.GrimmkinFlameManager.html",
+          "hash": "ml9ehTCMvoRttLN4XWMFAWyxN8sg+w1to2022ksM2y4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.HorizontalTransitionQuakeCancel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.HorizontalTransitionQuakeCancel.html",
+          "hash": "0ySrnk4QRoJBYdwKbDt2NJ7BzGlaBp1Esc03lU2Ntaw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.IInteropModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.IInteropModule.html",
+          "hash": "9ngq4d9lDIvPOJhhd/wsEyDst8K7ReCnwKHPegRg30A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.InteropModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.InteropModule.html",
+          "hash": "NZZQUQjN9wNIyvcSelcvveprQSYKJB9VykHh2S59Fpo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.InvalidModule.InvalidModuleConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.InvalidModule.InvalidModuleConverter.html",
+          "hash": "Qmbj0mhLUUop9TdQ785pnKpMxvR5pVPo1TksEY788q4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.InvalidModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.InvalidModule.html",
+          "hash": "b6ZPKaXqIFQCiZN478ggwTvmk3969oeCqBhT8V/ycTk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.InventoryTracker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.InventoryTracker.html",
+          "hash": "2IrlKSNcScGX94AmMnJfj/pE5LMXGkieGX1WW7im0T0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.JijiJinnPassage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.JijiJinnPassage.html",
+          "hash": "jUn3rDzrGu2dTElqs6S0usT4oArU2+nTLB8BdrM0/1s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.LanguageEditModule.LanguageEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.LanguageEditModule.LanguageEdit.html",
+          "hash": "V1myncDb+uA3i0MdS1n83jfZaHh5hmuS4tkIFoaheTk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.LanguageEditModule.LanguageEditDictConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.LanguageEditModule.LanguageEditDictConverter.html",
+          "hash": "QORDhHQJKwhjTXDXOOYmOE5WmQDgQW97fojngVe0vTc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.LanguageEditModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.LanguageEditModule.html",
+          "hash": "6MCqQWd/0mES+PkWMPqcJbSl+px69ZiU+fzIHGKjcjw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.LeftCityChandelier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.LeftCityChandelier.html",
+          "hash": "j1pemOW1jPG84qXTI8jnj+sDSsTyIj2HArrRzSEWXPc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.MenderbugUnlock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.MenderbugUnlock.html",
+          "hash": "Y98JCWLJOQx5ipbIQw2xiAXtuklbaGZD6F9DYH41Hwc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.Module.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.Module.html",
+          "hash": "re02dy95Botva8pRBRLpkbXv8w82mUZuBl4pwVz8hjU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.NonlinearColosseums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.NonlinearColosseums.html",
+          "hash": "oQ/RqodSiNYx3rT5V71YRWUcbO5MyxhPyQaUYgMYNnE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.NotchCostUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.NotchCostUI.html",
+          "hash": "wIdctYvVcjkWrWsXMi9r9NoacTrFJUQ1awqoHyAWY5o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.PlayerDataEditModule.PDEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.PlayerDataEditModule.PDEdit.html",
+          "hash": "wW+vKMsTD9t3klJHYuywYEgd2+peBa/ArWXNKkDLpU8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.PlayerDataEditModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.PlayerDataEditModule.html",
+          "hash": "Qw1BOFAwzrqj/6FbSe+UeXMAx6iV/T6+++aQ512f/ok="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.PreventGrimmTroupeLeave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.PreventGrimmTroupeLeave.html",
+          "hash": "7VaSXs41I2Wm/5UFtcTLX67LNxUvg7DO3bDQMagFU60="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.PreventLegEaterDeath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.PreventLegEaterDeath.html",
+          "hash": "mxOOU3qc0nUwW0i1BQjWjDV/0GlhhGxdRFPpIVdBXI4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.PreventSeerLeaveDreamgate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.PreventSeerLeaveDreamgate.html",
+          "hash": "nz5QsI+nA8icDbj7zRD9BvzdYanAQLOvNWVU0Ojkd/I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.PreventZoteDeath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.PreventZoteDeath.html",
+          "hash": "qgs/LYn33gmPFW5fuguB9Wj11qTpKf1RZThaM1kbkaE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.RemoveInfectedBlockades.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.RemoveInfectedBlockades.html",
+          "hash": "YLZHB5/E719AYt9hsa4Ymz74oFySES44HXcwaDLD5pM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.RemoveVoidHeartEffects.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.RemoveVoidHeartEffects.html",
+          "hash": "JqzO7pgHPE/b0pYPvNMLYWBczr+bUsWYo7zxqb71fh0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.RespawnCollectorJars.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.RespawnCollectorJars.html",
+          "hash": "Cc3M5KqvpgD0VmOq+Zn5uE3/Cow2jpHecwVN/7xQxNc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.ReusableBeastsDenEntrance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.ReusableBeastsDenEntrance.html",
+          "hash": "bW+pbJy0Fp1DfNHl64VzxHiHp3euWm8y5EwToSoBy6M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.ReusableCityCrestGate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.ReusableCityCrestGate.html",
+          "hash": "kmbTX8zzT9SzElsEHtgf+SZEJHi6kklgtSz6dW7A7jA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.ReverseBeastDenPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.ReverseBeastDenPath.html",
+          "hash": "2fn/2uLF9W4pBvN7Q8jzcw0hQ2k+m6uphfP1foF/UyA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.ReversePathOfPainSaw.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.ReversePathOfPainSaw.html",
+          "hash": "hOjAhpoZgWqKlGiFCBUEozJVF891pPTFo2hBtvGxbkI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.RightCityPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.RightCityPlatform.html",
+          "hash": "fekzW5bg8JcH9pd0IpsR/gif3fgnWpuaW9HDWznbzes="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.SlyBasementEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.SlyBasementEvent.html",
+          "hash": "ku7bAOeqdxl9yrtgEBGG+IkWCFswQdjgAs7zXhVwBSM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.SlyRescuedEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.SlyRescuedEvent.html",
+          "hash": "48Rtcvki3LfAWsle2l6vP7rb8v0lIY4tbGkKZPyTP+I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.SplitClaw.ClothFungalEncounterLeaveCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.SplitClaw.ClothFungalEncounterLeaveCondition.html",
+          "hash": "qBuEXkvyc8RoofwA7SGIc7SgIhZfCwCxrbtWIgcib9o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.SplitClaw.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.SplitClaw.html",
+          "hash": "c59HHVk3ylewf/xcyj4/cUO2FdhbpXjUd4T4DM8YiW4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.SplitCloak.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.SplitCloak.html",
+          "hash": "depS0pw9h0wCTuWGbL2lbz9tAE1nZJYewI7cxWkZbuU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.SplitNail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.SplitNail.html",
+          "hash": "izx2RdjxPgLr20hJSHHguZcVTLPQQIEUHou7TpJYlww="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.SplitSuperdash.MylaDeathCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.SplitSuperdash.MylaDeathCondition.html",
+          "hash": "3x4nBtZcDi+A6VGCpwhgzaTDptNuWkffgA/+h+d6Jrs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.SplitSuperdash.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.SplitSuperdash.html",
+          "hash": "Mvk8UzZZSbCvW/SZJQENJrzPQ6Cn6P6tP57rimHyqJM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.SwimSkill.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.SwimSkill.html",
+          "hash": "uCGKDf4aBE/jzag1xeoAqq+YC3B0WcciqO7aIQn60xA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.ToggleableFireballUpgrade.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.ToggleableFireballUpgrade.html",
+          "hash": "0iAIUEc0rgiuTPLKuYRfPI4SY6WfO9LI4TVkz84gVZQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.TransitionFixes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.TransitionFixes.html",
+          "hash": "pwVzZAxr8iF6fd/0soPMoMMqrFn8pqLjjDeEn51nNDU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.WaterHazardRespawns.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.WaterHazardRespawns.html",
+          "hash": "bIGWC/VKtcxAFJrt2CGJcamrUWwBaZA+avmoBtQARSo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.ZeroCostCharmEquip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.ZeroCostCharmEquip.html",
+          "hash": "nsLKdgHq6IhVxUS4BDMamAq/XPbWb9ToVdnQOpkFjcg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Modules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Modules.html",
+          "hash": "KIxRWuPrWTqrSzpObwkk41V5dXcs4LoIaPAk3z7/4K4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.MultiCost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.MultiCost.html",
+          "hash": "z6uvd48y8F6SIt9r7ZkgqBr4MIgk3GxuTjQyRtgoUUI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.NamedBoolFunction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.NamedBoolFunction.html",
+          "hash": "ThA9l/kyF+f6OELqrHH8A/asIQfkpjxy7Im8H/xxOi4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.NamedFunction-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.NamedFunction-1.html",
+          "hash": "PGOX1RWXggLBEhEOkwIO2jIrSdC2ZrGErhL4Uu/uh+s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.NamedSpriteFunction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.NamedSpriteFunction.html",
+          "hash": "XqwPLjvexyLMm4aKlrI7DThph9lqxk4lp/RbKqIYeSI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.NamedStringFunction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.NamedStringFunction.html",
+          "hash": "arN81jQKFPRWMm9sUK71lQuuh72W3Lv5pGAbhdtvTsA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Negation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Negation.html",
+          "hash": "yB0L2U8XOl+a0hGfahLDwcWMzrUSDxiHmk3gRZoPkAc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ObtainState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ObtainState.html",
+          "hash": "BF5q8V1MXzH9zXtUGAbhDGr+JCeo9tVm/hzpUYXJaBk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.PDBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.PDBool.html",
+          "hash": "hfSovjKTriewhhgMnosObXcKXvn5A24axSfGl5aTol0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.PDBoolCost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.PDBoolCost.html",
+          "hash": "TlB13xM6mH+DZ1NL29/q9ISzubsdfEK2VP07FW3afN0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.PDIntBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.PDIntBool.html",
+          "hash": "/5KJ4e7WRRXlg7WvcZl6zUHlXLckUnccGiK+72qWcvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.PDIntCost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.PDIntCost.html",
+          "hash": "G4jGIovsQAP7vDB5IFHA8Xg/tnEZuVdIdQZBbpRInZU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.PDIntCostDisplayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.PDIntCostDisplayer.html",
+          "hash": "W3B2UuFmd32n6HCZsb/WubLJc5L83NuuMn0pineJzko="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.PaywallString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.PaywallString.html",
+          "hash": "KcAuzFZTPHkd6uinWcP8Je6pWu49hQixwDUaHs8LyoA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Persistence.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Persistence.html",
+          "hash": "4N4tYiOvMjxlTg6/k5oI/NOMa3BHtPIvfKAbx1q0/pI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.PlacementAllObtainedBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.PlacementAllObtainedBool.html",
+          "hash": "T7FYdiBOB/CSdrH+nCgcLRB9pSY+v36mGh7BqHKzJpA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.PlacementConflictResolution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.PlacementConflictResolution.html",
+          "hash": "NHwcQJt4WNeT5ErQOvnAsvL9nI7ygwxh/59Ha6+rwA0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.PlacementVisitStateBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.PlacementVisitStateBool.html",
+          "hash": "GLOZBsO3V9HEQAMUT6/0xAgNIjcUOBnLdg3E4aOKUD4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.AutoPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.AutoPlacement.html",
+          "hash": "MOzPqsRoodBFTi7skLdb3Tx+2mn3KBfQaQYD18hn17Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.CostChestPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.CostChestPlacement.html",
+          "hash": "FLsynnXtHvQZIcJ+R9i2MP4NCpeyvwjBqGaRXOfN93A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.DualPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.DualPlacement.html",
+          "hash": "Siwo4ZKN8Arl5x8fb7YzBV/wNlm2MLmGbiPA6RT/+UE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.EggShopPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.EggShopPlacement.html",
+          "hash": "C37q/QVoYMAEsIGwyW3VYKCxEKbQEKfXuGkCBmdbq30="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.ExistingContainerPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.ExistingContainerPlacement.html",
+          "hash": "yv2T+nYRLnJrda1ZIavPFJaviVNzMebsL84/wsZ+BYE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.IContainerPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.IContainerPlacement.html",
+          "hash": "TP5pg0GAsHUwN+ZuTlPssOSoEnWNIcw6N1V9JKH5HdE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.IMultiCostPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.IMultiCostPlacement.html",
+          "hash": "fRdE8/xAfdkKtPoNTGtgzNZyDTz+s5+8zPAS3+/edGE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.IPrimaryLocationPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.IPrimaryLocationPlacement.html",
+          "hash": "koQtRkVnbnBpszevxp7oy/9iretYTk6A877vDXXUfv4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.IShopPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.IShopPlacement.html",
+          "hash": "AT/ioY8pUKcBChPFafsLfR7IRcLq4DHTcpYOeu3c7uY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.ISingleCostPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.ISingleCostPlacement.html",
+          "hash": "VE77ol+7fkdZTxs7ailQXUHdQFGhZGL8q6CFh0hTjxg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.MutablePlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.MutablePlacement.html",
+          "hash": "2uRn3ClqYxEoN8nBSXNkmvhsjuPZEQPjEk4cikRkQXY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.ShopPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.ShopPlacement.html",
+          "hash": "gdOnT4LvvALybA+d+8zeyd7LEd0LolkkaO2jV7bkpPc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.YNShinyPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.YNShinyPlacement.html",
+          "hash": "IIZV4q+NmsKxhwTfus+V9eLtEeHgJHo2Fa6GbcnZVhc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Placements.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Placements.html",
+          "hash": "Hipb+WkZzBUslsNmShVHAQ7YkXwO4HlAdojqfaPbUWs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ReadOnlyGiveEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ReadOnlyGiveEventArgs.html",
+          "hash": "dAMdRXMinRJhS8c4F/1yyo8BA08RCNDayklqdyVy03w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.SDBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.SDBool.html",
+          "hash": "Ccm8k2WeRjXY0osDoCa6Afno3QCK4sEzxsgejg24mF8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.SaveSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.SaveSettings.html",
+          "hash": "aK0GeaTtT5nhmvhPB8cQSaJ0QUxdH2YXLXketFJxTgM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.SceneNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.SceneNames.html",
+          "hash": "lqpgShW68FR1EFW1xFvGw2eDvxekUrg/h2Nk0AMY2xU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.SeerRewards.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.SeerRewards.html",
+          "hash": "FZMwW3XOsT5GKl9hKevoRWgev6amctdjhV6sFxzWFpc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Settings.html",
+          "hash": "m7LsC99/dsyddf73+lOizW0eHAko/m17G+HAcMqu8ao="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.ShinyFling.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.ShinyFling.html",
+          "hash": "fYnAxeqrmzyo8gH8U3SX5yzG7AAWcJLLNpjbR58mo5Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.SingleCostDisplayerSelectionStrategy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.SingleCostDisplayerSelectionStrategy.html",
+          "hash": "IlDr13Bd6fxAHdIqt36n8SBBS8eU6sjqJ+f8vwhoTrk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.SmallPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.SmallPlatform.html",
+          "hash": "LoP6FroNnHIM/JW/tLIyN0Ade+3xBAEdlcwMVCBQ6Uo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.SoulTotemSubtype.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.SoulTotemSubtype.html",
+          "hash": "g0Zi8zF6+51/gdq9ohu5vJvfkhVgL5JtxIfBHEa/v4U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.SpecialStartEffects.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.SpecialStartEffects.html",
+          "hash": "MxOAfpB/GaNjZakxumfL1//ycdv6eftVZm0xDZHK3MM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.SpriteGetArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.SpriteGetArgs.html",
+          "hash": "MzIA/HW5LsEK0XkDAS9R0uTEUP/mM8tOdrxNrgN2Tww="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.StartDef.StartComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.StartDef.StartComponent.html",
+          "hash": "iYbefPpeHcORwLVwRLZy444NryD/gui7qHDDGVZigpg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.StartDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.StartDef.html",
+          "hash": "cFehgtYqEpxL70KWy14FQ6zCZWvDHoTyyik6Sz89yUs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.StartDefs.RelativeStartDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.StartDefs.RelativeStartDef.html",
+          "hash": "PMZyAw4K42Xv/YA4GOr+noCgL0WRuIEH4ZYfl6mlqzQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.StartDefs.TransitionBasedStartDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.StartDefs.TransitionBasedStartDef.html",
+          "hash": "ZFucr0iT2aALbV6PQnONl/qdoA7U3yirBCwN8m4YkUE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.StartDefs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.StartDefs.html",
+          "hash": "j7LiKHCijX6dvAOI2WnXnv1kXzQmVvf9DqdmiEWpJuQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.StringGetArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.StringGetArgs.html",
+          "hash": "bKNkTUxxGCSi4KXACI0K2kOD5+Ml/AsBOGKDC7a/xEI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tag.html",
+          "hash": "YfSPjyn3fqPCh+7EGCzMn4t+F4/LQYfYbtrudK/bpgg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.TagHandlingFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.TagHandlingFlags.html",
+          "hash": "yFV5yh/mVjoab9ayyXXrjEUaRmuXgq7cp0aKtzXQGQ0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.TaggableObject.TagListDeserializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.TaggableObject.TagListDeserializer.html",
+          "hash": "K7KIeFOxrzDocPHxyCNd2nZPnkYTWQnhn7j6gDa41cI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.TaggableObject.TagListSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.TaggableObject.TagListSerializer.html",
+          "hash": "GyWzntkAuplBCCTbBt06J+gX1mTRF8nH+zrGmbTt3KE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.TaggableObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.TaggableObject.html",
+          "hash": "KzfNuy96dR3/L9dcB0t9PXG3YM/apywm5kYqAWa8OGU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.ChangeSceneTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.ChangeSceneTag.html",
+          "hash": "h5qUfzZvKFfas7ScaJC8/YyxBac9Ga/D7KM/2xo+LQs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.CompletionWeightTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.CompletionWeightTag.html",
+          "hash": "wqLmtquOa1fL85odDzRH46kLYdNP37RAIOJRK0gHoJk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.DestroyFsmTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.DestroyFsmTag.html",
+          "hash": "wFsVs1I8XxTN7XNA/Bq8r+b8tlNt7WYBd7wsvCq8SyQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.DestroyGrubRewardTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.DestroyGrubRewardTag.html",
+          "hash": "jZG2dMmcGk67s5gH9Us3rAYAfY/N+bLAvHCDMPSm8S4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.DestroyObjectTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.DestroyObjectTag.html",
+          "hash": "/VqIzeLgludHePzEXKP9gO6tcigzkcuAVdMDObzjft4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.DestroyOnECLReplaceTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.DestroyOnECLReplaceTag.html",
+          "hash": "Sxvahtspg9BW0LhLQmiITt4pRirlwe8KWdOIwnUI5rU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.DestroySeerRewardTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.DestroySeerRewardTag.html",
+          "hash": "Y+GVyo+6S14WtILeY+6jra9jwA9DINei7AQRWps86Ck="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.DisableCostPreviewTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.DisableCostPreviewTag.html",
+          "hash": "wKEX84MjYwDu6dsN5sw8StpjRQ2kyvF8IvrtvhCz+B8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.DisableFsmTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.DisableFsmTag.html",
+          "hash": "jgucMFCVSzb0iffF9OOF2Se6pfWR7A5kiBYufuZwj/k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.DisableItemPreviewTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.DisableItemPreviewTag.html",
+          "hash": "Zj8XIEE05kcz9qRUOKT96vW+2T9MpCUDZUfs/1pz3z8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.EquipCharmOnGiveTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.EquipCharmOnGiveTag.html",
+          "hash": "m8Rn/y1tu5mDFLffvje3JGNfcvzdn1kGKH6QrT9qvE8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.GeoRockSubtypeTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.GeoRockSubtypeTag.html",
+          "hash": "MaITDXaxS5y4TpndovGxlxrI9bQe2AyJ9GNP3L/LtSc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.IInteropTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.IInteropTag.html",
+          "hash": "Ues5V+StHWFarAyGSlj0y9d5EweHjrJA3ITzKz9Ttgc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.IItemModifierTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.IItemModifierTag.html",
+          "hash": "9j6cPP7zrqn4fzwCttGELDFIdgc03hizRi+jpkuX6ZA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.IPersistenceTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.IPersistenceTag.html",
+          "hash": "KBgObZhyPJD7vUlwP0GSM/igjDw42evCyuOa25vbydE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.IShopRemovalTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.IShopRemovalTag.html",
+          "hash": "4OY/UF+/jeqyjxGzA5jg5j7FmnltqsDP1axNDWvEMgM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.IShopRequirementTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.IShopRequirementTag.html",
+          "hash": "112FSDxYBsrndmN2Sb5NICmsL1BR14YY6yDeubJ1YPE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.ImplicitCostTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.ImplicitCostTag.html",
+          "hash": "SUpOg3f03kOCey48F7L/qqpl92rGaZUns0GeN9BmRV4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.IncompatibilityWarningTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.IncompatibilityWarningTag.html",
+          "hash": "BYXPvE61bp7yzBx+X1aKcHhCVga7SbhHMZsKONBGsr0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.InteropTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.InteropTag.html",
+          "hash": "YADBfnedvt53HQNzHEsUnFL42boOJ2n5zWA4AVmQI4U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.InvalidTag.InvalidTagConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.InvalidTag.InvalidTagConverter.html",
+          "hash": "pPw8pGXhBm4gVmP63BBcqHbVvUviJdcBljnHsAQi/SQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.InvalidTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.InvalidTag.html",
+          "hash": "thWK7APADbQsM5F9TbAK4vsC4lr9kpSC0dq7aDyVwXY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.ItemChainTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.ItemChainTag.html",
+          "hash": "JyqL5mvwSWgA2Xulf9IfJIAED7EY0facPEaLIP+jIcM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.ItemTagAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.ItemTagAttribute.html",
+          "hash": "whJuTzbKSFSwBHuE5bIWgi9OcZpC9xJTqzGEozaKG0I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.ItemTreeTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.ItemTreeTag.html",
+          "hash": "/NZaAUN0/HV1n7VJa4VdHiT35qzkUbzVqDhOstbb30w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.LocationTagAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.LocationTagAttribute.html",
+          "hash": "QzNhdeIzcXG5FzB/+jMI+t/9irM+nCgpSrN8nFEdcyQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.MultiPreviewRecordTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.MultiPreviewRecordTag.html",
+          "hash": "xfOhm+0STZ2TDrgvm6dNCcYEUPygNqxVkO52RGc5bbs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.OverridePDBoolTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.OverridePDBoolTag.html",
+          "hash": "Q2mMmoC2GhnGseVfVJC+xbVXmTtiZnuahcxJIQdrLFs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.PDBoolShopRemoveTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.PDBoolShopRemoveTag.html",
+          "hash": "otI6RAlt8gCgSdnIMzWT8H09a+OpnnprVff6OROICL8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.PDBoolShopReqTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.PDBoolShopReqTag.html",
+          "hash": "rYeTsnLfw7zZ9U9Oap4Dc1ch/WImOWXc18f+80I68bk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.PDIntShopReqTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.PDIntShopReqTag.html",
+          "hash": "lW32vItNtjx02bpvtYMzJ6D7eYaHNWRZ6z/C4TbeTy8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.PersistentItemTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.PersistentItemTag.html",
+          "hash": "anMGLLGjPjVOHOsPHJ4F+eujCTSyhDXHTNSIqIXWG3Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.PlacementTagAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.PlacementTagAttribute.html",
+          "hash": "cxmbfEa7OHrm87vxbnqcTxnTHL5CBECvM9F+7VQCIBw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.PreferredDefaultContainerTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.PreferredDefaultContainerTag.html",
+          "hash": "y6tqnvjvk0I06r4sptHL7lPLcrty9uLWKEqBs+AGPCM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.PreviewRecordTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.PreviewRecordTag.html",
+          "hash": "j+8Ie3EvqQAogX1nxCya+69xRytgmW+X8NRhlg4jBvk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.QolOverrideTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.QolOverrideTag.html",
+          "hash": "Q7RXCpWyCdCrtk1RKYSZiR1wBmAY34unK4BAQrUFgH4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.SetIBoolOnGiveTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.SetIBoolOnGiveTag.html",
+          "hash": "FNdMpNSU6+F+BUWLj8xNuO+WipB7NRYwKopd4BFOBQ0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.SetPDBoolOnGiveTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.SetPDBoolOnGiveTag.html",
+          "hash": "iELHPJTAgr9H5CD4xvXVdSG8G793u02oaapILxIYSbQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.SetPDBoolOnLoadTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.SetPDBoolOnLoadTag.html",
+          "hash": "Y0atnYzWG/xH82FqxYxqbAfZXbGeKr4fjUl2yueNadM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.ShinyFlingTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.ShinyFlingTag.html",
+          "hash": "X91T8i4o96F3BeW6lxhClf4BZqrB0YTdr4TuwGf2lBg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.SoulTotemSubtypeTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.SoulTotemSubtypeTag.html",
+          "hash": "NrXWCugXPLppFcI+BDUg0mlVKIn+Byjq69M3eX0XILw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.TabletParticleControlTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.TabletParticleControlTag.html",
+          "hash": "b3TX5PXIGaGujfvki/aDSZCVbUQ8Qu4pR7RfI7ap1qQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.TagConstrainedToAttribute-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.TagConstrainedToAttribute-1.html",
+          "hash": "M23ARWbhhYTKkBcV0VMGODGtq2LMD98wpk6LpkdyPfg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.TagConstrainedToAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.TagConstrainedToAttribute.html",
+          "hash": "X8QgkWuKbEgY5vx5IAS2GiR3B4lli5iaKQFTkZrKOws="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.UnsupportedContainerTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.UnsupportedContainerTag.html",
+          "hash": "zbMpN6ECrewuDlHHmyVZpn1weo6BujhZk3cW2weGAO4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Tags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Tags.html",
+          "hash": "EXSzgRTAlf/tSxeJTdRawwePCbptgaRIXsmjltNstn8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.TextType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.TextType.html",
+          "hash": "/ndeVnKhZk3m7i6ir6BNtzig1i8/aW7jZr6D+Cs6KJ8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Transition.TransitionDictConverter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Transition.TransitionDictConverter-1.html",
+          "hash": "2YZCL8HIp/IEmOlRqwBfoc0cbXAkuwbDmnRqTMniS+g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Transition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Transition.html",
+          "hash": "0lt22U16d0iOuZavHu5tC2DBR9Z9wbdi1GUAqaEbKbo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.UIDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.UIDef.html",
+          "hash": "fnaHuW5aesV6JqMOVrEd6vSxtCTVPEhBzJJGW4Qkh3Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.UIDefs.BigUIDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.UIDefs.BigUIDef.html",
+          "hash": "pSrMdor3SiYZ/zxAduTXliJ7tx1HDr7ymjfwjIHuPH4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.UIDefs.HeroActionButtonSkin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.UIDefs.HeroActionButtonSkin.html",
+          "hash": "0GCfwQwWtWxw5f8AmaCdPOPX48raR3B2M7Gd8Lg/QpU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.UIDefs.IButtonSkin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.UIDefs.IButtonSkin.html",
+          "hash": "GOylGl3tB27e4xcAXkhjGIF5PIjxTKSF6Cpas+BMiEE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.UIDefs.LoreUIDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.UIDefs.LoreUIDef.html",
+          "hash": "aKt0iZKF4mC7VfOWzbtlYTLSBvxmnQu8FmIz5qzDyCw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.UIDefs.MsgUIDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.UIDefs.MsgUIDef.html",
+          "hash": "vj5fEGP+U98ZeZsejpBQ2cgEnog976virWlpOT8devU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.UIDefs.SplitUIDef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.UIDefs.SplitUIDef.html",
+          "hash": "klygsYT+OZ73dWP8pVlAXpENhO/kmcI4J07JlQCHC6s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.UIDefs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.UIDefs.html",
+          "hash": "IrksBktykGCdfl02oWi3W7C+N4ptW+F7PUIg4YVx/eQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.CharmNameUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.CharmNameUtil.html",
+          "hash": "TJSAPzh/FZBw5gY3m82vXIOPIbsX2lMVMVU/MSJX2ws="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.ChestUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.ChestUtility.html",
+          "hash": "1i6yc1lHDQEi51EYnEnzp/z7gQICptLln+0aasG0n0Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.DreamPlantUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.DreamPlantUtil.html",
+          "hash": "qQVVW46FHwvaPPx+JRCeeXY2iu6/WPHCOjGBBaDD7yw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.GeoRockUtility.GeoRockInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.GeoRockUtility.GeoRockInfo.html",
+          "hash": "ksE14wMboD7pKAUc4xJHuF0RNyO/9KNjHMb4L2/vTJw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.GeoRockUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.GeoRockUtility.html",
+          "hash": "LKVpJExz4+NCmwlOAkuZ3IyN7fv5C5/zJISkz1UXP0M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.GrubJarUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.GrubJarUtility.html",
+          "hash": "e5ORbON5dYak1paOq/AZbt9amRE4M9FRYlT4AKEUfJQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.ItemUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.ItemUtility.html",
+          "hash": "PM+tGfqHYeFNA/pBEbkY+Ajf7larp4UoDhSKc4azX8I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.MimicUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.MimicUtil.html",
+          "hash": "zWaQLCFuk+YysB9/b7ofXYTYe1RlMFPgQEc2EuTdca0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.SceneDataUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.SceneDataUtil.html",
+          "hash": "vc6qG3vSJjsVV1O1ywY2CzfyspgQNYp+SJIftKT/7Xg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.SceneUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.SceneUtil.html",
+          "hash": "pjJwoF2ZxxuS7GXFhp2LAV/w81/qgfWWof7OyALKB64="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.ShinyUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.ShinyUtility.html",
+          "hash": "31zuZaHv6mbscTyM/U5DOcPeWkON8bIciVqXjxK3SBk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.ShopUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.ShopUtil.html",
+          "hash": "EnP+raMxwZhYj7NvAEQkdpDOA9xALok+y2Nta5svXGY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.TabletUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.TabletUtility.html",
+          "hash": "xRpHP0siorp5IBwTBAZAm7BK9vhZWJHtHshsHnV0zvM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.YNUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.YNUtil.html",
+          "hash": "V5Y7zxzHR/mfhQsyIY1rHJ+9MLq+urVWDrKXMS5eLIo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.Util.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.Util.html",
+          "hash": "RUNsPnrObuvuJZ5U8+Pfh2gSzQrinyKlVBnEmXMd/wI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.VisitState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.VisitState.html",
+          "hash": "4nZI9f/m5YGUdF/f6x9CDYUFrzPyFwlD1Tu4z80Lvyw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.VisitStateChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.VisitStateChangedEventArgs.html",
+          "hash": "4is50/gtFkUsnQEbuhbgvgCua5Z+GZOQHN8xVqYw/BI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ItemChanger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ItemChanger.html",
+          "hash": "dTFWkrypzpesk9Fx3XTznOEqRrmajEwZvHsjtsYFptY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "gcOXpqUBfrkr45lI9NY4Hf48SLkah2gF4CsVl/Ysj3A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "em+HXZiTyTbJctIAu/0fwwmJq7Koub5bEyVWqGLUIko="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "qsI+rkChwE537OTPMDjHQ4C6MbuPeeY43PLz3wC9OyI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "d81Mzo0ketxbsidDGur4v54b7oa6SN2VqrzyVJoeNMg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "YVvNTSstU2KFYgoEqAzHSE1mECLc+FWdN3FJjfTahzA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 426,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

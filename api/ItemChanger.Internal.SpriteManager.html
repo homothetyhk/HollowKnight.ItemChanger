@@ -1,0 +1,494 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SpriteManager
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SpriteManager
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ItemChanger.Internal.SpriteManager">
+  
+  
+  <h1 id="ItemChanger_Internal_SpriteManager" data-uid="ItemChanger.Internal.SpriteManager" class="text-break">Class SpriteManager
+  </h1>
+  <div class="markdown level0 summary"><p>Class for managing loading and caching Sprites from png files.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">SpriteManager</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ItemChanger.Internal.html">ItemChanger.Internal</a></h6>
+  <h6><strong>Assembly</strong>: ItemChanger.dll</h6>
+  <h5 id="ItemChanger_Internal_SpriteManager_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SpriteManager</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_SpriteManager__ctor_System_Reflection_Assembly_System_String_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.SpriteManager.%23ctor(System.Reflection.Assembly%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/SpriteManager.cs/#L70">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_SpriteManager__ctor_" data-uid="ItemChanger.Internal.SpriteManager.#ctor*"></a>
+  <h4 id="ItemChanger_Internal_SpriteManager__ctor_System_Reflection_Assembly_System_String_" data-uid="ItemChanger.Internal.SpriteManager.#ctor(System.Reflection.Assembly,System.String)">SpriteManager(Assembly, String)</h4>
+  <div class="markdown level1 summary"><p>Creates a SpriteManager to lazily load and cache Sprites from the embedded png files in the specified assembly.
+<br>Only filepaths with the matching prefix are considered, and the prefix is removed to determine sprite names (e.g. &quot;ItemChangerMod.Resources.&quot; is the prefix for Instance).
+<br>Images will be loaded with default Bilinear filter mode and 100 pixels per unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpriteManager(Assembly a, string resourcePrefix)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Reflection.Assembly</span></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">resourcePrefix</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_SpriteManager__ctor_System_Reflection_Assembly_System_String_ItemChanger_Internal_SpriteManager_Info_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.SpriteManager.%23ctor(System.Reflection.Assembly%2CSystem.String%2CItemChanger.Internal.SpriteManager.Info)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/SpriteManager.cs/#L76">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_SpriteManager__ctor_" data-uid="ItemChanger.Internal.SpriteManager.#ctor*"></a>
+  <h4 id="ItemChanger_Internal_SpriteManager__ctor_System_Reflection_Assembly_System_String_ItemChanger_Internal_SpriteManager_Info_" data-uid="ItemChanger.Internal.SpriteManager.#ctor(System.Reflection.Assembly,System.String,ItemChanger.Internal.SpriteManager.Info)">SpriteManager(Assembly, String, SpriteManager.Info)</h4>
+  <div class="markdown level1 summary"><p>Creates a SpriteManager to lazily load and cache Sprites from the embedded png files in the specified assembly.
+<br>Only filepaths with the matching prefix are considered, and the prefix is removed to determine sprite names (e.g. &quot;ItemChangerMod.Resources.&quot; is the prefix for Instance).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpriteManager(Assembly a, string resourcePrefix, SpriteManager.Info info)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Reflection.Assembly</span></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">resourcePrefix</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ItemChanger.Internal.SpriteManager.Info.html">SpriteManager.Info</a></td>
+        <td><span class="parametername">info</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_SpriteManager_Instance.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.SpriteManager.Instance%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/SpriteManager.cs/#L38">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_SpriteManager_Instance_" data-uid="ItemChanger.Internal.SpriteManager.Instance*"></a>
+  <h4 id="ItemChanger_Internal_SpriteManager_Instance" data-uid="ItemChanger.Internal.SpriteManager.Instance">Instance</h4>
+  <div class="markdown level1 summary"><p>The SpriteManager with access to embedded ItemChanger pngs, constructed with the ItemChanger assembly and prefix &quot;ItemChanger.Resources.&quot;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SpriteManager Instance { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.Internal.SpriteManager.html">SpriteManager</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_SpriteManager_GetSprite_System_String_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.SpriteManager.GetSprite(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/SpriteManager.cs/#L90">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_SpriteManager_GetSprite_" data-uid="ItemChanger.Internal.SpriteManager.GetSprite*"></a>
+  <h4 id="ItemChanger_Internal_SpriteManager_GetSprite_System_String_" data-uid="ItemChanger.Internal.SpriteManager.GetSprite(System.String)">GetSprite(String)</h4>
+  <div class="markdown level1 summary"><p>Fetches the Sprite with the specified name. If it has not yet been loaded, loads it from embedded resources and caches the result.
+<br>The name is the path of the image as an embedded resource, with the SpriteManager prefix and file extension removed.
+<br>For example, the image at &quot;ItemChanger.Resources.ShopIcons.Geo.png&quot; has key &quot;ShopIcons.Geo&quot; in SpriteManager.Instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Sprite GetSprite(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Sprite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_SpriteManager_Load_Stream_FilterMode_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.SpriteManager.Load(Stream%2CFilterMode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/SpriteManager.cs/#L108">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_SpriteManager_Load_" data-uid="ItemChanger.Internal.SpriteManager.Load*"></a>
+  <h4 id="ItemChanger_Internal_SpriteManager_Load_Stream_FilterMode_" data-uid="ItemChanger.Internal.SpriteManager.Load(Stream,FilterMode)">Load(Stream, FilterMode)</h4>
+  <div class="markdown level1 summary"><p>Loads a sprite from the png file passed as a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Sprite Load(Stream data, FilterMode filterMode = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Stream</span></td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">FilterMode</span></td>
+        <td><span class="parametername">filterMode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Sprite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_SpriteManager_Load_System_Byte___FilterMode_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.SpriteManager.Load(System.Byte%5B%5D%2CFilterMode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/SpriteManager.cs/#L116">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_SpriteManager_Load_" data-uid="ItemChanger.Internal.SpriteManager.Load*"></a>
+  <h4 id="ItemChanger_Internal_SpriteManager_Load_System_Byte___FilterMode_" data-uid="ItemChanger.Internal.SpriteManager.Load(System.Byte[],FilterMode)">Load(Byte[], FilterMode)</h4>
+  <div class="markdown level1 summary"><p>Loads a sprite from the png file passed as a byte array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Sprite Load(byte[] data, FilterMode filterMode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">FilterMode</span></td>
+        <td><span class="parametername">filterMode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Sprite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_SpriteManager_Load_System_Byte___FilterMode_System_Single_.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.SpriteManager.Load(System.Byte%5B%5D%2CFilterMode%2CSystem.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/SpriteManager.cs/#L121">View Source</a>
+  </span>
+  <a id="ItemChanger_Internal_SpriteManager_Load_" data-uid="ItemChanger.Internal.SpriteManager.Load*"></a>
+  <h4 id="ItemChanger_Internal_SpriteManager_Load_System_Byte___FilterMode_System_Single_" data-uid="ItemChanger.Internal.SpriteManager.Load(System.Byte[],FilterMode,System.Single)">Load(Byte[], FilterMode, Single)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Sprite Load(byte[] data, FilterMode filterMode, float pixelsPerUnit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">FilterMode</span></td>
+        <td><span class="parametername">filterMode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">pixelsPerUnit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Sprite</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="ItemChanger.Extensions.Extensions.html#ItemChanger_Extensions_Extensions_Yield__1___0_">Extensions.Yield&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Internal_SpriteManager.md&amp;value=---%0Auid%3A%20ItemChanger.Internal.SpriteManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Internal/SpriteManager.cs/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

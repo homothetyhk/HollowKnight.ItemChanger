@@ -1,0 +1,641 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CostChestPlacement
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CostChestPlacement
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ItemChanger.Placements.CostChestPlacement">
+  
+  
+  <h1 id="ItemChanger_Placements_CostChestPlacement" data-uid="ItemChanger.Placements.CostChestPlacement" class="text-break">Class CostChestPlacement
+  </h1>
+  <div class="markdown level0 summary"><p>Placement which allows shop-like behavior, with a tablet showing item names and costs near a chest.
+<br>When the chest is opened, any costs that can be paid are paid and the corresponding items are spawned.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="ItemChanger.TaggableObject.html">TaggableObject</a></div>
+    <div class="level2"><a class="xref" href="ItemChanger.AbstractPlacement.html">AbstractPlacement</a></div>
+    <div class="level3"><span class="xref">CostChestPlacement</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="ItemChanger.Placements.IContainerPlacement.html">IContainerPlacement</a></div>
+    <div><a class="xref" href="ItemChanger.Placements.IMultiCostPlacement.html">IMultiCostPlacement</a></div>
+    <div><a class="xref" href="ItemChanger.Placements.IPrimaryLocationPlacement.html">IPrimaryLocationPlacement</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_Name">AbstractPlacement.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_Items">AbstractPlacement.Items</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_Visited">AbstractPlacement.Visited</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_GiveAll_ItemChanger_GiveInfo_System_Nullable_Action__">AbstractPlacement.GiveAll(GiveInfo, Nullable&lt;Action&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_OnObtainedItem_ItemChanger_AbstractItem_">AbstractPlacement.OnObtainedItem(AbstractItem)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_GetUIName">AbstractPlacement.GetUIName()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_GetUIName_System_Int32_">AbstractPlacement.GetUIName(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_AllObtained">AbstractPlacement.AllObtained()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_AddVisitFlag_ItemChanger_VisitState_">AbstractPlacement.AddVisitFlag(VisitState)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_CheckVisitedAny_ItemChanger_VisitState_">AbstractPlacement.CheckVisitedAny(VisitState)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_CheckVisitedAll_ItemChanger_VisitState_">AbstractPlacement.CheckVisitedAll(VisitState)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_Load">AbstractPlacement.Load()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_Unload">AbstractPlacement.Unload()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_OnVisitStateChangedGlobal">AbstractPlacement.OnVisitStateChangedGlobal</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_OnVisitStateChanged">AbstractPlacement.OnVisitStateChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_MainContainerType">AbstractPlacement.MainContainerType</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_Add_ItemChanger_AbstractItem_">AbstractPlacement.Add(AbstractItem)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_Add_IEnumerable_ItemChanger_AbstractItem__">AbstractPlacement.Add(IEnumerable&lt;AbstractItem&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_Add_ItemChanger_AbstractItem___">AbstractPlacement.Add(AbstractItem[])</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_tags">TaggableObject.tags</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_LoadTags">TaggableObject.LoadTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_UnloadTags">TaggableObject.UnloadTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_AddTag__1">TaggableObject.AddTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_AddTag_ItemChanger_Tag_">TaggableObject.AddTag(Tag)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_AddTags_IEnumerable_ItemChanger_Tag__">TaggableObject.AddTags(IEnumerable&lt;Tag&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetTag__1">TaggableObject.GetTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetTag__1___0__">TaggableObject.GetTag&lt;T&gt;(T)</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetTags__1">TaggableObject.GetTags&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_GetOrAddTag__1">TaggableObject.GetOrAddTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_HasTag__1">TaggableObject.HasTag&lt;T&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="ItemChanger.TaggableObject.html#ItemChanger_TaggableObject_RemoveTags__1">TaggableObject.RemoveTags&lt;T&gt;()</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ItemChanger.Placements.html">ItemChanger.Placements</a></h6>
+  <h6><strong>Assembly</strong>: ItemChanger.dll</h6>
+  <h5 id="ItemChanger_Placements_CostChestPlacement_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CostChestPlacement : AbstractPlacement, IContainerPlacement, IMultiCostPlacement, IPrimaryLocationPlacement</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement__ctor_System_String_.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L16">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement__ctor_" data-uid="ItemChanger.Placements.CostChestPlacement.#ctor*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement__ctor_System_String_" data-uid="ItemChanger.Placements.CostChestPlacement.#ctor(System.String)">CostChestPlacement(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CostChestPlacement(string Name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">Name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_chestLocation.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.chestLocation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L18">View Source</a>
+  </span>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_chestLocation" data-uid="ItemChanger.Placements.CostChestPlacement.chestLocation">chestLocation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainerLocation chestLocation</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.Locations.ContainerLocation.html">ContainerLocation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_tabletLocation.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.tabletLocation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L19">View Source</a>
+  </span>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_tabletLocation" data-uid="ItemChanger.Placements.CostChestPlacement.tabletLocation">tabletLocation</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlaceableLocation tabletLocation</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.Locations.PlaceableLocation.html">PlaceableLocation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_AddItem_ItemChanger_AbstractItem_ItemChanger_Cost_.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.AddItem(ItemChanger.AbstractItem%2CItemChanger.Cost)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L43">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement_AddItem_" data-uid="ItemChanger.Placements.CostChestPlacement.AddItem*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_AddItem_ItemChanger_AbstractItem_ItemChanger_Cost_" data-uid="ItemChanger.Placements.CostChestPlacement.AddItem(ItemChanger.AbstractItem,ItemChanger.Cost)">AddItem(AbstractItem, Cost)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddItem(AbstractItem item, Cost cost)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.AbstractItem.html">AbstractItem</a></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ItemChanger.Cost.html">Cost</a></td>
+        <td><span class="parametername">cost</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_BuildText.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.BuildText%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L135">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement_BuildText_" data-uid="ItemChanger.Placements.CostChestPlacement.BuildText*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_BuildText" data-uid="ItemChanger.Placements.CostChestPlacement.BuildText">BuildText()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string BuildText()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_EditChestFsm_GameObject_.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.EditChestFsm(GameObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L66">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement_EditChestFsm_" data-uid="ItemChanger.Placements.CostChestPlacement.EditChestFsm*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_EditChestFsm_GameObject_" data-uid="ItemChanger.Placements.CostChestPlacement.EditChestFsm(GameObject)">EditChestFsm(GameObject)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EditChestFsm(GameObject chest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">chest</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_GetContainer_ItemChanger_AbstractLocation_GameObject__System_String__.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.GetContainer(ItemChanger.AbstractLocation%2CGameObject%40%2CSystem.String%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L50">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement_GetContainer_" data-uid="ItemChanger.Placements.CostChestPlacement.GetContainer*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_GetContainer_ItemChanger_AbstractLocation_GameObject__System_String__" data-uid="ItemChanger.Placements.CostChestPlacement.GetContainer(ItemChanger.AbstractLocation,GameObject@,System.String@)">GetContainer(AbstractLocation, out GameObject, out String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetContainer(AbstractLocation location, out GameObject obj, out string containerType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.AbstractLocation.html">AbstractLocation</a></td>
+        <td><span class="parametername">location</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">containerType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_GetPlacementAndLocationTags.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.GetPlacementAndLocationTags%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L180">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement_GetPlacementAndLocationTags_" data-uid="ItemChanger.Placements.CostChestPlacement.GetPlacementAndLocationTags*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_GetPlacementAndLocationTags" data-uid="ItemChanger.Placements.CostChestPlacement.GetPlacementAndLocationTags">GetPlacementAndLocationTags()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IEnumerable&lt;Tag&gt; GetPlacementAndLocationTags()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="ItemChanger.Tag.html">Tag</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_GetPlacementAndLocationTags">AbstractPlacement.GetPlacementAndLocationTags()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_OnLoad.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.OnLoad%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L22">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement_OnLoad_" data-uid="ItemChanger.Placements.CostChestPlacement.OnLoad*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_OnLoad" data-uid="ItemChanger.Placements.CostChestPlacement.OnLoad">OnLoad()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnLoad()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_OnLoad">AbstractPlacement.OnLoad()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_OnPreview_System_String_.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.OnPreview(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L35">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement_OnPreview_" data-uid="ItemChanger.Placements.CostChestPlacement.OnPreview*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_OnPreview_System_String_" data-uid="ItemChanger.Placements.CostChestPlacement.OnPreview(System.String)">OnPreview(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void OnPreview(string previewText)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">previewText</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_OnPreview_System_String_">AbstractPlacement.OnPreview(String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_OnUnload.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.OnUnload%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L29">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement_OnUnload_" data-uid="ItemChanger.Placements.CostChestPlacement.OnUnload*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_OnUnload" data-uid="ItemChanger.Placements.CostChestPlacement.OnUnload">OnUnload()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnUnload()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="ItemChanger.AbstractPlacement.html#ItemChanger_AbstractPlacement_OnUnload">AbstractPlacement.OnUnload()</a></div>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement_ItemChanger_Placements_IPrimaryLocationPlacement_Location.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement.ItemChanger%23Placements%23IPrimaryLocationPlacement%23Location%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L20">View Source</a>
+  </span>
+  <a id="ItemChanger_Placements_CostChestPlacement_ItemChanger_Placements_IPrimaryLocationPlacement_Location_" data-uid="ItemChanger.Placements.CostChestPlacement.ItemChanger#Placements#IPrimaryLocationPlacement#Location*"></a>
+  <h4 id="ItemChanger_Placements_CostChestPlacement_ItemChanger_Placements_IPrimaryLocationPlacement_Location" data-uid="ItemChanger.Placements.CostChestPlacement.ItemChanger#Placements#IPrimaryLocationPlacement#Location">IPrimaryLocationPlacement.Location</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AbstractLocation IPrimaryLocationPlacement.Location { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ItemChanger.AbstractLocation.html">AbstractLocation</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="ItemChanger.Placements.IContainerPlacement.html">IContainerPlacement</a>
+  </div>
+  <div>
+      <a class="xref" href="ItemChanger.Placements.IMultiCostPlacement.html">IMultiCostPlacement</a>
+  </div>
+  <div>
+      <a class="xref" href="ItemChanger.Placements.IPrimaryLocationPlacement.html">IPrimaryLocationPlacement</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="ItemChanger.Extensions.Extensions.html#ItemChanger_Extensions_Extensions_Yield__1___0_">Extensions.Yield&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/new/master/apiSpec/new?filename=ItemChanger_Placements_CostChestPlacement.md&amp;value=---%0Auid%3A%20ItemChanger.Placements.CostChestPlacement%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/homothetyhk/HollowKnight.ItemChanger/blob/master/ItemChanger/Placements/CostChestPlacement.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

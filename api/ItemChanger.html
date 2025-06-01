@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace ItemChanger
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace ItemChanger
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ItemChanger">
+  
+  <h1 id="ItemChanger" data-uid="ItemChanger" class="text-break">Namespace ItemChanger
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="ItemChanger.AbstractItem.html">AbstractItem</a></h4>
+      <section><p>The base class for all items.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.AbstractLocation.html">AbstractLocation</a></h4>
+      <section><p>The base class for all locations. Locations are used by placements to place items.
+<br>Usually the location contains raw data and an implementation that may be customizable to an extent by the placement.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.AbstractPlacement.html">AbstractPlacement</a></h4>
+      <section><p>The base class for all placements. Placements carry a list of items and specify how to implement those items, often using locations.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.BoxedBool.html">BoxedBool</a></h4>
+      <section><p>IBool which represents a constant value.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.BoxedSprite.html">BoxedSprite</a></h4>
+      <section><p>ISprite wrapper for Sprite. Use only for items created and disposed at runtime--it is not serializable.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.BoxedString.html">BoxedString</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.ChangeSceneInfo.html">ChangeSceneInfo</a></h4>
+      <section><p>Instructions for a container to change scene.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Conjunction.html">Conjunction</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.ConsumablePDIntCost.html">ConsumablePDIntCost</a></h4>
+      <section><p>Cost which subtracts the specified amount from the specified PlayerData int. Can only be paid when the result of the subtraction would be nonnegative.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Container.html">Container</a></h4>
+      <section><p>Base class for types which implement creating and fsm-editing item containers.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ContainerGiveInfo.html">ContainerGiveInfo</a></h4>
+      <section><p>Instructions for a container to give items.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ContainerInfo.html">ContainerInfo</a></h4>
+      <section><p>Data for instructing a Container class to make changes. The ContainerGiveInfo field must not be null.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Cost.html">Cost</a></h4>
+      <section><p>Data type used generally for cost handling, including in shops and y/n dialogue prompts.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.CostDisplayer.html">CostDisplayer</a></h4>
+      <section><p>A utility object which dictates how costs (and especially multicosts) are to be displayed
+in non-textual contexts such as shops. Accounts for multicosts and other correctly-implemented
+nested costs.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.CostInfo.html">CostInfo</a></h4>
+      <section><p>Instructions for a container to enforce a Cost.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.CostTag.html">CostTag</a></h4>
+      <section><p>Tag used for carrying information about costs, particularly for items in a shop or other multicost placement.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Deployer.html">Deployer</a></h4>
+      <section><p>Abstract IDeployer which creates an object and places it at the specified coordinates.
+Inheritors must specify how the object is instantiated; the base class handles positioning and activation.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Disjunction.html">Disjunction</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.DualSprite.html">DualSprite</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.EggCostDisplayer.html">EggCostDisplayer</a></h4>
+      <section><p>A cumulative cost displayer which displays rancid egg costs with a default cost sprite
+of a rancid egg</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.EmbeddedSprite.html">EmbeddedSprite</a></h4>
+      <section><p>An ISprite which retrieves its sprite from a SpriteManager.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.EmptySprite.html">EmptySprite</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.Events.html">Events</a></h4>
+      <section><p>The main class in ItemChanger for organizing events. Some specific events are defined in AbstractPlacement and AbstractItem instead.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Finder.html">Finder</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.FormattedLanguageString.html">FormattedLanguageString</a></h4>
+      <section><p>An IString which substitutes arguments into a format string provided by Language.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.GeoCost.html">GeoCost</a></h4>
+      <section><p>Cost which subtracts the specified amount from the GeoCounter. Can only be paid when the result of the subtraction would be nonnegative.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.GeoCostDisplayer.html">GeoCostDisplayer</a></h4>
+      <section><p>A noncumulative cost displayer which displays geo costs (as in vanilla shops).</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.GetItemEventArgs.html">GetItemEventArgs</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.GetLocationEventArgs.html">GetLocationEventArgs</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.GiveEventArgs.html">GiveEventArgs</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.GiveInfo.html">GiveInfo</a></h4>
+      <section><p>The parameters included when an item is given. May be null.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ItemChangerMod.html">ItemChangerMod</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.ItemChangerSprite.html">ItemChangerSprite</a></h4>
+      <section><p>An EmbeddedSprite which retrieves its sprite from SpriteManager.Instance.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ItemNames.html">ItemNames</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.LanguageGetArgs.html">LanguageGetArgs</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.LanguageKey.LanguageKeyDictConverter-1.html">LanguageKey.LanguageKeyDictConverter&lt;TValue&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.LanguageString.html">LanguageString</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.LocationNames.html">LocationNames</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.MultiCost.html">MultiCost</a></h4>
+      <section><p>Cost which is the concatenation of other costs. Can only be paid if all of its costs can be paid, and pays all its costs sequentially.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.NamedBoolFunction.html">NamedBoolFunction</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.NamedFunction-1.html">NamedFunction&lt;T&gt;</a></h4>
+      <section><p>Stores a delegate by name for use with a value-providing interface (IBool, IString, ISprite).
+The function must be defined before the value property is accessed. To ensure compatibility with round-trip deserialization, it is advised to define the function from a Module or Tag's Load.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.NamedSpriteFunction.html">NamedSpriteFunction</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.NamedStringFunction.html">NamedStringFunction</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.Negation.html">Negation</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.PaywallString.html">PaywallString</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.PDBool.html">PDBool</a></h4>
+      <section><p>IBool which represents a PlayerData bool.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.PDBoolCost.html">PDBoolCost</a></h4>
+      <section><p>Cost which has no pay effects, but can only be paid when the specified PlayerData bool is true.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.PDIntBool.html">PDIntBool</a></h4>
+      <section><p>IBool which represents comparison on a PlayerData int.
+<br>Supports IWritableBool in one direction only (direction depends on comparison operator).</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.PDIntCost.html">PDIntCost</a></h4>
+      <section><p>Cost which has no pay effects, but can only be paid when the specified PlayerData int comparison succeeds.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.PDIntCostDisplayer.html">PDIntCostDisplayer</a></h4>
+      <section><p>A cost displayer which displays PD int costs matching a provided PD variable name. When set
+set to cumulative, it will check for PDIntCost; when set to noncumulative it will check for
+ConsumablePDIntCost. Cost sprite is user-customizable and defaults to null.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.PlacementAllObtainedBool.html">PlacementAllObtainedBool</a></h4>
+      <section><p>IBool which searches for a placement by name and checks whether all items on the placement are obtained.
+<br>If the placement does not exist, defaults to the value of missingPlacementTest, or true if missingPlacementTest is null.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.PlacementVisitStateBool.html">PlacementVisitStateBool</a></h4>
+      <section><p>IBool which searches for a placement by name and checks whether its VisitState includes specified flags.
+<br>If the placement does not exist, defaults to the value of missingPlacementTest, or true if missingPlacementTest is null.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ReadOnlyGiveEventArgs.html">ReadOnlyGiveEventArgs</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.SceneNames.html">SceneNames</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.SDBool.html">SDBool</a></h4>
+      <section><p>IBool which represents the value of a PersistentBoolData in SceneData.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Settings.html">Settings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.SingleCostDisplayerSelectionStrategy.html">SingleCostDisplayerSelectionStrategy</a></h4>
+      <section><p>A cost displayer selection strategy which applies a single cost displayer to all items.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.SmallPlatform.html">SmallPlatform</a></h4>
+      <section><p>A Deployer which creates a platform at the specified point.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.SpriteGetArgs.html">SpriteGetArgs</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.StartDef.html">StartDef</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.StartDef.StartComponent.html">StartDef.StartComponent</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.StringGetArgs.html">StringGetArgs</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.Tag.html">Tag</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.TaggableObject.html">TaggableObject</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.TaggableObject.TagListDeserializer.html">TaggableObject.TagListDeserializer</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.TaggableObject.TagListSerializer.html">TaggableObject.TagListSerializer</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.Transition.TransitionDictConverter-1.html">Transition.TransitionDictConverter&lt;TValue&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.UIDef.html">UIDef</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.VisitStateChangedEventArgs.html">VisitStateChangedEventArgs</a></h4>
+      <section></section>
+    <h3 id="structs">Structs
+  </h3>
+      <h4><a class="xref" href="ItemChanger.FsmID.html">FsmID</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.LanguageKey.html">LanguageKey</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.SaveSettings.html">SaveSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.Transition.html">Transition</a></h4>
+      <section></section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="ItemChanger.IBool.html">IBool</a></h4>
+      <section><p>Interface which can supply a bool value. Used frequently for serializable bool tests.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ICostDisplayerSelectionStrategy.html">ICostDisplayerSelectionStrategy</a></h4>
+      <section><p>Interface used to select a cost displayer for a given shop</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.IDeployer.html">IDeployer</a></h4>
+      <section><p>Interface for very simple scene change actions, which can be added directly to settings.
+<br>The most common use is a Deployer, which creates an object at specified coordinates.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.IShopNotchCostTag.html">IShopNotchCostTag</a></h4>
+      <section><p>Interface used by shops to determine whether an item has a notch cost that should be displayed.
+<br>The notch cost of a CharmItem or EquippedCharmItem is displayed even if it does not have this tag.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ISprite.html">ISprite</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.IString.html">IString</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.ITransition.html">ITransition</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.IWritableBool.html">IWritableBool</a></h4>
+      <section><p>IBool which supports write operations.</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="ItemChanger.ComparisonOperator.html">ComparisonOperator</a></h4>
+      <section><p>Enum used to specify an operation for comparing two numbers.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.DefaultShopItems.html">DefaultShopItems</a></h4>
+      <section><p>Flags enum used to specify items that should not be removed from a shop by a ShopLocation.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.DropType.html">DropType</a></h4>
+      <section><p>Unused.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Finder.FinderItemSheets.html">Finder.FinderItemSheets</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.Finder.FinderLocationSheets.html">Finder.FinderLocationSheets</a></h4>
+      <section></section>
+      <h4><a class="xref" href="ItemChanger.FlingType.html">FlingType</a></h4>
+      <section><p>Enum for controlling how items (particularly geo) should be flung from a location.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.GeoRockSubtype.html">GeoRockSubtype</a></h4>
+      <section><p>Enum used to refer to the different geo rock prefabs that are supported.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.GrubfatherRewards.html">GrubfatherRewards</a></h4>
+      <section><p>Flags enum used to specify a subset of rewards from Grubfather.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.MessageType.html">MessageType</a></h4>
+      <section><p>Enum used to communicate compatibility with different UIDef types.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ModuleHandlingFlags.html">ModuleHandlingFlags</a></h4>
+      <section><p>Enum which provides additional information for serialization and other module handling purposes.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ObtainState.html">ObtainState</a></h4>
+      <section><p>Enum for the current state of an item, to determine whether it has been given and whether it is eligible to be given.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Persistence.html">Persistence</a></h4>
+      <section><p>Enum for controlling respawn behavior of items.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.PlacementConflictResolution.html">PlacementConflictResolution</a></h4>
+      <section><p>Enum for controlling what should happen when a placement is added, and another placement with the same name already exists in settings.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.SeerRewards.html">SeerRewards</a></h4>
+      <section><p>Flags enum used to specify a subset of rewards from the Seer.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.ShinyFling.html">ShinyFling</a></h4>
+      <section><p>Enum for controlling how a shiny should be flung when activated.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.SoulTotemSubtype.html">SoulTotemSubtype</a></h4>
+      <section><p>Enum used to refer to the different soul totem prefabs that are supported.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.SpecialStartEffects.html">SpecialStartEffects</a></h4>
+      <section><p>Enum for adding special behvaior to the respawn marker tied to a StartDef.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.TagHandlingFlags.html">TagHandlingFlags</a></h4>
+      <section><p>Enum which provides additional information for serialization and other tag handling purposes.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.TextType.html">TextType</a></h4>
+      <section><p>Enum for describing the text alignment and background of a lore tablet.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.VisitState.html">VisitState</a></h4>
+      <section></section>
+    <h3 id="delegates">Delegates
+  </h3>
+      <h4><a class="xref" href="ItemChanger.Events.LanguageEdit.html">Events.LanguageEdit</a></h4>
+      <section><p>Delegate type which allows subscriber to optionally edit the input string.</p>
+</section>
+      <h4><a class="xref" href="ItemChanger.Events.TransitionOverrideListener.html">Events.TransitionOverrideListener</a></h4>
+      <section><p>Delegate type used to communicate when a transition is overriden.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
