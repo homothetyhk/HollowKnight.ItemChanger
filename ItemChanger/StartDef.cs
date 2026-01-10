@@ -164,7 +164,7 @@ namespace ItemChanger
                 {
                     // HC.Respawn
                     self.IgnoreInput();
-                    RespawnMarker rm = GetSpawnPoint().GetComponent<RespawnMarker>();
+                    RespawnMarker rm = GetSpawnPoint()?.GetComponent<RespawnMarker>();
                     if (rm && !rm.respawnFacingRight) self.FaceLeft();
                     else self.FaceRight();
                     (typeof(HeroController).GetField("heroInPosition", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(self) as HeroController.HeroInPosition)?.Invoke(false);
