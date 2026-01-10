@@ -7382,14 +7382,14 @@
   "Lore_Tablet-Greenpath_QG": {
     "$type": "ItemChanger.Items.LoreItem, ItemChanger",
     "loreSheet": null,
-    "loreKey": "GREEN_TABLET_02",
+    "loreKey": "GREEN_TABLET_07",
     "textType": "Lore",
     "name": "Lore_Tablet-Greenpath_QG",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GREEN_TABLET_02",
+        "key": "GREEN_TABLET_07",
         "sheet": "Lore Tablets"
       },
       "textType": "Lore",
@@ -7412,14 +7412,14 @@
   "Lore_Tablet-Greenpath_Lower_Hidden": {
     "$type": "ItemChanger.Items.LoreItem, ItemChanger",
     "loreSheet": null,
-    "loreKey": "GREEN_TABLET_07",
+    "loreKey": "GREEN_TABLET_02",
     "textType": "Lore",
     "name": "Lore_Tablet-Greenpath_Lower_Hidden",
     "UIDef": {
       "$type": "ItemChanger.UIDefs.LoreUIDef, ItemChanger",
       "lore": {
         "$type": "ItemChanger.LanguageString, ItemChanger",
-        "key": "GREEN_TABLET_07",
+        "key": "GREEN_TABLET_02",
         "sheet": "Lore Tablets"
       },
       "textType": "Lore",
