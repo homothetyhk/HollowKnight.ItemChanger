@@ -4,7 +4,7 @@
       "src": [
         {
           "files": [
-            "ItemChanger/**.csproj"
+            "ItemChanger.dll"
           ],
           "src": ".."
         }
