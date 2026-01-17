@@ -5,40 +5,39 @@ on:
     types: [published]
   workflow_dispatch:
 
+# cancels any pending pages deployments so there is only one workflow running at any given time
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   generate-docs:
-    runs-on: windows-2022
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.output.page_url }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: master
-      - name: Checkout doc source
-        uses: actions/checkout@v2
-        with:
-          ref: docs-source
-          path: docs
+        uses: actions/checkout@v6
         
-      # setup .NET
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
-        
-      # Install DocFX
+        uses: actions/setup-dotnet@v5
+
       - name: Setup DocFX
-        uses: crazy-max/ghaction-chocolatey@v1
-        with:
-          args: install docfx
-      
-      # Build and publish docs
+        run: dotnet tool update -g docfx
+
       - name: DocFX build
         working-directory: docs
         run: docfx docfx.json
         continue-on-error: false
 
-      - name: Publish
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload assets
+        uses: actions/upload-pages-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/_site
-          force_orphan: true
+          path: docs/_site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
