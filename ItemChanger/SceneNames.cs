@@ -59,10 +59,12 @@ namespace ItemChanger
         public const string GG_Hornet_1 = "GG_Hornet_1";
         public const string GG_Hornet_2 = "GG_Hornet_2";
         public const string GG_Lost_Kin = "GG_Lost_Kin";
+        public const string GG_Mage_Knight = "GG_Mage_Knight";
         public const string GG_Mage_Knight_V = "GG_Mage_Knight_V";
         public const string GG_Mantis_Lords = "GG_Mantis_Lords";
         public const string GG_Mantis_Lords_V = "GG_Mantis_Lords_V";
         public const string GG_Mega_Moss_Charger = "GG_Mega_Moss_Charger";
+        public const string GG_Mighty_Zote = "GG_Mighty_Zote";
         public const string GG_Nailmasters = "GG_Nailmasters";
         public const string GG_Nosk = "GG_Nosk";
         public const string GG_Nosk_Hornet = "GG_Nosk_Hornet";
