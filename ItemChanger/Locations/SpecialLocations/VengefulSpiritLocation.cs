@@ -15,6 +15,7 @@ namespace ItemChanger.Locations.SpecialLocations
             Events.AddFsmEdit(UnsafeSceneName, new("Shaman Meeting", "Conversation Control"), EditShamanConvo);
             Events.AddFsmEdit(UnsafeSceneName, new("Shaman Trapped", "Conversation Control"), Destroy);
             Events.AddFsmEdit(UnsafeSceneName, new("Shaman Killed Blocker", "Conversation Control"), Destroy);
+            // Duplicates the hook on the default module RemoveAncetralMoundTrap, to preserve behavior on save files created before v2.1.7.
             Events.AddFsmEdit(UnsafeSceneName, new("Bone Gate", "Bone Gate"), Destroy);
         }
 
