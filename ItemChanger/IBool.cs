@@ -1,4 +1,5 @@
-﻿using ItemChanger.Extensions;
+﻿using GlobalEnums;
+using ItemChanger.Extensions;
 using Newtonsoft.Json;
 
 namespace ItemChanger
@@ -151,6 +152,49 @@ namespace ItemChanger
 
         public IBool Clone() => (IBool)MemberwiseClone();
     }
+
+    /// <summary>
+    /// IBool which reports whether the player's current respawn is a specified location.
+    /// Setting to true sets the respawn to the specified location. Setting to false sets the respawn to start, if the settings include a StartDef.
+    /// </summary>
+    public class CurrentRespawnBool : IWritableBool
+    {
+        public string RespawnMarkerName { get; init; }
+        public string RespawnScene { get; init; }
+        public int RespawnType { get; init; }
+        public MapZone MapZone { get; init; } = MapZone.NONE;
+        public bool RespawnFacingRight { get; init; } = true;
+
+        public bool Value
+        {
+            get
+            {
+                return PlayerData.instance.GetString(nameof(PlayerData.respawnScene)) == RespawnScene
+                    && PlayerData.instance.GetString(nameof(PlayerData.respawnMarkerName)) == RespawnMarkerName;
+            }
+            set
+            {
+                if (value)
+                {
+                    PlayerData.instance.SetBenchRespawn(RespawnMarkerName, RespawnScene, RespawnType, RespawnFacingRight);
+                    if (MapZone != MapZone.NONE && MapZone != PlayerData.instance.GetVariable<MapZone>(nameof(PlayerData.mapZone)))
+                    {
+                        PlayerData.instance.SetVariable<MapZone>(nameof(PlayerData.mapZone), MapZone);
+                    }
+                }
+                else
+                {
+                    Internal.Ref.Settings.Start?.ApplyToPlayerData(PlayerData.instance);
+                }
+            }
+        }
+
+        IBool IBool.Clone()
+        {
+            return (IBool)MemberwiseClone();
+        }
+    }
+
 
     /// <summary>
     /// IBool which searches for a placement by name and checks whether all items on the placement are obtained.
